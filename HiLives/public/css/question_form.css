@@ -1,0 +1,11 @@
+textarea {
+
+    width: 200px;
+    height: auto;
+    resize: none;
+}
+
+.textbox{
+
+    width: 300px;
+}
