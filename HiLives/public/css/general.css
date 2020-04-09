@@ -1,9 +1,14 @@
 h1 h2 h3 h4 h5 h6{
-    font-family: "Quicksand";
-    color: #2F2F2F;
+    font-family: "Quicksand" !important;
+    color: #2F2F2F !important;
 }
 
 p{
-    font-family: "Roboto";
-    color: #2F2F2F;
+    font-family: "Roboto" !important;
+    color: #2F2F2F !important;
+}
+
+.main_title{
+    font-family: "Quicksand" !important;
+    color: #2F2F2F !important;
 }

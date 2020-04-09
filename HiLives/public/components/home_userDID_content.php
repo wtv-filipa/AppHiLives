@@ -99,10 +99,9 @@
             </div>
         </div>
     </div>
-</div
+</div>
 
 
-<div class="container_highlights1">
     <div id='wrapper_title'>
         <div class='tagpost-top section' id='tagpost-top'>
             <div class='widget HTML' id='HTML5'>
@@ -112,7 +111,7 @@
             </div>
         </div>
     </div>
-</div>
+
 
 
 <div id='wrapper'>
