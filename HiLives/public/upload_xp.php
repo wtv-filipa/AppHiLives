@@ -4,11 +4,11 @@
 <head>
     <!-- metadados -->
     <?php include "helpers/meta.php"; ?>
-    <title>Posso escolher- Estudar</title>
-     <!-- Custom fonts for this template-->
+    <title>Carregar Experiência</title>
+    <!-- Custom fonts for this template-->
     <?php include "helpers/fonts.php"; ?>
     <!-- Custom styles for this template-->
-    <?php include "helpers/css_can_choose_study.php"; ?>
+    <?php include "helpers/css_upload.php"; ?>
 
 </head>
 
@@ -19,8 +19,9 @@
     </header>
     <main class="container p-0 mb-5 mx-auto">
         <!--componente da home sem login-->
-        <?php include "components/choose_study.php"; ?>
+        <?php include "components/upload_xp.php"; ?>
     </main>
+    <?php include "helpers/js_upload.php";?>
 </body>
 
 </html>

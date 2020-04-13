@@ -21,8 +21,6 @@
         <!--componente da home sem login-->
         <?php include "components/choose_work.php"; ?>
     </main>
-    <!-- JavaScript
-    <?php include "helpers/js.php"; ?>-->
 </body>
 
 </html>

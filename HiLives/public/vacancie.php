@@ -4,7 +4,7 @@
 <head>
     <!-- metadados -->
     <?php include "helpers/meta.php"; ?>
-    <titledet>Detalhes da vaga</title>
+    <title>Detalhes da vaga</title>
      <!-- Custom fonts for this template-->
     <?php include "helpers/fonts.php"; ?>
     <!-- Custom styles for this template-->
@@ -21,8 +21,7 @@
         <!--componente da home sem login-->
         <?php include "components/vacancie.php"; ?>
     </main>
-    <!-- JavaScript
-    <?php include "helpers/js.php"; ?>-->
+    
 </body>
 
 </html>
