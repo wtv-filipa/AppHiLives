@@ -129,7 +129,7 @@
 }
 
 .clearfix_uni {
-    border-radius: 10px;
+    border-radius:10px;
     background-color: #DAEEF4;
     margin-top: 0;
 
@@ -138,6 +138,19 @@
 
 .clearfix_companies {
     border-radius: 10px;
+    background-color: #FEF8CE;
+    margin-top: 0;
+
+}
+.clearfix_uni_my_links {
+    border-radius: 50px 15px 15px 50px;
+    background-color: #DAEEF4;
+    margin-top: 0;
+
+}
+
+.clearfix_companies_my_links {
+    border-radius: 50px 15px 15px 50px;
     background-color: #FEF8CE;
     margin-top: 0;
 
@@ -303,3 +316,15 @@ ul.taglabel li {
 
     }
 }
+
+
+/*my links*/
+
+
+.circle_links {
+    background-color: #aaa;
+    border-radius: 50% !important;
+    overflow: hidden;
+    position: relative;
+}
+
