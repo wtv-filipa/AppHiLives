@@ -1,0 +1,78 @@
+    .card {
+        border-radius: 10px;
+        box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+        margin-top: 5%;
+        padding: 20px;
+    }
+    
+    * {
+        color: #2f2f2f
+    }
+    
+    h3,
+    h6,
+    input,
+    label {
+        font-family: "Quicksand" !important;
+    }
+    
+    h3,
+    label {
+        font-weight: bold;
+    }
+    
+    .label-margin {
+        margin-left: -20px;
+    }
+    
+    .guardar_btn {
+        width: 30%!important;
+        height: 10%!important;
+        color: #fff!important;
+        background-color: #D3D3D3!important;
+        margin-bottom: 0.3125rem!important;
+        text-decoration: none!important;
+        cursor: pointer!important;
+        display: inline-block!important;
+        border-radius: 40px!important;
+        font-weight: bold;
+        border-color: #D3D3D3!important;
+    }
+    
+    .guardar_btn:hover {
+        width: 30%!important;
+        height: 10%!important;
+        color: #fff!important;
+        background-color: #2F2F2F !important;
+        margin-bottom: 0.3125rem!important;
+        text-decoration: none!important;
+        cursor: pointer!important;
+        display: inline-block!important;
+        border-color: #2F2F2F!important;
+        border-radius: 40px!important;
+    }
+    
+    .cancel_btn {
+        width: 30%!important;
+        height: 10%!important;
+        color: #2F2F2F!important;
+        margin-bottom: 0.3125rem!important;
+        text-decoration: none!important;
+        cursor: pointer!important;
+        display: inline-block!important;
+        border-radius: 40px!important;
+        font-weight: bold;
+        border-color: #D3D3D3!important;
+    }
+    
+    .cancel_btn:hover {
+        width: 30%!important;
+        height: 10%!important;
+        color: #2F2F2F!important;
+        margin-bottom: 0.3125rem!important;
+        text-decoration: none!important;
+        cursor: pointer!important;
+        display: inline-block!important;
+        border-color: #2F2F2F!important;
+        border-radius: 40px!important;
+    }

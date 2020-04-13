@@ -1,28 +1,21 @@
 /*main titles*/
 
-
 #wrapper_title {
     margin: auto;
     width: 750px;
     max-width: 100%;
-
 }
 
 .main_title {
-
     font-size: 1.3rem;
     font-family: "Quicksand";
     font-weight: bold;
     max-width: 100%;
     margin-top: 5%;
-
-
 }
 
 
-
 /*cards highlights*/
-
 
 .sub_title {
     font-size: 1.2rem;
@@ -51,6 +44,7 @@
     margin: 0;
     justify-content: center;
 }
+
 .cards {
     display: flex;
     padding: 1rem;
@@ -58,18 +52,18 @@
     width: 100%;
 }
 
-
-
 @media (min-width: 40rem) {
     .cards {
         width: 50%;
     }
 }
+
 @media (min-width: 56rem) {
     .cards {
         width: 33.3%;
     }
 }
+
 .cards .card-item {
     display: flex;
     flex-direction: column;
@@ -81,14 +75,17 @@
     transition: transform 0.5s;
     -webkit-transition: transform 0.5s;
 }
+
 .cards .card-item:hover {
     cursor: pointer;
     transform: scale(1.1);
     -webkit-transform: scale(1.1);
 }
+
 .cards .card-item:hover .card-image {
     opacity: 1;
 }
+
 .cards .card-info {
     display: flex;
     flex: 1 1 auto;
@@ -96,12 +93,13 @@
     padding: 1rem;
     line-height: 1.5em;
 }
-.cards .card-title {
 
+.cards .card-title {
     line-height: 1.1em;
     color: black;
     margin-bottom: 0.2em;
 }
+
 .cards .card-image {
     height: 200px;
     overflow: hidden;
@@ -121,9 +119,10 @@
     font-family: "Quicksand";
     font-weight: bold;
 }
+
 .credit {
     font-size: 12px;
-    float:bottom;
+    float: bottom;
     text-align: center;
     padding-right: 4%;
 }
@@ -132,19 +131,15 @@
     border-radius: 10px;
     background-color: #DAEEF4;
     margin-top: 0;
-
-
 }
 
 .clearfix_companies {
     border-radius: 10px;
     background-color: #FEF8CE;
     margin-top: 0;
-
 }
 
 .link_info {
-
     font-size: 0.7rem;
     color: #2f2f2f;
     padding-top: 6%;
@@ -156,9 +151,9 @@
 }
 
 .link_subtitle {
-
     font-size: 0.9rem;
 }
+
 #wrapper {
     margin: auto;
     width: 750px;
@@ -172,6 +167,7 @@
 #recenttags {
     margin-bottom: 15px;
 }
+
 img.tagpost_thumb {
     float: left;
     margin-right: 12px;
@@ -180,6 +176,7 @@ img.tagpost_thumb {
     transition: all 1s;
     border-radius: 10px;
 }
+
 .taglabel {
     display: inline-block;
     float: left;
@@ -188,37 +185,39 @@ img.tagpost_thumb {
     margin: auto;
     border: none;
     /*text-align: center;*/
-
-
 }
+
 ul.taglabel li {
     padding: 5px 0;
     min-height: 95px;
 }
+
 #tagpost-top,
 #tagpost-bottom {
     overflow: hidden;
     font-family: "Quicksand", sans-serif;
 }
+
 #tagpost-top .widget ul,
-#tagpost-bottom .widget ul {
-}
+#tagpost-bottom .widget ul {}
+
 #tagpost-top .widget,
 #tagpost-bottom .widget {
     position: relative;
     display: block;
-
 }
 
 #tagpost-bottom .widget {
     margin-top: 10px;
 }
+
 #tagpost-top .widget ul,
 #tagpost-bottom .widget ul {
     list-style: none;
     margin-bottom: -15px;
     padding: 0;
 }
+
 #tagpost-top .widget ul li,
 #tagpost-bottom .widget ul li {
     display: block;
@@ -231,24 +230,25 @@ ul.taglabel li {
     padding: 0;
     transition: all 0.6s;
 }
+
 #tagpost-top .widget ul li:hover,
 #tagpost-bottom .widget ul li:hover {
     border-bottom-color: #bbb;
 }
+
 #tagpost-top .widget li:last-child,
 #tagpost-bottom .widget li:last-child {
     border-bottom: none;
 }
-#tagpost-top .widget ul li a,
-#tagpost-bottom .widget ul li a {
 
-}
+#tagpost-top .widget ul li a,
+#tagpost-bottom .widget ul li a {}
+
 #tagpost-top .widget ul li a:hover,
 #tagpost-bottom .widget ul li a:hover {
     color: #444;
     text-decoration: none;
 }
-
 
 @media screen and (max-width: 768px) {
     .taglabel {
@@ -259,10 +259,7 @@ ul.taglabel li {
         margin: auto;
         border: none;
         /*text-align: center;*/
-
-
     }
-
     #tagpost-top .widget ul li,
     #tagpost-bottom .widget ul li {
         display: block;
@@ -275,7 +272,6 @@ ul.taglabel li {
         padding: 0;
         transition: all 1s;
     }
-
     #wrapper {
         margin: auto;
         width: 750px;
@@ -284,22 +280,18 @@ ul.taglabel li {
         background: #fff;
         box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.17);
         border-radius: 10px;
-
     }
     .main_title {
-
         font-size: 1.6rem;
         font-family: "Quicksand";
         font-weight: bold;
         max-width: 100%;
         text-align: center;
         margin-top: 2%;
-
     }
     .credit {
         font-size: 12px;
-        float:bottom;
+        float: bottom;
         text-align: center;
-
     }
 }
