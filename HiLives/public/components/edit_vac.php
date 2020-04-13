@@ -12,25 +12,25 @@
         <form class="md-form inserir_dados" class="mb-3" action="scripts/criar_evento.php" enctype="multipart/form-data" method="post">
             <!--primeiro campo-->
             <div class="form-group text-left">
-                <label for="nomevaga">Cargo na empresa:</label>
+                <label class="label-margin" for="nomevaga">Cargo na empresa:</label>
                 <input type="text" id="nomevaga" name="nomevaga" class="form-control">
             </div>
             <!-------------------------------------------->
             <!--segundo campo-->
             <div class="form-group text-left mt-4">
-                <label for="descricao">Descrição da vaga:</label>
+                <label class="label-margin" for="descricao">Descrição da vaga:</label>
                 <textarea type="text" id="descricao" name="descricao" class="form-control"></textarea>
             </div>
             <!-------------------------------------------->
             <!--terceiro campo-->
             <div class="form-group text-left">
-                <label for="numvagas">Número de vagas disponíveis:</label>
+                <label class="label-margin" for="numvagas">Número de vagas disponíveis:</label>
                 <input type="text" id="numvagas" name="numvagas" class="form-control">
             </div>
             <!-------------------------------------------->
             <!--quarto campo-->
             <div class="form-group text-left">
-                <label for="regiao">Região:</label>
+                <label class="label-margin" for="regiao">Região:</label>
                 <select class="form-control" id="regiao">
                     <option>1</option>
                     <option>2</option>
@@ -41,7 +41,7 @@
             <!-------------------------------------------->
             <!--quinto campo-->
             <div class="form-group text-left">
-                <label for="jornada">Jornada de trabalho:</label>
+                <label class="label-margin" for="jornada">Jornada de trabalho:</label>
                 <select class="form-control" id="jornada">
                     <option>1</option>
                     <option>2</option>

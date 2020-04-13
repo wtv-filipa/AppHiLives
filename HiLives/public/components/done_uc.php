@@ -12,13 +12,13 @@
         <form class="md-form inserir_dados" class="mb-3" action="scripts/criar_evento.php" enctype="multipart/form-data" method="post">
             <!--primeiro campo-->
             <div class="form-group text-left">
-                <label for="nomeuc">Nome da Unidade Curricular:</label>
+                <label class="label-margin" for="nomeuc">Nome da Unidade Curricular:</label>
                 <input type="text" id="nomeuc" name="nomeuc" class="form-control">
             </div>
             <!-------------------------------------------->
             <!--segundo campo-->
             <div class="form-group text-left">
-                <label for="uni">Universidade onde foi feita:</label>
+                <label class="label-margin" for="uni">Universidade onde foi feita:</label>
                 <select class="form-control" id="uni">
                     <option>1</option>
                     <option>2</option>
@@ -29,7 +29,7 @@
             <!-------------------------------------------->
             <!--terceiro campo-->
             <div class="form-group text-left">
-                <label for="data">Data de conclusão:</label>
+                <label class="label-margin" for="data">Data de conclusão:</label>
                 <input type="date" id="data" name="data" class="form-control">
             </div>
             <!-------------------------------------------->

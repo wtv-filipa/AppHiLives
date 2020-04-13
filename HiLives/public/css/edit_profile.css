@@ -21,6 +21,10 @@
         font-weight: bold;
     }
     
+    .label-margin {
+        margin-left: -20px;
+    }
+    
     .guardar_btn {
         width: 30%!important;
         height: 10%!important;

@@ -21,13 +21,13 @@
             <!-------------------------------------------->
             <!--primeiro campo-->
             <div class="form-group text-left">
-                <label for="nomeVideo">Nome do vídeo:</label>
+                <label class="label-margin" for="nomeVideo">Nome do vídeo:</label>
                 <input type="text" id="nomeVideo" name="nomeVideo" class="form-control">
             </div>
             <!-------------------------------------------->
             <!--segundo campo-->
             <div class="form-group text-left mt-4">
-                <label for="descricao">Descrição do vídeo:</label>
+                <label class="label-margin" for="descricao">Descrição do vídeo:</label>
                 <textarea type="text" id="descricao" name="descricao" class="form-control"></textarea>
             </div>
             <!-------------------------------------------->

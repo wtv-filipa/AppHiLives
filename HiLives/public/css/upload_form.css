@@ -25,6 +25,10 @@
         font-weight: bold;
     }
     
+    .label-margin {
+        margin-left: -20px;
+    }
+    
     .events {
         margin-top: 5%;
     }
