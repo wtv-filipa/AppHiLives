@@ -34,14 +34,14 @@
 
             <div class="nav__avatar"><img src="img/notif.png" class=" " style="position:relative; max-width:30px"> <span class="nome ml-2" style=" width: 180px; color: black">O que está a acontecer</span>
 
-                <div class="nav__avatar--dropdown sc" style="overflow-y: scroll; width: 400px">
+                <div class="nav__avatar--dropdown" style="overflow-y: scroll; width: 400px">
 
-                    <a href=""><button class="notif_ind mb-2 nome"> Tens uma nova ligação com a <span class="font-weight-bold" style=""> Universidade de Aveiro</span>.<span class=" ml-3 " style="color: grey">Há 2min</span></button></a>
-                    <a href=""><button class="notif_ind mb-2 nome"> Tens uma nova ligação com a <span class="font-weight-bold" style=""> Universidade de Aveiro</span>.<span class=" ml-3 " style="color: grey">Há 2min</span></button></a>
-                    <a href=""><button class="notif_ind mb-2 nome"> Tens uma nova ligação com a <span class="font-weight-bold" style=""> Universidade de Aveiro</span>.<span class=" ml-3 " style="color: grey">Há 2min</span></button></a>
-                    <a href=""><button class="notif_ind mb-2 nome"> Tens uma nova ligação com a empresa<span class="font-weight-bold" style=""> FNAC</span>.<span class=" ml-3 " style="color: grey">Há 2min</span></button></a>
-                    <a href=""><button class="notif_ind mb-2 nome"> Tens uma nova ligação com a empresa<span class="font-weight-bold" style=""> FNAC</span>.<span class=" ml-3 " style="color: grey">Há 2min</span></button></a>
-                    <a href=""><button class="notif_ind mb-2 nome"> Tens uma nova ligação com a empresa<span class="font-weight-bold" style=""> FNAC</span>.<span class=" ml-3 " style="color: grey">Há 2min</span></button></a>
+                    <a href=""><button class="notif_ind mb-2 nome"> Já não tens uma ligação há algum tempo...  <span class="font-weight-bold" style="">Edita o teu perfil</span> para conseguires ter novas ligações!<span class="m-0 p-0" style="color: grey; font-family: Quicksand !important;">  •  Há 2min</span></button></a>
+                    <a href=""><button class="notif_ind mb-2 nome"> Tens uma nova ligação com a <span class="font-weight-bold" style=""> Universidade de Aveiro</span>.<span class="m-0 p-0" style="color: grey; font-family: Quicksand !important;">  •  Há 2min</span></button></a>
+                    <a href=""><button class="notif_ind mb-2 nome"> Tens uma nova ligação com a <span class="font-weight-bold" style=""> Universidade de Aveiro</span>.<span class="m-0 p-0" style="color: grey; font-family: Quicksand !important;">  •  Há 2min</span></button></a>
+                    <a href=""><button class="notif_ind mb-2 nome"> Tens uma nova ligação com a empresa<span class="font-weight-bold" style=""> FNAC</span>.<span class="m-0 p-0" style="color: grey; font-family: Quicksand !important;">  •  Há 2min</span></button></a>
+                    <a href=""><button class="notif_ind mb-2 nome"> Tens uma nova ligação com a empresa<span class="font-weight-bold" style=""> FNAC</span>.<span class="m-0 p-0" style="color: grey; font-family: Quicksand !important;">  •  Há 2min</span></button></a>
+                    <a href=""><button class="notif_ind mb-2 nome"> Tens uma nova ligação com a empresa<span class="font-weight-bold" style=""> FNAC</span>.<span class="m-0 p-0" style="color: grey; font-family: Quicksand !important;">  •  Há 2min</span></button></a>
 
 
 
