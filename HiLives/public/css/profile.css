@@ -1,0 +1,117 @@
+/* CARD */
+.card-body {
+    background-color: white;
+    border-radius: 0 0 10px 10px !important;
+}
+
+.blockquote>p {
+    text-align: justify;
+    font-size: 16px !important;
+}
+
+.card-header {
+    background-color: #D2D2D2;
+    text-align: center;
+    color: #2f2f2f;
+    border-radius: 10px 10px 0 0!important;
+}
+
+.card-header>h5 {
+    color: #2f2f2f;
+    font-weight: bold;
+    font-family: "Quicksand";
+}
+
+.card {
+    box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    border-radius: 10px;
+}
+
+.altura {
+    height: 300px;
+}
+
+
+/*PERFIL*/
+.image_profile {
+    box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+
+.btn {
+    display: inline-block;
+    font: inherit;
+    background: none;
+    border: none;
+    color: inherit;
+    padding: 0;
+    cursor: pointer;
+}
+
+.profile-edit-btn {
+    line-height: 1.8;
+    border: 0.1rem solid #D2D2D2;
+    border-radius: 1rem;
+    padding: 0 2.4rem;
+}
+
+/*videos*/
+.titulo_videos {
+    font-size: 1.3rem;
+    font-family: "Quicksand";
+    font-weight: bold;
+    max-width: 100%;
+    margin-top: 5%;
+}
+
+.tam_video {
+    width: 239px;
+    height: 154px;
+    border-radius: 10px !important;
+}
+
+.bt_add {
+    display: block !important;
+    margin: auto !important;
+    text-align: center;
+    background-color: #d3d3d3;
+
+}
+
+/*modal*/
+.modal-footer {
+    justify-content: left;
+}
+
+.descricao {
+    justify-content: left;
+    margin-top: 100px;
+}
+
+.username_modal {
+    margin-top: 15px;
+    margin-right: 615px;
+    float: right;
+}
+
+.avatar {
+    vertical-align: middle;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-top: 6px;
+}
+
+/*Aplica sombra ao "card"*/
+/*.boxShadow {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    width: 20%;
+    border-radius: 10px;
+    box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    transition: transform 0.5s;
+    -webkit-transition: transform 0.5s;
+}  */

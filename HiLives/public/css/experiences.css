@@ -1,0 +1,69 @@
+.modal-footer {
+
+    justify-content: left;
+}
+
+.descricao {
+
+    justify-content: left;
+    margin-top: 100px;
+}
+
+.btn {
+
+    float: right;
+
+}
+
+.xp_titulo {
+
+    margin-top: 12px;
+    margin-right: 220px;
+    float: right;
+    font-weight: bold;
+}
+
+.username {
+
+    margin-right: 233px;
+    margin-top: -20px;
+    float: right;
+    font-size: 12px;
+}
+
+.username_modal {
+
+    margin-top: 12px;
+    margin-right: 618px;
+    float: right;
+}
+
+.avatar {
+    vertical-align: middle;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-top: 12px;
+}
+
+.avatar_modal {
+    vertical-align: middle;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-top: 4px;
+}
+
+
+/*Aplica sombra ao "card"*/
+/*.boxShadow {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    width: 20%;
+    border-radius: 10px;
+    box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    transition: transform 0.5s;
+    -webkit-transition: transform 0.5s;
+}  */

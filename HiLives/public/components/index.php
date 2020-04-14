@@ -45,7 +45,7 @@
 <div class="text-center">
     <h4 class="mt-5">Já tens conta?</h4>
     <a href="#">
-        <h6 class="mt-4">Inicía sessão</h6>
+        <h6 class="mt-4">Inicia sessão</h6>
     </a>
 </div>
 
