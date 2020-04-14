@@ -150,7 +150,7 @@
 
         <!--Título e informações do "card"-->
         <a>
-            <video class="img-fluid z-depth-1 p-0 m-0" src=" " alt="video" data-toggle="modal" data-target="#modal1">
+            <video class="img-fluid z-depth-1 p-0 m-0" src="" alt="video" data-toggle="modal" data-target="#modal1">
         </a>
 
         <div>
