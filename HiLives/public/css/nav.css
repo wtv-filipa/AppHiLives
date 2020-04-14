@@ -19,6 +19,17 @@ a {
 /*
 _nav.scss
 */
+header {
+    font-family: "Quicksand", sans-serif;
+}
+
+.menunav{
+
+    font-family: "Quicksand", sans-serif;
+    font-size:1rem ;
+    vertical-align: middle;
+}
+
 .top {
     grid-column-start: 1;
     grid-column-end: 5;
@@ -102,29 +113,11 @@ _nav.scss
     justify-self: center;
     color: #7FC53C;
 }
-.nav__search {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    height: 1rem;
-}
-.nav__search--input {
-    height: 2rem;
-    border-radius: 100rem;
-    margin-right: 1rem;
-    width: 100%;
-    min-width: 8rem;
-    background: #f2f2f2;
-    border: 0;
-    color: #efefef;
-}
 
-.nav__search--icon {
-    color: #323232;
-}
+
+
 .nav__avatar {
     margin: 0 1rem;
-    color: #7FC53C;
     height: 100%;
     display: flex;
     align-items: center;
@@ -132,10 +125,14 @@ _nav.scss
     position: relative;
     border-radius: 50%;
 }
+
 .nav__avatar:hover .nav__avatar--dropdown {
     display: flex;
-    color: #ccc;
+
+
 }
+
+
 .nav__avatar--dropdown {
     background: #fff;
     display: none;
@@ -144,17 +141,25 @@ _nav.scss
     padding: 1rem;
     top: 4rem;
     left: 50%;
+width: 200px;
     transform: translate(-50%);
     position: absolute;
-    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.19), 0 0.6rem 0.6rem rgba(0, 0, 0, 0.23);
+    border-radius: 10px;
+    box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
 }
+
+
+
 .nav__avatar--dropdown:hover {
     display: flex;
+    color: green;
+
 }
 .nav__avatar--dropdown:before {
     position: relative;
     top: -5rem;
     left: 4rem;
+
     content: "";
     width: 0;
     height: 0;
@@ -172,7 +177,7 @@ _nav.scss
 /*dropdown mas versão menu*/
 .nav__avatar:hover .nav__menu--dropdown {
     display: flex;
-    color: #ccc;
+
 }
 .nav__menu--dropdown {
     background: #fff;
@@ -212,7 +217,7 @@ _nav.scss
     border-radius: 50%;
 }
 .nav__btn {
-    background: #7FC53C;
+
     border: 0;
     color: #efefef;
     font-weight: 600;
@@ -228,9 +233,18 @@ _nav.scss
     color: black;
     font-weight: 600;
     font-size: 0.9rem;
-    padding: 0.75rem 1.5rem;
     border-radius: 100rem;
     margin-left: 1rem;
+}
+
+.notif_ind {
+    background: #f2f2f2;
+    border: 0;
+    color: black;
+    font-size: 0.9rem;
+    border-radius: 10px;
+    text-align: center;
+
 }
 
 .icones {
@@ -317,9 +331,8 @@ background-repeat: repeat;
     color: #fff;
     z-index: 1;
     font-weight: bold;
+
 }
-
-
 
 @media (max-width: 778px) {
 
@@ -374,7 +387,7 @@ background-repeat: repeat;
         padding: 1rem;
         top: 4rem;
         left: 50%;
-        transform: translate(-81%);
+        transform: translate(-76%);
         position: absolute;
         box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.19), 0 0.6rem 0.6rem rgba(0, 0, 0, 0.23);
     }
@@ -393,5 +406,6 @@ background-repeat: repeat;
         display: none;
     }
 }
+
 
 
