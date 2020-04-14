@@ -34,17 +34,16 @@
 
             <div class="nav__avatar"><img src="img/notif.png" class=" " style="position:relative; max-width:30px"> <span class="nome ml-2" style=" width: 180px; color: black">O que está a acontecer</span>
 
-                <div class="nav__avatar--dropdown">
+                <div class="nav__avatar--dropdown sc" style="overflow-y: scroll; width: 400px">
+
+                    <a href=""><button class="notif_ind mb-2 nome"> Tens uma nova ligação com a <span class="font-weight-bold" style=""> Universidade de Aveiro</span>.<span class=" ml-3 " style="color: grey">Há 2min</span></button></a>
+                    <a href=""><button class="notif_ind mb-2 nome"> Tens uma nova ligação com a <span class="font-weight-bold" style=""> Universidade de Aveiro</span>.<span class=" ml-3 " style="color: grey">Há 2min</span></button></a>
+                    <a href=""><button class="notif_ind mb-2 nome"> Tens uma nova ligação com a <span class="font-weight-bold" style=""> Universidade de Aveiro</span>.<span class=" ml-3 " style="color: grey">Há 2min</span></button></a>
+                    <a href=""><button class="notif_ind mb-2 nome"> Tens uma nova ligação com a empresa<span class="font-weight-bold" style=""> FNAC</span>.<span class=" ml-3 " style="color: grey">Há 2min</span></button></a>
+                    <a href=""><button class="notif_ind mb-2 nome"> Tens uma nova ligação com a empresa<span class="font-weight-bold" style=""> FNAC</span>.<span class=" ml-3 " style="color: grey">Há 2min</span></button></a>
+                    <a href=""><button class="notif_ind mb-2 nome"> Tens uma nova ligação com a empresa<span class="font-weight-bold" style=""> FNAC</span>.<span class=" ml-3 " style="color: grey">Há 2min</span></button></a>
 
 
-                    <a href=""><button class="nav__btn2 nome"> <!--<i class="fa fa-star-o mr-2"></i>-->Tens uma nova ligação com a Universidade de Aveiro</button></a>
-
-                    <a href=""><button class="nav__btn2 nome"> <!--<i class="fa fa-star-o mr-2"></i>-->Tens uma nova ligação com a Universidade de Aveiro</button></a>
-
-                    <a href=""><button class="nav__btn2 nome"> <!--<i class="fa fa-star-o mr-2"></i>-->Tens uma nova ligação com a Universidade de Aveiro</button></a>
-
-                    <a href=""><button class="nav__btn2 nome"> <!--<i class="fa fa-star-o mr-2"></i>-->Tens uma nova ligação com a Universidade de Aveiro</button></a>
-                    <a href=""><button class="nav__btn2 nome"> <!--<i class="fa fa-star-o mr-2"></i>-->Tens uma nova ligação com a Universidade de Aveiro</button></a>
 
 
                 </div>
