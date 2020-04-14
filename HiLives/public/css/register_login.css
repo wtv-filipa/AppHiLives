@@ -1,0 +1,51 @@
+.cinza {
+    border: 1px solid #d3d3d3;
+}
+
+.negrito {
+    color: #2F2F2F;
+    font-weight: bold;
+}
+
+label, input, textarea, h1 {
+    font-family: "Quicksand";
+}
+
+.titulo_cinza {
+    color: #2F2F2F;
+    font-family: "Quicksand";
+    font-weight: bold;
+}
+
+.publicar_btn {
+    width: 75%!important;
+    height: 10%!important;
+    color: #fff!important;
+    background-color: #D3D3D3!important;
+    margin-bottom: 0.3125rem!important;
+    text-decoration: none!important;
+    cursor: pointer!important;
+    display: inline-block!important;
+    border-radius: 40px!important;
+    margin-top: 5%;
+    font-weight: bold;
+    border-color: #D3D3D3!important;
+
+}
+
+.publicar_btn:hover {
+    width: 75%!important;
+    height: 10%!important;
+    color: #fff!important;
+    background-color: #2F2F2F !important;
+    margin-bottom: 0.3125rem!important;
+    text-decoration: none!important;
+    cursor: pointer!important;
+    display: inline-block!important;
+    border-color: #2F2F2F!important;
+    border-radius: 40px!important;
+}
+
+label {
+    margin-left: -20px;
+}
