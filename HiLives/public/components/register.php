@@ -1,4 +1,6 @@
 <div class="container">
+
+
     <div class="row justify-content-center">
 
         <div class="col-xl-6 col-lg-6 col-md-6">
@@ -45,18 +47,19 @@
                                 }
                                 ?>
                                 <!------------NOME------------>
+
                                 <form method="post" role="form" id="register-form" action="scripts/register.php">
                                     <?php
                                     require_once("connections/connection.php");
                                     $link = new_db_connection();
                                     $stmt = mysqli_stmt_init($link);
 
-                                    $query = "SELECT Educ_lvl_idEduc_lvl FROM users ";
+                                    $query = "SELECT Educ_lvl_idEduc_lvl, Study_work_idStudy_work FROM users ";
                                     if (mysqli_stmt_prepare($stmt, $query)) {
 
 
                                     mysqli_stmt_execute($stmt);
-                                    mysqli_stmt_bind_result($stmt, $Educ_lvl_idEduc_lvl);
+                                    mysqli_stmt_bind_result($stmt, $Educ_lvl_idEduc_lvl, $Study_work_idStudy_work);
                                     while (mysqli_stmt_fetch($stmt)) {
                                     ?>
                                     <div class="form-group">
@@ -94,46 +97,81 @@
                                                    placeholder="data de nascimento">
                                         </div>
                                     </div>
+                                    <!------------ESTUDO------------>
+                                    <div class="form-group">
+                                        <div class="form-group text-left">
+                                            <label class="label-margin negrito" for="study_work">O que procuras</label>
+                                            <select class="form-control" id="study_work" name="study_work">
+                                                <option selected disabled>Seleciona uma opção</option>
+                                                <?php
+                                                $query2 = "SELECT idStudy_work, name_type FROM study_work";
+
+                                                if (mysqli_stmt_prepare($stmt, $query2)) {
+
+                                                    /* execute the prepared statement */
+                                                    if (mysqli_stmt_execute($stmt)) {
+                                                        /* bind result variables */
+                                                        mysqli_stmt_bind_result($stmt, $idStudy_work, $name_type);
+
+                                                        /* fetch values */
+                                                        while (mysqli_stmt_fetch($stmt)) {
+                                                            if ($Study_work_idStudy_work == $idStudy_work) {
+                                                                $selected = "selected";
+                                                            } else {
+                                                                $selected = "";
+                                                            }
+                                                            echo "\n\t\t<option value=\"$idStudy_work\" $selected>$name_type</option>";
+                                                        }
+                                                    } else {
+                                                        echo "Error: " . mysqli_stmt_error($stmt);
+                                                    }
+
+                                                    /* close statement */
+                                                    //mysqli_stmt_close($stmt);
+                                                } else {
+                                                    echo "Error: " . mysqli_error($link);
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
+                                    </div>
                                     <!------------REGIÃO------------>
 
                                     <div class="form-group">
                                         <label class="negrito" for="regiao">Região que procuras estudar ou
                                             trabalhar</label>
                                         <div class="form-check">
-                                        <?php
-                                        $query = "SELECT idRegion, name_region FROM region";
+                                            <?php
+                                            $query = "SELECT idRegion, name_region FROM region";
 
-                                        if (mysqli_stmt_prepare($stmt, $query)) {
+                                            if (mysqli_stmt_prepare($stmt, $query)) {
 
-                                            /* execute the prepared statement */
-                                            if (mysqli_stmt_execute($stmt)) {
-                                                /* bind result variables */
-                                                mysqli_stmt_bind_result($stmt, $idRegion, $name_region);
+                                                /* execute the prepared statement */
+                                                if (mysqli_stmt_execute($stmt)) {
+                                                    /* bind result variables */
+                                                    mysqli_stmt_bind_result($stmt, $idRegion, $name_region);
 
-                                                /* fetch values */
-                                                while (mysqli_stmt_fetch($stmt)) {
-                                                    echo "\n\t\t
-                                                      
-                                                            <label class=\"form-check-label col-6\">
-                                                                <input type=\"checkbox\" class=\"form-check-input\" value=\"\">$name_region
-                                                            </label>
-                                                        ";
+                                                    /* fetch values */
+                                                    while (mysqli_stmt_fetch($stmt)) {
+
+                                                        echo "\n\t\t";
+                                                        echo "<label class='form-check-label col-6'>";
+                                                        echo "<input type='checkbox' class='form-check-input' name='regiao[]' value='$idRegion'>$name_region<br>";
+                                                        echo"</label>";
+                                                    }
+                                                } else {
+                                                    echo "Error: " . mysqli_stmt_error($stmt);
                                                 }
+
+                                                /* close statement */
+                                                //mysqli_stmt_close($stmt);
                                             } else {
-                                                echo "Error: " . mysqli_stmt_error($stmt);
+                                                echo "Error: " . mysqli_error($link);
                                             }
 
-                                            /* close statement */
-                                            //mysqli_stmt_close($stmt);
-                                        } else {
-                                            echo "Error: " . mysqli_error($link);
-                                        }
 
-                                        /* close connection */
-                                        //mysqli_close($link);
 
-                                        }
-                                        ?>
+                                            ?>
                                         </div>
                                     </div>
                                     <!------------DEFICIÊNCIA------------>
@@ -153,52 +191,45 @@
                                     <!------------ESCOLARIDADE------------>
                                     <div class="form-group text-left">
                                         <label class="label-margin negrito" for="esc">Escolaridade</label>
-                                        <select class="form-control" id="esc">
+                                        <select class="form-control" id="esc" name="esc">
                                             <option selected disabled>Seleciona uma opção</option>
                                             <?php
-                                        $query = "SELECT idEduc_lvl, name_education FROM educ_lvl";
+                                            $query = "SELECT idEduc_lvl, name_education FROM educ_lvl";
 
-                                        if (mysqli_stmt_prepare($stmt, $query)) {
+                                            if (mysqli_stmt_prepare($stmt, $query)) {
 
-                                            /* execute the prepared statement */
-                                            if (mysqli_stmt_execute($stmt)) {
-                                                /* bind result variables */
-                                                mysqli_stmt_bind_result($stmt, $idEduc_lvl, $name_education);
+                                                /* execute the prepared statement */
+                                                if (mysqli_stmt_execute($stmt)) {
+                                                    /* bind result variables */
+                                                    mysqli_stmt_bind_result($stmt, $idEduc_lvl, $name_education);
 
-                                                /* fetch values */
-                                                while (mysqli_stmt_fetch($stmt)) {
-                                                    if ($Educ_lvl_idEduc_lvl == $idEduc_lvl) {
-                                                        $selected = "selected";
-                                                    } else {
-                                                        $selected = "";
+                                                    /* fetch values */
+                                                    while (mysqli_stmt_fetch($stmt)) {
+                                                        if ($Educ_lvl_idEduc_lvl == $idEduc_lvl) {
+                                                            $selected = "selected";
+                                                        } else {
+                                                            $selected = "";
+                                                        }
+                                                        echo "\n\t\t<option value=\"$idEduc_lvl\" $selected>$name_education</option>";
                                                     }
-                                                    echo "\n\t\t<option value=\"$idEduc_lvl\" $selected>$name_education</option>";
+                                                } else {
+                                                    echo "Error: " . mysqli_stmt_error($stmt);
                                                 }
+
+                                                /* close statement */
+                                                //mysqli_stmt_close($stmt);
                                             } else {
-                                                echo "Error: " . mysqli_stmt_error($stmt);
+                                                echo "Error: " . mysqli_error($link);
                                             }
 
-                                            /* close statement */
-                                            //mysqli_stmt_close($stmt);
-                                        } else {
-                                            echo "Error: " . mysqli_error($link);
-                                        }
+                                            /* close connection */
+                                            //mysqli_close($link);
+                                            }
+                                            }
 
-                                        /* close connection */
-                                        //mysqli_close($link);
-                                        }
-                                        ?>
+                                            ?>
                                         </select>
                                     </div>
-                                    <!--                            <div class="form-group">-->
-                                    <!--                                <label class="negrito" for="school">Escolaridade</label>-->
-                                    <!--                                <div class="radio">-->
-                                    <!--                                    <label><input type="radio" name="optradio">Option 1</label>-->
-                                    <!--                                </div>-->
-                                    <!--                                <div class="radio">-->
-                                    <!--                                    <label><input type="radio" name="optradio">Option 2</label>-->
-                                    <!--                                </div>-->
-                                    <!--                            </div>-->
                                     <!------------EXPERIÊNCIA DE TRABALHO------------>
                                     <div class="form-group mb-5">
                                         <label class="negrito" for="exp_t">Experiência de trabalho</label>
@@ -211,52 +242,50 @@
 
                                     <div class="form-group mt-4">
                                         <div class="form-group text-left">
-                                            <label class="label-margin negrito" for="regiao">Sou uma pessoa que:</label>
-                                            <select class="form-control" id="regiao">
+                                            <label class="label-margin negrito" for="primeiro">Sou uma pessoa que:</label>
+                                            <select class="form-control" id="primeiro">
                                                 <option selected disabled>Seleciona uma opção</option>
-
-                                                <option>Tenho muitos amigos</option>
-                                                <option>Gosto de organizar tarefas</option>
-                                                <option>Convivo melhor com a rotina</option>
-                                                <option>Procuro sempre coisas claras e objetivas</option>
+                                                <option name="c">Tenho muitos amigos</option>
+                                                <option name="o">Gosto de organizar tarefas</option>
+                                                <option name="pr">Convivo melhor com a rotina</option>
+                                                <option name="d">Procuro sempre coisas claras e objetivas</option>
                                             </select>
                                         </div>
 
                                         <div class="form-group text-left">
-                                            <label class="label-margin negrito" for="regiao">No convívio com outras
+                                            <label class="label-margin negrito" for="segundo">No convívio com outras
                                                 pessoas, eu:</label>
-                                            <select class="form-control" id="regiao">
+                                            <select class="form-control" id="segundo">
                                                 <option selected disabled>Seleciona uma opção</option>
-                                                <option>Estou sempre a motivar as pessoas</option>
-                                                <option>Prefiro fazer as minhas coisas sozinho ou sozinha</option>
-                                                <option>Sou muito paciente com as outras pessoas</option>
-                                                <option>Gosto de pessoas sérias</option>
+                                                <option name="c">Estou sempre a motivar as pessoas</option>
+                                                <option name="d">Prefiro fazer as minhas coisas sozinho ou sozinha</option>
+                                                <option name="pr">Sou muito paciente com as outras pessoas</option>
+                                                <option name="o">Gosto de pessoas sérias</option>
                                             </select>
                                         </div>
 
                                         <div class="form-group text-left">
-                                            <label class="label-margin negrito" for="regiao">Com qual destas frases mais
-                                                te identificas?</label>
-                                            <select class="form-control" id="regiao">
+                                            <label class="label-margin negrito" for="terceiro">Com qual destas frases mais te identificas?</label>
+                                            <select class="form-control" id="terceiro">
                                                 <option selected disabled>Seleciona uma opção</option>
-                                                <option>“Tu tornas-te naquilo que desejas”</option>
-                                                <option>“Prevenir é melhor que remediar”</option>
-                                                <option>“Quando falta sorte deve sobrar atitude”</option>
-                                                <option>“Quem tem boca vai a Roma”</option>
+                                                <option name="o">“Tu tornas-te naquilo que desejas”</option>
+                                                <option name="pr">“Prevenir é melhor que remediar”</option>
+                                                <option name="d">“Quando falta sorte deve sobrar atitude”</option>
+                                                <option name="c">“Quem tem boca vai a Roma”</option>
                                             </select>
                                         </div>
 
                                         <div class="form-group text-left">
-                                            <label class="label-margin negrito" for="regiao">Em situações de stress,
+                                            <label class="label-margin negrito" for="quarto">Em situações de stress,
                                                 eu:</label>
-                                            <select class="form-control" id="regiao">
+                                            <select class="form-control" id="quarto">
                                                 <option selected disabled>Seleciona uma opção</option>
-                                                <option>Mantenho a atenção naquilo que tenho que fazer</option>
-                                                <option>Avalio as possibilidades e previno-me para não me stressar
+                                                <option name="d">Mantenho a atenção naquilo que tenho que fazer</option>
+                                                <option name="pr">Avalio as possibilidades e previno-me para não me stressar
                                                     novamente
                                                 </option>
-                                                <option>Mantenho a calma</option>
-                                                <option>Falo com outras pessoas que me possam ajudar a melhorar</option>
+                                                <option name="o">Mantenho a calma</option>
+                                                <option name="c">Falo com outras pessoas que me possam ajudar a melhorar</option>
                                             </select>
                                         </div>
 
