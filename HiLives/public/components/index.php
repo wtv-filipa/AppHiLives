@@ -1,44 +1,55 @@
 <div class="mt-5 text-center">
     <h1>Bem vindo(a) à HiLives!</h1>
-    <a href="#">
-        <h5>Regista-te</h5>
-    </a>
+
+    <h4 class="mt-5">Quem sou eu?</h4>
+
+    <p>Escolhe uma opção para dares início ao registo</p>
 </div>
 <div class="row">
     <!--Cards-->
     <!--Card 1-->
-    <div class="cards text-center col-md-4 col-sm-6 mt-4">
-        <div class="card-item">
-            <div class="card-image">
-                <img class="card-img-top img-fluid" src="img/jovem.png"></div>
-            <div class="card-info">
-                <h4 class="card-title">Jovem</h4>
+    <form class="col-md-4 col-sm-6 mt-4" method="post" action="register.php">
+        <button name="3" type="submit" class="btn">
+            <div class="cards text-center">
+                <div class="card-item">
+                    <div class="card-image" style="width: 334px; height: 222px ">
+                        <img class="card-img-top img-fluid" src="img/jovem_icon.png"></div>
+                    <div class="card-info">
+                        <h4 class="card-title">Jovem</h4>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <!------------>
+        </button>
+    </form>
     <!--Card 2-->
-    <div class="cards text-center col-md-4 col-sm-6 mt-4">
-        <div class="card-item">
-            <div class="card-image">
-                <img class="card-img-top img-fluid" src="img/universidade.jpg"></div>
-            <div class="card-info">
-                <h4 class="card-title">Universidade</h4>
+    <form class="col-md-4 col-sm-6 mt-4" method="post" action="scripts/index_uni.php">
+        <button name="4" type="submit" class="btn">
+            <div class="cards text-center">
+                <div class="card-item">
+                    <div class="card-image" style="width: 334px; height: 222px ">
+                        <img class="card-img-top img-fluid" src="img/uni_icon.png"></div>
+                    <div class="card-info">
+                        <h4 class="card-title">Universidade</h4>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <!----------------------------->
+        </button>
+    </form>
     <!--Card 3-->
-    <div class="cards text-center col-md-4 col-sm-6 mt-4">
-        <div class="card-item">
-            <div class="card-image">
-                <img class="card-img-top img-fluid" src="img/empresa.jpg"></div>
-            <div class="card-info">
-                <h4 class="card-title">Empresa</h4>
+    <form class="col-md-4 col-sm-6 mt-4" method="post" action="scripts/index_comp.php">
+        <button name="2" type="submit" class="btn">
+            <div class="cards text-center">
+                <div class="card-item">
+                    <div class="card-image" style="width: 334px; height: 222px">
+                        <img class="card-img-top img-fluid" src="img/empresa_icon.png"></div>
+                    <div class="card-info">
+                        <h4 class="card-title">Empresa</h4>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <!---------------------------------->
+        </button>
+    </form>
+
 </div>
 <!---end of div with class row--->
 
