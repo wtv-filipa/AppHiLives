@@ -29,7 +29,7 @@
 }
 
 .cards .card-image {
-    height: 250px;
+    height: 160px !important;
     overflow: hidden;
     background-size: cover;
     background-position: center;
@@ -43,6 +43,12 @@
 
 
 /*******TEXTO******************/
+
+#wrapper_title {
+    padding-top: 3% !important;
+    width: 750px;
+    max-width: 100%;
+}
 
 #wrapper_title {
     padding-top: 3% !important;
@@ -72,4 +78,15 @@
     font-size: 1rem;
     font-family: "Quicksand";
     font-weight: bold;
+}
+
+h5 {
+    font-size: 18px;
+    font-family: 'Quicksand';
+    font-weight: bold;
+}
+
+h6 {
+    font-size: 14px;
+    font-family: 'Quicksand';
 }

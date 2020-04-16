@@ -1,5 +1,5 @@
 <!------------------PRIMEIRA SECÇÃO----------------------->
-<div id='wrapper_title'>
+<div id='wrapper_title' style="margin-left: 13%;">
     <div class='tagpost-top section' id='tagpost-top'>
         <div class='widget HTML' id='HTML5'>
             <div data-aos="fade-up">
@@ -9,14 +9,14 @@
     </div>
 </div>
 
-<div id='wrapper' class="col-md-12">
+<div id='wrapper' class=" w-75 mx-auto">
     <div class="row mt-5">
         <!--Cards-->
         <!--Card 1-->
         <div class="cards text-center col-md-4 col-sm-6 mt-4">
             <div class="card-item">
                 <div class="card-image">
-                    <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa" style="height: 240px;"></div>
+                    <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa" style="height: 160px;"></div>
                 <div class="card-info mb-2">
                     <h6>Trabalhar</h6>
                     <h5>Fnac</h5>
@@ -29,7 +29,7 @@
         <div class="cards text-center col-md-4 col-sm-6 mt-4">
             <div class="card-item">
                 <div class="card-image">
-                    <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa" style="height: 240px;"></div>
+                    <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa" style="height: 160px;"></div>
                 <div class="card-info mb-2">
                     <h6>Trabalhar</h6>
                     <h5>Fnac</h5>
@@ -42,7 +42,7 @@
         <div class="cards text-center col-md-4 col-sm-6 mt-4">
             <div class="card-item">
                 <div class="card-image">
-                    <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa" style="height: 240px;"></div>
+                    <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa" style="height: 160px;"></div>
                 <div class="card-info mb-2">
                     <h6>Trabalhar</h6>
                     <h5>Fnac</h5>
@@ -55,7 +55,7 @@
         <div class="cards text-center col-md-4 col-sm-6 mt-4">
             <div class="card-item">
                 <div class="card-image">
-                    <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa" style="height: 240px;"></div>
+                    <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa" style="height: 160px;"></div>
                 <div class="card-info mb-2">
                     <h6>Trabalhar</h6>
                     <h5>Fnac</h5>
@@ -68,7 +68,7 @@
         <div class="cards text-center col-md-4 col-sm-6 mt-4">
             <div class="card-item">
                 <div class="card-image">
-                    <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa" style="height: 240px;"></div>
+                    <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa" style="height: 160px;"></div>
                 <div class="card-info mb-2">
                     <h6>Trabalhar</h6>
                     <h5>Fnac</h5>
@@ -81,7 +81,7 @@
         <div class="cards text-center col-md-4 col-sm-6 mt-4">
             <div class="card-item">
                 <div class="card-image">
-                    <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa" style="height: 240px;"></div>
+                    <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa" style="height: 160px;"></div>
                 <div class="card-info mb-2">
                     <h6>Trabalhar</h6>
                     <h5>Fnac</h5>
@@ -98,7 +98,7 @@
 </div>
 
 <!------------------------SEGUNDA SECÇÃO--------------------->
-<div id='wrapper_title'>
+<div id='wrapper_title' style="margin-left: 13%;">
     <div class='tagpost-top section' id='tagpost-top'>
         <div class='widget HTML' id='HTML5'>
             <div data-aos="fade-up">
@@ -108,14 +108,14 @@
     </div>
 </div>
 
-<div id='wrapper' class="col-md-12">
+<div id='wrapper' class=" w-75 mx-auto">
     <div class="row mt-5">
         <!--Cards-->
         <!--Card 1-->
         <div class="cards text-center col-md-4 col-sm-6 mt-4">
             <div class="card-item">
                 <div class="card-image">
-                    <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa" style="height: 240px;"></div>
+                    <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa" style="height: 160px;"></div>
                 <div class="card-info mb-2">
                     <h6>Trabalhar</h6>
                     <h5>Fnac</h5>
@@ -128,7 +128,7 @@
         <div class="cards text-center col-md-4 col-sm-6 mt-4">
             <div class="card-item">
                 <div class="card-image">
-                    <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa" style="height: 240px;"></div>
+                    <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa" style="height: 160px;"></div>
                 <div class="card-info mb-2">
                     <h6>Trabalhar</h6>
                     <h5>Fnac</h5>
@@ -141,7 +141,7 @@
         <div class="cards text-center col-md-4 col-sm-6 mt-4">
             <div class="card-item">
                 <div class="card-image">
-                    <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa" style="height: 240px;"></div>
+                    <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa" style="height: 160px;"></div>
                 <div class="card-info mb-2">
                     <h6>Trabalhar</h6>
                     <h5>Fnac</h5>
@@ -154,7 +154,7 @@
         <div class="cards text-center col-md-4 col-sm-6 mt-4">
             <div class="card-item">
                 <div class="card-image">
-                    <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa" style="height: 240px;"></div>
+                    <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa" style="height: 160px;"></div>
                 <div class="card-info mb-2">
                     <h6>Trabalhar</h6>
                     <h5>Fnac</h5>
@@ -167,7 +167,7 @@
         <div class="cards text-center col-md-4 col-sm-6 mt-4">
             <div class="card-item">
                 <div class="card-image">
-                    <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa" style="height: 240px;"></div>
+                    <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa" style="height: 160px;"></div>
                 <div class="card-info mb-2">
                     <h6>Trabalhar</h6>
                     <h5>Fnac</h5>
@@ -180,7 +180,7 @@
         <div class="cards text-center col-md-4 col-sm-6 mt-4">
             <div class="card-item">
                 <div class="card-image">
-                    <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa" style="height: 240px;"></div>
+                    <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa" style="height: 160px;"></div>
                 <div class="card-info mb-2">
                     <h6>Trabalhar</h6>
                     <h5>Fnac</h5>

@@ -1,72 +1,83 @@
-    /*******************cards css de ESTUDAR*********************/
-    
-    .cards .card-item {
-        display: flex;
-        flex-direction: column;
-        background-color: #DAEEF4;
-        width: 100%;
-        border-radius: 200%;
-        box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
-        overflow: hidden;
-        transition: transform 0.5s;
-        -webkit-transition: transform 0.5s;
-    }
-    
-    .cards .card-item:hover {
-        cursor: pointer;
-    }
-    
-    .cards .card-item:hover .card-image {
-        opacity: 1;
-    }
-    
-    .cards .card-info {
-        padding-bottom: 2px;
-        display: flex;
-        flex: 1 1 auto;
-        flex-direction: column;
-        line-height: 1.5em;
-        /*margin-top: -22px; */
-    }
-    
-    .cards .card-image {
-        height: 250px;
-        overflow: hidden;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        border-radius: 200px 200px 0px 0px;
-        opacity: 0.91;
-    }
-    /********************************************************************************/
-    /*******TEXTO******************/
-    
-    #wrapper_title {
-        padding-top: 3% !important;
-        width: 750px;
-        max-width: 100%;
-    }
-    
-    .main_title {
-        font-size: 1.3rem;
-        font-family: "Quicksand";
-        font-weight: bold;
-        max-width: 100%;
-        margin-top: 5%;
-    }
-    
-    #wrapper {
-        margin: auto;
-        max-width: 100%;
-        background-color: #fff;
-        box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.17);
-        padding: 10px;
-        border-radius: 10px;
-    }
-    
-    #footer {
-        text-align: center;
-        font-size: 1rem;
-        font-family: "Quicksand";
-        font-weight: bold;
-    }
+                /*******************cards css de ESTUDAR*********************/
+                
+                .cards .card-item {
+                    display: flex;
+                    flex-direction: column;
+                    background-color: #DAEEF4;
+                    width: 100%;
+                    border-radius: 200%;
+                    box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+                    overflow: hidden;
+                    transition: transform 0.5s;
+                    -webkit-transition: transform 0.5s;
+                }
+                
+                .cards .card-item:hover {
+                    cursor: pointer;
+                }
+                
+                .cards .card-item:hover .card-image {
+                    opacity: 1;
+                }
+                
+                .cards .card-info {
+                    padding-bottom: 2px;
+                    display: flex;
+                    flex: 1 1 auto;
+                    flex-direction: column;
+                    line-height: 1.5em;
+                    /*margin-top: -22px; */
+                }
+                
+                .cards .card-image {
+                    height: 160px !important;
+                    overflow: hidden;
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    border-radius: 200px 200px 0px 0px;
+                    opacity: 0.91;
+                }
+                /********************************************************************************/
+                /*******TEXTO******************/
+                
+                #wrapper_title {
+                    padding-top: 3% !important;
+                    width: 750px;
+                    max-width: 100%;
+                }
+                
+                .main_title {
+                    font-size: 1.3rem;
+                    font-family: "Quicksand";
+                    font-weight: bold;
+                    max-width: 100%;
+                    margin-top: 5%;
+                }
+                
+                #wrapper {
+                    margin: auto;
+                    max-width: 100%;
+                    background-color: #fff;
+                    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.17);
+                    padding: 10px;
+                    border-radius: 10px;
+                }
+                
+                #footer {
+                    text-align: center;
+                    font-size: 1rem;
+                    font-family: "Quicksand";
+                    font-weight: bold;
+                }
+                
+                h5 {
+                    font-size: 18px;
+                    font-family: 'Quicksand';
+                    font-weight: bold;
+                }
+                
+                h6 {
+                    font-size: 14px;
+                    font-family: 'Quicksand';
+                }

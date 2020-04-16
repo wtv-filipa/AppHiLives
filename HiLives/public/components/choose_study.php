@@ -9,7 +9,7 @@
     </div>
 </div>
 
-<div class="row mt-5">
+<div class="row mt-5  w-75 mx-auto">
     <!--Cards-->
     <!--Card 1-->
     <div class="cards text-center col-md-4 col-sm-6 mt-4 centro">
