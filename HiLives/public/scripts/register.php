@@ -31,7 +31,7 @@ if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["study_work"
             mysqli_close($link);
 
             // SUCCESS ACTION
-            echo "ESTÁ NA BD <br>";
+            //echo "ESTÁ NA BD <br>";
             //header("Location: ../login.php?msg=2");
         } else {
             // ERROR ACTION

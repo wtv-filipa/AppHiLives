@@ -77,7 +77,7 @@
         <p>Esta plataforma ermite o registo de <b>três entidades</b> diferentes: <b>jovens</b>, <b>universidades</b> e <b>empresas</b>.</p>
     </div>
 </div>
-
+<hr>
 <div class=" mt-5 row">
     <div class="col-lg-9 text-right">
         <h3>Procuras estudar?</h3>
@@ -87,7 +87,7 @@
         <img class="rounded-circle" width="200px" height="200px" src="img/empresa.jpg" alt="imagem sobre o que é o HiLives" />
     </div>
 </div>
-
+<hr>
 <div class=" mt-5 row">
 <div class="col-lg-3">
         <img class="rounded-circle" width="200px" height="200px" src="img/empresa.jpg" alt="imagem sobre o que é o HiLives" />

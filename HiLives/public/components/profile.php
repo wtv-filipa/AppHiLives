@@ -11,8 +11,8 @@
        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit</p>
         -->
         <div class="mt-4">
-            <button class="btn profile-edit-btn">Editar perfil</button>
-            <button class="btn profile-edit-btn">Adicionar disciplinas</button>
+            <a href="edit_profile.php"><button class="btn profile-edit-btn">Editar perfil</button></a>
+            <a href="done_uc.php"><button class="btn profile-edit-btn">Adicionar disciplinas</button></a>
         </div>
     </div>
 

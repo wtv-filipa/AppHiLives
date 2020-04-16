@@ -135,8 +135,45 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <!------------REGIÃO------------>
 
+                                    <!------------ÁREAS------------>
+                                    <div class="form-group">
+                                        <label class="negrito" for="area">Áreas de interesse</label>
+                                        <div class="form-check">
+                                            <?php
+                                            $query = "SELECT idAreas, name_interested_area FROM areas";
+
+                                            if (mysqli_stmt_prepare($stmt, $query)) {
+
+                                                /* execute the prepared statement */
+                                                if (mysqli_stmt_execute($stmt)) {
+                                                    /* bind result variables */
+                                                    mysqli_stmt_bind_result($stmt, $idAreas, $name_interested_area);
+
+                                                    /* fetch values */
+                                                    while (mysqli_stmt_fetch($stmt)) {
+
+                                                        echo "\n\t\t";
+                                                        echo "<label class='form-check-label col-6'>";
+                                                        echo "<input type='checkbox' class='form-check-input' name='area[]' value='$idAreas'>$name_interested_area<br>";
+                                                        echo"</label>";
+                                                    }
+                                                } else {
+                                                    echo "Error: " . mysqli_stmt_error($stmt);
+                                                }
+
+                                                /* close statement */
+                                                //mysqli_stmt_close($stmt);
+                                            } else {
+                                                echo "Error: " . mysqli_error($link);
+                                            }
+
+
+
+                                            ?>
+                                        </div>
+                                    </div>
+                                    <!------------REGIÃO------------>
                                     <div class="form-group">
                                         <label class="negrito" for="regiao">Região que procuras estudar ou
                                             trabalhar</label>
@@ -176,9 +213,9 @@
                                     </div>
                                     <!------------DEFICIÊNCIA------------>
                                     <div class="form-group">
-                                        <label class="negrito" for="def">Deficiência</label>
+                                        <label class="negrito" for="def">Detalhes sobre a minha DID</label>
                                         <textarea class="form-control cinza" id="def" rows="2" name="def"
-                                                  placeholder="Escreve aqui a tua DID"></textarea>
+                                                  placeholder="Descreve aqui a tua DID"></textarea>
                                     </div>
                                     <!------------LAUDO------------>
                                     <div class="form-group">
@@ -288,14 +325,14 @@
                                                 <option name="c">Falo com outras pessoas que me possam ajudar a melhorar</option>
                                             </select>
                                         </div>
-
+                                        <hr>
                                         <!------------PASSWORD------------>
                                         <div class="form-group mt-4">
                                             <label class="negrito" for="pass">Palavra-passe</label>
                                             <div class="p-0 m-0">
                                                 <input type="password" class="form-control" id="password"
                                                        name="password"
-                                                       placeholder="Escreve aqui uma palavra-passe"  required="required"
+                                                       placeholder="Cria a tua palavra-passe para o HiLives"  required="required"
                                                        onkeyup="checkPass(); return false;">
                                             </div>
                                         </div>
@@ -303,7 +340,7 @@
                                             <label class="negrito" for="vpass">Verificar palavra-passe</label>
                                             <div class="p-0 m-0">
                                                 <input type="password" class="form-control" id="password_confirm"
-                                                       placeholder="Escreve aqui a palavra-passe novamente" required="required"
+                                                       placeholder="Repete a tua palavra-passe" required="required"
                                                        onkeyup="checkPass(); return false;">
                                                 <span id="confirmMessage" class="confirmMessage"></span>
                                             </div>

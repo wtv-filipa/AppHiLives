@@ -58,9 +58,9 @@
                     <div class="nav__avatar--dropdown">
 
 
-                        <button class="nav__btn2 text-light" style="background: #E93CAC;"><i class="fa fa-shield mr-2 text-light"></i>ADMIN</button></a>
-                        <a href=""><button class="nav__btn2 nome"> <!--<i class="fa fa-star-o mr-2"></i>-->Ver Perfil</button></a>
-                        <a href=""><button class="nav__btn2"> <!--<i class="fa fa-star-o mr-2"></i>-->Editar perfil</button></a>
+                        <a href="../admin/index.php"><button class="nav__btn2 text-light" style="background: #E93CAC;"><i class="fa fa-shield mr-2 text-light"></i>ADMIN</button></a>
+                        <a href="profile.php"><button class="nav__btn2 nome"> <!--<i class="fa fa-star-o mr-2"></i>-->Ver Perfil</button></a>
+                        <a href="edit_profile.php"><button class="nav__btn2"> <!--<i class="fa fa-star-o mr-2"></i>-->Editar perfil</button></a>
                         <a href=""><button class="nav__btn2"> <!--<i class="fa fa-sliders mr-2"></i>-->Definições</button></a>
 
                         <a href="scripts/logout.php"><button class="nav__btn2"  style="background: #FDE74C;"><i class="fa fa-sign-out mr-2"></i>Logout</button></a>
@@ -104,19 +104,26 @@
 
 
             <ul class="ml-2 ">
+                <!-- TODAS AS OPÇÕES -->
                 <li><a class="nav__link mr-2 mb-1"><img src="" alt="" class="icones nav__link--icon"/><span class="nav__link--text_main font-weight-bold">Todas as opções</span></a></li>
-                <li><a class="nav__link mr-2 mb-1 zoom" href=""><img src="" alt="" class="icones nav__link--icon"/></span><span class="nav__link--text ">Estudar</span></a></li>
-                <li><a class="nav__link mr-2 mb-1 zoom" href=""><img src="" alt="" class="icones nav__link--icon"/><span class="nav__link--text">Trabalhar</span></a></li>
-                <li><a class="nav__link mr-2 mb-1 zoom" href=""><img src="" alt="" class="icones nav__link--icon"/><span class="nav__link--text">Estudar e trabalhar</span></a></li>
+                <li><a href="allOptions_uni.php" class="nav__link mr-2 mb-1 zoom"><img src="" alt="" class="icones nav__link--icon"/></span><span class="nav__link--text ">Estudar</span></a></li>
+                <li><a href="allOptions_company.php" class="nav__link mr-2 mb-1 zoom"><img src="" alt="" class="icones nav__link--icon"/><span class="nav__link--text">Trabalhar</span></a></li>
+                <li><a class="nav__link mr-2 mb-1 zoom"><img src="" alt="" class="icones nav__link--icon"/><span class="nav__link--text">Estudar e trabalhar</span></a></li>
+
+                <!-- POSSO ESCOLHER -->
                 <li><a class="nav__link mr-2 mb-1 mt-4"><img src="" alt="" class="icones nav__link--icon"/><span class="nav__link--text_main font-weight-bold">Posso escolher</span></a></li>
-                <li><a class="nav__link mr-2 mb-1 zoom" href=""><img src="" alt="" class="icones nav__link--icon"/></span><span class="nav__link--text">Estudar</span></a></li>
-                <li><a class="nav__link mr-2 mb-1 zoom" href=""><img src="" alt="" class="icones nav__link--icon"/><span class="nav__link--text">Trabalhar</span></a></li>
-                <li><a class="nav__link mr-2 mb-1 zoom" href=""><img src="" alt="" class="icones nav__link--icon"/><span class="nav__link--text">Estudar e trabalhar</span></a></li>
+                <li><a href="can_choose_study.php" class="nav__link mr-2 mb-1 zoom"><img src="" alt="" class="icones nav__link--icon"/></span><span class="nav__link--text">Estudar</span></a></li>
+                <li><a href="can_choose_work.php" class="nav__link mr-2 mb-1 zoom"><img src="" alt="" class="icones nav__link--icon"/><span class="nav__link--text">Trabalhar</span></a></li>
+                <li><a class="nav__link mr-2 mb-1 zoom"><img src="" alt="" class="icones nav__link--icon"/><span class="nav__link--text">Estudar e trabalhar</span></a></li>
+
+                <!-- AS MINHAS LIGAÇÕES-->
                 <li><a class="nav__link mr-2 mb-1 mt-4"><img src="" alt="" class="icones nav__link--icon"/><span class="nav__link--text_main font-weight-bold">As minhas ligações</span></a></li>
-                <li><a class="nav__link mr-2 mb-1 zoom" href="links_chosen.php"><img src="" alt="" class="icones nav__link--icon"/></span><span class="nav__link--text">Escolhas</span></a></li>
-                <li><a class="nav__link mr-2 mb-1 zoom" href="links_made.php"><img src="" alt="" class="icones nav__link--icon"/><span class="nav__link--text">Feitas</span></a></li>
+                <li><a href="links_chosen.php" class="nav__link mr-2 mb-1 zoom"><img src="" alt="" class="icones nav__link--icon"/></span><span class="nav__link--text">Escolhas</span></a></li>
+                <li><a href="links_made.php" class="nav__link mr-2 mb-1 zoom" ><img src="" alt="" class="icones nav__link--icon"/><span class="nav__link--text">Feitas</span></a></li>
+
+                <!-- EXPERIÊNCIAS -->
                 <li><a class="nav__link mr-2 mb-1 mt-4"><img src="" alt="" class="icones nav__link--icon"/><span class="nav__link--text_main font-weight-bold">Experiências</span></a></li>
-                <li><a class="nav__link mr-2 mb-1 zoom" href=""><img src="" alt="" class="icones nav__link--icon"/><span class="nav__link--text">Ver experiências</span></a></li>
+                <li><a href="experiences.php" class="nav__link mr-2 mb-1 zoom"><img src="" alt="" class="icones nav__link--icon"/><span class="nav__link--text">Ver experiências</span></a></li>
             </ul>
     </div>
 
