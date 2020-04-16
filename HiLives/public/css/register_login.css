@@ -7,7 +7,7 @@
     font-weight: bold;
 }
 
-label, input, textarea, h1 {
+label, input, textarea, h1, option {
     font-family: "Quicksand";
 }
 
@@ -48,4 +48,9 @@ label, input, textarea, h1 {
 
 label {
     margin-left: -20px;
+}
+
+.lala {
+    width: calc(33% - 0px);
+    padding-right: 0px;
 }
