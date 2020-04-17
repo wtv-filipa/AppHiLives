@@ -321,3 +321,112 @@ ul.taglabel li {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.title {
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    padding-bottom: 20px;
+}
+.title span {
+    display: block;
+    text-transform: none;
+    font-size: .70em;
+}
+
+.contenedor-acordeon {
+    width: 900px;
+    overflow: hidden;
+    border-radius: 3px;
+}
+
+.acordeon {
+    width: 100%;
+    overflow: hidden;
+}
+.acordeon__head {
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5em;
+    box-shadow: 0 0 1px rgba(128, 128, 128, 0.5) inset;
+    vertical-align: middle;
+}
+
+.acordeon__head:hover {
+    cursor: pointer;
+}
+.acordeon__head--logo, .acordeon__head--title, .acordeon__head .icon {
+    pointer-events: none;
+}
+.acordeon__head--logo {
+    width: 8%;
+}
+.acordeon__head--title {
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: .95em;
+    font-weight: 600;
+    margin:0;
+}
+.acordeon__head .icon {
+    font-size: .80em;
+}
+.acordeon__body {
+    height: 0;
+    transition: height .4s ease-in-out;
+}
+.acordeon__body__menu {
+    list-style: none;
+}
+.acordeon__body__menu li {
+    border-bottom: 0.2px solid rgba(0, 0, 0, 0.3);
+    padding: .90em;
+}
+.acordeon__body__menu li a {
+    display: block;
+    color: #2F2F2F;
+    text-decoration: none;
+    padding: 1em 0 1em 1.5em;
+    font-size: .95em;
+    line-height: 1.2em;
+    font-weight: 600;
+}
+
+.acordeon__body__menu1 li a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 1em 0 1em 1.5em;
+    font-size: .95em;
+    line-height: 1.2em;
+    font-weight: 600;
+}
+
+.active {
+    height: 100%;
+}
+
+
