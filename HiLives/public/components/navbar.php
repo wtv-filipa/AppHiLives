@@ -11,9 +11,9 @@
 
 <header class="top">
     <nav class="nav__ container cont_l">
-        <div class=" nav__controls--left">
-            <a href="#" class="nav__link align-middle">
-                <i class="fas fa-ellipsis-v" id="button" style="color: #2f2f2f; font-size: 25px !important;">
+        <div class="nav__controls--left">
+            <a href="#" class="nav__link">
+                <i class="fas fa-ellipsis-v" id="button" style="margin-left:20px; color: #2f2f2f; font-size: 25px !important;">
                     <span class="menunav ml-3">Eu quero</span>
                 </i>
             </a>

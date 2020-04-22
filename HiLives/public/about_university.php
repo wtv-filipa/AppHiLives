@@ -26,8 +26,7 @@
     <?php include "components/about_university.php"; ?>
 </main>
 <!-- JavaScript-->
-<?php //include "helpers/js.php";
-?>
+<?php include "helpers/fontawesome.php"; ?>
 </body>
 
 </html>

@@ -5,7 +5,7 @@
     <!-- metadados -->
     <?php include "helpers/meta.php"; ?>
     <title>Detalhes da vaga</title>
-     <!-- Custom fonts for this template-->
+    <!-- Custom fonts for this template-->
     <?php include "helpers/fonts.php"; ?>
     <!-- Custom styles for this template-->
     <?php include "helpers/css_vacancie.php"; ?>
@@ -21,6 +21,7 @@
         <!--componente da home sem login-->
         <?php include "components/vacancie_learn.php"; ?>
     </main>
-   </body>
+    <?php include "helpers/fontawesome.php"; ?>
+</body>
 
 </html>

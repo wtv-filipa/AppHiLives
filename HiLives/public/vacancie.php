@@ -21,7 +21,7 @@
         <!--componente da home sem login-->
         <?php include "components/vacancie.php"; ?>
     </main>
-    
+    <?php include "helpers/fontawesome.php"; ?>
 </body>
 
 </html>

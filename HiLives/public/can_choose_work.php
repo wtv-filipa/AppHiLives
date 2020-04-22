@@ -21,6 +21,7 @@
         <!--componente da home sem login-->
         <?php include "components/choose_work.php"; ?>
     </main>
+    <?php include "helpers/fontawesome.php"; ?>
 </body>
 
 </html>
