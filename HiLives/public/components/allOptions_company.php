@@ -10,11 +10,11 @@
 </div>
 
 
-<div class="card-deck text-center">
+<div class="card-deck text-center mx-auto w-75">
     <div class="cards">
         <div class="card-item">
             <div class="card-image">
-                <img class="w-100" src="img/fnac.jpg"></div>
+                <img class="imagem" src="img/fnac.jpg"></div>
             <div class="card-info">
                 <h4 class="card-intro description_title">Trabalhar</h4>
                 <h2 class="card-title sub_title">FNAC</h2>
@@ -26,7 +26,7 @@
     <div class="cards">
         <div class="card-item">
             <div class="card-image">
-                <img class="w-100" src="img/fnac.jpg">
+                <img class="imagem" src="img/fnac.jpg">
             </div>
             <div class="card-info">
                 <h4 class="card-intro description_title">Trabalhar</h4>
@@ -39,7 +39,7 @@
     <div class="cards">
         <div class="card-item">
             <div class="card-image">
-                <img class="w-100" src="img/fnac.jpg"></div>
+                <img class="imagem" src="img/fnac.jpg"></div>
             <div class="card-info">
                 <h4 class="card-intro description_title">Trabalhar</h4>
                 <h2 class="card-title sub_title">FNAC</h2>
@@ -49,11 +49,11 @@
     </div>
 </div>
 
-<div class="card-deck text-center">
+<div class="card-deck text-center mx-auto w-75">
     <div class="cards">
         <div class="card-item">
             <div class="card-image">
-                <img class="w-100" src="img/fnac.jpg"></div>
+                <img class="imagem" src="img/fnac.jpg"></div>
             <div class="card-info">
                 <h4 class="card-intro description_title">Trabalhar</h4>
                 <h2 class="card-title sub_title">FNAC</h2>
@@ -65,7 +65,7 @@
     <div class="cards">
         <div class="card-item">
             <div class="card-image">
-                <img class="w-100" src="img/fnac.jpg"></div>
+                <img class="imagem" src="img/fnac.jpg"></div>
             <div class="card-info">
                 <h4 class="card-intro description_title">Trabalhar</h4>
                 <h2 class="card-title sub_title">FNAC</h2>
@@ -77,7 +77,7 @@
     <div class="cards">
         <div class="card-item">
             <div class="card-image">
-                <img class="w-100" src="img/fnac.jpg"></div>
+                <img class="imagem" src="img/fnac.jpg"></div>
             <div class="card-info">
                 <h4 class="card-intro description_title">Trabalhar</h4>
                 <h2 class="card-title sub_title">FNAC</h2>
@@ -87,11 +87,11 @@
     </div>
 </div>
 
-<div class="card-deck text-center">
+<div class="card-deck text-center mx-auto w-75">
     <div class="cards">
         <div class="card-item">
             <div class="card-image">
-                <img class="w-100" src="img/fnac.jpg"></div>
+                <img class="imagem" src="img/fnac.jpg"></div>
             <div class="card-info">
                 <h4 class="card-intro description_title">Trabalhar</h4>
                 <h2 class="card-title sub_title">FNAC</h2>
@@ -103,7 +103,7 @@
     <div class="cards">
         <div class="card-item">
             <div class="card-image">
-                <img class="w-100" src="img/fnac.jpg">
+                <img class="imagem" src="img/fnac.jpg">
             </div>
             <div class="card-info">
                 <h4 class="card-intro description_title">Trabalhar</h4>
@@ -116,7 +116,7 @@
     <div class="cards">
         <div class="card-item">
             <div class="card-image">
-                <img class="w-100" src="img/fnac.jpg"></div>
+                <img class="imagem" src="img/fnac.jpg"></div>
             <div class="card-info">
                 <h4 class="card-intro description_title">Trabalhar</h4>
                 <h2 class="card-title sub_title">FNAC</h2>
@@ -126,11 +126,11 @@
     </div>
 </div>
 
-<div class="card-deck text-center">
+<div class="card-deck text-center mx-auto w-75">
     <div class="cards">
         <div class="card-item">
             <div class="card-image">
-                <img class="w-100" src="img/fnac.jpg"></div>
+                <img class="imagem" src="img/fnac.jpg"></div>
             <div class="card-info">
                 <h4 class="card-intro description_title">Trabalhar</h4>
                 <h2 class="card-title sub_title">FNAC</h2>
@@ -142,7 +142,7 @@
     <div class="cards">
         <div class="card-item">
             <div class="card-image">
-                <img class="w-100" src="img/fnac.jpg"></div>
+                <img class="imagem" src="img/fnac.jpg"></div>
             <div class="card-info">
                 <h4 class="card-intro description_title">Trabalhar</h4>
                 <h2 class="card-title sub_title">FNAC</h2>
@@ -154,7 +154,7 @@
     <div class="cards">
         <div class="card-item">
             <div class="card-image">
-                <img class="w-100" src="img/fnac.jpg"></div>
+                <img class="imagem" src="img/fnac.jpg"></div>
             <div class="card-info">
                 <h4 class="card-intro description_title">Trabalhar</h4>
                 <h2 class="card-title sub_title">FNAC</h2>
