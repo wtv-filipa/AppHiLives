@@ -143,6 +143,14 @@
     margin-bottom: 15px;
 }
 
+
+.imagem{
+
+    width: auto;
+    height: 100%;
+}
+
+
 img.tagpost_thumb {
     float: left;
     margin-right: 12px;

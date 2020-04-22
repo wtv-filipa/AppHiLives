@@ -62,6 +62,7 @@
     flex-direction: column;
     background-color: #fff;
     width: 100%;
+    height: 90%;
     border-radius: 10px;
     box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
     overflow: hidden;
@@ -142,6 +143,14 @@
 #recenttags {
     margin-bottom: 15px;
 }
+
+
+.imagem{
+
+    width: auto;
+    height: 100%;
+}
+
 
 img.tagpost_thumb {
     float: left;
