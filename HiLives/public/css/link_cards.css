@@ -7,7 +7,9 @@
     font-family: Quicksand, sans-serif;
     color: #555555;
 }
-
+ul {
+    list-style: none;
+}
 a {
     text-decoration: none !important;
     color: inherit;
@@ -183,7 +185,7 @@ a {
 
 .menu-dropdown > * {
     overflow: hidden;
-    height: 30px;
+    height: 40px;
     padding: 5px 10px;
     background: rgba(0, 0, 0, 0);
     white-space: nowrap;

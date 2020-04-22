@@ -9,11 +9,11 @@
     }
 </style>
 
-<header class="top  ">
+<header class="top">
     <nav class="nav__ container cont_l">
         <div class=" nav__controls--left">
             <a href="#" class="nav__link align-middle">
-                <i class="fa fa-bars mr-3" id="button" style="color: #2f2f2f; font-size: 25px !important;">
+                <i class="fas fa-ellipsis-v" id="button" style="color: #2f2f2f; font-size: 25px !important;">
                     <span class="menunav ml-3">Eu quero</span>
                 </i>
             </a>
@@ -156,91 +156,91 @@
                 </div>
     </nav>
 
-    <div id="slide1" style="padding-right: "><a href="#" id="button2"><i class="fa fa-times" style="color: black"></i>
-            <ul class="ml-2 ">
-                <!-- TODAS AS OPÇÕES -->
+    <div id="slide1"><a href="#" id="button2"><i class="fa fa-times" style="color: black"></i>
+            <ul class="">
+                <!-- EU QUERO ESTUDAR -->
                 <li>
                     <a class="nav__link mr-2 mb-1">
                         <img src="" alt="" class="icones nav__link--icon"/>
-                        <span class="nav__link--text_main font-weight-bold">Todas as opções</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="allOptions_uni.php" class="nav__link mr-2 mb-1 zoom">
-                        <img src="" alt="" class="icones nav__link--icon"/>
-                        <span class="nav__link--text ">Estudar</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="allOptions_company.php" class="nav__link mr-2 mb-1 zoom">
-                        <img src="" alt="" class="icones nav__link--icon"/>
-                        <span class="nav__link--text">Trabalhar</span>
-                    </a>
-                </li>
-                <li>
-                    <a class="nav__link mr-2 mb-1 zoom">
-                        <img src="" alt="" class="icones nav__link--icon"/>
-                        <span class="nav__link--text">Estudar e trabalhar</span>
-                    </a>
-                </li>
-
-                <!-- POSSO ESCOLHER -->
-                <li>
-                    <a class="nav__link mr-2 mb-1 mt-4">
-                        <img src="" alt="" class="icones nav__link--icon"/>
-                        <span class="nav__link--text_main font-weight-bold">Posso escolher</span>
+                        <span class="nav__link--text_main font-weight-bold">Eu quero estudar</span>
                     </a>
                 </li>
                 <li>
                     <a href="can_choose_study.php" class="nav__link mr-2 mb-1 zoom">
                         <img src="" alt="" class="icones nav__link--icon"/>
-                        <span class="nav__link--text">Estudar</span>
+                        <span class="nav__link--text ">As minha ligações</span>
                     </a>
                 </li>
                 <li>
-                    <a href="can_choose_work.php" class="nav__link mr-2 mb-1 zoom">
+                    <a href="allOptions_uni.php" class="nav__link mr-2 mb-1 zoom">
                         <img src="" alt="" class="icones nav__link--icon"/>
-                        <span class="nav__link--text">Trabalhar</span>
-                    </a>
-                </li>
-                <li>
-                    <a class="nav__link mr-2 mb-1 zoom">
-                        <img src="" alt="" class="icones nav__link--icon"/>
-                        <span class="nav__link--text">Estudar e trabalhar</span>
-                    </a>
-                </li>
-
-                <!-- AS MINHAS LIGAÇÕES-->
-                <li>
-                    <a class="nav__link mr-2 mb-1 mt-4">
-                        <img src="" alt="" class="icones nav__link--icon"/>
-                        <span class="nav__link--text_main font-weight-bold">As minhas ligações</span>
+                        <span class="nav__link--text">Todas as opções disponíveis</span>
                     </a>
                 </li>
                 <li>
                     <a href="links_chosen.php" class="nav__link mr-2 mb-1 zoom">
                         <img src="" alt="" class="icones nav__link--icon"/>
-                        <span class="nav__link--text">Escolhas</span>
+                        <span class="nav__link--text">As minhas escolhas</span>
+                    </a>
+                </li>
+
+                <!-- EU QUERO TRABALHAR -->
+                <li>
+                    <a class="nav__link mr-2 mb-1 mt-4">
+                        <img src="" alt="" class="icones nav__link--icon"/>
+                        <span class="nav__link--text_main font-weight-bold">Eu quero trabalhar</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="can_choose_work.php" class="nav__link mr-2 mb-1 zoom">
+                        <img src="" alt="" class="icones nav__link--icon"/>
+                        <span class="nav__link--text">As minhas ligações</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="allOptions_company.php" class="nav__link mr-2 mb-1 zoom">
+                        <img src="" alt="" class="icones nav__link--icon"/>
+                        <span class="nav__link--text">Todas as opções disponíveis</span>
+                    </a>
+                </li>
+
+                <!-- EU QUERO ESTUDAR E TRABALHAR -->
+                <li>
+                    <a class="nav__link mr-2 mb-1 mt-4">
+                        <img src="" alt="" class="icones nav__link--icon"/>
+                        <span class="nav__link--text_main font-weight-bold">Eu quero estudar e trabalhar</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="" class="nav__link mr-2 mb-1 zoom">
+                        <img src="" alt="" class="icones nav__link--icon"/>
+                        <span class="nav__link--text">As minhas ligações</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="" class="nav__link mr-2 mb-1 zoom">
+                        <img src="" alt="" class="icones nav__link--icon"/>
+                        <span class="nav__link--text">Todas as opções disponíveis</span>
+                    </a>
+                </li>
+
+                <!-- EU QUERO VER O QUE JÁ FOI FEITO -->
+                <li>
+                    <a class="nav__link mr-2 mb-1 mt-4">
+                        <img src="" alt="" class="icones nav__link--icon"/>
+                        <span class="nav__link--text_main font-weight-bold">Eu quero ver o que já foi feito</span>
                     </a>
                 </li>
                 <li>
                     <a href="links_made.php" class="nav__link mr-2 mb-1 zoom">
                         <img src="" alt="" class="icones nav__link--icon"/>
-                        <span class="nav__link--text">Feitas</span>
-                    </a>
-                </li>
-
-                <!-- EXPERIÊNCIAS -->
-                <li>
-                    <a class="nav__link mr-2 mb-1 mt-4">
-                        <img src="" alt="" class="icones nav__link--icon"/>
-                        <span class="nav__link--text_main font-weight-bold">Experiências</span>
+                        <span class="nav__link--text">O que eu já fiz</span>
                     </a>
                 </li>
                 <li>
                     <a href="experiences.php" class="nav__link mr-2 mb-1 zoom">
                         <img src="" alt="" class="icones nav__link--icon"/>
-                        <span class="nav__link--text">Ver experiências</span>
+                        <span class="nav__link--text">O que os outros fizeram</span>
                     </a>
                 </li>
             </ul>
@@ -253,8 +253,8 @@
 
         function open() {
             var openThis = document.getElementById("slide1");
-            openThis.style.width = "320px";
-            if (openThis.style.width === "320px") {
+            openThis.style.width = "360px";
+            if (openThis.style.width === "360px") {
                 btn.style.visibility = "hidden";
                 btn1.style.visibility = "hidden";
             } else {

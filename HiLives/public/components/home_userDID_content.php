@@ -6,9 +6,9 @@
                     <h5 class="mx-auto titulo w-75">Eu quero estudar</h5>
                 </div>
                 <ul class="menu-dropdown">
-                    <a href="can_choose_study.php"><li>As minhas ligações</li></a>
-                    <li>Todas as opções disponíveis</li>
-                    <li>O que eu quero escolher</li>
+                    <li> <a class="btn" style="width:100%; font-size: 0.8rem;" href="can_choose_study.php">As minhas ligações</a></li>
+                    <li> <a class="btn" style="width:100%; font-size: 0.8rem;" href="allOptions_uni.php">Todas as opções disponíveis</a></li>
+                    <li> <a class="btn" style="width:100%; font-size: 0.8rem;" href="links_chosen.php">O que eu quero escolher</a></li>
                 </ul>
             </div>
         </li>
@@ -18,8 +18,8 @@
                     <h5 class="mx-auto titulo w-75">Eu quero trabalhar</h5>
                 </div>
                 <ul class="menu-dropdown">
-                    <li>As minhas ligações</li>
-                    <li>Todas as opções disponíveis</li>
+                    <li><a class="btn" style="width:100%; font-size: 0.8rem;" href="can_choose_work.php">As minhas ligações</a></li>
+                    <li><a class="btn" style="width:100%; font-size: 0.8rem;" href="allOptions_company.php">Todas as opções disponíveis</a></li>
                 </ul>
             </div>
         </li>
@@ -29,8 +29,8 @@
                     <h5 class="mx-auto titulo w-75">Eu quero estudar e trabalhar</h5>
                 </div>
                 <ul class="menu-dropdown">
-                    <li>As minhas ligações</li>
-                    <li>Todas as opções disponíveis</li>
+                    <li><a class="btn" style="width:100%; font-size: 0.8rem;" href="">As minhas ligações</a></li>
+                    <li><a class="btn" style="width:100%; font-size: 0.8rem;" href="">Todas as opções disponíveis</a></li>
                 </ul>
             </div>
         </li>
@@ -40,8 +40,8 @@
                     <h5 class="mx-auto titulo w-75">Eu quero ver o que já foi feito</h5>
                 </div>
                 <ul class="menu-dropdown">
-                    <li>O que eu já fiz</li>
-                    <li>O que os outros fizeram</li>
+                    <li><a class="btn" style="width:100%; font-size: 0.8rem;" href="links_made.php">O que eu já fiz</a></li>
+                    <li><a class="btn" style="width:100%; font-size: 0.8rem;" href="experiences.php">O que os outros fizeram</a></li>
                 </ul>
             </div>
         </li>

@@ -54,7 +54,7 @@
     acordeon.addEventListener("click", getTarget);
 
 </script>
-
+    <?php include "helpers/fontawesome.php"; ?>
 </body>
 
 </html>
