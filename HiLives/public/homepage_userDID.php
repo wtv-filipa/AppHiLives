@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <!-- metadados -->
     <?php include "helpers/meta.php"; ?>
 
@@ -13,7 +12,6 @@
 
     <!-- Custom styles for this template-->
     <?php include "helpers/css_home.php"; ?>
-
 </head>
 
 <body>
@@ -21,7 +19,7 @@
         <!--navbar-->
         <?php include "components/navbar.php"; ?>
     </header>
-    <main class="container p-0 mb-5 mx-auto">
+    <main class="container p-0 mb-5 mx-auto mt-0 pt-0">
         <!--componente da homepage-->
         <?php include "components/home_userDID_content.php"; ?>
     </main>
