@@ -8,6 +8,7 @@
 .blockquote>p {
     text-align: justify;
     font-size: 16px !important;
+    color: #2f2f2f;
 }
 
 .card-header {
@@ -15,12 +16,21 @@
     text-align: center;
     color: #2f2f2f;
     border-radius: 10px 10px 0 0!important;
+    margin: 0;
 }
 
 .card-header>h5 {
-    color: #2f2f2f;
     font-weight: bold;
-    font-family: "Quicksand";
+    font-family: "Quicksand" !important;
+    margin: 0;
+}
+
+.estudo {
+    background-color: #79C4D9;
+}
+
+.estudo>h5 {
+    color: #fff !important;
 }
 
 .card {
@@ -30,19 +40,115 @@
 }
 
 .altura {
-    height: 300px;
+    height: 427px;
 }
 
 
+<<<<<<< HEAD
 /*PERFIL*/
 
 .image_profile {
     box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+=======
+/*Disciplina já feitas*/
+
+img.tagpost_thumb {
+    float: left;
+    margin-right: 12px;
+    height: 75px;
+    width: 70px;
+    transition: all 1s;
     border-radius: 10px;
 }
 
+.taglabel {
+    display: inline-block;
+    float: left;
+    width: 100%;
+    padding: 0;
+    margin: auto;
+    border: none;
+    font-size: 16px;
+}
+
+ul.taglabel li {
+    min-height: 75px;
+    list-style-type: none;
+    margin-bottom: 2%;
+}
+
+.clearfix_uni_my_links {
+>>>>>>> b3b30d54d9af0b3904c3462bf591b2f358462d07
+    border-radius: 10px;
+    background-color: #f2f2f2;
+}
+
+<<<<<<< HEAD
 button.btn.profile-edit-btn {
     color: #2F2F2F;
+=======
+
+/*BOTÕES*/
+
+.edit_btn {
+    width: 40%!important;
+    height: 10%!important;
+    color: #2f2f2f!important;
+    background-color: #D3D3D3!important;
+    margin-bottom: 0.3125rem!important;
+    text-decoration: none!important;
+    cursor: pointer!important;
+    display: inline-block!important;
+    border-radius: 40px!important;
+    font-weight: bold;
+    border-color: #D3D3D3!important;
+}
+
+.edit_btn:hover {
+    width: 40%!important;
+    height: 10%!important;
+    color: #fff!important;
+    background-color: #2F2F2F !important;
+    margin-bottom: 0.3125rem!important;
+    text-decoration: none!important;
+    cursor: pointer!important;
+    display: inline-block!important;
+    border-color: #2F2F2F!important;
+    border-radius: 40px!important;
+}
+
+.add_btn {
+    width: 70%!important;
+    height: 10%!important;
+    color: #2f2f2f!important;
+    background-color: #D3D3D3!important;
+    margin-bottom: 0.3125rem!important;
+    text-decoration: none!important;
+    cursor: pointer!important;
+    display: inline-block!important;
+    border-radius: 40px!important;
+    margin-top: 5% !important;
+    font-weight: bold;
+    border-color: #D3D3D3!important;
+    font-family: 'Quicksand' !important;
+    font-size: 16px !important;
+}
+
+.add_btn:hover {
+    width: 70%!important;
+    height: 10%!important;
+    color: #fff!important;
+    background-color: #2F2F2F !important;
+    margin-bottom: 0.3125rem!important;
+    text-decoration: none!important;
+    cursor: pointer!important;
+    display: inline-block!important;
+    border-color: #2F2F2F!important;
+    border-radius: 40px!important;
+    font-family: 'Quicksand' !important;
+    font-size: 16px !important;
+    margin-top: 5% !important;
+>>>>>>> b3b30d54d9af0b3904c3462bf591b2f358462d07
 }
 
 .btn {
@@ -51,15 +157,16 @@ button.btn.profile-edit-btn {
     background: none;
     border: none;
     color: inherit;
-    padding: 0;
     cursor: pointer;
+    margin: 0;
 }
 
-.profile-edit-btn {
-    line-height: 1.8;
-    border: 0.1rem solid #D2D2D2;
-    border-radius: 1rem;
-    padding: 0 2.4rem;
+
+/*PERFIL*/
+
+.image_profile {
+    box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+    border-radius: 50%;
 }
 
 
@@ -84,6 +191,32 @@ button.btn.profile-edit-btn {
     margin: auto !important;
     text-align: center;
     background-color: #d3d3d3;
+<<<<<<< HEAD
+=======
+    color: #2f2f2f !important;
+    text-decoration: none !important;
+    height: 154px;
+    border-radius: 10px !important;
+    font-family: "Quicksand";
+    font-weight: bold;
+}
+
+.bt_add:hover {
+    display: block !important;
+    margin: auto !important;
+    text-align: center;
+    background-color: #2f2f2f!important;
+    color: #fff !important;
+    text-decoration: none !important;
+    height: 154px;
+    border-radius: 10px !important;
+    font-family: "Quicksand";
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none !important;
+>>>>>>> b3b30d54d9af0b3904c3462bf591b2f358462d07
 }
 
 
@@ -113,6 +246,7 @@ button.btn.profile-edit-btn {
 }
 
 
+<<<<<<< HEAD
 /*Aplica sombra ao "card"*/
 
 
@@ -127,3 +261,16 @@ button.btn.profile-edit-btn {
     transition: transform 0.5s;
     -webkit-transition: transform 0.5s;
 }  */
+=======
+/*TEXTO*/
+
+h3,
+h6,
+button.btn.edit_btn {
+    font-family: 'Quicksand'
+}
+
+.link_title {
+    font-weight: bold;
+}
+>>>>>>> b3b30d54d9af0b3904c3462bf591b2f358462d07

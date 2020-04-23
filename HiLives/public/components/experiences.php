@@ -4,7 +4,7 @@
 
 
 <!--Vídeos-->
-<div class="row mt-5">
+<div class="row mt-5 w-75 mx-auto">
 
     <div class="col-lg-4 col-md-12 mb-4 pb-2">
 
@@ -43,10 +43,6 @@
                             Fechar
                         </button>
 
-                        <!--Adicionei este span-->
-                        <span></span> 
-                        <!--Aqui acaba o span-->
-
                     </div>
                 </div>
             </div>
@@ -54,7 +50,11 @@
 
         <!--Título e informações do "card"-->
         <a>
-            <video class="img-fluid z-depth-1 p-0 m-0" src="" alt="video" data-toggle="modal" data-target="#modal1">
+            <!--ESTA IMAGEM É APENAS DE TESTE DE MEDIDAS-->
+            <img class="w-100" src="img/campus.jpg" data-toggle="modal" data-target="#modal1">
+
+            <!--Aqui vai estar a preview do vídeo-->
+            <!--<video class="img-fluid z-depth-1 p-0 m-0" src="" alt="video" data-toggle="modal" data-target="#modal1">-->
         </a>
 
         <div>
@@ -73,7 +73,11 @@
         <!--Título e informações do "card"-->
 
         <a>
-            <video class="img-fluid z-depth-1 p-0 m-0" src="" alt="video" data-toggle="modal" data-target="#modal1">
+            <!--ESTA IMAGEM É APENAS DE TESTE DE MEDIDAS-->
+            <img class="w-100" src="img/campus.jpg" data-toggle="modal" data-target="#modal1">
+
+            <!--Aqui vai estar a preview do vídeo-->
+            <!--<video class="img-fluid z-depth-1 p-0 m-0" src="" alt="video" data-toggle="modal" data-target="#modal1">-->
         </a>
 
         <div>
@@ -91,7 +95,11 @@
 
         <!--Título e informações do "card"-->
         <a>
-            <video class="img-fluid z-depth-1 p-0 m-0" src="" alt="video" data-toggle="modal" data-target="#modal1">
+            <!--ESTA IMAGEM É APENAS DE TESTE DE MEDIDAS-->
+            <img class="w-100" src="img/campus.jpg" data-toggle="modal" data-target="#modal1">
+
+            <!--Aqui vai estar a preview do vídeo-->
+            <!--<video class="img-fluid z-depth-1 p-0 m-0" src="" alt="video" data-toggle="modal" data-target="#modal1">-->
         </a>
 
         <div>
@@ -110,13 +118,17 @@
 
 <!--2ª LINHA DE CARDS-->
 
-<div class="row mt-5">
+<div class="row mt-3 w-75 mx-auto">
 
     <div class="col-lg-4 col-md-12 mb-4 pb-2">
 
         <!--Título e informações do "card"-->
         <a>
-            <video class="img-fluid z-depth-1 p-0 m-0" src="" alt="video" data-toggle="modal" data-target="#modal1">
+            <!--ESTA IMAGEM É APENAS DE TESTE DE MEDIDAS-->
+            <img class="w-100" src="img/campus.jpg" data-toggle="modal" data-target="#modal1">
+
+            <!--Aqui vai estar a preview do vídeo-->
+            <!--<video class="img-fluid z-depth-1 p-0 m-0" src="" alt="video" data-toggle="modal" data-target="#modal1">-->
         </a>
 
         <div>
@@ -133,7 +145,11 @@
 
         <!--Título e informações do "card"-->
         <a>
-            <video class="img-fluid z-depth-1 p-0 m-0" src="" alt="video" data-toggle="modal" data-target="#modal1">
+            <!--ESTA IMAGEM É APENAS DE TESTE DE MEDIDAS-->
+            <img class="w-100" src="img/campus.jpg" data-toggle="modal" data-target="#modal1">
+
+            <!--Aqui vai estar a preview do vídeo-->
+            <!--<video class="img-fluid z-depth-1 p-0 m-0" src="" alt="video" data-toggle="modal" data-target="#modal1">-->
         </a>
 
         <div>
@@ -150,7 +166,11 @@
 
         <!--Título e informações do "card"-->
         <a>
-            <video class="img-fluid z-depth-1 p-0 m-0" src=" " alt="video" data-toggle="modal" data-target="#modal1">
+            <!--ESTA IMAGEM É APENAS DE TESTE DE MEDIDAS-->
+            <img class="w-100" src="img/campus.jpg" data-toggle="modal" data-target="#modal1">
+
+            <!--Aqui vai estar a preview do vídeo-->
+            <!--<video class="img-fluid z-depth-1 p-0 m-0" src="" alt="video" data-toggle="modal" data-target="#modal1">-->
         </a>
 
         <div>
