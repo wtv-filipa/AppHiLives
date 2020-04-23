@@ -1,6 +1,5 @@
-
-
 /* CARD */
+
 .card-body {
     background-color: white;
     border-radius: 0 0 10px 10px !important;
@@ -36,13 +35,16 @@
 
 
 /*PERFIL*/
+
 .image_profile {
     box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
 }
+
 button.btn.profile-edit-btn {
     color: #2F2F2F;
 }
+
 .btn {
     display: inline-block;
     font: inherit;
@@ -60,7 +62,9 @@ button.btn.profile-edit-btn {
     padding: 0 2.4rem;
 }
 
+
 /*videos*/
+
 .titulo_videos {
     font-size: 1.3rem;
     font-family: "Quicksand";
@@ -80,10 +84,11 @@ button.btn.profile-edit-btn {
     margin: auto !important;
     text-align: center;
     background-color: #d3d3d3;
-
 }
 
+
 /*modal*/
+
 .modal-footer {
     justify-content: left;
 }
@@ -107,7 +112,10 @@ button.btn.profile-edit-btn {
     margin-top: 6px;
 }
 
+
 /*Aplica sombra ao "card"*/
+
+
 /*.boxShadow {
     display: flex;
     flex-direction: column;
