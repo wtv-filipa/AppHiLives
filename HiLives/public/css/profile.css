@@ -44,12 +44,6 @@
 }
 
 
-<<<<<<< HEAD
-/*PERFIL*/
-
-.image_profile {
-    box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
-=======
 /*Disciplina já feitas*/
 
 img.tagpost_thumb {
@@ -78,15 +72,10 @@ ul.taglabel li {
 }
 
 .clearfix_uni_my_links {
->>>>>>> b3b30d54d9af0b3904c3462bf591b2f358462d07
     border-radius: 10px;
     background-color: #f2f2f2;
 }
 
-<<<<<<< HEAD
-button.btn.profile-edit-btn {
-    color: #2F2F2F;
-=======
 
 /*BOTÕES*/
 
@@ -148,7 +137,6 @@ button.btn.profile-edit-btn {
     font-family: 'Quicksand' !important;
     font-size: 16px !important;
     margin-top: 5% !important;
->>>>>>> b3b30d54d9af0b3904c3462bf591b2f358462d07
 }
 
 .btn {
@@ -191,8 +179,6 @@ button.btn.profile-edit-btn {
     margin: auto !important;
     text-align: center;
     background-color: #d3d3d3;
-<<<<<<< HEAD
-=======
     color: #2f2f2f !important;
     text-decoration: none !important;
     height: 154px;
@@ -216,7 +202,6 @@ button.btn.profile-edit-btn {
 
 a {
     text-decoration: none !important;
->>>>>>> b3b30d54d9af0b3904c3462bf591b2f358462d07
 }
 
 
@@ -246,22 +231,6 @@ a {
 }
 
 
-<<<<<<< HEAD
-/*Aplica sombra ao "card"*/
-
-
-/*.boxShadow {
-    display: flex;
-    flex-direction: column;
-    background-color: #fff;
-    width: 20%;
-    border-radius: 10px;
-    box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
-    overflow: hidden;
-    transition: transform 0.5s;
-    -webkit-transition: transform 0.5s;
-}  */
-=======
 /*TEXTO*/
 
 h3,
@@ -273,4 +242,3 @@ button.btn.edit_btn {
 .link_title {
     font-weight: bold;
 }
->>>>>>> b3b30d54d9af0b3904c3462bf591b2f358462d07

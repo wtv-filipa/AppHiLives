@@ -82,7 +82,7 @@
 
             <div class=" nav__avatar text-right mr-0">
                 <img src="img/profilepic.jpg" class="nav__avatar--image text-right" style="max-width:35px">
-                <span class="nome" style="width: 90px; color: black">Sobre mim</span>
+                <span class="nome" style="width: 90px; color: black">José</span>
 
                 <div class="nav__avatar--dropdown">
 
@@ -92,10 +92,10 @@
                         </button>
                     </a>
                     <a href="profile.php">
-                        <button class="nav__btn2 nome"> <!--<i class="fa fa-star-o mr-2"></i>-->Ver Perfil</button>
+                        <button class="nav__btn2 nome"> <!--<i class="fa fa-star-o mr-2"></i>-->Sobre mim</button>
                     </a>
                     <a href="edit_profile.php">
-                        <button class="nav__btn2"> <!--<i class="fa fa-star-o mr-2"></i>-->Editar perfil</button>
+                        <button class="nav__btn2"> <!--<i class="fa fa-star-o mr-2"></i>-->Favoritos</button>
                     </a>
                     <a href="">
                         <button class="nav__btn2"> <!--<i class="fa fa-sliders mr-2"></i>-->Definições</button>
@@ -132,7 +132,7 @@
 
             <div class="nav__avatar">
                 <img src="img/profilepic.jpg" class="nav__avatar--image " style="max-width:35px">
-                <span class="nome ml-3">Sobre mim</span>
+                <span class="nome ml-3">José</span>
 
                 <div class="nav__avatar--dropdown "><a href="/login"></a>
                     <a href="../admin/index.php">
@@ -141,10 +141,10 @@
                         </button>
                     </a>
                     <a href="">
-                        <button class="nav__btn2 nome"> <!--<i class="fa fa-star-o mr-2"></i>-->Ver Perfil</button>
+                        <button class="nav__btn2 nome"> <!--<i class="fa fa-star-o mr-2"></i>-->Sobre mim</button>
                     </a>
                     <a href="">
-                        <button class="nav__btn2"> <!--<i class="fa fa-star-o mr-2"></i>-->Editar perfil</button>
+                        <button class="nav__btn2"> <!--<i class="fa fa-star-o mr-2"></i>-->Favoritos</button>
                     </a>
                     <a href="">
                         <button class="nav__btn2"> <!--<i class="fa fa-sliders mr-2"></i>-->Definições</button>

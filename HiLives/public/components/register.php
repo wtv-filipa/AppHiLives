@@ -323,7 +323,7 @@
                                         </div>
 
                                         <div class="form-group text-left">
-                                            <label class="label-margin negrito mt-3" for="terceiro">Com qual destas frases mais te identificas?</label>
+                                            <label class="label-margin negrito mt-3" for="terceiro">Com qual destas frases mais me identifico?</label>
                                             <select class="form-control" id="terceiro">
                                                 <option selected disabled>Seleciona uma opção</option>
                                                 <option name="o">“Tu tornas-te naquilo que desejas”</option>
@@ -346,9 +346,6 @@
                                                 <option name="c">Falo com outras pessoas que me possam ajudar a melhorar</option>
                                             </select>
                                         </div>
-                                        <hr>
-
-
 
                                         <div class="form-group mt-4 text-center">
                                             <div class="pb-3 pt-2">
