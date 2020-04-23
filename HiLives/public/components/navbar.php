@@ -212,13 +212,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="" class="nav__link mr-2 mb-1 zoom">
+                    <a href="can_choose_ws.php" class="nav__link mr-2 mb-1 zoom">
                         <img src="" alt="" class="icones nav__link--icon"/>
                         <span class="nav__link--text">As minhas ligações</span>
                     </a>
                 </li>
                 <li>
-                    <a href="" class="nav__link mr-2 mb-1 zoom">
+                    <a href="allOptions.php" class="nav__link mr-2 mb-1 zoom">
                         <img src="" alt="" class="icones nav__link--icon"/>
                         <span class="nav__link--text">Todas as opções disponíveis</span>
                     </a>

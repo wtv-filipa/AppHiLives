@@ -29,8 +29,8 @@
                     <h5 class="mx-auto titulo w-75">Eu quero estudar e trabalhar</h5>
                 </div>
                 <ul class="menu-dropdown">
-                    <li><a class="btn" style="width:100%; font-size: 0.8rem;" href="">As minhas ligações</a></li>
-                    <li><a class="btn" style="width:100%; font-size: 0.8rem;" href="">Todas as opções disponíveis</a></li>
+                    <li><a class="btn" style="width:100%; font-size: 0.8rem;" href="can_choose_ws.php">As minhas ligações</a></li>
+                    <li><a class="btn" style="width:100%; font-size: 0.8rem;" href="allOptions.php">Todas as opções disponíveis</a></li>
                 </ul>
             </div>
         </li>

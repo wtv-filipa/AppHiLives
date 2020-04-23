@@ -1,5 +1,5 @@
 <!------------------PRIMEIRA SECÇÃO----------------------->
-<div class="row mt-5  w-75 mx-auto">
+<div class="row w-75 mx-auto">
     <div id='wrapper_title'>
         <div class='tagpost-top section' id='tagpost-top'>
             <div class='widget HTML' id='HTML5'>
