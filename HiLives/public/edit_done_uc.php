@@ -21,6 +21,7 @@
         <!--componente da home sem login-->
         <?php include "components/edit_done_uc.php"; ?>
     </main>
+    <?php include "helpers/fontawesome.php"; ?>
 </body>
 
 </html>

@@ -26,8 +26,8 @@
     <?php include "components/links_made.php"; ?>
 </main>
 <!-- JavaScript-->
-<?php //include "helpers/js.php";
-?>
+
+<?php include "helpers/fontawesome.php"; ?>
 </body>
 
 </html>

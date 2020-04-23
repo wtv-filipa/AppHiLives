@@ -22,6 +22,7 @@
         <?php include "components/upload_vac.php"; ?>
     </main>
     <?php include "helpers/js_upload.php";?>
+    <?php include "helpers/fontawesome.php"; ?>
 </body>
 
 </html>
