@@ -1,15 +1,13 @@
-<!------------------PRIMEIRA SECÇÃO----------------------->
-<div id='wrapper_title'>
-    <div class='tagpost-top section' id='tagpost-top'>
-        <div class='widget HTML' id='HTML5'>
-            <div data-aos="fade-up">
-                <h3 class="mb-4 main_title">Posso escolher- <u>Estudar</u></h3>
+<div class="row w-75 mx-auto">
+    <div id='wrapper_title'>
+        <div class='tagpost-top section' id='tagpost-top'>
+            <div class='widget HTML' id='HTML5'>
+                <div data-aos="fade-up">
+                    <h3 class="mb-4 main_title">Posso escolher- <u>Estudar</u></h3>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
-<div class="row mt-5  w-75 mx-auto">
     <!--Cards-->
     <!--Card 1-->
     <div class="cards text-center col-md-4 col-sm-6 mt-4 centro">

@@ -77,8 +77,8 @@ header {
 }
 
 .nav__link--text {
-    font-weight: bolder;
-    margin-left: 0.5rem;
+    font-weight: normal;
+    margin-left: 1.2rem;
     font-size: 0.9rem;
     color: black;
 }

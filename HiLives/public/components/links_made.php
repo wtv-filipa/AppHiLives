@@ -1,103 +1,107 @@
-<div id='wrapper_title'>
-
-    <div class='tagpost-top section' id='tagpost-top'>
-        <div class='widget HTML' id='HTML5'>
-            <div data-aos="fade-up">
-                <h3 class="mb-4 main_title">Unidades curriculares já feitas</h3>
-            </div>
-        </div>
-    </div>
-</div>
+<div class="mx-auto w-75">
 
 
-<div id='wrapper'>
-    <div id='recenttags'>
+    <div id='wrapper_title'>
+
         <div class='tagpost-top section' id='tagpost-top'>
             <div class='widget HTML' id='HTML5'>
-                <div class='widget-content'>
-                    <ul class='taglabel'>
-                        <li class='clearfix_uni_my_links'>
-                            <a href=""><img alt="" title="" class="circle_links tagpost_thumb" src="img/ua.jpg"></a>
-                            <p class="mb-0 link_info"><i class="fa fa-book mr-1" aria-hidden="true"></i>Estudar</p>
-                            <p class="mb-0 link_title">Universidade de Aveiro</p>
-                            <p class="mb-0 link_subtitle">Área da saúde</p>
-                        </li>
-                        <li class='clearfix_uni_my_links'>
-                            <a href=""><img alt="" title="" class="circle_links tagpost_thumb" src="img/ua.jpg"></a>
-                            <p class="mb-0 link_info"><i class="fa fa-book mr-1" aria-hidden="true"></i>Estudar</p>
-                            <p class="mb-0 link_title">Universidade de Aveiro</p>
-                            <p class="mb-0 link_subtitle">Área da saúde</p>
-                        </li>
-                        <li class='clearfix_uni_my_links'>
-                            <a href=""><img alt="" title="" class="circle_links tagpost_thumb" src="img/ua.jpg"></a>
-                            <p class="mb-0 link_info"><i class="fa fa-book mr-1" aria-hidden="true"></i>Estudar</p>
-                            <p class="mb-0 link_title">Universidade de Aveiro</p>
-                            <p class="mb-0 link_subtitle">Área da saúde</p>
-                        </li>
-                        <li class='clearfix_uni_my_links'>
-                            <a href=""><img alt="" title="" class="circle_links tagpost_thumb" src="img/ua.jpg"></a>
-                            <p class="mb-0 link_info"><i class="fa fa-book mr-1" aria-hidden="true"></i>Estudar</p>
-                            <p class="mb-0 link_title">Universidade de Aveiro</p>
-                            <p class="mb-0 link_subtitle">Área da saúde</p>
-                        </li>
-                        <li class='clearfix_uni_my_links'>
-                            <a href=""><img alt="" title="" class="circle_links tagpost_thumb" src="img/ua.jpg"></a>
-                            <p class="mb-0 link_info"><i class="fa fa-book mr-1" aria-hidden="true"></i>Estudar</p>
-                            <p class="mb-0 link_title">Universidade de Aveiro</p>
-                            <p class="mb-0 link_subtitle">Área da saúde</p>
-                        </li>
-                        <li class='clearfix_uni_my_links'>
-                            <a href=""><img alt="" title="" class="circle_links tagpost_thumb" src="img/ua.jpg"></a>
-                            <p class="mb-0 link_info"><i class="fa fa-book mr-1" aria-hidden="true"></i>Estudar</p>
-                            <p class="mb-0 link_title">Universidade de Aveiro</p>
-                            <p class="mb-0 link_subtitle">Área da saúde</p>
-                        </li>
-
-                        <li class='clearfix_uni_my_links'>
-                            <a href=""><img alt="" title="" class="circle_links tagpost_thumb" src="img/ua.jpg"></a>
-                            <p class="mb-0 link_info"><i class="fa fa-book mr-1" aria-hidden="true"></i>Estudar</p>
-                            <p class="mb-0 link_title">Universidade de Aveiro</p>
-                            <p class="mb-0 link_subtitle">Área da saúde</p>
-                        </li>
-                        <li class='clearfix_uni_my_links'>
-                            <a href=""><img alt="" title="" class="circle_links tagpost_thumb" src="img/ua.jpg"></a>
-                            <p class="mb-0 link_info"><i class="fa fa-book mr-1" aria-hidden="true"></i>Estudar</p>
-                            <p class="mb-0 link_title">Universidade de Aveiro</p>
-                            <p class="mb-0 link_subtitle">Área da saúde</p>
-                        </li>
-                        <li class='clearfix_uni_my_links'>
-                            <a href=""><img alt="" title="" class="circle_links tagpost_thumb" src="img/ua.jpg"></a>
-                            <p class="mb-0 link_info"><i class="fa fa-book mr-1" aria-hidden="true"></i>Estudar</p>
-                            <p class="mb-0 link_title">Universidade de Aveiro</p>
-                            <p class="mb-0 link_subtitle">Área da saúde</p>
-                        </li>
-
-                        <li class='clearfix_uni_my_links'>
-                            <a href=""><img alt="" title="" class="circle_links tagpost_thumb" src="img/ua.jpg"></a>
-                            <p class="mb-0 link_info"><i class="fa fa-book mr-1" aria-hidden="true"></i>Estudar</p>
-                            <p class="mb-0 link_title">Universidade de Aveiro</p>
-                            <p class="mb-0 link_subtitle">Área da saúde</p>
-                        </li>
-
-
-                        <li class='clearfix_uni_my_links'>
-                            <a href=""><img alt="" title="" class="circle_links tagpost_thumb" src="img/ua.jpg"></a>
-                            <p class="mb-0 link_info"><i class="fa fa-book mr-1" aria-hidden="true"></i>Estudar</p>
-                            <p class="mb-0 link_title">Universidade de Aveiro</p>
-                            <p class="mb-0 link_subtitle">Área da saúde</p>
-                        </li>
-                        <li class='clearfix_uni_my_links'>
-                            <a href=""><img alt="" title="" class="circle_links tagpost_thumb" src="img/ua.jpg"></a>
-                            <p class="mb-0 link_info"><i class="fa fa-book mr-1" aria-hidden="true"></i>Estudar</p>
-                            <p class="mb-0 link_title">Universidade de Aveiro</p>
-                            <p class="mb-0 link_subtitle">Área da saúde</p>
-                        </li>
-                    </ul>
+                <div data-aos="fade-up">
+                    <h3 class="mb-4 main_title">Unidades curriculares já feitas</h3>
                 </div>
-                <div class='clear'></div>
             </div>
         </div>
     </div>
-    <div id='footer'><span class='credit'>Página 1 de 5</b></span>
+
+
+    <div id='wrapper'>
+        <div id='recenttags'>
+            <div class='tagpost-top section' id='tagpost-top'>
+                <div class='widget HTML' id='HTML5'>
+                    <div class='widget-content'>
+                        <ul class='taglabel'>
+                            <li class='clearfix_uni_my_links'>
+                                <a href=""><img alt="" title="" class="circle_links tagpost_thumb" src="img/ua.jpg"></a>
+                                <p class="mb-0 link_info"><i class="fa fa-book mr-1" aria-hidden="true"></i>Estudar</p>
+                                <h4 class="mb-0 link_title">Universidade de Aveiro</h4>
+                                <h5 class="mb-0 link_subtitle">Área da saúde</h5>
+                            </li>
+                            <li class='clearfix_uni_my_links'>
+                                <a href=""><img alt="" title="" class="circle_links tagpost_thumb" src="img/ua.jpg"></a>
+                                <p class="mb-0 link_info"><i class="fa fa-book mr-1" aria-hidden="true"></i>Estudar</p>
+                                <h4 class="mb-0 link_title">Universidade de Aveiro</h4>
+                                <h5 class="mb-0 link_subtitle">Área da saúde</h5>
+                            </li>
+                            <li class='clearfix_uni_my_links'>
+                                <a href=""><img alt="" title="" class="circle_links tagpost_thumb" src="img/ua.jpg"></a>
+                                <p class="mb-0 link_info"><i class="fa fa-book mr-1" aria-hidden="true"></i>Estudar</p>
+                                <h4 class="mb-0 link_title">Universidade de Aveiro</h4>
+                                <h5 class="mb-0 link_subtitle">Área da saúde</h5>
+                            </li>
+                            <li class='clearfix_uni_my_links'>
+                                <a href=""><img alt="" title="" class="circle_links tagpost_thumb" src="img/ua.jpg"></a>
+                                <p class="mb-0 link_info"><i class="fa fa-book mr-1" aria-hidden="true"></i>Estudar</p>
+                                <h4 class="mb-0 link_title">Universidade de Aveiro</h4>
+                                <h5 class="mb-0 link_subtitle">Área da saúde</h5>
+                            </li>
+                            <li class='clearfix_uni_my_links'>
+                                <a href=""><img alt="" title="" class="circle_links tagpost_thumb" src="img/ua.jpg"></a>
+                                <p class="mb-0 link_info"><i class="fa fa-book mr-1" aria-hidden="true"></i>Estudar</p>
+                                <h4 class="mb-0 link_title">Universidade de Aveiro</h4>
+                                <h5 class="mb-0 link_subtitle">Área da saúde</h5>
+                            </li>
+                            <li class='clearfix_uni_my_links'>
+                                <a href=""><img alt="" title="" class="circle_links tagpost_thumb" src="img/ua.jpg"></a>
+                                <p class="mb-0 link_info"><i class="fa fa-book mr-1" aria-hidden="true"></i>Estudar</p>
+                                <h4 class="mb-0 link_title">Universidade de Aveiro</h4>
+                                <h5 class="mb-0 link_subtitle">Área da saúde</h5>
+                            </li>
+
+                            <li class='clearfix_uni_my_links'>
+                                <a href=""><img alt="" title="" class="circle_links tagpost_thumb" src="img/ua.jpg"></a>
+                                <p class="mb-0 link_info"><i class="fa fa-book mr-1" aria-hidden="true"></i>Estudar</p>
+                                <h4 class="mb-0 link_title">Universidade de Aveiro</h4>
+                                <h5 class="mb-0 link_subtitle">Área da saúde</h5>
+                            </li>
+                            <li class='clearfix_uni_my_links'>
+                                <a href=""><img alt="" title="" class="circle_links tagpost_thumb" src="img/ua.jpg"></a>
+                                <p class="mb-0 link_info"><i class="fa fa-book mr-1" aria-hidden="true"></i>Estudar</p>
+                                <h4 class="mb-0 link_title">Universidade de Aveiro</h4>
+                                <h5 class="mb-0 link_subtitle">Área da saúde</h5>
+                            </li>
+                            <li class='clearfix_uni_my_links'>
+                                <a href=""><img alt="" title="" class="circle_links tagpost_thumb" src="img/ua.jpg"></a>
+                                <p class="mb-0 link_info"><i class="fa fa-book mr-1" aria-hidden="true"></i>Estudar</p>
+                                <h4 class="mb-0 link_title">Universidade de Aveiro</h4>
+                                <h5 class="mb-0 link_subtitle">Área da saúde</h5>
+                            </li>
+
+                            <li class='clearfix_uni_my_links'>
+                                <a href=""><img alt="" title="" class="circle_links tagpost_thumb" src="img/ua.jpg"></a>
+                                <p class="mb-0 link_info"><i class="fa fa-book mr-1" aria-hidden="true"></i>Estudar</p>
+                                <h4 class="mb-0 link_title">Universidade de Aveiro</h4>
+                                <h5 class="mb-0 link_subtitle">Área da saúde</h5>
+                            </li>
+
+
+                            <li class='clearfix_uni_my_links'>
+                                <a href=""><img alt="" title="" class="circle_links tagpost_thumb" src="img/ua.jpg"></a>
+                                <p class="mb-0 link_info"><i class="fa fa-book mr-1" aria-hidden="true"></i>Estudar</p>
+                                <h4 class="mb-0 link_title">Universidade de Aveiro</h4>
+                                <h5 class="mb-0 link_subtitle">Área da saúde</h5>
+                            </li>
+                            <li class='clearfix_uni_my_links'>
+                                <a href=""><img alt="" title="" class="circle_links tagpost_thumb" src="img/ua.jpg"></a>
+                                <p class="mb-0 link_info"><i class="fa fa-book mr-1" aria-hidden="true"></i>Estudar</p>
+                                <h4 class="mb-0 link_title">Universidade de Aveiro</h4>
+                                <h5 class="mb-0 link_subtitle">Área da saúde</h5>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class='clear'></div>
+                </div>
+            </div>
+        </div>
+        <div id='footer'><span class='credit'>Página 1 de 5</b></span>
+        </div>
     </div>
 </div>

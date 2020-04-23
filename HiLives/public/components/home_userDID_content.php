@@ -1,9 +1,9 @@
-<div class="home_menu mx-auto mt-0 pt-0">
+<div class="home_menu mx-auto w-75 mt-0 pt-0">
     <ul class="row p-0" style="list-style-type: none;">
         <li class="col-lg-3 col-sm-12 p-0">
             <div class="menu">
                 <div class="menu-title mb-0">
-                    <h5 class="mx-auto titulo">Eu quero estudar</h5>
+                    <h5 class="mx-auto titulo w-75">Eu quero estudar</h5>
                 </div>
                 <ul class="menu-dropdown">
                     <li> <a class="btn" style="width:100%; font-size: 0.8rem;" href="can_choose_study.php">As minhas ligações</a></li>
@@ -15,7 +15,7 @@
         <li class="col-lg-3 col-sm-12 p-0">
             <div class="menu">
                 <div class="menu-title menu-title_2nd mb-0">
-                    <h5 class="mx-auto titulo">Eu quero trabalhar</h5>
+                    <h5 class="mx-auto titulo w-75">Eu quero trabalhar</h5>
                 </div>
                 <ul class="menu-dropdown">
                     <li><a class="btn" style="width:100%; font-size: 0.8rem;" href="can_choose_work.php">As minhas ligações</a></li>
@@ -26,7 +26,7 @@
         <li class="col-lg-3 col-sm-12 p-0">
             <div class="menu">
                 <div class="menu-title menu-title_3rd mb-0">
-                    <h5 class="mx-auto titulo">Eu quero estudar e trabalhar</h5>
+                    <h5 class="mx-auto titulo w-75">Eu quero estudar e trabalhar</h5>
                 </div>
                 <ul class="menu-dropdown">
                     <li><a class="btn" style="width:100%; font-size: 0.8rem;" href="">As minhas ligações</a></li>
@@ -37,7 +37,7 @@
         <li class="col-lg-3 col-sm-12 p-0">
             <div class="menu">
                 <div class="menu-title menu-title_4th mb-0">
-                    <h5 class="mx-auto titulo">Eu quero ver o que já foi feito</h5>
+                    <h5 class="mx-auto titulo w-75">Eu quero ver o que já foi feito</h5>
                 </div>
                 <ul class="menu-dropdown">
                     <li><a class="btn" style="width:100%; font-size: 0.8rem;" href="links_made.php">O que eu já fiz</a></li>
@@ -73,40 +73,38 @@
                             <li class='clearfix_uni'>
                                 <a href=""><img alt="" title="" class="tagpost_thumb" src="img/ua.jpg"></a>
                                 <p class="mb-0 link_info"><i class="fa fa-book mr-1" aria-hidden="true"></i>Estudar</p>
-                                <p class="mb-0 link_title">Universidade de Aveiro</p>
-                                <p class="mb-0 link_subtitle">Área da saúde</p>
+                                <h4 class="mb-0 link_title">Universidade de Aveiro</h4>
+                                <h5 class="mb-0 link_subtitle">Área da saúde</h5>
                             </li>
                             <li class='clearfix_uni'>
                                 <a href=""><img alt="" title="" class="tagpost_thumb" src="img/ua.jpg"></a>
                                 <p class="mb-0 link_info"><i class="fa fa-book mr-1" aria-hidden="true"></i>Estudar</p>
-                                <p class="mb-0 link_title">Universidade de Aveiro</p>
-                                <p class="mb-0 link_subtitle">Área da saúde</p>
+                                <h4 class="mb-0 link_title">Universidade de Aveiro</h4>
+                                <h5 class="mb-0 link_subtitle">Área da saúde</h5>
                             </li>
                             <li class='clearfix_companies'>
                                 <a href=""><img alt="" title="" class="tagpost_thumb" src="img/fnac.jpg"></a>
-                                <p class="mb-0 link_info"><i class="fa fa-briefcase mr-1" aria-hidden="true"></i>Trabalhar
-                                </p>
-                                <p class="mb-0 link_title">FNAC</p>
-                                <p class="mb-0 link_subtitle">Recursos Humanos</p>
+                                <p class="mb-0 link_info"><i class="fa fa-briefcase mr-1" aria-hidden="true"></i>Trabalhar</p>
+                                <h4 class="mb-0 link_title">FNAC</h4>
+                                <h5 class="mb-0 link_subtitle">Recursos Humanos</h5>
                             </li>
                             <li class='clearfix_companies'>
                                 <a href=""><img alt="" title="" class="tagpost_thumb" src="img/fnac.jpg"></a>
-                                <p class="mb-0 link_info"><i class="fa fa-briefcase mr-1" aria-hidden="true"></i>Trabalhar
-                                </p>
-                                <p class="mb-0 link_title">FNAC</p>
-                                <p class="mb-0 link_subtitle">Recursos Humanos</p>
+                                <p class="mb-0 link_info"><i class="fa fa-briefcase mr-1" aria-hidden="true"></i>Trabalhar</p>
+                                <h4 class="mb-0 link_title">FNAC</h4>
+                                <h5 class="mb-0 link_subtitle">Recursos Humanos</h5>
                             </li>
                             <li class='clearfix_uni'>
                                 <a href=""><img alt="" title="" class="tagpost_thumb" src="img/ua.jpg"></a>
                                 <p class="mb-0 link_info"><i class="fa fa-book mr-1" aria-hidden="true"></i>Estudar</p>
-                                <p class="mb-0 link_title">Universidade de Aveiro</p>
-                                <p class="mb-0 link_subtitle">Área da saúde</p>
+                                <h4 class="mb-0 link_title">Universidade de Aveiro</h4>
+                                <h5 class="mb-0 link_subtitle">Área da saúde</h5>
                             </li>
-                            <li class='clearfix_uni '>
+                            <li class='clearfix_uni'>
                                 <a href=""><img alt="" title="" class="tagpost_thumb" src="img/ua.jpg"></a>
                                 <p class="mb-0 link_info"><i class="fa fa-book mr-1" aria-hidden="true"></i>Estudar</p>
-                                <p class="mb-0 link_title">Universidade de Aveiro</p>
-                                <p class="mb-0 link_subtitle">Área da saúde</p>
+                                <h4 class="mb-0 link_title">Universidade de Aveiro</h4>
+                                <h5 class="mb-0 link_subtitle">Área da saúde</h5>
                             </li>
 
                         </ul>
@@ -167,7 +165,7 @@
         <div class='tagpost-top section' id='tagpost-top'>
             <div class='widget HTML' id='HTML5'>
                 <div data-aos="fade-up">
-                    <h3 class="main_title">Ligações com universidades</h3>
+                    <h3 class="mb-4 main_title">Ligações com universidades</h3>
                 </div>
             </div>
         </div>
@@ -183,40 +181,39 @@
                             <li class='clearfix_uni'>
                                 <a href=""><img alt="" title="" class="tagpost_thumb" src="img/ua.jpg"></a>
                                 <p class="mb-0 link_info"><i class="fa fa-book mr-1" aria-hidden="true"></i>Estudar</p>
-                                <p class="mb-0 link_title">Universidade de Aveiro</p>
-                                <p class="mb-0 link_subtitle">Área da saúde</p>
+                                <h4 class="mb-0 link_title">Universidade de Aveiro</h4>
+                                <h5 class="mb-0 link_subtitle">Área da saúde</h5>
                             </li>
                             <li class='clearfix_uni'>
                                 <a href=""><img alt="" title="" class="tagpost_thumb" src="img/ua.jpg"></a>
                                 <p class="mb-0 link_info"><i class="fa fa-book mr-1" aria-hidden="true"></i>Estudar</p>
-                                <p class="mb-0 link_title">Universidade de Aveiro</p>
-                                <p class="mb-0 link_subtitle">Área da saúde</p>
+                                <h4 class="mb-0 link_title">Universidade de Aveiro</h4>
+                                <h5 class="mb-0 link_subtitle">Área da saúde</h5>
                             </li>
                             <li class='clearfix_uni'>
                                 <a href=""><img alt="" title="" class="tagpost_thumb" src="img/ua.jpg"></a>
                                 <p class="mb-0 link_info"><i class="fa fa-book mr-1" aria-hidden="true"></i>Estudar</p>
-                                <p class="mb-0 link_title">Universidade de Aveiro</p>
-                                <p class="mb-0 link_subtitle">Área da saúde</p>
+                                <h4 class="mb-0 link_title">Universidade de Aveiro</h4>
+                                <h5 class="mb-0 link_subtitle">Área da saúde</h5>
                             </li>
                             <li class='clearfix_uni'>
                                 <a href=""><img alt="" title="" class="tagpost_thumb" src="img/ua.jpg"></a>
                                 <p class="mb-0 link_info"><i class="fa fa-book mr-1" aria-hidden="true"></i>Estudar</p>
-                                <p class="mb-0 link_title">Universidade de Aveiro</p>
-                                <p class="mb-0 link_subtitle">Área da saúde</p>
+                                <h4 class="mb-0 link_title">Universidade de Aveiro</h4>
+                                <h5 class="mb-0 link_subtitle">Área da saúde</h5>
                             </li>
                             <li class='clearfix_uni'>
                                 <a href=""><img alt="" title="" class="tagpost_thumb" src="img/ua.jpg"></a>
                                 <p class="mb-0 link_info"><i class="fa fa-book mr-1" aria-hidden="true"></i>Estudar</p>
-                                <p class="mb-0 link_title">Universidade de Aveiro</p>
-                                <p class="mb-0 link_subtitle">Área da saúde</p>
+                                <h4 class="mb-0 link_title">Universidade de Aveiro</h4>
+                                <h5 class="mb-0 link_subtitle">Área da saúde</h5>
                             </li>
                             <li class='clearfix_uni '>
                                 <a href=""><img alt="" title="" class="tagpost_thumb" src="img/ua.jpg"></a>
                                 <p class="mb-0 link_info"><i class="fa fa-book mr-1" aria-hidden="true"></i>Estudar</p>
-                                <p class="mb-0 link_title">Universidade de Aveiro</p>
-                                <p class="mb-0 link_subtitle">Área da saúde</p>
+                                <h4 class="mb-0 link_title">Universidade de Aveiro</h4>
+                                <h5 class="mb-0 link_subtitle">Área da saúde</h5>
                             </li>
-
                         </ul>
                     </div>
                     <div class='clear'></div>
