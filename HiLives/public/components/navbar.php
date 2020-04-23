@@ -14,7 +14,7 @@
         <div class="nav__controls--left">
             <a href="#" class="nav__link">
                 <i class="fas fa-ellipsis-v" id="button" style="margin-left:20px; color: #2f2f2f; font-size: 25px !important;">
-                    <span class="menunav ml-3">Eu quero</span>
+                    <span class="menunav ml-1">Eu quero</span>
                 </i>
             </a>
         </div>
@@ -168,7 +168,7 @@
                 <li>
                     <a href="can_choose_study.php" class="nav__link mr-2 mb-1 zoom">
                         <img src="" alt="" class="icones nav__link--icon"/>
-                        <span class="nav__link--text ">As minha ligações</span>
+                        <span class="nav__link--text" >As minha ligações</span>
                     </a>
                 </li>
                 <li>

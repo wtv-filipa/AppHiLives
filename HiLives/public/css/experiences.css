@@ -1,23 +1,17 @@
 .modal-footer {
-
     justify-content: left;
 }
 
 .descricao {
-
     justify-content: left;
     margin-top: 100px;
 }
 
 .btn {
-
     float: right;
-
 }
 
-
 .xp_titulo {
-
     margin-top: 12px;
     margin-right: 120px;
     float: right;
@@ -25,7 +19,6 @@
 }
 
 .username {
-
     margin-right: 133px;
     margin-top: -20px;
     float: right;
@@ -33,7 +26,6 @@
 }
 
 .username_modal {
-
     margin-top: 12px;
     margin-right: 618px;
     float: right;

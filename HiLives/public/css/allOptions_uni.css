@@ -8,7 +8,11 @@
     margin-top: 5%;
 }
 
-
+#wrapper_title {
+    padding-top: 3% !important;
+    width: 750px;
+    max-width: 100%;
+}
 
 /*cards highlights*/
 .sub_title {
