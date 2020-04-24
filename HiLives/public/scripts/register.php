@@ -3,7 +3,7 @@ require_once "../connections/connection.php";
 
 if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["study_work"]) && isset($_POST["def"]) && isset($_POST["password"])) {
 
-    $type = 3;
+    $type = 10;
 
     $link = new_db_connection();
 
@@ -13,6 +13,7 @@ if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["study_work"
 
     if (mysqli_stmt_prepare($stmt, $query)) {
         mysqli_stmt_bind_param($stmt, 'sssssssiii', $name, $email, $contact_user, $birth_date, $disability, $work_xp, $password_hash, $User_type_idUser_type, $Educ_lvl_idEduc_lvl, $Study_work_idStudy_work);
+
         $name = $_POST['nome'];
         $email = $_POST['email'];
         $contact_user = $_POST['phone'];
@@ -124,6 +125,7 @@ if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["study_work"
             header("Location: ../login.php");
         } else {
             // ERROR ACTION
+            echo "Error: " . mysqli_stmt_error($stmt);
             echo "NAO DEU POR ERRO DA BD <br>";
             //header("Location: ../register.php?msg=0");
         }

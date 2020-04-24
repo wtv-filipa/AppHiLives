@@ -155,6 +155,8 @@ ul.taglabel li {
 .image_profile {
     box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
     border-radius: 50%;
+    width: 152px;
+    height: 152x;
 }
 
 
