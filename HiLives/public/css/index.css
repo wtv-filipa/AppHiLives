@@ -5,6 +5,7 @@
     transition: 0.3s;
 }*/
 
+
 /* Mouse-hover da sombra 
 .card:hover {
     box-shadow: 0 20px 40px -14px rgba(0,0,0,0.50);
@@ -25,14 +26,17 @@
     transition: transform 0.5s;
     -webkit-transition: transform 0.5s;
 }
+
 .cards .card-item:hover {
     cursor: pointer;
     transform: scale(1.1);
     -webkit-transform: scale(1.1);
 }
+
 .cards .card-item:hover .card-image {
     opacity: 1;
 }
+
 .cards .card-info {
     display: flex;
     flex: 1 1 auto;
@@ -40,6 +44,7 @@
     padding: 1rem;
     line-height: 1.5em;
 }
+
 .cards .card-image {
     height: 250px;
     overflow: hidden;
@@ -50,14 +55,58 @@
     opacity: 0.91;
 }
 
+
 /*********************************/
 
 
-a{
+/*Botão*/
+
+.inicia {
+    width: 15%!important;
+    height: 10%!important;
+    color: #2f2f2f!important;
+    background-color: #D3D3D3!important;
+    margin-bottom: 0.3125rem!important;
+    text-decoration: none!important;
+    cursor: pointer!important;
+    display: inline-block!important;
+    border-radius: 40px!important;
+    font-weight: bold;
+    border-color: #D3D3D3!important;
+}
+
+.inicia:hover {
+    width: 15%!important;
+    height: 10%!important;
+    color: #fff!important;
+    background-color: #2F2F2F !important;
+    margin-bottom: 0.3125rem!important;
+    text-decoration: none!important;
+    cursor: pointer!important;
+    display: inline-block!important;
+    border-color: #2F2F2F!important;
+    border-radius: 40px!important;
+}
+
+.btn {
+    font-family: 'Quicksand';
+}
+
+
+/*TEXTO*/
+
+a {
     color: #2F2F2F;
 }
 
-a:hover{
+a:hover {
     color: black;
     text-decoration: black;
+}
+
+h1,
+h4,
+h3 {
+    font-family: 'Quicksand';
+    font-weight: bold;
 }
