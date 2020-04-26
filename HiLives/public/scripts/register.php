@@ -103,7 +103,7 @@ if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["study_work"
                                 mysqli_stmt_bind_param($stmt, 'ii',$idUser, $idAreas);
                                 echo"id das áreas: $idAreas<br>";
                                 // PARA TODOS OS JOGADORES QUE FORAM ESCOLHIDOS
-                                foreach ($_POST["regiao"] as $idAreas) {
+                                foreach ($_POST["area"] as $idAreas) {
                                     echo"id das áreas: $idAreas<br>";
                                     /* execute the prepared statement */
                                     if (!mysqli_stmt_execute($stmt)) {

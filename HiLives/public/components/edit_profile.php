@@ -11,20 +11,18 @@ if (isset($_GET["edit"])) {
     $query = "SELECT idUser, name_user, email_user, contact_user, birth_date, disability_name, work_xp, profile_img, Educ_lvl_idEduc_lvl, Study_work_idStudy_work
      FROM users
      WHERE idUser LIKE ?";
+       if (mysqli_stmt_prepare($stmt, $query)) {
+
+        mysqli_stmt_bind_param($stmt, 'i', $idUser);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_bind_result($stmt, $idUser, $name_user, $email_user, $contact_user, $birth_date, $disability_name, $work_xp, $profile_img, $Educ_lvl_idEduc_lvl, $Study_work_idStudy_work);
+        while (mysqli_stmt_fetch($stmt)) {
 ?>
     <div class="card text-center">
         <h3>Editar Perfil</h3>
         <hr>
         <!-- edit form column -->
-        <?php
-        if (mysqli_stmt_prepare($stmt, $query)) {
-
-            mysqli_stmt_bind_param($stmt, 'i', $idUser);
-            mysqli_stmt_execute($stmt);
-            mysqli_stmt_bind_result($stmt, $idUser, $name_user, $email_user, $contact_user, $birth_date, $disability_name, $work_xp, $profile_img, $Educ_lvl_idEduc_lvl, $Study_work_idStudy_work);
-            while (mysqli_stmt_fetch($stmt)) {
-        ?>
-                <form class="form-horizontal row" role="form" method="post" action="upload_profile.php?id=<?= $idUser ?>">
+                <form class="form-horizontal row" role="form" method="post" action="scripts/update_profile.php?id=<?= $idUser ?>">
 
                     <!-- left column -->
                     <div class="col-md-4">
@@ -51,13 +49,13 @@ if (isset($_GET["edit"])) {
                     <div class="col-md-8">
                         <!--primeiro input-NOME-->
                         <div class="form-group text-left">
-                            <label class="label-margin" for="nome">Nome</label>
+                            <label class="label-margin" for="nome">Nome <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
                             <input type="text" id="nome" name="nome" placeholder="Escreve aqui o teu nome" class="form-control" value="<?= $name_user ?>">
                         </div>
                         <!----------------------->
                         <!--segundo input-EMAIL-->
                         <div class="form-group text-left">
-                            <label class="label-margin" for="email">Email</label>
+                            <label class="label-margin" for="email">Email <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
                             <input type="text" id="email" name="email" placeholder="Escreve aqui o teu email" class="form-control" value="<?= $email_user ?>">
                         </div>
                         <!----------------------->
@@ -76,8 +74,8 @@ if (isset($_GET["edit"])) {
 
                         <!--quinto input-DID-->
                         <div class="form-group text-left">
-                            <label class="label-margin" for="def">Detalhes sobre a minha DID</label>
-                            <input type="text" id="def" name="def" class="form-control" placeholder="Descreve aqui a tua DID" value="<?= $disability_name ?>">
+                            <label class="label-margin" for="def">Detalhes sobre a minha DID <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                            <textarea class="form-control cinza" id="def" rows="2" name="def" placeholder="Descreve aqui a tua DID"><?= $disability_name ?></textarea>
                         </div>
                         <!----------------------->
                         <!--sexto input- ESCOLARIDADE-->
@@ -86,9 +84,10 @@ if (isset($_GET["edit"])) {
                             <select class="form-control" id="esc" name="esc">
                                 <option selected disabled>Seleciona uma opção</option>
                                 <?php
-                                $query = "SELECT idEduc_lvl, name_education FROM educ_lvl";
+                                $query3 = "SELECT idEduc_lvl, name_education 
+                                FROM educ_lvl";
 
-                                if (mysqli_stmt_prepare($stmt, $query)) {
+                                if (mysqli_stmt_prepare($stmt, $query3)) {
 
                                     /* execute the prepared statement */
                                     if (mysqli_stmt_execute($stmt)) {
@@ -161,21 +160,29 @@ if (isset($_GET["edit"])) {
                             <label class="negrito mt-3 label-margin" for="area">Áreas de interesse <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
                             <div class="form-check">
                                 <?php
-                                $query = "SELECT idAreas, name_interested_area FROM areas";
+                                $query2 = "SELECT idAreas, name_interested_area, Areas_idAreas
+                                FROM areas
+                                LEFT JOIN user_has_areas
+                                ON  areas.idAreas= user_has_areas.Areas_idAreas AND user_has_areas.User_idUser= ?";
 
-                                if (mysqli_stmt_prepare($stmt, $query)) {
-
+                                if (mysqli_stmt_prepare($stmt, $query2)) {
+                                    // Bind variables by type to each parameter
+                                    mysqli_stmt_bind_param($stmt, 'i', $idUser);
                                     /* execute the prepared statement */
                                     if (mysqli_stmt_execute($stmt)) {
                                         /* bind result variables */
-                                        mysqli_stmt_bind_result($stmt, $idAreas, $name_interested_area);
+                                        mysqli_stmt_bind_result($stmt, $idAreas, $name_interested_area, $Areas_idAreas);
 
                                         /* fetch values */
                                         while (mysqli_stmt_fetch($stmt)) {
+                                            $checked = "";
+                                            if ($Areas_idAreas != null) {
+                                                $checked = "checked";
+                                            }
 
                                             echo "\n\t\t";
                                             echo "<label class='form-check-label label-margin col-6'>";
-                                            echo "<input type='checkbox' class='form-check-input' name='area[]' value='$idAreas'>$name_interested_area<br>";
+                                            echo "<input type='checkbox' class='form-check-input' name='area[]' value='$idAreas' $checked>$name_interested_area<br>";
                                             echo "</label>";
                                         }
                                     } else {
@@ -207,20 +214,28 @@ if (isset($_GET["edit"])) {
                             <div class="form-check">
                                 <?php
                                 $query = "SELECT idRegion, name_region FROM region";
+                                $query3 = "SELECT idRegion, name_region, Region_idRegion
+                                FROM region
+                                LEFT JOIN user_has_region
+                                ON  region.idRegion= user_has_region.Region_idRegion AND user_has_region.User_idUser= ?";
 
-                                if (mysqli_stmt_prepare($stmt, $query)) {
-
+                                if (mysqli_stmt_prepare($stmt, $query3)) {
+                                    // Bind variables by type to each parameter
+                                    mysqli_stmt_bind_param($stmt, 'i', $idUser);
                                     /* execute the prepared statement */
                                     if (mysqli_stmt_execute($stmt)) {
                                         /* bind result variables */
-                                        mysqli_stmt_bind_result($stmt, $idRegion, $name_region);
+                                        mysqli_stmt_bind_result($stmt, $idRegion, $name_region, $Region_idRegion);
 
                                         /* fetch values */
                                         while (mysqli_stmt_fetch($stmt)) {
-
+                                            $checked = "";
+                                            if ($Region_idRegion != null) {
+                                                $checked = "checked";
+                                            }
                                             echo "\n\t\t";
                                             echo "<label class='form-check-label label-margin col-6'>";
-                                            echo "<input type='checkbox' class='form-check-input' name='regiao[]' value='$idRegion'>$name_region<br>";
+                                            echo "<input type='checkbox' class='form-check-input' name='regiao[]' value='$idRegion' $checked>$name_region<br>";
                                             echo "</label>";
                                         }
                                     } else {
@@ -241,25 +256,27 @@ if (isset($_GET["edit"])) {
                         <!------------EXPERIÊNCIA DE TRABALHO------------>
                         <div class="form-group text-left">
                             <label class="negrito mt-3 label-margin" for="exp_t">Experiência de trabalho</label>
-                            <textarea class="form-control " id="exp_t" rows="2" name="work" placeholder="Escreve aqui a tua experiência de trabalho"></textarea>
+                            <textarea class="form-control " id="exp_t" rows="2" name="work" placeholder="Escreve aqui a tua experiência de trabalho"><?= $work_xp?></textarea>
                         </div>
                         <!----------------------->
+                        <!---div com o valor de edit para poder voltar para aqui-->
+                        <input type="hidden" name="edit" value="<?= $idUser ?>">
+                         <!----------------------->
                         <div class="form-group">
                             <label class="col-md-3 control-label label-margin"></label>
                             <div class="col-md-8">
-                                <input type="button" type="submit" class="btn guardar_btn" value="Guardar">
+                                <input type="submit" class="btn guardar_btn" value="Guardar">
                                 <span></span>
                                 <input type="reset" class="btn cancel_btn" value="Cancelar">
                             </div>
                         </div>
                     </div>
                 </form>
+                </div>
         <?php
             }
         }
-        ?>
-    </div>
-<?php
+
 } else {
     include("404.php");
 } //fim do else se não existir o GET
