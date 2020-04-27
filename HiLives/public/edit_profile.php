@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,7 +24,21 @@
         <!--componente da home sem login-->
         <?php include "components/edit_profile.php"; ?>
     </main>
-   <?php include "helpers/js_upload.php";?>
+
+    <!-- JavaScript-->
+    <script>
+        var select = document.getElementById("pais");
+        var formularios = document.querySelectorAll('.formulario');
+
+        select.onchange = function () {
+            for (var i = 0; i < formularios.length; i++) formularios[i].style.display = 'none';
+            var divID = select.options[select.selectedIndex].value;
+            var div = document.getElementById(divID);
+            div.style.display = 'block';
+        };
+    </script>
+
+    <?php include "helpers/js_upload.php";?>
     <?php include "helpers/fontawesome.php"; ?>
 </body>
 

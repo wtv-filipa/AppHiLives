@@ -1,27 +1,29 @@
 <?php
 require_once "../connections/connection.php";
 
-if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["data_nasc"]) && isset($_POST["study_work"]) && isset($_POST["def"]) && isset($_POST["password"])) {
 
-    $type = 10;
+if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["data_fund"]) && isset($_POST["phone"]) && isset($_POST["site"]) && isset($_POST["desc"]) && isset($_POST["hist"]) && isset($_POST["password"])) {
+
+    $type = 13;
 
     $link = new_db_connection();
 
     $stmt = mysqli_stmt_init($link);
 
-    $query = "INSERT INTO users (name_user, email_user, contact_user, birth_date, disability_name, work_xp, password, User_type_idUser_type, Educ_lvl_idEduc_lvl, Study_work_idStudy_work) VALUES (?,?,?,?,?,?,?,?,?,?)";
+    $query = "INSERT INTO users (name_user, email_user, contact_user, birth_date, password, website_ue, facebook_ue, instagram_ue, description_ue, history_ue, User_type_idUser_type) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
 
     if (mysqli_stmt_prepare($stmt, $query)) {
-        mysqli_stmt_bind_param($stmt, 'sssssssiii', $name, $email, $contact_user, $birth_date, $disability, $work_xp, $password_hash, $User_type_idUser_type, $Educ_lvl_idEduc_lvl, $Study_work_idStudy_work);
+        mysqli_stmt_bind_param($stmt, 'ssssssssssi', $name_uni, $email, $contact_user, $birth_date, $password_hash, $website_ue, $facebook_ue, $instagram_ue, $description_ue, $history_ue, $User_type_idUser_type);
 
-        $name = $_POST['nome'];
+        $name_uni = $_POST['nome'];
         $email = $_POST['email'];
         $contact_user = $_POST['phone'];
-        $birth_date = $_POST['data_nasc'];
-        $disability = $_POST['def'];
-        $work_xp = $_POST["work"];
-        $Study_work_idStudy_work = $_POST["study_work"];
-        $Educ_lvl_idEduc_lvl = $_POST["esc"];
+        $birth_date = $_POST['data_fund'];
+        $website_ue = $_POST["site"];
+        $facebook_ue = $_POST["face"];
+        $instagram_ue = $_POST["insta"];
+        $description_ue = $_POST["desc"];
+        $history_ue = $_POST["hist"];
         $User_type_idUser_type = $type;
         $password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
@@ -40,6 +42,7 @@ if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["data_nasc"]
                 $stmt = mysqli_stmt_init($link);
                 $query1 = "SELECT MAX(idUser) FROM users";
 
+                $idRegion = $_POST["regiao"];
                 if (mysqli_stmt_prepare($stmt, $query1)) {
                     /* execute the prepared statement */
                     if (mysqli_stmt_execute($stmt)) {
@@ -48,22 +51,17 @@ if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["data_nasc"]
 
                         /* fetch values */
                         while (mysqli_stmt_fetch($stmt)) {
-                            echo "id do user: $idUser <br>";
-                            $query2 = "INSERT INTO user_has_region (User_idUser, Region_idRegion)
-                  VALUES (?, ?)";
+//                            echo "id do user: $idUser <br>";
+                            $query2 = "INSERT INTO user_has_region (User_idUser, Region_idRegion) VALUES (?, ?)";
                             //parte do insert
                             if (mysqli_stmt_prepare($stmt, $query2)) {
-                                echo "id do user: $idUser <br>";
+//                                echo "id do user: $idUser <br>";
 
                                 mysqli_stmt_bind_param($stmt, 'ii',$idUser, $idRegion);
-                                echo"id da região: $idRegion<br>";
-                                // PARA TODOS OS JOGADORES QUE FORAM ESCOLHIDOS
-                                foreach ($_POST["regiao"] as $idRegion) {
-                                    echo"id da região: $idRegion<br>";
-                                    /* execute the prepared statement */
-                                    if (!mysqli_stmt_execute($stmt)) {
-                                        echo "Error: " . mysqli_stmt_error($stmt);
-                                    }
+//                                echo"id da região: $idRegion<br>";
+
+                                if (!mysqli_stmt_execute($stmt)) {
+                                    echo "Error: " . mysqli_stmt_error($stmt);
                                 }
                                 /* close statement */
                                 mysqli_stmt_close($stmt);
@@ -77,6 +75,7 @@ if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["data_nasc"]
                 echo "ERRO de não temos nada inserido";
                 // header("Location: ../register.php?msg=2");
             }
+            //FIM DO INSERT REGIAO
 
             //INSERIR AREA
             if (isset($_POST["area"])) {
@@ -94,14 +93,13 @@ if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["data_nasc"]
                         /* fetch values */
                         while (mysqli_stmt_fetch($stmt)) {
                             echo "id do user: $idUser <br>";
-                            $query2 = "INSERT INTO user_has_areas (User_idUser, Areas_idAreas)
-                  VALUES (?, ?)";
+                            $query2 = "INSERT INTO user_has_areas (User_idUser, Areas_idAreas) VALUES (?, ?)";
                             //parte do insert
                             if (mysqli_stmt_prepare($stmt, $query2)) {
-                                echo "id do user: $idUser <br>";
+//                                echo "id do user: $idUser <br>";
 
                                 mysqli_stmt_bind_param($stmt, 'ii',$idUser, $idAreas);
-                                echo"id das áreas: $idAreas<br>";
+//                                echo"id das áreas: $idAreas<br>";
                                 // PARA TODAS AS ÁREAS QUE FORAM ESCOLHIDAS
                                 foreach ($_POST["area"] as $idAreas) {
                                     echo"id das áreas: $idAreas<br>";
@@ -122,6 +120,9 @@ if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["data_nasc"]
                 echo "ERRO de não temos nada inserido";
                 // header("Location: ../register.php?msg=2");
             }
+            //FIM INSERT ÁREA
+
+
             header("Location: ../login.php");
         } else {
             // ERROR ACTION
@@ -140,5 +141,3 @@ if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["data_nasc"]
     echo "ERRO de não temos nada inserido <br>";
     // header("Location: ../register.php?msg=2");
 }
-
-

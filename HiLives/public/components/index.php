@@ -36,7 +36,7 @@
         </button>
     </form>
     <!--Card 3-->
-    <form class="col-md-4 col-sm-6 mt-4" method="post" action="scripts/index_comp.php">
+    <form class="col-md-4 col-sm-6 mt-4" method="post" action="register_comp.php">
         <button name="2" type="submit" class="btn">
             <div class="cards text-center">
                 <div class="card-item">
