@@ -89,7 +89,7 @@
                                             <div class="form-group">
                                                 <label class="negrito mt-3" for="phone">Telemóvel</label>
                                                 <div class="p-0 m-0">
-                                                    <input type="tel" class="form-control cinza" id="phone" name="phone" placeholder="Escreve aqui o teu telemóvel" required="required" onchange="email_validate(this.value);">
+                                                    <input type="tel" class="form-control cinza" id="phone" name="phone" placeholder="Escreve aqui o teu telemóvel">
                                                 </div>
                                             </div>
                                             <!------------DEFICIÊNCIA------------>
@@ -102,41 +102,35 @@
                                                 <label class="label-margin negrito mt-3" for="esc">Escolaridade</label>
                                                 <select class="form-control" id="esc" name="esc">
                                                     <option selected disabled>Seleciona uma opção</option>
-                                            <?php
-                                            $query = "SELECT idEduc_lvl, name_education FROM educ_lvl";
+                                                    <?php
+                                                    $query = "SELECT idEduc_lvl, name_education FROM educ_lvl";
 
-                                            if (mysqli_stmt_prepare($stmt, $query)) {
+                                                    if (mysqli_stmt_prepare($stmt, $query)) {
 
-                                                /* execute the prepared statement */
-                                                if (mysqli_stmt_execute($stmt)) {
-                                                    /* bind result variables */
-                                                    mysqli_stmt_bind_result($stmt, $idEduc_lvl, $name_education);
+                                                        /* execute the prepared statement */
+                                                        if (mysqli_stmt_execute($stmt)) {
+                                                            /* bind result variables */
+                                                            mysqli_stmt_bind_result($stmt, $idEduc_lvl, $name_education);
 
-                                                    /* fetch values */
-                                                    while (mysqli_stmt_fetch($stmt)) {
-                                                        if ($Educ_lvl_idEduc_lvl == $idEduc_lvl) {
-                                                            $selected = "selected";
+                                                            /* fetch values */
+                                                            while (mysqli_stmt_fetch($stmt)) {
+                                                                if ($Educ_lvl_idEduc_lvl == $idEduc_lvl) {
+                                                                    $selected = "selected";
+                                                                } else {
+                                                                    $selected = "";
+                                                                }
+                                                                echo "\n\t\t<option value=\"$idEduc_lvl\" $selected>$name_education</option>";
+                                                            }
                                                         } else {
-                                                            $selected = "";
+                                                            echo "Error: " . mysqli_stmt_error($stmt);
                                                         }
-                                                        echo "\n\t\t<option value=\"$idEduc_lvl\" $selected>$name_education</option>";
+
+                                                        /* close statement */
+                                                        //mysqli_stmt_close($stmt);
+                                                    } else {
+                                                        echo "Error: " . mysqli_error($link);
                                                     }
-                                                } else {
-                                                    echo "Error: " . mysqli_stmt_error($stmt);
-                                                }
-
-                                                /* close statement */
-                                                //mysqli_stmt_close($stmt);
-                                            } else {
-                                                echo "Error: " . mysqli_error($link);
-                                            }
-
-                                            /* close connection */
-                                            //mysqli_close($link);
-                                        }
-                                    }
-
-                                            ?>
+                                                    ?>
                                                 </select>
                                             </div>
                                             <!------------ESTUDO------------>
@@ -334,6 +328,13 @@
                                                         <button type="submit" class="btn publicar_btn">Registar</button>
                                                     </div>
                                                 </div>
+                                        <?php
+
+                                            /* close connection */
+                                            //mysqli_close($link);
+                                        }
+                                    }
+                                        ?>
                                 </form>
 
                                 <hr>
