@@ -22,7 +22,7 @@
         </button>
     </form>
     <!--Card 2-->
-    <form class="col-md-4 col-sm-6 mt-4" method="post" action="scripts/index_uni.php">
+    <form class="col-md-4 col-sm-6 mt-4" method="post" action="register_uni.php">
         <button name="4" type="submit" class="btn">
             <div class="cards text-center">
                 <div class="card-item">
