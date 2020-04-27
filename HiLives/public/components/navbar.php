@@ -1,9 +1,26 @@
+<?php
+
+require_once("connections/connection.php");
+if (isset($_SESSION["type"]) && isset($_SESSION["idUser"])) {
+
+    $User_type = $_SESSION["type"];
+    $idUser = $_SESSION["idUser"];
+}
+
+// Create a new DB connection
+$link = new_db_connection();
+
+/* create a prepared statement */
+$stmt = mysqli_stmt_init($link);
+
+?>
 <style>
     .zoom {
         padding: 50px;
         transition: transform .2s; /* Animation */
         margin: 0 auto;
     }
+
     .zoom:hover {
         transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
     }
@@ -13,7 +30,8 @@
     <nav class="nav__ container cont_l">
         <div class="nav__controls--left">
             <a href="#" class="nav__link">
-                <i class="fas fa-ellipsis-v" id="button" style="margin-left:20px; color: #2f2f2f; font-size: 25px !important;">
+                <i class="fas fa-ellipsis-v" id="button"
+                   style="margin-left:20px; color: #2f2f2f; font-size: 25px !important;">
                     <span class="menunav ml-1">Eu quero</span>
                 </i>
             </a>
@@ -79,33 +97,67 @@
                     </a>
                 </div>
             </div>
+            <?php
 
-            <div class=" nav__avatar text-right mr-0">
-                <img src="img/profilepic.jpg" class="nav__avatar--image text-right" style="max-width:35px">
-                <span class="nome" style="width: 90px; color: black">José</span>
+            $query = "SELECT idUser, name_user, profile_img
+                              FROM users
+                              WHERE idUser LIKE ?";
 
-                <div class="nav__avatar--dropdown">
+            if (mysqli_stmt_prepare($stmt, $query)) {
+            mysqli_stmt_bind_param($stmt, 'i', $idUser);
+            mysqli_stmt_execute($stmt);
+            mysqli_stmt_bind_result($stmt, $id, $name_user, $profile_img);
+            while (mysqli_stmt_fetch($stmt)) {
+                if (isset($img_perfil)){
+            ?>
 
-                    <a href="../admin/index.php">
-                        <button class="nav__btn2 text-light" style="background: #E93CAC;">
-                            <i class="fa fa-shield mr-2 text-light"></i>ADMIN
-                        </button>
-                    </a>
-                    <a href="profile.php">
-                        <button class="nav__btn2 nome"> <!--<i class="fa fa-star-o mr-2"></i>-->Sobre mim</button>
-                    </a>
-                    <a href="edit_profile.php">
-                        <button class="nav__btn2"> <!--<i class="fa fa-star-o mr-2"></i>-->Favoritos</button>
-                    </a>
-                    <a href="">
-                        <button class="nav__btn2"> <!--<i class="fa fa-sliders mr-2"></i>-->Definições</button>
-                    </a>
-                    <a href="scripts/logout.php">
-                        <button class="nav__btn2" style="background: #FDE74C;"><i class="fa fa-sign-out mr-2"></i>Logout
-                        </button>
-                    </a>
+            <div class="nav__avatar">
+                <img src="../admin/uploads/img_perfil/<?= $img_perfil ?>" class="nav__avatar--image "
+                     style="max-width:35px">
+                <span class="nome ml-3" style="color: black"><?= $name_user ?></span>
+
+                <?php
+                } else{
+                ?>
+                <div class="nav__avatar">
+                    <img src="img/no_profile_img.png" class="nav__avatar--image " style="max-width:35px">
+                    <span class="nome ml-3" style="color: black"><?= $name_user ?></span>
+                    <?php
+                    }
+            }
+            }
+                    ?>
+
+
+                    <div class="nav__avatar--dropdown">
+                        <?php
+                        if (isset($User_type) && $User_type == 4) {
+                            ?>
+                            <a href="../admin/index.php">
+                                <button class="nav__btn2 text-light" style="background: #E93CAC;">
+                                    <i class="fa fa-shield mr-2 text-light"></i>ADMIN
+                                </button>
+                            </a>
+                            <?php
+                        }
+                        ?>
+
+
+                        <a href="profile.php?user=<?= $idUser ?>">
+                            <button class="nav__btn2 nome"> <!--<i class="fa fa-star-o mr-2"></i>-->Sobre mim</button>
+                        </a>
+                        <a href="edit_profile.php">
+                            <button class="nav__btn2"> <!--<i class="fa fa-star-o mr-2"></i>-->Favoritos</button>
+                        </a>
+                        <a href="">
+                            <button class="nav__btn2"> <!--<i class="fa fa-sliders mr-2"></i>-->Definições</button>
+                        </a>
+                        <a href="scripts/logout.php">
+                            <button class="nav__btn2" style="background: #FDE74C;"><i class="fa fa-sign-out mr-2"></i>Logout
+                            </button>
+                        </a>
+                    </div>
                 </div>
-            </div>
     </nav>
 
     <nav class="nav__ nao_container">
@@ -168,7 +220,7 @@
                 <li>
                     <a href="can_choose_study.php" class="nav__link mr-2 mb-1 zoom">
                         <img src="" alt="" class="icones nav__link--icon"/>
-                        <span class="nav__link--text" >As minha ligações</span>
+                        <span class="nav__link--text">As minha ligações</span>
                     </a>
                 </li>
                 <li>
@@ -274,6 +326,7 @@
                 btn1.style.visibility = "visible";
             }
         }
+
         btn.addEventListener('click', open);
         btn1.addEventListener('click', open);
         btn2.addEventListener('click', close);

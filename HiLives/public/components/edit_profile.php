@@ -208,16 +208,18 @@ if (isset($_GET["edit"])) {
                             </select>
                         </div>
                         <!----------------------->
-                        <!--nono input-REGIÃO-->
+                        <!--nono input-REGIÃO PT-->
                         <div class="form-group formulario text-left" id="pt">
                             <label class="negrito mt-3 label-margin" for="regiao">Região que procuras estudar ou trabalhar <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
                             <div class="form-check">
                                 <?php
-                                $query = "SELECT idRegion, name_region FROM region";
+
                                 $query3 = "SELECT idRegion, name_region, Region_idRegion
                                 FROM region
                                 LEFT JOIN user_has_region
-                                ON  region.idRegion= user_has_region.Region_idRegion AND user_has_region.User_idUser= ?";
+                                ON  region.idRegion= user_has_region.Region_idRegion AND user_has_region.User_idUser= ?
+                                INNER JOIN country ON region.country_idcountry = country.idcountry
+                                WHERE name_country = 'Portugal'";
 
                                 if (mysqli_stmt_prepare($stmt, $query3)) {
                                     // Bind variables by type to each parameter
@@ -249,10 +251,136 @@ if (isset($_GET["edit"])) {
                                 ?>
                             </div>
                         </div>
-                        <!--teste-->
-                        <div id="be" class="formulario" style="display:none;">Mostra formulário empresa</div>
-                        <div id="es" class="formulario" style="display:none;">Mostra formulário casamento</div>
-                        <!----------------------->
+                        <!--nono input-REGIÃO ES-->
+                        <div class="form-group formulario text-left" style="display:none;" id="es">
+                            <label class="negrito mt-3 label-margin" for="regiao">Região que procuras estudar ou trabalhar <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                            <div class="form-check">
+                                <?php
+
+                                $query3 = "SELECT idRegion, name_region, Region_idRegion
+                                FROM region
+                                LEFT JOIN user_has_region
+                                ON  region.idRegion= user_has_region.Region_idRegion AND user_has_region.User_idUser= ?
+                                INNER JOIN country ON region.country_idcountry = country.idcountry
+                                WHERE name_country = 'Espanha'";
+
+                                if (mysqli_stmt_prepare($stmt, $query3)) {
+                                    // Bind variables by type to each parameter
+                                    mysqli_stmt_bind_param($stmt, 'i', $idUser);
+                                    /* execute the prepared statement */
+                                    if (mysqli_stmt_execute($stmt)) {
+                                        /* bind result variables */
+                                        mysqli_stmt_bind_result($stmt, $idRegion, $name_region, $Region_idRegion);
+
+                                        /* fetch values */
+                                        while (mysqli_stmt_fetch($stmt)) {
+                                            $checked = "";
+                                            if ($Region_idRegion != null) {
+                                                $checked = "checked";
+                                            }
+                                            echo "\n\t\t";
+                                            echo "<label class='form-check-label label-margin col-6'>";
+                                            echo "<input type='checkbox' class='form-check-input' name='regiao[]' value='$idRegion' $checked>$name_region<br>";
+                                            echo "</label>";
+                                        }
+                                    } else {
+                                        echo "Error: " . mysqli_stmt_error($stmt);
+                                    }
+                                    /* close statement */
+                                    //mysqli_stmt_close($stmt);
+                                } else {
+                                    echo "Error: " . mysqli_error($link);
+                                }
+                                ?>
+                            </div>
+                        </div>
+                        <!--nono input-REGIÃO BE-->
+                        <div class="form-group formulario text-left" style="display:none;" id="be">
+                            <label class="negrito mt-3 label-margin" for="regiao">Região que procuras estudar ou trabalhar <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                            <div class="form-check">
+                                <?php
+
+                                $query3 = "SELECT idRegion, name_region, Region_idRegion
+                                FROM region
+                                LEFT JOIN user_has_region
+                                ON  region.idRegion= user_has_region.Region_idRegion AND user_has_region.User_idUser= ?
+                                INNER JOIN country ON region.country_idcountry = country.idcountry
+                                WHERE name_country = 'Bélgica'";
+
+                                if (mysqli_stmt_prepare($stmt, $query3)) {
+                                    // Bind variables by type to each parameter
+                                    mysqli_stmt_bind_param($stmt, 'i', $idUser);
+                                    /* execute the prepared statement */
+                                    if (mysqli_stmt_execute($stmt)) {
+                                        /* bind result variables */
+                                        mysqli_stmt_bind_result($stmt, $idRegion, $name_region, $Region_idRegion);
+
+                                        /* fetch values */
+                                        while (mysqli_stmt_fetch($stmt)) {
+                                            $checked = "";
+                                            if ($Region_idRegion != null) {
+                                                $checked = "checked";
+                                            }
+                                            echo "\n\t\t";
+                                            echo "<label class='form-check-label label-margin col-6'>";
+                                            echo "<input type='checkbox' class='form-check-input' name='regiao[]' value='$idRegion' $checked>$name_region<br>";
+                                            echo "</label>";
+                                        }
+                                    } else {
+                                        echo "Error: " . mysqli_stmt_error($stmt);
+                                    }
+                                    /* close statement */
+                                    //mysqli_stmt_close($stmt);
+                                } else {
+                                    echo "Error: " . mysqli_error($link);
+                                }
+                                ?>
+                            </div>
+                        </div>
+                        <!--nono input-REGIÃO IC-->
+                        <div class="form-group formulario text-left" style="display:none;" id="ic">
+                            <label class="negrito mt-3 label-margin" for="regiao">Região que procuras estudar ou trabalhar <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                            <div class="form-check">
+                                <?php
+
+                                $query3 = "SELECT idRegion, name_region, Region_idRegion
+                                FROM region
+                                LEFT JOIN user_has_region
+                                ON  region.idRegion= user_has_region.Region_idRegion AND user_has_region.User_idUser= ?
+                                INNER JOIN country ON region.country_idcountry = country.idcountry
+                                WHERE name_country = 'Islândia'";
+
+                                if (mysqli_stmt_prepare($stmt, $query3)) {
+                                    // Bind variables by type to each parameter
+                                    mysqli_stmt_bind_param($stmt, 'i', $idUser);
+                                    /* execute the prepared statement */
+                                    if (mysqli_stmt_execute($stmt)) {
+                                        /* bind result variables */
+                                        mysqli_stmt_bind_result($stmt, $idRegion, $name_region, $Region_idRegion);
+
+                                        /* fetch values */
+                                        while (mysqli_stmt_fetch($stmt)) {
+                                            $checked = "";
+                                            if ($Region_idRegion != null) {
+                                                $checked = "checked";
+                                            }
+                                            echo "\n\t\t";
+                                            echo "<label class='form-check-label label-margin col-6'>";
+                                            echo "<input type='checkbox' class='form-check-input' name='regiao[]' value='$idRegion' $checked>$name_region<br>";
+                                            echo "</label>";
+                                        }
+                                    } else {
+                                        echo "Error: " . mysqli_stmt_error($stmt);
+                                    }
+                                    /* close statement */
+                                    //mysqli_stmt_close($stmt);
+                                } else {
+                                    echo "Error: " . mysqli_error($link);
+                                }
+                                ?>
+                            </div>
+                        </div>
+
                         <!------------EXPERIÊNCIA DE TRABALHO------------>
                         <div class="form-group text-left">
                             <label class="negrito mt-3 label-margin" for="exp_t">Experiência de trabalho</label>

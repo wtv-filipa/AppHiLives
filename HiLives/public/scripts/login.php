@@ -21,14 +21,14 @@ if (isset($_POST["email"]) && isset($_POST["password"])){
                 if ($active == 1){
                     session_start();
                     $_SESSION["email"] = $email_user;
-                    $_SESSION["tipo"] = $User_type;
-                    $_SESSION["id_utilizadores"] = $idUser;
+                    $_SESSION["type"] = $User_type;
+                    $_SESSION["idUser"] = $idUser;
                     $link3 = new_db_connection();
 
                     /***********************************************/
                     // feedback de sucesso
-                    //header("Location: ../index.php");
-                    echo "LOGIN DEU YESSSSSSSSSSSSS";
+                    header("Location: ../homepage_userDID.php");
+                    //echo "LOGIN DEU YESSSSSSSSSSSSS";
                 } else {
                    // header("Location: ../login.php?msg=1");
                     echo"não deu o login";

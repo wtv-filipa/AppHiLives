@@ -46,7 +46,7 @@
                                 ?>
 
 
-                                <form method="post" role="form" id="register-form" action="scripts/register_uni.php">
+                                <form method="post" role="form" id="register-form" action="scripts/register_comp.php">
                                     <?php
                                     require_once("connections/connection.php");
                                     $link = new_db_connection();
@@ -61,27 +61,24 @@
                                         while (mysqli_stmt_fetch($stmt)) {
                                             ?>
                                             <!------------****------------>
-                                            <p style="font-size: 12px; color: #79C4D9 !important;">* Preenchimento
-                                                obrigatório</p>
+                                            <p style="font-size: 12px; color: #79C4D9 !important;">* Preenchimento obrigatório</p>
                                             <!------------NOME------------>
                                             <div class="form-group">
-                                                <label class="negrito" for="username">Nome <span
-                                                            style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                                <label class="negrito" for="username">Nome <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
                                                 <div class=" p-0 m-0">
                                                     <input type="text" class="form-control cinza" id="username"
                                                            name="nome"
-                                                           placeholder="Escreva aqui o nome da universidade"
+                                                           placeholder="Escreva aqui o nome da empresa"
                                                            required="required">
                                                 </div>
                                             </div>
                                             <!------------EMAIL------------>
                                             <div class="form-group">
-                                                <label class="negrito mt-3" for="email">Email <span
-                                                            style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                                <label class="negrito mt-3" for="email">Email <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
                                                 <div class="p-0 m-0">
                                                     <input type="email" class="form-control cinza" id="email"
                                                            name="email"
-                                                           placeholder="Escreva aqui o email da universidade"
+                                                           placeholder="Escreva aqui o email da empresa"
                                                            required="required" onchange="email_validate(this.value);">
                                                 </div>
                                             </div>
@@ -91,7 +88,7 @@
                                                 <div class="p-0 m-0">
                                                     <input type="date" class="form-control cinza" id="data_fund"
                                                            name="data_fund"
-                                                           placeholder="Data de fundação da universidade">
+                                                           placeholder="Data de fundação da empresa">
                                                 </div>
                                             </div>
                                             <!------------TELEFONE------------>
@@ -99,12 +96,12 @@
                                                 <label class="negrito mt-3" for="phone">Contacto telefónico <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
                                                 <div class="p-0 m-0">
                                                     <input type="tel" class="form-control cinza" id="phone" name="phone"
-                                                           placeholder="Escreva aqui o contacto telefónico da universidade">
+                                                           placeholder="Escreva aqui o contacto telefónico da empresa">
                                                 </div>
                                             </div>
                                             <!------------PAÍS------------>
                                             <div class="form-group">
-                                                <label class="negrito mt-3" for="pais">Seleciona o país da universidade:
+                                                <label class="negrito mt-3" for="pais">Seleciona o país da empresa:
                                                     <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
                                                 <select class="form-control" id="pais">
                                                     <option value="pt">Portugal</option>
@@ -116,7 +113,7 @@
                                             <!------------REGIÕES DE PORTUGAL------------>
                                             <div class="form-group formulario" id="pt">
                                                 <div class="form-group text-left">
-                                                    <label class="negrito mt-3" for="regiao_pt">Região da Universidade
+                                                    <label class="negrito mt-3" for="regiao_pt">Região da Empresa
                                                         <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span>
                                                     </label>
                                                     <select class="form-control" id="regiao_pt" name="regiao">
@@ -153,7 +150,7 @@
                                             <!------------REGIÕES DE ESPANHA------------>
                                             <div class="form-group formulario" style="display:none;" id="es">
                                                 <div class="form-group text-left">
-                                                    <label class="negrito mt-3" for="regiao_es">Região da Universidade
+                                                    <label class="negrito mt-3" for="regiao_es">Região da Empresa
                                                         <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span>
                                                     </label>
                                                     <select class="form-control" id="regiao_es" name="regiao">
@@ -190,7 +187,7 @@
                                             <!------------REGIÕES DE BÉLGICA------------>
                                             <div class="form-group formulario" style="display:none;" id="be">
                                                 <div class="form-group text-left">
-                                                    <label class="negrito mt-3" for="regiao_be">Região da Universidade
+                                                    <label class="negrito mt-3" for="regiao_be">Região da Empresa
                                                         <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span>
                                                     </label>
                                                     <select class="form-control" id="regiao_be" name="regiao">
@@ -227,7 +224,7 @@
                                             <!------------REGIÕES DE ISLÂNDIA------------>
                                             <div class="form-group formulario" style="display:none;" id="ic">
                                                 <div class="form-group text-left">
-                                                    <label class="negrito mt-3" for="regiao_ic">Região da Universidade
+                                                    <label class="negrito mt-3" for="regiao_ic">Região da Empresa
                                                         <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span>
                                                     </label>
                                                     <select class="form-control" id="regiao_ic" name="regiao">
@@ -262,47 +259,14 @@
                                                 </div>
                                             </div>
 
-                                            <!------------ÁREAS------------>
-                                            <div class="form-group">
-                                                <label class="negrito mt-3" for="area">Áreas disponíveis para receber jovens com DID <span
-                                                            style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
-                                                <div class="form-check">
-                                                    <?php
-                                                    $query = "SELECT idAreas, name_interested_area FROM areas";
 
-                                                    if (mysqli_stmt_prepare($stmt, $query)) {
-
-                                                        /* execute the prepared statement */
-                                                        if (mysqli_stmt_execute($stmt)) {
-                                                            /* bind result variables */
-                                                            mysqli_stmt_bind_result($stmt, $idAreas, $name_interested_area);
-
-                                                            /* fetch values */
-                                                            while (mysqli_stmt_fetch($stmt)) {
-
-                                                                echo "\n\t\t";
-                                                                echo "<label class='form-check-label col-6'>";
-                                                                echo "<input type='checkbox' class='form-check-input' name='area[]' value='$idAreas'>$name_interested_area<br>";
-                                                                echo "</label>";
-                                                            }
-                                                        } else {
-                                                            echo "Error: " . mysqli_stmt_error($stmt);
-                                                        }
-                                                        /* close statement */
-                                                        //mysqli_stmt_close($stmt);
-                                                    } else {
-                                                        echo "Error: " . mysqli_error($link);
-                                                    }
-                                                    ?>
-                                                </div>
-                                            </div>
 
                                             <!------------WEBSITE------------>
                                             <div class="form-group">
-                                                <label class="negrito mt-3" for="site">Website <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                                <label class="negrito mt-3" for="site">Website</label>
                                                 <div class="p-0 m-0">
                                                     <input type="text" class="form-control cinza" id="site" name="site"
-                                                           placeholder="Insira aqui o website da universidade">
+                                                           placeholder="Insira aqui o website da empresa">
                                                 </div>
                                             </div>
                                             <!------------FACEBOOK------------>
@@ -310,7 +274,7 @@
                                                 <label class="negrito mt-3" for="face">Facebook</label>
                                                 <div class="p-0 m-0">
                                                     <input type="text" class="form-control cinza" id="face" name="face"
-                                                           placeholder="Insira aqui o facebook da universidade">
+                                                           placeholder="Insira aqui o facebook da empresa">
                                                 </div>
                                             </div>
                                             <!------------INSTAGRAM------------>
@@ -318,7 +282,7 @@
                                                 <label class="negrito mt-3" for="insta">Instagram</label>
                                                 <div class="p-0 m-0">
                                                     <input type="text" class="form-control cinza" id="insta" name="insta"
-                                                           placeholder="Insira aqui o instagram da universidade">
+                                                           placeholder="Insira aqui o instagram da empresa">
                                                 </div>
                                             </div>
 
@@ -326,11 +290,6 @@
                                             <div class="form-group">
                                                 <label class="negrito mt-3" for="desc">Descrição <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
                                                 <textarea class="form-control " id="exp_t" rows="2" name="desc" placeholder="Escreva aqui uma descrição"></textarea>
-                                            </div>
-                                            <!------------HISTÓRIA------------>
-                                            <div class="form-group">
-                                                <label class="negrito mt-3" for="hist">História <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
-                                                <textarea class="form-control " id="exp_t" rows="2" name="hist" placeholder="Escreva aqui a história da universidade"></textarea>
                                             </div>
 
 

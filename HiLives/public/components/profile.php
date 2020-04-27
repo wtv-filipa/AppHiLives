@@ -1,6 +1,12 @@
 <?php
-if (isset($_GET["user"])) {
+if (isset($_GET["user"]) && $_SESSION["idUser"]) {
+
     $idUser = $_GET["user"];
+    $id_navegar= $_SESSION["idUser"];
+
+    if ($idUser == $id_navegar) {
+
+
     // We need the function!
     require_once("connections/connection.php");
     // Create a new DB connection
@@ -44,7 +50,7 @@ if (isset($_GET["user"])) {
                 <h6 class="mt-3"> <?= $age ?> anos | Personalidade</h6>
 
                 <div class="p-0 mt-3">
-                    <a href="edit_profile.php"><button class="btn edit_btn">Editar as minhas informações</button></a>
+                    <a href="edit_profile.php?edit=<?= $idUser ?>"><button class="btn edit_btn">Editar as minhas informações</button></a>
                 </div>
         <?php
                     }
@@ -201,6 +207,9 @@ if (isset($_GET["user"])) {
     </div>
     <!--fim da div w-75-->
 <?php
+    } else {
+        include("404.php");
+    }
     //fim do if para verificar se existe o GET
 } else {
     include("404.php");
