@@ -140,6 +140,7 @@ if (isset($_GET["id"]) && isset($_POST["nome"])  && isset($_POST["email"]) && is
         $idUser=$_POST["edit"];
         echo $idUser;
        /* header("Location: ../editar_conta.php?edit=".$nickname."&msg=0");*/
+       header("Location: ../edit_profile.php?edit=$idUser");
         echo "sucesso";
     }
     /* close connection */
