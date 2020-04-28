@@ -55,11 +55,11 @@ if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["data_nasc"]
                             if (mysqli_stmt_prepare($stmt, $query2)) {
                                 echo "id do user: $idUser <br>";
 
-                                mysqli_stmt_bind_param($stmt, 'ii',$idUser, $idRegion);
-                                echo"id da região: $idRegion<br>";
+                                mysqli_stmt_bind_param($stmt, 'ii', $idUser, $idRegion);
+                                echo "id da região: $idRegion<br>";
                                 // PARA TODOS OS JOGADORES QUE FORAM ESCOLHIDOS
                                 foreach ($_POST["regiao"] as $idRegion) {
-                                    echo"id da região: $idRegion<br>";
+                                    echo "id da região: $idRegion<br>";
                                     /* execute the prepared statement */
                                     if (!mysqli_stmt_execute($stmt)) {
                                         echo "Error: " . mysqli_stmt_error($stmt);
@@ -100,11 +100,11 @@ if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["data_nasc"]
                             if (mysqli_stmt_prepare($stmt, $query2)) {
                                 echo "id do user: $idUser <br>";
 
-                                mysqli_stmt_bind_param($stmt, 'ii',$idUser, $idAreas);
-                                echo"id das áreas: $idAreas<br>";
+                                mysqli_stmt_bind_param($stmt, 'ii', $idUser, $idAreas);
+                                echo "id das áreas: $idAreas<br>";
                                 // PARA TODAS AS ÁREAS QUE FORAM ESCOLHIDAS
                                 foreach ($_POST["area"] as $idAreas) {
-                                    echo"id das áreas: $idAreas<br>";
+                                    echo "id das áreas: $idAreas<br>";
                                     /* execute the prepared statement */
                                     if (!mysqli_stmt_execute($stmt)) {
                                         echo "Error: " . mysqli_stmt_error($stmt);
@@ -122,6 +122,90 @@ if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["data_nasc"]
                 echo "ERRO de não temos nada inserido";
                 // header("Location: ../register.php?msg=2");
             }
+
+
+            //TESTE DE PERSONALIDADE
+            if (isset($_POST["pergunta1"]) && isset($_POST["pergunta2"]) && isset($_POST["pergunta3"]) && isset($_POST["pergunta4"])) {
+
+                $link = new_db_connection();
+                $stmt = mysqli_stmt_init($link);
+                $query1 = "SELECT MAX(idUser) FROM users";
+                $query3 = "SELECT idPersonality, name_perso FROM personality WHERE name_perso = 'Comunicativo'";
+                $query4 = "SELECT idPersonality, name_perso FROM personality WHERE name_perso = 'Organizado'";
+                $query5 = "SELECT idPersonality, name_perso FROM personality WHERE name_perso = 'Previsível'";
+                $query6 = "SELECT idPersonality, name_perso FROM personality WHERE name_perso = 'Determinado'";
+
+                if (mysqli_stmt_prepare($stmt, $query1)) {
+                    /* execute the prepared statement */
+                    if (mysqli_stmt_execute($stmt)) {
+                        /* bind result variables */
+                        mysqli_stmt_bind_result($stmt, $idUser);
+
+                        /* fetch values */
+                        while (mysqli_stmt_fetch($stmt)) {
+                            echo "id do user: $idUser <br>";
+
+
+                            /*Variáveis que recebem as respostas por POST. O que está a ser passado é o NAME do SELECT do HTML*/
+                            $answer1 = $_POST['pergunta1'];
+                            $answer2 = $_POST['pergunta2'];
+                            $answer3 = $_POST['pergunta3'];
+                            $answer4 = $_POST['pergunta4'];
+
+
+                            /*Array que guarda todas as respostas*/
+                            $arrayRespostas = array(
+                                1 => $answer1,
+                                2 => $answer2,
+                                3 => $answer3,
+                                4 => $answer4
+                            );
+
+                            /*Deteta as vezes que uma resposta foi selecionada*/
+                            $respostas_iguais = array_count_values($arrayRespostas);
+
+
+                            /*A $key representa a chave do array (comunicativo, organizado, etc...) e a $value vai representar as vezes que este se repete*/
+                            echo "<h1>Sou um jovem:</h1>";
+
+                            foreach ($respostas_iguais as $key => $value) {
+
+                                switch ($value) {
+                                    case $key == "comunicativo" && $value > 1:
+                                        if (mysqli_stmt_prepare($stmt, $query3)) {
+                                            /* execute the prepared statement */
+                                            if (mysqli_stmt_execute($stmt)) {
+                                                /* bind result variables */
+                                                mysqli_stmt_bind_result($stmt, $idPersonality, $name_perso);
+
+                                                /* fetch values */
+                                                while (mysqli_stmt_fetch($stmt)) {
+
+
+                                                }
+                                            }
+                                        }
+                                        break;
+                                    case $key == "organizado" && $value > 1:
+                                        echo "<br> - {$o}";
+                                        break;
+                                    case $key == "previsivel" && $value > 1:
+                                        echo "<br> - {$pr}";
+                                        break;
+                                    case $key == "determinado" && $value > 1:
+                                        echo "<br> - {$d}";
+                                        break;
+                                    case $key == "comunicativo" && $value = 1 && $key == "organizado" && $value = 1 && $key == "previsivel" && $value = 1 && $key == "determinado" && $value = 1:
+                                        echo "- {$c} <br> - {$o} <br> - {$pr} <br> - {$d}";
+                                        break;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+
             header("Location: ../login.php");
         } else {
             // ERROR ACTION
