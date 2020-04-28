@@ -393,60 +393,59 @@
                                     <!------------PERSONALIDADE------------>
                                     <h5 class="titulo_cinza">Sobre ti</h5>
 
+
                                     <div class="form-group">
+                                        <!------------PERGUNTA 1------------>
                                         <div class="form-group text-left">
                                             <label class="label-margin negrito mt-3" for="primeiro">Sou uma pessoa
                                                 que:</label>
-                                            <select class="form-control" id="primeiro">
+                                            <select name="pergunta1" class="form-control" id="primeiro">
                                                 <option selected disabled>Seleciona uma opção</option>
-                                                <option name="c">Tenho muitos amigos</option>
-                                                <option name="o">Gosto de organizar tarefas</option>
-                                                <option name="pr">Convivo melhor com a rotina</option>
-                                                <option name="d">Procuro sempre coisas claras e objetivas</option>
+                                                <option value="comunicativo">Tenho muitos amigos;</option>
+                                                <option value="organizado">Gosto de organizar tarefas;</option>
+                                                <option value="previsivel">Convivo melhor com a rotina;</option>
+                                                <option value="determinado">Procuro sempre coisas claras e objetivas.</option>
                                             </select>
                                         </div>
 
+                                        <!------------PERGUNTA 2------------>
                                         <div class="form-group text-left">
                                             <label class="label-margin negrito mt-3" for="segundo">No convívio com
                                                 outras
                                                 pessoas, eu:</label>
-                                            <select class="form-control" id="segundo">
+                                            <select name="pergunta2" class="form-control" id="segundo">
                                                 <option selected disabled>Seleciona uma opção</option>
-                                                <option name="c">Estou sempre a motivar as pessoas</option>
-                                                <option name="d">Prefiro fazer as minhas coisas sozinho ou sozinha
-                                                </option>
-                                                <option name="pr">Sou muito paciente com as outras pessoas</option>
-                                                <option name="o">Gosto de pessoas sérias</option>
+                                                <option value="comunicativo">Estou sempre a motivar as pessoas;</option>
+                                                <option value="organizado">Gosto de pessoas sérias;</option>
+                                                <option value="previsivel">Sou muito paciente com as outras pessoas;</option>
+                                                <option value="determinado">Prefiro fazer as minhas coisas sozinho/sozinha.</option>
                                             </select>
                                         </div>
 
+                                        <!------------PERGUNTA 3------------>
                                         <div class="form-group text-left">
                                             <label class="label-margin negrito mt-3" for="terceiro">Com qual destas
                                                 frases mais me identifico?</label>
-                                            <select class="form-control" id="terceiro">
+                                            <select name="pergunta3" class="form-control" id="terceiro">
                                                 <option selected disabled>Seleciona uma opção</option>
-                                                <option name="o">“Tu tornas-te naquilo que desejas”</option>
-                                                <option name="pr">“Prevenir é melhor que remediar”</option>
-                                                <option name="d">“Quando falta sorte deve sobrar atitude”</option>
-                                                <option name="c">“Quem tem boca vai a Roma”</option>
+                                                <option value="comunicativo">"Quem tem boca vai a Roma";</option>
+                                                <option value="organizado">"Tu tornas-te naquilo que desejas";</option>
+                                                <option value="previsivel">"Prevenir é melhor que remediar";</option>
+                                                <option value="determinado">"Quando falta sorte deve sobrar atitude".</option>
                                             </select>
                                         </div>
 
+                                        <!------------PERGUNTA 4------------>
                                         <div class="form-group text-left mb-5">
                                             <label class="label-margin negrito mt-3" for="quarto">Em situações de
                                                 stress,
                                                 eu:</label>
-                                            <select class="form-control" id="quarto">
+                                            <select name="pergunta4" class="form-control" id="quarto">
                                                 <option selected disabled>Seleciona uma opção</option>
-                                                <option name="d">Mantenho a atenção naquilo que tenho que fazer</option>
-                                                <option name="pr">Avalio as possibilidades e previno-me para não me
-                                                    stressar
-                                                    novamente
-                                                </option>
-                                                <option name="o">Mantenho a calma</option>
-                                                <option name="c">Falo com outras pessoas que me possam ajudar a
-                                                    melhorar
-                                                </option>
+                                                <option value="comunicativo">Falo com outras pessoas que me possam ajudar a melhorar;</option>
+                                                <option value="organizado">Mantenho a calma;</option>
+                                                <option value="previsivel">Avalio as possibilidades e previno-me para não me stressar novamente;</option>
+                                                <option value="determinado">Mantenho a atenção naquilo que tenho que fazer.</option>
                                             </select>
                                         </div>
 

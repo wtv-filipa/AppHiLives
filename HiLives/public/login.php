@@ -13,29 +13,29 @@
 
     <!-- Custom styles for this template-->
     <?php include "helpers/css_register_login.php"; ?>
-
+    
 </head>
 
 
 <body id="page-top" class="fundo_login">
 
-<!-- Page Wrapper -->
-<div id="wrapper">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
 
-    <!-- Begin Page Content -->
-    <div class="container-fluid">
-        <!--cartões com earnings pequenos-->
-        <?php include "components/login.php"; ?>
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+            <!--cartões com earnings pequenos-->
+            <?php include "components/login.php"; ?>
+
+        </div>
 
     </div>
+    <!-- End of Main Content -->
 
-</div>
-<!-- End of Main Content -->
+    <!-- JavaScript-->
 
-<!-- JavaScript-->
-
-<?php include "helpers/js.php"; ?>
-<?php include "helpers/fontawesome.php"; ?>
+    <?php include "helpers/js.php"; ?>
+    <?php include "helpers/fontawesome.php"; ?>
 </body>
 
 </html>
