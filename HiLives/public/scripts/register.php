@@ -172,6 +172,7 @@ if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["data_nasc"]
 
                                 switch ($value) {
                                     case $key == "comunicativo" && $value > 1:
+                                        //INÍCIO DA QUERY 3
                                         if (mysqli_stmt_prepare($stmt, $query3)) {
                                             /* execute the prepared statement */
                                             if (mysqli_stmt_execute($stmt)) {
@@ -180,23 +181,253 @@ if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["data_nasc"]
 
                                                 /* fetch values */
                                                 while (mysqli_stmt_fetch($stmt)) {
+                                                    $c = $idPersonality;
+                                                    //INICIO DA QUERY DE INSERT
+                                                    $query7 = "INSERT INTO user_has_personality (User_idUser, Personality_idPersonality)
+                                                    VALUES (?, ?)";
+                                                    //parte do insert
+                                                    if (mysqli_stmt_prepare($stmt, $query7)) {
+                                                        echo "id do user: $idUser <br>";
 
+                                                        mysqli_stmt_bind_param($stmt, 'ii', $idUser, $c);
+                                                        echo "id comunicativo: $c<br>";
+                                                        if (!mysqli_stmt_execute($stmt)) {
+                                                            echo "Error: " . mysqli_stmt_error($stmt);
+                                                        }
+                                                        /* close statement */
+                                                        mysqli_stmt_close($stmt);
+                                                    }
+                                                    //fim da cena do insert
 
                                                 }
                                             }
                                         }
                                         break;
                                     case $key == "organizado" && $value > 1:
-                                        echo "<br> - {$o}";
+                                        $stmt = mysqli_stmt_init($link);
+                                        //INÍCIO DA QUERY 4
+                                        if (mysqli_stmt_prepare($stmt, $query4)) {
+                                            /* execute the prepared statement */
+                                            if (mysqli_stmt_execute($stmt)) {
+                                                /* bind result variables */
+                                                mysqli_stmt_bind_result($stmt, $idPersonality, $name_perso);
+
+                                                /* fetch values */
+                                                while (mysqli_stmt_fetch($stmt)) {
+                                                    $o = $idPersonality;
+                                                    //INICIO DA QUERY DE INSERT
+                                                    $query7 = "INSERT INTO user_has_personality (User_idUser, Personality_idPersonality)
+                                                    VALUES (?, ?)";
+                                                    //parte do insert
+                                                    if (mysqli_stmt_prepare($stmt, $query7)) {
+                                                        echo "id do user: $idUser <br>";
+
+                                                        mysqli_stmt_bind_param($stmt, 'ii', $idUser, $o);
+                                                        echo "id comunicativo: $o<br>";
+                                                        if (!mysqli_stmt_execute($stmt)) {
+                                                            echo "Error: " . mysqli_stmt_error($stmt);
+                                                        }
+                                                        /* close statement */
+                                                        mysqli_stmt_close($stmt);
+                                                    }
+                                                    //fim da cena do insert
+
+                                                }
+                                            }
+                                        }
                                         break;
                                     case $key == "previsivel" && $value > 1:
-                                        echo "<br> - {$pr}";
+                                        $stmt = mysqli_stmt_init($link);
+                                        //INÍCIO DA QUERY 5
+                                        if (mysqli_stmt_prepare($stmt, $query5)) {
+                                            /* execute the prepared statement */
+                                            if (mysqli_stmt_execute($stmt)) {
+                                                /* bind result variables */
+                                                mysqli_stmt_bind_result($stmt, $idPersonality, $name_perso);
+
+                                                /* fetch values */
+                                                while (mysqli_stmt_fetch($stmt)) {
+                                                    $pr = $idPersonality;
+                                                    //INICIO DA QUERY DE INSERT
+                                                    $query7 = "INSERT INTO user_has_personality (User_idUser, Personality_idPersonality)
+                                                    VALUES (?, ?)";
+                                                    //parte do insert
+                                                    if (mysqli_stmt_prepare($stmt, $query7)) {
+                                                        echo "id do user: $idUser <br>";
+
+                                                        mysqli_stmt_bind_param($stmt, 'ii', $idUser, $pr);
+                                                        echo "id comunicativo: $pr<br>";
+                                                        if (!mysqli_stmt_execute($stmt)) {
+                                                            echo "Error: " . mysqli_stmt_error($stmt);
+                                                        }
+                                                        /* close statement */
+                                                        mysqli_stmt_close($stmt);
+                                                    }
+                                                    //fim da cena do insert
+
+                                                }
+                                            }
+                                        }
                                         break;
                                     case $key == "determinado" && $value > 1:
-                                        echo "<br> - {$d}";
+                                        $stmt = mysqli_stmt_init($link);
+                                        //INÍCIO DA QUERY 6
+                                        if (mysqli_stmt_prepare($stmt, $query6)) {
+                                            /* execute the prepared statement */
+                                            if (mysqli_stmt_execute($stmt)) {
+                                                /* bind result variables */
+                                                mysqli_stmt_bind_result($stmt, $idPersonality, $name_perso);
+
+                                                /* fetch values */
+                                                while (mysqli_stmt_fetch($stmt)) {
+                                                    $d = $idPersonality;
+                                                    //INICIO DA QUERY DE INSERT
+                                                    $query7 = "INSERT INTO user_has_personality (User_idUser, Personality_idPersonality)
+                                                    VALUES (?, ?)";
+                                                    //parte do insert
+                                                    if (mysqli_stmt_prepare($stmt, $query7)) {
+                                                        echo "id do user: $idUser <br>";
+
+                                                        mysqli_stmt_bind_param($stmt, 'ii', $idUser, $d);
+                                                        echo "id comunicativo: $d<br>";
+                                                        if (!mysqli_stmt_execute($stmt)) {
+                                                            echo "Error: " . mysqli_stmt_error($stmt);
+                                                        }
+                                                        /* close statement */
+                                                        mysqli_stmt_close($stmt);
+                                                    }
+                                                    //fim da cena do insert
+
+                                                }
+                                            }
+                                        }
                                         break;
-                                    case $key == "comunicativo" && $value = 1 && $key == "organizado" && $value = 1 && $key == "previsivel" && $value = 1 && $key == "determinado" && $value = 1:
-                                        echo "- {$c} <br> - {$o} <br> - {$pr} <br> - {$d}";
+                                    case $key == "comunicativo" && $value == 1 && $key == "organizado" && $value == 1 && $key == "previsivel" && $value == 1 && $key == "determinado" && $value == 1:
+                                        $stmt = mysqli_stmt_init($link);
+                                        //AQUI TÊM DE IR 4 PARA A BD
+                                        //INÍCIO DA QUERY 3
+                                        if (mysqli_stmt_prepare($stmt, $query3)) {
+                                            /* execute the prepared statement */
+                                            if (mysqli_stmt_execute($stmt)) {
+                                                /* bind result variables */
+                                                mysqli_stmt_bind_result($stmt, $idPersonality, $name_perso);
+
+                                                /* fetch values */
+                                                while (mysqli_stmt_fetch($stmt)) {
+                                                    $c = $idPersonality;
+                                                    //INICIO DA QUERY DE INSERT
+                                                    $query7 = "INSERT INTO user_has_personality (User_idUser, Personality_idPersonality)
+                                                    VALUES (?, ?)";
+                                                    //parte do insert
+                                                    if (mysqli_stmt_prepare($stmt, $query7)) {
+                                                        echo "id do user: $idUser <br>";
+
+                                                        mysqli_stmt_bind_param($stmt, 'ii', $idUser, $c);
+                                                        echo "id comunicativo: $c<br>";
+                                                        if (!mysqli_stmt_execute($stmt)) {
+                                                            echo "Error: " . mysqli_stmt_error($stmt);
+                                                        }
+                                                        /* close statement */
+                                                        mysqli_stmt_close($stmt);
+                                                    }
+                                                    //fim da cena do insert
+
+                                                }
+                                            }
+                                        }
+                                        $stmt = mysqli_stmt_init($link);
+                                        //INÍCIO DA QUERY 4
+                                        if (mysqli_stmt_prepare($stmt, $query4)) {
+                                            /* execute the prepared statement */
+                                            if (mysqli_stmt_execute($stmt)) {
+                                                /* bind result variables */
+                                                mysqli_stmt_bind_result($stmt, $idPersonality, $name_perso);
+
+                                                /* fetch values */
+                                                while (mysqli_stmt_fetch($stmt)) {
+                                                    $o = $idPersonality;
+                                                    //INICIO DA QUERY DE INSERT
+                                                    $query7 = "INSERT INTO user_has_personality (User_idUser, Personality_idPersonality)
+                                                    VALUES (?, ?)";
+                                                    //parte do insert
+                                                    if (mysqli_stmt_prepare($stmt, $query7)) {
+                                                        echo "id do user: $idUser <br>";
+
+                                                        mysqli_stmt_bind_param($stmt, 'ii', $idUser, $o);
+                                                        echo "id comunicativo: $o<br>";
+                                                        if (!mysqli_stmt_execute($stmt)) {
+                                                            echo "Error: " . mysqli_stmt_error($stmt);
+                                                        }
+                                                        /* close statement */
+                                                        mysqli_stmt_close($stmt);
+                                                    }
+                                                    //fim da cena do insert
+
+                                                }
+                                            }
+                                        }
+                                        $stmt = mysqli_stmt_init($link);
+                                        //INÍCIO DA QUERY 5
+                                        if (mysqli_stmt_prepare($stmt, $query5)) {
+                                            /* execute the prepared statement */
+                                            if (mysqli_stmt_execute($stmt)) {
+                                                /* bind result variables */
+                                                mysqli_stmt_bind_result($stmt, $idPersonality, $name_perso);
+
+                                                /* fetch values */
+                                                while (mysqli_stmt_fetch($stmt)) {
+                                                    $pr = $idPersonality;
+                                                    //INICIO DA QUERY DE INSERT
+                                                    $query7 = "INSERT INTO user_has_personality (User_idUser, Personality_idPersonality)
+                                                    VALUES (?, ?)";
+                                                    //parte do insert
+                                                    if (mysqli_stmt_prepare($stmt, $query7)) {
+                                                        echo "id do user: $idUser <br>";
+
+                                                        mysqli_stmt_bind_param($stmt, 'ii', $idUser, $pr);
+                                                        echo "id comunicativo: $pr<br>";
+                                                        if (!mysqli_stmt_execute($stmt)) {
+                                                            echo "Error: " . mysqli_stmt_error($stmt);
+                                                        }
+                                                        /* close statement */
+                                                        mysqli_stmt_close($stmt);
+                                                    }
+                                                    //fim da cena do insert
+
+                                                }
+                                            }
+                                        }
+                                        $stmt = mysqli_stmt_init($link);
+                                        //INÍCIO DA QUERY 6
+                                        if (mysqli_stmt_prepare($stmt, $query6)) {
+                                            /* execute the prepared statement */
+                                            if (mysqli_stmt_execute($stmt)) {
+                                                /* bind result variables */
+                                                mysqli_stmt_bind_result($stmt, $idPersonality, $name_perso);
+
+                                                /* fetch values */
+                                                while (mysqli_stmt_fetch($stmt)) {
+                                                    $d = $idPersonality;
+                                                    //INICIO DA QUERY DE INSERT
+                                                    $query7 = "INSERT INTO user_has_personality (User_idUser, Personality_idPersonality)
+                                                    VALUES (?, ?)";
+                                                    //parte do insert
+                                                    if (mysqli_stmt_prepare($stmt, $query7)) {
+                                                        echo "id do user: $idUser <br>";
+
+                                                        mysqli_stmt_bind_param($stmt, 'ii', $idUser, $d);
+                                                        echo "id comunicativo: $d<br>";
+                                                        if (!mysqli_stmt_execute($stmt)) {
+                                                            echo "Error: " . mysqli_stmt_error($stmt);
+                                                        }
+                                                        /* close statement */
+                                                        mysqli_stmt_close($stmt);
+                                                    }
+                                                    //fim da cena do insert
+
+                                                }
+                                            }
+                                        }
                                         break;
                                 }
                             }
@@ -204,8 +435,6 @@ if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["data_nasc"]
                     }
                 }
             }
-
-
             header("Location: ../login.php");
         } else {
             // ERROR ACTION
@@ -213,7 +442,6 @@ if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["data_nasc"]
             echo "NAO DEU POR ERRO DA BD <br>";
             //header("Location: ../register.php?msg=0");
         }
-
     } else {
         // ERROR ACTION
         echo "ERRO <br>";
@@ -224,5 +452,3 @@ if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["data_nasc"]
     echo "ERRO de não temos nada inserido <br>";
     // header("Location: ../register.php?msg=2");
 }
-
-
