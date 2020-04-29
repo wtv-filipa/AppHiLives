@@ -1,4 +1,4 @@
- /* The side navigation menu */
+/* The side navigation menu */
  
  .sidenav {
      height: 100%;
@@ -29,19 +29,19 @@
      transition: 0.3s;
      color: #2F2F2F !important;
  }
-
-
+ 
+ 
  .nav__link--text {
      font-weight: normal;
      margin-left: 1.2rem;
      font-size: 0.9rem;
  }
-
+ 
  .nav__link--text_main {
      font-weight: bolder;
      font-size: 1.1rem;
  }
-
+ 
  /* Position and style the close button (top right corner) */
  
  .sidenav .closebtn {
@@ -103,7 +103,7 @@
  .menunav {
      vertical-align: middle;
  }
-
+ 
  .menu_lado {
      cursor: pointer;
  }
