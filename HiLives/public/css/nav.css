@@ -360,3 +360,30 @@
      background: #fff;
      box-shadow: 0 0.3rem 0.3rem rgba(0, 0, 0, 0.1)
  }
+
+.inicia_nav {
+    width: 50%!important;
+    color: #2f2f2f!important;
+    background-color: #D3D3D3!important;
+    text-decoration: none!important;
+    cursor: pointer!important;
+    display: inline-block!important;
+    border-radius: 40px!important;
+    font-weight: bold;
+    border-color: #D3D3D3!important;
+}
+
+.inicia_nav:hover {
+    width: 50%!important;
+    color: #fff!important;
+    background-color: #2F2F2F !important;
+    text-decoration: none!important;
+    cursor: pointer!important;
+    display: inline-block!important;
+    border-color: #2F2F2F!important;
+    border-radius: 40px!important;
+}
+
+ul {
+    list-style: none;
+}

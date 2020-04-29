@@ -1,7 +1,7 @@
 <div class="mt-5 text-center">
     <h1>Bem vindo(a) à HiLives!</h1>
 
-    <h4 class="mt-5">Quem sou eu?</h4>
+    <h4 class="mt-4">Quem sou eu?</h4>
 
     <p>Escolhe uma opção para dares início ao registo</p>
 </div>

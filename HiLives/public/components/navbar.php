@@ -139,10 +139,20 @@ $stmt = mysqli_stmt_init($link);
                 <?php
                 } else {
                 ?>
-                    <a class="navbar-brand mx-auto" href="index.php">
-                        <img src="img/logo.png" class="img-responsive" style="width:85px; margin-right: 5px" alt="Logótipo do HiLives">
-                    </a>
-                <?php
+                    <div class="col-4"></div>
+                    <div class="col-4 text-center ">
+                        <a class="navbar-brand mx-auto" href="index.php">
+                            <img src="img/logo.png" class="img-responsive" style="width:85px" alt="Logótipo do HiLives">
+                        </a>
+                    </div>
+                    <div class=" col-4 text-right my-auto">
+                        <a href="login.php">
+                            <button class="btn inicia_nav m-0" >Inicia Sessão</button>
+                        </a>
+                    </div>
+
+
+                    <?php
                 }
                 ?>
                 <!---------------------------------->
