@@ -52,7 +52,7 @@
                                         <div class="mx-auto col-sm-10">Email</div>
                                         <div class="mx-auto col-sm-10">
                                             <input type="text" class="form-control" id="input2UserForm" name="email"
-                                                   placeholder=""
+                                                   placeholder="Escreve aqui o email da tua conta no HiLives"
                                                    required="required">
                                         </div>
                                     </div>
@@ -60,13 +60,13 @@
                                         <div class="mx-auto col-sm-10">Palavra-passe</div>
                                         <div class="mx-auto col-sm-10">
                                             <input type="password" class="form-control" id="password" name="password"
-                                                   placeholder="" required="required"
+                                                   placeholder="Escreve aqui a tua palavra-passe do HiLives" required="required"
                                                    onkeyup="checkPass(); return false;">
                                         </div>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group text-center">
                                         <div class="mx-auto col-sm-10 pb-3 pt-2">
-                                            <button type="submit" class="btn btn-outline-secondary btn-lg btn-block">Entrar
+                                            <button type="submit" class="btn publicar_btn">Entrar
                                             </button>
                                         </div>
                                     </div>

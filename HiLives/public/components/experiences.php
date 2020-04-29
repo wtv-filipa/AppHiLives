@@ -38,7 +38,7 @@
                                 cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
                                 laborum.</p>
 
-                            <button type="button" class="btn btn-outline-primary btn-rounded btn-md mb-4"
+                            <button type="button" class="btn btn-outline-primary btn-rounded btn-md mb-4 botao"
                                     data-dismiss="modal">
                                 Fechar
                             </button>
