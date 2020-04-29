@@ -113,7 +113,7 @@ header {
 }
 
 .nav__avatar {
-    margin: 0 1rem;
+    margin: 0.5rem;
     height: 100%;
     display: flex;
     align-items: center;
@@ -346,9 +346,7 @@ label {
         width: 70px;
     }
 
-    .cont_l {
-        display: none;
-    }
+
 }
 
 
@@ -373,7 +371,5 @@ label {
         display: none;
     }
 
-    .nao_container {
-        display: none;
-    }
 }
+
