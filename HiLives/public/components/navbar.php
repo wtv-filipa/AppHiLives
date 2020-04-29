@@ -70,6 +70,7 @@ $stmt = mysqli_stmt_init($link);
                             <li>
                                 <a href="can_choose_work.php" class="nav__link mr-2 mb-1 zoom">
                                     <span class="nav__link--text">As minhas ligações</span>
+
                                 </a>
                             </li>
                             <li>
