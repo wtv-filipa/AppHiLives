@@ -7,7 +7,7 @@
     margin-top: 100px;
 }
 
-.btn {
+.botao {
     float: right;
 }
 
@@ -15,6 +15,12 @@
     margin-top: 12px;
     margin-right: 120px;
     float: right;
+    font-weight: bold;
+    font-family: 'Quicksand' !important;
+}
+
+h3 {
+    font-family: 'Quicksand' !important;
     font-weight: bold;
 }
 
@@ -46,17 +52,3 @@
     border-radius: 50%;
     margin-top: 4px;
 }
-
-
-/*Aplica sombra ao "card"*/
-/*.boxShadow {
-    display: flex;
-    flex-direction: column;
-    background-color: #fff;
-    width: 20%;
-    border-radius: 10px;
-    box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
-    overflow: hidden;
-    transition: transform 0.5s;
-    -webkit-transition: transform 0.5s;
-}  */
