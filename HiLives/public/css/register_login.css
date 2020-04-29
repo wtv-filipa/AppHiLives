@@ -7,7 +7,15 @@
     font-weight: bold;
 }
 
-label, input, textarea, h1, option {
+label,
+input,
+textarea,
+h1,
+option {
+    font-family: "Quicksand";
+}
+
+* {
     font-family: "Quicksand";
 }
 
@@ -30,7 +38,6 @@ label, input, textarea, h1, option {
     margin-top: 5%;
     font-weight: bold;
     border-color: #D3D3D3!important;
-
 }
 
 .publicar_btn:hover {
@@ -46,11 +53,23 @@ label, input, textarea, h1, option {
     border-radius: 40px!important;
 }
 
+
+/*
 label {
     margin-left: -20px;
 }
+*/
 
 .lala {
     width: calc(33% - 0px);
     padding-right: 0px;
+}
+
+
+/*imagem de fundo*/
+
+.fundo_login {
+    background-image: url("../img/fundo_cinza.png");
+    width: 100%;
+    background-size: cover;
 }

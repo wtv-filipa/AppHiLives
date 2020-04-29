@@ -49,16 +49,16 @@
                                 <form method="post" role="form" id="register-form" action="scripts/login.php">
 
                                     <div class="form-group">
-                                        <div class="mx-auto col-sm-10">Email</div>
-                                        <div class="mx-auto col-sm-10">
-                                            <input type="text" class="form-control" id="input2UserForm" name="email"
+                                        <div class="mx-auto col-sm-12 mb-2">Email</div>
+                                        <div class="mx-auto col-sm-12">
+                                            <input type="text" class="form-control  mb-4" id="input2UserForm" name="email"
                                                    placeholder="Escreve aqui o email da tua conta no HiLives"
                                                    required="required">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <div class="mx-auto col-sm-10">Palavra-passe</div>
-                                        <div class="mx-auto col-sm-10">
+                                        <div class="mx-auto col-sm-12 mb-2">Palavra-passe</div>
+                                        <div class="mx-auto col-sm-12">
                                             <input type="password" class="form-control" id="password" name="password"
                                                    placeholder="Escreve aqui a tua palavra-passe do HiLives" required="required"
                                                    onkeyup="checkPass(); return false;">
@@ -73,10 +73,10 @@
                                 </form>
                                 <hr>
                                 <div class="text-center">
-                                    <a class="small" href="forgot-password.php">Forgot Password?</a>
+                                    <a class="small" href="forgot-password.php">Esqueceste-te da tua palavra-passe?</a>
                                 </div>
                                 <div class="text-center">
-                                    <a class="small" href="register.php">Create an Account!</a>
+                                    <a class="small" href="login.php">Já estás inscrito? Inicia sessão!</a>
                                 </div>
                             </div>
                         </div>

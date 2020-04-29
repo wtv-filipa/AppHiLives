@@ -75,7 +75,7 @@
         <p>Para além disto, a HiLives permite também que estes jovens possam encontrar empregadores que correspondam às
             suas
             necessidades e, assim, incluí-los numa empresa.</p>
-        <p>Esta plataforma ermite o registo de <b>três entidades</b> diferentes: <b>jovens</b>, <b>universidades</b> e
+        <p>Esta plataforma permite o registo de <b>três entidades</b> diferentes: <b>jovens</b>, <b>universidades</b> e
             <b>empresas</b>.</p>
     </div>
 </div>
