@@ -1,3 +1,14 @@
+<style>
+    .zoom {
+        transition: transform .2s; /* Animation */
+        margin: 0 auto;
+    }
+
+    .zoom:hover {
+        transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    }
+</style>
+
 <?php
 
 require_once("connections/connection.php");
@@ -14,347 +25,263 @@ $link = new_db_connection();
 $stmt = mysqli_stmt_init($link);
 
 ?>
-<style>
-    .zoom {
-        padding: 50px;
-        transition: transform .2s; /* Animation */
-        margin: 0 auto;
-    }
-
-    .zoom:hover {
-        transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
-    }
-</style>
-
 <header class="top">
-    <nav class="nav__ container cont_l">
-            <div class="nav__controls--left">
+    <nav id="topNav" class="navbar fixed-top navbar-toggleable-sm" >
+        <!--div con
+        taine do conteúdo-->
+        <div class="container">
+            <div class="row col-12 m-0 p-0 my-auto">
                 <?php
                 if (isset($_SESSION["idUser"])) {
                 ?>
-                <a href="#" class="nav__link">
-                    <i class="fas fa-ellipsis-v" id="button"
-                       style="margin-left:20px; color: #2f2f2f; font-size: 25px !important;">
-                        <span class="menunav ml-1">Eu quero</span>
-                    </i>
-                </a>    <?php
-                }
-                ?>
-            </div>
+                    <!--menu do lado esquerdo-->
+                    <div id="mySidenav" class="sidenav">
+                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 
+                        <ul>
+                            <!-- EU QUERO ESTUDAR -->
+                            <li>
+                                <a class="nav__link mr-2 mb-1">
+                                    <span class="nav__link--text_main font-weight-bold">Eu quero estudar</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="can_choose_study.php" class="nav__link mr-2 mb-1 zoom">
+                                    <span class="nav__link--text">As minha ligações</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="allOptions_uni.php" class="nav__link mr-2 mb-1 zoom">
+                                    <span class="nav__link--text">Todas as opções disponíveis</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="links_chosen.php" class="nav__link mr-2 mb-1 zoom">
+                                    <span class="nav__link--text">As minhas escolhas</span>
+                                </a>
+                            </li>
 
-        <div class="nav__brand">
-            <a class="nav__link" href="index.php">
-                <img src="img/logo.png" class="img-responsive" style="width:90px; margin-right: 5px">
-            </a>
-        </div>
+                            <!-- EU QUERO TRABALHAR -->
+                            <li>
+                                <a class="nav__link mr-2 mb-1 mt-4">
+                                    <span class="nav__link--text_main font-weight-bold">Eu quero trabalhar</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="can_choose_work.php" class="nav__link mr-2 mb-1 zoom">
+                                    <span class="nav__link--text">As minhas ligações</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="allOptions_company.php" class="nav__link mr-2 mb-1 zoom">
+                                    <span class="nav__link--text">Todas as opções disponíveis</span>
+                                </a>
+                            </li>
 
-        <div class="nav__controls nav__controls--right">
-            <?php
-            if (!isset($_SESSION["idUser"])) {
-                ?>
-            <div class="text-center nav__avatar">
-                <a href="login.php">
-                    <button class="btn inicia" style="width: 100% !important;">Inicia Sessão</button>
-                </a>
-            </div>
-            <?php
-            }
-            ?>
-            <!-- <div class="nav__search">
-                 <input class="nav__search--input text-center" placeholder="Pesquisar..." type="text"/><a class="nav__search--icon " href="#"><i class="fa fa-bell-o" style="font-size: 21px"></i></a>
-             </div> -->
-            <?php
+                            <!-- EU QUERO ESTUDAR E TRABALHAR -->
+                            <li>
+                                <a class="nav__link mr-2 mb-1 mt-4">
+                                    <span class="nav__link--text_main font-weight-bold">Eu quero estudar e trabalhar</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="can_choose_ws.php" class="nav__link mr-2 mb-1 zoom">
+                                    <span class="nav__link--text">As minhas ligações</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="allOptions.php" class="nav__link mr-2 mb-1 zoom">
+                                    <span class="nav__link--text">Todas as opções disponíveis</span>
+                                </a>
+                            </li>
 
-            if (isset($_SESSION["idUser"])) {
-                ?>
-            <div class="nav__avatar">
-                <img src="img/notif.png" class=" " style="position:relative; max-width:30px"><span class="nome ml-2" style=" width: 180px; color: black">O que está a acontecer</span>
+                            <!-- EU QUERO VER O QUE JÁ FOI FEITO -->
+                            <li>
+                                <a class="nav__link mr-2 mb-1 mt-4">
+                                    <span class="nav__link--text_main font-weight-bold">Eu quero ver o que já foi feito</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="links_made.php" class="nav__link mr-2 mb-1 zoom">
+                                    <span class="nav__link--text">O que eu já fiz</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="experiences.php" class="nav__link mr-2 mb-1 zoom">
+                                    <span class="nav__link--text">O que os outros fizeram</span>
+                                </a>
+                            </li>
+                        </ul>
 
-                <div class="nav__avatar--dropdown" style="overflow-y: scroll; width: 400px">
+                    </div>
 
-                    <a href="">
-                        <button class="notif_ind mb-2 nome"> Já não tens uma ligação há algum tempo...
-                            <span class="font-weight-bold" style="">Edita o teu perfil</span> para conseguires ter novas
-                            ligações!
-                            <span class="m-0 p-0"
-                                  style="color: grey; font-family: Quicksand !important;">  •  Há 2min</span>
-                        </button>
-                    </a>
-                    <a href="">
-                        <button class="notif_ind mb-2 nome"> Tens uma nova ligação com a
-                            <span class="font-weight-bold" style=""> Universidade de Aveiro</span>.
-                            <span class="m-0 p-0"
-                                  style="color: grey; font-family: Quicksand !important;">  •  Há 2min</span>
-                        </button>
-                    </a>
-                    <a href="">
-                        <button class="notif_ind mb-2 nome"> Tens uma nova ligação com a
-                            <span class="font-weight-bold" style=""> Universidade de Aveiro</span>.
-                            <span class="m-0 p-0"
-                                  style="color: grey; font-family: Quicksand !important;">  •  Há 2min</span>
-                        </button>
-                    </a>
-                    <a href="">
-                        <button class="notif_ind mb-2 nome"> Tens uma nova ligação com a empresa
-                            <span class="font-weight-bold" style=""> FNAC</span>.
-                            <span class="m-0 p-0"
-                                  style="color: grey; font-family: Quicksand !important;">  •  Há 2min</span>
-                        </button>
-                    </a>
-                    <a href="">
-                        <button class="notif_ind mb-2 nome"> Tens uma nova ligação com a empresa
-                            <span class="font-weight-bold" style=""> FNAC</span>.
-                            <span class="m-0 p-0"
-                                  style="color: grey; font-family: Quicksand !important;">  •  Há 2min</span>
-                        </button>
-                    </a>
-                    <a href="">
-                        <button class="notif_ind mb-2 nome"> Tens uma nova ligação com a empresa
-                            <span class="font-weight-bold" style=""> FNAC</span>.
-                            <span class="m-0 p-0"
-                                  style="color: grey; font-family: Quicksand !important;">  •  Há 2min</span>
-                        </button>
-                    </a>
-                </div>
+                    <!-- Use any element to open the sidenav -->
+                    <div class="col-4 text-left p-0 my-auto">
+                        <span onclick="openNav()" class="menu_lado">
+                            <i class="fas fa-ellipsis-v" style="color: #2f2f2f; font-size: 25px !important; ">
+                                <span class="menunav nome ml-1" style="font-weight: normal">Eu quero</span> </i>
+                        </span>
+                    </div>
                 <?php
                 }
                 ?>
-            </div>
-            <?php
-
-            $query = "SELECT idUser, name_user, profile_img
-                              FROM users
-                              WHERE idUser LIKE ?";
-
-            if (mysqli_stmt_prepare($stmt, $query)) {
-            mysqli_stmt_bind_param($stmt, 'i', $idUser);
-            mysqli_stmt_execute($stmt);
-            mysqli_stmt_bind_result($stmt, $id, $name_user, $profile_img);
-            while (mysqli_stmt_fetch($stmt)) {
-                if (isset($img_perfil)){
-            ?>
-
-            <div class="nav__avatar">
-                <img src="../admin/uploads/img_perfil/<?= $img_perfil ?>" class="nav__avatar--image "
-                     style="max-width:35px">
-                <span class="nome ml-2" style="color: black"><?= $name_user ?></span>
+                <!--fim do menu do lado esquerdo-->
+                <!--logo no centro-->
 
                 <?php
-                } else{
+                if (isset($_SESSION["idUser"])) {
                 ?>
-                <div class="nav__avatar">
-                    <img src="img/no_profile_img.png" class="nav__avatar--image " style="max-width:35px">
-                    <span class="nome ml-2" style="color: black"><?= $name_user ?></span>
-                    <?php
-                    }
-            }
-            }
-                    ?>
-
-
-                    <div class="nav__avatar--dropdown">
-                        <?php
-                        if (isset($User_type) && $User_type == 4) {
-                            ?>
-                            <a href="../admin/index.php">
-                                <button class="nav__btn2 text-light" style="background: #E93CAC;">
-                                    <i class="fa fa-shield mr-2 text-light"></i>ADMIN
-                                </button>
-                            </a>
-                            <?php
-                        }
-                        ?>
-
-
-                        <a href="profile.php?user=<?= $idUser ?>">
-                            <button class="nav__btn2 nome"> <!--<i class="fa fa-star-o mr-2"></i>-->Sobre mim</button>
-                        </a>
-                        <a href="edit_profile.php">
-                            <button class="nav__btn2"> <!--<i class="fa fa-star-o mr-2"></i>-->Favoritos</button>
-                        </a>
-                        <a href="">
-                            <button class="nav__btn2"> <!--<i class="fa fa-sliders mr-2"></i>-->Definições</button>
-                        </a>
-                        <a href="scripts/logout.php">
-                            <button class="nav__btn2" style="background: #FDE74C;"><i class="fa fa-sign-out mr-2"></i>Logout
-                            </button>
+                    <div class="col-4 text-center p-0">
+                        <a class="navbar-brand mx-auto" href="homepage_userDID.php">
+                            <img src="img/logo.png" class="img-responsive" style="width:85px" alt="Logótipo do HiLives">
                         </a>
                     </div>
+                <?php
+                } else {
+                ?>
+                    <a class="navbar-brand mx-auto" href="index.php">
+                        <img src="img/logo.png" class="img-responsive" style="width:85px; margin-right: 5px" alt="Logótipo do HiLives">
+                    </a>
+                <?php
+                }
+                ?>
+                <!---------------------------------->
+                <!--botão de iniciar sessão se ainda não tive sessão-->
+
+                <!--notificações e perfil dropdown-->
+                <!--dropdowns das notificações-->
+                <div class="col-4 p-0 text-right my-auto">
+                    <?php
+                    if (isset($_SESSION["idUser"])) {
+                    ?>
+                        <div class="dropdown">
+                            <button class="btn pl-0" type="button" role="button" data-toggle="dropdown">
+                                <img src="img/notif.png" alt="Símbolo de notificações" style="position:relative; max-width:25px"><span class="nome ml-2">O que está a acontecer</span>
+                            </button>
+                            <ul class="dropdown-menu mx-auto" style="overflow-y: scroll; width: 400px">
+                                <a href="">
+                                    <button class="notif_ind mb-2 nome"> Já não tens uma ligação há algum tempo...
+                                        <span class="font-weight-bold">Edita o teu perfil</span> para conseguires ter novas
+                                        ligações!
+                                        <span class="m-0 p-0" style="color: grey; font-family: Quicksand !important;"> • Há 2min</span>
+                                    </button>
+                                </a>
+                                <a href="">
+                                    <button class="notif_ind mb-2 nome"> Tens uma nova ligação com a
+                                        <span class="font-weight-bold"> Universidade de Aveiro</span>.
+                                        <span class="m-0 p-0" style="color: grey; font-family: Quicksand !important;"> • Há 2min</span>
+                                    </button>
+                                </a>
+                                <a href="">
+                                    <button class="notif_ind mb-2 nome"> Tens uma nova ligação com a
+                                        <span class="font-weight-bold"> Universidade de Aveiro</span>.
+                                        <span class="m-0 p-0" style="color: grey; font-family: Quicksand !important;"> • Há 2min</span>
+                                    </button>
+                                </a>
+                                <a href="">
+                                    <button class="notif_ind mb-2 nome"> Tens uma nova ligação com a empresa
+                                        <span class="font-weight-bold"> FNAC</span>.
+                                        <span class="m-0 p-0" style="color: grey; font-family: Quicksand !important;"> • Há 2min</span>
+                                    </button>
+                                </a>
+                                <a href="">
+                                    <button class="notif_ind mb-2 nome"> Tens uma nova ligação com a empresa
+                                        <span class="font-weight-bold"> FNAC</span>.
+                                        <span class="m-0 p-0" style="color: grey; font-family: Quicksand !important;"> • Há 2min</span>
+                                    </button>
+                                </a>
+                                <a href="">
+                                    <button class="notif_ind mb-2 nome"> Tens uma nova ligação com a empresa
+                                        <span class="font-weight-bold"> FNAC</span>.
+                                        <span class="m-0 p-0" style="color: grey; font-family: Quicksand !important;"> • Há 2min</span>
+                                    </button>
+                                </a>
+                            </ul>
+                        </div>
+                    <?php
+                    }
+                    ?>
+                    <!--dropdown do perfil-->
+                    <div class="dropdown">
+                        <?php
+                        $query = "SELECT idUser, name_user, profile_img
+            FROM users
+            WHERE idUser LIKE ?";
+
+                        if (mysqli_stmt_prepare($stmt, $query)) {
+                            mysqli_stmt_bind_param($stmt, 'i', $idUser);
+                            mysqli_stmt_execute($stmt);
+                            mysqli_stmt_bind_result($stmt, $id, $name_user, $profile_img);
+                            while (mysqli_stmt_fetch($stmt)) {
+                                $nome_todo = $name_user;
+                                $nomes = explode(' ', $nome_todo); // separamos por espaços e fica: por exemplo Array ( [0] => Eduardo [1] => da [2] => Silva [3] => Fernandes )
+                                $nome = $nomes[0]; // primeiro nome
+                                if (isset($img_perfil)) {
+
+                        ?>
+
+                                    <button class="btn pl-0 pr-0" type="button" role="button" data-toggle="dropdown">
+                                        <img src="../admin/uploads/img_perfil/<?= $img_perfil ?>" class="nav__avatar--image " style="max-width:25px" alt="Imagem de perfil">
+                                        <span class="nome ml-2" style="color: black"><?= $nome ?></span>
+                                    </button>
+                                <?php
+                                } else {
+                                ?>
+                                    <button class="btn pl-0 pr-0" type="button" role="button" data-toggle="dropdown">
+                                        <img src="img/no_profile_img.png" class="nav__avatar--image " style="max-width:25px" alt="Imagem de perfil padrão">
+                                        <span class="nome ml-2" style="color: black"><?= $nome ?></span>
+                                    </button>
+                        <?php
+                                }
+                            }
+                        }
+                        ?>
+                        <ul class="dropdown-menu mx-auto">
+                            <?php
+                            if (isset($User_type) && $User_type == 4) {
+                            ?>
+                                <a href="../admin/index.php">
+                                    <button class="nav__btn2 text-light" style="background: #E93CAC;">
+                                        <i class="fa fa-shield mr-2 text-light"></i>ADMIN
+                                    </button>
+                                </a>
+                            <?php
+                            }
+                            ?>
+                            <a href="profile.php?user=<?= $idUser ?>">
+                                <button class="nav__btn2">
+                                    <!--<i class="fa fa-star-o mr-2"></i>-->Sobre mim</button>
+                            </a>
+                            <a href="edit_profile.php">
+                                <button class="nav__btn2">
+                                    <!--<i class="fa fa-star-o mr-2"></i>-->Favoritos</button>
+                            </a>
+                            <a href="">
+                                <button class="nav__btn2">
+                                    <!--<i class="fa fa-sliders mr-2"></i>-->Definições</button>
+                            </a>
+                            <a href="scripts/logout.php">
+                                <button class="nav__btn2" style="background: #FDE74C;"><i class="fa fa-sign-out mr-2"></i>Logout
+                                </button>
+                            </a>
+                        </ul>
+                    </div>
+                    <div>
+                        <!---------------------------------->
+                    </div>
                 </div>
+                <!--fim da div container-->
     </nav>
-
-    <nav class="nav__ nao_container">
-        <div class=" nav__controls--left">
-            <a href="#" class="nav__link">
-                <i class="fa fa-bars" id="button1" style="font-size: 25px !important;"></i>
-            </a>
-        </div>
-
-        <div class="nav__brand">
-            <a class="nav__link" href="index.php">
-                <img src="img/logo_cores.png" class="img-responsive" style="width:90px; margin-right: 5px">
-            </a>
-        </div>
-        <div class="nav__controls nav__controls--right">
-            <!--<div class="nav__search">
-                <input class="nav__search--input text-center" placeholder="Pesquisar..." type="text"/><a class="nav__search--icon " href="#"><i class="fa fa-bell-o" style="font-size: 21px"></i></a>
-            </div>-->
-
-            <div class="nav__avatar">
-                <img src="img/notif.png" class=" " style="position:relative; max-width:35px">
-                <span class="nome ml-3" style="color: black">O que está a acontecer</span>
-            </div>
-
-            <div class="nav__avatar">
-                <img src="img/profilepic.jpg" class="nav__avatar--image " style="max-width:35px">
-                <span class="nome ml-3">José</span>
-
-                <div class="nav__avatar--dropdown "><a href="/login"></a>
-                    <a href="../admin/index.php">
-                        <button class="nav__btn2" style="background: #E93CAC;">
-                            <i class="fa fa-shield mr-2"></i> ADMIN
-                        </button>
-                    </a>
-                    <a href="">
-                        <button class="nav__btn2 nome"> <!--<i class="fa fa-star-o mr-2"></i>-->Sobre mim</button>
-                    </a>
-                    <a href="">
-                        <button class="nav__btn2"> <!--<i class="fa fa-star-o mr-2"></i>-->Favoritos</button>
-                    </a>
-                    <a href="">
-                        <button class="nav__btn2"> <!--<i class="fa fa-sliders mr-2"></i>-->Definições</button>
-                    </a>
-                    <a href="scripts/logout.php">
-                        <button class="nav__btn2" style="background: #FDE74C;"><i class="fa fa-sign-out mr-2"></i>Logout
-                        </button>
-                    </a>
-                </div>
-    </nav>
-
-        <div id="slide1"><a href="#" id="button2"><i class="fa fa-times" style="color: black"></i>
-                <ul class="">
-                    <!-- EU QUERO ESTUDAR -->
-                    <li>
-                        <a class="nav__link mr-2 mb-1">
-                            <img src="" alt="" class="icones nav__link--icon"/>
-                            <span class="nav__link--text_main font-weight-bold">Eu quero estudar</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="can_choose_study.php" class="nav__link mr-2 mb-1 zoom">
-                            <img src="" alt="" class="icones nav__link--icon"/>
-                            <span class="nav__link--text">As minha ligações</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="allOptions_uni.php" class="nav__link mr-2 mb-1 zoom">
-                            <img src="" alt="" class="icones nav__link--icon"/>
-                            <span class="nav__link--text">Todas as opções disponíveis</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="links_chosen.php" class="nav__link mr-2 mb-1 zoom">
-                            <img src="" alt="" class="icones nav__link--icon"/>
-                            <span class="nav__link--text">As minhas escolhas</span>
-                        </a>
-                    </li>
-
-                    <!-- EU QUERO TRABALHAR -->
-                    <li>
-                        <a class="nav__link mr-2 mb-1 mt-4">
-                            <img src="" alt="" class="icones nav__link--icon"/>
-                            <span class="nav__link--text_main font-weight-bold">Eu quero trabalhar</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="can_choose_work.php" class="nav__link mr-2 mb-1 zoom">
-                            <img src="" alt="" class="icones nav__link--icon"/>
-                            <span class="nav__link--text">As minhas ligações</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="allOptions_company.php" class="nav__link mr-2 mb-1 zoom">
-                            <img src="" alt="" class="icones nav__link--icon"/>
-                            <span class="nav__link--text">Todas as opções disponíveis</span>
-                        </a>
-                    </li>
-
-                    <!-- EU QUERO ESTUDAR E TRABALHAR -->
-                    <li>
-                        <a class="nav__link mr-2 mb-1 mt-4">
-                            <img src="" alt="" class="icones nav__link--icon"/>
-                            <span class="nav__link--text_main font-weight-bold">Eu quero estudar e trabalhar</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="can_choose_ws.php" class="nav__link mr-2 mb-1 zoom">
-                            <img src="" alt="" class="icones nav__link--icon"/>
-                            <span class="nav__link--text">As minhas ligações</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="allOptions.php" class="nav__link mr-2 mb-1 zoom">
-                            <img src="" alt="" class="icones nav__link--icon"/>
-                            <span class="nav__link--text">Todas as opções disponíveis</span>
-                        </a>
-                    </li>
-
-                    <!-- EU QUERO VER O QUE JÁ FOI FEITO -->
-                    <li>
-                        <a class="nav__link mr-2 mb-1 mt-4">
-                            <img src="" alt="" class="icones nav__link--icon"/>
-                            <span class="nav__link--text_main font-weight-bold">Eu quero ver o que já foi feito</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="links_made.php" class="nav__link mr-2 mb-1 zoom">
-                            <img src="" alt="" class="icones nav__link--icon"/>
-                            <span class="nav__link--text">O que eu já fiz</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="experiences.php" class="nav__link mr-2 mb-1 zoom">
-                            <img src="" alt="" class="icones nav__link--icon"/>
-                            <span class="nav__link--text">O que os outros fizeram</span>
-                        </a>
-                    </li>
-                </ul>
-        </div>
-
-
-    <script>
-        var btn = document.getElementById("button");
-        var btn1 = document.getElementById("button1");
-        var btn2 = document.getElementById("button2");
-
-        function open() {
-            var openThis = document.getElementById("slide1");
-            openThis.style.width = "360px";
-            if (openThis.style.width === "360px") {
-                btn.style.visibility = "hidden";
-                btn1.style.visibility = "hidden";
-            } else {
-                btn.style.visibility = "visible";
-                btn1.style.visibility = "visible";
-            }
-        }
-
-        function close() {
-            var closeThis = document.getElementById("slide1");
-            closeThis.style.width = "0px";
-            if (closeThis.style.width === "0px") {
-                btn.style.visibility = "visible";
-                btn1.style.visibility = "visible";
-            } else {
-                btn.style.visibility = "visible";
-                btn1.style.visibility = "visible";
-            }
-        }
-
-        btn.addEventListener('click', open);
-        btn1.addEventListener('click', open);
-        btn2.addEventListener('click', close);
-    </script>
-
 </header>
+
+<script>
+    /* Set the width of the side navigation to 250px */
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "360px";
+    }
+
+    /* Set the width of the side navigation to 0 */
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+    }
+</script>

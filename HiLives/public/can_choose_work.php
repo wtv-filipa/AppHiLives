@@ -25,6 +25,7 @@ session_start();
         <?php include "components/choose_work.php"; ?>
     </main>
     <?php include "helpers/fontawesome.php"; ?>
+    <?php include "helpers/js.php"; ?>
 </body>
 
 </html>

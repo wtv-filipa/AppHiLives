@@ -25,6 +25,7 @@ session_start();
         <?php include "components/edit_done_uc.php"; ?>
     </main>
     <?php include "helpers/fontawesome.php"; ?>
+    <?php include "helpers/js.php"; ?>
 </body>
 
 </html>
