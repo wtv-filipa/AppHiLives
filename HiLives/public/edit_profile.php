@@ -40,6 +40,7 @@ session_start();
 
     <?php include "helpers/js_upload.php";?>
     <?php include "helpers/fontawesome.php"; ?>
+    <?php include "helpers/js.php"; ?>
 </body>
 
 </html>

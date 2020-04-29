@@ -25,6 +25,7 @@ session_start();
         <?php include "components/vacancie.php"; ?>
     </main>
     <?php include "helpers/fontawesome.php"; ?>
+    <?php include "helpers/js.php"; ?>
 </body>
 
 </html>

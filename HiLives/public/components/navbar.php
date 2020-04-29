@@ -1,3 +1,14 @@
+<style>
+    .zoom {
+        transition: transform .2s; /* Animation */
+        margin: 0 auto;
+    }
+
+    .zoom:hover {
+        transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    }
+</style>
+
 <?php
 
 require_once("connections/connection.php");
@@ -15,28 +26,100 @@ $stmt = mysqli_stmt_init($link);
 
 ?>
 <header class="top">
-    <nav id="topNav" class="navbar fixed-top navbar-toggleable-sm">
+    <nav id="topNav" class="navbar fixed-top navbar-toggleable-sm" >
         <!--div con
         taine do conteúdo-->
         <div class="container">
-            <div class="row col-12">
+            <div class="row col-12 m-0 p-0 my-auto">
                 <?php
                 if (isset($_SESSION["idUser"])) {
                 ?>
                     <!--menu do lado esquerdo-->
                     <div id="mySidenav" class="sidenav">
                         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                        <a href="#">About</a>
-                        <a href="#">Services</a>
-                        <a href="#">Clients</a>
-                        <a href="#">Contact</a>
+
+                        <ul>
+                            <!-- EU QUERO ESTUDAR -->
+                            <li>
+                                <a class="nav__link mr-2 mb-1">
+                                    <span class="nav__link--text_main font-weight-bold">Eu quero estudar</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="can_choose_study.php" class="nav__link mr-2 mb-1 zoom">
+                                    <span class="nav__link--text">As minha ligações</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="allOptions_uni.php" class="nav__link mr-2 mb-1 zoom">
+                                    <span class="nav__link--text">Todas as opções disponíveis</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="links_chosen.php" class="nav__link mr-2 mb-1 zoom">
+                                    <span class="nav__link--text">As minhas escolhas</span>
+                                </a>
+                            </li>
+
+                            <!-- EU QUERO TRABALHAR -->
+                            <li>
+                                <a class="nav__link mr-2 mb-1 mt-4">
+                                    <span class="nav__link--text_main font-weight-bold">Eu quero trabalhar</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="can_choose_work.php" class="nav__link mr-2 mb-1 zoom">
+                                    <span class="nav__link--text">As minhas ligações</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="allOptions_company.php" class="nav__link mr-2 mb-1 zoom">
+                                    <span class="nav__link--text">Todas as opções disponíveis</span>
+                                </a>
+                            </li>
+
+                            <!-- EU QUERO ESTUDAR E TRABALHAR -->
+                            <li>
+                                <a class="nav__link mr-2 mb-1 mt-4">
+                                    <span class="nav__link--text_main font-weight-bold">Eu quero estudar e trabalhar</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="can_choose_ws.php" class="nav__link mr-2 mb-1 zoom">
+                                    <span class="nav__link--text">As minhas ligações</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="allOptions.php" class="nav__link mr-2 mb-1 zoom">
+                                    <span class="nav__link--text">Todas as opções disponíveis</span>
+                                </a>
+                            </li>
+
+                            <!-- EU QUERO VER O QUE JÁ FOI FEITO -->
+                            <li>
+                                <a class="nav__link mr-2 mb-1 mt-4">
+                                    <span class="nav__link--text_main font-weight-bold">Eu quero ver o que já foi feito</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="links_made.php" class="nav__link mr-2 mb-1 zoom">
+                                    <span class="nav__link--text">O que eu já fiz</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="experiences.php" class="nav__link mr-2 mb-1 zoom">
+                                    <span class="nav__link--text">O que os outros fizeram</span>
+                                </a>
+                            </li>
+                        </ul>
+
                     </div>
 
                     <!-- Use any element to open the sidenav -->
-                    <div class="col-4 text-left">
-                        <span onclick="openNav()" class="menu_lado" style=" vertical-align: middle !important;">
-                            <i class="fas fa-ellipsis-v" style="margin-left:20px; color: #2f2f2f; font-size: 25px !important;">
-                                <span class="menunav nome ml-1">Eu quero</span> </i>
+                    <div class="col-4 text-left p-0 my-auto">
+                        <span onclick="openNav()" class="menu_lado">
+                            <i class="fas fa-ellipsis-v" style="color: #2f2f2f; font-size: 25px !important; ">
+                                <span class="menunav nome ml-1" style="font-weight: normal">Eu quero</span> </i>
                         </span>
                     </div>
                 <?php
@@ -48,16 +131,16 @@ $stmt = mysqli_stmt_init($link);
                 <?php
                 if (isset($_SESSION["idUser"])) {
                 ?>
-                    <div class="col-4">
+                    <div class="col-4 text-center p-0">
                         <a class="navbar-brand mx-auto" href="homepage_userDID.php">
-                            <img src="img/logo.png" class="img-responsive" style="width:90px">
+                            <img src="img/logo.png" class="img-responsive" style="width:85px" alt="Logótipo do HiLives">
                         </a>
                     </div>
                 <?php
                 } else {
                 ?>
                     <a class="navbar-brand mx-auto" href="index.php">
-                        <img src="img/logo.png" class="img-responsive" style="width:90px; margin-right: 5px">
+                        <img src="img/logo.png" class="img-responsive" style="width:85px; margin-right: 5px" alt="Logótipo do HiLives">
                     </a>
                 <?php
                 }
@@ -67,13 +150,13 @@ $stmt = mysqli_stmt_init($link);
 
                 <!--notificações e perfil dropdown-->
                 <!--dropdowns das notificações-->
-                <div class="col-4 p-0">
+                <div class="col-4 p-0 text-right my-auto">
                     <?php
                     if (isset($_SESSION["idUser"])) {
                     ?>
                         <div class="dropdown">
-                            <button class="btn" type="button" role="button" data-toggle="dropdown">
-                                <img src="img/notif.png" class=" " style="position:relative; max-width:30px"><span class="nome ml-2" style=" width: 180px; color: black">O que está a acontecer</span>
+                            <button class="btn pl-0" type="button" role="button" data-toggle="dropdown">
+                                <img src="img/notif.png" alt="Símbolo de notificações" style="position:relative; max-width:25px"><span class="nome ml-2">O que está a acontecer</span>
                             </button>
                             <ul class="dropdown-menu mx-auto" style="overflow-y: scroll; width: 400px">
                                 <a href="">
@@ -130,22 +213,22 @@ $stmt = mysqli_stmt_init($link);
                             mysqli_stmt_execute($stmt);
                             mysqli_stmt_bind_result($stmt, $id, $name_user, $profile_img);
                             while (mysqli_stmt_fetch($stmt)) {
-                                $nome_todo = "Frederico Proença";
+                                $nome_todo = $name_user;
                                 $nomes = explode(' ', $nome_todo); // separamos por espaços e fica: por exemplo Array ( [0] => Eduardo [1] => da [2] => Silva [3] => Fernandes )
                                 $nome = $nomes[0]; // primeiro nome
                                 if (isset($img_perfil)) {
 
                         ?>
 
-                                    <button class="btn" type="button" role="button" data-toggle="dropdown">
-                                        <img src="../admin/uploads/img_perfil/<?= $img_perfil ?>" class="nav__avatar--image " style="max-width:35px">
+                                    <button class="btn pl-0 pr-0" type="button" role="button" data-toggle="dropdown">
+                                        <img src="../admin/uploads/img_perfil/<?= $img_perfil ?>" class="nav__avatar--image " style="max-width:25px" alt="Imagem de perfil">
                                         <span class="nome ml-2" style="color: black"><?= $nome ?></span>
                                     </button>
                                 <?php
                                 } else {
                                 ?>
-                                    <button class="btn" type="button" role="button" data-toggle="dropdown">
-                                        <img src="img/no_profile_img.png" class="nav__avatar--image " style="max-width:35px">
+                                    <button class="btn pl-0 pr-0" type="button" role="button" data-toggle="dropdown">
+                                        <img src="img/no_profile_img.png" class="nav__avatar--image " style="max-width:25px" alt="Imagem de perfil padrão">
                                         <span class="nome ml-2" style="color: black"><?= $nome ?></span>
                                     </button>
                         <?php
@@ -194,7 +277,7 @@ $stmt = mysqli_stmt_init($link);
 <script>
     /* Set the width of the side navigation to 250px */
     function openNav() {
-        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("mySidenav").style.width = "360px";
     }
 
     /* Set the width of the side navigation to 0 */

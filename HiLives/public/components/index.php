@@ -63,37 +63,42 @@
 <hr>
 
 
-
 <div class="mt-5 row">
     <div class="col-lg-3">
-        <img class="rounded-circle" width="200px" height="200px" src="img/empresa.jpg" alt="imagem sobre o que é o HiLives" />
+        <img class="rounded-circle" width="200px" height="200px" src="img/empresa.jpg"
+             alt="imagem sobre o que é o HiLives"/>
     </div>
     <div class="col-lg-9 text-left">
         <h3>O que é a HiLives?</h3>
         <p>A HiLives é uma plataforma que permite a jovens com dificuldades intelectuais e desenvolvimentais poderem
             frequentar áreas do seu interesse em várias universidades da União Europeia.</p>
-        <p>Para além disto, a HiLives permite também que estes jovens possam encontrar empregadores que correspondam às suas
+        <p>Para além disto, a HiLives permite também que estes jovens possam encontrar empregadores que correspondam às
+            suas
             necessidades e, assim, incluí-los numa empresa.</p>
-        <p>Esta plataforma ermite o registo de <b>três entidades</b> diferentes: <b>jovens</b>, <b>universidades</b> e <b>empresas</b>.</p>
+        <p>Esta plataforma ermite o registo de <b>três entidades</b> diferentes: <b>jovens</b>, <b>universidades</b> e
+            <b>empresas</b>.</p>
     </div>
 </div>
 <hr>
 <div class=" mt-5 row">
     <div class="col-lg-9 text-right">
         <h3>Procuras estudar?</h3>
-        <p>Gostas de artes? Línguas? Tecnologias? Gostavas de aprender numa universidade? <a href="#"><u>Regista-te!</u></a></p>
+        <p>Gostas de artes? Línguas? Tecnologias? Gostavas de aprender numa universidade? <a href="#"><u>Regista-te!</u></a>
+        </p>
     </div>
     <div class="col-lg-3">
-        <img class="rounded-circle" width="200px" height="200px" src="img/empresa.jpg" alt="imagem sobre o que é o HiLives" />
+        <img class="rounded-circle" width="200px" height="200px" src="img/empresa.jpg"
+             alt="imagem sobre o que é o HiLives"/>
     </div>
 </div>
 <hr>
 <div class=" mt-5 row">
-<div class="col-lg-3">
-        <img class="rounded-circle" width="200px" height="200px" src="img/empresa.jpg" alt="imagem sobre o que é o HiLives" />
+    <div class="col-lg-3">
+        <img class="rounded-circle" width="200px" height="200px" src="img/empresa.jpg"
+             alt="imagem sobre o que é o HiLives"/>
     </div>
     <div class="col-lg-9 text-left">
-    <h3>Procuras trabalhar?</h3>
-    <p>Se gostavas de experimentar trabalhar numa empresa experimenta connosco!</p>
+        <h3>Procuras trabalhar?</h3>
+        <p>Se gostavas de experimentar trabalhar numa empresa experimenta connosco!</p>
     </div>
 </div>

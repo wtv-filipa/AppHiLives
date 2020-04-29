@@ -12,7 +12,7 @@
      top: 0;
      /* Stay at the top */
      left: 0;
-     background-color: #111;
+     background-image: linear-gradient(to bottom, #79C4D9 , white);
      /* Black*/
      overflow-x: hidden;
      /* Disable horizontal scroll */
@@ -24,18 +24,24 @@
  /* The navigation menu links */
  
  .sidenav a {
-     padding: 8px 8px 8px 32px;
      text-decoration: none;
-     font-size: 25px;
-     color: #818181;
      display: block;
      transition: 0.3s;
+     color: #2F2F2F !important;
  }
- /* When you mouse over the navigation links, change their color */
- 
- .sidenav a:hover {
-     color: #f1f1f1;
+
+
+ .nav__link--text {
+     font-weight: normal;
+     margin-left: 1.2rem;
+     font-size: 0.9rem;
  }
+
+ .nav__link--text_main {
+     font-weight: bolder;
+     font-size: 1.1rem;
+ }
+
  /* Position and style the close button (top right corner) */
  
  .sidenav .closebtn {
@@ -89,13 +95,15 @@
      justify-self: center;
  }
  /*texto*/
- 
- .menunav {
+ .nome {
      font-family: "Quicksand", sans-serif;
-     font-size: 1rem;
+     font-size: 14px;
+     color: #2F2F2F;
+ }
+ .menunav {
      vertical-align: middle;
  }
- 
+
  .menu_lado {
      cursor: pointer;
  }
