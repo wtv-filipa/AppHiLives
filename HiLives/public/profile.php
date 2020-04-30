@@ -24,6 +24,7 @@ session_start();
 
     <?php include "components/profile.php"; ?>
 </main>
+<?php include "components/footer.php"; ?>
 <!-- JavaScript-->
 <?php include "helpers/js.php"; ?>
 <?php include "helpers/fontawesome.php"; ?>

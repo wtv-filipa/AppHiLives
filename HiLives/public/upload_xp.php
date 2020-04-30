@@ -24,6 +24,7 @@ session_start();
         <!--componente da home sem login-->
         <?php include "components/upload_xp.php"; ?>
     </main>
+
     <!--javascript-->
     <?php include "helpers/js.php"; ?>
     <?php include "helpers/js_upload.php";?>

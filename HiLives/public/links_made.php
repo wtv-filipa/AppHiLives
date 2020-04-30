@@ -28,6 +28,7 @@ session_start();
     <!--componente da homepage-->
     <?php include "components/links_made.php"; ?>
 </main>
+<?php include "components/footer.php"; ?>
 <!-- JavaScript-->
 
 <?php include "helpers/fontawesome.php"; ?>
