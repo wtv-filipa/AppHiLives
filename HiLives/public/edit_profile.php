@@ -15,7 +15,7 @@ session_start();
 
 </head>
 
-<body>
+<body class="fundo_login">
     <header class="sticky-top">
         <!--navbar-->
         <?php include "components/navbar.php"; ?>
@@ -30,17 +30,17 @@ session_start();
         var select = document.getElementById("pais");
         var formularios = document.querySelectorAll('.formulario');
 
-        select.onchange = function () {
+        select.onchange = function() {
             for (var i = 0; i < formularios.length; i++) formularios[i].style.display = 'none';
             var divID = select.options[select.selectedIndex].value;
             var div = document.getElementById(divID);
             div.style.display = 'block';
         };
     </script>
-
-    <?php include "helpers/js_upload.php";?>
-    <?php include "helpers/fontawesome.php"; ?>
+    <!--javascript-->
     <?php include "helpers/js.php"; ?>
+    <?php include "helpers/js_upload.php"; ?>
+    <?php include "helpers/fontawesome.php"; ?>
 </body>
 
 </html>

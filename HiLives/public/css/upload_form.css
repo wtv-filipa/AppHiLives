@@ -25,10 +25,6 @@
         font-weight: bold;
     }
     
-    .label-margin {
-        margin-left: -20px;
-    }
-    
     .events {
         margin-top: 5%;
     }
@@ -68,4 +64,11 @@
     .card {
         border-radius: 10px;
         box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+    }
+    /*imagem de fundo*/
+    
+    .fundo_login {
+        background-image: url("../img/fundo_cinza_g.png");
+        width: 100%;
+        background-size: cover;
     }

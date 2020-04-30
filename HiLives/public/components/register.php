@@ -13,8 +13,8 @@
                         <div class="col-12">
                             <div class="p-5">
                                 <div class="text-center">
-                                    <img class="pb-5 img-fluid" src="img/logo.png">
-                                    <h1 class="h4 negrito mb-4">Junta-te a nós!</h1>
+                                    <img class="pb-4 img-fluid re_size" src="img/logo.png" alt="Logótipo do HiLives">
+                                    <h4 class="negrito mb-4">Junta-te a nós!</h4>
                                 </div>
                                 <?php
                                 if (isset($_GET["msg"])) {
@@ -56,50 +56,40 @@
 
                                     ?>
                                     <!------------****------------>
-                                    <p style="font-size: 12px; color: #79C4D9 !important;">* Preenchimento
+                                    <p style="font-size: 12px; color: #8DDCFA !important;">* Preenchimento
                                         obrigatório</p>
                                     <!------------NOME------------>
                                     <div class="form-group">
-                                        <label class="negrito" for="username">Nome <span
-                                                    style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                        <label class="negrito" for="username">Nome <span style="color: #8DDCFA !important; font-weight: bold; font-size: 20px">*</span></label>
                                         <div class=" p-0 m-0">
-                                            <input type="text" class="form-control cinza" id="username" name="nome"
-                                                   placeholder="Escreve aqui o teu nome" required="required">
+                                            <input type="text" class="form-control cinza" id="username" name="nome" placeholder="Escreve aqui o teu nome" required="required">
                                         </div>
                                     </div>
                                     <!------------EMAIL------------>
                                     <div class="form-group">
-                                        <label class="negrito mt-3" for="email">Email <span
-                                                    style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                        <label class="negrito mt-3" for="email">Email <span style="color: #8DDCFA !important; font-weight: bold; font-size: 20px">*</span></label>
                                         <div class="p-0 m-0">
-                                            <input type="email" class="form-control cinza" id="email" name="email"
-                                                   placeholder="Escreve aqui o teu email" required="required"
-                                                   onchange="email_validate(this.value);">
+                                            <input type="email" class="form-control cinza" id="email" name="email" placeholder="Escreve aqui o teu email" required="required" onchange="email_validate(this.value);">
                                         </div>
                                     </div>
                                     <!------------DATA DE NASCIMENTO------------>
                                     <div class="form-group">
-                                        <label class="negrito mt-3" for="data_nasc">Data de nascimento <span
-                                                    style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                        <label class="negrito mt-3" for="data_nasc">Data de nascimento <span style="color: #8DDCFA !important; font-weight: bold; font-size: 20px">*</span></label>
                                         <div class="p-0 m-0">
-                                            <input type="date" class="form-control cinza" id="data_nasc"
-                                                   name="data_nasc" placeholder="data de nascimento">
+                                            <input type="date" class="form-control cinza" id="data_nasc" name="data_nasc" placeholder="data de nascimento">
                                         </div>
                                     </div>
                                     <!------------TELEFONE------------>
                                     <div class="form-group">
                                         <label class="negrito mt-3" for="phone">Telemóvel</label>
                                         <div class="p-0 m-0">
-                                            <input type="tel" class="form-control cinza" id="phone" name="phone"
-                                                   placeholder="Escreve aqui o teu telemóvel">
+                                            <input type="tel" class="form-control cinza" id="phone" name="phone" placeholder="Escreve aqui o teu telemóvel">
                                         </div>
                                     </div>
                                     <!------------DEFICIÊNCIA------------>
                                     <div class="form-group">
-                                        <label class="negrito mt-3" for="def">Detalhes sobre a minha DID <span
-                                                    style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
-                                        <textarea class="form-control cinza" id="def" rows="2" name="def"
-                                                  placeholder="Descreve aqui a tua DID"></textarea>
+                                        <label class="negrito mt-3" for="def">Detalhes sobre a minha DID <span style="color: #8DDCFA !important; font-weight: bold; font-size: 20px">*</span></label>
+                                        <textarea class="form-control cinza" id="def" rows="2" name="def" placeholder="Descreve aqui a tua DID"></textarea>
                                     </div>
                                     <!------------ESCOLARIDADE------------>
                                     <div class="form-group text-left">
@@ -137,7 +127,7 @@
                                     <div class="form-group">
                                         <div class="form-group text-left">
                                             <label class="label-margin negrito mt-3" for="study_work">O que procuras?
-                                                <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                                <span style="color: #8DDCFA !important; font-weight: bold; font-size: 20px">*</span></label>
                                             <select class="form-control" id="study_work" name="study_work">
                                                 <option selected disabled>Seleciona uma opção</option>
                                                 <?php
@@ -170,8 +160,7 @@
                                     </div>
                                     <!------------ÁREAS------------>
                                     <div class="form-group">
-                                        <label class="negrito mt-3" for="area">Áreas de interesse <span
-                                                    style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                        <label class="negrito mt-3" for="area">Áreas de interesse <span style="color: #8DDCFA !important; font-weight: bold; font-size: 20px">*</span></label>
                                         <div class="form-check">
                                             <?php
                                             $query = "SELECT idAreas, name_interested_area FROM areas";
@@ -187,7 +176,7 @@
                                                     while (mysqli_stmt_fetch($stmt)) {
 
                                                         echo "\n\t\t";
-                                                        echo "<label class='form-check-label col-6'>";
+                                                        echo "<label class='form-check-label col-6  label_margin'>";
                                                         echo "<input type='checkbox' class='form-check-input' name='area[]' value='$idAreas'>$name_interested_area<br>";
                                                         echo "</label>";
                                                     }
@@ -205,7 +194,7 @@
                                     <!------------PAÍS------------>
                                     <div class="form-group">
                                         <label class="negrito mt-3" for="pais">Seleciona o país onde queres estudar:
-                                            <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                            <span style="color: #8DDCFA !important; font-weight: bold; font-size: 20px">*</span></label>
                                         <select class="form-control" id="pais">
                                             <option value="pt">Portugal</option>
                                             <option value="es">Espanha</option>
@@ -216,8 +205,7 @@
                                     <!------------REGIÕES DE PORTUGAL------------>
                                     <div class="form-group formulario" id="pt">
                                         <label class="negrito mt-3" for="regiao">Região que procuras estudar ou
-                                            trabalhar <span
-                                                    style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                            trabalhar <span style="color: #8DDCFA !important; font-weight: bold; font-size: 20px">*</span></label>
                                         <div class="form-check">
                                             <?php
                                             $query = "SELECT idRegion, name_region FROM region
@@ -235,7 +223,7 @@
                                                     while (mysqli_stmt_fetch($stmt)) {
 
                                                         echo "\n\t\t";
-                                                        echo "<label class='form-check-label col-6'>";
+                                                        echo "<label class='form-check-label col-6 label_margin'>";
                                                         echo "<input type='checkbox' class='form-check-input' name='regiao[]' value='$idRegion'>$name_region<br>";
                                                         echo "</label>";
                                                     }
@@ -253,8 +241,7 @@
                                     <!------------REGIÕES DE ESPANHA------------>
                                     <div class="form-group formulario" style="display:none;" id="es">
                                         <label class="negrito mt-3" for="regiao">Região que procuras estudar ou
-                                            trabalhar <span
-                                                    style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                            trabalhar <span style="color: #8DDCFA !important; font-weight: bold; font-size: 20px">*</span></label>
                                         <div class="form-check">
                                             <?php
                                             $query = "SELECT idRegion, name_region FROM region
@@ -272,7 +259,7 @@
                                                     while (mysqli_stmt_fetch($stmt)) {
 
                                                         echo "\n\t\t";
-                                                        echo "<label class='form-check-label col-6'>";
+                                                        echo "<label class='form-check-label col-6  label_margin'>";
                                                         echo "<input type='checkbox' class='form-check-input' name='regiao[]' value='$idRegion'>$name_region<br>";
                                                         echo "</label>";
                                                     }
@@ -290,8 +277,7 @@
                                     <!------------REGIÕES DA BÉLGICA------------>
                                     <div class="form-group formulario" style="display:none;" id="be">
                                         <label class="negrito mt-3" for="regiao">Região que procuras estudar ou
-                                            trabalhar <span
-                                                    style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                            trabalhar <span style="color: #8DDCFA !important; font-weight: bold; font-size: 20px">*</span></label>
                                         <div class="form-check">
                                             <?php
                                             $query = "SELECT idRegion, name_region FROM region
@@ -309,7 +295,7 @@
                                                     while (mysqli_stmt_fetch($stmt)) {
 
                                                         echo "\n\t\t";
-                                                        echo "<label class='form-check-label col-6'>";
+                                                        echo "<label class='form-check-label col-6  label_margin'>";
                                                         echo "<input type='checkbox' class='form-check-input' name='regiao[]' value='$idRegion'>$name_region<br>";
                                                         echo "</label>";
                                                     }
@@ -327,8 +313,7 @@
                                     <!------------REGIÕES DA ISLÂNDIA------------>
                                     <div class="form-group formulario" style="display:none;" id="ic">
                                         <label class="negrito mt-3" for="regiao">Região que procuras estudar ou
-                                            trabalhar <span
-                                                    style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                            trabalhar <span style="color: #8DDCFA !important; font-weight: bold; font-size: 20px">*</span></label>
                                         <div class="form-check">
                                             <?php
                                             $query = "SELECT idRegion, name_region FROM region
@@ -346,7 +331,7 @@
                                                     while (mysqli_stmt_fetch($stmt)) {
 
                                                         echo "\n\t\t";
-                                                        echo "<label class='form-check-label col-6'>";
+                                                        echo "<label class='form-check-label col-6  label_margin'>";
                                                         echo "<input type='checkbox' class='form-check-input' name='regiao[]' value='$idRegion'>$name_region<br>";
                                                         echo "</label>";
                                                     }
@@ -365,27 +350,20 @@
                                     <!------------EXPERIÊNCIA DE TRABALHO------------>
                                     <div class="form-group">
                                         <label class="negrito mt-3" for="exp_t">Experiência de trabalho</label>
-                                        <textarea class="form-control " id="exp_t" rows="2" name="work"
-                                                  placeholder="Escreve aqui a tua experiência de trabalho"></textarea>
+                                        <textarea class="form-control " id="exp_t" rows="2" name="work" placeholder="Escreve aqui a tua experiência de trabalho"></textarea>
                                     </div>
 
                                     <!------------PASSWORD------------>
                                     <div class="form-group">
-                                        <label class="negrito mt-3" for="pass">Palavra-passe <span
-                                                    style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                        <label class="negrito mt-3" for="password">Palavra-passe <span style="color: #8DDCFA !important; font-weight: bold; font-size: 20px">*</span></label>
                                         <div class="p-0 m-0">
-                                            <input type="password" class="form-control" id="password" name="password"
-                                                   placeholder="Cria a tua palavra-passe para o HiLives"
-                                                   required="required" onkeyup="checkPass(); return false;">
+                                            <input type="password" class="form-control" id="password" name="password" placeholder="Cria a tua palavra-passe para o HiLives" required="required" onkeyup="checkPass(); return false;">
                                         </div>
                                     </div>
                                     <div class="form-group mb-5">
-                                        <label class="negrito mt-3" for="vpass">Verificar palavra-passe <span
-                                                    style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                        <label class="negrito mt-3" for="password_confirm">Verificar palavra-passe <span style="color: #8DDCFA !important; font-weight: bold; font-size: 20px">*</span></label>
                                         <div class="p-0 m-0">
-                                            <input type="password" class="form-control" id="password_confirm"
-                                                   placeholder="Repete a tua palavra-passe" required="required"
-                                                   onkeyup="checkPass(); return false;">
+                                            <input type="password" class="form-control" id="password_confirm" placeholder="Repete a tua palavra-passe" required="required" onkeyup="checkPass(); return false;">
                                             <span id="confirmMessage" class="confirmMessage"></span>
                                         </div>
                                     </div>
@@ -398,7 +376,7 @@
                                         <!------------PERGUNTA 1------------>
                                         <div class="form-group text-left">
                                             <label class="label-margin negrito mt-3" for="primeiro">Sou uma pessoa
-                                                que:</label>
+                                                que: <span style="color: #8DDCFA !important; font-weight: bold; font-size: 20px">*</span></label>
                                             <select name="pergunta1" class="form-control" id="primeiro">
                                                 <option selected disabled>Seleciona uma opção</option>
                                                 <option value="comunicativo">Tenho muitos amigos;</option>
@@ -412,7 +390,7 @@
                                         <div class="form-group text-left">
                                             <label class="label-margin negrito mt-3" for="segundo">No convívio com
                                                 outras
-                                                pessoas, eu:</label>
+                                                pessoas, eu: <span style="color: #8DDCFA !important; font-weight: bold; font-size: 20px">*</span></label>
                                             <select name="pergunta2" class="form-control" id="segundo">
                                                 <option selected disabled>Seleciona uma opção</option>
                                                 <option value="comunicativo">Estou sempre a motivar as pessoas;</option>
@@ -425,7 +403,7 @@
                                         <!------------PERGUNTA 3------------>
                                         <div class="form-group text-left">
                                             <label class="label-margin negrito mt-3" for="terceiro">Com qual destas
-                                                frases mais me identifico?</label>
+                                                frases mais me identifico? <span style="color: #8DDCFA !important; font-weight: bold; font-size: 20px">*</span></label>
                                             <select name="pergunta3" class="form-control" id="terceiro">
                                                 <option selected disabled>Seleciona uma opção</option>
                                                 <option value="comunicativo">"Quem tem boca vai a Roma";</option>
@@ -439,7 +417,7 @@
                                         <div class="form-group text-left mb-5">
                                             <label class="label-margin negrito mt-3" for="quarto">Em situações de
                                                 stress,
-                                                eu:</label>
+                                                eu: <span style="color: #8DDCFA !important; font-weight: bold; font-size: 20px">*</span></label>
                                             <select name="pergunta4" class="form-control" id="quarto">
                                                 <option selected disabled>Seleciona uma opção</option>
                                                 <option value="comunicativo">Falo com outras pessoas que me possam ajudar a melhorar;</option>

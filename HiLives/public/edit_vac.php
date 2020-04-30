@@ -8,14 +8,14 @@ session_start();
     <!-- metadados -->
     <?php include "helpers/meta.php"; ?>
     <title>Editar Vaga</title>
-     <!-- Custom fonts for this template-->
+    <!-- Custom fonts for this template-->
     <?php include "helpers/fonts.php"; ?>
     <!-- Custom styles for this template-->
     <?php include "helpers/css_upload.php"; ?>
 
 </head>
 
-<body>
+<body class="fundo_login">
     <header class="sticky-top">
         <!--navbar-->
         <?php include "components/navbar.php"; ?>
@@ -24,9 +24,10 @@ session_start();
         <!--componente da home sem login-->
         <?php include "components/edit_vac.php"; ?>
     </main>
-    <?php include "helpers/js_upload.php";?>
-    <?php include "helpers/fontawesome.php"; ?>
+    <!--javascript-->
     <?php include "helpers/js.php"; ?>
+    <?php include "helpers/js_upload.php"; ?>
+    <?php include "helpers/fontawesome.php"; ?>
 </body>
 
 </html>

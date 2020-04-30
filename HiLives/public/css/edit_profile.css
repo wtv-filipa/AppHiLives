@@ -22,7 +22,7 @@
     }
     
     .label-margin {
-        margin-left: -20px;
+        margin-left: -1%;
     }
     
     .guardar_btn {
@@ -84,3 +84,11 @@
         width: 152px;
         height: 152x;
     }
+    /*imagem de fundo*/
+    
+    .fundo_login {
+        background-image: url("../img/fundo_cinza_g.png");
+        width: 100%;
+        background-size: cover;
+    }
+    /*form*/

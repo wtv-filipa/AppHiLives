@@ -25,7 +25,7 @@ p {
 
  ::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    background: linear-gradient(#FDE74C, #79C4D9);
+    background: linear-gradient(#FFEE86, #8DDCFA);
     background-color: #000000;
 }
 
@@ -94,7 +94,7 @@ button:focus {
     display: inline-block;
     line-height: 0.7;
     position: relative;
-    color: #79C4D9;
+    color: #8DDCFA;
 }
 
 .error-container>span>span {
@@ -105,7 +105,7 @@ button:focus {
 .error-container>span:nth-of-type(1) {
     perspective: 1000px;
     perspective-origin: 500% 50%;
-    color: #FDE74C;
+    color: #FFEE86;
 }
 
 .error-container>span:nth-of-type(1)>span {
@@ -117,7 +117,7 @@ button:focus {
 .error-container>span:nth-of-type(3) {
     perspective: none;
     perspective-origin: 50% 50%;
-    color: #79C4D9;
+    color: #8DDCFA;
 }
 
 .error-container>span:nth-of-type(3)>span {

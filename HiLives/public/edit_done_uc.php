@@ -15,7 +15,7 @@ session_start();
 
 </head>
 
-<body>
+<body class="fundo_login">
     <header class="sticky-top">
         <!--navbar-->
         <?php include "components/navbar.php"; ?>
@@ -24,6 +24,7 @@ session_start();
         <!--componente da home sem login-->
         <?php include "components/edit_done_uc.php"; ?>
     </main>
+    <!--javascript-->
     <?php include "helpers/fontawesome.php"; ?>
     <?php include "helpers/js.php"; ?>
 </body>

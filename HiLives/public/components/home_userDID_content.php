@@ -135,7 +135,7 @@
         <div class="cards col-lg-6 col-sm-12 pl-0">
             <div class="card-item">
                 <div class="card-image">
-                    <img class="w-100" src="img/ua.jpg" alt="Imagem da Universidade de Aveiro"></div> //info do alt tem de vir da base de dados
+                    <img class="w-100" src="img/ua.jpg" alt="Imagem da Universidade de Aveiro"></div> <!--info do alt tem de vir da base de dados-->
                 <div class="card-info">
                     <h2 class="card-title sub_title">Universidade de Aveiro</h2>
                     <p class="card-intro description_title">Far far away, behind the word mountains, far from the
@@ -144,10 +144,10 @@
                 </div>
             </div>
         </div>
-        <div class="cards col-lg-6 col-sm-12 pr-0">
+        <div class="cards col-lg-6 col-sm-12 pl-0">
             <div class="card-item">
                 <div class="card-image">
-                    <img class="w-100" src="img/univer_coimbra.jpg" alt="Imagem da Universidade de Coimbra"></div> //info do alt tem de vir da base de dados></div>
+                    <img class="w-100" src="img/univer_coimbra.jpg" alt="Imagem da Universidade de Coimbra"></div> <!--info do alt tem de vir da base de dados-->
                 <div class="card-info">
                     <h2 class="card-title sub_title">Universidade de Coimbra</h2>
                     <p class="card-intro description_title">Far far away, behind the word mountains, far from the
@@ -156,6 +156,7 @@
                 </div>
             </div>
         </div>
+        
     </div>
 </div>
 

@@ -11,7 +11,7 @@
     <?php include "helpers/css_register_login.php"; ?>
 </head>
 
-<body id="page-top" class="fundo_login">
+<body id="page-top" class="fundo_login_reg">
 
 <!-- Page Wrapper -->
 <div id="wrapper">
