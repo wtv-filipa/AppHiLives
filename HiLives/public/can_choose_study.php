@@ -24,6 +24,7 @@ session_start();
         <!--componente da home sem login-->
         <?php include "components/choose_study.php"; ?>
     </main>
+    <!--javascript-->
     <?php include "helpers/fontawesome.php"; ?>
     <?php include "helpers/js.php"; ?>
 </body>

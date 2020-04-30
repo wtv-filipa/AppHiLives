@@ -17,6 +17,7 @@ option {
 
 * {
     font-family: "Quicksand";
+    color: #2f2f2f !important;
 }
 
 .titulo_cinza {
@@ -28,7 +29,7 @@ option {
 .publicar_btn {
     width: 75%!important;
     height: 10%!important;
-    color: #fff!important;
+    color: #2f2f2f!important;
     background-color: #D3D3D3!important;
     margin-bottom: 0.3125rem!important;
     text-decoration: none!important;
@@ -53,16 +54,16 @@ option {
     border-radius: 40px!important;
 }
 
-
-/*
-label {
-    margin-left: -20px;
+.label_margin {
+    margin-left: -1%;
 }
-*/
 
-.lala {
-    width: calc(33% - 0px);
-    padding-right: 0px;
+
+/*logo*/
+
+.re_size {
+    width: 150px;
+    height: auto;
 }
 
 
@@ -70,6 +71,12 @@ label {
 
 .fundo_login {
     background-image: url("../img/fundo_cinza.png");
+    width: 100%;
+    background-size: cover;
+}
+
+.fundo_login_reg {
+    background-image: url("../img/fundo_cinza_g_reg.png");
     width: 100%;
     background-size: cover;
 }

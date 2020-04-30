@@ -13,8 +13,8 @@
                         <div class="col-lg-12">
                             <div class="p-5">
                                 <div class="text-center">
-                                    <img class="pb-5 img-fluid" src="img/logo.png">
-                                    <h1 class="h4 text-gray-900 mb-4">Bem-vindo!</h1>
+                                    <img class="pb-4 img-fluid re_size" src="img/logo.png" alt="Logótipo do HiLives">
+                                    <h4 class="text-gray-900 mb-4">Bem-vindo!</h4>
                                 </div>
                                 <?php
                                 if (isset($_GET["msg"])) {
@@ -47,23 +47,21 @@
                                 }
                                 ?>
                                 <form method="post" role="form" id="register-form" action="scripts/login.php">
-
+                                    <!---EMAIL-->
                                     <div class="form-group">
-                                        <div class="mx-auto col-sm-12 mb-2">Email</div>
-                                        <div class="mx-auto col-sm-12">
-                                            <input type="text" class="form-control  mb-4" id="input2UserForm" name="email"
-                                                   placeholder="Escreve aqui o email da tua conta no HiLives"
-                                                   required="required">
+                                        <label class="negrito mt-3" for="input2UserForm">Email</label>
+                                        <div class="p-0 m-0">
+                                            <input type="email" class="form-control cinza" id="input2UserForm" name="email" placeholder="Escreve aqui o email da tua conta no HiLives" required="required">
                                         </div>
                                     </div>
+                                    <!--PASSWORD-->
                                     <div class="form-group">
-                                        <div class="mx-auto col-sm-12 mb-2">Palavra-passe</div>
-                                        <div class="mx-auto col-sm-12">
-                                            <input type="password" class="form-control" id="password" name="password"
-                                                   placeholder="Escreve aqui a tua palavra-passe do HiLives" required="required"
-                                                   onkeyup="checkPass(); return false;">
+                                        <label class="negrito mt-3" for="password">Palavra-passe</label>
+                                        <div class="p-0 m-0">
+                                            <input type="password" class="form-control"  id="password" name="password" placeholder="Escreve aqui a tua palavra-passe do HiLives" required="required" onkeyup="checkPass(); return false;">
                                         </div>
                                     </div>
+                                    <!--BOTÃO DE SUBMIT-->
                                     <div class="form-group text-center">
                                         <div class="mx-auto col-sm-10 pb-3 pt-2">
                                             <button type="submit" class="btn publicar_btn">Entrar
@@ -76,7 +74,7 @@
                                     <a class="small" href="forgot-password.php">Esqueceste-te da tua palavra-passe?</a>
                                 </div>
                                 <div class="text-center">
-                                    <a class="small" href="login.php">Já estás inscrito? Inicia sessão!</a>
+                                    <a class="small" href="index.php">Ainda não estás inscrito? Faz o teu registo!</a>
                                 </div>
                             </div>
                         </div>

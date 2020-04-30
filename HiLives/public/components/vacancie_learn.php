@@ -1,3 +1,4 @@
+<div class="w-75 mx-auto">
 <div id='wrapper_title'>
     <div class='tagpost-top section' id='tagpost-top'>
         <div class='widget HTML' id='HTML5'>
@@ -109,7 +110,8 @@
             </div>
             <div class="card-body">
                 <blockquote class="blockquote mb-0 text-center">
-                <iframe width="805" height="560" src="https://www.youtube.com/embed/mw4sXFG2r9A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="560px" height="300px" src="https://www.youtube.com/embed/mw4sXFG2r9A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </blockquote>
             </div>
         </div>
+</div>

@@ -96,11 +96,11 @@ a:hover {
     flex-direction: column;
     padding: 1rem;
     line-height: 1.5em;
-    background-color: #DAEEF4;
+    background-color: #8DDCFA;
 }
 
 .work {
-    background-color: #FEF8CE !important;
+    background-color: #FFEE86 !important;
 }
 
 .cards .card-title {
