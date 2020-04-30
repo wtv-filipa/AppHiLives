@@ -26,6 +26,7 @@ session_start();
         <!--componente da homepage-->
         <?php include "components/home_userDID_content.php"; ?>
     </main>
+    <?php include "components/footer.php"; ?>
     <!-- JavaScript-->
     <?php include "helpers/fontawesome.php"; ?>
     <?php include "helpers/js.php"; ?>

@@ -24,6 +24,7 @@ session_start();
         <!--componente da home sem login-->
         <?php include "components/experiences.php"; ?>
     </main>
+    <?php include "components/footer.php"; ?>
     <!-- JavaScript-->
     <?php include "helpers/js.php"; ?>
     <?php include "helpers/fontawesome.php"; ?>
