@@ -14,7 +14,7 @@
                             <div class="p-5">
                                 <div class="text-center">
                                     <img class="pb-4 img-fluid re_size" src="img/logo.png" alt="Logótipo do HiLives">
-                                    <h4 class="negrito mb-4">Junta-te a nós!</h4>
+                                    <h4 class="negrito mb-4" role="heading">Junta-te a nós!</h4>
                                 </div>
                                 <?php
                                 if (isset($_GET["msg"])) {
@@ -56,25 +56,25 @@
 
                                     ?>
                                     <!------------****------------>
-                                    <p style="font-size: 12px; color: #8DDCFA !important;">* Preenchimento
+                                    <p style="font-size: 12px; color: #06597A !important;">* Preenchimento
                                         obrigatório</p>
                                     <!------------NOME------------>
                                     <div class="form-group">
-                                        <label class="negrito" for="username">Nome <span style="color: #8DDCFA !important; font-weight: bold; font-size: 20px">*</span></label>
+                                        <label class="negrito" for="username">Nome <span style="color: #06597A !important; font-weight: bold; font-size: 20px">*</span></label>
                                         <div class=" p-0 m-0">
                                             <input type="text" class="form-control cinza" id="username" name="nome" placeholder="Escreve aqui o teu nome" required="required">
                                         </div>
                                     </div>
                                     <!------------EMAIL------------>
                                     <div class="form-group">
-                                        <label class="negrito mt-3" for="email">Email <span style="color: #8DDCFA !important; font-weight: bold; font-size: 20px">*</span></label>
+                                        <label class="negrito mt-3" for="email">Email <span style="color: #06597A !important; font-weight: bold; font-size: 20px">*</span></label>
                                         <div class="p-0 m-0">
                                             <input type="email" class="form-control cinza" id="email" name="email" placeholder="Escreve aqui o teu email" required="required" onchange="email_validate(this.value);">
                                         </div>
                                     </div>
                                     <!------------DATA DE NASCIMENTO------------>
                                     <div class="form-group">
-                                        <label class="negrito mt-3" for="data_nasc">Data de nascimento <span style="color: #8DDCFA !important; font-weight: bold; font-size: 20px">*</span></label>
+                                        <label class="negrito mt-3" for="data_nasc">Data de nascimento <span style="color: #06597A !important; font-weight: bold; font-size: 20px">*</span></label>
                                         <div class="p-0 m-0">
                                             <input type="date" class="form-control cinza" id="data_nasc" name="data_nasc" placeholder="data de nascimento">
                                         </div>
@@ -88,7 +88,7 @@
                                     </div>
                                     <!------------DEFICIÊNCIA------------>
                                     <div class="form-group">
-                                        <label class="negrito mt-3" for="def">Detalhes sobre a minha DID <span style="color: #8DDCFA !important; font-weight: bold; font-size: 20px">*</span></label>
+                                        <label class="negrito mt-3" for="def">Detalhes sobre a minha DID <span style="color: #06597A !important; font-weight: bold; font-size: 20px">*</span></label>
                                         <textarea class="form-control cinza" id="def" rows="2" name="def" placeholder="Descreve aqui a tua DID"></textarea>
                                     </div>
                                     <!------------ESCOLARIDADE------------>
@@ -127,7 +127,7 @@
                                     <div class="form-group">
                                         <div class="form-group text-left">
                                             <label class="label-margin negrito mt-3" for="study_work">O que procuras?
-                                                <span style="color: #8DDCFA !important; font-weight: bold; font-size: 20px">*</span></label>
+                                                <span style="color: #06597A !important; font-weight: bold; font-size: 20px">*</span></label>
                                             <select class="form-control" id="study_work" name="study_work">
                                                 <option selected disabled>Seleciona uma opção</option>
                                                 <?php
@@ -160,7 +160,7 @@
                                     </div>
                                     <!------------ÁREAS------------>
                                     <div class="form-group">
-                                        <label class="negrito mt-3" for="area">Áreas de interesse <span style="color: #8DDCFA !important; font-weight: bold; font-size: 20px">*</span></label>
+                                        <h6 class="negrito mt-4" for="area" role="heading">Áreas de interesse <span style="color: #06597A !important; font-weight: bold; font-size: 20px">*</span></h6>
                                         <div class="form-check">
                                             <?php
                                             $query = "SELECT idAreas, name_interested_area FROM areas";
@@ -176,7 +176,7 @@
                                                     while (mysqli_stmt_fetch($stmt)) {
 
                                                         echo "\n\t\t";
-                                                        echo "<label class='form-check-label col-6  label_margin'>";
+                                                        echo "<label class='form-check-label col-6  label_margin' role='checkbox'>";
                                                         echo "<input type='checkbox' class='form-check-input' name='area[]' value='$idAreas'>$name_interested_area<br>";
                                                         echo "</label>";
                                                     }
@@ -194,7 +194,7 @@
                                     <!------------PAÍS------------>
                                     <div class="form-group">
                                         <label class="negrito mt-3" for="pais">Seleciona o país onde queres estudar:
-                                            <span style="color: #8DDCFA !important; font-weight: bold; font-size: 20px">*</span></label>
+                                            <span style="color: #06597A !important; font-weight: bold; font-size: 20px">*</span></label>
                                         <select class="form-control" id="pais">
                                             <option value="pt">Portugal</option>
                                             <option value="es">Espanha</option>
@@ -204,8 +204,8 @@
                                     </div>
                                     <!------------REGIÕES DE PORTUGAL------------>
                                     <div class="form-group formulario" id="pt">
-                                        <label class="negrito mt-3" for="regiao">Região que procuras estudar ou
-                                            trabalhar <span style="color: #8DDCFA !important; font-weight: bold; font-size: 20px">*</span></label>
+                                        <h6 class="negrito mt-4" for="regiao" role="heading">Região que procuras estudar ou
+                                            trabalhar <span style="color: #06597A !important; font-weight: bold; font-size: 20px">*</span></h6>
                                         <div class="form-check">
                                             <?php
                                             $query = "SELECT idRegion, name_region FROM region
@@ -240,8 +240,8 @@
                                     </div>
                                     <!------------REGIÕES DE ESPANHA------------>
                                     <div class="form-group formulario" style="display:none;" id="es">
-                                        <label class="negrito mt-3" for="regiao">Região que procuras estudar ou
-                                            trabalhar <span style="color: #8DDCFA !important; font-weight: bold; font-size: 20px">*</span></label>
+                                        <h6 class="negrito mt-4" for="regiao" role="heading">Região que procuras estudar ou
+                                            trabalhar <span style="color: #06597A !important; font-weight: bold; font-size: 20px">*</span></h6>
                                         <div class="form-check">
                                             <?php
                                             $query = "SELECT idRegion, name_region FROM region
@@ -276,8 +276,8 @@
                                     </div>
                                     <!------------REGIÕES DA BÉLGICA------------>
                                     <div class="form-group formulario" style="display:none;" id="be">
-                                        <label class="negrito mt-3" for="regiao">Região que procuras estudar ou
-                                            trabalhar <span style="color: #8DDCFA !important; font-weight: bold; font-size: 20px">*</span></label>
+                                        <h6 class="negrito mt-4" for="regiao" role="heading">Região que procuras estudar ou
+                                            trabalhar <span style="color: #06597A !important; font-weight: bold; font-size: 20px">*</span></h6>
                                         <div class="form-check">
                                             <?php
                                             $query = "SELECT idRegion, name_region FROM region
@@ -312,8 +312,8 @@
                                     </div>
                                     <!------------REGIÕES DA ISLÂNDIA------------>
                                     <div class="form-group formulario" style="display:none;" id="ic">
-                                        <label class="negrito mt-3" for="regiao">Região que procuras estudar ou
-                                            trabalhar <span style="color: #8DDCFA !important; font-weight: bold; font-size: 20px">*</span></label>
+                                        <h6 class="negrito mt-4" for="regiao" role="heading">Região que procuras estudar ou
+                                            trabalhar <span style="color: #06597A !important; font-weight: bold; font-size: 20px">*</span></h6>
                                         <div class="form-check">
                                             <?php
                                             $query = "SELECT idRegion, name_region FROM region
@@ -355,13 +355,13 @@
 
                                     <!------------PASSWORD------------>
                                     <div class="form-group">
-                                        <label class="negrito mt-3" for="password">Palavra-passe <span style="color: #8DDCFA !important; font-weight: bold; font-size: 20px">*</span></label>
+                                        <label class="negrito mt-3" for="password">Palavra-passe <span style="color: #06597A !important; font-weight: bold; font-size: 20px">*</span></label>
                                         <div class="p-0 m-0">
                                             <input type="password" class="form-control" id="password" name="password" placeholder="Cria a tua palavra-passe para o HiLives" required="required" onkeyup="checkPass(); return false;">
                                         </div>
                                     </div>
                                     <div class="form-group mb-5">
-                                        <label class="negrito mt-3" for="password_confirm">Verificar palavra-passe <span style="color: #8DDCFA !important; font-weight: bold; font-size: 20px">*</span></label>
+                                        <label class="negrito mt-3" for="password_confirm">Verificar palavra-passe <span style="color: #06597A !important; font-weight: bold; font-size: 20px">*</span></label>
                                         <div class="p-0 m-0">
                                             <input type="password" class="form-control" id="password_confirm" placeholder="Repete a tua palavra-passe" required="required" onkeyup="checkPass(); return false;">
                                             <span id="confirmMessage" class="confirmMessage"></span>
@@ -369,14 +369,14 @@
                                     </div>
                                     <hr>
                                     <!------------PERSONALIDADE------------>
-                                    <h5 class="titulo_cinza">Sobre ti</h5>
+                                    <h5 class="titulo_cinza" role="heading">Sobre ti</h5>
 
 
                                     <div class="form-group">
                                         <!------------PERGUNTA 1------------>
                                         <div class="form-group text-left">
                                             <label class="label-margin negrito mt-3" for="primeiro">Sou uma pessoa
-                                                que: <span style="color: #8DDCFA !important; font-weight: bold; font-size: 20px">*</span></label>
+                                                que: <span style="color: #06597A !important; font-weight: bold; font-size: 20px">*</span></label>
                                             <select name="pergunta1" class="form-control" id="primeiro">
                                                 <option selected disabled>Seleciona uma opção</option>
                                                 <option value="comunicativo">Tenho muitos amigos;</option>
@@ -390,7 +390,7 @@
                                         <div class="form-group text-left">
                                             <label class="label-margin negrito mt-3" for="segundo">No convívio com
                                                 outras
-                                                pessoas, eu: <span style="color: #8DDCFA !important; font-weight: bold; font-size: 20px">*</span></label>
+                                                pessoas, eu: <span style="color: #06597A !important; font-weight: bold; font-size: 20px">*</span></label>
                                             <select name="pergunta2" class="form-control" id="segundo">
                                                 <option selected disabled>Seleciona uma opção</option>
                                                 <option value="comunicativo">Estou sempre a motivar as pessoas;</option>
@@ -403,7 +403,7 @@
                                         <!------------PERGUNTA 3------------>
                                         <div class="form-group text-left">
                                             <label class="label-margin negrito mt-3" for="terceiro">Com qual destas
-                                                frases mais me identifico? <span style="color: #8DDCFA !important; font-weight: bold; font-size: 20px">*</span></label>
+                                                frases mais me identifico? <span style="color: #06597A !important; font-weight: bold; font-size: 20px">*</span></label>
                                             <select name="pergunta3" class="form-control" id="terceiro">
                                                 <option selected disabled>Seleciona uma opção</option>
                                                 <option value="comunicativo">"Quem tem boca vai a Roma";</option>
@@ -417,7 +417,7 @@
                                         <div class="form-group text-left mb-5">
                                             <label class="label-margin negrito mt-3" for="quarto">Em situações de
                                                 stress,
-                                                eu: <span style="color: #8DDCFA !important; font-weight: bold; font-size: 20px">*</span></label>
+                                                eu: <span style="color: #06597A !important; font-weight: bold; font-size: 20px">*</span></label>
                                             <select name="pergunta4" class="form-control" id="quarto">
                                                 <option selected disabled>Seleciona uma opção</option>
                                                 <option value="comunicativo">Falo com outras pessoas que me possam ajudar a melhorar;</option>
