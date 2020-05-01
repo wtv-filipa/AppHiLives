@@ -1,365 +1,446 @@
 /* The side navigation menu */
- 
- .sidenav {
-     height: 100%;
-     /* 100% Full-height */
-     width: 0;
-     /* 0 width - change this with JavaScript */
-     position: fixed;
-     /* Stay in place */
-     z-index: 1;
-     /* Stay on top */
-     top: 0;
-     /* Stay at the top */
-     left: 0;
-     background-image: linear-gradient(to bottom, #79C4D9 , white);
-     /* Black*/
-     overflow-x: hidden;
-     /* Disable horizontal scroll */
-     padding-top: 60px;
-     /* Place content 60px from the top */
-     transition: 0.5s;
-     /* 0.5 second transition effect to slide in the sidenav */
- }
- /* The navigation menu links */
- 
- .sidenav a {
-     text-decoration: none;
-     display: block;
-     transition: 0.3s;
-     color: #2F2F2F !important;
- }
- 
- 
- .nav__link--text {
-     font-weight: normal;
-     margin-left: 1.2rem;
-     font-size: 0.9rem;
- }
- 
- .nav__link--text_main {
-     font-weight: bolder;
-     font-size: 1.1rem;
- }
- 
- /* Position and style the close button (top right corner) */
- 
- .sidenav .closebtn {
-     position: absolute;
-     top: 0;
-     right: 25px;
-     font-size: 36px;
-     margin-left: 50px;
- }
- /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
- 
- #main {
-     transition: margin-left .5s;
-     padding: 20px;
- }
- /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
- 
- @media screen and (max-height: 450px) {
-     .sidenav {
-         padding-top: 15px;
-     }
-     .sidenav a {
-         font-size: 18px;
-     }
- }
- /* Dropdown Button */
- 
- button:focus {
-     outline-style: none !important;
-     box-shadow: none !important;
-     border-color: transparent !important;
- }
- 
- .notif_ind {
-     background: #f2f2f2;
-     border: 0;
-     color: black;
-     font-size: 0.9rem;
-     border-radius: 10px;
-     text-align: center;
- }
- /*imagem*/
- 
- .nav__avatar--image {
-     position: relative;
-     border-radius: 50%;
- }
- 
- .nav__brand {
-     grid-column-start: 2;
-     justify-self: center;
- }
- /*texto*/
- .nome {
-     font-family: "Quicksand", sans-serif;
-     font-size: 14px;
-     color: #2F2F2F;
- }
- .menunav {
-     vertical-align: middle;
- }
- 
- .menu_lado {
-     cursor: pointer;
- }
- /*media queries*/
- /* Extra small devices (phones, 600px and down) */
- 
- @media only screen and (max-width: 600px) {
-     .nome {
-         display: none;
-     }
-     /*dropdown*/
-     .dropdown {
-         position: relative;
-         display: inline-block;
-     }
-     /* Dropdown Content (Hidden by Default) */
-     .dropdown-menu {
-         margin-top: 5% !important;
-         display: none;
-         position: absolute;
-         background-color: #ffffff;
-         min-width: 200px;
-         box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.19), 0 0.6rem 0.6rem rgba(0, 0, 0, 0.23);
-         z-index: 1;
-     }
-     /* Links inside the dropdown */
-     .dropdown-menu a {
-         color: #2f2f2f;
-         padding: 0 11px;
-         text-decoration: none;
-         display: block;
-     }
-     /* Change color of dropdown links on hover */
-     .dropdown-menu a:hover {
-         background-color: #ddd
-     }
-     .nav__btn2 {
-         background: #f2f2f2;
-         border: 0;
-         color: black;
-         font-weight: 600;
-         font-size: 0.9rem;
-         border-radius: 100rem;
-         margin-left: 1rem;
-     }
-     .dropdown-menu button {
-         padding: 0.75rem 2.5rem;
-         margin: 0 0 1rem 0;
-         width: 100%;
-         cursor: pointer;
-     }
- }
- /* Small devices (portrait tablets and large phones, 600px and up) */
- 
- @media only screen and (min-width: 600px) {
-     .nome {
-         display: none;
-     }
-     /*dropdown*/
-     .dropdown {
-         position: relative;
-         display: inline-block;
-     }
-     /* Dropdown Content (Hidden by Default) */
-     .dropdown-menu {
-         margin-top: 5% !important;
-         display: none;
-         position: absolute;
-         background-color: #ffffff;
-         min-width: 200px;
-         box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.19), 0 0.6rem 0.6rem rgba(0, 0, 0, 0.23);
-         z-index: 1;
-     }
-     /* Links inside the dropdown */
-     .dropdown-menu a {
-         color: #2f2f2f;
-         padding: 0 11px;
-         text-decoration: none;
-         display: block;
-     }
-     /* Change color of dropdown links on hover */
-     .dropdown-menu a:hover {
-         background-color: #ddd
-     }
-     .nav__btn2 {
-         background: #f2f2f2;
-         border: 0;
-         color: black;
-         font-weight: 600;
-         font-size: 0.9rem;
-         border-radius: 100rem;
-         margin-left: 1rem;
-     }
-     .dropdown-menu button {
-         padding: 0.75rem 2.5rem;
-         margin: 0 0 1rem 0;
-         width: 100%;
-         cursor: pointer;
-     }
- }
- /* Medium devices (landscape tablets, 768px and up) */
- 
- @media only screen and (min-width: 768px) {
-     .nome {
-         display: inline;
-     }
-     /*dropdown*/
-     .dropdown {
-         position: relative;
-         display: inline-block;
-     }
-     /* Dropdown Content (Hidden by Default) */
-     .dropdown-menu {
-         margin-top: 5% !important;
-         display: none;
-         position: absolute;
-         background-color: #ffffff;
-         min-width: 200px;
-         box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.19), 0 0.6rem 0.6rem rgba(0, 0, 0, 0.23);
-         z-index: 1;
-     }
-     /* Links inside the dropdown */
-     .dropdown-menu a {
-         color: #2f2f2f;
-         padding: 0 11px;
-         text-decoration: none;
-         display: block;
-     }
-     /* Change color of dropdown links on hover */
-     .dropdown-menu a:hover {
-         background-color: #ddd
-     }
-     .nav__btn2 {
-         background: #f2f2f2;
-         border: 0;
-         color: black;
-         font-weight: 600;
-         font-size: 0.9rem;
-         border-radius: 100rem;
-         margin-left: 1rem;
-     }
-     .dropdown-menu button {
-         padding: 0.75rem 2.5rem;
-         margin: 0 0 1rem 0;
-         width: 100%;
-         cursor: pointer;
-     }
- }
- /* Large devices (laptops/desktops, 992px and up) */
- 
- @media only screen and (min-width: 992px) {
-     .nome {
-         display: inline;
-     }
-     /*dropdown*/
-     .dropdown {
-         position: relative;
-         display: inline-block;
-     }
-     /* Dropdown Content (Hidden by Default) */
-     .dropdown-menu {
-         margin-top: 5% !important;
-         display: none;
-         position: absolute;
-         background-color: #ffffff;
-         min-width: 200px;
-         box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.19), 0 0.6rem 0.6rem rgba(0, 0, 0, 0.23);
-         z-index: 1;
-     }
-     /* Links inside the dropdown */
-     .dropdown-menu a {
-         color: #2f2f2f;
-         padding: 0 11px;
-         text-decoration: none;
-         display: block;
-     }
-     /* Change color of dropdown links on hover */
-     .dropdown-menu a:hover {
-         background-color: #ddd
-     }
-     .nav__btn2 {
-         background: #f2f2f2;
-         border: 0;
-         color: black;
-         font-weight: 600;
-         font-size: 0.9rem;
-         border-radius: 100rem;
-         margin-left: 1rem;
-     }
-     .dropdown-menu button {
-         padding: 0.75rem 2.5rem;
-         margin: 0 0 1rem 0;
-         width: 100%;
-         cursor: pointer;
-     }
- }
- /* Extra large devices (large laptops and desktops, 1200px and up) */
- 
- @media only screen and (min-width: 1200px) {
-     .nome {
-         display: inline;
-     }
-     /*dropdown*/
-     .dropdown {
-         position: relative;
-         display: inline-block;
-     }
-     /* Dropdown Content (Hidden by Default) */
-     .dropdown-menu {
-         margin-top: 1% !important;
-         display: none;
-         position: absolute;
-         background-color: #ffffff;
-         min-width: 200px;
-         box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.19), 0 0.6rem 0.6rem rgba(0, 0, 0, 0.23);
-         z-index: 1;
-     }
-     /* Links inside the dropdown */
-     .dropdown-menu a {
-         color: #2f2f2f;
-         padding: 0 11px;
-         text-decoration: none;
-         display: block;
-     }
-     /* Change color of dropdown links on hover */
-     .dropdown-menu a:hover {
-         background-color: #ddd
-     }
-     .nav__btn2 {
-         background: #f2f2f2;
-         border: 0;
-         color: black;
-         font-weight: 600;
-         font-size: 0.9rem;
-         border-radius: 100rem;
-         margin-left: 1rem;
-     }
-     .dropdown-menu button {
-         padding: 0.75rem 2.5rem;
-         margin: 0 0 1rem 0;
-         width: 100%;
-         cursor: pointer;
-     }
- }
- /*********************************************************/
- 
- .top {
-     grid-column-start: 1;
-     grid-column-end: 5;
-     grid-row-start: 1;
-     display: grid;
-     grid-template-columns: 1.5rem auto 1.5rem;
-     height: 4rem;
-     background: #fff;
-     box-shadow: 0 0.3rem 0.3rem rgba(0, 0, 0, 0.1)
- }
+
+.sidenav {
+    height: 100%;
+    /* 100% Full-height */
+    width: 0;
+    /* 0 width - change this with JavaScript */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Stay on top */
+    top: 0;
+    /* Stay at the top */
+    left: 0;
+    background-image: linear-gradient(to bottom, #79C4D9, white);
+    /* Black*/
+    overflow-x: hidden;
+    /* Disable horizontal scroll */
+    padding-top: 60px;
+    /* Place content 60px from the top */
+    transition: 0.5s;
+    /* 0.5 second transition effect to slide in the sidenav */
+}
+
+
+/* The navigation menu links */
+
+.sidenav a {
+    text-decoration: none;
+    display: block;
+    transition: 0.3s;
+    color: #2F2F2F !important;
+}
+
+.nav__link--text {
+    font-weight: normal;
+    margin-left: 1.2rem;
+    font-size: 0.9rem;
+}
+
+.nav__link--text_main {
+    font-weight: bolder;
+    font-size: 1.1rem;
+}
+
+
+/* Position and style the close button (top right corner) */
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+
+#main {
+    transition: margin-left .5s;
+    padding: 20px;
+}
+
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav a {
+        font-size: 18px;
+    }
+}
+
+
+/* Dropdown Button */
+
+button:focus {
+    outline-style: none !important;
+    box-shadow: none !important;
+    border-color: transparent !important;
+}
+
+.notif_ind {
+    background: #f2f2f2;
+    border: 0;
+    color: black;
+    font-size: 0.9rem;
+    border-radius: 10px;
+    text-align: center;
+}
+
+
+/*imagem*/
+
+.nav__avatar--image {
+    position: relative;
+    border-radius: 50%;
+}
+
+.nav__brand {
+    grid-column-start: 2;
+    justify-self: center;
+}
+
+
+/*texto*/
+
+.nome {
+    font-family: "Quicksand", sans-serif;
+    font-size: 14px;
+    color: #2F2F2F;
+}
+
+.menunav {
+    vertical-align: middle;
+}
+
+.menu_lado {
+    cursor: pointer;
+}
+
+
+/*media queries*/
+
+
+/* Extra small devices (phones, 600px and down) */
+
+@media only screen and (max-width: 600px) {
+    .nome {
+        display: none;
+    }
+    /*dropdown*/
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+    /* Dropdown Content (Hidden by Default) */
+    .dropdown-menu {
+        margin-top: 5% !important;
+        display: none;
+        position: absolute;
+        background-color: #ffffff;
+        min-width: 300px;
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.19), 0 0.6rem 0.6rem rgba(0, 0, 0, 0.23);
+        z-index: 1;
+        margin-left: -555% !important;
+    }
+    .alinhar_user {
+        min-width: 200px !important;
+        margin-left: -587% !important;
+    }
+    /* Links inside the dropdown */
+    .dropdown-menu a {
+        color: #2f2f2f;
+        padding: 0 11px;
+        text-decoration: none;
+        display: block;
+    }
+    /* Change color of dropdown links on hover */
+    .dropdown-menu a:hover {
+        background-color: #ddd
+    }
+    .nav__btn2 {
+        background: #f2f2f2;
+        border: 0;
+        color: black;
+        font-weight: 600;
+        font-size: 0.9rem;
+        border-radius: 100rem;
+        margin-left: 1rem;
+    }
+    .dropdown-menu button {
+        padding: 0.75rem 2.5rem;
+        margin: 0 0 1rem 0;
+        width: 100%;
+        cursor: pointer;
+    }
+    .logo {
+        width: 69px;
+    }
+    .padding {
+        padding: 0;
+    }
+}
+
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+
+@media only screen and (min-width: 600px) {
+    .nome {
+        display: none;
+    }
+    /*dropdown*/
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+    /* Dropdown Content (Hidden by Default) */
+    .dropdown-menu {
+        margin-top: 5% !important;
+        display: none;
+        position: absolute;
+        background-color: #ffffff;
+        min-width: 400px;
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.19), 0 0.6rem 0.6rem rgba(0, 0, 0, 0.23);
+        z-index: 1;
+        margin-left: -808% !important;
+    }
+    .alinhar_user {
+        min-width: 200px !important;
+        margin-left: -587% !important;
+    }
+    /* Links inside the dropdown */
+    .dropdown-menu a {
+        color: #2f2f2f;
+        padding: 0 11px;
+        text-decoration: none;
+        display: block;
+    }
+    /* Change color of dropdown links on hover */
+    .dropdown-menu a:hover {
+        background-color: #ddd
+    }
+    .nav__btn2 {
+        background: #f2f2f2;
+        border: 0;
+        color: black;
+        font-weight: 600;
+        font-size: 0.9rem;
+        border-radius: 100rem;
+        margin-left: 1rem;
+    }
+    .dropdown-menu button {
+        padding: 0.75rem 2.5rem;
+        margin: 0 0 1rem 0;
+        width: 100%;
+        cursor: pointer;
+    }
+    .logo {
+        width: 85px;
+    }
+    .logo {
+        width: 69px;
+    }
+    .padding {
+        padding: 0;
+    }
+}
+
+
+/* Medium devices (landscape tablets, 768px and up) */
+
+@media only screen and (min-width: 768px) {
+    .nome {
+        display: none;
+    }
+    /*dropdown*/
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+    /* Dropdown Content (Hidden by Default) */
+    .dropdown-menu {
+        margin-top: 5% !important;
+        display: none;
+        position: absolute;
+        background-color: #ffffff;
+        min-width: 400px;
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.19), 0 0.6rem 0.6rem rgba(0, 0, 0, 0.23);
+        z-index: 1;
+        margin-left: -808% !important;
+    }
+    .alinhar_user {
+        min-width: 200px !important;
+        margin-left: -587% !important;
+    }
+    /* Links inside the dropdown */
+    .dropdown-menu a {
+        color: #2f2f2f;
+        padding: 0 11px;
+        text-decoration: none;
+        display: block;
+    }
+    /* Change color of dropdown links on hover */
+    .dropdown-menu a:hover {
+        background-color: #ddd
+    }
+    .nav__btn2 {
+        background: #f2f2f2;
+        border: 0;
+        color: black;
+        font-weight: 600;
+        font-size: 0.9rem;
+        border-radius: 100rem;
+        margin-left: 1rem;
+    }
+    .dropdown-menu button {
+        padding: 0.75rem 2.5rem;
+        margin: 0 0 1rem 0;
+        width: 100%;
+        cursor: pointer;
+    }
+    .logo {
+        width: 85px;
+    }
+    .padding {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+
+/* Large devices (laptops/desktops, 992px and up) */
+
+@media only screen and (min-width: 992px) {
+    .nome {
+        display: inline;
+    }
+    /*dropdown*/
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+    /* Dropdown Content (Hidden by Default) */
+    .dropdown-menu {
+        margin-top: 5% !important;
+        display: none;
+        position: absolute;
+        background-color: #ffffff;
+        min-width: 400px;
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.19), 0 0.6rem 0.6rem rgba(0, 0, 0, 0.23);
+        z-index: 1;
+        margin-left: -57% !important;
+    }
+    .alinhar_user {
+        min-width: 200px;
+        margin-left: -164% !important;
+    }
+    /* Links inside the dropdown */
+    .dropdown-menu a {
+        color: #2f2f2f;
+        padding: 0 11px;
+        text-decoration: none;
+        display: block;
+    }
+    /* Change color of dropdown links on hover */
+    .dropdown-menu a:hover {
+        background-color: #ddd
+    }
+    .nav__btn2 {
+        background: #f2f2f2;
+        border: 0;
+        color: black;
+        font-weight: 600;
+        font-size: 0.9rem;
+        border-radius: 100rem;
+        margin-left: 1rem;
+    }
+    .dropdown-menu button {
+        padding: 0.75rem 2.5rem;
+        margin: 0 0 1rem 0;
+        width: 100%;
+        cursor: pointer;
+    }
+    .logo {
+        width: 85px;
+    }
+}
+
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+
+@media only screen and (min-width: 1200px) {
+    .nome {
+        display: inline;
+    }
+    /*dropdown*/
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+    /* Dropdown Content (Hidden by Default) */
+    .dropdown-menu {
+        margin-top: 1% !important;
+        display: none;
+        position: absolute;
+        background-color: #ffffff;
+        min-width: 400px;
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.19), 0 0.6rem 0.6rem rgba(0, 0, 0, 0.23);
+        z-index: 1;
+        margin-left: -57% !important;
+    }
+    .alinhar_user {
+        min-width: 200px;
+        margin-left: -164% !important;
+    }
+    /* Links inside the dropdown */
+    .dropdown-menu a {
+        color: #2f2f2f;
+        padding: 0 11px;
+        text-decoration: none;
+        display: block;
+    }
+    /* Change color of dropdown links on hover */
+    .dropdown-menu a:hover {
+        background-color: #ddd
+    }
+    .nav__btn2 {
+        background: #f2f2f2;
+        border: 0;
+        color: black;
+        font-weight: 600;
+        font-size: 0.9rem;
+        border-radius: 100rem;
+        margin-left: 1rem;
+    }
+    .dropdown-menu button {
+        padding: 0.75rem 2.5rem;
+        margin: 0 0 1rem 0;
+        width: 100%;
+        cursor: pointer;
+    }
+    .logo {
+        width: 85px;
+    }
+}
+
+
+/*********************************************************/
+
+.top {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    display: grid;
+    grid-template-columns: 1.5rem auto 1.5rem;
+    height: 4rem;
+    background: #fff;
+    box-shadow: 0 0.3rem 0.3rem rgba(0, 0, 0, 0.1)
+}
 
 .inicia_nav {
     width: 50%!important;

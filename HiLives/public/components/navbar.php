@@ -29,7 +29,7 @@ $stmt = mysqli_stmt_init($link);
     <nav id="topNav" class="navbar fixed-top navbar-toggleable-sm" >
         <!--div con
         taine do conteúdo-->
-        <div class="container">
+        <div class="container padding">
             <div class="row col-12 m-0 p-0 my-auto">
                 <?php
                 if (isset($_SESSION["idUser"])) {
@@ -134,7 +134,7 @@ $stmt = mysqli_stmt_init($link);
                 ?>
                     <div class="col-4 text-center p-0">
                         <a class="navbar-brand mx-auto" href="homepage_userDID.php">
-                            <img src="img/logo.png" class="img-responsive" style="width:85px" alt="Logótipo do HiLives">
+                            <img src="img/logo.png" class="img-responsive logo" alt="Logótipo do HiLives">
                         </a>
                     </div>
                 <?php
@@ -143,7 +143,7 @@ $stmt = mysqli_stmt_init($link);
                     <div class="col-4"></div>
                     <div class="col-4 text-center ">
                         <a class="navbar-brand mx-auto" href="index.php">
-                            <img src="img/logo.png" class="img-responsive" style="width:85px" alt="Logótipo do HiLives">
+                            <img src="img/logo.png" class="img-responsive logo" alt="Logótipo do HiLives">
                         </a>
                     </div>
                     <div class=" col-4 text-right my-auto">
@@ -169,40 +169,40 @@ $stmt = mysqli_stmt_init($link);
                             <button class="btn pl-0" type="button" role="button" data-toggle="dropdown">
                                 <img src="img/notif.png" alt="Símbolo de notificações" style="position:relative; max-width:25px"><span class="nome ml-2">O que está a acontecer</span>
                             </button>
-                            <ul class="dropdown-menu mx-auto" style="overflow-y: scroll; width: 400px">
+                            <ul class="dropdown-menu mx-auto" style="overflow-y: scroll">
                                 <a href="">
-                                    <button class="notif_ind mb-2 nome"> Já não tens uma ligação há algum tempo...
+                                    <button class="notif_ind mb-2"> Já não tens uma ligação há algum tempo...
                                         <span class="font-weight-bold">Edita o teu perfil</span> para conseguires ter novas
                                         ligações!
                                         <span class="m-0 p-0" style="color: grey; font-family: Quicksand !important;"> • Há 2min</span>
                                     </button>
                                 </a>
                                 <a href="">
-                                    <button class="notif_ind mb-2 nome"> Tens uma nova ligação com a
+                                    <button class="notif_ind mb-2"> Tens uma nova ligação com a
                                         <span class="font-weight-bold"> Universidade de Aveiro</span>.
                                         <span class="m-0 p-0" style="color: grey; font-family: Quicksand !important;"> • Há 2min</span>
                                     </button>
                                 </a>
                                 <a href="">
-                                    <button class="notif_ind mb-2 nome"> Tens uma nova ligação com a
+                                    <button class="notif_ind mb-2"> Tens uma nova ligação com a
                                         <span class="font-weight-bold"> Universidade de Aveiro</span>.
                                         <span class="m-0 p-0" style="color: grey; font-family: Quicksand !important;"> • Há 2min</span>
                                     </button>
                                 </a>
                                 <a href="">
-                                    <button class="notif_ind mb-2 nome"> Tens uma nova ligação com a empresa
+                                    <button class="notif_ind mb-2"> Tens uma nova ligação com a empresa
                                         <span class="font-weight-bold"> FNAC</span>.
                                         <span class="m-0 p-0" style="color: grey; font-family: Quicksand !important;"> • Há 2min</span>
                                     </button>
                                 </a>
                                 <a href="">
-                                    <button class="notif_ind mb-2 nome"> Tens uma nova ligação com a empresa
+                                    <button class="notif_ind mb-2"> Tens uma nova ligação com a empresa
                                         <span class="font-weight-bold"> FNAC</span>.
                                         <span class="m-0 p-0" style="color: grey; font-family: Quicksand !important;"> • Há 2min</span>
                                     </button>
                                 </a>
                                 <a href="">
-                                    <button class="notif_ind mb-2 nome"> Tens uma nova ligação com a empresa
+                                    <button class="notif_ind mb-2"> Tens uma nova ligação com a empresa
                                         <span class="font-weight-bold"> FNAC</span>.
                                         <span class="m-0 p-0" style="color: grey; font-family: Quicksand !important;"> • Há 2min</span>
                                     </button>
@@ -247,7 +247,7 @@ $stmt = mysqli_stmt_init($link);
                             }
                         }
                         ?>
-                        <ul class="dropdown-menu mx-auto">
+                        <ul class="dropdown-menu alinhar_user mx-auto">
                             <?php
                             if (isset($User_type) && $User_type == 4) {
                             ?>
@@ -288,7 +288,7 @@ $stmt = mysqli_stmt_init($link);
 <script>
     /* Set the width of the side navigation to 250px */
     function openNav() {
-        document.getElementById("mySidenav").style.width = "360px";
+        document.getElementById("mySidenav").style.width = "340px";
     }
 
     /* Set the width of the side navigation to 0 */
