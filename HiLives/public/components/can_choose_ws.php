@@ -13,10 +13,10 @@
 
     <!--Cards-->
     <!--Card 1-->
-    <div class="cards text-center col-md-4 col-sm-6 mt-4 centro">
+    <div class="cards text-center col-xs-12 col-md-4 mt-4 centro">
         <div class="card-item study">
             <div class="card-image">
-                <img class="card-img-top img-fluid" src="img/campus.jpg" alt="imagem da universidade" style="height: 240px;"></div>
+                <img class="card-img-top img-fluid" src="img/campus.jpg" alt="imagem da universidade"></div>
             <div class="card-info mb-2 mt-2">
                 <h6> <i class="fas fa-book"></i> Estudar</h6>
                 <h5>Universidade de Aveiro</h5>
@@ -26,10 +26,10 @@
     </div>
     <!------------>
     <!--Card 2-->
-    <div class="cards text-center col-md-4 col-sm-6 mt-4 centro">
+    <div class="cards text-center col-xs-12 col-md-4 mt-4 centro">
         <div class="card-item">
             <div class="card-image">
-                <img class="card-img-top img-fluid" src="img/univer_coimbra.jpg" alt="imagem da universidade" style="height: 240px;"></div>
+                <img class="card-img-top img-fluid" src="img/univer_coimbra.jpg" alt="imagem da universidade"></div>
             <div class="card-info mb-2 mt-2">
                 <h6> <i class="fas fa-suitcase"></i> Trabalhar</h6>
                 <h5>Fnac</h5>
@@ -39,10 +39,10 @@
     </div>
     <!----------------------------->
     <!--Card 3-->
-    <div class="cards text-center col-md-4 col-sm-6 mt-4 centro">
+    <div class="cards text-center col-xs-12 col-md-4 mt-4 centro">
         <div class="card-item">
             <div class="card-image">
-                <img class="card-img-top img-fluid" src="img/campus.jpg" alt="imagem da universidade" style="height: 240px;"></div>
+                <img class="card-img-top img-fluid" src="img/campus.jpg" alt="imagem da universidade"></div>
             <div class="card-info mb-2 mt-2">
                 <h6> <i class="fas fa-book"></i> Estudar</h6>
                 <h5>Universidade de Aveiro</h5>
@@ -52,10 +52,10 @@
     </div>
     <!---------------------------------->
     <!--Card 1-->
-    <div class="cards text-center col-md-4 col-sm-6 mt-4">
+    <div class="cards text-center col-xs-12 col-md-4 mt-4">
         <div class="card-item">
             <div class="card-image">
-                <img class="card-img-top img-fluid" src="img/campus.jpg" alt="imagem da universidade" style="height: 240px;"></div>
+                <img class="card-img-top img-fluid" src="img/campus.jpg" alt="imagem da universidade"></div>
             <div class="card-info mb-2 mt-2">
                 <h6> <i class="fas fa-suitcase"></i> Trabalhar</h6>
                 <h5>Fnac</h5>
@@ -65,10 +65,10 @@
     </div>
     <!------------>
     <!--Card 2-->
-    <div class="cards text-center col-md-4 col-sm-6 mt-4">
+    <div class="cards text-center col-xs-12 col-md-4 mt-4">
         <div class="card-item">
             <div class="card-image">
-                <img class="card-img-top img-fluid" src="img/campus.jpg" alt="imagem da universidade" style="height: 240px;"></div>
+                <img class="card-img-top img-fluid" src="img/campus.jpg" alt="imagem da universidade"></div>
             <div class="card-info mb-2 mt-2">
                 <h6> <i class="fas fa-book"></i> Estudar</h6>
                 <h5>Universidade de Aveiro</h5>
@@ -78,10 +78,10 @@
     </div>
     <!----------------------------->
     <!--Card 3-->
-    <div class="cards text-center col-md-4 col-sm-6 mt-4">
+    <div class="cards text-center col-xs-12 col-md-4 mt-4">
         <div class="card-item">
             <div class="card-image">
-                <img class="card-img-top img-fluid" src="img/campus.jpg" alt="imagem da universidade" style="height: 240px;"></div>
+                <img class="card-img-top img-fluid" src="img/campus.jpg" alt="imagem da universidade"></div>
             <div class="card-info mb-2 mt-2">
                 <h6> <i class="fas fa-suitcase"></i> Trabalhar</h6>
                 <h5>Fnac</h5>
