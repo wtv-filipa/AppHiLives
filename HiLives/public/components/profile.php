@@ -1,4 +1,5 @@
 <?php
+
 if (isset($_GET["user"]) && $_SESSION["idUser"]) {
 
     $idUser = $_GET["user"];

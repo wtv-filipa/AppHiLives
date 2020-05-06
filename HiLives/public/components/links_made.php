@@ -1,3 +1,6 @@
+<?php
+include "navbar_2.php";
+?>
 <div class="mx-auto w-75 list_links">
 
 

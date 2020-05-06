@@ -1,3 +1,6 @@
+<?php
+include "navbar_2.php";
+?>
 <div class="w-75 mx-auto">
 <div id='wrapper_title'>
     <div class='tagpost-top section' id='tagpost-top'>

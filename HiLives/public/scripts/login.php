@@ -27,7 +27,7 @@ if (isset($_POST["email"]) && isset($_POST["password"])){
 
                     /***********************************************/
                     // feedback de sucesso
-                    header("Location: ../homepage_userDID.php");
+                    header("Location: ../home_people.php");
                     //echo "LOGIN DEU YESSSSSSSSSSSSS";
                 } else {
                    // header("Location: ../login.php?msg=1");

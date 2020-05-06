@@ -1,3 +1,6 @@
+<?php
+include "navbar_2.php";
+?>
 <!------------------PRIMEIRA SECÇÃO----------------------->
 <div class="row w-75 mx-auto">
     <div id='wrapper_title'>

@@ -24,7 +24,7 @@ session_start();
     </header>
     <main class="container p-0 mb-5 mx-auto mt-0 pt-0">
         <!--componente da homepage-->
-        <?php include "components/home_userDID_content.php"; ?>
+        <?php include "components/home_people.php"; ?>
     </main>
     <?php include "components/footer.php"; ?>
     <!-- JavaScript-->

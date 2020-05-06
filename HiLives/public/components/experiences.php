@@ -1,3 +1,6 @@
+<?php
+include "navbar_2.php";
+?>
 <!--Vídeos-->
 <div class="mx-auto w-75">
     <div class="mt-5">

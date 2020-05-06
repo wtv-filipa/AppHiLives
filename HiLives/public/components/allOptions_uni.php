@@ -1,3 +1,6 @@
+<?php
+include "navbar_2.php";
+?>
 <!--UNIVERSIDADES-->
 <div class=" mx-auto w-75">
     <div id='wrapper_title' class="mb-4">

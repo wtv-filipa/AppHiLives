@@ -133,15 +133,13 @@
             width: 68vh;
             height: 38vh;
         }
-        .altura {
-            height: 464px;
-        }
+        /*.altura {*/
+        /*    height: 464px;*/
+        /*}*/
         .separa {
             margin-top: 0;
         }
-        div.w-75.mx-auto {
-            width: 700px !important;
-        }
+
         h5 {
             font-size: 16px;
         }
@@ -168,4 +166,7 @@
         .content>h5 {
             font-size: 16px;
         }
+        /*div.w-75.mx-auto {*/
+        /*    width: 750px !important;*/
+        /*}*/
     }

@@ -203,3 +203,125 @@
             font-size: 14px;
         }
     }
+
+
+
+    .card-container{
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    .card{
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+        box-sizing: border-box;
+        overflow: auto;
+        display: block;
+        color: #2f2f2f;
+        text-decoration: none;
+        position: relative;
+        transition: box-shadow 0.3s, transform 0.3s;
+        transform: scale(1);
+        border: none;
+    }
+
+    .card:hover{
+        transform: scale(1.05);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        z-index: 10;
+    }
+
+    .card .image{
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        margin: 30px auto 10px;
+        background-color: #fed;
+        backgroun-position: center;
+        background-size: cover;
+    }
+
+
+    @media only screen and (min-width: 600px) {
+        .card-container{
+            width: 50%;
+        }
+    }
+
+    @media only screen and (min-width: 1200px) {
+        .card-container{
+            width: 25%;
+        }
+    }
+
+    .cards-circle{
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .cards-full-image{
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .cards-full-image .image{
+        width: 100%;
+        height: 150px;
+        border-radius: 0;
+        margin: 0;
+    }
+
+    .image-tiles{
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .image-tiles .image{
+        width: 100%;
+        height: 150px;
+        border-radius: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .image-tiles .title{
+        margin: 0;
+        font-weight: 800;
+        font-size: 36px;
+        color: #fff;
+        text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .sub_title {
+        font-size: 1.2rem;
+        font-family: "Quicksand";
+        font-weight: bolder;
+    }
+
+    .description_title {
+        font-size: 1.0rem;
+        font-family: "Roboto";
+        font-weight: normal;
+    }
+    .description_title2 {
+        font-size: 1.0rem;
+        font-family: "Roboto";
+        font-weight: normal;
+    }
+    .card-info {
+        display: flex;
+        flex: 1 1 auto;
+        flex-direction: column;
+        padding: 1rem;
+        line-height: 1.5em;
+        text-align: center;
+    }
+    .card-title {
+        line-height: 1.1em;
+        color: black;
+        margin-bottom: 0.2em;
+    }

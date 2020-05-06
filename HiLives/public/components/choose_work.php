@@ -1,3 +1,8 @@
+<?php
+include "navbar_2.php";
+?>
+
+
 <!------------------PRIMEIRA SECÇÃO----------------------->
 <div class="w-75 mx-auto">
     <div id='wrapper_title'>
@@ -9,110 +14,79 @@
             </div>
         </div>
     </div>
-
-    <div id='wrapper' class=" mx-auto">
-        <div class=" mx-auto">
-            <div class="row">
-                <!--Cards-->
-                <!--Card 1-->
-
-                <div class="cards text-center col-xs-12 col-md-6 col-lg-4 mt-4">
-                    <a href="vacancie.php">
-                        <div class="card-item">
-                            <div class="card-image">
-                                <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa"></div>
-                            <div class="card-info mb-2">
-                                <h6> <i class="fas fa-suitcase"></i> Trabalhar</h6>
-                                <h5>Fnac</h5>
-                                <h6>Área da saúde</h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <!------------>
-                <!--Card 2-->
-                <div class="cards text-center col-xs-12 col-md-6 col-lg-4 mt-4">
-                    <a href="vacancie.php">
-                        <div class="card-item">
-                            <div class="card-image">
-                                <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa"></div>
-                            <div class="card-info mb-2">
-                                <h6> <i class="fas fa-suitcase"></i> Trabalhar</h6>
-                                <h5>Fnac</h5>
-                                <h6>Área da saúde</h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <!----------------------------->
-                <!--Card 3-->
-                <div class="cards text-center col-xs-12 col-md-6 col-lg-4 mt-4">
-                    <a href="vacancie.php">
-                        <div class="card-item">
-                            <div class="card-image">
-                                <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa"></div>
-                            <div class="card-info mb-2">
-                                <h6> <i class="fas fa-suitcase"></i> Trabalhar</h6>
-                                <h5>Fnac</h5>
-                                <h6>Área da saúde</h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <!---------------------------------->
-                <!--Card 1-->
-                <div class="cards text-center col-xs-12 col-md-6 col-lg-4 mt-4">
-                    <a href="vacancie.php">
-                        <div class="card-item">
-                            <div class="card-image">
-                                <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa"></div>
-                            <div class="card-info mb-2">
-                                <h6> <i class="fas fa-suitcase"></i> Trabalhar</h6>
-                                <h5>Fnac</h5>
-                                <h6>Área da saúde</h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <!------------>
-                <!--Card 2-->
-                <div class="cards text-center col-xs-12 col-md-6 col-lg-4 mt-4">
-                    <a href="vacancie.php">
-                        <div class="card-item">
-                            <div class="card-image">
-                                <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa"></div>
-                            <div class="card-info mb-2">
-                                <h6> <i class="fas fa-suitcase"></i> Trabalhar</h6>
-                                <h5>Fnac</h5>
-                                <h6>Área da saúde</h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <!----------------------------->
-                <!--Card 3-->
-                <div class="cards text-center col-xs-12 col-md-6 col-lg-4 mt-4">
-                    <a href="vacancie.php">
-                        <div class="card-item">
-                            <div class="card-image">
-                                <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa"></div>
-                            <div class="card-info mb-2">
-                                <h6> <i class="fas fa-suitcase"></i> Trabalhar</h6>
-                                <h5>Fnac</h5>
-                                <h6>Área da saúde</h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <!---------------------------------->
-
+    <div class="cards-circle">
+        <div class="row">
+            <div class="card-container col-lg-4">
+                <a class="card" href="#">
+                    <div class="image"
+                         style="background-image: url('img/fnac.jpg')"></div>
+                    <div class="card-info">
+                        <h4 class="card-intro description_title"><i class="fas fa-suitcase"></i> Trabalhar</h4>
+                        <h2 class="card-title sub_title">FNAC</h2>
+                        <p class="card-intro description_title2">Ver descrição da vaga</p>
+                    </div>
+                </a>
             </div>
-            <div class="mt-5 mb-3" id='footer'><span class='credit'>Página 1 de 5</b></span>
+            <div class="card-container col-lg-4">
+                <a class="card" href="#">
+                    <div class="image"
+                         style="background-image: url('img/fnac.jpg')"></div>
+                    <div class="card-info">
+                        <h4 class="card-intro description_title"><i class="fas fa-suitcase"></i> Trabalhar</h4>
+                        <h2 class="card-title sub_title">FNAC</h2>
+                        <p class="card-intro description_title2">Ver descrição da vaga</p>
+                    </div>
+                </a>
             </div>
-            <!---end of div with class row--->
+            <div class="card-container col-lg-4">
+                <a class="card" href="#">
+                    <div class="image"
+                         style="background-image: url('img/fnac.jpg')"></div>
+                    <div class="card-info">
+                        <h4 class="card-intro description_title"><i class="fas fa-suitcase"></i> Trabalhar</h4>
+                        <h2 class="card-title sub_title">FNAC</h2>
+                        <p class="card-intro description_title2">Ver descrição da vaga</p>
+                    </div>
+                </a>
+            </div>
+            <div class="card-container col-lg-4">
+                <a class="card" href="#">
+                    <div class="image"
+                         style="background-image: url('img/fnac.jpg')"></div>
+                    <div class="card-info">
+                        <h4 class="card-intro description_title"><i class="fas fa-suitcase"></i> Trabalhar</h4>
+                        <h2 class="card-title sub_title">FNAC</h2>
+                        <p class="card-intro description_title2">Ver descrição da vaga</p>
+                    </div>
+                </a>
+            </div>
+            <div class="card-container col-lg-4">
+                <a class="card" href="#">
+                    <div class="image"
+                         style="background-image: url('img/fnac.jpg')"></div>
+                    <div class="card-info">
+                        <h4 class="card-intro description_title"><i class="fas fa-suitcase"></i> Trabalhar</h4>
+                        <h2 class="card-title sub_title">FNAC</h2>
+                        <p class="card-intro description_title2">Ver descrição da vaga</p>
+                    </div>
+                </a>
+            </div>
+            <div class="card-container col-lg-4">
+                <a class="card" href="#">
+                    <div class="image"
+                         style="background-image: url('img/fnac.jpg')"></div>
+                    <div class="card-info">
+                        <h4 class="card-intro description_title"><i class="fas fa-suitcase"></i> Trabalhar</h4>
+                        <h2 class="card-title sub_title">FNAC</h2>
+                        <p class="card-intro description_title2">Ver descrição da vaga</p>
+                    </div>
+                </a>
+            </div>
         </div>
     </div>
+
+    <div class="mt-5 mb-3" id='footer'><span class='credit'>Página 1 de 5</b></span></div>
+    <hr>
 </div>
 
 
@@ -127,106 +101,77 @@
             </div>
         </div>
     </div>
-
-    <div id='wrapper' class=" mx-auto">
-        <div class="mx-auto">
-            <div class="row">
-                <!--Cards-->
-                <!--Card 1-->
-                <div class="cards text-center col-xs-12 col-md-6 col-lg-4 mt-4">
-                    <a href="vacancie_learn.php">
-                        <div class="card-item">
-                            <div class="card-image">
-                                <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa"></div>
-                            <div class="card-info mb-2">
-                                <h6> <i class="fas fa-suitcase"></i> Trabalhar</h6>
-                                <h5>Fnac</h5>
-                                <h6>Área da saúde</h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <!------------>
-                <!--Card 2-->
-                <div class="cards text-center col-xs-12 col-md-6 col-lg-4 mt-4">
-                    <a href="vacancie_learn.php">
-                        <div class="card-item">
-                            <div class="card-image">
-                                <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa"></div>
-                            <div class="card-info mb-2">
-                                <h6> <i class="fas fa-suitcase"></i> Trabalhar</h6>
-                                <h5>Fnac</h5>
-                                <h6>Área da saúde</h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <!----------------------------->
-                <!--Card 3-->
-                <div class="cards text-center col-xs-12 col-md-6 col-lg-4 mt-4">
-                    <a href="vacancie_learn.php">
-                        <div class="card-item">
-                            <div class="card-image">
-                                <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa"></div>
-                            <div class="card-info mb-2">
-                                <h6> <i class="fas fa-suitcase"></i> Trabalhar</h6>
-                                <h5>Fnac</h5>
-                                <h6>Área da saúde</h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <!---------------------------------->
-                <!--Card 1-->
-                <div class="cards text-center col-xs-12 col-md-6 col-lg-4 mt-4">
-                    <a href="vacancie_learn.php">
-                        <div class="card-item">
-                            <div class="card-image">
-                                <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa"></div>
-                            <div class="card-info mb-2">
-                                <h6> <i class="fas fa-suitcase"></i> Trabalhar</h6>
-                                <h5>Fnac</h5>
-                                <h6>Área da saúde</h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <!------------>
-                <!--Card 2-->
-                <div class="cards text-center col-xs-12 col-md-6 col-lg-4 mt-4">
-                    <a href="vacancie_learn.php">
-                        <div class="card-item">
-                            <div class="card-image">
-                                <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa"></div>
-                            <div class="card-info mb-2">
-                                <h6> <i class="fas fa-suitcase"></i> Trabalhar</h6>
-                                <h5>Fnac</h5>
-                                <h6>Área da saúde</h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <!----------------------------->
-                <!--Card 3-->
-                <div class="cards text-center col-xs-12 col-md-6 col-lg-4 mt-4">
-                    <a href="vacancie_learn.php">
-                        <div class="card-item">
-                            <div class="card-image">
-                                <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa"></div>
-                            <div class="card-info mb-2">
-                                <h6> <i class="fas fa-suitcase"></i> Trabalhar</h6>
-                                <h5>Fnac</h5>
-                                <h6>Área da saúde</h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <!---------------------------------->
-
+    <div class="cards-circle">
+        <div class="row">
+            <div class="card-container col-lg-4">
+                <a class="card" href="#">
+                    <div class="image"
+                         style="background-image: url('img/fnac.jpg')"></div>
+                    <div class="card-info">
+                        <h4 class="card-intro description_title"><i class="fas fa-suitcase"></i> Trabalhar</h4>
+                        <h2 class="card-title sub_title">FNAC</h2>
+                        <p class="card-intro description_title2">Ver descrição da vaga</p>
+                    </div>
+                </a>
             </div>
-            <div class="mt-5 mb-3" id='footer'><span class='credit'>Página 1 de 5</b></span>
+            <div class="card-container col-lg-4">
+                <a class="card" href="#">
+                    <div class="image"
+                         style="background-image: url('img/fnac.jpg')"></div>
+                    <div class="card-info">
+                        <h4 class="card-intro description_title"><i class="fas fa-suitcase"></i> Trabalhar</h4>
+                        <h2 class="card-title sub_title">FNAC</h2>
+                        <p class="card-intro description_title2">Ver descrição da vaga</p>
+                    </div>
+                </a>
             </div>
-            <!---end of div with class row--->
+            <div class="card-container col-lg-4">
+                <a class="card" href="#">
+                    <div class="image"
+                         style="background-image: url('img/fnac.jpg')"></div>
+                    <div class="card-info">
+                        <h4 class="card-intro description_title"><i class="fas fa-suitcase"></i> Trabalhar</h4>
+                        <h2 class="card-title sub_title">FNAC</h2>
+                        <p class="card-intro description_title2">Ver descrição da vaga</p>
+                    </div>
+                </a>
+            </div>
+            <div class="card-container col-lg-4">
+                <a class="card" href="#">
+                    <div class="image"
+                         style="background-image: url('img/fnac.jpg')"></div>
+                    <div class="card-info">
+                        <h4 class="card-intro description_title"><i class="fas fa-suitcase"></i> Trabalhar</h4>
+                        <h2 class="card-title sub_title">FNAC</h2>
+                        <p class="card-intro description_title2">Ver descrição da vaga</p>
+                    </div>
+                </a>
+            </div>
+            <div class="card-container col-lg-4">
+                <a class="card" href="#">
+                    <div class="image"
+                         style="background-image: url('img/fnac.jpg')"></div>
+                    <div class="card-info">
+                        <h4 class="card-intro description_title"><i class="fas fa-suitcase"></i> Trabalhar</h4>
+                        <h2 class="card-title sub_title">FNAC</h2>
+                        <p class="card-intro description_title2">Ver descrição da vaga</p>
+                    </div>
+                </a>
+            </div>
+            <div class="card-container col-lg-4">
+                <a class="card" href="#">
+                    <div class="image"
+                         style="background-image: url('img/fnac.jpg')"></div>
+                    <div class="card-info">
+                        <h4 class="card-intro description_title"><i class="fas fa-suitcase"></i> Trabalhar</h4>
+                        <h2 class="card-title sub_title">FNAC</h2>
+                        <p class="card-intro description_title2">Ver descrição da vaga</p>
+                    </div>
+                </a>
+            </div>
         </div>
     </div>
+
+    <div class="mt-5 mb-3" id='footer'><span class='credit'>Página 1 de 5</b></span></div>
+    <hr>
 </div>
