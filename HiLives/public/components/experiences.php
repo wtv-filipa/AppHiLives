@@ -5,7 +5,7 @@
     </div>
 
     <div class="row mt-5">
-        <div class="col-lg-4 col-md-12 mb-4 pb-2">
+        <div class="col-lg-4 col-md-6 mb-4 pb-2">
 
             <!--Modal-->
             <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
@@ -28,7 +28,7 @@
                             <p class="username_modal">Joana Martins</p>
                             <hr>
                             <h5 class="mt-3">Descrição</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                            <p class="descricao">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                                 ut
                                 labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
                                 ullamco
@@ -61,7 +61,7 @@
         </div>
         <!--Fim do "card"-->
 
-        <div class="col-lg-4 col-md-12 mb-4 pb-2">
+        <div class="col-lg-4 col-md-6 mb-4 pb-2">
             <!--Título e informações do "card"-->
             <a>
                 <!--ESTA IMAGEM É APENAS DE TESTE DE MEDIDAS-->
@@ -77,7 +77,7 @@
         </div>
         <!--Fim do "card"-->
 
-        <div class="col-lg-4 col-md-12 mb-4 pb-2">
+        <div class="col-lg-4 col-md-6 mb-4 pb-2">
             <!--Título e informações do "card"-->
             <a>
                 <!--ESTA IMAGEM É APENAS DE TESTE DE MEDIDAS-->
@@ -94,7 +94,7 @@
         <!--Fim do "card"-->
 
         <!--2ª LINHA DE CARDS-->
-        <div class="col-lg-4 col-md-12 mb-4 pb-2">
+        <div class="col-lg-4 col-md-6 mb-4 pb-2">
             <!--Título e informações do "card"-->
             <a>
                 <!--ESTA IMAGEM É APENAS DE TESTE DE MEDIDAS-->
@@ -110,7 +110,7 @@
         </div>
         <!--Fim do "card"-->
 
-        <div class="col-lg-4 col-md-12 mb-4 pb-2">
+        <div class="col-lg-4 col-md-6 mb-4 pb-2">
             <!--Título e informações do "card"-->
             <a>
                 <!--ESTA IMAGEM É APENAS DE TESTE DE MEDIDAS-->
@@ -126,7 +126,7 @@
         </div>
         <!--Fim do "card"-->
 
-        <div class="col-lg-4 col-md-12 mb-4 pb-2">
+        <div class="col-lg-4 col-md-6 mb-4 pb-2">
             <!--Título e informações do "card"-->
             <a>
                 <!--ESTA IMAGEM É APENAS DE TESTE DE MEDIDAS-->
