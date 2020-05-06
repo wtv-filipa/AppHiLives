@@ -1,4 +1,4 @@
-<div class="w-75 mx-auto">
+<div class="w-75 mx-auto list_links">
 
 
     <div id='wrapper_title'>
@@ -6,7 +6,7 @@
         <div class='tagpost-top section' id='tagpost-top'>
             <div class='widget HTML' id='HTML5'>
                 <div data-aos="fade-up">
-                    <h3 class="mb-4 main_title">Ligações escolhidas</h3>
+                    <h3 class="mb-4 main_title adjustment_top">Ligações escolhidas</h3>
                 </div>
             </div>
         </div>

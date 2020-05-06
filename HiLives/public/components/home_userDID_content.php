@@ -53,7 +53,7 @@
 
 
 
-<div class="w-75 mx-auto">
+<div class="w-75 mx-auto list_links">
     <div id='wrapper_title'>
         <div class='tagpost-top section' id='tagpost-top'>
             <div class='widget HTML' id='HTML5'>
@@ -125,48 +125,47 @@
         <div class='tagpost-top section' id='tagpost-top'>
             <div class='widget HTML' id='HTML5'>
                 <div data-aos="fade-up">
-                    <h3 class="main_title">Destaques</h3>
+                    <h3 class="mb-4 main_title">Destaques</h3>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="row container_highlights ">
-        <div class="cards col-lg-6 col-sm-12 pl-0">
+        <div class="cards col-s-12 col-sm-6">
             <div class="card-item">
                 <div class="card-image">
-                    <img class="w-100" src="img/ua.jpg" alt="Imagem da Universidade de Aveiro"></div> <!--info do alt tem de vir da base de dados-->
+                    <img class="imagem" src="img/ua.jpg"></div>
                 <div class="card-info">
                     <h2 class="card-title sub_title">Universidade de Aveiro</h2>
                     <p class="card-intro description_title">Far far away, behind the word mountains, far from the
-                        countries
-                        Vokalia and Consonantia, there live the blind texts.</p>
+                        countries Vokalia and Consonantia, there live the blind texts.</p>
                 </div>
             </div>
         </div>
-        <div class="cards col-lg-6 col-sm-12 pl-0">
+        <div class="cards col-s-12 col-sm-6">
             <div class="card-item">
                 <div class="card-image">
-                    <img class="w-100" src="img/univer_coimbra.jpg" alt="Imagem da Universidade de Coimbra"></div> <!--info do alt tem de vir da base de dados-->
+                    <img class="imagem" src="img/ua.jpg"></div>
                 <div class="card-info">
-                    <h2 class="card-title sub_title">Universidade de Coimbra</h2>
+                    <h2 class="card-title sub_title">Universidade de Aveiro</h2>
                     <p class="card-intro description_title">Far far away, behind the word mountains, far from the
-                        countries
-                        Vokalia and Consonantia, there live the blind texts.</p>
+                        countries Vokalia and Consonantia, there live the blind texts.</p>
                 </div>
             </div>
         </div>
-        
+
+
     </div>
 </div>
 
 
-<div class="w-75 mx-auto">
+<div class="w-75 mx-auto list_links">
     <div id='wrapper_title'>
         <div class='tagpost-top section' id='tagpost-top'>
             <div class='widget HTML' id='HTML5'>
                 <div data-aos="fade-up">
-                    <h3 class="mb-4 main_title">As minhas ligações com universidades</h3>
+                    <h3 class="mb-4 main_title adjustment_top">Ligações com universidades</h3>
                 </div>
             </div>
         </div>
