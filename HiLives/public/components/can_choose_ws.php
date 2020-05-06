@@ -4,7 +4,7 @@
         <div class='tagpost-top section' id='tagpost-top'>
             <div class='widget HTML' id='HTML5'>
                 <div data-aos="fade-up">
-                    <h3 class="mb-4 main_title">Posso escolher- <u>Estudar</u></h3>
+                    <h3 class="mb-4 main_title">As minhas ligações | Estudar e trabalhar</h3>
                 </div>
             </div>
         </div>
@@ -13,7 +13,7 @@
 
     <!--Cards-->
     <!--Card 1-->
-    <div class="cards text-center col-xs-12 col-md-4 mt-4 centro">
+    <div class="cards text-center col-xs-12 col-md-6 col-lg-4 mt-4 centro">
         <div class="card-item study">
             <div class="card-image">
                 <img class="card-img-top img-fluid" src="img/campus.jpg" alt="imagem da universidade"></div>
@@ -26,7 +26,7 @@
     </div>
     <!------------>
     <!--Card 2-->
-    <div class="cards text-center col-xs-12 col-md-4 mt-4 centro">
+    <div class="cards text-center col-xs-12 col-md-6 col-lg-4 mt-4 centro">
         <div class="card-item">
             <div class="card-image">
                 <img class="card-img-top img-fluid" src="img/univer_coimbra.jpg" alt="imagem da universidade"></div>
@@ -39,7 +39,7 @@
     </div>
     <!----------------------------->
     <!--Card 3-->
-    <div class="cards text-center col-xs-12 col-md-4 mt-4 centro">
+    <div class="cards text-center col-xs-12 col-md-6 col-lg-4 mt-4 centro">
         <div class="card-item">
             <div class="card-image">
                 <img class="card-img-top img-fluid" src="img/campus.jpg" alt="imagem da universidade"></div>
@@ -52,7 +52,7 @@
     </div>
     <!---------------------------------->
     <!--Card 1-->
-    <div class="cards text-center col-xs-12 col-md-4 mt-4">
+    <div class="cards text-center col-xs-12 col-md-6 col-lg-4 mt-4">
         <div class="card-item">
             <div class="card-image">
                 <img class="card-img-top img-fluid" src="img/campus.jpg" alt="imagem da universidade"></div>
@@ -65,7 +65,7 @@
     </div>
     <!------------>
     <!--Card 2-->
-    <div class="cards text-center col-xs-12 col-md-4 mt-4">
+    <div class="cards text-center col-xs-12 col-md-6 col-lg-4 mt-4">
         <div class="card-item">
             <div class="card-image">
                 <img class="card-img-top img-fluid" src="img/campus.jpg" alt="imagem da universidade"></div>
@@ -78,7 +78,7 @@
     </div>
     <!----------------------------->
     <!--Card 3-->
-    <div class="cards text-center col-xs-12 col-md-4 mt-4">
+    <div class="cards text-center col-xs-12 col-md-6 col-lg-4 mt-4">
         <div class="card-item">
             <div class="card-image">
                 <img class="card-img-top img-fluid" src="img/campus.jpg" alt="imagem da universidade"></div>

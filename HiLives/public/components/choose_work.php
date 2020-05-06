@@ -15,87 +15,95 @@
             <div class="row">
                 <!--Cards-->
                 <!--Card 1-->
-                <div class="cards text-center col-md-4 col-sm-6 mt-4">
-                    <div class="card-item">
-                        <div class="card-image">
-                            <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa"
-                                 style="height: 160px;"></div>
-                        <div class="card-info mb-2">
-                            <h6>Trabalhar</h6>
-                            <h5>Fnac</h5>
-                            <h6>Área da saúde</h6>
+
+                <div class="cards text-center col-xs-12 col-md-6 col-lg-4 mt-4">
+                    <a href="vacancie.php">
+                        <div class="card-item">
+                            <div class="card-image">
+                                <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa"></div>
+                            <div class="card-info mb-2">
+                                <h6> <i class="fas fa-suitcase"></i> Trabalhar</h6>
+                                <h5>Fnac</h5>
+                                <h6>Área da saúde</h6>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
+
                 <!------------>
                 <!--Card 2-->
-                <div class="cards text-center col-md-4 col-sm-6 mt-4">
-                    <div class="card-item">
-                        <div class="card-image">
-                            <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa"
-                                 style="height: 160px;"></div>
-                        <div class="card-info mb-2">
-                            <h6>Trabalhar</h6>
-                            <h5>Fnac</h5>
-                            <h6>Área da saúde</h6>
+                <div class="cards text-center col-xs-12 col-md-6 col-lg-4 mt-4">
+                    <a href="vacancie.php">
+                        <div class="card-item">
+                            <div class="card-image">
+                                <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa"></div>
+                            <div class="card-info mb-2">
+                                <h6> <i class="fas fa-suitcase"></i> Trabalhar</h6>
+                                <h5>Fnac</h5>
+                                <h6>Área da saúde</h6>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <!----------------------------->
                 <!--Card 3-->
-                <div class="cards text-center col-md-4 col-sm-6 mt-4">
-                    <div class="card-item">
-                        <div class="card-image">
-                            <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa"
-                                 style="height: 160px;"></div>
-                        <div class="card-info mb-2">
-                            <h6>Trabalhar</h6>
-                            <h5>Fnac</h5>
-                            <h6>Área da saúde</h6>
+                <div class="cards text-center col-xs-12 col-md-6 col-lg-4 mt-4">
+                    <a href="vacancie.php">
+                        <div class="card-item">
+                            <div class="card-image">
+                                <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa"></div>
+                            <div class="card-info mb-2">
+                                <h6> <i class="fas fa-suitcase"></i> Trabalhar</h6>
+                                <h5>Fnac</h5>
+                                <h6>Área da saúde</h6>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <!---------------------------------->
                 <!--Card 1-->
-                <div class="cards text-center col-md-4 col-sm-6 mt-4">
-                    <div class="card-item">
-                        <div class="card-image">
-                            <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa"
-                                 style="height: 160px;"></div>
-                        <div class="card-info mb-2">
-                            <h6>Trabalhar</h6>
-                            <h5>Fnac</h5>
-                            <h6>Área da saúde</h6>
+                <div class="cards text-center col-xs-12 col-md-6 col-lg-4 mt-4">
+                    <a href="vacancie.php">
+                        <div class="card-item">
+                            <div class="card-image">
+                                <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa"></div>
+                            <div class="card-info mb-2">
+                                <h6> <i class="fas fa-suitcase"></i> Trabalhar</h6>
+                                <h5>Fnac</h5>
+                                <h6>Área da saúde</h6>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <!------------>
                 <!--Card 2-->
-                <div class="cards text-center col-md-4 col-sm-6 mt-4">
-                    <div class="card-item">
-                        <div class="card-image">
-                            <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa"
-                                 style="height: 160px;"></div>
-                        <div class="card-info mb-2">
-                            <h6>Trabalhar</h6>
-                            <h5>Fnac</h5>
-                            <h6>Área da saúde</h6>
+                <div class="cards text-center col-xs-12 col-md-6 col-lg-4 mt-4">
+                    <a href="vacancie.php">
+                        <div class="card-item">
+                            <div class="card-image">
+                                <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa"></div>
+                            <div class="card-info mb-2">
+                                <h6> <i class="fas fa-suitcase"></i> Trabalhar</h6>
+                                <h5>Fnac</h5>
+                                <h6>Área da saúde</h6>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <!----------------------------->
                 <!--Card 3-->
-                <div class="cards text-center col-md-4 col-sm-6 mt-4">
-                    <div class="card-item">
-                        <div class="card-image">
-                            <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa"
-                                 style="height: 160px;"></div>
-                        <div class="card-info mb-2">
-                            <h6>Trabalhar</h6>
-                            <h5>Fnac</h5>
-                            <h6>Área da saúde</h6>
+                <div class="cards text-center col-xs-12 col-md-6 col-lg-4 mt-4">
+                    <a href="vacancie.php">
+                        <div class="card-item">
+                            <div class="card-image">
+                                <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa"></div>
+                            <div class="card-info mb-2">
+                                <h6> <i class="fas fa-suitcase"></i> Trabalhar</h6>
+                                <h5>Fnac</h5>
+                                <h6>Área da saúde</h6>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <!---------------------------------->
 
@@ -125,87 +133,93 @@
             <div class="row">
                 <!--Cards-->
                 <!--Card 1-->
-                <div class="cards text-center col-md-4 col-sm-6 mt-4">
-                    <div class="card-item">
-                        <div class="card-image">
-                            <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa"
-                                 style="height: 160px;"></div>
-                        <div class="card-info mb-2">
-                            <h6>Trabalhar</h6>
-                            <h5>Fnac</h5>
-                            <h6>Área da saúde</h6>
+                <div class="cards text-center col-xs-12 col-md-6 col-lg-4 mt-4">
+                    <a href="vacancie_learn.php">
+                        <div class="card-item">
+                            <div class="card-image">
+                                <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa"></div>
+                            <div class="card-info mb-2">
+                                <h6> <i class="fas fa-suitcase"></i> Trabalhar</h6>
+                                <h5>Fnac</h5>
+                                <h6>Área da saúde</h6>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <!------------>
                 <!--Card 2-->
-                <div class="cards text-center col-md-4 col-sm-6 mt-4">
-                    <div class="card-item">
-                        <div class="card-image">
-                            <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa"
-                                 style="height: 160px;"></div>
-                        <div class="card-info mb-2">
-                            <h6>Trabalhar</h6>
-                            <h5>Fnac</h5>
-                            <h6>Área da saúde</h6>
+                <div class="cards text-center col-xs-12 col-md-6 col-lg-4 mt-4">
+                    <a href="vacancie_learn.php">
+                        <div class="card-item">
+                            <div class="card-image">
+                                <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa"></div>
+                            <div class="card-info mb-2">
+                                <h6> <i class="fas fa-suitcase"></i> Trabalhar</h6>
+                                <h5>Fnac</h5>
+                                <h6>Área da saúde</h6>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <!----------------------------->
                 <!--Card 3-->
-                <div class="cards text-center col-md-4 col-sm-6 mt-4">
-                    <div class="card-item">
-                        <div class="card-image">
-                            <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa"
-                                 style="height: 160px;"></div>
-                        <div class="card-info mb-2">
-                            <h6>Trabalhar</h6>
-                            <h5>Fnac</h5>
-                            <h6>Área da saúde</h6>
+                <div class="cards text-center col-xs-12 col-md-6 col-lg-4 mt-4">
+                    <a href="vacancie_learn.php">
+                        <div class="card-item">
+                            <div class="card-image">
+                                <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa"></div>
+                            <div class="card-info mb-2">
+                                <h6> <i class="fas fa-suitcase"></i> Trabalhar</h6>
+                                <h5>Fnac</h5>
+                                <h6>Área da saúde</h6>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <!---------------------------------->
                 <!--Card 1-->
-                <div class="cards text-center col-md-4 col-sm-6 mt-4">
-                    <div class="card-item">
-                        <div class="card-image">
-                            <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa"
-                                 style="height: 160px;"></div>
-                        <div class="card-info mb-2">
-                            <h6>Trabalhar</h6>
-                            <h5>Fnac</h5>
-                            <h6>Área da saúde</h6>
+                <div class="cards text-center col-xs-12 col-md-6 col-lg-4 mt-4">
+                    <a href="vacancie_learn.php">
+                        <div class="card-item">
+                            <div class="card-image">
+                                <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa"></div>
+                            <div class="card-info mb-2">
+                                <h6> <i class="fas fa-suitcase"></i> Trabalhar</h6>
+                                <h5>Fnac</h5>
+                                <h6>Área da saúde</h6>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <!------------>
                 <!--Card 2-->
-                <div class="cards text-center col-md-4 col-sm-6 mt-4">
-                    <div class="card-item">
-                        <div class="card-image">
-                            <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa"
-                                 style="height: 160px;"></div>
-                        <div class="card-info mb-2">
-                            <h6>Trabalhar</h6>
-                            <h5>Fnac</h5>
-                            <h6>Área da saúde</h6>
+                <div class="cards text-center col-xs-12 col-md-6 col-lg-4 mt-4">
+                    <a href="vacancie_learn.php">
+                        <div class="card-item">
+                            <div class="card-image">
+                                <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa"></div>
+                            <div class="card-info mb-2">
+                                <h6> <i class="fas fa-suitcase"></i> Trabalhar</h6>
+                                <h5>Fnac</h5>
+                                <h6>Área da saúde</h6>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <!----------------------------->
                 <!--Card 3-->
-                <div class="cards text-center col-md-4 col-sm-6 mt-4">
-                    <div class="card-item">
-                        <div class="card-image">
-                            <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa"
-                                 style="height: 160px;"></div>
-                        <div class="card-info mb-2">
-                            <h6>Trabalhar</h6>
-                            <h5>Fnac</h5>
-                            <h6>Área da saúde</h6>
+                <div class="cards text-center col-xs-12 col-md-6 col-lg-4 mt-4">
+                    <a href="vacancie_learn.php">
+                        <div class="card-item">
+                            <div class="card-image">
+                                <img class="card-img-top img-fluid" src="img/fnac.jpg" alt="imagem da empresa"></div>
+                            <div class="card-info mb-2">
+                                <h6> <i class="fas fa-suitcase"></i> Trabalhar</h6>
+                                <h5>Fnac</h5>
+                                <h6>Área da saúde</h6>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <!---------------------------------->
 

@@ -40,7 +40,6 @@
         color: #2f2f2f;
         font-weight: bold;
         font-family: "Quicksand";
-        font-size: 18px;
     }
     
     .content>p {
@@ -56,7 +55,6 @@
     
     .blockquote>p {
         text-align: justify;
-        font-size: 16px !important;
     }
     
     .card-header {
@@ -77,7 +75,97 @@
         width: 100%;
         border-radius: 10px;
     }
+    /* Extra small devices (phones, 600px and down) */
     
-    .altura {
-        height: 400px;
+    @media only screen and (max-width: 600px) {
+        .video {
+            width: 28vh;
+            height: 20vh;
+        }
+        .separa {
+            margin-top: 7%;
+        }
+        h5 {
+            font-size: 16px;
+        }
+        .blockquote>p {
+            font-size: 12px !important;
+        }
+        .img_percurso {
+            height: 120px;
+            width: 120px;
+        }
+        .content>h5 {
+            margin-top: 11% !important;
+        }
+    }
+    /* Small devices (portrait tablets and large phones, 600px and up) */
+    
+    @media only screen and (min-width: 600px) {
+        .video {
+            width: 48vh;
+            height: 27vh;
+        }
+        .separa {
+            margin-top: 7%;
+        }
+        .blockquote>p {
+            font-size: 14px !important;
+        }
+        h5 {
+            font-size: 16px;
+        }
+        .blockquote>p {
+            font-size: 12px !important;
+        }
+        .img_percurso {
+            height: 150px;
+            width: 150px;
+        }
+        .content>h5 {
+            margin-top: 5% !important;
+        }
+    }
+    /* Medium devices (landscape tablets, 768px and up) */
+    
+    @media only screen and (min-width: 768px) {
+        .video {
+            width: 68vh;
+            height: 38vh;
+        }
+        .altura {
+            height: 464px;
+        }
+        .separa {
+            margin-top: 0;
+        }
+        div.w-75.mx-auto {
+            width: 700px !important;
+        }
+        h5 {
+            font-size: 16px;
+        }
+        .img_percurso {
+            height: 120px;
+            width: 120px!important;
+        }
+        .content>h5 {
+            margin-top: 11% !important;
+        }
+    }
+    /* Large devices (laptops/desktops, 992px and up) 
+    
+    @media only screen and (min-width: 992px) {}*/
+    /* Extra large devices (large laptops and desktops, 1200px and up) */
+    
+    @media only screen and (min-width: 1200px) {
+        h5 {
+            font-size: 18px;
+        }
+        .blockquote>p {
+            font-size: 16px !important;
+        }
+        .content>h5 {
+            font-size: 16px;
+        }
     }
