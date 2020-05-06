@@ -1,30 +1,23 @@
 /*main titles*/
-
 .main_title {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-family: "Quicksand";
     font-weight: bold;
     max-width: 100%;
     margin-top: 5%;
 }
 
-
 /*links*/
-
 a:hover {
     text-decoration: none;
 }
 
-
 /*texto*/
-
 * {
     color: #2f2f2f;
 }
 
-
 /*cards highlights*/
-
 .sub_title {
     font-size: 1.2rem;
     font-family: "Quicksand";
@@ -32,6 +25,11 @@ a:hover {
 }
 
 .description_title {
+    font-size: 1.0rem;
+    font-family: "Roboto";
+    font-weight: normal;
+}
+.description_title2 {
     font-size: 1.0rem;
     font-family: "Roboto";
     font-weight: normal;
@@ -121,179 +119,85 @@ a:hover {
 
 .imagem {
     height: 100%;
-    width: 262px;
 }
 
 
-/*cards links*/
-
-#footer {
-    text-align: center;
-    font-size: 1rem;
-    font-family: "Quicksand";
-    font-weight: bold;
-}
-
-.credit {
-    font-size: 12px;
-    float: bottom;
-    text-align: center;
-    padding-right: 4%;
-}
-
-.link_info {
-    font-size: 0.7rem;
-    color: #2f2f2f;
-    padding-top: 6%;
-}
-
-.link_title {
-    font-weight: bold;
-    font-size: 1rem;
-}
-
-.link_subtitle {
-    font-size: 0.9rem;
-}
-
-#wrapper {
-    margin: auto;
-    width: 750px;
-    max-width: 100%;
-    padding: 35px 5px 20px 35px;
-    background: #fff;
-    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.17);
-    border-radius: 10px;
-}
-
-#recenttags {
-    margin-bottom: 15px;
-}
-
-img.tagpost_thumb {
-    float: left;
-    margin-right: 12px;
-    height: 95px;
-    width: 90px;
-    transition: all 1s;
-    border-radius: 10px;
-}
-
-.taglabel {
-    display: inline-block;
-    float: left;
-    width: 100%;
-    padding: 0;
-    margin: auto;
-    border: none;
-    /*text-align: center;*/
-}
-
-ul.taglabel li {
-    padding: 5px 0;
-    min-height: 95px;
-}
-
-#tagpost-top,
-#tagpost-bottom {
-    overflow: hidden;
-    font-family: "Quicksand", sans-serif;
-}
-
-#tagpost-top .widget ul,
-#tagpost-bottom .widget ul {}
-
-#tagpost-top .widget,
-#tagpost-bottom .widget {
-    position: relative;
-    display: block;
-}
-
-#tagpost-bottom .widget {
-    margin-top: 10px;
-}
-
-#tagpost-top .widget ul,
-#tagpost-bottom .widget ul {
-    list-style: none;
-    margin-bottom: -15px;
-    padding: 0;
-}
-
-#tagpost-top .widget ul li,
-#tagpost-bottom .widget ul li {
-    display: block;
-    font-size: 12px;
-    font-family: inherit;
-    width: 47%;
-    float: left;
-    margin-bottom: 15px;
-    margin-right: 15px;
-    padding: 0;
-    transition: all 0.6s;
-}
-
-#tagpost-top .widget ul li:hover,
-#tagpost-bottom .widget ul li:hover {
-    border-bottom-color: #bbb;
-}
-
-#tagpost-top .widget li:last-child,
-#tagpost-bottom .widget li:last-child {
-    border-bottom: none;
-}
-
-#tagpost-top .widget ul li a,
-#tagpost-bottom .widget ul li a {}
-
-#tagpost-top .widget ul li a:hover,
-#tagpost-bottom .widget ul li a:hover {
-    color: #444;
-    text-decoration: none;
-}
-
-@media screen and (max-width: 768px) {
-    .taglabel {
-        display: block;
-        float: left;
-        width: 100%;
-        padding: 0;
-        margin: auto;
-        border: none;
-        /*text-align: center;*/
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .main_title {
+        font-size: 18px;
     }
-    #tagpost-top .widget ul li,
-    #tagpost-bottom .widget ul li {
-        display: block;
+    .sub_title {
+        font-size: 16px;
+        font-family: "Quicksand";
+        font-weight: bolder;
+    }
+    .description_title {
         font-size: 12px;
-        font-family: inherit;
-        width: 100%;
-        float: left;
-        margin-bottom: 15px;
-        margin-right: 15px;
-        padding: 0;
-        transition: all 1s;
     }
-    #wrapper {
-        margin: auto;
-        width: 750px;
-        max-width: 100%;
-        padding: 20px;
-        background: #fff;
-        box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.17);
-        border-radius: 10px;
+    .description_title2 {
+        font-size: 14px;
+        margin-bottom: 0;
+    }
+    .cards {
+        padding-top: 0rem;
+    }
+    .imagem {
+        height: 100%;
+        min-width: 238px;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .imagem {
+        width: 185.5px;
     }
     .main_title {
-        font-size: 1.6rem;
-        font-family: "Quicksand";
-        font-weight: bold;
-        max-width: 100%;
-        text-align: center;
-        margin-top: 2%;
+        font-size: 18px;
+        text-align: left;
     }
-    .credit {
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 768px) {
+    .main_title {
+        font-size: 18px;
+    }
+    .sub_title {
+        font-size: 16px;
+        font-family: "Quicksand";
+        font-weight: bolder;
+    }
+    .description_title {
         font-size: 12px;
-        float: bottom;
-        text-align: center;
+    }
+    .description_title2 {
+        font-size: 14px;
+        margin-bottom: 0;
+    }
+    .imagem {
+        min-width: 253px;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .imagem {
+        min-width: 253px;
+    }
+}
+
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .imagem {
+        min-width: 217.99px;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .imagem {
+        min-width: 263px;
     }
 }

@@ -1,166 +1,166 @@
-<!--Universidades-->
-<div class="w-75 mx-auto">
-    <div id='wrapper_title'>
+<!--UNIVERSIDADES-->
+<div class=" mx-auto w-75">
+    <div id='wrapper_title' class="mb-4">
         <div class='tagpost-top section' id='tagpost-top'>
             <div class='widget HTML' id='HTML5'>
                 <div>
-                    <h3 class="main_title">Todas as ligações - <u>Universidades</u></h3>
+                    <h3 class="main_title">Todas as ligações | Universidades</h3>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="card-deck text-center">
-        <div class="cards">
-            <div class="card-item">
-                <div class="card-image">
-                    <img class="imagem" src="img/ua.jpg"></div>
-                <div class="card-info">
-                    <h4 class="card-intro description_title">Estudar</h4>
-                    <h2 class="card-title sub_title">Universidade de Aveiro</h2>
-                    <p class="card-intro description_title">Ver áreas disponíveis</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="cards">
+    <div class="card-deck text-center row">
+        <div class="cards col-xs-12 col-sm-6 col-lg-4">
             <div class="card-item">
                 <div class="card-image">
                     <img class="imagem" src="img/ua.jpg">
                 </div>
                 <div class="card-info">
-                    <h4 class="card-intro description_title">Estudar</h4>
-                    <h1 class="card-title sub_title">Universidade de Aveiro</h1>
-                    <p class="card-intro description_title">Ver áreas disponíveis</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="cards">
-            <div class="card-item">
-                <div class="card-image">
-                    <img class="imagem" src="img/ua.jpg"></div>
-                <div class="card-info">
-                    <h4 class="card-intro description_title">Estudar</h4>
+                    <h4 class="card-intro description_title"><i class="fas fa-book-open" style="color: #2f2f2f;"></i> Estudar</h4>
                     <h2 class="card-title sub_title">Universidade de Aveiro</h2>
-                    <p class="card-intro description_title">Ver áreas disponíveis</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="card-deck text-center">
-        <div class="cards">
-            <div class="card-item">
-                <div class="card-image">
-                    <img class="imagem" src="img/ua.jpg"></div>
-                <div class="card-info">
-                    <h4 class="card-intro description_title">Estudar</h4>
-                    <h2 class="card-title sub_title">Universidade de Aveiro</h2>
-                    <p class="card-intro description_title">Ver áreas disponíveis</p>
+                    <p class="card-intro description_title2">Ver áreas disponíveis</p>
                 </div>
             </div>
         </div>
 
-        <div class="cards">
-            <div class="card-item">
-                <div class="card-image">
-                    <img class="imagem" src="img/ua.jpg"></div>
-                <div class="card-info">
-                    <h4 class="card-intro description_title">Estudar</h4>
-                    <h2 class="card-title sub_title">Universidade de Aveiro</h2>
-                    <p class="card-intro description_title">Ver áreas disponíveis</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="cards">
-            <div class="card-item">
-                <div class="card-image">
-                    <img class="imagem" src="img/ua.jpg"></div>
-                <div class="card-info">
-                    <h4 class="card-intro description_title">Estudar</h4>
-                    <h2 class="card-title sub_title">Universidade de Aveiro</h2>
-                    <p class="card-intro description_title">Ver áreas disponíveis</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="card-deck text-center">
-        <div class="cards">
-            <div class="card-item">
-                <div class="card-image">
-                    <img class="imagem" src="img/ua.jpg"></div>
-                <div class="card-info">
-                    <h4 class="card-intro description_title">Estudar</h4>
-                    <h2 class="card-title sub_title">Universidade de Aveiro</h2>
-                    <p class="card-intro description_title">Ver áreas disponíveis</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="cards">
+        <div class="cards col-xs-12 col-sm-6 col-lg-4">
             <div class="card-item">
                 <div class="card-image">
                     <img class="imagem" src="img/ua.jpg">
                 </div>
                 <div class="card-info">
-                    <h4 class="card-intro description_title">Estudar</h4>
-                    <h1 class="card-title sub_title">Universidade de Aveiro</h1>
-                    <p class="card-intro description_title">Ver áreas disponíveis</p>
+                    <h4 class="card-intro description_title"><i class="fas fa-book-open" style="color: #2f2f2f;"></i> Estudar</h4>
+                    <h2 class="card-title sub_title">Universidade de Aveiro</h2>
+                    <p class="card-intro description_title2">Ver áreas disponíveis</p>
                 </div>
             </div>
         </div>
 
-        <div class="cards">
+        <div class="cards col-xs-12 col-sm-6 col-lg-4">
             <div class="card-item">
                 <div class="card-image">
                     <img class="imagem" src="img/ua.jpg"></div>
                 <div class="card-info">
-                    <h4 class="card-intro description_title">Estudar</h4>
+                    <h4 class="card-intro description_title"><i class="fas fa-book" style="color: #2f2f2f;"></i> Estudar</h4>
                     <h2 class="card-title sub_title">Universidade de Aveiro</h2>
-                    <p class="card-intro description_title">Ver áreas disponíveis</p>
+                    <p class="card-intro description_title2">Ver áreas disponíveis</p>
                 </div>
             </div>
         </div>
+
+        <div class="cards col-xs-12 col-sm-6 col-lg-4">
+            <div class="card-item">
+                <div class="card-image">
+                    <img class="imagem" src="img/ua.jpg">
+                </div>
+                <div class="card-info">
+                    <h4 class="card-intro description_title"><i class="fas fa-book-open" style="color: #2f2f2f;"></i> Estudar</h4>
+                    <h2 class="card-title sub_title">Universidade de Aveiro</h2>
+                    <p class="card-intro description_title2">Ver áreas disponíveis</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="cards col-xs-12 col-sm-6 col-lg-4">
+            <div class="card-item">
+                <div class="card-image">
+                    <img class="imagem" src="img/ua.jpg"></div>
+                <div class="card-info">
+                    <h4 class="card-intro description_title"><i class="fas fa-book" style="color: #2f2f2f;"></i> Estudar</h4>
+                    <h2 class="card-title sub_title">Universidade de Aveiro</h2>
+                    <p class="card-intro description_title2">Ver áreas disponíveis</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="cards col-xs-12 col-sm-6 col-lg-4">
+            <div class="card-item">
+                <div class="card-image">
+                    <img class="imagem" src="img/ua.jpg">
+                </div>
+                <div class="card-info">
+                    <h4 class="card-intro description_title"><i class="fas fa-book-open" style="color: #2f2f2f;"></i> Estudar</h4>
+                    <h2 class="card-title sub_title">Universidade de Aveiro</h2>
+                    <p class="card-intro description_title2">Ver áreas disponíveis</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="cards col-xs-12 col-sm-6 col-lg-4">
+            <div class="card-item">
+                <div class="card-image">
+                    <img class="imagem" src="img/ua.jpg"></div>
+                <div class="card-info">
+                    <h4 class="card-intro description_title"><i class="fas fa-book" style="color: #2f2f2f;"></i> Estudar</h4>
+                    <h2 class="card-title sub_title">Universidade de Aveiro</h2>
+                    <p class="card-intro description_title2">Ver áreas disponíveis</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="cards col-xs-12 col-sm-6 col-lg-4">
+            <div class="card-item">
+                <div class="card-image">
+                    <img class="imagem" src="img/ua.jpg">
+                </div>
+                <div class="card-info">
+                    <h4 class="card-intro description_title"><i class="fas fa-book-open" style="color: #2f2f2f;"></i> Estudar</h4>
+                    <h2 class="card-title sub_title">Universidade de Aveiro</h2>
+                    <p class="card-intro description_title2">Ver áreas disponíveis</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="cards col-xs-12 col-sm-6 col-lg-4">
+            <div class="card-item">
+                <div class="card-image">
+                    <img class="imagem" src="img/ua.jpg">
+                </div>
+                <div class="card-info">
+                    <h4 class="card-intro description_title"><i class="fas fa-book-open" style="color: #2f2f2f;"></i> Estudar</h4>
+                    <h2 class="card-title sub_title">Universidade de Aveiro</h2>
+                    <p class="card-intro description_title2">Ver áreas disponíveis</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="cards col-xs-12 col-sm-6 col-lg-4">
+            <div class="card-item">
+                <div class="card-image">
+                    <img class="imagem" src="img/ua.jpg"></div>
+                <div class="card-info">
+                    <h4 class="card-intro description_title"><i class="fas fa-book" style="color: #2f2f2f;"></i> Estudar</h4>
+                    <h2 class="card-title sub_title">Universidade de Aveiro</h2>
+                    <p class="card-intro description_title2">Ver áreas disponíveis</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="cards col-xs-12 col-sm-6 col-lg-4">
+            <div class="card-item">
+                <div class="card-image">
+                    <img class="imagem" src="img/ua.jpg"></div>
+                <div class="card-info">
+                    <h4 class="card-intro description_title"><i class="fas fa-book" style="color: #2f2f2f;"></i> Estudar</h4>
+                    <h2 class="card-title sub_title">Universidade de Aveiro</h2>
+                    <p class="card-intro description_title2">Ver áreas disponíveis</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="cards col-xs-12 col-sm-6 col-lg-4">
+            <div class="card-item">
+                <div class="card-image">
+                    <img class="imagem" src="img/ua.jpg"></div>
+                <div class="card-info">
+                    <h4 class="card-intro description_title"><i class="fas fa-book" style="color: #2f2f2f;"></i> Estudar</h4>
+                    <h2 class="card-title sub_title">Universidade de Aveiro</h2>
+                    <p class="card-intro description_title2">Ver áreas disponíveis</p>
+                </div>
+            </div>
+        </div>
+
     </div>
-
-    <div class="card-deck text-center">
-        <div class="cards">
-            <div class="card-item">
-                <div class="card-image">
-                    <img class="imagem" src="img/ua.jpg"></div>
-                <div class="card-info">
-                    <h4 class="card-intro description_title">Estudar</h4>
-                    <h2 class="card-title sub_title">Universidade de Aveiro</h2>
-                    <p class="card-intro description_title">Ver áreas disponíveis</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="cards">
-            <div class="card-item">
-                <div class="card-image">
-                    <img class="imagem" src="img/ua.jpg"></div>
-                <div class="card-info">
-                    <h4 class="card-intro description_title">Estudar</h4>
-                    <h2 class="card-title sub_title">Universidade de Aveiro</h2>
-                    <p class="card-intro description_title">Ver áreas disponíveis</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="cards">
-            <div class="card-item">
-                <div class="card-image">
-                    <img class="imagem" src="img/ua.jpg"></div>
-                <div class="card-info">
-                    <h4 class="card-intro description_title">Estudar</h4>
-                    <h2 class="card-title sub_title">Universidade de Aveiro</h2>
-                    <p class="card-intro description_title">Ver áreas disponíveis</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+    <!--fim do que engloba os cards-->
+</div> <!-- div da w-75-->
