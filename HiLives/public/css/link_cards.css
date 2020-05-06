@@ -259,6 +259,11 @@ a {
     width: 100%;
 }
 
+.imagem {
+
+    width: 410px;
+}
+
 
 .cards .card-item {
     display: flex;
@@ -468,7 +473,28 @@ ul.taglabel li {
     text-decoration: none;
 }
 
-@media screen and (max-width:990px) {
+
+
+/*my links*/
+
+
+.circle_links {
+    background-color: #aaa;
+    border-radius: 50% !important;
+    overflow: hidden;
+    position: relative;
+}
+
+
+
+
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .cards {
+        padding: 0rem !important;
+    }
     .taglabel {
         display: block;
         float: left;
@@ -497,38 +523,91 @@ ul.taglabel li {
         background: #fff;
         box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.17);
         border-radius: 10px;
+
     }
     .main_title {
-        font-size: 1.6rem;
+        font-size: 18px;
         font-family: "Quicksand";
         font-weight: bold;
         max-width: 100%;
         text-align: center;
         margin-top: 2%;
+        margin-left: 2%;
+        margin-right: 2%
+
     }
     .credit {
         font-size: 12px;
         float: bottom;
         text-align: center;
     }
+
+    .list_links{
+        width: 100% !important;
+        margin-bottom: 10%
+
+
+    }
+
+    .link_info {
+        font-size: 12px;
+        color: #2f2f2f;
+        padding-top: 6%;
+
+    }
+
+    .link_title {
+        font-weight: bold;
+        font-size: 16px;
+
+    }
+
+    .link_subtitle {
+        font-size: 14px;
+
+    }
+    .adjustment_top {
+        margin-top: 6% !important;
+    }
 }
 
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
 
-/*my links*/
 
-
-.circle_links {
-    background-color: #aaa;
-    border-radius: 50% !important;
-    overflow: hidden;
-    position: relative;
 }
 
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 768px) {
 
+    #tagpost-top .widget ul li,
+    #tagpost-bottom .widget ul li {
 
+        display: block;
+        font-size: 12px;
+        font-family: inherit;
+        width: 100%;
+        float: left;
+        margin-bottom: 15px;
+        margin-right: 15px;
+        padding: 0;
+        transition: all 1s;
+    }
+    /*.home_menu{*/
+    /*    text-decoration: none !important;*/
+    /*    width: 100% !important;*/
+    /*    height: 100%;*/
+    /*    background-color: #ffffff;*/
+    /*    font-family: Quicksand, sans-serif;*/
+    /*    color: #555555;*/
+    /*}*/
+}
 
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {}
 
-
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {}
 
 
 

@@ -253,7 +253,7 @@ a.more-link {
 }
 .footer-links a
 {
-    color:#737373
+    color:#2F2F2F;
 }
 .footer-links a:active,.footer-links a:focus,.footer-links a:hover
 {
@@ -282,24 +282,8 @@ a.more-link {
 {font-size: 12px;
     margin:0
 }
-@media (max-width:991px)
-{
-    .site-footer [class^=col-]
-    {
-        margin-bottom:30px
-    }
-}
-@media (max-width:767px)
-{
-    .site-footer
-    {
-        padding-bottom:0
-    }
-    .site-footer .copyright-text,.site-footer .social-icons
-    {
-        text-align:center
-    }
-}
+
+
 .social-icons
 {
     padding-left:0;
@@ -363,12 +347,81 @@ a.more-link {
 {
     background-color:#ea4c89
 }
-@media (max-width:767px)
-{
-    .social-icons li.title
-    {
-        display:block;
-        margin-right:0;
-        font-weight:600
+
+
+
+@media only screen and (max-width: 600px) {
+    .social-icons li.title {
+        display: block;
+        margin-right: 0;
+        font-weight: 600
+    }
+
+    .site-footer {
+        padding-bottom: 0;
+    }
+
+    .site-footer .copyright-text, .site-footer .social-icons {
+        text-align: center
+    }
+
+    .sponsors_phone {
+        display: block;
+        padding-left: 15px !important;
+        padding-right: 15px;
+        margin-bottom: 5px !important;
+        margin-top: 0px !important;
+    }
+
+    .esconder {
+        display: none !important;
+    }
+
+    .adjustment {
+        margin-bottom: 5px !important;
+    }
+
+    .sponsors_phone {
+        display: block !important;
     }
 }
+
+
+
+@media only screen and (max-width: 768px) {
+    .sponsors_phone {
+        display: block !important;
+    }
+
+}
+
+
+
+@media only screen and (min-width: 600px) {
+    .sponsors_phone {
+        display: none !important;
+    }
+
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+
+
+    .esconder {
+        display: block !important;
+    }
+}
+
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (max-width: 992px) {
+    .site-footer [class^=col-]
+    {
+        margin-bottom:30px
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {}
+
+

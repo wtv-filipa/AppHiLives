@@ -1,4 +1,4 @@
-<div class="mx-auto w-75">
+<div class="mx-auto w-75 list_links">
 
 
     <div id='wrapper_title'>
@@ -6,7 +6,7 @@
         <div class='tagpost-top section' id='tagpost-top'>
             <div class='widget HTML' id='HTML5'>
                 <div data-aos="fade-up">
-                    <h3 class="mb-4 main_title">Unidades curriculares já feitas</h3>
+                    <h3 class="mb-4 main_title adjustment_top">Unidades curriculares já feitas</h3>
                 </div>
             </div>
         </div>
