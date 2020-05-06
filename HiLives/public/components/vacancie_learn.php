@@ -12,9 +12,9 @@
 <div id='wrapper' class="col-md-12 mb-3">
     <div class="row">
         <!--first step-->
-        <div class="col-md-3">
+        <div class="col-12 col-md-3">
             <div class="imagem">
-                <img class="rounded-circle img-fluid" src="img/img_vaga.png" height="200px" width="200px" />
+                <img class="img_percurso rounded-circle img-fluid" src="img/img_vaga.png" />
             </div>
             <div class="content">
                 <h5>1º: Vaga XPTO</h5>
@@ -23,9 +23,9 @@
         </div>
         <!---------------------->
         <!--Second step-->
-        <div class="col-md-3">
+        <div class="col-12 col-md-3">
             <div class="imagem">
-                <img class="rounded-circle img-fluid" src="img/img_contacto.png" height="200px" width="200px" />
+                <img class="img_percurso rounded-circle img-fluid" src="img/img_contacto.png"/>
             </div>
             <div class="content">
                 <h5>2º: Contactar empregador</h5>
@@ -34,9 +34,9 @@
         </div>
         <!---------------------->
         <!--Third step-->
-        <div class="col-md-3">
+        <div class="col-12 col-md-3">
             <div class="imagem">
-                <img class="rounded-circle img-fluid" src="img/img_estudo.png" height="200px" width="200px" />
+                <img class="img_percurso rounded-circle img-fluid" src="img/img_estudo.png"/>
             </div>
             <div class="content">
                 <h5>3º: Estudar</h5>
@@ -45,9 +45,9 @@
         </div>
         <!---------------------->
         <!--Fourth step-->
-        <div class="col-md-3">
+        <div class="col-12 col-md-3">
             <div class="imagem">
-                <img class="rounded-circle img-fluid" src="img/img_aply.png" height="200px" width="200px" />
+                <img class="img_percurso rounded-circle img-fluid" src="img/img_aply.png"/>
             </div>
             <div class="content">
                 <h5>4º: Candidatura</h5>
@@ -69,9 +69,9 @@
         </div>
     </div>
 </div>
-<div class="row mt-5">
+<div class="row">
     <!--PRIMEIRO CARD-->
-    <div class="col-md-6">
+    <div class="col-12 col-md-6">
         <div class="card">
             <div class="card-header">
                 <h5> Descrição da vaga </h5>
@@ -85,7 +85,7 @@
     </div>
     <!------------------------------------------>
     <!--SEGUNDO CARD-->
-    <div class="col-md-6">
+    <div class="col-12 col-md-6 separa">
         <div class="card">
             <div class="card-header">
                 <h5>Contactos do empregador</h5>
@@ -110,7 +110,7 @@
             </div>
             <div class="card-body">
                 <blockquote class="blockquote mb-0 text-center">
-                <iframe width="560px" height="300px" src="https://www.youtube.com/embed/mw4sXFG2r9A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe class="video" width="560px" height="300px" src="https://www.youtube.com/embed/mw4sXFG2r9A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </blockquote>
             </div>
         </div>

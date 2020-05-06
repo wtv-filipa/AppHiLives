@@ -10,12 +10,12 @@
 </div>
 
 <!-----CARDS DE INFORMAÇÃO------->
-<div class="row mt-5">
+<div class="row">
     <!--PRIMEIRO CARD-->
-    <div class="col-md-6">
+    <div class="col-12 col-md-6">
         <div class="card">
             <div class="card-header">
-                <h5> Descrição da vaga </h5>
+                <h5 class="my-auto"> Descrição da vaga </h5>
             </div>
             <div class="card-body altura">
                 <blockquote class="blockquote mb-0">
@@ -26,10 +26,10 @@
     </div>
     <!------------------------------------------>
     <!--SEGUNDO CARD-->
-    <div class="col-md-6">
+    <div class=" col-12 col-md-6 separa">
         <div class="card">
             <div class="card-header">
-                <h5>Contactos do empregador</h5>
+                <h5 class="my-auto">Contactos do empregador</h5>
             </div>
             <div class="card-body altura">
                 <blockquote class="blockquote mb-0 mt-4">
@@ -47,11 +47,11 @@
 <!--------CARD DO VÍDEO---------------->
 <div class="card mt-5">
             <div class="card-header">
-                <h5> Experiências de trabalhadores </h5>
+                <h5 class="my-auto"> Experiências de trabalhadores </h5>
             </div>
             <div class="card-body">
                 <blockquote class="blockquote mb-0 text-center">
-                <iframe width="560px" height="300px" src="https://www.youtube.com/embed/mw4sXFG2r9A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe class="video" src="https://www.youtube.com/embed/mw4sXFG2r9A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </blockquote>
             </div>
         </div>
