@@ -12,7 +12,7 @@
         <button name="3" type="submit" class="btn">
             <div class="cards text-center">
                 <div class="card-item">
-                    <div class="card-image" style="width: 334px; height: 222px ">
+                    <div class="card-image">
                         <img class="card-img-top img-fluid" src="img/jovem_icon.png"></div>
                     <div class="card-info">
                         <h4 class="card-title">Jovem</h4>
@@ -26,7 +26,7 @@
         <button name="4" type="submit" class="btn">
             <div class="cards text-center">
                 <div class="card-item">
-                    <div class="card-image" style="width: 334px; height: 222px ">
+                    <div class="card-image">
                         <img class="card-img-top img-fluid" src="img/uni_icon.png"></div>
                     <div class="card-info">
                         <h4 class="card-title">Universidade</h4>
@@ -40,7 +40,7 @@
         <button name="2" type="submit" class="btn">
             <div class="cards text-center">
                 <div class="card-item">
-                    <div class="card-image" style="width: 334px; height: 222px">
+                    <div class="card-image">
                         <img class="card-img-top img-fluid" src="img/empresa_icon.png"></div>
                     <div class="card-info">
                         <h4 class="card-title">Empresa</h4>

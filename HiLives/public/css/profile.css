@@ -1,5 +1,4 @@
 /* CARD */
-
 .card-body {
     background-color: white;
     border-radius: 0 0 10px 10px !important;
@@ -43,9 +42,7 @@
     height: 427px;
 }
 
-
 /*Disciplina já feitas*/
-
 img.tagpost_thumb {
     float: left;
     margin-right: 12px;
@@ -78,7 +75,6 @@ ul.taglabel li {
 
 
 /*BOTÕES*/
-
 .edit_btn {
     width: 40%!important;
     height: 10%!important;
@@ -140,29 +136,15 @@ ul.taglabel li {
 }
 
 
-/*.btn {
-    display: inline-block;
-    font: inherit;
-    background: none;
-    border: none;
-    color: inherit;
-    cursor: pointer;
-    margin: 0;
-}*/
-
-
 /*PERFIL*/
-
 .image_profile {
     box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
     border-radius: 50%;
     width: 152px;
-    height: 152x;
+    height: 152px;
 }
 
-
 /*videos*/
-
 .titulo_videos {
     font-size: 1.3rem;
     font-family: "Quicksand";
@@ -207,9 +189,7 @@ a {
     text-decoration: none !important;
 }
 
-
 /*modal*/
-
 .modal-footer {
     justify-content: left;
 }
@@ -233,9 +213,7 @@ a {
     margin-top: 6px;
 }
 
-
 /*TEXTO*/
-
 h3,
 h6,
 button.btn.edit_btn {
@@ -244,4 +222,48 @@ button.btn.edit_btn {
 
 .link_title {
     font-weight: bold;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .largura {
+        width: 100% !important;
+    }
+    .image_profile {
+        width: 80px;
+        height: 80px;
+    }
+    .edit_btn {
+        width: 80%!important;
+        font-size: 12px;
+    }
+    .titulo {
+        font-size: 16px!important;
+    }
+    .subtitulo {
+        font-size: 14px!important;
+    }
+    .card-body {
+        margin-bottom: 20px;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
 }

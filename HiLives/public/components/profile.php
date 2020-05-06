@@ -22,9 +22,9 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
     WHERE User_idUser LIKE ?";
 
 ?>
-        <div class="w-75 mx-auto">
+        <div class="w-75 mx-auto largura">
             <div class="row mt-5">
-                <div class="col-3">
+                <div class="col-xs-3 col-lg-3">
                     <?php
                     if (mysqli_stmt_prepare($stmt, $query)) {
 
@@ -45,10 +45,9 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                             }
                             ?>
                 </div>
-                <div class="col-9">
-                    <h3 class="mt-2"><?= $name_user ?></h3>
-                    <h6 class="mt-3"> <?= $age ?> anos | Personalidade</h6>
-
+                <div class="col-xs-3 col-lg-9">
+                    <h3 class="mt-2 titulo"><?= $name_user ?></h3>
+                    <h6 class="mt-3 subtitulo"> <?= $age ?> anos | Personalidade</h6>
                     <div class="p-0 mt-3">
                         <a href="edit_profile.php?edit=<?= $idUser ?>"><button class="btn edit_btn">Editar as minhas informações</button></a>
                     </div>
