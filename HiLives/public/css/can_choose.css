@@ -325,3 +325,10 @@
         color: black;
         margin-bottom: 0.2em;
     }
+
+    #fundo {
+        /*background-image: linear-gradient(to top, #8DDCFA , white);*/
+        /*background-color:rgba(141,220,250,0.6);*/
+        /*background-color:rgba(255,238,134,0.2);*/
+        background-color:rgba(242,242,242,0.7);
+    }

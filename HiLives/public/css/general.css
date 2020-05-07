@@ -207,11 +207,11 @@ a.more-link {
 /*FOOTER*/
 .site-footer
 {
-    background-color:#f2f2f2;
+    background-color:#c2c2c2;
     padding:45px 0 20px;
     font-size:15px;
     line-height:24px;
-    color:#737373;
+    color:#2f2f2f !important;
 }
 .site-footer hr
 {
@@ -234,7 +234,7 @@ a.more-link {
 }
 .site-footer a
 {
-    color:#737373;
+    color: #2f2f2f !important;
     font-family: Roboto;
 }
 .site-footer a:hover

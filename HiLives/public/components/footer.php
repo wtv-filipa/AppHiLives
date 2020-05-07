@@ -64,7 +64,7 @@
                 </ul>
             </div>
         </div>
-        <hr>
+        <hr style="border-top: 1px solid #2f2f2f;">
     </div>
     <div class="container">
         <div class="row">

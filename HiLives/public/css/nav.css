@@ -36,11 +36,13 @@
     font-weight: normal;
     margin-left: 1.2rem;
     font-size: 0.9rem;
+    font-family: "Quicksand", sans-serif !important;
 }
 
 .nav__link--text_main {
     font-weight: bolder;
     font-size: 1.1rem;
+    font-family: "Quicksand", sans-serif !important;
 }
 
 

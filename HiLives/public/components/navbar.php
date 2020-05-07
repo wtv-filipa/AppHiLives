@@ -133,7 +133,7 @@ $stmt = mysqli_stmt_init($link);
                 if (isset($_SESSION["idUser"])) {
                 ?>
                     <div class="col-4 text-center p-0">
-                        <a class="navbar-brand mx-auto" href="homepage_userDID.php">
+                        <a class="navbar-brand mx-auto" href="home_people.php">
                             <img src="img/logo.png" class="img-responsive logo" alt="Logótipo do HiLives">
                         </a>
                     </div>
