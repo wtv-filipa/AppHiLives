@@ -388,7 +388,9 @@ a {
     align-items: center;
     vertical-align: middle;
     height: 60px;
-    background: #8DDCFA;
+    background: white;
+    border: 1px #dddddd solid;
+    border-top: none;
     text-align: center;
     transition: 0.3s background-color;
     text-decoration: none !important;
@@ -410,7 +412,9 @@ a {
 }
 
 .menu-title:hover {
-    background:#8DDCFA;
+    background:white;
+    border: 1px #dddddd solid;
+    border-top: none;
 }
 
 .menu-title:hover:before {
@@ -443,12 +447,16 @@ a {
 }
 
 .menu-title_2nd {
-    background: #FFEE86;
+    background: white;
+    border: 1px #dddddd solid;
+    border-top: none;
 
 }
 
 .menu-title_2nd:hover {
-    background:#FFEE86;
+    background:white;
+    border-top: none;
+
 }
 
 .menu-title_2nd:before {
@@ -456,15 +464,15 @@ a {
 }
 
 .menu-title_2nd:hover:before {
-    border-top-color: #dddddd;
+    border-top-color: white;
 }
 
 .menu-title_3rd {
-    background-image: linear-gradient(to right, #8DDCFA , #FFEE86);
+    background-image: linear-gradient(to right, white , white);
 }
 
 .menu-title_3rd:hover {
-    background-image: linear-gradient(to right, #8DDCFA , #FFEE86);
+    background-image: linear-gradient(to right, white, white);
 }
 
 .menu-title_3rd:before {
@@ -473,16 +481,20 @@ a {
 
 
 .menu-title_3rd:hover:before {
-    border-top-color: #c2c2c2;
+    border-top-color: #dddddd;
 }
 
 
 .menu-title_4th {
-    background: #c2c2c2;
+    background:white;
+    border: 1px #dddddd solid;
+    border-top: none;
 }
 
 .menu-title_4th:hover {
-    background: #c2c2c2;
+    background: white;
+    border-top: none;
+
 }
 
 .menu-title_4th:before {

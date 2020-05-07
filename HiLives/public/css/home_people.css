@@ -272,7 +272,7 @@ ul.taglabel li {
 
 .circle_links {
     background-color: #aaa;
-    border-radius: 50% !important;
+    border-radius:  50%  !important;
     overflow: hidden;
     position: relative;
 }
