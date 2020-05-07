@@ -55,12 +55,6 @@ $stmt = mysqli_stmt_init($link);
                                     <span class="nav__link--text">Todas as opções disponíveis</span>
                                 </a>
                             </li>
-                            <li>
-                                <a href="links_chosen.php" class="nav__link mr-2 mb-1 zoom">
-                                    <span class="nav__link--text">As minhas escolhas</span>
-                                </a>
-                            </li>
-
                             <!-- EU QUERO TRABALHAR -->
                             <li>
                                 <a class="nav__link mr-2 mb-1 mt-4">
@@ -169,7 +163,7 @@ $stmt = mysqli_stmt_init($link);
                             <button class="btn pl-0" type="button" role="button" data-toggle="dropdown">
                                 <img src="img/notif.png" alt="Símbolo de notificações" style="position:relative; max-width:25px"><span class="nome ml-2">O que está a acontecer</span>
                             </button>
-                            <ul class="dropdown-menu mx-auto" style="overflow-y: scroll">
+                            <ul class="dropdown-menu dropdown-menu1 mx-auto" style="overflow-y: scroll">
                                 <a href="">
                                     <button class="notif_ind mb-2"> Já não tens uma ligação há algum tempo...
                                         <span class="font-weight-bold">Edita o teu perfil</span> para conseguires ter novas
@@ -177,36 +171,42 @@ $stmt = mysqli_stmt_init($link);
                                         <span class="m-0 p-0" style="color: grey; font-family: Quicksand !important;"> • Há 2min</span>
                                     </button>
                                 </a>
+                                <hr class="m-0">
                                 <a href="">
                                     <button class="notif_ind mb-2"> Tens uma nova ligação com a
                                         <span class="font-weight-bold"> Universidade de Aveiro</span>.
                                         <span class="m-0 p-0" style="color: grey; font-family: Quicksand !important;"> • Há 2min</span>
                                     </button>
                                 </a>
+                                <hr class="m-0">
                                 <a href="">
                                     <button class="notif_ind mb-2"> Tens uma nova ligação com a
                                         <span class="font-weight-bold"> Universidade de Aveiro</span>.
                                         <span class="m-0 p-0" style="color: grey; font-family: Quicksand !important;"> • Há 2min</span>
                                     </button>
                                 </a>
+                                <hr class="m-0">
                                 <a href="">
                                     <button class="notif_ind mb-2"> Tens uma nova ligação com a empresa
                                         <span class="font-weight-bold"> FNAC</span>.
                                         <span class="m-0 p-0" style="color: grey; font-family: Quicksand !important;"> • Há 2min</span>
                                     </button>
                                 </a>
+                                <hr class="m-0">
                                 <a href="">
                                     <button class="notif_ind mb-2"> Tens uma nova ligação com a empresa
                                         <span class="font-weight-bold"> FNAC</span>.
                                         <span class="m-0 p-0" style="color: grey; font-family: Quicksand !important;"> • Há 2min</span>
                                     </button>
                                 </a>
+                                <hr class="m-0">
                                 <a href="">
                                     <button class="notif_ind mb-2"> Tens uma nova ligação com a empresa
                                         <span class="font-weight-bold"> FNAC</span>.
                                         <span class="m-0 p-0" style="color: grey; font-family: Quicksand !important;"> • Há 2min</span>
                                     </button>
                                 </a>
+                                <hr class="m-0">
                             </ul>
                         </div>
                     <?php
@@ -247,7 +247,7 @@ $stmt = mysqli_stmt_init($link);
                             }
                         }
                         ?>
-                        <ul class="dropdown-menu alinhar_user mx-auto">
+                        <ul class="dropdown-menu dropdown-menu2 alinhar_user mx-auto">
                             <?php
                             if (isset($User_type) && $User_type == 4) {
                             ?>
@@ -272,7 +272,7 @@ $stmt = mysqli_stmt_init($link);
                                     <!--<i class="fa fa-sliders mr-2"></i>-->Definições</button>
                             </a>
                             <a href="scripts/logout.php">
-                                <button class="nav__btn2" style="background: #FDE74C;"><i class="fa fa-sign-out mr-2"></i>Logout
+                                <button class="nav__btn2 nav__btn3" style="background: #FDE74C;"><i class="fa fa-sign-out mr-2"></i>Logout
                                 </button>
                             </a>
                         </ul>
