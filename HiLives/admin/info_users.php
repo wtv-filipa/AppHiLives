@@ -6,11 +6,12 @@ session_start();
 
 <head>
     <?php include "helpers/meta.php"; ?>
-    <title>Empresas inscritas</title>
+    <title>Informação do utilizador</title>
     <!-- Custom fonts for this template-->
     <?php include "helpers/fonts.php"; ?>
     <!-- Custom styles for this template-->
     <?php include "helpers/css.php"; ?>
+    <?php include "helpers/css_info_users.php"; ?>
     <!-- Custom styles for this page -->
     <?php include "helpers/datatable.php"; ?>
 </head>
@@ -37,7 +38,7 @@ session_start();
         <!-- Begin Page Content -->
         <div class="container-fluid">
         <!-- /.container-fluid -->
-        <?php include "components/table_user_emp.php"; ?>
+        <?php include "components/info_users.php"; ?>
       </div>
       <!-- End of Main Content -->
 

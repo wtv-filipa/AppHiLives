@@ -1,9 +1,12 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <?php include "helpers/meta.php"; ?>
-    <title>SB Admin 2 - Tables</title>
+    <title>Universidades inscritas</title>
     <!-- Custom fonts for this template-->
     <?php include "helpers/fonts.php"; ?>
     <!-- Custom styles for this template-->

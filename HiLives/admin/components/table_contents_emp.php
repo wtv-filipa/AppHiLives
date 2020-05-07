@@ -1,13 +1,14 @@
  <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Vídeos publicados pelas empresas</h1>
-          <p class="mb-4">Aqui é possível visualizar e gerir todos os vídeos publicados pelas empresas na aplicação até ao momento.</p>
+ <h1 class="h3 mb-2 text-gray-800">Vídeos publicados pelas empresas</h1>
+ <p class="mb-4">Aqui é possível visualizar e gerir todos os vídeos publicados pelos jovens na aplicação até ao momento.</p>
 
-          <!-- DataTales Example -->
-          <div class="card shadow mb-4">
-            <div class="card-body">
-              <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <tr>
+ <!-- DataTales Example -->
+ <div class="card shadow mb-4">
+   <div class="card-body">
+     <div class="table-responsive">
+       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+         <thead>
+           <tr>
              <th>Nome do ficheiro</th>
              <th>Publicado por</th>
              <th>Data</th>
@@ -71,9 +72,9 @@
              </td>
            </tr>
          </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
+       </table>
+     </div>
+   </div>
+ </div>
 
-        </div>
+ </div>
