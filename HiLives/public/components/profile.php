@@ -122,8 +122,12 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                     mysqli_stmt_bind_result($stmt, $User_idUser, $Areas_idAreas, $name_interested_area);
                                     while (mysqli_stmt_fetch($stmt)) {
                                 ?>
-                                        <p><?= $name_interested_area ?></p>
-                                <?php
+                                        <ul id="notebook_ul">
+                                            <li class="lista">
+                                            <?= $name_interested_area ?>
+                                            </li>
+                                        </ul>
+                                        <?php
                                     }
                                 }
                                 ?>

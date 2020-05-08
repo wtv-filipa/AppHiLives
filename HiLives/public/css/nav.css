@@ -173,6 +173,9 @@ button:focus {
     .nav__btn3:hover {
         background: #FBC737 !important;
     }
+    .nav__btn4:hover {
+        background: #C93091 !important;
+    }
     .nav__btn2 {
         background: #f2f2f2;
         border: 0;
@@ -194,11 +197,8 @@ button:focus {
     .padding {
         padding: 0;
     }
-
-
     /*Btn iniciar*/
     .inicia_nav {
-
         display: none!important;
     }
 }
@@ -249,6 +249,9 @@ button:focus {
     .nav__btn3:hover {
         background: #FBC737 !important;
     }
+    .nav__btn4:hover {
+        background: #C93091 !important;
+    }
     .nav__btn2 {
         background: #f2f2f2;
         border: 0;
@@ -273,11 +276,8 @@ button:focus {
     .padding {
         padding: 0;
     }
-
-
     /*Btn iniciar*/
     .inicia_nav {
-
         color: #2f2f2f!important;
         background-color: #D3D3D3!important;
         text-decoration: none!important;
@@ -288,9 +288,7 @@ button:focus {
         border-color: #D3D3D3!important;
         font-size: 12px;
     }
-
     .inicia_nav:hover {
-
         color: #fff!important;
         background-color: #2F2F2F !important;
         text-decoration: none!important;
@@ -347,6 +345,9 @@ button:focus {
     .nav__btn3:hover {
         background: #FBC737 !important;
     }
+    .nav__btn4:hover {
+        background: #C93091 !important;
+    }
     .nav__btn2 {
         background: #f2f2f2;
         border: 0;
@@ -369,16 +370,13 @@ button:focus {
         padding-left: 15px;
         padding-right: 15px;
     }
-
     /*Btn iniciar*/
     .inicia_nav {
         width: 65%!important;
     }
-
     .inicia_nav:hover {
         width: 65%!important;
     }
-
 }
 
 
@@ -427,6 +425,9 @@ button:focus {
     .nav__btn3:hover {
         background: #FBC737 !important;
     }
+    .nav__btn4:hover {
+        background: #C93091 !important;
+    }
     .nav__btn2 {
         background: #f2f2f2;
         border: 0;
@@ -445,8 +446,6 @@ button:focus {
     .logo {
         width: 85px;
     }
-
-
     /*Btn iniciar*/
     .inicia_nav {
         width: 50%!important;
@@ -459,7 +458,6 @@ button:focus {
         font-weight: bold;
         border-color: #D3D3D3!important;
     }
-
     .inicia_nav:hover {
         width: 50%!important;
         color: #fff!important;
@@ -518,6 +516,9 @@ button:focus {
     .nav__btn3:hover {
         background: #FBC737 !important;
     }
+    .nav__btn4:hover {
+        background: #C93091 !important;
+    }
     .nav__btn2 {
         background: #f2f2f2;
         border: 0;
@@ -536,8 +537,6 @@ button:focus {
     .logo {
         width: 85px;
     }
-
-
     /*Btn iniciar*/
     .inicia_nav {
         width: 50%!important;
@@ -550,7 +549,6 @@ button:focus {
         font-weight: bold;
         border-color: #D3D3D3!important;
     }
-
     .inicia_nav:hover {
         width: 50%!important;
         color: #fff!important;
@@ -561,7 +559,6 @@ button:focus {
         border-color: #2F2F2F!important;
         border-radius: 40px!important;
     }
-
 }
 
 
@@ -578,9 +575,6 @@ button:focus {
     box-shadow: 0 0.3rem 0.3rem rgba(0, 0, 0, 0.1)
 }
 
-
-
 ul {
     list-style: none;
 }
-

@@ -18,7 +18,7 @@ include "navbar_2.php";
                     <div class="slider_in">
                         <div id="owl-carousel" class="owl-carousel owl-theme">
                             <div class="card-container">
-                                <a class="card" href="#">
+                                <a class="card" href="vacancie.php">
                                     <div class="image"
                                          style="background-image: url('img/fnac.jpg')"></div>
                                     <div class="card-info">
@@ -30,7 +30,7 @@ include "navbar_2.php";
                                 </a>
                             </div>
                             <div class="card-container">
-                                <a class="card" href="#">
+                                <a class="card" href="vacancie.php">
                                     <div class="image"
                                          style="background-image: url('img/fnac.jpg')"></div>
                                     <div class="card-info">
@@ -42,7 +42,7 @@ include "navbar_2.php";
                                 </a>
                             </div>
                             <div class="card-container">
-                                <a class="card" href="#">
+                                <a class="card" href="vacancie.php">
                                     <div class="image"
                                          style="background-image: url('img/fnac.jpg')"></div>
                                     <div class="card-info">
@@ -54,7 +54,7 @@ include "navbar_2.php";
                                 </a>
                             </div>
                             <div class="card-container">
-                                <a class="card" href="#">
+                                <a class="card" href="vacancie.php">
                                     <div class="image"
                                          style="background-image: url('img/fnac.jpg')"></div>
                                     <div class="card-info">

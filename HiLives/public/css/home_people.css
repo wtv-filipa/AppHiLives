@@ -1,6 +1,4 @@
-
 #wrapper_title {
-
     max-width: 100%;
 }
 
@@ -14,8 +12,9 @@
 
 
 /*cards highlights*/
-/* Font */
 
+
+/* Font */
 
 .body2 {
     color: #272727;
@@ -25,7 +24,6 @@
     letter-spacing: 0;
     padding: 1rem;
 }
-
 
 .img_destaques {
     height: auto;
@@ -46,7 +44,6 @@
     width: 100%;
     cursor: pointer;
     background: #f2f2f2;
-
 }
 
 .btn_destaques:hover {
@@ -60,7 +57,6 @@
     margin: 0;
     padding: 0;
 }
-
 
 .cards_item {
     display: flex;
@@ -113,8 +109,6 @@
 
 /*___________________*/
 
-
-
 .sub_title {
     font-size: 1.2rem;
     font-family: "Quicksand";
@@ -151,10 +145,8 @@
 }
 
 .imagem {
-
     width: 410px;
 }
-
 
 .cards .card-item {
     display: flex;
@@ -166,12 +158,6 @@
     overflow: hidden;
     transition: transform 0.5s;
     -webkit-transition: transform 0.5s;
-}
-
-.cards .card-item:hover {
-    cursor: pointer;
-    transform: scale(1.1);
-    -webkit-transform: scale(1.1);
 }
 
 .cards .card-item:hover .card-image {
@@ -220,12 +206,11 @@
 }
 
 .clearfix_uni {
-    border-radius:10px;
+    border-radius: 10px;
     background-color: #f2f2f2;
     margin-top: 0;
     margin-right: 0;
     color: white !important;
-
 }
 
 .clearfix_companies {
@@ -235,41 +220,36 @@
     margin-right: 0;
     color: white !important;
 }
+
 .clearfix_uni_my_links {
     border-radius: 50px 15px 15px 50px;
     background-color: #DAEEF4;
     margin-top: 0;
-
 }
 
 .clearfix_companies_my_links {
     border-radius: 50px 15px 15px 50px;
     background-color: #FEF8CE;
     margin-top: 0;
-
 }
 
 .link_info {
     font-size: 0.7rem;
     color: #2f2f2f;
     padding-top: 6%;
-
 }
 
 .link_title {
     font-weight: bold;
     font-size: 1rem;
-
 }
 
 .link_subtitle {
     font-size: 0.9rem;
-
 }
 
 #wrapper {
     margin: auto;
-
     max-width: 100%;
     padding: 35px;
     background: #fff;
@@ -365,23 +345,18 @@ ul.taglabel li {
 }
 
 
-
 /*my links*/
-
 
 .circle_links {
     background-color: #aaa;
-    border-radius:  50%  !important;
+    border-radius: 50% !important;
     overflow: hidden;
     position: relative;
 }
 
 
-
-
-
-
 /* Extra small devices (phones, 600px and down) */
+
 @media only screen and (max-width: 600px) {
     .cards {
         padding: 0rem !important;
@@ -414,7 +389,6 @@ ul.taglabel li {
         background: #fff;
         box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.17);
         border-radius: 10px;
-
     }
     .main_title {
         font-size: 18px;
@@ -425,55 +399,44 @@ ul.taglabel li {
         margin-top: 2%;
         margin-left: 2%;
         margin-right: 2%
-
     }
     .credit {
         font-size: 12px;
         float: bottom;
         text-align: center;
     }
-
-    .list_links{
+    .list_links {
         width: 100% !important;
         margin-bottom: 10%
-
-
     }
-
     .link_info {
         font-size: 12px;
         color: #2f2f2f;
         padding-top: 6%;
-
     }
-
     .link_title {
         font-weight: bold;
         font-size: 16px;
-
     }
-
     .link_subtitle {
         font-size: 14px;
-
     }
     .adjustment_top {
         margin-top: 6% !important;
     }
 }
 
+
 /* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
 
+@media only screen and (min-width: 600px) {}
 
-}
 
 /* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (max-width: 768px) {
 
+@media only screen and (max-width: 768px) {
     #tagpost-top .widget ul li,
     #tagpost-bottom .widget ul li {
-
         display: block;
         font-size: 12px;
         font-family: inherit;
@@ -494,8 +457,12 @@ ul.taglabel li {
     /*}*/
 }
 
+
 /* Large devices (laptops/desktops, 992px and up) */
+
 @media only screen and (min-width: 992px) {}
 
+
 /* Extra large devices (large laptops and desktops, 1200px and up) */
+
 @media only screen and (min-width: 1200px) {}

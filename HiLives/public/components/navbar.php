@@ -252,7 +252,7 @@ $stmt = mysqli_stmt_init($link);
                             if (isset($User_type) && $User_type == 4) {
                             ?>
                                 <a href="../admin/index.php">
-                                    <button class="nav__btn2 text-light" style="background: #E93CAC;">
+                                    <button class="nav__btn2 nav__btn4 text-light" style="background: #E93CAC;">
                                         <i class="fa fa-shield mr-2 text-light"></i>ADMIN
                                     </button>
                                 </a>

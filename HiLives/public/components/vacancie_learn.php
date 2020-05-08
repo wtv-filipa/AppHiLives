@@ -95,11 +95,11 @@ include "navbar_2.php";
             </div>
             <div class="card-body altura">
                 <blockquote class="blockquote mb-0 mt-4">
-                    <p>Telefone: 234 567 890</p>
-                    <p>Email: exemplo@exemplo.com</p>
-                    <p>Website: www.exemplo.com</p>
-                    <p>Facebook: www.facebook.com/exemplo</p>
-                    <p>Instagram: www.instagram.com/exemplo</p>
+                    <p><i class="fas fa-phone-alt"></i> <b>Telefone</b>: 234 567 890</p>
+                    <p><i class="fas fa-at"></i> <b>Email</b>: exemplo@exemplo.com</p>
+                    <p><i class="fas fa-globe"></i> <b>Website</b>: www.exemplo.com</p>
+                    <p><i class="fab fa-facebook"></i> <b>Facebook</b>: www.facebook.com/exemplo</p>
+                    <p><i class="fab fa-instagram"></i> <b>Instagram</b>: www.instagram.com/exemplo</p>
                 </blockquote>
             </div>
         </div>

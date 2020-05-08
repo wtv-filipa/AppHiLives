@@ -1,4 +1,5 @@
 /* CARD */
+
 .card-body {
     background-color: white;
     border-radius: 0 0 10px 10px !important;
@@ -25,7 +26,7 @@
 }
 
 .estudo {
-    background-color: #8DDCFA;
+    background-color: #00A5CF;
 }
 
 .estudo>h5 {
@@ -42,7 +43,9 @@
     height: 427px;
 }
 
+
 /*Disciplina já feitas*/
+
 img.tagpost_thumb {
     float: left;
     margin-right: 12px;
@@ -75,6 +78,7 @@ ul.taglabel li {
 
 
 /*BOTÕES*/
+
 .edit_btn {
     width: 40%!important;
     height: 10%!important;
@@ -137,6 +141,7 @@ ul.taglabel li {
 
 
 /*PERFIL*/
+
 .image_profile {
     box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
     border-radius: 50%;
@@ -144,7 +149,9 @@ ul.taglabel li {
     height: 152px;
 }
 
+
 /*videos*/
+
 .titulo_videos {
     font-size: 1.3rem;
     font-family: "Quicksand";
@@ -189,7 +196,9 @@ a {
     text-decoration: none !important;
 }
 
+
 /*modal*/
+
 .modal-footer {
     justify-content: left;
 }
@@ -213,7 +222,9 @@ a {
     margin-top: 6px;
 }
 
+
 /*TEXTO*/
+
 h3,
 h6,
 button.btn.edit_btn {
@@ -224,7 +235,9 @@ button.btn.edit_btn {
     font-weight: bold;
 }
 
+
 /* Extra small devices (phones, 600px and down) */
+
 @media only screen and (max-width: 600px) {
     .largura {
         width: 100% !important;
@@ -248,22 +261,46 @@ button.btn.edit_btn {
     }
 }
 
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
 
+/*lista das areas*/
+
+ul#notebook_ul {
+    margin: 0 auto;
+    padding: 0;
+    max-height: 390px;
+    overflow-y: auto;
+    padding: 5px 5px 0 5px;
+    border-left: none;
+    border-right: none;
 }
+
+li.lista {
+    list-style: none;
+    background-color: rgba(0, 0, 0, 0.05);
+    background-image: linear-gradient( 90deg, #00A5CF 10px, #EEE 10px, #EEE 11px, transparent 11px);
+    padding: 10px 15px 10px 25px;
+    box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5);
+    margin-bottom: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+
+@media only screen and (min-width: 600px) {}
+
 
 /* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
 
-}
+@media only screen and (min-width: 768px) {}
+
 
 /* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
 
-}
+@media only screen and (min-width: 992px) {}
+
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
 
-}
+@media only screen and (min-width: 1200px) {}
