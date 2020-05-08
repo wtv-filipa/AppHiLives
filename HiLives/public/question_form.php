@@ -17,7 +17,7 @@ session_start();
 
 </head>
 
-<body>
+<body class="fundo_login">
     <header class="sticky-top">
         <!--navbar-->
         <?php include "components/navbar.php"; ?>
