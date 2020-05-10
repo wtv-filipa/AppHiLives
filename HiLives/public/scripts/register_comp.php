@@ -3,7 +3,7 @@ require_once "../connections/connection.php";
 
 if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["data_fund"]) && isset($_POST["phone"]) && isset($_POST["site"]) && isset($_POST["desc"]) && isset($_POST["password"])) {
 
-    $type = 5;
+    $type = 7;
 
     $link = new_db_connection();
 
