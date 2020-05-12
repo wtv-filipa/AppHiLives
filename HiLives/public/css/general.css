@@ -600,6 +600,46 @@ a {
     .home_menu {
         display: none;
     }
+    .home_btn {
+        width: 80%!important;
+        height: 10%!important;
+        color: #2f2f2f!important;
+        background-color: #D3D3D3!important;
+        margin-bottom: 0.3125rem!important;
+        text-decoration: none!important;
+        cursor: pointer!important;
+        display: inline-block!important;
+        border-radius: 40px!important;
+        margin-top: 5% !important;
+        font-weight: bold;
+        border-color: #D3D3D3!important;
+        font-family: 'Quicksand' !important;
+        font-size: 16px !important;
+    }
+
+    .home_btn:hover {
+        width: 80%!important;
+        height: 10%!important;
+        color: #fff!important;
+        background-color: #2F2F2F !important;
+        margin-bottom: 0.3125rem!important;
+        text-decoration: none!important;
+        cursor: pointer!important;
+        display: inline-block!important;
+        border-color: #2F2F2F!important;
+        border-radius: 40px!important;
+        font-family: 'Quicksand' !important;
+        font-size: 16px !important;
+        margin-top: 5% !important;
+    }
+    .error-container {
+        text-align: center;
+        font-size: 80px;
+        font-family: "Quicksand", sans-serif;
+        font-weight: 800;
+        margin: 30px 15px;
+    }
+
 }
 
 @media only screen and (max-width: 768px) {
