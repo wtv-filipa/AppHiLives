@@ -8,11 +8,13 @@ if (isset($_SESSION["idUser"])) {
   $link = new_db_connection();
   /* create a prepared statement */
   $stmt = mysqli_stmt_init($link);
-  $query = "SELECT idUser, name_user, email_user, contact_user, birth_date, disability_name, work_xp, profile_img
+  $query = "SELECT idUser, name_user, email_user, contact_user, birth_date, disability_name, work_xp, profile_img, active
           FROM users 
           INNER JOIN user_type on users.User_type_idUser_type= user_type.idUser_type
           WHERE type_user='Jovem'
           ORDER BY idUser DESC";
+
+  $array_val = mysqli_query($link, $query);
 
 ?>
   <!-- Page Heading -->
@@ -29,7 +31,7 @@ if (isset($_SESSION["idUser"])) {
               <th>Nome</th>
               <th>Email</th>
               <th>Contacto telefónico</th>
-              <th>Idade</th>
+              <th>Data de nascimento</th>
               <th>Detalhes da DID</th>
               <th>Ações</th>
             </tr>
@@ -39,7 +41,7 @@ if (isset($_SESSION["idUser"])) {
               <th>Nome</th>
               <th>Email</th>
               <th>Contacto telefónico</th>
-              <th>Idade</th>
+              <th>Data de nascimento</th>
               <th>Detalhes da DID</th>
               <th>Ações</th>
             </tr>
@@ -48,34 +50,52 @@ if (isset($_SESSION["idUser"])) {
             <?php
             if (mysqli_stmt_prepare($stmt, $query)) {
               mysqli_stmt_execute($stmt);
-              mysqli_stmt_bind_result($stmt, $id_user_lista, $name_user, $email_user, $contact_user, $birth_date, $disability_name, $work_xp, $profile_img);
-              while (mysqli_stmt_fetch($stmt)) {
-                $dob = $birth_date;
-                $age = (date('Y') - date('Y', strtotime($dob)));
+              mysqli_stmt_bind_result($stmt, $id_user_lista, $name_user, $email_user, $contact_user, $birth_date, $disability_name, $work_xp, $profile_img, $active);
+              while ($row_users = mysqli_fetch_assoc($array_val)) {
             ?>
+
                 <tr>
-                  <td><?= $name_user ?></td>
-                  <td><?= $email_user ?></td>
-                  <td><?= $contact_user ?></td>
-                  <td><?= $age ?></td>
-                  <td><?= $disability_name ?></td>
+                  <td><?= $row_users['name_user']; ?></td>
+                  <td><?= $row_users['email_user']; ?></td>
+                  <td><?= $row_users['contact_user']; ?></td>
+                  <td><?= $row_users['birth_date']; ?></td>
+                  <td><?= $row_users['disability_name']; ?></td>
                   <td>
-                    <a href="info_users.php?info=<?=$id_user_lista?>"><i class="fas fa-info-circle"></i></a>
-                    <i class="fas fa-lock"></i>
+                    <a href="info_users.php?info=<?= $row_users['idUser'] ?>"><i class="fas fa-info-circle"></i></a>
+                    <?php
+                    if ($row_users['active'] == 1) {
+                    ?>
+                      <a href="#" data-toggle="modal" data-target="#activeModal<?= $row_users['idUser'] ?>"><i class="fas fa-ban"></i></a>
+                    <?php
+                    } else {
+                    ?>
+                      <a href="#" data-toggle="modal" data-target="#inactiveModal<?= $row_users['idUser'] ?>"><i class="fas fa-ban" style="color: #8DDCFA"></i></a>
+                    <?php
+                    }
+                    ?>
+                    <a href="#" data-toggle="modal" data-target="#deleteModal<?= $row_users['idUser'] ?>"><i class="fas fa-trash"></i></a>
                   </td>
                 </tr>
+
             <?php
+              //Modal de ativar e desativar
+                include('components/active_modal.php');
+                //Modal de ativar e desativar
+                include('components/delete_modal.php');
               }
             }
             ?>
-
           </tbody>
+
         </table>
       </div>
     </div>
   </div>
 
   </div>
+
+
+
 <?php
 } else {
   include("components/404.php");

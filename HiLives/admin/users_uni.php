@@ -56,6 +56,8 @@ session_start();
 
   <!-- Logout Modal-->
   <?php include "components/logout_modal.php"; ?>
+   <!--Modal de ativar e desativar-->
+   <?php include "components/active_modal.php"; ?>
 
   <!-- Bootstrap core JavaScript-->
   <?php include "helpers/js_tables.php"; ?>
