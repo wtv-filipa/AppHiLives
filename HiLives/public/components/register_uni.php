@@ -281,7 +281,7 @@
                                                             while (mysqli_stmt_fetch($stmt)) {
 
                                                                 echo "\n\t\t";
-                                                                echo "<label class='form-check-label col-6'>";
+                                                                echo "<label class='form-check-label col-xs-12 col-md-6 label_margin'>";
                                                                 echo "<input type='checkbox' class='form-check-input' name='area[]' value='$idAreas'>$name_interested_area<br>";
                                                                 echo "</label>";
                                                             }

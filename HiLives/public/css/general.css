@@ -624,6 +624,9 @@ a {
     .esconder {
         display: block !important;
     }
+    .home_menu {
+        display: none;
+    }
 }
 
 
@@ -634,8 +637,14 @@ a {
         margin-bottom: 30px
     }
 }
-
+@media only screen and (min-width: 992px) {
+    .home_menu {
+        display: block;
+    }
+}
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 
-@media only screen and (min-width: 1200px) {}
+@media only screen and (min-width: 1200px) {
+
+}

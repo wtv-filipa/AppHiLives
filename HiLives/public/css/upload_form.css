@@ -72,3 +72,16 @@
         width: 100%;
         background-size: cover;
     }
+
+
+    @media only screen and (max-width: 600px) {
+
+        .publicar_btn {
+            width: 70%!important;
+        }
+
+        .publicar_btn:hover {
+            width: 70%!important;
+
+        }
+    }
