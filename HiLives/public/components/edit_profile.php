@@ -182,7 +182,7 @@ if (isset($_GET["edit"])) {
                                                 }
 
                                                 echo "\n\t\t";
-                                                echo "<label class='form-check-label label-margin col-6 label-margin'>";
+                                                echo "<label class='form-check-label col-xs-12 col-md-6 label-margin'>";
                                                 echo "<input type='checkbox' class='form-check-input' name='area[]' value='$idAreas' $checked>$name_interested_area<br>";
                                                 echo "</label>";
                                             }
@@ -237,7 +237,7 @@ if (isset($_GET["edit"])) {
                                                     $checked = "checked";
                                                 }
                                                 echo "\n\t\t";
-                                                echo "<label class='form-check-label label-margin col-6 label-margin'>";
+                                                echo "<label class='form-check-label col-xs-12 col-md-6 label-margin'>";
                                                 echo "<input type='checkbox' class='form-check-input' name='regiao[]' value='$idRegion' $checked>$name_region<br>";
                                                 echo "</label>";
                                             }
@@ -280,7 +280,7 @@ if (isset($_GET["edit"])) {
                                                     $checked = "checked";
                                                 }
                                                 echo "\n\t\t";
-                                                echo "<label class='form-check-label label-margin col-6 label-margin'>";
+                                                echo "<label class='form-check-label col-xs-12 col-md-6 label-margin'>";
                                                 echo "<input type='checkbox' class='form-check-input' name='regiao[]' value='$idRegion' $checked>$name_region<br>";
                                                 echo "</label>";
                                             }
@@ -323,7 +323,7 @@ if (isset($_GET["edit"])) {
                                                     $checked = "checked";
                                                 }
                                                 echo "\n\t\t";
-                                                echo "<label class='form-check-label label-margin col-6 label-margin'>";
+                                                echo "<label class='form-check-label col-xs-12 col-md-6 label-margin'>";
                                                 echo "<input type='checkbox' class='form-check-input' name='regiao[]' value='$idRegion' $checked>$name_region<br>";
                                                 echo "</label>";
                                             }
@@ -366,7 +366,7 @@ if (isset($_GET["edit"])) {
                                                     $checked = "checked";
                                                 }
                                                 echo "\n\t\t";
-                                                echo "<label class='form-check-label label-margin col-6 label-margin'>";
+                                                echo "<label class='form-check-label col-xs-12 col-md-6 label-margin'>";
                                                 echo "<input type='checkbox' class='form-check-input' name='regiao[]' value='$idRegion' $checked>$name_region<br>";
                                                 echo "</label>";
                                             }

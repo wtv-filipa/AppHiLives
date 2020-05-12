@@ -82,7 +82,4 @@ include "navbar_2.php";
             </div>
         </div>
     </div>
-
-    <div class="mt-5 mb-3" id='footer'><span class='credit'>Página 1 de 5</b></span></div>
-    <hr>
 </div>

@@ -92,3 +92,24 @@
         background-size: cover;
     }
     /*form*/
+
+
+    @media only screen and (max-width: 600px) {
+        .guardar_btn {
+            width: 50%!important;
+        }
+
+        .guardar_btn:hover {
+            width: 50%!important;
+        }
+
+        .cancel_btn {
+            width: 50%!important;
+            margin-top: 2%;
+        }
+
+        .cancel_btn:hover {
+            width: 50%!important;
+            margin-top: 2%;
+        }
+    }

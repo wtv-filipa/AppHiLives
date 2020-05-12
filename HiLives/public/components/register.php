@@ -176,7 +176,7 @@
                                                     while (mysqli_stmt_fetch($stmt)) {
 
                                                         echo "\n\t\t";
-                                                        echo "<label class='form-check-label col-6  label_margin' role='checkbox'>";
+                                                        echo "<label class='form-check-label col-xs-12 col-md-6  label_margin' role='checkbox'>";
                                                         echo "<input type='checkbox' class='form-check-input' name='area[]' value='$idAreas'>$name_interested_area<br>";
                                                         echo "</label>";
                                                     }
@@ -223,7 +223,7 @@
                                                     while (mysqli_stmt_fetch($stmt)) {
 
                                                         echo "\n\t\t";
-                                                        echo "<label class='form-check-label col-6 label_margin'>";
+                                                        echo "<label class='form-check-label col-xs-12 col-md-6 label_margin'>";
                                                         echo "<input type='checkbox' class='form-check-input' name='regiao[]' value='$idRegion'>$name_region<br>";
                                                         echo "</label>";
                                                     }
@@ -259,7 +259,7 @@
                                                     while (mysqli_stmt_fetch($stmt)) {
 
                                                         echo "\n\t\t";
-                                                        echo "<label class='form-check-label col-6  label_margin'>";
+                                                        echo "<label class='form-check-label col-xs-12 col-md-6  label_margin'>";
                                                         echo "<input type='checkbox' class='form-check-input' name='regiao[]' value='$idRegion'>$name_region<br>";
                                                         echo "</label>";
                                                     }
@@ -295,7 +295,7 @@
                                                     while (mysqli_stmt_fetch($stmt)) {
 
                                                         echo "\n\t\t";
-                                                        echo "<label class='form-check-label col-6  label_margin'>";
+                                                        echo "<label class='form-check-label col-xs-12 col-md-6  label_margin'>";
                                                         echo "<input type='checkbox' class='form-check-input' name='regiao[]' value='$idRegion'>$name_region<br>";
                                                         echo "</label>";
                                                     }
@@ -331,7 +331,7 @@
                                                     while (mysqli_stmt_fetch($stmt)) {
 
                                                         echo "\n\t\t";
-                                                        echo "<label class='form-check-label col-6  label_margin'>";
+                                                        echo "<label class='form-check-label col-xs-12 col-md-6  label_margin'>";
                                                         echo "<input type='checkbox' class='form-check-input' name='regiao[]' value='$idRegion'>$name_region<br>";
                                                         echo "</label>";
                                                     }
