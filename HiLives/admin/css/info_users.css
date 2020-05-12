@@ -24,11 +24,10 @@
     .label-margin {
         margin-left: -1%;
     }
-    
-    .guardar_btn {
-        width: 30%!important;
+    /*.guardar_btn {
+        width: 40%!important;
         height: 10%!important;
-        color: #fff!important;
+        color: #2f2f2f!important;
         background-color: #D3D3D3!important;
         margin-bottom: 0.3125rem!important;
         text-decoration: none!important;
@@ -40,7 +39,7 @@
     }
     
     .guardar_btn:hover {
-        width: 30%!important;
+        width: 40%!important;
         height: 10%!important;
         color: #fff!important;
         background-color: #2F2F2F !important;
@@ -50,10 +49,10 @@
         display: inline-block!important;
         border-color: #2F2F2F!important;
         border-radius: 40px!important;
-    }
+    }*/
     
     .cancel_btn {
-        width: 30%!important;
+        width: 40%!important;
         height: 10%!important;
         color: #2F2F2F!important;
         margin-bottom: 0.3125rem!important;
@@ -66,7 +65,7 @@
     }
     
     .cancel_btn:hover {
-        width: 30%!important;
+        width: 40%!important;
         height: 10%!important;
         color: #2F2F2F!important;
         margin-bottom: 0.3125rem!important;

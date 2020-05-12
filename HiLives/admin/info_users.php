@@ -36,7 +36,7 @@ session_start();
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
-        <div class="container-fluid">
+        <div class="container">
         <!-- /.container-fluid -->
         <?php include "components/info_users.php"; ?>
       </div>

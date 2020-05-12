@@ -10,7 +10,7 @@
         <div class="modal-body"> Pode acessar à sua conta a qualquer momento a partir da página de início de sessão. Carregue em "Sair" para confirmar. </div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-          <a class="btn btn-primary" href="login.html">Sair</a>
+          <a class="btn btn-primary" href="scripts/logout.php">Sair</a>
         </div>
       </div>
     </div>
