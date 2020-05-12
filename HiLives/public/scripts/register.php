@@ -303,6 +303,7 @@ if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["data_nasc"]
                                         }
                                         break;
                                     case $key == "comunicativo" && $value == 1 && $key == "organizado" && $value == 1 && $key == "previsivel" && $value == 1 && $key == "determinado" && $value == 1:
+
                                         $stmt = mysqli_stmt_init($link);
                                         //AQUI TÊM DE IR 4 PARA A BD
                                         //INÍCIO DA QUERY 3
@@ -435,7 +436,7 @@ if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["data_nasc"]
                     }
                 }
             }
-            header("Location: ../login.php");
+//            header("Location: ../login.php");
         } else {
             // ERROR ACTION
             echo "Error: " . mysqli_stmt_error($stmt);

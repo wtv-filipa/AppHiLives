@@ -149,6 +149,13 @@ ul.taglabel li {
     height: 152px;
 }
 
+.nome_user{
+
+    color: #2f2f2f;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
 
 /*videos*/
 
@@ -236,32 +243,6 @@ button.btn.edit_btn {
 }
 
 
-/* Extra small devices (phones, 600px and down) */
-
-@media only screen and (max-width: 600px) {
-    .largura {
-        width: 100% !important;
-    }
-    .image_profile {
-        width: 80px;
-        height: 80px;
-    }
-    .edit_btn {
-        width: 80%!important;
-        font-size: 12px;
-    }
-    .titulo {
-        font-size: 16px!important;
-    }
-    .subtitulo {
-        font-size: 14px!important;
-    }
-    .card-body {
-        margin-bottom: 20px;
-    }
-}
-
-
 /*lista das areas*/
 
 ul#notebook_ul {
@@ -288,19 +269,147 @@ li.lista {
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 
-@media only screen and (min-width: 600px) {}
+@media only screen and (max-width: 600px) {
+
+    h5{
+        font-size: 16px!important;
+    }
+    .largura {
+        width: 100% !important;
+    }
+    .image_profile {
+        width: 80px;
+        height: 80px;
+    }
+    .edit_btn {
+        width: 80%!important;
+        font-size: 12px;
+    }
+    .titulo {
+        font-size: 16px!important;
+    }
+    .subtitulo {
+        font-size: 14px!important;
+    }
+    .titulo_videos{
+        text-align: center;
+    }
+    .card-body {
+        margin-bottom: 20px;
+    }
+    .perfil_info{
+        text-align: center!important;
+    }
+    .card {
+        box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+        width: 100%;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        font-size: 14px!important;
+    }
+    .add_btn {
+        font-size: 12px !important;
+        width: 80%!important;
+        margin-top: 35px!important;
+
+    }
+    .add_btn:hover {
+        font-size: 12px !important;
+        width: 80%!important;
+    }
+    .bt_add{
+        width: 226px;
+    }
+}
 
 
 /* Medium devices (landscape tablets, 768px and up) */
 
-@media only screen and (min-width: 768px) {}
+@media only screen and (min-width: 768px) {
+    .perfil_info{
+        text-align: center!important;
+    }
+    .edit_btn {
+        width: 50%!important;
+        font-size: 12px;
+    }
+    .add_btn {
+        font-size: 12px !important;
+        width: 90%!important;
+    }
+    .add_btn:hover {
+        font-size: 12px !important;
+        width: 90%!important;
+        margin-top: 20%!important;
+    }
+    .card {
+        box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+        width: 100%;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        font-size: 14px!important;
+    }
+    .tamanho_card_tablet{
+        padding-bottom: 20%!important;
+    }
+    .bt_add{
+        font-size: 12px!important;
+    }
+}
 
 
 /* Large devices (laptops/desktops, 992px and up) */
 
-@media only screen and (min-width: 992px) {}
+@media only screen and (min-width: 992px) {
+    .perfil_info{
+        text-align: left!important;
+    }
+    .edit_btn {
+        width: 50%!important;
+        font-size: 16px;
+        margin-top: 40px;
+    }
+    .add_btn {
+        font-size: 16px !important;
+        width: 80%!important;
+        margin-top: 8%!important;
+    }
+    .add_btn:hover {
+        font-size: 16px !important;
+        width: 120%!important;
+        margin-top: 20%!important;
+    }
+    .titulo_videos{
+        margin-top: 0%!important;
+    }
+    .tamanho_card_tablet{
+        padding-bottom: 0!important;
+    }
+}
 
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 
-@media only screen and (min-width: 1200px) {}
+@media only screen and (min-width: 1200px) {
+    .perfil_info{
+        text-align: left!important;
+    }
+    .edit_btn {
+        width: 50%!important;
+        font-size: 16px;
+        margin-top: 40px;
+    }
+    .add_btn {
+        font-size: 16px !important;
+        width: 80%!important;
+
+    }
+    .add_btn:hover {
+        font-size: 16px !important;
+        width: 120%!important;
+        margin-top: 20%!important;
+    }
+    .tamanho_card_tablet{
+        padding-bottom: 5%!important;
+    }
+}
