@@ -26,6 +26,10 @@ session_start();
     </main>
 
     <!-- JavaScript-->
+    <?php include "helpers/js.php"; ?>
+    <?php include "helpers/fontawesome.php"; ?>
+    <!--upload img-->
+    <?php include "helpers/js_crop.php"; ?>
     <script>
         var select = document.getElementById("pais");
         var formularios = document.querySelectorAll('.formulario');
@@ -37,10 +41,6 @@ session_start();
             div.style.display = 'block';
         };
     </script>
-    <!--javascript-->
-    <?php include "helpers/js.php"; ?>
-    <?php include "helpers/js_upload.php"; ?>
-    <?php include "helpers/fontawesome.php"; ?>
 </body>
 
 </html>
