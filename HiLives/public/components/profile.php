@@ -23,7 +23,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
 
         <div class="w-75 mx-auto largura">
             <div class="row mt-5 perfil_info">
-                <div class="col-xs-3 col-lg-3">
+                <div class="col-xs-3 col-lg-3 ">
                     <?php
                     if (mysqli_stmt_prepare($stmt, $query)) {
 
@@ -110,40 +110,25 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                             </div>
                             <div class="card-body altura">
                                 <blockquote class="blockquote mb-0">
-                                    <ul class='taglabel'>
-                                        <li class='clearfix_uni_my_links'>
-                                            <a href=""><img alt="" title="" class="circle_links tagpost_thumb"
-                                                            src="img/ua.jpg"></a>
-                                            <p class="mb-0 link_info"><i class="fa fa-book mr-1" aria-hidden="true"></i>Estudar
-                                            </p>
-                                            <p class="mb-0 link_title">Universidade de Aveiro</p>
-                                            <p class="mb-0 link_subtitle">Área da saúde</p>
-                                        </li>
-                                        <li class='clearfix_uni_my_links'>
-                                            <a href=""><img alt="" title="" class="circle_links tagpost_thumb"
-                                                            src="img/ua.jpg"></a>
-                                            <p class="mb-0 link_info"><i class="fa fa-book mr-1" aria-hidden="true"></i>Estudar
-                                            </p>
-                                            <p class="mb-0 link_title">Universidade de Aveiro</p>
-                                            <p class="mb-0 link_subtitle">Área da saúde</p>
-                                        </li>
-                                        <li class='clearfix_uni_my_links'>
-                                            <a href=""><img alt="" title="" class="circle_links tagpost_thumb"
-                                                            src="img/ua.jpg"></a>
-                                            <p class="mb-0 link_info"><i class="fa fa-book mr-1" aria-hidden="true"></i>Estudar
-                                            </p>
-                                            <p class="mb-0 link_title">Universidade de Aveiro</p>
-                                            <p class="mb-0 link_subtitle">Área da saúde</p>
-                                        </li>
-                                        <li class='clearfix_uni_my_links'>
-                                            <a href=""><img alt="" title="" class="circle_links tagpost_thumb"
-                                                            src="img/ua.jpg"></a>
-                                            <p class="mb-0 link_info"><i class="fa fa-book mr-1" aria-hidden="true"></i>Estudar
-                                            </p>
-                                            <p class="mb-0 link_title">Universidade de Aveiro</p>
-                                            <p class="mb-0 link_subtitle">Área da saúde</p>
-                                        </li>
-                                    </ul>
+                                        <ul id="notebook_ul">
+                                            <li class="lista">
+                                              Cibercultura
+                                                <p class="instituicao"> Universidade de Aveiro</p>
+                                            </li>
+                                            <li class="lista">
+                                                Interação e Interfaces
+                                                <p class="instituicao"> Universidade de Aveiro</p>
+                                            </li>
+                                            <li class="lista">
+                                             Laboratório Multimédia
+                                                <p class="instituicao"> Universidade de Aveiro</p>
+                                            </li>
+                                            <li class="lista">
+                                                Gestão de Empresas
+                                                <p class="instituicao"> Universidade de Aveiro</p>
+                                            </li>
+                                        </ul>
+
                                     <div class="text-center">
                                         <a href="done_uc.php">
                                             <button class="btn add_btn">Adicionar novas disciplinas</button>
@@ -167,39 +152,28 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                             </div>
                             <div class="card-body altura">
                                 <blockquote class="blockquote mb-0">
-                                    <ul class='taglabel'>
-                                        <li class='clearfix_uni_my_links'>
-                                            <a href=""><img alt="" title="" class="circle_links tagpost_thumb"
-                                                            src="img/ua.jpg"></a>
-                                            <p class="mb-0 link_info"><i class="fa fa-book mr-1" aria-hidden="true"></i>Estudar
-                                            </p>
-                                            <p class="mb-0 link_title">Universidade de Aveiro</p>
-                                            <p class="mb-0 link_subtitle">Área da saúde</p>
+                                    <ul id="notebook_ul">
+                                        <li class="lista">
+                                            Cibercultura
+                                            <p class="instituicao"> Universidade de Aveiro</p>
                                         </li>
-                                        <li class='clearfix_uni_my_links'>
-                                            <a href=""><img alt="" title="" class="circle_links tagpost_thumb"
-                                                            src="img/ua.jpg"></a>
-                                            <p class="mb-0 link_info"><i class="fa fa-book mr-1" aria-hidden="true"></i>Estudar
-                                            </p>
-                                            <p class="mb-0 link_title">Universidade de Aveiro</p>
-                                            <p class="mb-0 link_subtitle">Área da saúde</p>
+                                        <li class="lista">
+                                            Interação e Interfaces
+                                            <p class="instituicao"> Universidade de Aveiro</p>
                                         </li>
-                                        <li class='clearfix_uni_my_links'>
-                                            <a href=""><img alt="" title="" class="circle_links tagpost_thumb"
-                                                            src="img/ua.jpg"></a>
-                                            <p class="mb-0 link_info"><i class="fa fa-book mr-1" aria-hidden="true"></i>Estudar
-                                            </p>
-                                            <p class="mb-0 link_title">Universidade de Aveiro</p>
-                                            <p class="mb-0 link_subtitle">Área da saúde</p>
+                                        <li class="lista">
+                                            Laboratório Multimédia
+                                            <p class="instituicao"> Universidade de Aveiro</p>
                                         </li>
-                                        <li class='clearfix_uni_my_links'>
-                                            <a href=""><img alt="" title="" class="circle_links tagpost_thumb"
-                                                            src="img/ua.jpg"></a>
-                                            <p class="mb-0 link_info"><i class="fa fa-book mr-1" aria-hidden="true"></i>Estudar
-                                            </p>
-                                            <p class="mb-0 link_title">Universidade de Aveiro</p>
-                                            <p class="mb-0 link_subtitle">Área da saúde</p>
+                                        <li class="lista">
+                                            Gestão de Empresas
+                                            <p class="instituicao"> Universidade de Aveiro</p>
                                         </li>
+                                        <li class="lista">
+                                            Sociologia
+                                            <p class="instituicao"> Universidade de Aveiro</p>
+                                        </li>
+
                                     </ul>
                                     <div class="text-center">
                                         <a href="done_uc.php">
@@ -223,45 +197,29 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                             </div>
                             <div class="card-body altura">
                                 <blockquote class="blockquote mb-0">
-                                    <ul class='taglabel'>
-                                        <li class='clearfix_uni_my_links'>
-                                            <a href=""><img alt="" title="" class="circle_links tagpost_thumb"
-                                                            src="img/ua.jpg"></a>
-                                            <p class="mb-0 link_info"><i class="fa fa-book mr-1" aria-hidden="true"></i>Estudar
-                                            </p>
-                                            <p class="mb-0 link_title">Universidade de Aveiro</p>
-                                            <p class="mb-0 link_subtitle">Área da saúde</p>
+                                    <ul id="notebook_ul">
+                                        <li class="lista">
+                                            Cibercultura
+                                            <p class="instituicao"> Universidade de Aveiro</p>
                                         </li>
-                                        <li class='clearfix_uni_my_links'>
-                                            <a href=""><img alt="" title="" class="circle_links tagpost_thumb"
-                                                            src="img/ua.jpg"></a>
-                                            <p class="mb-0 link_info"><i class="fa fa-book mr-1" aria-hidden="true"></i>Estudar
-                                            </p>
-                                            <p class="mb-0 link_title">Universidade de Aveiro</p>
-                                            <p class="mb-0 link_subtitle">Área da saúde</p>
+                                        <li class="lista">
+                                            Interação e Interfaces
+                                            <p class="instituicao"> Universidade de Aveiro</p>
                                         </li>
-                                        <li class='clearfix_uni_my_links'>
-                                            <a href=""><img alt="" title="" class="circle_links tagpost_thumb"
-                                                            src="img/ua.jpg"></a>
-                                            <p class="mb-0 link_info"><i class="fa fa-book mr-1" aria-hidden="true"></i>Estudar
-                                            </p>
-                                            <p class="mb-0 link_title">Universidade de Aveiro</p>
-                                            <p class="mb-0 link_subtitle">Área da saúde</p>
+                                        <li class="lista">
+                                            Laboratório Multimédia
+                                            <p class="instituicao"> Universidade de Aveiro</p>
                                         </li>
-                                        <li class='clearfix_uni_my_links'>
-                                            <a href=""><img alt="" title="" class="circle_links tagpost_thumb"
-                                                            src="img/ua.jpg"></a>
-                                            <p class="mb-0 link_info"><i class="fa fa-book mr-1" aria-hidden="true"></i>Estudar
-                                            </p>
-                                            <p class="mb-0 link_title">Universidade de Aveiro</p>
-                                            <p class="mb-0 link_subtitle">Área da saúde</p>
+                                        <li class="lista">
+                                            Gestão de Empresas
+                                            <p class="instituicao"> Universidade de Aveiro</p>
                                         </li>
+                                        <li class="lista">
+                                            Sociologia
+                                            <p class="instituicao"> Universidade de Aveiro</p>
+                                        </li>
+
                                     </ul>
-                                    <div class="text-center">
-                                        <a href="done_uc.php">
-                                            <button class="btn add_btn">Adicionar novas disciplinas</button>
-                                        </a>
-                                    </div>
                                 </blockquote>
                             </div>
                         </div>
@@ -282,7 +240,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                 <h5>As minhas áreas de interesse</h5>
                             </div>
                             <div class="card-body altura">
-                                <blockquote class="blockquote mb-0 mt-4">
+                                <blockquote class="blockquote mb-0">
                                     <?php
                                     if (mysqli_stmt_prepare($stmt, $query2)) {
 
@@ -449,10 +407,10 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
         }else if($type_user == "Empresa"){
 
             ?>
-            <div class="mt-5 mb-5">
+            <div class="mt-5 mb-5 centrar_cont">
                 <h3 class="mb-4 titulo_videos">As minhas experiências</h3>
                 <div class="card mt-4">
-                    <div class="row m-3">
+                    <div class="row m-3 centrar_cont">
                         <div class="col-md-3 mt-3 div_videos">
                             <video class="img-fluid z-depth-1 p-0 m-0 tam_video" src="" alt="video" data-toggle="modal"
                                    data-target="#modal1" style="background-color: #D2D2D2;">
