@@ -1,7 +1,7 @@
 <?php
 require_once "../connections/connection.php";
 
-if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["data_nasc"]) && isset($_POST["study_work"]) && isset($_POST["def"]) && isset($_POST["password"])) {
+if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["data_nasc"]) && isset($_POST["def"]) && isset($_POST["password"])) {
 
     $type = 10;
 
@@ -9,18 +9,17 @@ if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["data_nasc"]
 
     $stmt = mysqli_stmt_init($link);
 
-    $query = "INSERT INTO users (name_user, email_user, contact_user, birth_date, disability_name, work_xp, password, User_type_idUser_type, Educ_lvl_idEduc_lvl, Study_work_idStudy_work) VALUES (?,?,?,?,?,?,?,?,?,?)";
+    $query = "INSERT INTO users (name_user, email_user, contact_user, birth_date, info_young, work_xp, password, User_type_idUser_type, Educ_lvl_idEduc_lvl) VALUES (?,?,?,?,?,?,?,?,?)";
 
     if (mysqli_stmt_prepare($stmt, $query)) {
-        mysqli_stmt_bind_param($stmt, 'sssssssiii', $name, $email, $contact_user, $birth_date, $disability, $work_xp, $password_hash, $User_type_idUser_type, $Educ_lvl_idEduc_lvl, $Study_work_idStudy_work);
+        mysqli_stmt_bind_param($stmt, 'sssssssii', $name, $email, $contact_user, $birth_date, $info_young, $work_xp, $password_hash, $User_type_idUser_type, $Educ_lvl_idEduc_lvl);
 
         $name = $_POST['nome'];
         $email = $_POST['email'];
         $contact_user = $_POST['phone'];
         $birth_date = $_POST['data_nasc'];
-        $disability = $_POST['def'];
+        $info_young = $_POST['def'];
         $work_xp = $_POST["work"];
-        $Study_work_idStudy_work = $_POST["study_work"];
         $Educ_lvl_idEduc_lvl = $_POST["esc"];
         $User_type_idUser_type = $type;
         $password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
@@ -436,7 +435,7 @@ if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["data_nasc"]
                     }
                 }
             }
-//            header("Location: ../login.php");
+          header("Location: ../login.php");
         } else {
             // ERROR ACTION
             echo "Error: " . mysqli_stmt_error($stmt);
