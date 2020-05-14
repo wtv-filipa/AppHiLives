@@ -11,6 +11,7 @@
     
     h3,
     h6,
+    h1,
     input,
     label {
         font-family: "Quicksand" !important;
@@ -91,25 +92,80 @@
         width: 100%;
         background-size: cover;
     }
-    /*form*/
-
-
+    /*estilos para o upload da img*/
+    
+    .avatar-upload {
+        position: relative;
+        max-width: 205px;
+        display: block;
+        margin: auto;
+    }
+    
+    .avatar-edit {
+        position: absolute;
+        z-index: 1;
+    }
+    
+    label.label :hover {
+        background: #ffffff;
+        border-color: #ffffff;
+    }
+    
+    label.label::before {
+        color: #2f2f2f;
+        position: relative;
+        top: 17%;
+        text-align: center;
+        display: block;
+        margin: auto;
+    }
+    
+    label.label {
+        align-content: end;
+        width: 34px;
+        height: 34px;
+        border-radius: 100%;
+        background: #FFFFFF;
+        border: 1px solid transparent;
+        box-shadow: 1px 2px 4px 1px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        font-weight: normal;
+        transition: all 0.2s ease-in-out;
+        display: block;
+        margin-left: -85%;
+        z-index: 200;
+    }
+    
     @media only screen and (max-width: 600px) {
         .guardar_btn {
             width: 50%!important;
         }
-
         .guardar_btn:hover {
             width: 50%!important;
         }
-
         .cancel_btn {
             width: 50%!important;
             margin-top: 2%;
         }
-
         .cancel_btn:hover {
             width: 50%!important;
             margin-top: 2%;
+        }
+        .avatar-edit {
+            top: 12%;
+        }
+    }
+    
+    @media only screen and (min-width: 768px) {
+        .avatar-edit {
+            top: 7%;
+            right: -21%;
+        }
+    }
+    
+    @media only screen and (min-width: 992px) {
+        .avatar-edit {
+            right: -1%;
+            top: 7%;
         }
     }
