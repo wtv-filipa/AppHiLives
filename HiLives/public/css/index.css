@@ -1,19 +1,4 @@
-/* cards style
-.card {
-
-    box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
-    transition: 0.3s;
-}*/
-
-
-/* Mouse-hover da sombra
-.card:hover {
-    box-shadow: 0 20px 40px -14px rgba(0,0,0,0.50);
-}
-
-.rounded{
-    border-radius: 10px;
-}*/
+/* cards style*/
 
 .cards .card-item {
     display: flex;
@@ -46,7 +31,6 @@
 }
 
 .cards .card-image {
-
     overflow: hidden;
     background-size: cover;
     background-position: center;
@@ -58,11 +42,14 @@
 
 /*********************************/
 
+.sombra {
+    box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+}
+
 
 /*Botão*/
 
 .inicia_index {
-
     color: #2f2f2f!important;
     background-color: #D3D3D3!important;
     margin-bottom: 0.3125rem!important;
@@ -75,7 +62,6 @@
 }
 
 .inicia_index:hover {
-
     color: #fff!important;
     background-color: #2F2F2F !important;
     margin-bottom: 0.3125rem!important;
@@ -89,6 +75,7 @@
 .btn {
     font-family: 'Quicksand';
 }
+
 
 /*TEXTO*/
 
@@ -111,232 +98,164 @@ h3 {
 
 /*Media Queries*/
 
+
 /* Extra small devices (phones, 600px and down) */
+
 @media only screen and (max-width: 600px) {
-
-    h1{
-
+    h1 {
         font-size: 24px;
     }
-
-    h3{
-
+    h3 {
         font-size: 20px;
     }
-
-    h4{
+    h4 {
         font-size: 18px;
     }
-
-    .escolhe_opcao{
-
+    .escolhe_opcao {
         font-size: 14px;
     }
-
-    div.card-image{
-
+    div.card-image {
         height: 194px!important;
     }
-
     /*Btn Inicia sessão*/
-    .inicia_index{
-
+    .inicia_index {
         width: 40%!important;
         height: 10%!important;
     }
-
-    .inicia_index:hover{
-
+    .inicia_index:hover {
         width: 40%!important;
         height: 10%!important;
     }
-
-    .centrado{
-
+    .centrado {
         display: block!important;
         margin: auto!important;
         height: 150px;
         width: 150px;
         margin-bottom: 10px!important;
     }
-
-    .titulo_centrado{
-
-
+    .titulo_centrado {
         text-align: center!important;
     }
-
-    .texto_centrado{
-
+    .texto_centrado {
         text-align: justify!important;
         text-justify: inter-word!important;
         margin-right: 10px!important;
         margin-left: 10px!important;
     }
-
 }
+
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
+
 @media only screen and (min-width: 600px) {
-
-    h1{
-
+    h1 {
         font-size: 26px!important;
     }
-
-    h3{
-
+    h3 {
         font-size: 20px!important;
     }
-
-    h4{
+    h4 {
         font-size: 18px!important;
     }
-
-    .escolhe_opcao{
-
+    .escolhe_opcao {
         font-size: 14px!important;
     }
-
-    div.card-image{
-
+    div.card-image {
         height: 222px!important;
     }
-
-    .inicia_index{
-
+    .inicia_index {
         width: 35%!important;
         height: 10%!important;
     }
-
-    .inicia_index:hover{
-
+    .inicia_index:hover {
         width: 35%!important;
         height: 10%!important;
     }
-
-    .centrado{
-
+    .centrado {
         display: block!important;
         margin: auto!important;
         height: 150px;
         width: 150px;
         margin-bottom: 10px!important;
     }
-
-    .titulo_centrado{
-
-
+    .titulo_centrado {
         text-align: center!important;
     }
-
-    .texto_centrado{
-
+    .texto_centrado {
         text-align: justify!important;
         text-justify: inter-word!important;
         margin-right: 10px!important;
         margin-left: 10px!important;
     }
-
-    img.rounded-circle.centrado{
-
+    img.rounded-circle.centrado {
         height: 150px;
         width: 150px;
     }
 }
 
+
 /* Medium devices (landscape tablets, 768px and up) */
+
 @media only screen and (min-width: 768px) {
-
-    div.card-image{
-
+    div.card-image {
         height: 128px!important;
     }
-
-    .card-title{
-
+    .card-title {
         font-size: 18px;
     }
-
-    .inicia_index{
-
+    .inicia_index {
         width: 25%!important;
     }
-
-    .inicia_index:hover{
-
+    .inicia_index:hover {
         width: 25%!important;
         height: 10%!important;
     }
-
-    .titulo_centrado{
-
+    .titulo_centrado {
         text-align: left!important;
-
     }
-
-
-
 }
 
+
 /* Large devices (laptops/desktops, 992px and up) */
+
 @media only screen and (min-width: 992px) {
-
-    div.card-image{
-
+    div.card-image {
         height: 182px!important;
     }
-
-    img.rounded-circle.centrado{
-
+    img.rounded-circle.centrado {
         height: 180px;
         width: 180px;
     }
 }
 
+
 /* Extra large devices (large laptops and desktops, 1200px and up) */
+
 @media only screen and (min-width: 1200px) {
-
-    h1{
-
+    h1 {
         font-size: 30px!important;
     }
-
-    h3{
-
+    h3 {
         font-size: 20px!important;
     }
-
-    h4{
+    h4 {
         font-size: 18px!important;
     }
-
-    .escolhe_opcao{
-
+    .escolhe_opcao {
         font-size: 14px!important;
     }
-
-    .inicia_index{
-
+    .inicia_index {
         width: 18%!important;
         height: 18%!important;
     }
-
-    .inicia_index:hover{
-
+    .inicia_index:hover {
         width: 18%!important;
         height: 18%!important;
     }
-
-    div.card-image{
-
+    div.card-image {
         height: 222px!important;
     }
-
-
-
-    img.rounded-circle.centrado{
-
+    img.rounded-circle.centrado {
         height: 200px;
         width: 200px;
     }

@@ -64,7 +64,7 @@
 
 <div class="mt-5 row">
     <div class="col-md-3 col-xs-12 ">
-        <img class="rounded-circle centrado" src="img/empresa.jpg"
+        <img class="rounded-circle centrado sombra" src="img/index_1.png"
              alt="imagem sobre o que é o HiLives"/>
     </div>
     <div class="col-md-8 col-xs-12 texto_centrado">
@@ -81,7 +81,7 @@
 <hr>
 <div class="mt-5 row">
     <div class="col-md-3 col-xs-12">
-        <img class="rounded-circle centrado" src="img/empresa.jpg"
+        <img class="rounded-circle centrado sombra" src="img/index_2.png"
              alt="imagem sobre o que é o HiLives"/>
     </div>
     <div class="col-md-8 col-xs-12 texto_centrado">
@@ -93,7 +93,7 @@
 <hr>
 <div class="mt-5 row">
     <div class="col-md-3 col-xs-12">
-        <img class="rounded-circle centrado" src="img/empresa.jpg"
+        <img class="rounded-circle centrado sombra" src="img/index_3.png"
              alt="imagem sobre o que é o HiLives"/>
     </div>
     <div class="col-md-8 col-xs-12 texto_centrado">
