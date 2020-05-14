@@ -46,21 +46,17 @@
             <div class="col-xs-12 col-sm-6 col-lg-5 adjustment">
                 <h6>Atalhos</h6>
                 <ul class="footer-links">
-                    <li><a href="accessibility.php">Acessibilidade</a></li>
-                    <li><a href="">About Us</a></li>
-                    <li><a href="">Contribute</a></li>
-                    <li><a href="">Privacy Policy</a></li>
-                    <li><a href="">Sitemap</a></li>
+                    <li><a href="">Ligações com universidades</a></li>
+                    <li><a href="">Ligações com empresas</a></li>
+                    <li><a href="">Sobre mim</a></li>
                 </ul>
             </div>
             <div class="col-xs-12 col-sm-6  col-lg-1 pr-0 adjustment">
                 <h6>Outros</h6>
                 <ul class="footer-links">
                     <li><a href="accessibility.php">Acessibilidade</a></li>
-                    <li><a href="">About Us</a></li>
-                    <li><a href="">Contribute</a></li>
-                    <li><a href="">Privacy Policy</a></li>
-                    <li><a href="">Sitemap</a></li>
+                    <li><a href="">Política de Privacidade</a></li>
+                    <li><a href="">Mapa da aplicação</a></li>
                 </ul>
             </div>
         </div>

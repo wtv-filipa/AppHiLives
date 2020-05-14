@@ -11,7 +11,7 @@ session_start();
     <!-- Custom fonts for this template-->
     <?php include "helpers/fonts.php"; ?>
     <!-- Custom styles for this template-->
-    <?php include "helpers/css_profile.php"; ?>
+    <?php include "helpers/css_accessibility.php"; ?>
 
 </head>
 
@@ -21,9 +21,9 @@ session_start();
     <?php include "components/navbar.php"; ?>
 </header>
 <main class="container">
-
     <?php include "components/accessibility.php"; ?>
 </main>
+<?php include "components/footer.php"; ?>
 <!-- JavaScript-->
 <?php include "helpers/js.php"; ?>
 <?php include "helpers/fontawesome.php"; ?>
