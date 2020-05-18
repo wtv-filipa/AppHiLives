@@ -40,7 +40,7 @@ if (isset($_GET["idvac"])) {
                             <!--segundo campo-->
                             <div class="form-group text-left mt-4">
                                 <label class="label-margin" for="descricao">Descrição da vaga:</label>
-                                <textarea type="text" id="descricao" name="descricao" class="form-control"><?= $description_vac ?></textarea>
+                                <textarea type="text" id="descricao" rows="4" name="descricao" class="form-control"><?= $description_vac ?></textarea>
                             </div>
                             <!-------------------------------------------->
                             <!--terceiro campo-->
@@ -52,7 +52,7 @@ if (isset($_GET["idvac"])) {
                             <!--quarto campo-->
                             <div class="form-group text-left mt-4">
                                 <label class="label-margin" for="requisitos">Requisitos:</label>
-                                <textarea type="text" id="requisitos" name="requisitos" class="form-control"><?= $requirements ?></textarea>
+                                <textarea type="text" id="requisitos" rows="4" name="requisitos" class="form-control"><?= $requirements ?></textarea>
                             </div>
                             <!-------------------------------------------->
                             <!--quinto campo-->

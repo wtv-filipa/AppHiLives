@@ -266,6 +266,7 @@ ul#notebook_ul {
     padding: 5px 5px 0 5px;
     border-left: none;
     border-right: none;
+ display: block;
 }
 
 li.lista {
