@@ -11,14 +11,14 @@ if (isset($_GET["edit"])) {
     $stmt = mysqli_stmt_init($link);
 
     //ir buscar os dados
-    $query = "SELECT idUser, name_user, email_user, contact_user, birth_date, disability_name, work_xp, profile_img, Educ_lvl_idEduc_lvl, Study_work_idStudy_work
+    $query = "SELECT idUser, name_user, email_user, contact_user, birth_date, info_young, work_xp, profile_img, Educ_lvl_idEduc_lvl
     FROM users
     WHERE idUser LIKE ?";
     if (mysqli_stmt_prepare($stmt, $query)) {
 
         mysqli_stmt_bind_param($stmt, 'i', $idUser);
         mysqli_stmt_execute($stmt);
-        mysqli_stmt_bind_result($stmt, $idUser, $name_user, $email_user, $contact_user, $birth_date, $disability_name, $work_xp, $profile_img, $Educ_lvl_idEduc_lvl, $Study_work_idStudy_work);
+        mysqli_stmt_bind_result($stmt, $idUser, $name_user, $email_user, $contact_user, $birth_date, $info_young, $work_xp, $profile_img, $Educ_lvl_idEduc_lvl);
 ?>
         <div class="w-75 mx-auto">
             <div class="card text-center">
@@ -44,7 +44,6 @@ if (isset($_GET["edit"])) {
                                         //var_dump($img_perfil);
                                         if (isset($profile_img)) {
                                         ?>
-
                                             <img id="img_perf" class="image_profile" src="../admin/uploads/img_perfil/<?= $profile_img ?>" alt="<?= $profile_img ?>" />
                                         <?php
                                         } else {
@@ -121,13 +120,6 @@ if (isset($_GET["edit"])) {
                                     <input type="text" id="tlm" name="phone" placeholder="Escreve aqui o teu telemóvel" class="form-control" value="<?= $contact_user ?>">
                                 </div>
                                 <!----------------------->
-
-                                <!--quinto input-DID-->
-                                <div class="form-group text-left">
-                                    <label for="def">Detalhes sobre a minha DID <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
-                                    <textarea class="form-control cinza" id="def" rows="2" name="def" placeholder="Descreve aqui a tua DID"><?= $disability_name ?></textarea>
-                                </div>
-                                <!----------------------->
                                 <!--sexto input- ESCOLARIDADE-->
                                 <div class="form-group text-left">
                                     <label class="negrito mt-3" for="esc">Escolaridade</label>
@@ -164,45 +156,6 @@ if (isset($_GET["edit"])) {
                                         }
                                         ?>
                                     </select>
-                                </div>
-                                <!----------------------->
-                                <!--sétimo input-ESTUDO OU TRABALHO-->
-                                <div class="form-group">
-                                    <div class="form-group text-left">
-                                        <label class="negrito mt-3" for="study_work">O que procuras? <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
-                                        <select class="form-control" id="study_work" name="study_work">
-                                            <option selected disabled>Seleciona uma opção</option>
-                                            <?php
-                                            $query2 = "SELECT idStudy_work, name_type FROM study_work";
-
-                                            if (mysqli_stmt_prepare($stmt, $query2)) {
-
-                                                /* execute the prepared statement */
-                                                if (mysqli_stmt_execute($stmt)) {
-                                                    /* bind result variables */
-                                                    mysqli_stmt_bind_result($stmt, $idStudy_work, $name_type);
-
-                                                    /* fetch values */
-                                                    while (mysqli_stmt_fetch($stmt)) {
-                                                        if ($Study_work_idStudy_work == $idStudy_work) {
-                                                            $selected = "selected";
-                                                        } else {
-                                                            $selected = "";
-                                                        }
-                                                        echo "\n\t\t<option value=\"$idStudy_work\" $selected>$name_type</option>";
-                                                    }
-                                                } else {
-                                                    echo "Error: " . mysqli_stmt_error($stmt);
-                                                }
-
-                                                /* close statement */
-                                                //mysqli_stmt_close($stmt);
-                                            } else {
-                                                echo "Error: " . mysqli_error($link);
-                                            }
-                                            ?>
-                                        </select>
-                                    </div>
                                 </div>
                                 <!----------------------->
                                 <!--oitavo input-AREAS-->
@@ -435,6 +388,12 @@ if (isset($_GET["edit"])) {
                                 <div class="form-group text-left">
                                     <label class="negrito mt-3" for="exp_t">Experiência de trabalho</label>
                                     <textarea class="form-control " id="exp_t" rows="2" name="work" placeholder="Escreve aqui a tua experiência de trabalho"><?= $work_xp ?></textarea>
+                                </div>
+                                <!----------------------->
+                                <!--quinto input-DID-->
+                                <div class="form-group text-left">
+                                    <label for="def">O que mais posso dizer sobre mim <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                    <textarea class="form-control cinza" id="def" rows="2" name="def" placeholder="Por exemplo: Sei usar computador, Sei falar outras línguas para além da minha, gosto de desenhar, pintar, pratico desporto, etc. &#10;Se tiveres alguma necessidade indica aqui também (por exemplo: elevador e/ou rampas de acesso)."><?= $info_young ?></textarea>
                                 </div>
                                 <!----------------------->
                                 <!---div com o valor de edit para poder voltar para aqui-->

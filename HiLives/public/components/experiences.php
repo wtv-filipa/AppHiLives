@@ -1,148 +1,54 @@
 <?php
 include "navbar_2.php";
+if (isset($_SESSION["idUser"])) {
+    $id_navegar = $_SESSION["idUser"];
 ?>
-<!--Vídeos-->
-<div class="mx-auto w-75">
-    <div class="mt-5">
-        <h3>Experiências</h3>
-    </div>
+    <!--Vídeos-->
+    <div class="mx-auto w-75">
+        <div class="mt-5">
+            <h3>Experiências</h3>
+        </div>
 
-    <div class="row mt-5">
-        <div class="col-lg-4 col-md-6 mb-4 pb-2">
+        <div class="row mt-5">
+            <?php
+            require_once("connections/connection.php");
+            $link = new_db_connection();
+            $stmt = mysqli_stmt_init($link);
 
-            <!--Modal-->
-            <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                 aria-hidden="true">
-                <div class="modal-dialog modal-lg" role="document">
+            $query = "SELECT idExperiences, title_exp, description, date, content_name, name_user, profile_img FROM experiences INNER JOIN content ON experiences.Content_idContent=content.idContent INNER JOIN users ON experiences.User_idUser=users.idUser";
+            $array_val = mysqli_query($link, $query);
 
-                    <!--Conteudo-->
-                    <div class="modal-content">
-                        <!--Corpo-->
-                        <div class="modal-body mb-0 p-0">
-                            <div class="embed-responsive embed-responsive-16by9 z-depth-1-half p-0 m-0">
-                                <video class="embed-responsive-item" src="" controls="controls"></video>
+            if (mysqli_stmt_prepare($stmt, $query)) {
+                mysqli_stmt_execute($stmt);
+                mysqli_stmt_bind_result($stmt, $idExperiences, $title_exp, $description, $date, $content_name, $name_user, $profile_img);
+                while ($row_vid = mysqli_fetch_assoc($array_val)) {
+            ?>
+                    <div class="col-md-6 col-lg-4 mb-4 pb-2">
+                        <a href="#" data-toggle="modal" data-target="#modalvid<?= $row_vid['idExperiences'] ?>">
+                            <video class="img-fluid z-depth-1 p-0 m-0 vid_tamanho" alt="vídeo da experiência <?= $row_vid['title_exp'] ?>" type="video" data-toggle="modal" data-target="#modal1">
+                                <source src="../admin/uploads/xp/<?= $row_vid['content_name']; ?>">
+                                Your browser does not support the video tag.
+                            </video>
+
+                            <div class="row mt-2 p-0">
+                                <img class="avatar col-3" src="../admin/uploads/img_perfil/<?= $row_vid['profile_img'] ?>">
+                                <div class="col-9">
+                                    <p class="xp_titulo m-0"><?= $row_vid['title_exp'] ?></p>
+                                    <p class="username"><?= $row_vid['name_user'] ?></p>
+                                </div>
                             </div>
-                        </div>
-
-                        <!--Footer-->
-                        <div class="ml-3 mr-3">
-                            <h3 class="mt-4">Título do vídeo</h3>
-                            <img class="avatar_modal" src="img/jovem.png" alt="Fotografia de perfil">
-                            <p class="username_modal">Joana Martins</p>
-                            <hr>
-                            <h5 class="mt-3">Descrição</h5>
-                            <p class="descricao">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                ut
-                                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                ullamco
-                                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-                                in
-                                voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                                cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                                laborum.</p>
-
-                            <button type="button" class="btn btn-outline-primary btn-rounded btn-md mb-4 botao"
-                                    data-dismiss="modal">
-                                Fechar
-                            </button>
-                        </div>
+                        </a>
                     </div>
-                </div>
-            </div>
-            <!--Título e informações do "card"-->
-            <a>
-                <!--ESTA IMAGEM É APENAS DE TESTE DE MEDIDAS-->
-                <img class="w-100" src="img/campus.jpg" data-toggle="modal" data-target="#modal1">
-                <!--Aqui vai estar a preview do vídeo-->
-                <!--<video class="img-fluid z-depth-1 p-0 m-0" src="" alt="video" data-toggle="modal" data-target="#modal1">-->
-            </a>
-            <div>
-                <p class="xp_titulo">FNAC Aveiro</p>
-                <img class="avatar" src="img/jovem.png" alt="Fotografia de perfil">
-                <p class="username">Joana Martins</p>
-            </div>
+            <?php
+                    //Modal de apagar user
+                    include('components/modal_vid.php');
+                }
+            }
+            ?>
+            <!--Fim do "card"-->
         </div>
-        <!--Fim do "card"-->
-
-        <div class="col-lg-4 col-md-6 mb-4 pb-2">
-            <!--Título e informações do "card"-->
-            <a>
-                <!--ESTA IMAGEM É APENAS DE TESTE DE MEDIDAS-->
-                <img class="w-100" src="img/campus.jpg" data-toggle="modal" data-target="#modal1">
-                <!--Aqui vai estar a preview do vídeo-->
-                <!--<video class="img-fluid z-depth-1 p-0 m-0" src="" alt="video" data-toggle="modal" data-target="#modal1">-->
-            </a>
-            <div>
-                <p class="xp_titulo">FNAC Aveiro</p>
-                <img class="avatar" src="img/jovem.png" alt="Fotografia de perfil">
-                <p class="username">Joana Martins</p>
-            </div>
-        </div>
-        <!--Fim do "card"-->
-
-        <div class="col-lg-4 col-md-6 mb-4 pb-2">
-            <!--Título e informações do "card"-->
-            <a>
-                <!--ESTA IMAGEM É APENAS DE TESTE DE MEDIDAS-->
-                <img class="w-100" src="img/campus.jpg" data-toggle="modal" data-target="#modal1">
-                <!--Aqui vai estar a preview do vídeo-->
-                <!--<video class="img-fluid z-depth-1 p-0 m-0" src="" alt="video" data-toggle="modal" data-target="#modal1">-->
-            </a>
-            <div>
-                <p class="xp_titulo">FNAC Aveiro</p>
-                <img class="avatar" src="img/jovem.png" alt="Fotografia de perfil">
-                <p class="username">Joana Martins</p>
-            </div>
-        </div>
-        <!--Fim do "card"-->
-
-        <!--2ª LINHA DE CARDS-->
-        <div class="col-lg-4 col-md-6 mb-4 pb-2">
-            <!--Título e informações do "card"-->
-            <a>
-                <!--ESTA IMAGEM É APENAS DE TESTE DE MEDIDAS-->
-                <img class="w-100" src="img/campus.jpg" data-toggle="modal" data-target="#modal1">
-                <!--Aqui vai estar a preview do vídeo-->
-                <!--<video class="img-fluid z-depth-1 p-0 m-0" src="" alt="video" data-toggle="modal" data-target="#modal1">-->
-            </a>
-            <div>
-                <p class="xp_titulo">FNAC Aveiro</p>
-                <img class="avatar" src="img/jovem.png" alt="Fotografia de perfil">
-                <p class="username">Joana Martins</p>
-            </div>
-        </div>
-        <!--Fim do "card"-->
-
-        <div class="col-lg-4 col-md-6 mb-4 pb-2">
-            <!--Título e informações do "card"-->
-            <a>
-                <!--ESTA IMAGEM É APENAS DE TESTE DE MEDIDAS-->
-                <img class="w-100" src="img/campus.jpg" data-toggle="modal" data-target="#modal1">
-                <!--Aqui vai estar a preview do vídeo-->
-                <!--<video class="img-fluid z-depth-1 p-0 m-0" src="" alt="video" data-toggle="modal" data-target="#modal1">-->
-            </a>
-            <div>
-                <p class="xp_titulo">FNAC Aveiro</p>
-                <img class="avatar" src="img/jovem.png" alt="Fotografia de perfil">
-                <p class="username">Joana Martins</p>
-            </div>
-        </div>
-        <!--Fim do "card"-->
-
-        <div class="col-lg-4 col-md-6 mb-4 pb-2">
-            <!--Título e informações do "card"-->
-            <a>
-                <!--ESTA IMAGEM É APENAS DE TESTE DE MEDIDAS-->
-                <img class="w-100" src="img/campus.jpg" data-toggle="modal" data-target="#modal1">
-                <!--Aqui vai estar a preview do vídeo-->
-                <!--<video class="img-fluid z-depth-1 p-0 m-0" src="" alt="video" data-toggle="modal" data-target="#modal1">-->
-            </a>
-            <div>
-                <p class="xp_titulo">FNAC Aveiro</p>
-                <img class="avatar" src="img/jovem.png" alt="Fotografia de perfil">
-                <p class="username">Joana Martins</p>
-            </div>
-        </div>
-        <!--Fim do "card"-->
     </div>
-</div>
+<?php
+
+}
+?>

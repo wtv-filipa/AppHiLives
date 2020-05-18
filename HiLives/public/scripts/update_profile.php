@@ -6,10 +6,9 @@ if (isset($_GET["id"]) && isset($_POST["nome"])  && isset($_POST["email"]) && is
     $email = $_POST["email"];
     $tlm = $_POST["phone"];
     $data_nasc = $_POST["data_nasc"];
-    $def = $_POST["def"];
+    $info_young = $_POST["def"];
     $work_xp = $_POST["work"];
     $school = $_POST["esc"];
-    $study_work = $_POST["study_work"];
     // We need the function!
     require_once("../connections/connection.php");
     // Create a new DB connection
@@ -18,11 +17,11 @@ if (isset($_GET["id"]) && isset($_POST["nome"])  && isset($_POST["email"]) && is
     $stmt = mysqli_stmt_init($link);
 
     $query = "UPDATE users
-      SET name_user = ?, email_user=?, contact_user=?, birth_date = ?, disability_name=?, work_xp=?, Educ_lvl_idEduc_lvl=?, Study_work_idStudy_work=?
+      SET name_user = ?, email_user=?, contact_user=?, birth_date = ?, info_young=?, work_xp=?, Educ_lvl_idEduc_lvl=?
       WHERE idUser = ?";
     if (mysqli_stmt_prepare($stmt, $query)) {
 
-        mysqli_stmt_bind_param($stmt, 'ssssssiii', $nome, $email, $tlm, $data_nasc, $def, $work_xp, $school, $study_work, $idUser);
+        mysqli_stmt_bind_param($stmt, 'ssssssii', $nome, $email, $tlm, $data_nasc, $info_young, $work_xp, $school, $idUser);
 
         /* execute the prepared statement */
         if (!mysqli_stmt_execute($stmt)) {

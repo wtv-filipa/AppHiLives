@@ -1,11 +1,13 @@
 <style>
     .zoom {
-        transition: transform .2s; /* Animation */
+        transition: transform .2s;
+        /* Animation */
         margin: 0 auto;
     }
 
     .zoom:hover {
-        transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+        transform: scale(1.1);
+        /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
     }
 </style>
 
@@ -26,7 +28,7 @@ $stmt = mysqli_stmt_init($link);
 
 ?>
 <header class="top">
-    <nav id="topNav" class="navbar fixed-top navbar-toggleable-sm" >
+    <nav id="topNav" class="navbar fixed-top navbar-toggleable-sm">
         <!--div con
         taine do conteúdo-->
         <div class="container padding">
@@ -142,12 +144,12 @@ $stmt = mysqli_stmt_init($link);
                     </div>
                     <div class=" col-4 text-right my-auto pr-0">
                         <a href="login.php">
-                            <button class="btn inicia_nav m-0" >Inicia Sessão</button>
+                            <button class="btn inicia_nav m-0">Inicia Sessão</button>
                         </a>
                     </div>
 
 
-                    <?php
+                <?php
                 }
                 ?>
                 <!---------------------------------->
@@ -227,12 +229,11 @@ $stmt = mysqli_stmt_init($link);
                                 $nome_todo = $name_user;
                                 $nomes = explode(' ', $nome_todo); // separamos por espaços e fica: por exemplo Array ( [0] => Eduardo [1] => da [2] => Silva [3] => Fernandes )
                                 $nome = $nomes[0]; // primeiro nome
-                                if (isset($img_perfil)) {
+                                if (isset($profile_img)) {
 
                         ?>
-
                                     <button class="btn pl-0 pr-0" type="button" role="button" data-toggle="dropdown">
-                                        <img src="../admin/uploads/img_perfil/<?= $img_perfil ?>" class="nav__avatar--image " style="max-width:25px" alt="Imagem de perfil">
+                                        <img class="nav__avatar--image" style="max-width:25px" alt="Imagem de perfil" src="../admin/uploads/img_perfil/<?= $profile_img ?>" />
                                         <span class="nome ml-2" style="color: black"><?= $nome ?></span>
                                     </button>
                                 <?php
@@ -267,7 +268,7 @@ $stmt = mysqli_stmt_init($link);
                                 <button class="nav__btn2">
                                     <!--<i class="fa fa-star-o mr-2"></i>-->Favoritos</button>
                             </a>
-                            <a href="">
+                            <a href="settings.php">
                                 <button class="nav__btn2">
                                     <!--<i class="fa fa-sliders mr-2"></i>-->Definições</button>
                             </a>
