@@ -22,6 +22,11 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
 
         $query3 = "SELECT idDone_CU, Cu_name, University_name, date_CU
     FROM done_cu WHERE User_idUser LIKE ? LIMIT 3";
+
+        $query4 = "SELECT idVacancies, vacancie_name, Areas_idAreas, name_interested_area
+                    FROM vacancies
+                    INNER JOIN areas ON vacancies.Areas_idAreas = areas.idAreas
+                    WHERE User_publicou LIKE ? LIMIT 3";
         ?>
 
         <div class="w-75 mx-auto largura">
@@ -74,7 +79,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
 
                     ?>
                     <div class="col-xs-3 col-lg-9">
-                        <h3 class="mt-2 titulo"><?= $name_user ?></h3>
+                        <h3 class="mt-2 nome_user"><?= $name_user ?></h3>
                         <div class="p-0 mt-3">
                             <a href="edit_profile.php?edit=<?= $idUser ?>">
                                 <button class="btn edit_btn"> <i class="fas fa-edit text-dark"></i>Editar as minhas informações</button>
@@ -84,10 +89,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                     </div>
 
                     <div class="col-lg-12">
-                        <p class="mt-5 subtitulo"> A Universidade de Aveiro foi fundada em 1973 e hoje tem bués cenas,
-                            tipo bués cursos e bué de cenas fixes para jovens de todos os tamanhos. Bora nos
-                            divertirmosnos todos juntos quando isto do corona passar. Fiquem bem meus putos, meus
-                            frutos. <?= $description_ue ?> </p>
+                        <p class="mt-5 subtitulo"><?= $description_ue ?> </p>
                     </div>
 
                     <?php
@@ -206,29 +208,32 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                             </div>
                             <div class="card-body altura">
                                 <blockquote class="blockquote mb-0">
-                                    <ul id="notebook_ul">
-                                        <li class="lista">
-                                            Cibercultura
-                                            <p class="instituicao"> Universidade de Aveiro</p>
-                                        </li>
-                                        <li class="lista">
-                                            Interação e Interfaces
-                                            <p class="instituicao"> Universidade de Aveiro</p>
-                                        </li>
-                                        <li class="lista">
-                                            Laboratório Multimédia
-                                            <p class="instituicao"> Universidade de Aveiro</p>
-                                        </li>
-                                        <li class="lista">
-                                            Gestão de Empresas
-                                            <p class="instituicao"> Universidade de Aveiro</p>
-                                        </li>
-                                        <li class="lista">
-                                            Sociologia
-                                            <p class="instituicao"> Universidade de Aveiro</p>
-                                        </li>
+                                    <?php
+                                    if (mysqli_stmt_prepare($stmt, $query4)) {
 
-                                    </ul>
+                                        mysqli_stmt_bind_param($stmt, 'i', $idUser);
+                                        mysqli_stmt_execute($stmt);
+                                        mysqli_stmt_bind_result($stmt, $idVacancie, $vacancie_name, $Areas_idAreas, $name_interested_area);
+                                        while (mysqli_stmt_fetch($stmt)) {
+                                            ?>
+                                            <ul id="notebook_ul">
+                                                <li class="lista">
+                                                    <?= $vacancie_name?>
+                                                    <p class="instituicao"><?=$name_interested_area?></p>
+                                                    <a href="edit_vac.php?idvac=<?=$idVacancie?>"> <p class="instituicao" style="color:#00A5CF!important; text-align: right"><i class="fas fa-edit mr-1 " style="color:#00A5CF!important"></i>Editar</p></a>
+
+                                                </li>
+
+                                            </ul>
+                                            <?php
+                                        }
+                                    }
+                                    ?>
+                                    <div class="text-center">
+                                        <a href="upload_vac.php">
+                                            <button class="btn add_btn">Adicionar nova vaga</button>
+                                        </a>
+                                    </div>
                                 </blockquote>
                             </div>
                         </div>
@@ -280,29 +285,36 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                             <div class="card-header estudo">
                                 <h5>Contactos</h5>
                             </div>
-                            <div class="card-body altura">
+                            <div class="card-body altura" style="padding-top: 20px !important;>
                                 <blockquote class="blockquote mb-0 mt-4">
                                     <ul id="notebook_ul">
                                         <li class="lista">
-                                            <?= $email_user ?>
+                                            <i class="fas fa-at mr-2"></i><b class="mr-2">Email:</b><?= $email_user ?>
                                         </li>
                                         <li class="lista">
-                                            <?= $contact_user ?>
+                                            <i class="fas fa-phone-alt mr-2"></i><b class="mr-2">Telefone:</b><?= $contact_user ?>
                                         </li>
 
                                         <?php
-                                        if (isset($website_ue) || isset($facebook_ue) || isset($instagram_ue)) {
+                                        if (isset($website_ue)) {
                                             ?>
 
                                             <li class="lista">
-                                                <?= $website_ue ?>
+                                                <i class="fas fa-globe mr-2"></i><b class="mr-2">Website:</b><?= $website_ue ?>
                                             </li>
-
+                                            <?php
+                                        }
+                                            if (isset($facebook_ue)) {
+                                                ?>
                                             <li class="lista">
-                                                <?= $facebook_ue ?>
+                                                <i class="fab fa-facebook mr-2"></i><b class="mr-2">Facebook:</b><?= $facebook_ue ?>
                                             </li>
+                                                <?php
+                                            }
+                                        if (isset($instagram_ue)) {
+                                            ?>
                                             <li class="lista">
-                                                <?= $instagram_ue ?>
+                                                <i class="fab fa-instagram mr-2"></i><b class="mr-2">Instagram:</b> <?= $instagram_ue ?>
                                             </li>
 
                                             <?php
