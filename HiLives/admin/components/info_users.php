@@ -396,7 +396,7 @@ if (isset($_GET["info"])) {
 <?php
             //Modal de ativar e desativar
             include('components/active_modal.php');
-            //Modal de ativar e desativar
+            //Modal de apagar user
             include('components/delete_modal.php');
         }
     }

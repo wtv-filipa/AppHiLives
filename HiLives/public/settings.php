@@ -7,7 +7,7 @@ session_start();
 <head>
     <!-- metadados -->
     <?php include "helpers/meta.php"; ?>
-    <title>Sobre mim</title>
+    <title>Definições</title>
     <!-- Custom fonts for this template-->
     <?php include "helpers/fonts.php"; ?>
     <!-- Custom styles for this template-->
