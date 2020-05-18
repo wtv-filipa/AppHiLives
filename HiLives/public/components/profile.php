@@ -5,8 +5,8 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
     $idUser = $_GET["user"];
     $id_navegar = $_SESSION["idUser"];
 
-    if ($idUser == $id_navegar) {
 
+    if ($idUser == $id_navegar) {
 
         // We need the function!
         require_once("connections/connection.php");
@@ -19,6 +19,9 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
         $query2 = "SELECT User_idUser, Areas_idAreas, name_interested_area
     FROM user_has_areas INNER JOIN areas ON user_has_areas.Areas_idAreas= areas.idAreas
     WHERE User_idUser LIKE ?";
+
+        $query3 = "SELECT idDone_CU, Cu_name, University_name, date_CU
+    FROM done_cu WHERE User_idUser LIKE ? LIMIT 3";
         ?>
 
         <div class="w-75 mx-auto largura">
@@ -35,13 +38,13 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                     $age = (date('Y') - date('Y', strtotime($dob)));
                     if (isset($profile_img)) {
                         ?>
-                        <img class="image_profile"
-                             src="https://images.unsplash.com/photo-1513721032312-6a18a42c8763?w=152&h=152&fit=crop&crop=faces"
-                             alt="<?= $profile_img ?>"/>
+                        <img class="image_profile" src="../admin/uploads/img_perfil/<?= $profile_img ?>" alt="<?= $profile_img ?>" />
                         <?php
                     } else {
                         ?>
                         <img class="image_profile" src="img/no_profile_img.png" alt="sem imagem de perfil"/>
+
+
                         <?php
                     }
                     ?>
@@ -56,7 +59,10 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                         <h6 class="mt-3 subtitulo"> <?= $age ?> anos | Personalidade</h6>
                         <div class="p-0 mt-3">
                             <a href="edit_profile.php?edit=<?= $idUser ?>">
-                                <button class="btn edit_btn">Editar as minhas informações</button>
+                                <button class="btn edit_btn">
+                                    <i class="teste fas fa-edit"></i>
+                                    Editar as minhas informações
+                                </button>
                             </a>
                         </div>
                     </div>
@@ -71,7 +77,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                         <h3 class="mt-2 titulo"><?= $name_user ?></h3>
                         <div class="p-0 mt-3">
                             <a href="edit_profile.php?edit=<?= $idUser ?>">
-                                <button class="btn edit_btn">Editar as minhas informações</button>
+                                <button class="btn edit_btn"> <i class="fas fa-edit text-dark"></i>Editar as minhas informações</button>
                             </a>
                         </div>
 
@@ -110,24 +116,27 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                             </div>
                             <div class="card-body altura">
                                 <blockquote class="blockquote mb-0">
-                                        <ul id="notebook_ul">
-                                            <li class="lista">
-                                              Cibercultura
-                                                <p class="instituicao"> Universidade de Aveiro</p>
-                                            </li>
-                                            <li class="lista">
-                                                Interação e Interfaces
-                                                <p class="instituicao"> Universidade de Aveiro</p>
-                                            </li>
-                                            <li class="lista">
-                                             Laboratório Multimédia
-                                                <p class="instituicao"> Universidade de Aveiro</p>
-                                            </li>
-                                            <li class="lista">
-                                                Gestão de Empresas
-                                                <p class="instituicao"> Universidade de Aveiro</p>
-                                            </li>
-                                        </ul>
+                                     <?php
+                                    if (mysqli_stmt_prepare($stmt, $query3)) {
+
+                                        mysqli_stmt_bind_param($stmt, 'i', $idUser);
+                                        mysqli_stmt_execute($stmt);
+                                        mysqli_stmt_bind_result($stmt, $idDone_CU,$Cu_name, $University_name, $date_CU);
+                                        while (mysqli_stmt_fetch($stmt)) {
+                                            ?>
+                                            <ul id="notebook_ul">
+                                                <li class="lista">
+                                                    <?= $Cu_name?>
+                                                    <p class="instituicao"><?=$University_name?></p>
+                                                   <a href="edit_done_uc.php?uc=<?=$idDone_CU?>"> <p class="instituicao" style="color:#00A5CF!important; text-align: right"><i class="fas fa-edit mr-1 " style="color:#00A5CF!important"></i>Editar</p></a>
+
+                                                </li>
+
+                                            </ul>
+                                            <?php
+                                        }
+                                    }
+                                     ?>
 
                                     <div class="text-center">
                                         <a href="done_uc.php">
