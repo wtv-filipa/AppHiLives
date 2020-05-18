@@ -17,7 +17,7 @@ include "navbar_2.php";
     <div class="card-slider">
         <div class="col-lg-12">
             <div class="card w-100">
-                <a href="#">
+                <a href="vacancie.php">
                     <div class="image"
                          style="background-image: url('img/fnac.jpg')"></div>
                     <div class="card-info">
