@@ -324,7 +324,7 @@ $idUser = $_SESSION["idUser"];
             <!-------------------------------------------->
 
             <div>
-                <button type="submit" class="btn btn-success publicar_btn">Publicar</button>
+                <button type="submit" name="but_upload" class="btn btn-success publicar_btn">Publicar</button>
             </div>
 
         </form>
