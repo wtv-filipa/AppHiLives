@@ -87,7 +87,7 @@ if ($uploadOk == 0) {
                         mysqli_close($link);
 
                         // Acção de sucesso
-                        // header("Location: ../eventos.php?msg=0");
+                        header("Location: ../profile.php");
                         echo $idUser;
                         echo "DEU";
                     } else {
