@@ -22,3 +22,8 @@ h3 {
     font-size: 18px;
     font-weight: bold;
 }
+
+ol li {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+}

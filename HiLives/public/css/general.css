@@ -235,6 +235,7 @@ a.more-link {
 .site-footer a {
     color: #2f2f2f !important;
     font-family: Roboto;
+    font-size: 14px;
 }
 
 .site-footer a:hover {
@@ -383,7 +384,7 @@ a {
 
 .titulo {
     color: #2f2f2f;
-    font-size: 1rem;
+    font-size: 14px;
     font-weight: bold;
     text-align: center;
 }
