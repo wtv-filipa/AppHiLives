@@ -152,5 +152,6 @@ if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["data_nasc"]
         include "match_uni.php";
         mysqli_stmt_close($stmt);
         mysqli_close($link);
+        header("Location: ../login.php");
     }
 }
