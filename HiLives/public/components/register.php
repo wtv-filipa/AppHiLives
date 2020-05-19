@@ -341,10 +341,10 @@
                                                 que: <span style="color: #06597A !important; font-weight: bold; font-size: 20px">*</span></label>
                                             <select name="pergunta1" class="form-control" id="primeiro">
                                                 <option selected disabled>Selecionar uma opção</option>
-                                                <option value="comunicativo">Tenho muitos amigos.</option>
-                                                <option value="organizado">Gosto de organizar tarefas.</option>
-                                                <option value="previsivel">Convivo melhor com a rotina.</option>
-                                                <option value="determinado">Procuro sempre coisas claras e objetivas.</option>
+                                                <option value="Comunicativo">Tenho muitos amigos.</option>
+                                                <option value="Organizado">Gosto de organizar tarefas.</option>
+                                                <option value="Previsível">Convivo melhor com a rotina.</option>
+                                                <option value="Determinado">Procuro sempre coisas claras e objetivas.</option>
                                             </select>
                                         </div>
 
@@ -355,10 +355,10 @@
                                                 pessoas, eu: <span style="color: #06597A !important; font-weight: bold; font-size: 20px">*</span></label>
                                             <select name="pergunta2" class="form-control" id="segundo">
                                                 <option selected disabled>Selecionar uma opção</option>
-                                                <option value="comunicativo">Estou sempre a motivar as pessoas.</option>
-                                                <option value="organizado">Gosto de pessoas sérias.</option>
-                                                <option value="previsivel">Sou muito paciente com as outras pessoas.</option>
-                                                <option value="determinado">Prefiro fazer as minhas coisas sozinho/sozinha.</option>
+                                                <option value="Comunicativo">Estou sempre a motivar as pessoas.</option>
+                                                <option value="Organizado">Gosto de pessoas sérias.</option>
+                                                <option value="Previsível">Sou muito paciente com as outras pessoas.</option>
+                                                <option value="Determinado">Prefiro fazer as minhas coisas sozinho/sozinha.</option>
                                             </select>
                                         </div>
 
@@ -368,10 +368,10 @@
                                                 frases mais me identifico? <span style="color: #06597A !important; font-weight: bold; font-size: 20px">*</span></label>
                                             <select name="pergunta3" class="form-control" id="terceiro">
                                                 <option selected disabled>Selecionar uma opção</option>
-                                                <option value="comunicativo">"Quem tem boca vai a Roma".</option>
-                                                <option value="organizado">"Tu tornas-te naquilo que desejas".</option>
-                                                <option value="previsivel">"Prevenir é melhor que remediar".</option>
-                                                <option value="determinado">"Quando falta sorte deve sobrar atitude".</option>
+                                                <option value="Comunicativo">"Quem tem boca vai a Roma".</option>
+                                                <option value="Organizado">"Tu tornas-te naquilo que desejas".</option>
+                                                <option value="Previsível">"Prevenir é melhor que remediar".</option>
+                                                <option value="Determinado">"Quando falta sorte deve sobrar atitude".</option>
                                             </select>
                                         </div>
 
@@ -382,10 +382,10 @@
                                                 eu: <span style="color: #06597A !important; font-weight: bold; font-size: 20px">*</span></label>
                                             <select name="pergunta4" class="form-control" id="quarto">
                                                 <option selected disabled>Selecionar uma opção</option>
-                                                <option value="comunicativo">Falo com outras pessoas que me possam ajudar a melhorar.</option>
-                                                <option value="organizado">Mantenho a calma.</option>
-                                                <option value="previsivel">Vejo quais são as as possibilidades e preparo-me, para não me stressar novamente.</option>
-                                                <option value="determinado">Mantenho a atenção naquilo que tenho de fazer.</option>
+                                                <option value="Comunicativo">Falo com outras pessoas que me possam ajudar a melhorar.</option>
+                                                <option value="Organizado">Mantenho a calma.</option>
+                                                <option value="Previsível">Vejo quais são as as possibilidades e preparo-me, para não me stressar novamente.</option>
+                                                <option value="Determinado">Mantenho a atenção naquilo que tenho de fazer.</option>
                                             </select>
                                         </div>
 
