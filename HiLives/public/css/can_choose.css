@@ -88,6 +88,10 @@ h6 {
     font-family: 'Quicksand';
 }
 
+p {
+    font-size: 14px;
+}
+
 /* Extra small devices (phones, 320px and down) */
 
 @media only screen and (max-width: 320px) {
@@ -98,10 +102,6 @@ h6 {
 
     img.card-img-top.img-fluid {
         height: 97%;
-    }
-
-    .main_title {
-        font-size: 18px;
     }
 
     h5 {
@@ -125,10 +125,6 @@ h6 {
         height: 98%;
     }
 
-    .main_title {
-        font-size: 18px;
-    }
-
     h5 {
         font-size: 14px;
     }
@@ -148,10 +144,6 @@ h6 {
 
     img.card-img-top.img-fluid {
         height: 97%;
-    }
-
-    .main_title {
-        font-size: 20px;
     }
 
     h5 {
@@ -201,10 +193,6 @@ h6 {
 /* Extra large devices (large laptops and desktops, 1024px and up) */
 
 @media only screen and (min-width: 1024px) {
-    .main_title {
-        font-size: 1.3rem;
-    }
-
     h5 {
         font-size: 14px;
     }
@@ -324,19 +312,19 @@ h6 {
 }
 
 .sub_title {
-    font-size: 1.2rem;
+    font-size: 18px;
     font-family: "Quicksand";
     font-weight: bolder;
 }
 
 .description_title {
-    font-size: 1.0rem;
+    font-size: 14px;
     font-family: "Roboto";
     font-weight: normal;
 }
 
 .description_title2 {
-    font-size: 1.0rem;
+    font-size: 16px;
     font-family: "Roboto";
     font-weight: normal;
 }

@@ -162,7 +162,12 @@ if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["data_nasc"]
 
                             /*Deteta as vezes que uma resposta foi selecionada*/
                             $respostas_iguais = array_count_values($arrayRespostas);
-
+                            $query3 = "SELECT idPersonality, name_perso FROM personality WHERE name_perso IN (";
+                            foreach ($respostas_iguais as $resposta) {
+                                $query3.= $resposta;
+                                $query3.= ", ";
+                            }
+                            $query3.= ")";
 
                             /*A $key representa a chave do array (comunicativo, organizado, etc...) e a $value vai representar as vezes que este se repete*/
                             echo "<h1>Sou um jovem:</h1>";
