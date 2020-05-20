@@ -1,21 +1,5 @@
 /*******************cards css DE TRABALHAR*********************/
 
-.cards .card-item {
-    display: flex;
-    flex-direction: column;
-    background-color: #FFEE86;
-    width: 100%;
-    border-radius: 200%;
-    box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
-    overflow: hidden;
-    transition: transform 0.5s;
-    -webkit-transition: transform 0.5s;
-}
-
-.cards .card-item:hover {
-    cursor: pointer;
-}
-
 .cards .card-item:hover .card-image {
     opacity: 1;
 }
@@ -57,6 +41,7 @@
     font-weight: bold;
     max-width: 100%;
     margin-top: 5%;
+    font-size: 22px;
 }
 
 a:hover {
@@ -69,7 +54,7 @@ a:hover {
     background-color: #fff;
     box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.17);
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 #footer {
@@ -228,7 +213,7 @@ p {
 
 .card {
     background: #fff;
-    border-radius: 10px;
+    border-radius: 5px;
     box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
     box-sizing: border-box;
     overflow: auto;

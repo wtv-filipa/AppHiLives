@@ -89,7 +89,7 @@
                     <h2 class="card-title sub_title">Universidade de Aveiro</h2>
                     <p class="card-intro description_title">Far far away, behind the word mountains, far from the
                         countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <button class="btn_destaques card_btn">Ver mais</button>
+                    <a href="about_university.php"><button class="btn_destaques card_btn">Ver mais</button></a>
                 </div>
             </div>
         </div>
@@ -101,7 +101,7 @@
                     <h2 class="card-title sub_title">Universidade de Coimbra</h2>
                     <p class="card-intro description_title">Far far away, behind the word mountains, far from the
                         countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <button class="btn_destaques card_btn">Ver mais</button>
+                    <a href="about_university.php"><button class="btn_destaques card_btn">Ver mais</button></a>
                 </div>
             </div>
         </div>

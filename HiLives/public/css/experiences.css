@@ -17,18 +17,20 @@
                 float: right;*/
       font-weight: bold;
       font-family: 'Quicksand' !important;
+      font-size: 16px;
   }
   
   h3 {
       font-family: 'Quicksand' !important;
       font-weight: bold;
+      font-size: 22px;
   }
   
   .username {
       /*margin-right: 133px;
     margin-top: -20px;
     float: right;*/
-      font-size: 12px;
+      font-size: 14px;
   }
   
   .username_modal {
@@ -55,18 +57,7 @@
   /*Mobile S*/
   
   @media only screen and (min-width: 320px) {
-      /* .xp_titulo {
-                    margin-top: 12px!important;
-                    margin-right: 105px!important;
-                }*/
-      .username {
-          /*margin-right: 118px!important;
-        margin-top: -20px!important;*/
-          font-size: 12px!important;
-      }
-      h3 {
-          font-size: 20px!important;
-      }
+
       .username_modal {
           /*margin-top: -26px!important;
                 margin-left: 40px!important;*/
@@ -80,18 +71,7 @@
   /*Mobile M*/
   
   @media only screen and (min-width: 375px) {
-      /* .xp_titulo {
-                        margin-top: 12px!important;
-                        margin-right: 146px!important;
-                    }*/
-      .username {
-          /*margin-right: 159px!important;
-                        margin-top: -20px!important;*/
-          font-size: 12px!important;
-      }
-      h3 {
-          font-size: 20px!important;
-      }
+
       .username_modal {
           margin-top: -26px!important;
           margin-left: 40px!important;
@@ -105,18 +85,6 @@
   /*Mobile L*/
   
   @media only screen and (min-width: 425px) {
-      /* .xp_titulo {
-                            margin-top: 12px!important;
-                            margin-right: 185px!important;
-                        }*/
-      .username {
-          /* margin-right: 199px!important;
-                                margin-top: -20px!important;*/
-          font-size: 12px!important;
-      }
-      h3 {
-          font-size: 20px!important;
-      }
       .username_modal {
           margin-top: -26px!important;
           margin-left: 40px!important;
@@ -130,18 +98,7 @@
   /* Extra small devices (phones, 600px and down) */
   
   @media only screen and (max-width: 600px) {
-      /* .xp_titulo {
-                                margin-top: 12px;
-                                margin-right: 418px;
-                            }*/
-      .username {
-          /* margin-right: 120px;
-                                        margin-top: -20px;*/
-          font-size: 12px;
-      }
-      h3 {
-          font-size: 20px;
-      }
+
       .username_modal {
           margin-top: -26px;
           margin-left: 40px;
@@ -155,22 +112,7 @@
   /* Small devices (portrait tablets and large phones, 600px and up) */
   
   @media only screen and (min-width: 600px) {
-      .xp_titulo {
-          /* margin-top: 12px!important;
-                                    margin-right: 270px!important;
-                                    float: right!important;*/
-          font-weight: bold!important;
-          font-family: 'Quicksand' !important;
-      }
-      .username {
-          /* margin-right: 286px!important;
-                                                        margin-top: -20px!important;
-                                                        float: right!important;*/
-          font-size: 12px!important;
-      }
-      h3 {
-          font-size: 20px;
-      }
+
       .username_modal {
           margin-top: -26px;
           margin-left: 40px;
@@ -184,21 +126,7 @@
   /* Medium devices (landscape tablets, 768px and up) */
   
   @media only screen and (min-width: 768px) {
-      .xp_titulo {
-          /*margin-top: 12px!important;
-                                            margin-right: 132px!important;
-                                            float: right!important;*/
-          font-size: 14px!important;
-      }
-      .username {
-          /*margin-right: 134px!important;
-                                                                margin-top: -20px!important;
-                                                                float: right!important;*/
-          font-size: 12px!important;
-      }
-      h3 {
-          font-size: 20px;
-      }
+
       .username_modal {
           margin-top: -26px;
           margin-left: 40px;
@@ -215,20 +143,7 @@
       /*.avatar {
         margin-top: 8px;
     }*/
-      .xp_titulo {
-          /* margin-top: 12px!important;
-                                                    margin-right: 110px!important;*/
-          font-size: 12px!important;
-      }
-      .username {
-          /*margin-right: 101px!important;
-                                                                        margin-top: -20px!important;
-                                                                        float: right!important;*/
-          font-size: 12px!important;
-      }
-      h3 {
-          font-size: 20px;
-      }
+
       .username_modal {
           margin-top: -26px;
           margin-left: 40px;
@@ -249,23 +164,7 @@
           border-radius: 50%;
           /*margin-top: 8px;*/
       }
-      .xp_titulo {
-          /* margin-top: 12px!important;
-                                                            margin-right: 153px!important;
-                                                            float: right!important;*/
-          font-weight: bold!important;
-          font-family: 'Quicksand' !important;
-          font-size: 12px!important;
-      }
-      .username {
-          /*margin-right: 144px!important;
-                                                                                margin-top: -20px!important;
-                                                                                float: right!important;*/
-          font-size: 12px!important;
-      }
-      h3 {
-          font-size: 20px;
-      }
+
       .username_modal {
           margin-top: -26px;
           margin-left: 40px;
@@ -276,7 +175,7 @@
           margin-top: 10px;
       }
       .vid_tamanho {
-          width: 220 !important;
-          height: 124 !important;
+          width: 500px !important;
+          height: 220px !important;
       }
   }

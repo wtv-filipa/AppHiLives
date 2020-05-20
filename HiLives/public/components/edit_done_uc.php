@@ -32,9 +32,10 @@ if ($_SESSION["idUser"] && isset($_GET["uc"])) {
                <div class="card mdb-color lighten-4 text-center z-depth-2 light-version py-4 px-5">
 
                    <!--título-->
-                   <div class="row no-gutters">
+                   <div class=" no-gutters">
                        <h3 class="mx-auto letter">
-                           Carregar nova Unidade Curricular feita</h3>
+                           Editar a unidade curricular </h3>
+                       <h3 class="mx-auto letter2"><?= $Cu_name?></h3>
                    </div>
                    <!----------->
                    <form class="md-form inserir_dados" class="mb-3" action="scripts/update_done_uc.php?uc=<?=$iduc?>"
@@ -59,7 +60,7 @@ if ($_SESSION["idUser"] && isset($_GET["uc"])) {
                        <!-------------------------------------------->
                        <div>
                            <button type="submit" class="btn btn-success publicar_btn col-6" style="color: #2F2F2F">Guardar alterações</button>
-                           <a href="profile.php?user=<?=$idUser?>" class="btn btn-success publicar_btn col-6 m-1">Voltar</a>
+                           <a href="profile.php?user=<?=$idUser?>" class="btn btn-success publicar_btn col-6">Voltar</a>
                        </div>
 
                    </form>

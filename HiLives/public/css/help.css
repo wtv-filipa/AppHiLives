@@ -1,0 +1,28 @@
+.titulo1 {
+    font-family: "Quicksand", sans-serif;
+    color: #2F2F2F;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+}
+
+.subtitulo {
+    color: #00A5CF;
+    font-family: "Quicksand", sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+h3 {
+    font-family: "Quicksand", sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+a:hover{
+    color: #00A5CF;
+}

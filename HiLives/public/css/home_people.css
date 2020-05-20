@@ -3,7 +3,7 @@
 }
 
 .main_title {
-    font-size: 24px;
+    font-size: 22px;
     font-family: "Quicksand";
     font-weight: bold;
     max-width: 100%;
@@ -206,7 +206,7 @@
 }
 
 .clearfix_uni {
-    border-radius: 10px;
+    border-radius: 5px;
     background-color: #f2f2f2;
     margin-top: 0;
     margin-right: 0;
@@ -214,7 +214,7 @@
 }
 
 .clearfix_companies {
-    border-radius: 10px;
+    border-radius: 5px;
     background-color: #f2f2f2;
     margin-top: 0;
     margin-right: 0;
@@ -234,18 +234,18 @@
 }
 
 .link_info {
-    font-size: 0.7rem;
+    font-size: 12px;
     color: #2f2f2f;
     padding-top: 6%;
 }
 
 .link_title {
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 16px;
 }
 
 .link_subtitle {
-    font-size: 0.9rem;
+    font-size: 14px;
 }
 
 #wrapper {
@@ -254,7 +254,7 @@
     padding: 35px;
     background: #fff;
     box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.17);
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 #recenttags {
@@ -267,7 +267,7 @@ img.tagpost_thumb {
     height: 95px;
     width: 90px;
     transition: all 1s;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .taglabel {
@@ -388,7 +388,7 @@ ul.taglabel li {
         padding: 20px;
         background: #fff;
         box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.17);
-        border-radius: 10px;
+        border-radius: 5px;
     }
     .main_title {
         font-size: 24px;

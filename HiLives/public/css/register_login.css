@@ -15,15 +15,29 @@ option {
     font-family: "Quicksand";
 }
 
+a.small {
+    font-size: 14px;
+}
+
 * {
     font-family: "Quicksand";
     color: #2f2f2f !important;
+}
+
+.descricao {
+    font-size: 14px;
+    font-family: "Quicksand", sans-serif !important;
 }
 
 .titulo_cinza {
     color: #2F2F2F;
     font-family: "Quicksand";
     font-weight: bold;
+}
+.asterisco {
+    color: #00A5CF !important;
+    font-weight: bold;
+    font-size: 20px;
 }
 
 .publicar_btn {

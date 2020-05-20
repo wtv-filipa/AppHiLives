@@ -22,7 +22,7 @@ if (isset($_GET["edit"])) {
 ?>
         <div class="w-75 mx-auto">
             <div class="card text-center">
-                <h3>Editar Perfil</h3>
+                <h4>Editar Perfil</h4>
                 <hr>
                 <?php
                 while (mysqli_stmt_fetch($stmt)) {
@@ -55,7 +55,7 @@ if (isset($_GET["edit"])) {
                                         ?>
                                     </div>
                                     <div class="alert alert-warning mt-3" role="alert">
-                                        Carrega no botão que está em cima da imagem para alterar a tua imagem.
+                                        <span>Carrega no botão que está em cima da imagem para alterar a tua imagem.</span>
                                     </div>
                                     <!----------------------MODAL DE CROP--------------->
                                     <div id="uploadimageModal" class="modal" role="dialog">
@@ -98,25 +98,25 @@ if (isset($_GET["edit"])) {
 
                                 <!--primeiro input-NOME-->
                                 <div class="form-group text-left">
-                                    <label for="nome">Nome <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                    <label class="negrito mt-3" for="nome">Nome <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
                                     <input type="text" id="nome" name="nome" placeholder="Escreve aqui o teu nome" class="form-control" value="<?= $name_user ?>">
                                 </div>
                                 <!----------------------->
                                 <!--segundo input-EMAIL-->
                                 <div class="form-group text-left">
-                                    <label for="email">Email <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                    <label class="negrito mt-3" for="email">Email <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
                                     <input type="text" id="email" name="email" placeholder="Escreve aqui o teu email" class="form-control" value="<?= $email_user ?>">
                                 </div>
                                 <!----------------------->
                                 <!--terceiro input-DATA DE NASCIMENTO-->
                                 <div class="form-group text-left">
-                                    <label for="born">Data de nascimento</label>
+                                    <label class="negrito mt-3" for="born">Data de nascimento</label>
                                     <input type="date" id="born" name="data_nasc" placeholder="data de nascimento" class="form-control" value="<?= $birth_date ?>">
                                 </div>
                                 <!----------------------->
                                 <!--quarto input- TELEMÓVEL-->
                                 <div class="form-group text-left">
-                                    <label for="tlm">Telemóvel</label>
+                                    <label class="negrito mt-3" for="tlm">Telemóvel</label>
                                     <input type="text" id="tlm" name="phone" placeholder="Escreve aqui o teu telemóvel" class="form-control" value="<?= $contact_user ?>">
                                 </div>
                                 <!----------------------->

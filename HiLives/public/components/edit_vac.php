@@ -26,8 +26,9 @@ if (isset($_GET["idvac"])) {
                     <div class="card mdb-color lighten-4 text-center z-depth-2 light-version py-4 px-5">
 
                         <!--título-->
-                        <div class="row no-gutters">
-                            <h3 class="mx-auto letter">Vaga <?= $vacancie_name ?></h3>
+                        <div class="no-gutters">
+                            <h3 class="mx-auto letter">Vaga</h3>
+                            <h3 class="mx-auto letter2"><?= $vacancie_name ?></h3>
                         </div>
                         <!----------->
                         <form class="md-form inserir_dados" class="mb-3" action="scripts/update_vac.php?idvac=<?= $idVacancies ?>" enctype="multipart/form-data" method="post">

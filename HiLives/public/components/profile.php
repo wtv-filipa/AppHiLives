@@ -62,7 +62,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                     <div class="col-xs-3 col-lg-9 ">
                         <h3 class="mt-2 nome_user"><?= $name_user ?></h3>
                         <h6 class="mt-3 subtitulo"> <?= $age ?> anos | Personalidade</h6>
-                        <div class="p-0 mt-3">
+                        <div class="p-0">
                             <a href="edit_profile.php?edit=<?= $idUser ?>">
                                 <button class="btn edit_btn">
                                     <i class="teste fas fa-edit"></i>
@@ -114,7 +114,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                     <div class="col-md-6">
                         <div class="card tamanho_card_tablet">
                             <div class="card-header estudo">
-                                <h5>Últimas disciplinas que fiz</h5>
+                                <h6>Últimas disciplinas que fiz</h6>
                             </div>
                             <div class="card-body altura">
                                 <blockquote class="blockquote mb-0">
@@ -159,7 +159,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                     <div class="col-md-6">
                         <div class="card tamanho_card_tablet">
                             <div class="card-header estudo">
-                                <h5>Áreas disponíveis</h5>
+                                <h6>Áreas disponíveis</h6>
                             </div>
                             <div class="card-body altura">
                                 <blockquote class="blockquote mb-0">
@@ -251,7 +251,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                     <div class="col-md-6">
                         <div class="card tamanho_card_tablet">
                             <div class="card-header estudo">
-                                <h5>As minhas áreas de interesse</h5>
+                                <h6>As minhas áreas de interesse</h6>
                             </div>
                             <div class="card-body altura">
                                 <blockquote class="blockquote mb-0">

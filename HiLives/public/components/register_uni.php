@@ -61,12 +61,11 @@
                                         while (mysqli_stmt_fetch($stmt)) {
                                             ?>
                                             <!------------****------------>
-                                            <p style="font-size: 12px; color: #79C4D9 !important;">* Preenchimento
+                                            <p style="font-size: 12px; color: #00A5CF !important;">* Preenchimento
                                                 obrigatório</p>
                                             <!------------NOME------------>
                                             <div class="form-group">
-                                                <label class="negrito" for="username">Nome <span
-                                                            style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                                <label class="negrito" for="username">Nome <span class="asterisco">*</span></label>
                                                 <div class=" p-0 m-0">
                                                     <input type="text" class="form-control cinza" id="username"
                                                            name="nome"
@@ -77,7 +76,7 @@
                                             <!------------EMAIL------------>
                                             <div class="form-group">
                                                 <label class="negrito mt-3" for="email">Email <span
-                                                            style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                                            class="asterisco">*</span></label>
                                                 <div class="p-0 m-0">
                                                     <input type="email" class="form-control cinza" id="email"
                                                            name="email"
@@ -87,7 +86,7 @@
                                             </div>
                                             <!------------DATA DE FUNDAÇÃO------------>
                                             <div class="form-group">
-                                                <label class="negrito mt-3" for="data_fund">Data de fundação <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                                <label class="negrito mt-3" for="data_fund">Data de fundação <span class="asterisco">*</span></label>
                                                 <div class="p-0 m-0">
                                                     <input type="date" class="form-control cinza" id="data_fund"
                                                            name="data_fund"
@@ -96,7 +95,7 @@
                                             </div>
                                             <!------------TELEFONE------------>
                                             <div class="form-group">
-                                                <label class="negrito mt-3" for="phone">Contacto telefónico <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                                <label class="negrito mt-3" for="phone">Contacto telefónico <span class="asterisco">*</span></label>
                                                 <div class="p-0 m-0">
                                                     <input type="tel" class="form-control cinza" id="phone" name="phone"
                                                            placeholder="Escreva aqui o contacto telefónico da universidade">
@@ -105,7 +104,7 @@
                                             <!------------PAÍS------------>
                                             <div class="form-group">
                                                 <label class="negrito mt-3" for="pais">Seleciona o país da universidade:
-                                                    <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                                    <span class="asterisco">*</span></label>
                                                 <select class="form-control" id="pais">
                                                     <option value="pt">Portugal</option>
                                                     <option value="es">Espanha</option>
@@ -117,7 +116,7 @@
                                             <div class="form-group formulario" id="pt">
                                                 <div class="form-group text-left">
                                                     <label class="negrito mt-3" for="regiao_pt">Região da Universidade
-                                                        <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span>
+                                                        <span class="asterisco">*</span>
                                                     </label>
                                                     <select class="form-control" id="regiao_pt" name="regiao">
                                                         <option selected disabled>Seleciona uma opção</option>
@@ -154,7 +153,7 @@
                                             <div class="form-group formulario" style="display:none;" id="es">
                                                 <div class="form-group text-left">
                                                     <label class="negrito mt-3" for="regiao_es">Região da Universidade
-                                                        <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span>
+                                                        <span class="asterisco">*</span>
                                                     </label>
                                                     <select class="form-control" id="regiao_es" name="regiao">
                                                         <option selected disabled>Seleciona uma opção</option>
@@ -191,7 +190,7 @@
                                             <div class="form-group formulario" style="display:none;" id="be">
                                                 <div class="form-group text-left">
                                                     <label class="negrito mt-3" for="regiao_be">Região da Universidade
-                                                        <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span>
+                                                        <span class="asterisco">*</span>
                                                     </label>
                                                     <select class="form-control" id="regiao_be" name="regiao">
                                                         <option selected disabled>Seleciona uma opção</option>
@@ -228,7 +227,7 @@
                                             <div class="form-group formulario" style="display:none;" id="ic">
                                                 <div class="form-group text-left">
                                                     <label class="negrito mt-3" for="regiao_ic">Região da Universidade
-                                                        <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span>
+                                                        <span class="asterisco">*</span>
                                                     </label>
                                                     <select class="form-control" id="regiao_ic" name="regiao">
                                                         <option selected disabled>Seleciona uma opção</option>
@@ -265,7 +264,7 @@
                                             <!------------ÁREAS------------>
                                             <div class="form-group">
                                                 <label class="negrito mt-3" for="area">Áreas disponíveis para receber jovens com DID <span
-                                                            style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                                            class="asterisco">*</span></label>
                                                 <div class="form-check">
                                                     <?php
                                                     $query = "SELECT idAreas, name_interested_area FROM areas";
@@ -299,7 +298,7 @@
 
                                             <!------------WEBSITE------------>
                                             <div class="form-group">
-                                                <label class="negrito mt-3" for="site">Website <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                                <label class="negrito mt-3" for="site">Website <span class="asterisco">*</span></label>
                                                 <div class="p-0 m-0">
                                                     <input type="text" class="form-control cinza" id="site" name="site"
                                                            placeholder="Insira aqui o website da universidade">
@@ -324,12 +323,12 @@
 
                                             <!------------DESCRIÇÃO------------>
                                             <div class="form-group">
-                                                <label class="negrito mt-3" for="desc">Descrição <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                                <label class="negrito mt-3" for="desc">Descrição <span class="asterisco">*</span></label>
                                                 <textarea class="form-control " id="exp_t" rows="2" name="desc" placeholder="Escreva aqui uma descrição"></textarea>
                                             </div>
                                             <!------------HISTÓRIA------------>
                                             <div class="form-group">
-                                                <label class="negrito mt-3" for="hist">História <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                                <label class="negrito mt-3" for="hist">História <span class="asterisco">*</span></label>
                                                 <textarea class="form-control " id="exp_t" rows="2" name="hist" placeholder="Escreva aqui a história da universidade"></textarea>
                                             </div>
 
@@ -337,7 +336,7 @@
                                             <!------------PASSWORD------------>
                                             <div class="form-group">
                                                 <label class="negrito mt-3" for="pass">Palavra-passe <span
-                                                            style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                                            class="asterisco">*</span></label>
                                                 <div class="p-0 m-0">
                                                     <input type="password" class="form-control" id="password"
                                                            name="password"
@@ -346,8 +345,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group mb-3">
-                                                <label class="negrito mt-3" for="vpass">Verificar palavra-passe <span
-                                                            style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                                <label class="negrito mt-3" for="vpass">Verificar palavra-passe <span class="asterisco">*</span></label>
                                                 <div class="p-0 m-0">
                                                     <input type="password" class="form-control" id="password_confirm"
                                                            placeholder="Repita a palavra-passe" required="required"

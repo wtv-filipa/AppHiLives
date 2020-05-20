@@ -1,5 +1,5 @@
 <div class="mt-5 text-center">
-    <h1>Bem vindo(a) à HiLives!</h1>
+    <h2>Bem vindo(a) à HiLives!</h2>
 
     <h4 class="mt-4">Quem sou eu?</h4>
 

@@ -18,16 +18,14 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                 <div class='tagpost-top section' id='tagpost-top'>
                     <div class='widget HTML' id='HTML5'>
                         <div data-aos="fade-up">
-                            <h3 class="mb-4 main_title">Informações sobre a vaga <?= $vacancie_name ?></h3>
+                            <h3 class="mb-4 main_title">Informações sobre a vaga <span style="color: #00A5CF"><?= $vacancie_name ?></span></h3>
+                            <h3></h3>
                         </div>
                     </div>
                 </div>
             </div>
 
-
-
             <div class="tabs">
-
                 <input type="radio" id="tab1" name="tab-control" checked>
                 <input type="radio" id="tab2" name="tab-control">
                 <input type="radio" id="tab3" name="tab-control">
@@ -53,15 +51,11 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                 <div class="content">
                     <section>
                         <h2>Features</h2>
-
-                                    <p><?= $description_vac ?></p>
+                        <p><?= $description_vac ?></p>
                     </section>
                     <section>
                         <h2>Delivery Contents</h2>
-
-                            <p><?= $requirements ?></p>
-
-
+                        <p><?= $requirements ?></p>
                     </section>
                     <section>
                         <h2>Shipping</h2>

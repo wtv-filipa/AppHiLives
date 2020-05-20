@@ -7,8 +7,6 @@
 
             <div class="card o-hidden border-0 shadow-lg my-5">
                 <div class="card-body p-0">
-
-
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="p-5">
@@ -64,8 +62,7 @@
                                     <!--BOTÃO DE SUBMIT-->
                                     <div class="form-group text-center">
                                         <div class="mx-auto col-sm-10 pb-3 pt-2">
-                                            <button type="submit" class="btn publicar_btn">Entrar
-                                            </button>
+                                            <button type="submit" class="btn publicar_btn">Entrar</button>
                                         </div>
                                     </div>
                                 </form>

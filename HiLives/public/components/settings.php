@@ -10,7 +10,7 @@ if (isset($_SESSION["idUser"])) {
             <div class='tagpost-top' id='tagpost-top'>
                 <div class='widget'>
                     <div data-aos="fade-up">
-                        <h3 class="mb-4 main_title"><i class="fa fa-cogs mr-2" aria-hidden="true"></i>
+                        <h3 class=" main_title"><i class="fa fa-cogs mr-2" aria-hidden="true"></i>
                             Geral</h3>
                     </div>
                 </div>
@@ -36,7 +36,7 @@ if (isset($_SESSION["idUser"])) {
             <div class='tagpost-top' id='tagpost-top'>
                 <div class='widget'>
                     <div data-aos="fade-up">
-                        <h3 class="mb-4 main_title"><i class="fas fa-user-lock mr-2" aria-hidden="true"></i>
+                        <h3 class="main_title"><i class="fas fa-user-lock mr-2" aria-hidden="true"></i>
                             Privacidade</h3>
                     </div>
                 </div>
@@ -55,7 +55,7 @@ if (isset($_SESSION["idUser"])) {
             <div class='tagpost-top' id='tagpost-top'>
                 <div class='widget'>
                     <div data-aos="fade-up">
-                        <h3 class="mb-4 main_title"><i class="fas fa-user-cog mr-2" aria-hidden="true"></i>
+                        <h3 class="main_title"><i class="fas fa-user-cog mr-2" aria-hidden="true"></i>
                             Conta</h3>
                     </div>
                 </div>

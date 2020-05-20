@@ -21,9 +21,9 @@ include "navbar_2.php";
                     <img class="imagem" src="img/fnac.jpg">
                 </div>
                 <div class="card-info">
-                    <h4 class="card-intro description_title"><i class="fas fa-book-open" style="color: #2f2f2f;"></i> Estudar</h4>
-                    <h2 class="card-title sub_title">Universidade de Aveiro</h2>
-                    <p class="card-intro description_title2">Ver áreas disponíveis</p>
+                    <h4 class="card-intro description_title"><i class="fa fa-briefcase mr-1" style="color: #2f2f2f;" aria-hidden="true"></i> Trabalhar</h4>
+                    <h2 class="card-title sub_title">FNAC</h2>
+                    <p class="card-intro description_title2">Ver vagas disponíveis</p>
                 </div>
             </div>
         </div>
@@ -33,77 +33,10 @@ include "navbar_2.php";
                 <div class="card-image">
                     <img class="imagem" src="img/fnac.jpg">
                 </div>
-                <div class="card-info work">
-                    <h4 class="card-intro description_title"> <i class="fas fa-suitcase" style="color: #2f2f2f;"></i> Trabalhar</h4>
-                    <h2 class="card-title sub_title">Fnac</h2>
-                    <a href="vacancie.php">
-                        <p class="card-intro description_title2">Ver mais informações</p>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="cards col-xs-12 col-sm-6 col-lg-4">
-            <div class="card-item">
-                <div class="card-image">
-                    <img class="imagem" src="img/fnac.jpg"></div>
                 <div class="card-info">
-                    <h4 class="card-intro description_title"><i class="fas fa-book" style="color: #2f2f2f;"></i> Estudar</h4>
-                    <h2 class="card-title sub_title">Universidade de Aveiro</h2>
-                    <p class="card-intro description_title2">Ver áreas disponíveis</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="cards col-xs-12 col-sm-6 col-lg-4">
-            <div class="card-item">
-                <div class="card-image">
-                    <img class="imagem" src="img/fnac.jpg"></div>
-                <div class="card-info work">
-                    <h4 class="card-intro description_title"> <i class="fas fa-suitcase" style="color: #2f2f2f;"></i> Trabalhar</h4>
-                    <h2 class="card-title sub_title">Fnac</h2>
-                    <a href="vacancie.php">
-                        <p class="card-intro description_title2">Ver mais informações</p>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="cards col-xs-12 col-sm-6 col-lg-4">
-            <div class="card-item">
-                <div class="card-image">
-                    <img class="imagem" src="img/fnac.jpg"></div>
-                <div class="card-info">
-                    <h4 class="card-intro description_title"><i class="fas fa-book" style="color: #2f2f2f;"></i> Estudar</h4>
-                    <h2 class="card-title sub_title">Universidade de Aveiro</h2>
-                    <p class="card-intro description_title2">Ver áreas disponíveis</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="cards col-xs-12 col-sm-6 col-lg-4">
-            <div class="card-item">
-                <div class="card-image">
-                    <img class="imagem" src="img/fnac.jpg"></div>
-                <div class="card-info work">
-                    <h4 class="card-intro description_title"> <i class="fas fa-suitcase" style="color: #2f2f2f;"></i> Trabalhar</h4>
-                    <h2 class="card-title sub_title">Fnac</h2>
-                    <a href="vacancie.php">
-                        <p class="card-intro description_title2">Ver mais informações</p>
-                    </a>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="cards col-xs-12 col-sm-6 col-lg-4">
-            <div class="card-item">
-                <div class="card-image">
-                    <img class="imagem" src="img/fnac.jpg"></div>
-                <div class="card-info">
-                    <h4 class="card-intro description_title"><i class="fas fa-book" style="color: #2f2f2f;"></i> Estudar</h4>
-                    <h2 class="card-title sub_title">Universidade de Aveiro</h2>
-                    <p class="card-intro description_title2">Ver áreas disponíveis</p>
+                    <h4 class="card-intro description_title"><i class="fa fa-briefcase mr-1" style="color: #2f2f2f;" aria-hidden="true"></i> Trabalhar</h4>
+                    <h2 class="card-title sub_title">FNAC</h2>
+                    <p class="card-intro description_title2">Ver vagas disponíveis</p>
                 </div>
             </div>
         </div>
@@ -113,38 +46,10 @@ include "navbar_2.php";
                 <div class="card-image">
                     <img class="imagem" src="img/fnac.jpg">
                 </div>
-                <div class="card-info work">
-                    <h4 class="card-intro description_title"> <i class="fas fa-suitcase" style="color: #2f2f2f;"></i> Trabalhar</h4>
-                    <h2 class="card-title sub_title">Fnac</h2>
-                    <a href="vacancie.php">
-                        <p class="card-intro description_title2">Ver mais informações</p>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="cards col-xs-12 col-sm-6 col-lg-4">
-            <div class="card-item">
-                <div class="card-image">
-                    <img class="imagem" src="img/fnac.jpg"></div>
-                <div class="card-info work">
-                    <h4 class="card-intro description_title"> <i class="fas fa-suitcase" style="color: #2f2f2f;"></i> Trabalhar</h4>
-                    <h2 class="card-title sub_title">Fnac</h2>
-                    <a href="vacancie.php">
-                        <p class="card-intro description_title2">Ver mais informações</p>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="cards col-xs-12 col-sm-6 col-lg-4">
-            <div class="card-item">
-                <div class="card-image">
-                    <img class="imagem" src="img/fnac.jpg"></div>
                 <div class="card-info">
-                    <h4 class="card-intro description_title"><i class="fas fa-book" style="color: #2f2f2f;"></i> Estudar</h4>
-                    <h2 class="card-title sub_title">Universidade de Aveiro</h2>
-                    <p class="card-intro description_title2">Ver áreas disponíveis</p>
+                    <h4 class="card-intro description_title"><i class="fa fa-briefcase mr-1" style="color: #2f2f2f;" aria-hidden="true"></i> Trabalhar</h4>
+                    <h2 class="card-title sub_title">FNAC</h2>
+                    <p class="card-intro description_title2">Ver vagas disponíveis</p>
                 </div>
             </div>
         </div>
@@ -152,11 +57,12 @@ include "navbar_2.php";
         <div class="cards col-xs-12 col-sm-6 col-lg-4">
             <div class="card-item">
                 <div class="card-image">
-                    <img class="imagem" src="img/fnac.jpg"></div>
+                    <img class="imagem" src="img/fnac.jpg">
+                </div>
                 <div class="card-info">
-                    <h4 class="card-intro description_title"><i class="fas fa-book" style="color: #2f2f2f;"></i> Estudar</h4>
-                    <h2 class="card-title sub_title">Universidade de Aveiro</h2>
-                    <p class="card-intro description_title2">Ver áreas disponíveis</p>
+                    <h4 class="card-intro description_title"><i class="fa fa-briefcase mr-1" style="color: #2f2f2f;" aria-hidden="true"></i> Trabalhar</h4>
+                    <h2 class="card-title sub_title">FNAC</h2>
+                    <p class="card-intro description_title2">Ver vagas disponíveis</p>
                 </div>
             </div>
         </div>
@@ -164,11 +70,103 @@ include "navbar_2.php";
         <div class="cards col-xs-12 col-sm-6 col-lg-4">
             <div class="card-item">
                 <div class="card-image">
-                    <img class="imagem" src="img/fnac.jpg"></div>
+                    <img class="imagem" src="img/fnac.jpg">
+                </div>
                 <div class="card-info">
-                    <h4 class="card-intro description_title"><i class="fas fa-book" style="color: #2f2f2f;"></i> Estudar</h4>
-                    <h2 class="card-title sub_title">Universidade de Aveiro</h2>
-                    <p class="card-intro description_title2">Ver áreas disponíveis</p>
+                    <h4 class="card-intro description_title"><i class="fa fa-briefcase mr-1" style="color: #2f2f2f;" aria-hidden="true"></i> Trabalhar</h4>
+                    <h2 class="card-title sub_title">FNAC</h2>
+                    <p class="card-intro description_title2">Ver vagas disponíveis</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="cards col-xs-12 col-sm-6 col-lg-4">
+            <div class="card-item">
+                <div class="card-image">
+                    <img class="imagem" src="img/fnac.jpg">
+                </div>
+                <div class="card-info">
+                    <h4 class="card-intro description_title"><i class="fa fa-briefcase mr-1" style="color: #2f2f2f;" aria-hidden="true"></i> Trabalhar</h4>
+                    <h2 class="card-title sub_title">FNAC</h2>
+                    <p class="card-intro description_title2">Ver vagas disponíveis</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="cards col-xs-12 col-sm-6 col-lg-4">
+            <div class="card-item">
+                <div class="card-image">
+                    <img class="imagem" src="img/fnac.jpg">
+                </div>
+                <div class="card-info">
+                    <h4 class="card-intro description_title"><i class="fa fa-briefcase mr-1" style="color: #2f2f2f;" aria-hidden="true"></i> Trabalhar</h4>
+                    <h2 class="card-title sub_title">FNAC</h2>
+                    <p class="card-intro description_title2">Ver vagas disponíveis</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="cards col-xs-12 col-sm-6 col-lg-4">
+            <div class="card-item">
+                <div class="card-image">
+                    <img class="imagem" src="img/fnac.jpg">
+                </div>
+                <div class="card-info">
+                    <h4 class="card-intro description_title"><i class="fa fa-briefcase mr-1" style="color: #2f2f2f;" aria-hidden="true"></i> Trabalhar</h4>
+                    <h2 class="card-title sub_title">FNAC</h2>
+                    <p class="card-intro description_title2">Ver vagas disponíveis</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="cards col-xs-12 col-sm-6 col-lg-4">
+            <div class="card-item">
+                <div class="card-image">
+                    <img class="imagem" src="img/fnac.jpg">
+                </div>
+                <div class="card-info">
+                    <h4 class="card-intro description_title"><i class="fa fa-briefcase mr-1" style="color: #2f2f2f;" aria-hidden="true"></i> Trabalhar</h4>
+                    <h2 class="card-title sub_title">FNAC</h2>
+                    <p class="card-intro description_title2">Ver vagas disponíveis</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="cards col-xs-12 col-sm-6 col-lg-4">
+            <div class="card-item">
+                <div class="card-image">
+                    <img class="imagem" src="img/fnac.jpg">
+                </div>
+                <div class="card-info">
+                    <h4 class="card-intro description_title"><i class="fa fa-briefcase mr-1" style="color: #2f2f2f;" aria-hidden="true"></i> Trabalhar</h4>
+                    <h2 class="card-title sub_title">FNAC</h2>
+                    <p class="card-intro description_title2">Ver vagas disponíveis</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="cards col-xs-12 col-sm-6 col-lg-4">
+            <div class="card-item">
+                <div class="card-image">
+                    <img class="imagem" src="img/fnac.jpg">
+                </div>
+                <div class="card-info">
+                    <h4 class="card-intro description_title"><i class="fa fa-briefcase mr-1" style="color: #2f2f2f;" aria-hidden="true"></i> Trabalhar</h4>
+                    <h2 class="card-title sub_title">FNAC</h2>
+                    <p class="card-intro description_title2">Ver vagas disponíveis</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="cards col-xs-12 col-sm-6 col-lg-4">
+            <div class="card-item">
+                <div class="card-image">
+                    <img class="imagem" src="img/fnac.jpg">
+                </div>
+                <div class="card-info">
+                    <h4 class="card-intro description_title"><i class="fa fa-briefcase mr-1" style="color: #2f2f2f;" aria-hidden="true"></i> Trabalhar</h4>
+                    <h2 class="card-title sub_title">FNAC</h2>
+                    <p class="card-intro description_title2">Ver vagas disponíveis</p>
                 </div>
             </div>
         </div>

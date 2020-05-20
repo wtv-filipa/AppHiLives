@@ -9,7 +9,7 @@
 
 .card-body {
     background-color: white;
-    border-radius: 0 0 10px 10px !important;
+    border-radius: 0 0 5px 5px !important;
 }
 
 .blockquote>p {
@@ -22,29 +22,27 @@
     background-color: #D2D2D2;
     text-align: center;
     color: #2f2f2f;
-    border-radius: 10px 10px 0 0!important;
+    border-radius: 5px 5px 0 0!important;
     margin: 0;
     border: none;
 }
 
-.card-header>h5 {
+.card-header>h6 {
+    font-size: 18px;
     font-weight: bold;
     font-family: "Quicksand" !important;
     margin: 0;
+    color: #fff !important;
 }
 
 .estudo {
     background-color: #00A5CF;
 }
 
-.estudo>h5 {
-    color: #fff !important;
-}
-
 .card {
     box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
     width: 100%;
-    border-radius: 10px;
+    border-radius: 5px;
     border: none;
 }
 
@@ -61,7 +59,7 @@ img.tagpost_thumb {
     height: 75px;
     width: 70px;
     transition: all 1s;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 .instituicao {
     font-size: 0.9rem;
@@ -101,6 +99,7 @@ ul.taglabel li {
     border-radius: 40px!important;
     font-weight: bold;
     border-color: #D3D3D3!important;
+    font-size: 14px !important;
 }
 
 .edit_btn:hover {
@@ -115,6 +114,7 @@ ul.taglabel li {
     border-radius: 40px !important;
     font-weight: bold;
     border-color: #D3D3D3 !important;
+    font-size: 14px !important;
 }
 
 
@@ -132,7 +132,7 @@ ul.taglabel li {
     font-weight: bold;
     border-color: #D3D3D3!important;
     font-family: 'Quicksand' !important;
-    font-size: 16px !important;
+    font-size: 14px !important;
     border:none;
 }
 
@@ -148,7 +148,7 @@ ul.taglabel li {
     border-color: #2F2F2F!important;
     border-radius: 40px!important;
     font-family: 'Quicksand' !important;
-    font-size: 16px !important;
+    font-size: 14px !important;
     margin-top: 5% !important;
 }
 
@@ -163,9 +163,8 @@ ul.taglabel li {
 }
 
 .nome_user{
-
     color: #2f2f2f;
-    font-size: 1rem;
+    font-size: 18px;
     font-weight: bold;
 }
 
@@ -173,7 +172,7 @@ ul.taglabel li {
 /*videos*/
 
 .titulo_videos {
-    font-size: 1.3rem;
+    font-size: 22px;
     font-family: "Quicksand";
     font-weight: bold;
     max-width: 100%;
@@ -183,7 +182,7 @@ ul.taglabel li {
 .tam_video {
     width: 239px;
     height: 154px;
-    border-radius: 10px !important;
+    border-radius: 5px !important;
 }
 
 .bt_add {
@@ -271,7 +270,7 @@ ul#notebook_ul {
 
 li.lista {
     font-family: Quicksand, sans-serif;
-    font-size:1.1rem !important;
+    font-size: 16px !important;
     list-style: none;
     background-color: rgba(0, 0, 0, 0.05);
     background-image: linear-gradient( 90deg, #00A5CF 10px, #EEE 10px, #EEE 11px, transparent 11px);
@@ -286,10 +285,6 @@ li.lista {
 /* Small devices (portrait tablets and large phones, 600px and up) */
 
 @media only screen and (max-width: 600px) {
-
-    h5{
-        font-size: 16px!important;
-    }
     .largura {
         width: 100% !important;
     }
@@ -299,17 +294,9 @@ li.lista {
     }
     .edit_btn {
         width: 80%!important;
-        font-size: 12px;
     }
     .edit_btn:hover{
         width: 80%!important;
-        font-size: 12px;
-    }
-    .titulo {
-        font-size: 16px!important;
-    }
-    .subtitulo {
-        font-size: 14px!important;
     }
     .titulo_videos{
         text-align: center;
@@ -328,13 +315,11 @@ li.lista {
        text-align: center;
     }
     .add_btn {
-        font-size: 12px !important;
         width: 80%!important;
         margin-top: 20px!important;
 
     }
     .add_btn:hover {
-        font-size: 12px !important;
         width: 80%!important;
         margin-top: 20px!important;
     }
@@ -352,25 +337,21 @@ li.lista {
     }
     .edit_btn {
         width: 50%!important;
-        font-size: 12px;
     }
     .edit_btn:hover{
         width: 50%!important;
-        font-size: 12px;
     }
     .add_btn {
-        font-size: 12px !important;
         width: 90%!important;
     }
     .add_btn:hover {
-        font-size: 12px !important;
         width: 90%!important;
 
     }
     .card {
         box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
         width: 100%;
-        border-radius: 10px;
+        border-radius: 5px;
         margin-bottom: 30px;
         font-size: 14px!important;
     }
@@ -391,22 +372,18 @@ li.lista {
     }
     .edit_btn {
         width: 50%!important;
-        font-size: 16px;
         margin-top: 40px;
     }
 
     .edit_btn:hover {
         width: 50%!important;
-        font-size: 16px;
         margin-top: 40px;
     }
     .add_btn {
-        font-size: 16px !important;
         width: 80%!important;
         margin-top: 5%!important;
     }
     .add_btn:hover {
-        font-size: 16px !important;
         width: 80%!important;
         margin-top: 5%!important;
     }
@@ -432,7 +409,7 @@ li.lista {
     }
 
     .edit_btn:hover {
-        width: 50%!important;
+        width: 60%!important;
         font-size: 16px;
         margin-top: 40px;
     }
