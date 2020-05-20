@@ -1,6 +1,6 @@
 <?php
 //require_once("../connections/connection.php");
-
+//MATCH COM A UNIVERSIDADE NO REGISTO
 $link3 = new_db_connection();
 $stmt3 = mysqli_stmt_init($link3);
 $link4 = new_db_connection();

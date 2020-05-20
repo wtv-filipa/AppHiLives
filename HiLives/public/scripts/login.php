@@ -30,7 +30,8 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
                     /***********************************************/
                     //Aqui era onde tínhamos o script do match
                     // feedback de sucesso
-                    header("Location: ../home_people.php");
+                    include "match_uni_login.php";
+                    //header("Location: ../home_people.php");
                     echo "LOGIN DEU";
                 } else {
                     // header("Location: ../login.php?msg=1");
