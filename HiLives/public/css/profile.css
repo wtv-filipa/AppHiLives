@@ -1,10 +1,24 @@
 /* CARD */
+
+
 /*.perfil_info{*/
+
+
 /*   background-image: url("../img/fundo_cinza_g_reg.png");*/
+
+
 /*    background-size: cover;*/
+
+
 /*    margin-top: 0 !important;*/
+
+
 /*    border-radius: 10px;*/
+
+
 /*    width: 100%;*/
+
+
 /*}*/
 
 .card-body {
@@ -61,10 +75,11 @@ img.tagpost_thumb {
     transition: all 1s;
     border-radius: 5px;
 }
+
 .instituicao {
     font-size: 0.9rem;
     font-family: Quicksand, sans-serif !important;
-    margin:0;
+    margin: 0;
 }
 
 .taglabel {
@@ -84,11 +99,9 @@ ul.taglabel li {
 }
 
 
-
 /*BOTÕES*/
 
 .edit_btn {
-    width: 10% !important;
     height: 10%!important;
     color: #2f2f2f!important;
     background-color: #D3D3D3!important;
@@ -103,7 +116,6 @@ ul.taglabel li {
 }
 
 .edit_btn:hover {
-    width: 40% !important;
     height: 10% !important;
     color: #fff !important;
     background-color: #00A5CF !important;
@@ -116,7 +128,6 @@ ul.taglabel li {
     border-color: #D3D3D3 !important;
     font-size: 14px !important;
 }
-
 
 .add_btn {
     width: 70%!important;
@@ -133,7 +144,7 @@ ul.taglabel li {
     border-color: #D3D3D3!important;
     font-family: 'Quicksand' !important;
     font-size: 14px !important;
-    border:none;
+    border: none;
 }
 
 .add_btn:hover {
@@ -162,7 +173,7 @@ ul.taglabel li {
     height: 152px;
 }
 
-.nome_user{
+.nome_user {
     color: #2f2f2f;
     font-size: 18px;
     font-weight: bold;
@@ -265,7 +276,7 @@ ul#notebook_ul {
     padding: 5px 5px 0 5px;
     border-left: none;
     border-right: none;
- display: block;
+    display: block;
 }
 
 li.lista {
@@ -295,16 +306,16 @@ li.lista {
     .edit_btn {
         width: 80%!important;
     }
-    .edit_btn:hover{
+    .edit_btn:hover {
         width: 80%!important;
     }
-    .titulo_videos{
+    .titulo_videos {
         text-align: center;
     }
     .card-body {
         margin-bottom: 20px;
     }
-    .perfil_info{
+    .perfil_info {
         text-align: center!important;
     }
     .centrar_cont {
@@ -312,18 +323,17 @@ li.lista {
     }
     .card {
         box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
-       text-align: center;
+        text-align: center;
     }
     .add_btn {
         width: 80%!important;
         margin-top: 20px!important;
-
     }
     .add_btn:hover {
         width: 80%!important;
         margin-top: 20px!important;
     }
-    .bt_add{
+    .bt_add {
         width: 226px;
     }
 }
@@ -332,13 +342,13 @@ li.lista {
 /* Medium devices (landscape tablets, 768px and up) */
 
 @media only screen and (min-width: 768px) {
-    .perfil_info{
+    .perfil_info {
         text-align: center!important;
     }
     .edit_btn {
         width: 50%!important;
     }
-    .edit_btn:hover{
+    .edit_btn:hover {
         width: 50%!important;
     }
     .add_btn {
@@ -346,7 +356,6 @@ li.lista {
     }
     .add_btn:hover {
         width: 90%!important;
-
     }
     .card {
         box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
@@ -355,10 +364,10 @@ li.lista {
         margin-bottom: 30px;
         font-size: 14px!important;
     }
-    .tamanho_card_tablet{
+    .tamanho_card_tablet {
         padding-bottom: 20%!important;
     }
-    .bt_add{
+    .bt_add {
         font-size: 12px!important;
     }
 }
@@ -367,17 +376,14 @@ li.lista {
 /* Large devices (laptops/desktops, 992px and up) */
 
 @media only screen and (min-width: 992px) {
-    .perfil_info{
+    .perfil_info {
         text-align: left!important;
     }
     .edit_btn {
         width: 50%!important;
-        margin-top: 40px;
     }
-
     .edit_btn:hover {
         width: 50%!important;
-        margin-top: 40px;
     }
     .add_btn {
         width: 80%!important;
@@ -387,10 +393,10 @@ li.lista {
         width: 80%!important;
         margin-top: 5%!important;
     }
-    .titulo_videos{
+    .titulo_videos {
         margin-top: 0%!important;
     }
-    .tamanho_card_tablet{
+    .tamanho_card_tablet {
         padding-bottom: 0!important;
     }
 }
@@ -399,31 +405,26 @@ li.lista {
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 
 @media only screen and (min-width: 1200px) {
-    .perfil_info{
+    .perfil_info {
         text-align: left!important;
     }
     .edit_btn {
         width: 50%!important;
         font-size: 16px;
-        margin-top: 40px;
     }
-
     .edit_btn:hover {
-        width: 60%!important;
+        width: 50%!important;
         font-size: 16px;
-        margin-top: 40px;
     }
     .add_btn {
         font-size: 16px !important;
         width: 80%!important;
-
     }
     .add_btn:hover {
         font-size: 16px !important;
         width: 80%!important;
-
     }
-    .tamanho_card_tablet{
+    .tamanho_card_tablet {
         padding-bottom: 5%!important;
     }
 }

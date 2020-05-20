@@ -49,7 +49,7 @@ if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["data_fund"]
                         /* fetch values */
                         while (mysqli_stmt_fetch($stmt)) {
 //                            echo "id do user: $idUser <br>";
-                            $query2 = "INSERT INTO user_has_region (User_idUser, Region_idRegion) VALUES (?, ?)";
+                            $query2 = "INSERT INTO user_has_region (User_idUser_region, Region_idRegion) VALUES (?, ?)";
                             //parte do insert
                             if (mysqli_stmt_prepare($stmt, $query2)) {
 //                                echo "id do user: $idUser <br>";

@@ -11,15 +11,16 @@ $stmt5 = mysqli_stmt_init($link5);
 
 $query8 = "INSERT INTO young_university (User_young, User_university, Area) VALUES (?, ?, ?)";
 //Esta query vai fazr um select dos users que são universidades e ao mesmo tempo já os relaciona com os jovens que têm a mesma àrea
-$query9 = "SELECT User_idUser, Areas_idAreas, User_type_idUser_type, name_interested_area FROM user_has_areas INNER JOIN users ON user_has_areas.User_idUser = users.idUser INNER JOIN areas ON user_has_areas.Areas_idAreas = areas.idAreas WHERE User_type_idUser_type = 13 AND Areas_idAreas IN (SELECT Areas_idAreas FROM user_has_areas WHERE user_has_areas.User_idUser = ? )";
+/*$query9 = "SELECT User_idUser, Areas_idAreas, User_type_idUser_type, name_interested_area FROM user_has_areas INNER JOIN users ON user_has_areas.User_idUser = users.idUser INNER JOIN areas ON user_has_areas.Areas_idAreas = areas.idAreas WHERE User_type_idUser_type = 13 AND Areas_idAreas IN (SELECT Areas_idAreas FROM user_has_areas WHERE user_has_areas.User_idUser = ? )";*/
+$query9 = "SELECT User_idUser, Areas_idAreas, User_type_idUser_type, name_interested_area, name_region FROM user_has_areas INNER JOIN users ON user_has_areas.User_idUser = users.idUser INNER JOIN areas ON user_has_areas.Areas_idAreas = areas.idAreas INNER JOIN user_has_region ON user_has_region.User_idUser_region = users.idUser INNER JOIN region ON region.idRegion = user_has_region.Region_idRegion WHERE User_type_idUser_type = 13 AND Areas_idAreas IN (SELECT Areas_idAreas FROM user_has_areas WHERE user_has_areas.User_idUser = ? ) AND Region_idRegion IN (SELECT Region_idRegion FROM user_has_region WHERE user_has_region.User_idUser_region= ?)";
 //verificar o que existe na tabela do match
 $query10 = "SELECT User_young, User_university, Area FROM young_university WHERE User_young = ? AND User_university = ? AND Area = ?";
 
 //prepare da query que seleciona o que está em comum
 if (mysqli_stmt_prepare($stmt3, $query9)) {
-    mysqli_stmt_bind_param($stmt3, 'i', $idUser);
+    mysqli_stmt_bind_param($stmt3, 'ii', $idUser, $idUser);
     mysqli_stmt_execute($stmt3);
-    mysqli_stmt_bind_result($stmt3, $User_idUser, $Areas_idAreas, $User_type_idUser_type, $name_interested_area);
+    mysqli_stmt_bind_result($stmt3, $User_idUser, $Areas_idAreas, $User_type_idUser_type, $name_interested_area, $name_region);
     while (mysqli_stmt_fetch($stmt3)) {
         echo "$name_interested_area<br>";
         //Verificar se já existe alguma coisa inserida
