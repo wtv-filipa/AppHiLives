@@ -7,7 +7,7 @@ if (isset($_GET["apaga"])) {
     $stmt = mysqli_stmt_init($link);
 
     $query = "DELETE FROM user_has_areas WHERE User_idUser = ?";
-    $query2 = "DELETE FROM user_has_region WHERE User_idUser = ?";
+    $query2 = "DELETE FROM user_has_region WHERE User_idUser_region = ?";
     $query3="DELETE FROM user_has_personality WHERE User_idUser = ?";
     $query4 = "DELETE FROM users WHERE idUser = ?";
 

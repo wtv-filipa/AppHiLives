@@ -189,7 +189,7 @@ if (isset($_GET["info"])) {
                                 <h5 for='nome'>Regiões de interesse: </h5>
                                 <?php
 
-                                $query3 = "SELECT name_region FROM region INNER JOIN user_has_region ON region.idRegion= user_has_region.Region_idRegion INNER JOIN users ON user_has_region.User_idUser=users.idUser WHERE idUser=?";
+                                $query3 = "SELECT name_region FROM region INNER JOIN user_has_region ON region.idRegion= user_has_region.Region_idRegion INNER JOIN users ON user_has_region.User_idUser_region=users.idUser WHERE idUser=?";
 
                                 if (mysqli_stmt_prepare($stmt, $query3)) {
                                     // Bind variables by type to each parameter
@@ -243,7 +243,7 @@ if (isset($_GET["info"])) {
                                 <h5 for='nome'>Região da empresa: 
                                 <?php
 
-                                $query3 = "SELECT name_region FROM region INNER JOIN user_has_region ON region.idRegion= user_has_region.Region_idRegion INNER JOIN users ON user_has_region.User_idUser=users.idUser WHERE idUser=?";
+                                $query3 = "SELECT name_region FROM region INNER JOIN user_has_region ON region.idRegion= user_has_region.Region_idRegion INNER JOIN users ON user_has_region.User_idUser_region=users.idUser WHERE idUser=?";
 
                                 if (mysqli_stmt_prepare($stmt, $query3)) {
                                     // Bind variables by type to each parameter
@@ -328,7 +328,7 @@ if (isset($_GET["info"])) {
                                 <h5 for='nome'>Região da Universidade: 
                                 <?php
 
-                                $query3 = "SELECT name_region FROM region INNER JOIN user_has_region ON region.idRegion= user_has_region.Region_idRegion INNER JOIN users ON user_has_region.User_idUser=users.idUser WHERE idUser=?";
+                                $query3 = "SELECT name_region FROM region INNER JOIN user_has_region ON region.idRegion= user_has_region.Region_idRegion INNER JOIN users ON user_has_region.User_idUser_region=users.idUser WHERE idUser=?";
 
                                 if (mysqli_stmt_prepare($stmt, $query3)) {
                                     // Bind variables by type to each parameter

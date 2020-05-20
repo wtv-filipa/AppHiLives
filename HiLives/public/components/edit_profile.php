@@ -220,7 +220,7 @@ if (isset($_GET["edit"])) {
                                         $query3 = "SELECT idRegion, name_region, Region_idRegion
                                 FROM region
                                 LEFT JOIN user_has_region
-                                ON  region.idRegion= user_has_region.Region_idRegion AND user_has_region.User_idUser= ?
+                                ON  region.idRegion= user_has_region.Region_idRegion AND user_has_region.User_idUser_region= ?
                                 INNER JOIN country ON region.country_idcountry = country.idcountry
                                 WHERE name_country = 'Portugal'";
 
@@ -263,7 +263,7 @@ if (isset($_GET["edit"])) {
                                         $query3 = "SELECT idRegion, name_region, Region_idRegion
                                 FROM region
                                 LEFT JOIN user_has_region
-                                ON  region.idRegion= user_has_region.Region_idRegion AND user_has_region.User_idUser= ?
+                                ON  region.idRegion= user_has_region.Region_idRegion AND user_has_region.User_idUser_region= ?
                                 INNER JOIN country ON region.country_idcountry = country.idcountry
                                 WHERE name_country = 'Espanha'";
 
@@ -306,7 +306,7 @@ if (isset($_GET["edit"])) {
                                         $query3 = "SELECT idRegion, name_region, Region_idRegion
                                 FROM region
                                 LEFT JOIN user_has_region
-                                ON  region.idRegion= user_has_region.Region_idRegion AND user_has_region.User_idUser= ?
+                                ON  region.idRegion= user_has_region.Region_idRegion AND user_has_region.User_idUser_region= ?
                                 INNER JOIN country ON region.country_idcountry = country.idcountry
                                 WHERE name_country = 'Bélgica'";
 
@@ -349,7 +349,7 @@ if (isset($_GET["edit"])) {
                                         $query3 = "SELECT idRegion, name_region, Region_idRegion
                                 FROM region
                                 LEFT JOIN user_has_region
-                                ON  region.idRegion= user_has_region.Region_idRegion AND user_has_region.User_idUser= ?
+                                ON  region.idRegion= user_has_region.Region_idRegion AND user_has_region.User_idUser_region= ?
                                 INNER JOIN country ON region.country_idcountry = country.idcountry
                                 WHERE name_country = 'Islândia'";
 

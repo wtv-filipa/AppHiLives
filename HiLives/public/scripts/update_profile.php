@@ -37,7 +37,7 @@ if (isset($_GET["id"]) && isset($_POST["nome"])  && isset($_POST["email"]) && is
             if (isset($_POST["regiao"])) {
                 // APAGAR TODOS AS REGIÕES ASSOCIADAS AO USER
                 $query2 = "DELETE FROM user_has_region
-    WHERE User_idUser = ?";
+    WHERE User_idUser_region = ?";
 
                 if (mysqli_stmt_prepare($stmt, $query2)) {
 
@@ -55,7 +55,7 @@ if (isset($_GET["id"]) && isset($_POST["nome"])  && isset($_POST["email"]) && is
                 $stmt = mysqli_stmt_init($link);
 
                 // INSERIR AS NOVAS REGIÕES ESCOLHIDAS
-                $query3 = "INSERT INTO user_has_region (User_idUser, Region_idRegion)
+                $query3 = "INSERT INTO user_has_region (User_idUser_region, Region_idRegion)
                   VALUES (?, ?)";
 
                 if (mysqli_stmt_prepare($stmt, $query3)) {

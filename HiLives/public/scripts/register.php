@@ -36,7 +36,7 @@ if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["data_nasc"]
         //JÁ INSERIU OS USERS
         //AGORA VAI INSERIR REGIÕES
         if (isset($_POST["regiao"])) {
-            $query2 = "INSERT INTO user_has_region (User_idUser, Region_idRegion)
+            $query2 = "INSERT INTO user_has_region (User_idUser_region, Region_idRegion)
                        VALUES (?, ?)";
 
             if (mysqli_stmt_prepare($stmt, $query2)) {
