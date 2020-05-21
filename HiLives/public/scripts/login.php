@@ -33,9 +33,10 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
                     /***********************************************/
                     //Aqui era onde tínhamos o script do match
                     // feedback de sucesso
-                    include "match_uni_login.php";
                     echo "$type_user";
-                    if($type_user == "Jovem") {
+                    if ($type_user == "Jovem") {
+                        //sendo jovem faz o match com as universidades (automaticamente ele já fica feito para as universidades, mas ele foi construído a pensar primeiro no jovem, por isso ao fazer login só pode ser feito quando é jovem)
+                        include "match_uni_login.php";
                         header("Location: ../home_people.php");
                     } else if ($type_user == "Empresa") {
                         header("Location: ../home_companies.php");
@@ -60,7 +61,4 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
         mysqli_stmt_close($stmt);
         mysqli_close($link);
     }
-
 }
-
-?>

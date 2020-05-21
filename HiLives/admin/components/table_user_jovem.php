@@ -8,7 +8,7 @@ if (isset($_SESSION["idUser"])) {
   $link = new_db_connection();
   /* create a prepared statement */
   $stmt = mysqli_stmt_init($link);
-  $query = "SELECT idUser, name_user, email_user, contact_user, birth_date, disability_name, work_xp, profile_img, active
+  $query = "SELECT idUser, name_user, email_user, contact_user, birth_date, info_young, work_xp, profile_img, active
           FROM users 
           INNER JOIN user_type on users.User_type_idUser_type= user_type.idUser_type
           WHERE type_user='Jovem'
@@ -32,7 +32,7 @@ if (isset($_SESSION["idUser"])) {
               <th>Email</th>
               <th>Contacto telefónico</th>
               <th>Data de nascimento</th>
-              <th>Detalhes da DID</th>
+              <th>Experiência de trabalho</th>
               <th>Ações</th>
             </tr>
           </thead>
@@ -42,7 +42,7 @@ if (isset($_SESSION["idUser"])) {
               <th>Email</th>
               <th>Contacto telefónico</th>
               <th>Data de nascimento</th>
-              <th>Detalhes da DID</th>
+              <th>Experiência de trabalho</th>
               <th>Ações</th>
             </tr>
           </tfoot>
@@ -50,7 +50,7 @@ if (isset($_SESSION["idUser"])) {
             <?php
             if (mysqli_stmt_prepare($stmt, $query)) {
               mysqli_stmt_execute($stmt);
-              mysqli_stmt_bind_result($stmt, $id_user_lista, $name_user, $email_user, $contact_user, $birth_date, $disability_name, $work_xp, $profile_img, $active);
+              mysqli_stmt_bind_result($stmt, $id_user_lista, $name_user, $email_user, $contact_user, $birth_date, $info_young, $work_xp, $profile_img, $active);
               while ($row_users = mysqli_fetch_assoc($array_val)) {
             ?>
 
@@ -59,7 +59,7 @@ if (isset($_SESSION["idUser"])) {
                   <td><?= $row_users['email_user']; ?></td>
                   <td><?= $row_users['contact_user']; ?></td>
                   <td><?= $row_users['birth_date']; ?></td>
-                  <td><?= $row_users['disability_name']; ?></td>
+                  <td><?= $row_users['work_xp']; ?></td>
                   <td>
                     <a href="info_users.php?info=<?= $row_users['idUser'] ?>"><i class="fas fa-info-circle"></i></a>
                     <?php
@@ -80,7 +80,7 @@ if (isset($_SESSION["idUser"])) {
             <?php
               //Modal de ativar e desativar
                 include('components/active_modal.php');
-                //Modal de ativar e desativar
+                //Modal de eliminar o utilizador
                 include('components/delete_modal.php');
               }
             }
@@ -93,9 +93,6 @@ if (isset($_SESSION["idUser"])) {
   </div>
 
   </div>
-
-
-
 <?php
 } else {
   include("components/404.php");
