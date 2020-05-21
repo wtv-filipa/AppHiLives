@@ -267,6 +267,7 @@ li.lista {
 }
 
 .clearfix_uni {
+    padding: 0;
     border-radius: 5px;
     background-color: #f2f2f2;
     margin-top: 0;
@@ -342,7 +343,6 @@ img.tagpost_thumb {
 }
 
 ul.taglabel li {
-    padding: 5px 0;
     min-height: 95px;
 }
 

@@ -1,3 +1,7 @@
+<?php
+include "navbar_2.php";
+
+?>
 <div class="w-75 mx-auto list_links">
 <div id='wrapper_title'>
 
