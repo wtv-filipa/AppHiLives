@@ -21,18 +21,20 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
     WHERE User_idUser LIKE ?";
     //query que seleciona as UCS feitas adicionada pelo utilizador
     $query3 = "SELECT idDone_CU, Cu_name, University_name, date_CU
-    FROM done_cu WHERE User_idUser LIKE ? LIMIT 3";
+    FROM done_cu WHERE User_idUser = ? ORDER BY date_CU DESC LIMIT 3";
     //query que seleciona as vagas carregadas pela empresa
     $query4 = "SELECT idVacancies, vacancie_name, Areas_idAreas, name_interested_area
-                    FROM vacancies
-                    INNER JOIN areas ON vacancies.Areas_idAreas = areas.idAreas
-                    WHERE User_publicou LIKE ? LIMIT 3";
+    FROM vacancies
+    INNER JOIN areas ON vacancies.Areas_idAreas = areas.idAreas
+    WHERE User_publicou = ? ORDER BY idVacancies DESC LIMIT 3";
     //selecionar a região
     $query5 = "SELECT name_region FROM region INNER JOIN user_has_region ON region.idRegion=user_has_region.Region_idRegion WHERE User_idUser_region = ?";
     //selecionar a personalidade
     $query6 = "SELECT name_perso FROM personality INNER JOIN user_has_personality ON personality.idPersonality=user_has_personality.Personality_idPersonality WHERE User_idUser = ?";
-    //query que seleciona o vídeo
+    //query que seleciona os vídeos do jovem
     $query7 = "SELECT idExperiences, title_exp, description, date, content_name FROM experiences INNER JOIN content ON experiences.Content_idContent=content.idContent WHERE User_idUser = ?";
+    //query que seleciona os vídeos da empresa 
+    $query8 = "SELECT idVacancies, vacancie_name, Content_idContent, content_name FROM vacancies INNER JOIN content ON vacancies.Content_idContent=content.idContent WHERE User_publicou = ?";
     if (mysqli_stmt_prepare($stmt, $query)) {
 
         mysqli_stmt_bind_param($stmt, 'i', $idUser);
@@ -364,42 +366,42 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                 <div class="card-header estudo">
                                     <h5>Contactos</h5>
                                 </div>
-                                <div class="card-body altura" style="padding-top: 20px !important;>
-                                <blockquote class=" blockquote mb-0 mt-4">
-                                    <ul id="notebook_ul">
-                                        <li class="lista">
-                                            <i class="fas fa-at mr-2"></i><b class="mr-2">Email:</b><?= $email_user ?>
-                                        </li>
-                                        <li class="lista">
-                                            <i class="fas fa-phone-alt mr-2"></i><b class="mr-2">Telefone:</b><?= $contact_user ?>
-                                        </li>
-
-                                        <?php
-                                        if (isset($website_ue)) {
-                                        ?>
-
+                                <div class="card-body altura" style="padding-top: 20px !important;">
+                                    <blockquote class=" blockquote mb-0 mt-4">
+                                        <ul id="notebook_ul">
                                             <li class="lista">
-                                                <i class="fas fa-globe mr-2"></i><b class="mr-2">Website:</b><?= $website_ue ?>
+                                                <i class="fas fa-at mr-2"></i><b class="mr-2">Email:</b><?= $email_user ?>
                                             </li>
-                                        <?php
-                                        }
-                                        if (isset($facebook_ue)) {
-                                        ?>
                                             <li class="lista">
-                                                <i class="fab fa-facebook mr-2"></i><b class="mr-2">Facebook:</b><?= $facebook_ue ?>
-                                            </li>
-                                        <?php
-                                        }
-                                        if (isset($instagram_ue)) {
-                                        ?>
-                                            <li class="lista">
-                                                <i class="fab fa-instagram mr-2"></i><b class="mr-2">Instagram:</b> <?= $instagram_ue ?>
+                                                <i class="fas fa-phone-alt mr-2"></i><b class="mr-2">Telefone:</b><?= $contact_user ?>
                                             </li>
 
-                                        <?php
-                                        }
-                                        ?>
-                                    </ul>
+                                            <?php
+                                            if (isset($website_ue)) {
+                                            ?>
+
+                                                <li class="lista">
+                                                    <i class="fas fa-globe mr-2"></i><b class="mr-2">Website:</b><?= $website_ue ?>
+                                                </li>
+                                            <?php
+                                            }
+                                            if (isset($facebook_ue)) {
+                                            ?>
+                                                <li class="lista">
+                                                    <i class="fab fa-facebook mr-2"></i><b class="mr-2">Facebook:</b><?= $facebook_ue ?>
+                                                </li>
+                                            <?php
+                                            }
+                                            if (isset($instagram_ue)) {
+                                            ?>
+                                                <li class="lista">
+                                                    <i class="fab fa-instagram mr-2"></i><b class="mr-2">Instagram:</b> <?= $instagram_ue ?>
+                                                </li>
+
+                                            <?php
+                                            }
+                                            ?>
+                                        </ul>
                                     </blockquote>
                                 </div>
                             </div>
@@ -420,25 +422,28 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                         <div class="card mt-4">
                             <div class="row m-3">
                                 <?php
-                               /* $array_val = mysqli_query($link, $query7);
 
                                 if (mysqli_stmt_prepare($stmt, $query7)) {
-                                     mysqli_stmt_bind_param($stmt, 'i', $idUser);
+
+                                    mysqli_stmt_bind_param($stmt, 'i', $idUser);
                                     mysqli_stmt_execute($stmt);
                                     mysqli_stmt_bind_result($stmt, $idExperiences, $title_exp, $description, $date, $content_name);
-                                    while ($row_vid = mysqli_fetch_assoc($array_val)) { */
+                                    while (mysqli_stmt_fetch($stmt)) {
                                 ?>
+
                                         <div class="col-md-3 mt-3 div_videos">
-                                            <video class="img-fluid z-depth-1 p-0 m-0 tam_video" src="" alt="video" data-toggle="modal" data-target="#modal1" style="background-color: #D2D2D2;">
+                                            <a href="#" data-toggle="modal" data-target="#modalvideo<?= $idExperiences ?>">
+                                                <video class="img-fluid z-depth-1 p-0 m-0 tam_video" src="../admin/uploads/xp/<?= $content_name ?>" alt="video" data-toggle="modal" data-target="#modal1" style="background-color: #2f2f2f;">
+                                            </a>
                                         </div>
-                                <?
-                                   /* }
-                                }*/
-                                ?>
-                                <!--Se não for igual vai esconder determinados elementos que pessoas que não são o próprio user não podem ver-->
-                                <?php
+
+                                        <!--Se não for igual vai esconder determinados elementos que pessoas que não são o próprio user não podem ver-->
+                                    <?php
+                                        include "modal_vid.php";
+                                    }
+                                }
                                 if ($idUser == $id_navegar) {
-                                ?>
+                                    ?>
                                     <div class="col-md-3 mt-3 ">
                                         <a href="upload_xp.php">
                                             <button type="" class="btn bt_add" style="background-color: #D2D2D2;">Adicionar uma nova
@@ -459,31 +464,28 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                         <h3 class="mb-4 titulo_videos">As minhas experiências</h3>
                         <div class="card mt-4">
                             <div class="row m-3 centrar_cont">
-                                <div class="col-md-3 mt-3 div_videos">
-                                    <video class="img-fluid z-depth-1 p-0 m-0 tam_video" src="" alt="video" data-toggle="modal" data-target="#modal1" style="background-color: #D2D2D2;">
-                                </div>
-                                <div class="col-md-3 mt-3 div_videos">
-                                    <video class="img-fluid z-depth-1 p-0 m-0 tam_video" src="" alt="video" data-toggle="modal" data-target="#modal1" style="background-color: #D2D2D2;">
-                                </div>
-                                <div class="col-md-3 mt-3 div_videos">
-                                    <video class="img-fluid z-depth-1 p-0 m-0 tam_video" src="" alt="video" data-toggle="modal" data-target="#modal1" style="background-color: #D2D2D2;">
-                                </div>
-                                <div class="col-md-3 mt-3 div_videos">
-                                    <video class="img-fluid z-depth-1 p-0 m-0 tam_video" src="" alt="video" data-toggle="modal" data-target="#modal1" style="background-color: #D2D2D2;">
-                                </div>
-                                <div class="col-md-3 mt-3 div_videos">
-                                    <video class="img-fluid z-depth-1 p-0 m-0 tam_video" src="" alt="video" data-toggle="modal" data-target="#modal1" style="background-color: #D2D2D2;">
-                                </div>
-                                <div class="col-md-3 mt-3 div_videos">
-                                    <video class="img-fluid z-depth-1 p-0 m-0 tam_video" src="" alt="video" data-toggle="modal" data-target="#modal1" style="background-color: #D2D2D2;">
-                                </div>
-                                <div class="col-md-3 mt-3 div_videos">
-                                    <video class="img-fluid z-depth-1 p-0 m-0 tam_video" src="" alt="video" data-toggle="modal" data-target="#modal1" style="background-color: #D2D2D2;">
-                                </div>
-                                <!--Se não for igual vai esconder determinados elementos que pessoas que não são o próprio user não podem ver-->
                                 <?php
-                                if ($idUser == $id_navegar) {
+
+                                if (mysqli_stmt_prepare($stmt, $query8)) {
+
+                                    mysqli_stmt_bind_param($stmt, 'i', $idUser);
+                                    mysqli_stmt_execute($stmt);
+                                    mysqli_stmt_bind_result($stmt, $idVacancies, $vacancie_name, $Content_idContent, $content_name);
+                                    while (mysqli_stmt_fetch($stmt)) {
                                 ?>
+                                        <div class="col-md-3 mt-3 div_videos">
+                                            <a href="#" data-toggle="modal" data-target="#modalvideo<?= $idVacancies ?>">
+                                                <video class="img-fluid z-depth-1 p-0 m-0 tam_video" src="../admin/uploads/vid_vac/<?= $content_name ?>" alt="video" data-toggle="modal" data-target="#modal1" style="background-color: #2f2f2f;">
+                                            </a>
+                                        </div>
+
+                                        <!--Se não for igual vai esconder determinados elementos que pessoas que não são o próprio user não podem ver-->
+                                    <?php
+                                        include "modal_vid.php";
+                                    }
+                                }
+                                if ($idUser == $id_navegar) {
+                                    ?>
                                     <div class="col-md-3 mt-3 ">
                                         <a href="upload_xp.php">
                                             <button type="" class="btn bt_add" style="background-color: #D2D2D2;">Adicionar uma nova
