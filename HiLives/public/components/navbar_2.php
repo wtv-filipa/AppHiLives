@@ -26,7 +26,7 @@ if (isset($_SESSION["idUser"])) {
                                 if ($type_user == "Jovem") {
                                     echo "<h5 class='mx-auto titulo'>Quero estudar</h5>";
                                 } else if ($type_user == "Empresa") {
-                                    echo "<h5 class='mx-auto titulo'>Adicionar vaga</h5>";
+                                    echo "<h5 class='mx-auto titulo'>Vagas</h5>";
                                 } else {
                                     echo "<h5 class='mx-auto titulo'>OUTRO TITULO</h5>";
                                 }
@@ -41,6 +41,7 @@ if (isset($_SESSION["idUser"])) {
                                 <?php
                                 } else if ($type_user == "Empresa") {
                                 ?>
+                                    <li> <a class="btn" style="width:100%; font-size: 0.8rem;" href="all_vacancies_comp.php">Ver todas as vagas</a></li>
                                     <li> <a class="btn" style="width:100%; font-size: 0.8rem;" href="upload_vac.php">Criar uma nova vaga</a></li>
                                 <?php
                                 } else {
