@@ -136,12 +136,16 @@ if (isset($_GET["id"]) && isset($_POST["nome"])  && isset($_POST["email"]) && is
         echo "Error: " . mysqli_stmt_error($stmt);
     }
     if (isset($_POST["edit"])) {
-        $idUser=$_POST["edit"];
+        $idUser = $_POST["edit"];
         echo $idUser;
-       /* header("Location: ../editar_conta.php?edit=".$nickname."&msg=0");*/
-       header("Location: ../edit_profile.php?edit=$idUser");
+        /* header("Location: ../editar_conta.php?edit=".$nickname."&msg=0");*/
+        header("Location: ../edit_profile.php?edit=$idUser");
         echo "sucesso";
     }
     /* close connection */
     //mysqli_close($link);
+} else if (isset($_GET["id_uni_emp"]) && isset($_POST["nome"])  && isset($_POST["email"])) {
+    echo "estou a editar uma empresa/universidade";
+} else {
+    echo "faltam campos obrigatórios";
 }

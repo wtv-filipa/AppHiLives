@@ -6,7 +6,7 @@ $link = new_db_connection();
 /* create a prepared statement */
 $stmt = mysqli_stmt_init($link);
 //DIRETÓRIO PARA ONDE VAI O VÍDEO
-$target_dir = "../../admin/uploads/xp/";
+$target_dir = "../../admin/uploads/vid_vac/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $vidFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
