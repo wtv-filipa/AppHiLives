@@ -505,7 +505,7 @@ if (isset($_GET["edit"])) {
                                     <!--terceiro input-DATA DE NASCIMENTO-->
                                     <div class="form-group text-left">
                                         <label class="negrito mt-3" for="born">Data de fundação</label>
-                                        <input type="date" id="born" name="data_nasc" placeholder="data de nascimento" class="form-control" value="<?= $birth_date ?>">
+                                        <input type="date" id="born" name="data_fund" placeholder="data de nascimento" class="form-control" value="<?= $birth_date ?>">
                                     </div>
                                     <!----------------------->
                                     <!--quarto input- TELEMÓVEL-->
@@ -515,219 +515,241 @@ if (isset($_GET["edit"])) {
                                     </div>
                                     <!----------------------->
                                     <?php
-                                    if ($type_user=="Universidade"){
+                                    if ($type_user == "Universidade") {
                                     ?>
-                                    <!--oitavo input-AREAS-->
-                                    <div class="form-group text-left">
-                                        <label class="negrito mt-3" for="area">Áreas de disponíveis <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
-                                        <div class="form-check">
-                                            <?php
-                                            $query2 = "SELECT idAreas, name_interested_area, Areas_idAreas
+                                        <!--oitavo input-AREAS-->
+                                        <div class="form-group text-left">
+                                            <label class="negrito mt-3" for="area">Áreas de disponíveis <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                            <div class="form-check">
+                                                <?php
+                                                $query2 = "SELECT idAreas, name_interested_area, Areas_idAreas
                                 FROM areas
                                 LEFT JOIN user_has_areas
                                 ON  areas.idAreas= user_has_areas.Areas_idAreas AND user_has_areas.User_idUser= ?";
 
-                                            if (mysqli_stmt_prepare($stmt, $query2)) {
-                                                // Bind variables by type to each parameter
-                                                mysqli_stmt_bind_param($stmt, 'i', $idUser);
-                                                /* execute the prepared statement */
-                                                if (mysqli_stmt_execute($stmt)) {
-                                                    /* bind result variables */
-                                                    mysqli_stmt_bind_result($stmt, $idAreas, $name_interested_area, $Areas_idAreas);
+                                                if (mysqli_stmt_prepare($stmt, $query2)) {
+                                                    // Bind variables by type to each parameter
+                                                    mysqli_stmt_bind_param($stmt, 'i', $idUser);
+                                                    /* execute the prepared statement */
+                                                    if (mysqli_stmt_execute($stmt)) {
+                                                        /* bind result variables */
+                                                        mysqli_stmt_bind_result($stmt, $idAreas, $name_interested_area, $Areas_idAreas);
 
-                                                    /* fetch values */
-                                                    while (mysqli_stmt_fetch($stmt)) {
-                                                        $checked = "";
-                                                        if ($Areas_idAreas != null) {
-                                                            $checked = "checked";
+                                                        /* fetch values */
+                                                        while (mysqli_stmt_fetch($stmt)) {
+                                                            $checked = "";
+                                                            if ($Areas_idAreas != null) {
+                                                                $checked = "checked";
+                                                            }
+
+                                                            echo "\n\t\t";
+                                                            echo "<label class='form-check-label col-xs-12 col-md-6 label-margin'>";
+                                                            echo "<input type='checkbox' class='form-check-input' name='area[]' value='$idAreas' $checked>$name_interested_area<br>";
+                                                            echo "</label>";
                                                         }
-
-                                                        echo "\n\t\t";
-                                                        echo "<label class='form-check-label col-xs-12 col-md-6 label-margin'>";
-                                                        echo "<input type='checkbox' class='form-check-input' name='area[]' value='$idAreas' $checked>$name_interested_area<br>";
-                                                        echo "</label>";
+                                                    } else {
+                                                        echo "Error: " . mysqli_stmt_error($stmt);
                                                     }
+                                                    /* close statement */
+                                                    //mysqli_stmt_close($stmt);
                                                 } else {
-                                                    echo "Error: " . mysqli_stmt_error($stmt);
+                                                    echo "Error: " . mysqli_error($link);
                                                 }
-                                                /* close statement */
-                                                //mysqli_stmt_close($stmt);
-                                            } else {
-                                                echo "Error: " . mysqli_error($link);
-                                            }
-                                            ?>
+                                                ?>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <!----------------------->
+                                        <!----------------------->
                                     <?php
                                     }
                                     ?>
                                     <!------------PAÍS------------>
-                                    <div class="form-group">
-                                                <label class="negrito mt-3" for="pais">Seleciona o país da empresa:
-                                                    <span class="asterisco">*</span></label>
-                                                <select class="form-control" id="pais">
-                                                    <option value="pt">Portugal</option>
-                                                    <option value="es">Espanha</option>
-                                                    <option value="be">Bélgica</option>
-                                                    <option value="ic">Islândia</option>
-                                                </select>
-                                            </div>
-                                            <!------------REGIÕES DE PORTUGAL------------>
-                                            <div class="form-group formulario" id="pt">
-                                                <div class="form-group text-left">
-                                                    <label class="negrito mt-3" for="regiao_pt">Região da Empresa
-                                                        <span class="asterisco">*</span>
-                                                    </label>
-                                                    <select class="form-control" id="regiao_pt" name="regiao">
-                                                        <option selected disabled>Seleciona uma opção</option>
-                                                        <?php
-                                                        $query2 = "SELECT idRegion, name_region FROM region 
+                                    <div class="form-group text-left">
+                                        <label class="negrito mt-3" for="pais">Seleciona o país da empresa:
+                                            <span class="asterisco">*</span></label>
+                                        <select class="form-control" id="pais">
+                                            <option value="pt">Portugal</option>
+                                            <option value="es">Espanha</option>
+                                            <option value="be">Bélgica</option>
+                                            <option value="ic">Islândia</option>
+                                        </select>
+                                    </div>
+                                    <!------------REGIÕES DE PORTUGAL------------>
+                                    <div class="form-group formulario" id="pt">
+                                        <div class="form-group text-left">
+                                            <label class="negrito mt-3" for="regiao_pt">Região da Empresa
+                                                <span class="asterisco">*</span>
+                                            </label>
+                                            <select class="form-control" id="regiao_pt" name="regiao">
+                                                <option selected disabled>Seleciona uma opção</option>
+                                                <?php
+                                                $query2 = "SELECT idRegion, name_region, Region_idRegion FROM region 
                                                                     INNER JOIN country ON region.country_idcountry = country.idcountry
+                                                                    LEFT JOIN user_has_region ON  region.idRegion= user_has_region.Region_idRegion AND user_has_region.User_idUser_region= ?
                                                                     WHERE name_country = 'Portugal'";
 
-                                                        if (mysqli_stmt_prepare($stmt, $query2)) {
+                                                if (mysqli_stmt_prepare($stmt, $query2)) {
+                                                    // Bind variables by type to each parameter
+                                                    mysqli_stmt_bind_param($stmt, 'i', $idUser);
+                                                    /* execute the prepared statement */
+                                                    if (mysqli_stmt_execute($stmt)) {
+                                                        /* bind result variables */
+                                                        mysqli_stmt_bind_result($stmt, $idRegion, $name_region, $Region_idRegion);
 
-                                                            /* execute the prepared statement */
-                                                            if (mysqli_stmt_execute($stmt)) {
-                                                                /* bind result variables */
-                                                                mysqli_stmt_bind_result($stmt, $idRegion, $name_region);
-
-                                                                /* fetch values */
-                                                                while (mysqli_stmt_fetch($stmt)) {
-
-                                                                    echo "\n\t\t<option value=\"$idRegion\">$name_region</option>";
-                                                                }
+                                                        /* fetch values */
+                                                        while (mysqli_stmt_fetch($stmt)) {
+                                                            if ($Region_idRegion == $idRegion) {
+                                                                $selected = "selected";
                                                             } else {
-                                                                echo "Error: " . mysqli_stmt_error($stmt);
+                                                                $selected = "";
                                                             }
-                                                            /* close statement */
-                                                            //mysqli_stmt_close($stmt);
-                                                        } else {
-                                                            echo "Error: " . mysqli_error($link);
+                                                            echo "\n\t\t<option value=\"$idRegion\" $selected>$name_region</option>";
                                                         }
-                                                        ?>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <!------------REGIÕES DE ESPANHA------------>
-                                            <div class="form-group formulario" style="display:none;" id="es">
-                                                <div class="form-group text-left">
-                                                    <label class="negrito mt-3" for="regiao_es">Região da Empresa
-                                                        <span class="asterisco">*</span>
-                                                    </label>
-                                                    <select class="form-control" id="regiao_es" name="regiao">
-                                                        <option selected disabled>Seleciona uma opção</option>
-                                                        <?php
-                                                        $query2 = "SELECT idRegion, name_region FROM region 
-                                                                    INNER JOIN country ON region.country_idcountry = country.idcountry
+                                                    } else {
+                                                        echo "Error: " . mysqli_stmt_error($stmt);
+                                                    }
+                                                    /* close statement */
+                                                    //mysqli_stmt_close($stmt);
+                                                } else {
+                                                    echo "Error: " . mysqli_error($link);
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!------------REGIÕES DE ESPANHA------------>
+                                    <div class="form-group formulario" style="display:none;" id="es">
+                                        <div class="form-group text-left">
+                                            <label class="negrito mt-3" for="regiao_es">Região da Empresa
+                                                <span class="asterisco">*</span>
+                                            </label>
+                                            <select class="form-control" id="regiao_es" name="regiao">
+                                                <option selected disabled>Seleciona uma opção</option>
+                                                <?php
+                                                $query2 = "SELECT idRegion, name_region, Region_idRegion FROM region 
+                                                INNER JOIN country ON region.country_idcountry = country.idcountry
+                                                LEFT JOIN user_has_region ON  region.idRegion= user_has_region.Region_idRegion AND user_has_region.User_idUser_region= ?
                                                                     WHERE name_country = 'Espanha'";
 
-                                                        if (mysqli_stmt_prepare($stmt, $query2)) {
+                                                if (mysqli_stmt_prepare($stmt, $query2)) {
 
-                                                            /* execute the prepared statement */
-                                                            if (mysqli_stmt_execute($stmt)) {
-                                                                /* bind result variables */
-                                                                mysqli_stmt_bind_result($stmt, $idRegion, $name_region);
+                                                    /* execute the prepared statement */
+                                                    if (mysqli_stmt_execute($stmt)) {
+                                                        /* bind result variables */
+                                                        mysqli_stmt_bind_result($stmt, $idRegion, $name_region, $Region_idRegion);
 
-                                                                /* fetch values */
-                                                                while (mysqli_stmt_fetch($stmt)) {
-
-                                                                    echo "\n\t\t<option value=\"$idRegion\">$name_region</option>";
-                                                                }
+                                                        /* fetch values */
+                                                        while (mysqli_stmt_fetch($stmt)) {
+                                                            if ($Region_idRegion == $idRegion) {
+                                                                $selected = "selected";
                                                             } else {
-                                                                echo "Error: " . mysqli_stmt_error($stmt);
+                                                                $selected = "";
                                                             }
-                                                            /* close statement */
-                                                            //mysqli_stmt_close($stmt);
-                                                        } else {
-                                                            echo "Error: " . mysqli_error($link);
+
+                                                            echo "\n\t\t<option value=\"$idRegion\" $selected>$name_region</option>";
                                                         }
-                                                        ?>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <!------------REGIÕES DE BÉLGICA------------>
-                                            <div class="form-group formulario" style="display:none;" id="be">
-                                                <div class="form-group text-left">
-                                                    <label class="negrito mt-3" for="regiao_be">Região da Empresa
-                                                        <span class="asterisco">*</span>
-                                                    </label>
-                                                    <select class="form-control" id="regiao_be" name="regiao">
-                                                        <option selected disabled>Seleciona uma opção</option>
-                                                        <?php
-                                                        $query2 = "SELECT idRegion, name_region FROM region 
-                                                                    INNER JOIN country ON region.country_idcountry = country.idcountry
+                                                    } else {
+                                                        echo "Error: " . mysqli_stmt_error($stmt);
+                                                    }
+                                                    /* close statement */
+                                                    //mysqli_stmt_close($stmt);
+                                                } else {
+                                                    echo "Error: " . mysqli_error($link);
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!------------REGIÕES DE BÉLGICA------------>
+                                    <div class="form-group formulario" style="display:none;" id="be">
+                                        <div class="form-group text-left">
+                                            <label class="negrito mt-3" for="regiao_be">Região da Empresa
+                                                <span class="asterisco">*</span>
+                                            </label>
+                                            <select class="form-control" id="regiao_be" name="regiao">
+                                                <option selected disabled>Seleciona uma opção</option>
+                                                <?php
+                                                $query2 = "SELECT idRegion, name_region, Region_idRegion FROM region 
+                                                INNER JOIN country ON region.country_idcountry = country.idcountry
+                                                LEFT JOIN user_has_region ON  region.idRegion= user_has_region.Region_idRegion AND user_has_region.User_idUser_region= ?
                                                                     WHERE name_country = 'Bélgica'";
 
-                                                        if (mysqli_stmt_prepare($stmt, $query2)) {
+                                                if (mysqli_stmt_prepare($stmt, $query2)) {
 
-                                                            /* execute the prepared statement */
-                                                            if (mysqli_stmt_execute($stmt)) {
-                                                                /* bind result variables */
-                                                                mysqli_stmt_bind_result($stmt, $idRegion, $name_region);
+                                                    /* execute the prepared statement */
+                                                    if (mysqli_stmt_execute($stmt)) {
+                                                        /* bind result variables */
+                                                        mysqli_stmt_bind_result($stmt, $idRegion, $name_region, $Region_idRegion);
 
-                                                                /* fetch values */
-                                                                while (mysqli_stmt_fetch($stmt)) {
-
-                                                                    echo "\n\t\t<option value=\"$idRegion\">$name_region</option>";
-                                                                }
+                                                        /* fetch values */
+                                                        while (mysqli_stmt_fetch($stmt)) {
+                                                            if ($Region_idRegion == $idRegion) {
+                                                                $selected = "selected";
                                                             } else {
-                                                                echo "Error: " . mysqli_stmt_error($stmt);
+                                                                $selected = "";
                                                             }
-                                                            /* close statement */
-                                                            //mysqli_stmt_close($stmt);
-                                                        } else {
-                                                            echo "Error: " . mysqli_error($link);
+                                                            echo "\n\t\t<option value=\"$idRegion\" $selected>$name_region</option>";
                                                         }
-                                                        ?>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <!------------REGIÕES DE ISLÂNDIA------------>
-                                            <div class="form-group formulario" style="display:none;" id="ic">
-                                                <div class="form-group text-left">
-                                                    <label class="negrito mt-3" for="regiao_ic">Região da Empresa
-                                                        <span class="asterisco">*</span>
-                                                    </label>
-                                                    <select class="form-control" id="regiao_ic" name="regiao">
-                                                        <option selected disabled>Seleciona uma opção</option>
-                                                        <?php
-                                                        $query2 = "SELECT idRegion, name_region FROM region 
-                                                                    INNER JOIN country ON region.country_idcountry = country.idcountry
+                                                    } else {
+                                                        echo "Error: " . mysqli_stmt_error($stmt);
+                                                    }
+                                                    /* close statement */
+                                                    //mysqli_stmt_close($stmt);
+                                                } else {
+                                                    echo "Error: " . mysqli_error($link);
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!------------REGIÕES DE ISLÂNDIA------------>
+                                    <div class="form-group formulario" style="display:none;" id="ic">
+                                        <div class="form-group text-left">
+                                            <label class="negrito mt-3" for="regiao_ic">Região da Empresa
+                                                <span class="asterisco">*</span>
+                                            </label>
+                                            <select class="form-control" id="regiao_ic" name="regiao">
+                                                <option selected disabled>Seleciona uma opção</option>
+                                                <?php
+                                                $query2 = "SELECT idRegion, name_region, Region_idRegion FROM region 
+                                                INNER JOIN country ON region.country_idcountry = country.idcountry
+                                                LEFT JOIN user_has_region ON  region.idRegion= user_has_region.Region_idRegion AND user_has_region.User_idUser_region= ?
                                                                     WHERE name_country = 'Islândia'";
 
-                                                        if (mysqli_stmt_prepare($stmt, $query2)) {
+                                                if (mysqli_stmt_prepare($stmt, $query2)) {
 
-                                                            /* execute the prepared statement */
-                                                            if (mysqli_stmt_execute($stmt)) {
-                                                                /* bind result variables */
-                                                                mysqli_stmt_bind_result($stmt, $idRegion, $name_region);
+                                                    /* execute the prepared statement */
+                                                    if (mysqli_stmt_execute($stmt)) {
+                                                        /* bind result variables */
+                                                        mysqli_stmt_bind_result($stmt, $idRegion, $name_region, $Region_idRegion);
 
-                                                                /* fetch values */
-                                                                while (mysqli_stmt_fetch($stmt)) {
-
-                                                                    echo "\n\t\t<option value=\"$idRegion\">$name_region</option>";
-                                                                }
+                                                        /* fetch values */
+                                                        while (mysqli_stmt_fetch($stmt)) {
+                                                            if ($Region_idRegion == $idRegion) {
+                                                                $selected = "selected";
                                                             } else {
-                                                                echo "Error: " . mysqli_stmt_error($stmt);
+                                                                $selected = "";
                                                             }
-                                                            /* close statement */
-                                                            //mysqli_stmt_close($stmt);
-                                                        } else {
-                                                            echo "Error: " . mysqli_error($link);
+                                                            echo "\n\t\t<option value=\"$idRegion\" $selected>$name_region</option>";
                                                         }
-                                                        ?>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                     <!------------WEBSITE------------>
-                                     <div class="form-group text-left">
+                                                    } else {
+                                                        echo "Error: " . mysqli_stmt_error($stmt);
+                                                    }
+                                                    /* close statement */
+                                                    //mysqli_stmt_close($stmt);
+                                                } else {
+                                                    echo "Error: " . mysqli_error($link);
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!------------WEBSITE------------>
+                                    <div class="form-group text-left">
                                         <label class="negrito mt-3" for="site">Website <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
                                         <input type="text" class="form-control cinza" id="site" name="site" placeholder="Insira aqui o website" value="<?= $website_ue ?>">
                                     </div>
-                                      <!------------FACEBOOK------------>
-                                      <div class="form-group text-left">
+                                    <!------------FACEBOOK------------>
+                                    <div class="form-group text-left">
                                         <label class="negrito mt-3" for="face">Facebook</label>
                                         <div class="p-0 m-0">
                                             <input type="text" class="form-control cinza" id="face" name="face" placeholder="Insira aqui o facebook" value="<?= $facebook_ue ?>">
@@ -740,18 +762,18 @@ if (isset($_GET["edit"])) {
                                             <input type="text" class="form-control cinza" id="insta" name="insta" placeholder="Insira aqui o instagram" value="<?= $instagram_ue ?>">
                                         </div>
                                     </div>
-                                     <!------------DESCRIÇÃO------------>
-                                     <div class="form-group text-left">
+                                    <!------------DESCRIÇÃO------------>
+                                    <div class="form-group text-left">
                                         <label class="negrito mt-3" for="desc">Descrição <span class="asterisco">*</span></label>
-                                        <textarea class="form-control " id="exp_t" rows="7" name="desc" placeholder="Escreva aqui uma descrição"> <?= $description_ue ?></textarea>
+                                        <textarea class="form-control " id="desc" rows="7" name="desc" placeholder="Escreva aqui uma descrição"> <?= $description_ue ?></textarea>
                                     </div>
                                     <?php
                                     if ($type_user == "Universidade") {
                                     ?>
                                         <!------------HISTÓRIA------------>
                                         <div class="form-group text-left">
-                                            <label class="negrito mt-3" for="desc">História <span class="asterisco">*</span></label>
-                                            <textarea class="form-control " id="exp_t" rows="9" name="desc" placeholder="Escreva aqui a história da Universidade"> <?= $history_ue ?></textarea>
+                                            <label class="negrito mt-3" for="hist">História <span class="asterisco">*</span></label>
+                                            <textarea class="form-control " id="hist" rows="9" name="hist" placeholder="Escreva aqui a história da Universidade"> <?= $history_ue ?></textarea>
                                         </div>
                                     <?php
                                     }
