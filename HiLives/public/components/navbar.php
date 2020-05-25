@@ -264,7 +264,7 @@ $stmt = mysqli_stmt_init($link);
                                 <button class="nav__btn2">
                                     <!--<i class="fa fa-star-o mr-2"></i>-->Sobre mim</button>
                             </a>
-                            <a href="edit_profile.php">
+                            <a href="favourites.php">
                                 <button class="nav__btn2">
                                     <!--<i class="fa fa-star-o mr-2"></i>-->Favoritos</button>
                             </a>
