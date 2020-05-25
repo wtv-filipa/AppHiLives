@@ -60,7 +60,9 @@ if (isset($_SESSION["idUser"])) {
                     <a href="info_vac.php?info=<?= $row_vac['idVacancies'] ?>">
                       <i class="fas fa-info-circle"></i>
                     </a>
+                    <a href="#" data-toggle="modal" data-target="#deletevac<?= $row_vac['idVacancies'] ?>">
                     <i class="fas fa-trash"></i>
+                    </a>
                   </td>
                 </tr>
             <?php

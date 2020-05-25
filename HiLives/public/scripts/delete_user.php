@@ -8,7 +8,7 @@ if (isset($_GET["apaga"])) {
 
     $query = "DELETE FROM user_has_areas WHERE User_idUser = ?";
     $query2 = "DELETE FROM user_has_region WHERE User_idUser_region = ?";
-    $query3="DELETE FROM user_has_personality WHERE User_idUser = ?";
+    $query3 = "DELETE FROM user_has_personality WHERE User_idUser = ?";
     $query4 = "DELETE FROM users WHERE idUser = ?";
     $query5 = "DELETE FROM young_university WHERE User_young = ?";
     //verificar o que existe na tabela do match

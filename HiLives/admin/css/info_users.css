@@ -91,3 +91,11 @@
         background-size: cover;
     }
     /*form*/
+    
+    .avatar_modal {
+        vertical-align: middle;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        margin-top: 4px;
+    }
