@@ -12,6 +12,21 @@
 
 /*fav icon*/
 
+.btn_fav {
+
+    position: absolute;
+    top: 0;
+   right: 52%;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    color: #2F2F2F;
+
+}
+
 
 
 /*cards highlights*/
@@ -512,12 +527,29 @@ ul.taglabel li {
         padding: 0;
         transition: all 1s;
     }
+
     .btn_destaques {
         width: 30%;
     }
     .btn_cards {
         width: 30%;
     }
+
+    .btn_fav {
+
+        position: absolute;
+        top: 0;
+        right: 0%;
+        background-color: Transparent;
+        background-repeat:no-repeat;
+        border: none;
+        cursor:pointer;
+        overflow: hidden;
+        outline:none;
+        color: #2F2F2F;
+
+    }
+
     /*.home_menu{*/
     /*    text-decoration: none !important;*/
     /*    width: 100% !important;*/
