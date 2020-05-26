@@ -18,13 +18,20 @@
                         <ul class='taglabel'>
 
                             <li class='clearfix_companies'>
+
                                 <a href=""><img alt="Imagem da FNAC2" title="" class="tagpost_thumb"
                                                 src="img/fnac.jpg"></a>
+
                                 <p class="mb-0 link_info"><i class="fa fa-briefcase mr-1"
                                                              aria-hidden="true"></i>Trabalhar
                                 </p>
+
                                 <h4 class="mb-0 link_title">FNAC</h4>
                                 <h5 class="mb-0 link_subtitle">Recursos Humanos</h5>
+<!--                                <button class="btn btn-danger rounded-circle shadow"><i class="fa fa-heart" aria-hidden="true"></i>-->
+<!--                                </button>-->
+                               <button class="btn rounded-circle btn_fav"><i class="fa fa-heart" aria-hidden="true"></i>
+                                </button>
 
                             </li>
                             <li class='clearfix_companies'>
