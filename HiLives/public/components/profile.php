@@ -55,8 +55,6 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                         } else {
                         ?>
                             <img class="image_profile" src="img/no_profile_img.png" alt="sem imagem de perfil" />
-
-
                         <?php
                         }
                         ?>

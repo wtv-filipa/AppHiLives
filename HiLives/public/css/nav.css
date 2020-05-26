@@ -278,25 +278,23 @@ button:focus {
     }
     /*Btn iniciar*/
     .inicia_nav {
-        color: #2f2f2f!important;
-        background-color: #D3D3D3!important;
-        text-decoration: none!important;
-        cursor: pointer!important;
-        display: inline-block!important;
-        border-radius: 40px!important;
-        font-weight: bold;
-        border-color: #D3D3D3!important;
-        font-size: 12px;
+        color: #2F2F2F;
+        padding: 0.3rem;
+        font-size: 14px;
+        font-family: "Quicksand", sans-serif;
+        border: 0.1em solid #2F2F2F;
+        border-radius: 5px;
+        font-weight: 800;
+        width: 30%;
+        cursor: pointer;
+        background: #fff;
     }
     .inicia_nav:hover {
-        color: #fff!important;
-        background-color: #2F2F2F !important;
-        text-decoration: none!important;
-        cursor: pointer!important;
-        display: inline-block!important;
-        border-color: #2F2F2F!important;
-        border-radius: 40px!important;
+        background-color: #2F2F2F;
+        color: #fff;
+        border: 0.1em solid #2F2F2F;
     }
+
 }
 
 
@@ -372,10 +370,10 @@ button:focus {
     }
     /*Btn iniciar*/
     .inicia_nav {
-        width: 65%!important;
+        width: 45%!important;
     }
     .inicia_nav:hover {
-        width: 65%!important;
+        width: 45%!important;
     }
 }
 
@@ -446,28 +444,7 @@ button:focus {
     .logo {
         width: 85px;
     }
-    /*Btn iniciar*/
-    .inicia_nav {
-        width: 50%!important;
-        color: #2f2f2f!important;
-        background-color: #D3D3D3!important;
-        text-decoration: none!important;
-        cursor: pointer!important;
-        display: inline-block!important;
-        border-radius: 40px!important;
-        font-weight: bold;
-        border-color: #D3D3D3!important;
-    }
-    .inicia_nav:hover {
-        width: 50%!important;
-        color: #fff!important;
-        background-color: #2F2F2F !important;
-        text-decoration: none!important;
-        cursor: pointer!important;
-        display: inline-block!important;
-        border-color: #2F2F2F!important;
-        border-radius: 40px!important;
-    }
+
 }
 
 
@@ -536,28 +513,6 @@ button:focus {
     }
     .logo {
         width: 85px;
-    }
-    /*Btn iniciar*/
-    .inicia_nav {
-        width: 50%!important;
-        color: #2f2f2f!important;
-        background-color: #D3D3D3!important;
-        text-decoration: none!important;
-        cursor: pointer!important;
-        display: inline-block!important;
-        border-radius: 40px!important;
-        font-weight: bold;
-        border-color: #D3D3D3!important;
-    }
-    .inicia_nav:hover {
-        width: 50%!important;
-        color: #fff!important;
-        background-color: #2F2F2F !important;
-        text-decoration: none!important;
-        cursor: pointer!important;
-        display: inline-block!important;
-        border-color: #2F2F2F!important;
-        border-radius: 40px!important;
     }
 }
 

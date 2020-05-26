@@ -41,33 +41,41 @@
     }
     
     .publicar_btn {
-        width: 40%!important;
-        height: 10%!important;
-        color: #fff!important;
-        background-color: #D3D3D3!important;
-        margin-bottom: 0.3125rem!important;
-        text-decoration: none!important;
-        cursor: pointer!important;
-        display: inline-block!important;
-        border-radius: 40px!important;
-        margin-top: 5%;
-        font-weight: bold;
-        border-color: #D3D3D3!important;
-        font-family: "Quicksand" !important;
+        color: #00A5CF;
+        padding: 0.3rem;
+        font-size: 14px;
+        font-family: "Quicksand", sans-serif;
+        border: 0.1em solid #00A5CF;
+        border-radius: 5px;
+        font-weight: 800;
+        width: 25%;
+        cursor: pointer;
+        background: #fff;
     }
     
     .publicar_btn:hover {
-        width: 40%!important;
-        height: 10%!important;
-        color: #fff!important;
-        background-color: #2F2F2F !important;
-        margin-bottom: 0.3125rem!important;
-        text-decoration: none!important;
-        cursor: pointer!important;
-        display: inline-block!important;
-        border-color: #2F2F2F!important;
-        border-radius: 40px!important;
-        font-family: "Quicksand" !important;
+        background-color: #00A5CF;
+        color: #fff;
+        border: 0.1em solid #00A5CF;
+    }
+
+    .cancel_btn {
+        color: #2F2F2F;
+        padding: 0.3rem;
+        font-size: 14px;
+        font-family: "Quicksand", sans-serif;
+        border: 0.1em solid #2F2F2F;
+        border-radius: 5px;
+        font-weight: 800;
+        width: 25%;
+        cursor: pointer;
+        background: #fff;
+    }
+
+    .cancel_btn:hover {
+        background-color: #2F2F2F;
+        color: #fff;
+        border: 0.1em solid #2F2F2F;
     }
     
     .card {

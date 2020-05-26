@@ -83,11 +83,6 @@ a:hover {
     -webkit-transition: transform 0.5s;
 }
 
-.cards .card-item:hover {
-    transform: scale(1.1);
-    -webkit-transform: scale(1.1);
-}
-
 .cards .card-info {
     display: flex;
     flex: 1 1 auto;
@@ -113,6 +108,23 @@ a:hover {
     opacity: 0.91;
 }
 
+.btn_cards {
+    color: #2F2F2F;
+    padding: 0.3rem;
+    font-size: 14px;
+    font-family: "Quicksand", sans-serif;
+    border-bottom: 0.1em solid #00A5CF;
+    font-weight: 800;
+    display: block;
+    margin: auto;
+    width: 80%;
+    cursor: pointer;
+    background: #fff;
+}
+
+.btn_cards:hover {
+    color: #00A5CF;
+}
 .imagem {
     height: 100%;
 }

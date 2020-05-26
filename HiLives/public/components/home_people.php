@@ -76,7 +76,7 @@ if ($_SESSION["idUser"]) {
 
         <div id='footer'>
             <a href="can_choose_study.php">
-                <button class="btn_destaques2 card_btn mx-auto">Ver mais</button>
+                <button class="btn_cards mx-auto">Ver mais</button>
             </a>
         </div>
         </div>
@@ -99,7 +99,7 @@ if ($_SESSION["idUser"]) {
         </div>
     </div>
     <div class="row container_highlights ">
-        <div class="cards col-s-12 col-sm-6">
+        <div class="cards col-xs-12 col-md-6">
             <div class="card-item">
                 <div class="card-image">
                     <img class="imagem" src="img/ua.jpg"></div>
@@ -107,13 +107,13 @@ if ($_SESSION["idUser"]) {
                     <h2 class="card-title sub_title">Universidade de Aveiro</h2>
                     <p class="card-intro description_title">Far far away, behind the word mountains, far from the
                         countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <a href="about_university.php">
-                        <button class="btn_destaques card_btn">Ver mais</button>
+                    <a href="about_university.php" >
+                        <button class="btn_destaques">Ver mais</button>
                     </a>
                 </div>
             </div>
         </div>
-        <div class="cards col-s-12 col-sm-6">
+        <div class="cards col-xs-12 col-md-6">
             <div class="card-item">
                 <div class="card-image">
                     <img class="imagem" src="img/univer_coimbra.jpg"></div>
@@ -122,7 +122,7 @@ if ($_SESSION["idUser"]) {
                     <p class="card-intro description_title">Far far away, behind the word mountains, far from the
                         countries Vokalia and Consonantia, there live the blind texts.</p>
                     <a href="about_university.php">
-                        <button class="btn_destaques card_btn">Ver mais</button>
+                        <button class="btn_destaques">Ver mais</button>
                     </a>
                 </div>
             </div>
@@ -211,7 +211,7 @@ if ($_SESSION["idUser"]) {
         </div>
         <div id='footer'>
             <a href="can_choose_work.php">
-                <button class="btn_destaques2 card_btn mx-auto">Ver mais</button>
+                <button class="btn_cards mx-auto">Ver mais</button>
             </a>
         </div>
     </div>
