@@ -60,7 +60,7 @@
                                         </div>
                                     </div>
                                     <!--BOTÃO DE SUBMIT-->
-                                    <div class="form-group text-center">
+                                    <div class="form-group text-center mt-2">
                                         <div class="mx-auto col-sm-10 pb-3 pt-2">
                                             <button type="submit" class="btn publicar_btn">Entrar</button>
                                         </div>

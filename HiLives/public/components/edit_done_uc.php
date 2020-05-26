@@ -59,8 +59,8 @@ if ($_SESSION["idUser"] && isset($_GET["uc"])) {
                        </div>
                        <!-------------------------------------------->
                        <div>
-                           <button type="submit" class="btn btn-success publicar_btn col-6" style="color: #2F2F2F">Guardar alterações</button>
-                           <a href="profile.php?user=<?=$idUser?>" class="btn btn-success publicar_btn col-6">Voltar</a>
+                           <button type="submit" class="btn btn-success publicar_btn col-6">Guardar alterações</button>
+                           <a href="profile.php?user=<?=$idUser?>" class="btn btn-success cancel_btn col-6">Voltar</a>
                        </div>
 
                    </form>

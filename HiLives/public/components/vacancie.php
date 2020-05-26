@@ -4,17 +4,19 @@ include "navbar_2.php";
 require_once("connections/connection.php");
 $link = new_db_connection();
 $stmt = mysqli_stmt_init($link);
-$query = "SELECT vacancie_name, description_vac, number_free_vanc, requirements, Region_idRegion, User_publicou,Content_idContent, Workday_idWorkday, Educ_lvl_idEduc_lvl, Areas_idAreas, name_region, Workday_name, name_interested_area, name_education 
+$query = "SELECT vacancie_name, description_vac, number_free_vanc, requirements, date_vacancies, Region_idRegion, User_publicou,Content_idContent, Workday_idWorkday, vacancies.Educ_lvl_idEduc_lvl, Areas_idAreas, name_region, Workday_name, name_interested_area, name_education, name_user
 FROM vacancies
 INNER JOIN region ON vacancies.Region_idRegion = region.idRegion
 INNER JOIN workday ON vacancies.Workday_idWorkday = workday.idWorkday
 INNER JOIN areas ON vacancies.Areas_idAreas = areas.idAreas
-INNER JOIN educ_lvl ON vacancies.Educ_lvl_idEduc_lvl = educ_lvl.idEduc_lvl";
+INNER JOIN educ_lvl ON vacancies.Educ_lvl_idEduc_lvl = educ_lvl.idEduc_lvl
+INNER JOIN users ON vacancies.User_publicou = users.idUser";
+
 
 if (mysqli_stmt_prepare($stmt, $query)) {
 
     mysqli_stmt_execute($stmt);
-    mysqli_stmt_bind_result($stmt, $vacancie_name, $description_vac, $number_free_vanc, $requirements, $Region_idRegion, $User_publicou, $Content_idContent, $Workday_idWorkday, $Educ_lvl_idEduc_lvl, $Areas_idAreas, $name_region, $Workday_name, $name_interested_area, $name_education );
+    mysqli_stmt_bind_result($stmt, $vacancie_name, $description_vac, $number_free_vanc, $requirements, $date_vacancies, $Region_idRegion, $User_publicou, $Content_idContent, $Workday_idWorkday, $Educ_lvl_idEduc_lvl, $Areas_idAreas, $name_region, $Workday_name, $name_interested_area, $name_education, $name_user);
 
     if (mysqli_stmt_fetch($stmt)) {
         ?>
@@ -23,8 +25,8 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                 <div class='tagpost-top section' id='tagpost-top'>
                     <div class='widget HTML' id='HTML5'>
                         <div data-aos="fade-up">
-                            <h3 class="mb-4 main_title">Informações sobre a vaga <span style="color: #00A5CF"><?= $vacancie_name ?></span></h3>
-                            <h3></h3>
+                            <h3 class="main_title">Informações sobre a vaga</h3>
+                            <h3 class="mb-4 mt-1 main_title2"><?= $vacancie_name ?></h3>
                         </div>
                     </div>
                 </div>
@@ -61,9 +63,11 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                 <div class="content">
                     <section>
                         <h2>Informações</h2>
-
                         <span class="info_title">Descrição</span>
                         <p style="font-size: 14px"><?= $description_vac ?></p>
+
+                        <span class="info_title">Empresa</span>
+                        <p style="font-size: 14px"><?= $name_user ?></p>
 
                         <span class="info_title"> Região</span>
                         <p style="font-size: 14px"><?= $name_region ?></p>
@@ -79,6 +83,9 @@ if (mysqli_stmt_prepare($stmt, $query)) {
 
                         <span class="info_title"> Número de vagas disponíveis</span>
                         <p style="font-size: 14px"><?= $number_free_vanc ?></p>
+
+                        <span class="info_title"> Data de publicação</span>
+                        <p style="font-size: 14px"><?= substr($date_vacancies, 0,10) ?></p>
 
                     </section>
                     <section>

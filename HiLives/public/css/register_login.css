@@ -18,6 +18,9 @@ option {
 a.small {
     font-size: 14px;
 }
+a.small:hover {
+    color: #00A5CF !important;
+}
 
 * {
     font-family: "Quicksand";
@@ -41,31 +44,22 @@ a.small {
 }
 
 .publicar_btn {
-    width: 75%!important;
-    height: 10%!important;
-    color: #2f2f2f!important;
-    background-color: #D3D3D3!important;
-    margin-bottom: 0.3125rem!important;
-    text-decoration: none!important;
-    cursor: pointer!important;
-    display: inline-block!important;
-    border-radius: 40px!important;
-    margin-top: 5%;
-    font-weight: bold;
-    border-color: #D3D3D3!important;
+    color: #00A5CF !important;
+    padding: 0.3rem;
+    font-size: 14px;
+    font-family: "Quicksand", sans-serif;
+    border: 0.1em solid #00A5CF;
+    border-radius: 5px;
+    font-weight: 800;
+    width: 60%;
+    cursor: pointer;
+    background: #fff;
 }
 
 .publicar_btn:hover {
-    width: 75%!important;
-    height: 10%!important;
-    color: #fff!important;
-    background-color: #2F2F2F !important;
-    margin-bottom: 0.3125rem!important;
-    text-decoration: none!important;
-    cursor: pointer!important;
-    display: inline-block!important;
-    border-color: #2F2F2F!important;
-    border-radius: 40px!important;
+    background-color: #00A5CF;
+    color: #fff !important;
+    border: 0.1em solid #00A5CF;
 }
 
 .label_margin {
