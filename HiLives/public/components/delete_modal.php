@@ -21,8 +21,8 @@
 
 
 <!--Modal para uc nas tabelas-->
-<div class="modal fade" id="deleteuc<?= $idDone_CU ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+<div class="modal fade modal_problem" id="deleteuc<?= $idDone_CU ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLongTitle"><b>Tens a certeza que queres apagar a unidade curricular <?= $Cu_name ?>?</b></h5>

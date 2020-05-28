@@ -29,7 +29,7 @@ session_start();
     <?php include "helpers/js.php"; ?>
     <?php include "helpers/fontawesome.php"; ?>
     <script>
-        $('#deleteuc<?= $idDone_CU ?>').appendTo("body") 
+        $('.modal_problem').appendTo("body");
     </script>
 </body>
 
