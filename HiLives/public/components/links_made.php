@@ -48,18 +48,23 @@ if ($_SESSION["idUser"]) {
                                         <li class="lista">
                                             <span class="font-weight-bold"><?= $Cu_name ?></span>
                                             <p class="instituicao"><?= $University_name ?></p>
-                                            <a href="edit_done_uc.php?uc=<?= $idDone_CU ?>">
-                                                <p class="instituicao"
-                                                   style="color:#00A5CF!important; text-align: right"><i
-                                                            class="fas fa-edit mr-1 "
-                                                            style="color:#00A5CF!important"></i>Editar</p>
-                                            </a>
+                                            <div class="text-right">
+                                                <a href="edit_done_uc.php?uc=<?= $idDone_CU ?>">
+                                                    <i class="fas fa-edit mr-1" style="color:#00A5CF!important"></i>
+                                                </a>
+
+                                                <a href="#" data-toggle="modal" data-target="#deleteuc<?= $idDone_CU ?>">
+                                                    <i class="fas fa-trash mr-1" style="color:#2F2F2F!important"></i>
+                                                </a>
+                                            </div>
+
 
                                         </li>
 
 
                                     </ul>
                                     <?php
+                                    include('components/delete_modal.php');
                                 }
                             }
                             ?>

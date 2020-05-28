@@ -43,19 +43,20 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
         while (mysqli_stmt_fetch($stmt)) {
             $dob = $birth_date;
             $age = (date('Y') - date('Y', strtotime($dob)));
-?>
+            ?>
             <div class="w-75 mx-auto largura">
                 <div class="row mt-5 perfil_info">
                     <div class="col-xs-3 col-lg-3 ">
                         <?php
                         if (isset($profile_img)) {
-                        ?>
-                            <img class="image_profile" src="../admin/uploads/img_perfil/<?= $profile_img ?>" alt="<?= $profile_img ?>" />
-                        <?php
+                            ?>
+                            <img class="image_profile" src="../admin/uploads/img_perfil/<?= $profile_img ?>"
+                                 alt="<?= $profile_img ?>"/>
+                            <?php
                         } else {
-                        ?>
-                            <img class="image_profile" src="img/no_profile_img.png" alt="sem imagem de perfil" />
-                        <?php
+                            ?>
+                            <img class="image_profile" src="img/no_profile_img.png" alt="sem imagem de perfil"/>
+                            <?php
                         }
                         ?>
                     </div>
@@ -63,7 +64,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                     <?php
                     if ($type_user == "Jovem") {
                         //informações dos jovens
-                    ?>
+                        ?>
                         <div class="col-xs-3 col-lg-9 ">
                             <h3 class="mt-2 nome_user"><?= $name_user ?></h3>
                             <h6 class="mt-3 subtitulo"> <?= $age ?> anos | Personalidade:
@@ -103,7 +104,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                             <!--Se não for igual vai esconder determinados elementos que pessoas que não são o próprio user não podem ver-->
                             <?php
                             if ($idUser == $id_navegar) {
-                            ?>
+                                ?>
                                 <div class="p-0 mt-3">
                                     <a href="edit_profile.php?edit=<?= $idUser ?>">
                                         <button class="btn edit_btn">
@@ -112,17 +113,17 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                         </button>
                                     </a>
                                 </div>
-                            <?php
+                                <?php
                             }
                             ?>
                         </div>
                         <div class="col-lg-12">
                             <p class="mt-5 subtitulo"><?= $info_young ?> </p>
                         </div>
-                    <?php
+                        <?php
                     } else {
                         //Informações de empresas e universidades
-                    ?>
+                        ?>
                         <div class="col-xs-3 col-lg-9">
                             <h3 class="mt-2 nome_user"><?= $name_user ?></h3>
                             <h6 class="mt-3 subtitulo"> Regiões de interesse:
@@ -145,13 +146,15 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                             <!--Se não for igual vai esconder determinados elementos que pessoas que não são o próprio user não podem ver-->
                             <?php
                             if ($idUser == $id_navegar) {
-                            ?>
+                                ?>
                                 <div class="p-0 mt-3">
                                     <a href="edit_profile.php?edit=<?= $idUser ?>">
-                                        <button class="btn edit_btn"> <i class="fas fa-edit text-dark"></i>Editar as minhas informações</button>
+                                        <button class="btn edit_btn"><i class="fas fa-edit text-dark"></i>Editar as
+                                            minhas informações
+                                        </button>
                                     </a>
                                 </div>
-                            <?php
+                                <?php
                             }
                             ?>
                         </div>
@@ -159,7 +162,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                         <div class="col-lg-12">
                             <p class="mt-5 subtitulo"><?= $description_ue ?> </p>
                         </div>
-                    <?php
+                        <?php
                     }
                     ?>
                 </div>
@@ -170,7 +173,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                 <div class="row mt-5">
                     <?php
                     if ($type_user == "Jovem") {
-                    ?>
+                        ?>
                         <!--PRIMEIRO CARD-INFORMAÇÃO DAS DISCIPLINAS FEITAS-->
                         <div class="col-md-6">
                             <div class="card tamanho_card_tablet">
@@ -186,7 +189,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                             mysqli_stmt_execute($stmt);
                                             mysqli_stmt_bind_result($stmt, $idDone_CU, $Cu_name, $University_name, $date_CU);
                                             while (mysqli_stmt_fetch($stmt)) {
-                                        ?>
+                                                ?>
                                                 <ul id="notebook_ul">
                                                     <li class="lista">
                                                         <?= $Cu_name ?>
@@ -194,30 +197,37 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                                         <!--Se não for igual vai esconder determinados elementos que pessoas que não são o próprio user não podem ver-->
                                                         <?php
                                                         if ($idUser == $id_navegar) {
-                                                        ?>
-                                                            <a href="edit_done_uc.php?uc=<?= $idDone_CU ?>">
-                                                                <p class="instituicao" style="color:#00A5CF!important; text-align: right"><i class="fas fa-edit mr-1 " style="color:#00A5CF!important"></i>Editar</p>
-                                                            </a>
-                                                        <?php
+                                                            ?>
+                                                            <div class="text-right">
+                                                                <a href="edit_done_uc.php?uc=<?= $idDone_CU ?>">
+                                                                    <i class="fas fa-edit mr-1" style="color:#00A5CF!important"></i>
+                                                                </a>
+
+                                                                <a href="#" data-toggle="modal" data-target="#deleteuc<?= $idDone_CU ?>">
+                                                                    <i class="fas fa-trash mr-1" style="color:#2F2F2F!important"></i>
+                                                                </a>
+                                                            </div>
+                                                            <?php
+                                                            include('components/delete_modal.php');
                                                         }
                                                         ?>
                                                     </li>
 
                                                 </ul>
-                                        <?php
+                                                <?php
                                             }
                                         }
                                         ?>
                                         <!--Se não for igual vai esconder determinados elementos que pessoas que não são o próprio user não podem ver-->
                                         <?php
                                         if ($idUser == $id_navegar) {
-                                        ?>
+                                            ?>
                                             <div class="text-center">
                                                 <a href="done_uc.php">
                                                     <button class="btn add_btn">Adicionar novas disciplinas</button>
                                                 </a>
                                             </div>
-                                        <?php
+                                            <?php
                                         }
                                         ?>
                                     </blockquote>
@@ -227,9 +237,9 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
 
                         <!------------------------------------------>
 
-                    <?php
+                        <?php
                     } else if ($type_user == "Universidade") {
-                    ?>
+                        ?>
                         <!--PRIMEIRO CARD-INFORMAÇÃO DAS ÁREAS DISPONÍVEIS-->
                         <div class="col-md-6">
                             <div class="card tamanho_card_tablet">
@@ -266,9 +276,9 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                             </div>
                         </div>
 
-                    <?php
+                        <?php
                     } else if ($type_user == "Empresa") {
-                    ?>
+                        ?>
 
                         <!--PRIMEIRO CARD-INFORMAÇÃO DAS VAGAS-->
                         <div class="col-md-6">
@@ -285,39 +295,42 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                             mysqli_stmt_execute($stmt);
                                             mysqli_stmt_bind_result($stmt, $idVacancie, $vacancie_name, $Areas_idAreas, $name_interested_area);
                                             while (mysqli_stmt_fetch($stmt)) {
-                                        ?>
+                                                ?>
                                                 <ul id="notebook_ul">
                                                     <li class="lista">
                                                         <?= $vacancie_name ?>
                                                         <p class="instituicao"><?= $name_interested_area ?></p>
                                                         <a href="edit_vac.php?idvac=<?= $idVacancie ?>">
-                                                            <p class="instituicao" style="color:#00A5CF!important; text-align: right"><i class="fas fa-edit mr-1 " style="color:#00A5CF!important"></i>Editar</p>
+                                                            <p class="instituicao"
+                                                               style="color:#00A5CF!important; text-align: right"><i
+                                                                        class="fas fa-edit mr-1 "
+                                                                        style="color:#00A5CF!important"></i>Editar</p>
                                                         </a>
 
                                                     </li>
 
                                                 </ul>
-                                        <?php
+                                                <?php
                                             }
                                         }
                                         ?>
                                         <!--Se não for igual vai esconder determinados elementos que pessoas que não são o próprio user não podem ver-->
                                         <?php
                                         if ($idUser == $id_navegar) {
-                                        ?>
+                                            ?>
                                             <div class="text-center">
                                                 <a href="upload_vac.php">
                                                     <button class="btn add_btn">Adicionar nova vaga</button>
                                                 </a>
                                             </div>
-                                        <?php
+                                            <?php
                                         }
                                         ?>
                                     </blockquote>
                                 </div>
                             </div>
                         </div>
-                    <?php
+                        <?php
                     }
                     ?>
                     <!--fim do primeiro carde de informação-->
@@ -326,7 +339,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                     <?php
                     if ($type_user == "Jovem") {
 
-                    ?>
+                        ?>
                         <div class="col-md-6">
                             <div class="card tamanho_card_tablet">
                                 <div class="card-header estudo">
@@ -341,13 +354,13 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                             mysqli_stmt_execute($stmt);
                                             mysqli_stmt_bind_result($stmt, $User_idUser, $Areas_idAreas, $name_interested_area);
                                             while (mysqli_stmt_fetch($stmt)) {
-                                        ?>
+                                                ?>
                                                 <ul id="notebook_ul">
                                                     <li class="lista">
                                                         <?= $name_interested_area ?>
                                                     </li>
                                                 </ul>
-                                        <?php
+                                                <?php
                                             }
                                         }
                                         ?>
@@ -356,9 +369,9 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                             </div>
                         </div>
 
-                    <?php
+                        <?php
                     } else {
-                    ?>
+                        ?>
                         <div class="col-md-6 mb-5">
                             <div class="card tamanho_card_tablet">
                                 <div class="card-header estudo">
@@ -368,35 +381,40 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                     <blockquote class=" blockquote mb-0 mt-4">
                                         <ul id="notebook_ul">
                                             <li class="lista">
-                                                <i class="fas fa-at mr-2"></i><b class="mr-2">Email:</b><?= $email_user ?>
+                                                <i class="fas fa-at mr-2"></i><b
+                                                        class="mr-2">Email:</b><?= $email_user ?>
                                             </li>
                                             <li class="lista">
-                                                <i class="fas fa-phone-alt mr-2"></i><b class="mr-2">Telefone:</b><?= $contact_user ?>
+                                                <i class="fas fa-phone-alt mr-2"></i><b
+                                                        class="mr-2">Telefone:</b><?= $contact_user ?>
                                             </li>
 
                                             <?php
                                             if (isset($website_ue)) {
-                                            ?>
+                                                ?>
 
                                                 <li class="lista">
-                                                    <i class="fas fa-globe mr-2"></i><b class="mr-2">Website:</b><?= $website_ue ?>
+                                                    <i class="fas fa-globe mr-2"></i><b
+                                                            class="mr-2">Website:</b><?= $website_ue ?>
                                                 </li>
-                                            <?php
+                                                <?php
                                             }
                                             if (isset($facebook_ue)) {
-                                            ?>
+                                                ?>
                                                 <li class="lista">
-                                                    <i class="fab fa-facebook mr-2"></i><b class="mr-2">Facebook:</b><?= $facebook_ue ?>
+                                                    <i class="fab fa-facebook mr-2"></i><b
+                                                            class="mr-2">Facebook:</b><?= $facebook_ue ?>
                                                 </li>
-                                            <?php
+                                                <?php
                                             }
                                             if (isset($instagram_ue)) {
-                                            ?>
+                                                ?>
                                                 <li class="lista">
-                                                    <i class="fab fa-instagram mr-2"></i><b class="mr-2">Instagram:</b> <?= $instagram_ue ?>
+                                                    <i class="fab fa-instagram mr-2"></i><b
+                                                            class="mr-2">Instagram:</b> <?= $instagram_ue ?>
                                                 </li>
 
-                                            <?php
+                                                <?php
                                             }
                                             ?>
                                         </ul>
@@ -404,7 +422,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                 </div>
                             </div>
                         </div>
-                    <?php
+                        <?php
                     }
                     ?>
                     <!--fim da div row-->
@@ -414,7 +432,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                 <?php
                 if ($type_user == "Jovem") {
 
-                ?>
+                    ?>
                     <div class="mt-5 mb-5">
                         <h3 class="mb-4 titulo_videos">As minhas experiências</h3>
                         <div class="card mt-4">
@@ -427,16 +445,20 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                     mysqli_stmt_execute($stmt);
                                     mysqli_stmt_bind_result($stmt, $idExperiences, $title_exp, $description, $date, $content_name);
                                     while (mysqli_stmt_fetch($stmt)) {
-                                ?>
+                                        ?>
 
                                         <div class="col-md-3 mt-3 div_videos">
-                                            <a href="#" data-toggle="modal" data-target="#modalvideo<?= $idExperiences ?>">
-                                                <video class="img-fluid z-depth-1 p-0 m-0 tam_video" src="../admin/uploads/xp/<?= $content_name ?>" alt="video" data-toggle="modal" data-target="#modal1" style="background-color: #2f2f2f;">
+                                            <a href="#" data-toggle="modal"
+                                               data-target="#modalvideo<?= $idExperiences ?>">
+                                                <video class="img-fluid z-depth-1 p-0 m-0 tam_video"
+                                                       src="../admin/uploads/xp/<?= $content_name ?>" alt="video"
+                                                       data-toggle="modal" data-target="#modal1"
+                                                       style="background-color: #2f2f2f;">
                                             </a>
                                         </div>
 
                                         <!--Se não for igual vai esconder determinados elementos que pessoas que não são o próprio user não podem ver-->
-                                    <?php
+                                        <?php
                                         include "modal_vid.php";
                                     }
                                 }
@@ -444,20 +466,21 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                     ?>
                                     <div class="col-md-3 mt-3 ">
                                         <a href="upload_xp.php">
-                                            <button type="" class="btn bt_add" style="background-color: #D2D2D2;">Adicionar uma nova
+                                            <button type="" class="btn bt_add" style="background-color: #D2D2D2;">
+                                                Adicionar uma nova
                                                 experiência
                                             </button>
                                         </a>
                                     </div>
-                                <?php
+                                    <?php
                                 }
                                 ?>
                             </div>
                         </div>
                     </div>
-                <?php
+                    <?php
                 } else if ($type_user == "Empresa") {
-                ?>
+                    ?>
                     <div class="mt-5 mb-5 centrar_cont">
                         <h3 class="mb-4 titulo_videos">As minhas experiências</h3>
                         <div class="card mt-4">
@@ -470,15 +493,19 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                     mysqli_stmt_execute($stmt);
                                     mysqli_stmt_bind_result($stmt, $idVacancies, $vacancie_name, $Content_idContent, $content_name);
                                     while (mysqli_stmt_fetch($stmt)) {
-                                ?>
+                                        ?>
                                         <div class="col-md-3 mt-3 div_videos">
-                                            <a href="#" data-toggle="modal" data-target="#modalvideo<?= $idVacancies ?>">
-                                                <video class="img-fluid z-depth-1 p-0 m-0 tam_video" src="../admin/uploads/vid_vac/<?= $content_name ?>" alt="video" data-toggle="modal" data-target="#modal1" style="background-color: #2f2f2f;">
+                                            <a href="#" data-toggle="modal"
+                                               data-target="#modalvideo<?= $idVacancies ?>">
+                                                <video class="img-fluid z-depth-1 p-0 m-0 tam_video"
+                                                       src="../admin/uploads/vid_vac/<?= $content_name ?>" alt="video"
+                                                       data-toggle="modal" data-target="#modal1"
+                                                       style="background-color: #2f2f2f;">
                                             </a>
                                         </div>
 
                                         <!--Se não for igual vai esconder determinados elementos que pessoas que não são o próprio user não podem ver-->
-                                    <?php
+                                        <?php
                                         include "modal_vid.php";
                                     }
                                 }
@@ -486,26 +513,26 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                     ?>
                                     <div class="col-md-3 mt-3 ">
                                         <a href="upload_xp.php">
-                                            <button type="" class="btn bt_add" style="background-color: #D2D2D2;">Adicionar uma nova
+                                            <button type="" class="btn bt_add" style="background-color: #D2D2D2;">
+                                                Adicionar uma nova
                                                 experiência
                                             </button>
                                         </a>
                                     </div>
-                                <?php
+                                    <?php
                                 }
                                 ?>
                             </div>
                         </div>
                     </div>
-                <?php
+                    <?php
                 }
                 ?>
 
 
-
             </div>
             <!--fim da div com w-75-->
-<?php
+            <?php
             //fim do prepare da query que seleciona o informações do user
         }
     }

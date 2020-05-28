@@ -569,6 +569,13 @@ a {
     z-index: 99;
 }
 
+
+
+
+
+
+
+
 @media only screen and (max-width: 600px) {
     .social-icons li.title {
         display: block;

@@ -18,3 +18,25 @@
     </div>
   </div>
 </div>
+
+
+<!--Modal para uc nas tabelas-->
+<div class="modal fade" id="deleteuc<?= $idDone_CU ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content text-center">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"><b>Tens a certeza que queres apagar a unidade curricular <?= $Cu_name ?>?</b></h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body" style="font-size: 16px !important;">Quando apagares, não podes voltar atrás. Carrega em "Apagar" para confirmar.</div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                <a class="btn btn-danger" href="scripts/delete_uc.php?apaga=<?= $idDone_CU ?>">Apagar</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!------------------------------------------------------------------------------------------------------------------------------------------->
