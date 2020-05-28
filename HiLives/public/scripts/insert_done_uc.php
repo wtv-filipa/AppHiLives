@@ -2,7 +2,7 @@
 session_start();
 require_once "../connections/connection.php";
 
-if (isset($_SESSION["idUser"]) && isset($_POST["nomeuc"]) && isset($_POST["ugit "]) && isset($_POST["data"])) {
+if (isset($_SESSION["idUser"]) && isset($_POST["nomeuc"]) && isset($_POST["uniuc"]) && isset($_POST["data"])) {
 
     $link = new_db_connection();
 
@@ -23,7 +23,7 @@ if (isset($_SESSION["idUser"]) && isset($_POST["nomeuc"]) && isset($_POST["ugit 
             mysqli_close($link);
 
             // SUCCESS ACTION
-            echo "INSERIUUU";
+            //echo "INSERIUUU";
             header("Location: ../profile.php?user=$User_idUser");
         }
         else {
@@ -35,5 +35,7 @@ if (isset($_SESSION["idUser"]) && isset($_POST["nomeuc"]) && isset($_POST["ugit 
 
     }
 
+} else {
+    echo "primeiro if";
 }
 
