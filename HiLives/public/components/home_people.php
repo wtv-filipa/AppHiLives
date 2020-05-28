@@ -1,3 +1,5 @@
+
+
 <?php
 include "navbar_2.php";
 
@@ -11,11 +13,13 @@ if ($_SESSION["idUser"]) {
     $link = new_db_connection();
     $stmt = mysqli_stmt_init($link);
 
-    $query = "SELECT Area, name_user, profile_img 
+    $query = "SELECT Area, name_user, profile_img, id_match, favorite
             FROM young_university 
-            INNER JOIN users ON young_university.User_university = users.idUser 
+            INNER JOIN users ON young_university.User_university = users.idUser
             WHERE User_young LIKE ? LIMIT 6";
+
     ?>
+
 
     <div class="w-75 mx-auto list_links">
     <div id='wrapper_title'>
@@ -38,7 +42,7 @@ if ($_SESSION["idUser"]) {
 
         mysqli_stmt_bind_param($stmt, 'i', $idUser);
         mysqli_stmt_execute($stmt);
-        mysqli_stmt_bind_result($stmt, $Area, $name_user, $profile_img);
+        mysqli_stmt_bind_result($stmt, $Area, $name_user, $profile_img, $id_match, $favorite);
 
         while (mysqli_stmt_fetch($stmt)) {
             ?>
@@ -58,6 +62,19 @@ if ($_SESSION["idUser"]) {
                             <?php
                         }
                         ?>
+                        <?php
+
+                        if ($favorite == 0){
+                            ?>
+                        <a href="scripts/update_fav.php?match=<?= $id_match?>&fav=<?= $favorite?>"> <button class="btn rounded-circle btn_fav"><i class="fa fa-heart-o" aria-hidden="true"  style="color: #2F2F2F"></i></button></a>
+                            <?php
+                        } else {
+                            ?>
+                            <a href="scripts/update_fav.php?match=<?= $id_match?>&fav=<?= $favorite?>"> <button class="btn rounded-circle btn_fav"><i class="fa fa-heart" aria-hidden="true" style="color: #A31621"></i> </button></a>
+                            <?php
+                        }
+            ?>
+
                         <p class="mb-0 link_info"><i class="fa fa-book mr-1" aria-hidden="true"></i>Estudar
                         </p>
                         <h4 class="mb-0 link_title"><?= $name_user ?></h4>
