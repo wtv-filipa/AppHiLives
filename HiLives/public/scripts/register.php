@@ -80,74 +80,54 @@ if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["data_nasc"]
             echo "não inseriu àreas";
         }
         //JÁ INSERIU AS ÁREAS
-        //TESTE DE PERSONALIDADE
-        if (isset($_POST["pergunta1"]) && isset($_POST["pergunta2"]) && isset($_POST["pergunta3"]) && isset($_POST["pergunta4"])) {
-            $link2 = new_db_connection();
-            $stmt2 = mysqli_stmt_init($link2);
-            echo "<h1>Teste de personalidade:</h1>";
-            echo "id do user no teste de personalidade: $last_id <br>";
+        //AGORA VAI INSERIR AS COMPETÊNCIAS
+         if (isset($_POST["capacity"])) {
+            $query4 = "INSERT INTO capacities_has_users (capacities, users_idUser)
+                       VALUES (?, ?)";
 
-            /*Variáveis que recebem as respostas por POST. O que está a ser passado é o NAME do SELECT do HTML*/
-            $answer1 = $_POST['pergunta1'];
-            $answer2 = $_POST['pergunta2'];
-            $answer3 = $_POST['pergunta3'];
-            $answer4 = $_POST['pergunta4'];
-            /*Array que guarda todas as respostas e o seu valor aka se é comunicativo, organizado ou qualquer outro*/
-            $arrayRespostas = array(
-                1 => $answer1,
-                2 => $answer2,
-                3 => $answer3,
-                4 => $answer4
-            );
+            if (mysqli_stmt_prepare($stmt, $query4)) {
+                echo "id do user nas competencias: $last_id <br>";
 
-            /*Deteta as vezes que uma resposta foi selecionada*/
-            $respostas_iguais = array_count_values($arrayRespostas);
-            //var_dump($respostas_iguais);
-            /*Query que vai selecionar o nome da personalidade e o seu id consoante o que vier no array*/
-            $query3 = "SELECT idPersonality, name_perso FROM personality WHERE name_perso IN (";
-            $first = true;
-            foreach ($respostas_iguais as $key => $value) {
-                echo "$key <br>";
-                if (!$first) {
-                    $query3 .= ", ";
-                }
-                $query3 .= "'" . $key . "'";
-                $first = false;
-            }
-            $query3 .= ")";
+                mysqli_stmt_bind_param($stmt, 'ii', $capacities, $last_id);
 
-            echo "$query3 <br>";
-            //Ao fazer o prepare da query 3, quando for fazer o insert vai fazer o insert o número de vezes que retornarem valores da query3
-            if (mysqli_stmt_prepare($stmt, $query3)) {
-                mysqli_stmt_execute($stmt);
-                mysqli_stmt_bind_result($stmt, $idPersonality, $name_perso);
-                while (mysqli_stmt_fetch($stmt)) {
-                    echo "$name_perso <br>"; //verificar que nome da personalidade está a retornar
-                    //Query para inserir os dados na tabela de relação com a personalidade
-                    $query7 = "INSERT INTO user_has_personality (User_idUser, Personality_idPersonality) VALUES (?, ?)";
-                    //Faz o prepare da query7 que é a que vai inserir os dados
-                    if (mysqli_stmt_prepare($stmt2, $query7)) {
-                        mysqli_stmt_bind_param($stmt2, 'ii', $last_id, $idPersonality);
-
-                        // VALIDAÇÃO DO RESULTADO DO EXECUTE
-                        if (!mysqli_stmt_execute($stmt2)) {
-                            echo "Error: " . mysqli_stmt_error($stmt2);
-                        } else {
-                            echo "personalidade inserida <br>";
-                            // SUCCESS ACTION
-                            //header("Location: ../grupo_indv.php?id_g=".$id_g."&msg=1");
-                        }
-                    } else {
-                        // ERROR ACTION
-                        //header("Location: ../grupo_indv.php?id_g=".$id_g."&msg=0");
-                        //mysqli_close($link);
+                echo "id da competencia: $capacities<br>";
+                // PARA TODOS OS JOGADORES QUE FORAM ESCOLHIDOS
+                foreach ($_POST["capacity"] as $capacities) {
+                    echo "id da competencia: $capacities<br>";
+                    /* execute the prepared statement */
+                    if (!mysqli_stmt_execute($stmt)) {
+                        echo "Error: " . mysqli_stmt_error($stmt);
                     }
                 }
             }
         } else {
-            echo "não respondeu Às perguntas";
+            echo "nada inserido no fb";
         }
-        //FIM DA INSERÇÃO DA PERSONALIDADE
+        //JÁ INSERIU AS COMPETÊNCIAS
+        //AGORA VAI INSERIR OS AMBIENTES
+        if (isset($_POST["environment"])) {
+            $query5 = "INSERT INTO work_environment_has_users (favorite_environment, users_idUser)
+                       VALUES (?, ?)";
+
+            if (mysqli_stmt_prepare($stmt, $query5)) {
+                echo "id do user nos ambientes: $last_id <br>";
+
+                mysqli_stmt_bind_param($stmt, 'ii', $environment, $last_id);
+
+                echo "id dos ambientes: $environment<br>";
+                // PARA TODOS OS JOGADORES QUE FORAM ESCOLHIDOS
+                foreach ($_POST["environment"] as $environment) {
+                    echo "id dos ambientes: $environment<br>";
+                    /* execute the prepared statement */
+                    if (!mysqli_stmt_execute($stmt)) {
+                        echo "Error: " . mysqli_stmt_error($stmt);
+                    }
+                }
+            }
+        } else {
+            echo "nada inserido no fb";
+        }
+        //JÁ INSERIU OS AMBIENTES
         //INSERIR O MATCH
         include "match_uni.php";
         mysqli_stmt_close($stmt);

@@ -29,12 +29,18 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
     WHERE User_publicou = ? ORDER BY idVacancies DESC LIMIT 3";
     //selecionar a região
     $query5 = "SELECT name_region FROM region INNER JOIN user_has_region ON region.idRegion=user_has_region.Region_idRegion WHERE User_idUser_region = ?";
-    //selecionar a personalidade
-    $query6 = "SELECT name_perso FROM personality INNER JOIN user_has_personality ON personality.idPersonality=user_has_personality.Personality_idPersonality WHERE User_idUser = ?";
+    //query que seleciona as competências
+    $query6 = "SELECT capacities, users_idUser, capacity FROM capacities_has_users 
+    INNER JOIN capacities ON capacities_has_users.capacities= capacities.idcapacities
+    WHERE users_idUser = ?";
     //query que seleciona os vídeos do jovem
     $query7 = "SELECT idExperiences, title_exp, description, date, content_name FROM experiences INNER JOIN content ON experiences.Content_idContent=content.idContent WHERE User_idUser = ?";
     //query que seleciona os vídeos da empresa 
     $query8 = "SELECT idVacancies, vacancie_name, Content_idContent, content_name FROM vacancies INNER JOIN content ON vacancies.Content_idContent=content.idContent WHERE User_publicou = ?";
+    //query que seleciona os ambientes
+    $query9 = "SELECT favorite_environment, users_idUser,name_environment FROM work_environment_has_users
+    INNER JOIN work_environment ON work_environment_has_users.favorite_environment = work_environment.idwork_environment
+    WHERE users_idUser = ?";
     if (mysqli_stmt_prepare($stmt, $query)) {
 
         mysqli_stmt_bind_param($stmt, 'i', $idUser);
@@ -43,20 +49,19 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
         while (mysqli_stmt_fetch($stmt)) {
             $dob = $birth_date;
             $age = (date('Y') - date('Y', strtotime($dob)));
-            ?>
+?>
             <div class="w-75 mx-auto largura">
                 <div class="row mt-5 perfil_info">
                     <div class="col-xs-3 col-lg-3 ">
                         <?php
                         if (isset($profile_img)) {
-                            ?>
-                            <img class="image_profile" src="../admin/uploads/img_perfil/<?= $profile_img ?>"
-                                 alt="<?= $profile_img ?>"/>
-                            <?php
+                        ?>
+                            <img class="image_profile" src="../admin/uploads/img_perfil/<?= $profile_img ?>" alt="<?= $profile_img ?>" />
+                        <?php
                         } else {
-                            ?>
-                            <img class="image_profile" src="img/no_profile_img.png" alt="sem imagem de perfil"/>
-                            <?php
+                        ?>
+                            <img class="image_profile" src="img/no_profile_img.png" alt="sem imagem de perfil" />
+                        <?php
                         }
                         ?>
                     </div>
@@ -64,26 +69,10 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                     <?php
                     if ($type_user == "Jovem") {
                         //informações dos jovens
-                        ?>
+                    ?>
                         <div class="col-xs-3 col-lg-9 ">
                             <h3 class="mt-2 nome_user"><?= $name_user ?></h3>
-                            <h6 class="mt-3 subtitulo"> <?= $age ?> anos | Personalidade:
-                                <?php
-                                $primeiro = true;
-                                if (mysqli_stmt_prepare($stmt, $query6)) {
-                                    mysqli_stmt_bind_param($stmt, 'i', $idUser);
-                                    mysqli_stmt_execute($stmt);
-                                    mysqli_stmt_bind_result($stmt, $name_perso);
-                                    while (mysqli_stmt_fetch($stmt)) {
-                                        if (!$primeiro) {
-                                            echo ",";
-                                        }
-                                        $primeiro = false;
-                                        echo " $name_perso";
-                                    }
-                                }
-                                ?>
-                            </h6>
+                            <h6 class="mt-3 subtitulo"> <?= $age ?> anos</h6>
                             <h6 class="mt-3 subtitulo"> Regiões de interesse:
                                 <?php
                                 $first = true;
@@ -104,7 +93,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                             <!--Se não for igual vai esconder determinados elementos que pessoas que não são o próprio user não podem ver-->
                             <?php
                             if ($idUser == $id_navegar) {
-                                ?>
+                            ?>
                                 <div class="p-0 mt-3">
                                     <a href="edit_profile.php?edit=<?= $idUser ?>">
                                         <button class="btn edit_btn">
@@ -113,31 +102,26 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                         </button>
                                     </a>
                                 </div>
-                                <?php
+                            <?php
                             }
                             ?>
                         </div>
                         <div class="col-lg-12">
                             <p class="mt-5 subtitulo"><?= $info_young ?> </p>
                         </div>
-                        <?php
+                    <?php
                     } else {
                         //Informações de empresas e universidades
-                        ?>
+                    ?>
                         <div class="col-xs-3 col-lg-9">
                             <h3 class="mt-2 nome_user"><?= $name_user ?></h3>
-                            <h6 class="mt-3 subtitulo"> Regiões de interesse:
+                            <h6 class="mt-3 subtitulo"> Região:
                                 <?php
-                                $first = true;
                                 if (mysqli_stmt_prepare($stmt, $query5)) {
                                     mysqli_stmt_bind_param($stmt, 'i', $idUser);
                                     mysqli_stmt_execute($stmt);
                                     mysqli_stmt_bind_result($stmt, $name_region);
                                     while (mysqli_stmt_fetch($stmt)) {
-                                        if (!$first) {
-                                            echo ",";
-                                        }
-                                        $first = false;
                                         echo " $name_region";
                                     }
                                 }
@@ -146,7 +130,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                             <!--Se não for igual vai esconder determinados elementos que pessoas que não são o próprio user não podem ver-->
                             <?php
                             if ($idUser == $id_navegar) {
-                                ?>
+                            ?>
                                 <div class="p-0 mt-3">
                                     <a href="edit_profile.php?edit=<?= $idUser ?>">
                                         <button class="btn edit_btn"><i class="fas fa-edit text-dark"></i>Editar as
@@ -154,7 +138,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                         </button>
                                     </a>
                                 </div>
-                                <?php
+                            <?php
                             }
                             ?>
                         </div>
@@ -162,277 +146,239 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                         <div class="col-lg-12">
                             <p class="mt-5 subtitulo"><?= $description_ue ?> </p>
                         </div>
-                        <?php
+                    <?php
                     }
                     ?>
                 </div>
                 <!--fim da div da informação do jovem-->
                 <hr class="mt-4">
+                <!--CARD GRANDE DE INFORMAÇÃO-->
+                <?php
+                if ($type_user == "Jovem") {
+                ?>
+                    <div class="tabs">
+                        <input type="radio" id="tab1" name="tab-control" checked>
+                        <input type="radio" id="tab2" name="tab-control">
+                        <input type="radio" id="tab3" name="tab-control">
+                        <input type="radio" id="tab4" name="tab-control">
+                        <ul>
+                            <!--1-->
+                            <li title="Disciplinas">
+                                <label for="tab1" role="button">
+                                    <svg class="bi bi-award-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8 0l1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864 8 0z" />
+                                        <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z" />
+                                    </svg>
+                                    <br><span>Disciplinas</span>
+                                </label>
+                            </li>
+                            <!--2-->
+                            <li title="Áreas de interesse">
+                                <label for="tab2" role="button">
+                                    <svg class="bi bi-file-ruled" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M4 1h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H4z" />
+                                        <path fill-rule="evenodd" d="M13 6H3V5h10v1zm0 3H3V8h10v1zm0 3H3v-1h10v1z" />
+                                        <path fill-rule="evenodd" d="M5 14V6h1v8H5z" />
+                                    </svg>
+                                    <br><span>Áreas</span>
+                                </label>
+                            </li>
+                            <!--3-->
+                            <li title="Competências">
+                                <label for="tab3" role="button">
+                                    <svg class="bi bi-person-check-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm9.854-2.854a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
+                                    </svg>
+                                    <br><span>Competências</span>
+                                </label>
+                            </li>
+                            <!--4-->
+                            <li title="Ambientes de trabalho">
+                                <label for="tab4" role="button">
+                                    <svg class="bi bi-briefcase-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M0 12.5A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5V6.85L8.129 8.947a.5.5 0 0 1-.258 0L0 6.85v5.65z" />
+                                        <path fill-rule="evenodd" d="M0 4.5A1.5 1.5 0 0 1 1.5 3h13A1.5 1.5 0 0 1 16 4.5v1.384l-7.614 2.03a1.5 1.5 0 0 1-.772 0L0 5.884V4.5zm5-2A1.5 1.5 0 0 1 6.5 1h3A1.5 1.5 0 0 1 11 2.5V3h-1v-.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5V3H5v-.5z" />
+                                    </svg>
+                                    <br><span>Ambientes</span>
+                                </label>
+                            </li>
+                        </ul>
 
-                <!-----CARDS DE INFORMAÇÃO------->
-                <div class="row mt-5">
-                    <?php
-                    if ($type_user == "Jovem") {
-                        ?>
-                        <!--PRIMEIRO CARD-INFORMAÇÃO DAS DISCIPLINAS FEITAS-->
-                        <div class="col-md-6">
-                            <div class="card tamanho_card_tablet">
-                                <div class="card-header estudo">
-                                    <h6>Últimas disciplinas que fiz</h6>
-                                </div>
-                                <div class="card-body altura">
-                                    <blockquote class="blockquote mb-0">
-                                        <?php
-                                        if (mysqli_stmt_prepare($stmt, $query3)) {
-
-                                            mysqli_stmt_bind_param($stmt, 'i', $idUser);
-                                            mysqli_stmt_execute($stmt);
-                                            mysqli_stmt_bind_result($stmt, $idDone_CU, $Cu_name, $University_name, $date_CU);
-                                            while (mysqli_stmt_fetch($stmt)) {
-                                                ?>
-                                                <ul id="notebook_ul">
-                                                    <li class="lista">
-                                                        <?= $Cu_name ?>
-                                                        <p class="instituicao"><?= $University_name ?></p>
-                                                        <!--Se não for igual vai esconder determinados elementos que pessoas que não são o próprio user não podem ver-->
-                                                        <?php
-                                                        if ($idUser == $id_navegar) {
-                                                            ?>
-                                                            <div class="text-right">
-                                                                <a href="edit_done_uc.php?uc=<?= $idDone_CU ?>">
-                                                                    <i class="fas fa-edit mr-1" style="color:#00A5CF!important"></i>
-                                                                </a>
-
-                                                                <a href="#" data-toggle="modal" data-target="#deleteuc<?= $idDone_CU ?>">
-                                                                    <i class="fas fa-trash mr-1" style="color:#2F2F2F!important"></i>
-                                                                </a>
-                                                            </div>
-                                                            <?php
-                                                            include('components/delete_modal.php');
-                                                        }
-                                                        ?>
-                                                    </li>
-
-                                                </ul>
-                                                <?php
-                                            }
-                                        }
-                                        ?>
-                                        <!--Se não for igual vai esconder determinados elementos que pessoas que não são o próprio user não podem ver-->
-                                        <?php
-                                        if ($idUser == $id_navegar) {
-                                            ?>
-                                            <div class="text-center">
-                                                <a href="done_uc.php">
-                                                    <button class="btn add_btn">Adicionar novas disciplinas</button>
-                                                </a>
-                                            </div>
-                                            <?php
-                                        }
-                                        ?>
-                                    </blockquote>
-                                </div>
-                            </div>
+                        <div class="slider">
+                            <div class="indicator"></div>
                         </div>
+                        <div class="content">
+                            <!--DISCIPLINAS FEITAS-->
+                            <section>
+                                <h2>Últimas disciplinas que fiz</h2>
+                                <h5 class="mb-3">Últimas disciplinas que fiz</h5>
 
-                        <!------------------------------------------>
+                                <?php
+                                if (mysqli_stmt_prepare($stmt, $query3)) {
 
-                        <?php
-                    } else if ($type_user == "Universidade") {
-                        ?>
-                        <!--PRIMEIRO CARD-INFORMAÇÃO DAS ÁREAS DISPONÍVEIS-->
-                        <div class="col-md-6">
-                            <div class="card tamanho_card_tablet">
-                                <div class="card-header estudo">
-                                    <h6>Áreas disponíveis</h6>
-                                </div>
-                                <div class="card-body altura">
-                                    <blockquote class="blockquote mb-0">
+                                    mysqli_stmt_bind_param($stmt, 'i', $idUser);
+                                    mysqli_stmt_execute($stmt);
+                                    mysqli_stmt_bind_result($stmt, $idDone_CU, $Cu_name, $University_name, $date_CU);
+                                    while (mysqli_stmt_fetch($stmt)) {
+                                ?>
                                         <ul id="notebook_ul">
                                             <li class="lista">
-                                                Cibercultura
-                                                <p class="instituicao"> Universidade de Aveiro</p>
-                                            </li>
-                                            <li class="lista">
-                                                Interação e Interfaces
-                                                <p class="instituicao"> Universidade de Aveiro</p>
-                                            </li>
-                                            <li class="lista">
-                                                Laboratório Multimédia
-                                                <p class="instituicao"> Universidade de Aveiro</p>
-                                            </li>
-                                            <li class="lista">
-                                                Gestão de Empresas
-                                                <p class="instituicao"> Universidade de Aveiro</p>
-                                            </li>
-                                            <li class="lista">
-                                                Sociologia
-                                                <p class="instituicao"> Universidade de Aveiro</p>
-                                            </li>
-
-                                        </ul>
-                                    </blockquote>
-                                </div>
-                            </div>
-                        </div>
-
-                        <?php
-                    } else if ($type_user == "Empresa") {
-                        ?>
-
-                        <!--PRIMEIRO CARD-INFORMAÇÃO DAS VAGAS-->
-                        <div class="col-md-6">
-                            <div class="card tamanho_card_tablet">
-                                <div class="card-header estudo">
-                                    <h5>Vagas</h5>
-                                </div>
-                                <div class="card-body altura">
-                                    <blockquote class="blockquote mb-0">
-                                        <?php
-                                        if (mysqli_stmt_prepare($stmt, $query4)) {
-
-                                            mysqli_stmt_bind_param($stmt, 'i', $idUser);
-                                            mysqli_stmt_execute($stmt);
-                                            mysqli_stmt_bind_result($stmt, $idVacancie, $vacancie_name, $Areas_idAreas, $name_interested_area);
-                                            while (mysqli_stmt_fetch($stmt)) {
+                                                <?= $Cu_name ?>
+                                                <p class="instituicao"><?= $University_name ?></p>
+                                                <!--Se não for igual vai esconder determinados elementos que pessoas que não são o próprio user não podem ver-->
+                                                <?php
+                                                if ($idUser == $id_navegar) {
                                                 ?>
-                                                <ul id="notebook_ul">
-                                                    <li class="lista">
-                                                        <?= $vacancie_name ?>
-                                                        <p class="instituicao"><?= $name_interested_area ?></p>
-                                                        <a href="edit_vac.php?idvac=<?= $idVacancie ?>">
-                                                            <p class="instituicao"
-                                                               style="color:#00A5CF!important; text-align: right"><i
-                                                                        class="fas fa-edit mr-1 "
-                                                                        style="color:#00A5CF!important"></i>Editar</p>
+                                                    <div class="text-right">
+                                                        <a href="edit_done_uc.php?uc=<?= $idDone_CU ?>">
+                                                            <i class="fas fa-edit mr-1" style="color:#00A5CF!important"></i>
                                                         </a>
 
-                                                    </li>
-
-                                                </ul>
+                                                        <a href="#" data-toggle="modal" data-target="#deleteuc<?= $idDone_CU ?>">
+                                                            <i class="fas fa-trash mr-1" style="color:#2F2F2F!important"></i>
+                                                        </a>
+                                                    </div>
                                                 <?php
-                                            }
-                                        }
-                                        ?>
-                                        <!--Se não for igual vai esconder determinados elementos que pessoas que não são o próprio user não podem ver-->
-                                        <?php
-                                        if ($idUser == $id_navegar) {
-                                            ?>
-                                            <div class="text-center">
-                                                <a href="upload_vac.php">
-                                                    <button class="btn add_btn">Adicionar nova vaga</button>
-                                                </a>
-                                            </div>
-                                            <?php
-                                        }
-                                        ?>
-                                    </blockquote>
-                                </div>
-                            </div>
-                        </div>
-                        <?php
-                    }
-                    ?>
-                    <!--fim do primeiro carde de informação-->
-                    <!--SEGUNDO CARD- INFORMAÇÃO DAS ÁREAS DE PREFERÊNCIA (JOVENS) E CONTACTOS (UNIVERSIDADES E EMPRESAS)-->
 
-                    <?php
-                    if ($type_user == "Jovem") {
-
-                        ?>
-                        <div class="col-md-6">
-                            <div class="card tamanho_card_tablet">
-                                <div class="card-header estudo">
-                                    <h6>As minhas áreas de interesse</h6>
-                                </div>
-                                <div class="card-body altura">
-                                    <blockquote class="blockquote mb-0">
-                                        <?php
-                                        if (mysqli_stmt_prepare($stmt, $query2)) {
-
-                                            mysqli_stmt_bind_param($stmt, 'i', $idUser);
-                                            mysqli_stmt_execute($stmt);
-                                            mysqli_stmt_bind_result($stmt, $User_idUser, $Areas_idAreas, $name_interested_area);
-                                            while (mysqli_stmt_fetch($stmt)) {
+                                                }
                                                 ?>
-                                                <ul id="notebook_ul">
-                                                    <li class="lista">
-                                                        <?= $name_interested_area ?>
-                                                    </li>
-                                                </ul>
-                                                <?php
-                                            }
-                                        }
-                                        ?>
-                                    </blockquote>
-                                </div>
-                            </div>
-                        </div>
-
-                        <?php
-                    } else {
-                        ?>
-                        <div class="col-md-6 mb-5">
-                            <div class="card tamanho_card_tablet">
-                                <div class="card-header estudo">
-                                    <h5>Contactos</h5>
-                                </div>
-                                <div class="card-body altura" style="padding-top: 20px !important;">
-                                    <blockquote class=" blockquote mb-0 mt-4">
-                                        <ul id="notebook_ul">
-                                            <li class="lista">
-                                                <i class="fas fa-at mr-2"></i><b
-                                                        class="mr-2">Email:</b><?= $email_user ?>
-                                            </li>
-                                            <li class="lista">
-                                                <i class="fas fa-phone-alt mr-2"></i><b
-                                                        class="mr-2">Telefone:</b><?= $contact_user ?>
                                             </li>
 
-                                            <?php
-                                            if (isset($website_ue)) {
-                                                ?>
-
-                                                <li class="lista">
-                                                    <i class="fas fa-globe mr-2"></i><b
-                                                            class="mr-2">Website:</b><?= $website_ue ?>
-                                                </li>
-                                                <?php
-                                            }
-                                            if (isset($facebook_ue)) {
-                                                ?>
-                                                <li class="lista">
-                                                    <i class="fab fa-facebook mr-2"></i><b
-                                                            class="mr-2">Facebook:</b><?= $facebook_ue ?>
-                                                </li>
-                                                <?php
-                                            }
-                                            if (isset($instagram_ue)) {
-                                                ?>
-                                                <li class="lista">
-                                                    <i class="fab fa-instagram mr-2"></i><b
-                                                            class="mr-2">Instagram:</b> <?= $instagram_ue ?>
-                                                </li>
-
-                                                <?php
-                                            }
-                                            ?>
                                         </ul>
-                                    </blockquote>
-                                </div>
-                            </div>
+                                <?php
+                                        //modal de apagar a UC
+                                        include('components/delete_modal.php');
+                                    }
+                                }
+                                ?>
+                                <!--Se não for igual vai esconder determinados elementos que pessoas que não são o próprio user não podem ver-->
+                                <?php
+                                if ($idUser == $id_navegar) {
+                                ?>
+                                    <div class="text-center">
+                                        <a href="done_uc.php">
+                                            <button class="btn add_btn">Adicionar novas disciplinas</button>
+                                        </a>
+                                    </div>
+                                <?php
+                                }
+                                ?>
+
+
+                            </section>
+                            <!--AREAS DE INTERESSE-->
+                            <section>
+                                <h2>As minhas áreas de interesse</h2>
+                                <h5 class="mb-3">As minhas áreas de interesse</h5>
+                                <blockquote class="blockquote mb-0">
+                                    <?php
+                                    if (mysqli_stmt_prepare($stmt, $query2)) {
+
+                                        mysqli_stmt_bind_param($stmt, 'i', $idUser);
+                                        mysqli_stmt_execute($stmt);
+                                        mysqli_stmt_bind_result($stmt, $User_idUser, $Areas_idAreas, $name_interested_area);
+                                        while (mysqli_stmt_fetch($stmt)) {
+                                    ?>
+                                            <ul id="notebook_ul">
+                                                <li class="lista">
+                                                    <?= $name_interested_area ?>
+                                                </li>
+                                            </ul>
+                                    <?php
+                                        }
+                                    }
+                                    ?>
+                                </blockquote>
+
+                            </section>
+                            <!--COMPETÊNCIAS-->
+                            <section>
+                                <h2>As minhas competências</h2>
+                                <h5 class="mb-3">As minhas competências</h5>
+                                <blockquote class="blockquote mb-0">
+                                    <?php
+                                    if (mysqli_stmt_prepare($stmt, $query6)) {
+
+                                        mysqli_stmt_bind_param($stmt, 'i', $idUser);
+                                        mysqli_stmt_execute($stmt);
+                                        mysqli_stmt_bind_result($stmt, $capacities, $users_idUser, $capacity);
+                                        while (mysqli_stmt_fetch($stmt)) {
+                                    ?>
+                                            <ul id="notebook_ul">
+                                                <li class="lista">
+                                                    <?= $capacity ?>
+                                                </li>
+                                            </ul>
+                                    <?php
+                                        }
+                                    }
+                                    ?>
+                                </blockquote>
+
+                            </section>
+                            <!--AMBIENTES DE TRABALHO-->
+                            <section>
+                                <h5 class="mb-3">Os meus ambientes de trabalho favoritos</h5>
+                                <h2>Os meus ambientes de trabalho favoritos</h2>
+                                <blockquote class="blockquote mb-0">
+                                    <?php
+                                    if (mysqli_stmt_prepare($stmt, $query9)) {
+
+                                        mysqli_stmt_bind_param($stmt, 'i', $idUser);
+                                        mysqli_stmt_execute($stmt);
+                                        mysqli_stmt_bind_result($stmt, $favorite_environment, $users_idUser, $name_environment);
+                                        while (mysqli_stmt_fetch($stmt)) {
+                                    ?>
+                                            <ul id="notebook_ul">
+                                                <li class="lista">
+                                                    <?= $name_environment ?>
+                                                </li>
+                                            </ul>
+                                    <?php
+                                        }
+                                    }
+                                    ?>
+                                </blockquote>
+                            </section>
                         </div>
-                        <?php
-                    }
-                    ?>
-                    <!--fim da div row-->
-                </div>
-                <!--fim dos cards de informação-->
+                    </div>
+                <?php
+                }
+                ?>
+                <!------------------------------FIM DAS INFORMAÇÕES DOS JOVENS-------------------->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 <!--videos-->
                 <?php
                 if ($type_user == "Jovem") {
 
-                    ?>
+                ?>
                     <div class="mt-5 mb-5">
                         <h3 class="mb-4 titulo_videos">As minhas experiências</h3>
                         <div class="card mt-4">
@@ -445,20 +391,16 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                     mysqli_stmt_execute($stmt);
                                     mysqli_stmt_bind_result($stmt, $idExperiences, $title_exp, $description, $date, $content_name);
                                     while (mysqli_stmt_fetch($stmt)) {
-                                        ?>
+                                ?>
 
                                         <div class="col-md-3 mt-3 div_videos">
-                                            <a href="#" data-toggle="modal"
-                                               data-target="#modalvideo<?= $idExperiences ?>">
-                                                <video class="img-fluid z-depth-1 p-0 m-0 tam_video"
-                                                       src="../admin/uploads/xp/<?= $content_name ?>" alt="video"
-                                                       data-toggle="modal" data-target="#modal1"
-                                                       style="background-color: #2f2f2f;">
+                                            <a href="#" data-toggle="modal" data-target="#modalvideo<?= $idExperiences ?>">
+                                                <video class="img-fluid z-depth-1 p-0 m-0 tam_video" src="../admin/uploads/xp/<?= $content_name ?>" alt="video" data-toggle="modal" data-target="#modal1" style="background-color: #2f2f2f;">
                                             </a>
                                         </div>
 
                                         <!--Se não for igual vai esconder determinados elementos que pessoas que não são o próprio user não podem ver-->
-                                        <?php
+                                    <?php
                                         include "modal_vid.php";
                                     }
                                 }
@@ -472,15 +414,15 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                             </button>
                                         </a>
                                     </div>
-                                    <?php
+                                <?php
                                 }
                                 ?>
                             </div>
                         </div>
                     </div>
-                    <?php
+                <?php
                 } else if ($type_user == "Empresa") {
-                    ?>
+                ?>
                     <div class="mt-5 mb-5 centrar_cont">
                         <h3 class="mb-4 titulo_videos">As minhas experiências</h3>
                         <div class="card mt-4">
@@ -493,19 +435,15 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                     mysqli_stmt_execute($stmt);
                                     mysqli_stmt_bind_result($stmt, $idVacancies, $vacancie_name, $Content_idContent, $content_name);
                                     while (mysqli_stmt_fetch($stmt)) {
-                                        ?>
+                                ?>
                                         <div class="col-md-3 mt-3 div_videos">
-                                            <a href="#" data-toggle="modal"
-                                               data-target="#modalvideo<?= $idVacancies ?>">
-                                                <video class="img-fluid z-depth-1 p-0 m-0 tam_video"
-                                                       src="../admin/uploads/vid_vac/<?= $content_name ?>" alt="video"
-                                                       data-toggle="modal" data-target="#modal1"
-                                                       style="background-color: #2f2f2f;">
+                                            <a href="#" data-toggle="modal" data-target="#modalvideo<?= $idVacancies ?>">
+                                                <video class="img-fluid z-depth-1 p-0 m-0 tam_video" src="../admin/uploads/vid_vac/<?= $content_name ?>" alt="video" data-toggle="modal" data-target="#modal1" style="background-color: #2f2f2f;">
                                             </a>
                                         </div>
 
                                         <!--Se não for igual vai esconder determinados elementos que pessoas que não são o próprio user não podem ver-->
-                                        <?php
+                                    <?php
                                         include "modal_vid.php";
                                     }
                                 }
@@ -519,20 +457,20 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                             </button>
                                         </a>
                                     </div>
-                                    <?php
+                                <?php
                                 }
                                 ?>
                             </div>
                         </div>
                     </div>
-                    <?php
+                <?php
                 }
                 ?>
 
 
             </div>
             <!--fim da div com w-75-->
-            <?php
+<?php
             //fim do prepare da query que seleciona o informações do user
         }
     }

@@ -73,7 +73,7 @@
                                             <input type="email" class="form-control cinza" id="email" name="email" placeholder="Escreve aqui o teu email" required="required" onchange="email_validate(this.value);">
                                         </div>
                                     </div>
-                                    
+
                                     <!------------PASSWORD------------>
                                     <div class="form-group">
                                         <label class="negrito mt-3" for="password">Palavra-passe <span class="asterisco">*</span></label>
@@ -134,7 +134,7 @@
                                             ?>
                                         </select>
                                     </div>
-                                    
+
                                     <!------------ÁREAS------------>
                                     <div class="form-group">
                                         <h6 class="negrito mt-4" for="area" role="heading">As minhas áreas de interesse (para estudar ou trabalhar) <span class="asterisco">*</span></h6>
@@ -330,74 +330,84 @@
                                     </div>
 
                                     <hr>
-                                    <!------------PERSONALIDADE------------>
+                                    <!------------SOBRE MIM------------>
                                     <h5 class="titulo_cinza" role="heading">Sobre mim</h5>
-
-
+                                    <!------------COMPETÊNCIAS------------>
                                     <div class="form-group">
-                                        <!------------PERGUNTA 1------------>
-                                        <div class="form-group text-left">
-                                            <label class="label-margin negrito mt-3" for="primeiro">Sou uma pessoa
-                                                que: <span class="asterisco">*</span></label>
-                                            <select name="pergunta1" class="form-control" id="primeiro">
-                                                <option selected disabled>Selecionar uma opção</option>
-                                                <option value="Comunicativo">Tenho muitos amigos.</option>
-                                                <option value="Organizado">Gosto de organizar tarefas.</option>
-                                                <option value="Previsível">Convivo melhor com a rotina.</option>
-                                                <option value="Determinado">Procuro sempre coisas claras e objetivas.</option>
-                                            </select>
-                                        </div>
+                                        <h6 class="negrito mt-4" for="capacity" role="heading">As minhas competências (assinalar apenas as que melhor se adequam)<span class="asterisco">*</span></h6>
+                                        <div class="form-check">
+                                            <?php
+                                            $query = "SELECT idcapacities, capacity FROM capacities";
 
-                                        <!------------PERGUNTA 2------------>
-                                        <div class="form-group text-left">
-                                            <label class="label-margin negrito mt-3" for="segundo">No convívio com
-                                                outras
-                                                pessoas, eu: <span class="asterisco">*</span></label>
-                                            <select name="pergunta2" class="form-control" id="segundo">
-                                                <option selected disabled>Selecionar uma opção</option>
-                                                <option value="Comunicativo">Estou sempre a motivar as pessoas.</option>
-                                                <option value="Organizado">Gosto de pessoas sérias.</option>
-                                                <option value="Previsível">Sou muito paciente com as outras pessoas.</option>
-                                                <option value="Determinado">Prefiro fazer as minhas coisas sozinho/sozinha.</option>
-                                            </select>
-                                        </div>
+                                            if (mysqli_stmt_prepare($stmt, $query)) {
 
-                                        <!------------PERGUNTA 3------------>
-                                        <div class="form-group text-left">
-                                            <label class="label-margin negrito mt-3" for="terceiro">Com qual destas
-                                                frases mais me identifico? <span class="asterisco">*</span></label>
-                                            <select name="pergunta3" class="form-control" id="terceiro">
-                                                <option selected disabled>Selecionar uma opção</option>
-                                                <option value="Comunicativo">"Quem tem boca vai a Roma".</option>
-                                                <option value="Organizado">"Tu tornas-te naquilo que desejas".</option>
-                                                <option value="Previsível">"Prevenir é melhor que remediar".</option>
-                                                <option value="Determinado">"Quando falta sorte deve sobrar atitude".</option>
-                                            </select>
-                                        </div>
+                                                /* execute the prepared statement */
+                                                if (mysqli_stmt_execute($stmt)) {
+                                                    /* bind result variables */
+                                                    mysqli_stmt_bind_result($stmt, $idcapacities, $capacity);
 
-                                        <!------------PERGUNTA 4------------>
-                                        <div class="form-group text-left">
-                                            <label class="label-margin negrito mt-3" for="quarto">Em situações de
-                                                stress, eu: <span class="asterisco">*</span></label>
-                                            <select name="pergunta4" class="form-control" id="quarto">
-                                                <option selected disabled>Selecionar uma opção</option>
-                                                <option value="Comunicativo">Falo com outras pessoas que me possam ajudar a melhorar.</option>
-                                                <option value="Organizado">Mantenho a calma.</option>
-                                                <option value="Previsível">Vejo quais são as as possibilidades e preparo-me, para não me stressar novamente.</option>
-                                                <option value="Determinado">Mantenho a atenção naquilo que tenho de fazer.</option>
-                                            </select>
-                                        </div>
+                                                    /* fetch values */
+                                                    while (mysqli_stmt_fetch($stmt)) {
 
+                                                        echo "\n\t\t";
+                                                        echo "<label class='form-check-label col-xs-12 col-md-6  label_margin' role='checkbox'>";
+                                                        echo "<input type='checkbox' class='form-check-input' name='capacity[]' value='$idcapacities'>$capacity<br>";
+                                                        echo "</label>";
+                                                    }
+                                                } else {
+                                                    echo "Error: " . mysqli_stmt_error($stmt);
+                                                }
+                                                /* close statement */
+                                                //mysqli_stmt_close($stmt);
+                                            } else {
+                                                echo "Error: " . mysqli_error($link);
+                                            }
+                                            ?>
+                                        </div>
+                                    </div>
+                                    <!--LOCAL ONDE GOSTARIA DE TRABALHAR-->
+                                    <div class="form-group">
+                                        <h6 class="negrito mt-4" for="environment" role="heading">Quais são os teus ambientes de trabalho favoritos?<span class="asterisco">*</span></h6>
+                                        <div class="form-check">
+                                            <?php
+                                            $query = "SELECT idwork_environment, name_environment FROM work_environment";
+
+                                            if (mysqli_stmt_prepare($stmt, $query)) {
+
+                                                /* execute the prepared statement */
+                                                if (mysqli_stmt_execute($stmt)) {
+                                                    /* bind result variables */
+                                                    mysqli_stmt_bind_result($stmt, $idwork_environment, $name_environment);
+
+                                                    /* fetch values */
+                                                    while (mysqli_stmt_fetch($stmt)) {
+
+                                                        echo "\n\t\t";
+                                                        echo "<label class='form-check-label col-xs-12 col-md-6  label_margin' role='checkbox'>";
+                                                        echo "<input type='checkbox' class='form-check-input' name='environment[]' value='$idwork_environment'>$name_environment<br>";
+                                                        echo "</label>";
+                                                    }
+                                                } else {
+                                                    echo "Error: " . mysqli_stmt_error($stmt);
+                                                }
+                                                /* close statement */
+                                                //mysqli_stmt_close($stmt);
+                                            } else {
+                                                echo "Error: " . mysqli_error($link);
+                                            }
+                                            ?>
+                                        </div>
+                                    </div>
                                     <!------------MAIS DETALHES SOBRE ELE------------>
                                     <div class="form-group mb-5">
                                         <label class="negrito mt-3" for="def">O que mais posso dizer sobre mim <span class="asterisco">*</span></label>
                                         <textarea class="form-control cinza" id="def" rows="7" name="def" placeholder="Por exemplo: Sei usar computador, Sei falar outras línguas para além da minha, gosto de desenhar, pintar, pratico desporto, etc. &#10;Se tiveres alguma necessidade indica aqui também (por exemplo: elevador e/ou rampas de acesso)."></textarea>
                                     </div>
-                                        <div class="form-group mt-4 text-center">
-                                            <div class="pb-3 pt-2">
-                                                <button type="submit" class="btn publicar_btn">Registar</button>
-                                            </div>
+                                    <div class="form-group mt-4 text-center">
+                                        <div class="pb-3 pt-2">
+                                            <button type="submit" class="btn publicar_btn">Registar</button>
                                         </div>
+                                    </div>
                                 </form>
 
                                 <hr>

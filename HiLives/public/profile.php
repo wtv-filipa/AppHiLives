@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 ?>
 <!DOCTYPE html>
@@ -16,18 +16,21 @@ session_start();
 </head>
 
 <body>
-<header class="sticky-top">
-    <!--navbar-->
-    <?php include "components/navbar.php"; ?>
-</header>
-<main class="container">
+    <header class="sticky-top">
+        <!--navbar-->
+        <?php include "components/navbar.php"; ?>
+    </header>
+    <main class="container">
 
-    <?php include "components/profile.php"; ?>
-</main>
-<?php include "components/footer.php"; ?>
-<!-- JavaScript-->
-<?php include "helpers/js.php"; ?>
-<?php include "helpers/fontawesome.php"; ?>
+        <?php include "components/profile.php"; ?>
+    </main>
+    <?php include "components/footer.php"; ?>
+    <!-- JavaScript-->
+    <?php include "helpers/js.php"; ?>
+    <?php include "helpers/fontawesome.php"; ?>
+    <script>
+        $('#deleteuc<?= $idDone_CU ?>').appendTo("body") 
+    </script>
 </body>
 
 </html>
