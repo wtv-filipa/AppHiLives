@@ -51,15 +51,7 @@
                                     require_once("connections/connection.php");
                                     $link = new_db_connection();
                                     $stmt = mysqli_stmt_init($link);
-
-                                    $query = "SELECT Educ_lvl_idEduc_lvl, Study_work_idStudy_work FROM users ";
-                                    if (mysqli_stmt_prepare($stmt, $query)) {
-
-
-                                        mysqli_stmt_execute($stmt);
-                                        mysqli_stmt_bind_result($stmt, $Educ_lvl_idEduc_lvl, $Study_work_idStudy_work);
-                                        while (mysqli_stmt_fetch($stmt)) {
-                                            ?>
+                                  ?>
                                             <!------------****------------>
                                             <p style="font-size: 12px; color: #00A5CF !important;">* Preenchimento obrigatório</p>
                                             <!------------NOME------------>
@@ -320,13 +312,6 @@
                                                     <button type="submit" class="btn publicar_btn">Registar</button>
                                                 </div>
                                             </div>
-                                            <?php
-
-                                            /* close connection */
-                                            //mysqli_close($link);
-                                        }
-                                    }
-                                    ?>
                                 </form>
 
                                 <hr>

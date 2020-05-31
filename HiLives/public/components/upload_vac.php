@@ -92,24 +92,24 @@ $idUser = $_SESSION["idUser"];
             <!-------------------------------------------->
             <!--sétimo campo-->
             <div class="form-group text-left">
-                <label class="label-margin" for="personality">Personalidade necessária: </label>
+                <label class="label-margin" for="personality">Capacidades necessárias: </label>
                 <div class="form-check">
                     <?php
-                    $query = "SELECT idPersonality, name_perso FROM personality";
+                    $query = "SELECT idcapacities, capacity FROM capacities";
 
                     if (mysqli_stmt_prepare($stmt, $query)) {
 
                         /* execute the prepared statement */
                         if (mysqli_stmt_execute($stmt)) {
                             /* bind result variables */
-                            mysqli_stmt_bind_result($stmt, $idPersonality, $name_perso);
+                            mysqli_stmt_bind_result($stmt, $idcapacities, $capacity);
 
                             /* fetch values */
                             while (mysqli_stmt_fetch($stmt)) {
 
                                 echo "\n\t\t";
                                 echo "<label class='form-check-label col-xs-12 col-md-6 label_margin'>";
-                                echo "<input type='checkbox' class='form-check-input' name='personalidade[]' value='$idPersonality'>$name_perso<br>";
+                                echo "<input type='checkbox' class='form-check-input' name='capacity[]' value='$idcapacities'>$capacity<br>";
                                 echo "</label>";
                             }
                         } else {

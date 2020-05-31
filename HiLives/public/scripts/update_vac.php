@@ -31,9 +31,9 @@ if (isset($_GET["idvac"]) && isset($_POST["nomevaga"]) && isset($_POST["descrica
             echo "erro da stmt execute <br/>";
             echo "Error: " . mysqli_stmt_error($stmt);
         } else {
-            //PERSONALIDADE
-            if (isset($_POST["person"])) {
-                // APAGAR TODOS AS PERSONALIDADES ASSOCIADAS À VAGA
+            //CAPACIDADES
+            if (isset($_POST["capacity"])) {
+                // APAGAR TODOS AS CAPACIDADES ASSOCIADAS À VAGA
                 $query2 = "DELETE FROM personality_has_vacancies
                         WHERE Vacancies_idVacancies = ?";
 
@@ -60,8 +60,8 @@ if (isset($_GET["idvac"]) && isset($_POST["nomevaga"]) && isset($_POST["descrica
 
                 mysqli_stmt_bind_param($stmt, 'ii', $Personality_idPersonality, $idVacancies);
 
-                // PARA TODOS AS REGIÕES ESCOLHIDAS
-                foreach ($_POST["person"] as $Personality_idPersonality) {
+                // ADICIONA AS CAPACIDADES
+                foreach ($_POST["capacity"] as $Personality_idPersonality) {
                     /* execute the prepared statement */
                     if (!mysqli_stmt_execute($stmt)) {
                         echo "Error: " . mysqli_stmt_error($stmt);
