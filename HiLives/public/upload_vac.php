@@ -8,7 +8,7 @@ session_start();
     <!-- metadados -->
     <?php include "helpers/meta.php"; ?>
     <title>Carregar Vaga</title>
-     <!-- Custom fonts for this template-->
+    <!-- Custom fonts for this template-->
     <?php include "helpers/fonts.php"; ?>
     <!-- Custom styles for this template-->
     <?php include "helpers/css_upload.php"; ?>
@@ -25,10 +25,21 @@ session_start();
         <?php include "components/upload_vac.php"; ?>
     </main>
     <!--javascript-->
+    <script>
+        var select = document.getElementById("pais");
+        var formularios = document.querySelectorAll('.formulario');
+
+        select.onchange = function() {
+            for (var i = 0; i < formularios.length; i++) formularios[i].style.display = 'none';
+            var divID = select.options[select.selectedIndex].value;
+            var div = document.getElementById(divID);
+            div.style.display = 'block';
+        };
+    </script>
     <?php include "helpers/js.php"; ?>
-    <?php include "helpers/js_upload.php";?>
+    <?php include "helpers/js_upload.php"; ?>
     <?php include "helpers/fontawesome.php"; ?>
-    
+
 </body>
 
 </html>

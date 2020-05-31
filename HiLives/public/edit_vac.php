@@ -25,6 +25,17 @@ session_start();
         <?php include "components/edit_vac.php"; ?>
     </main>
     <!--javascript-->
+    <script>
+        var select = document.getElementById("pais");
+        var formularios = document.querySelectorAll('.formulario');
+
+        select.onchange = function() {
+            for (var i = 0; i < formularios.length; i++) formularios[i].style.display = 'none';
+            var divID = select.options[select.selectedIndex].value;
+            var div = document.getElementById(divID);
+            div.style.display = 'block';
+        };
+    </script>
     <?php include "helpers/js.php"; ?>
     <?php include "helpers/js_upload.php"; ?>
     <?php include "helpers/fontawesome.php"; ?>
