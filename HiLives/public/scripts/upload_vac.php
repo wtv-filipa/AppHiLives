@@ -3,7 +3,7 @@
 require_once("../connections/connection.php");
 // Create a new DB connection
 $link = new_db_connection();
-if (isset($_POST['fileToUpload'])) {
+if (isset($_FILES['fileToUpload'])) {
     /* create a prepared statement */
     $stmt = mysqli_stmt_init($link);
     //DIRETÓRIO PARA ONDE VAI O VÍDEO
