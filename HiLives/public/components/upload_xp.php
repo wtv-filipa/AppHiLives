@@ -33,8 +33,8 @@ if (isset($_SESSION["idUser"])) {
                         Insere um vídeo até 50MB.
                     </div>
                     <div class="custom-file mb-3">
-                        <input type="file" class="custom-file-input file-upload" id="customFile"  name="fileToUpload" accept=".avi, .wmv, .mp4" >
-                        <label class="custom-file-label" for="customFile">Escolher ficheiro</label>
+                        <input type="file" class="custom-file-input file-upload" id="fileToUpload" name="fileToUpload" accept=".avi, .wmv, .mp4" >
+                        <label class="custom-file-label" for="fileToUpload">Escolher ficheiro</label>
                     </div>
                     <!-------------------------------------------->
                     <!--primeiro campo-->
