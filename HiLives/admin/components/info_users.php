@@ -7,15 +7,25 @@ if (isset($_GET["info"])) {
     $link = new_db_connection();
     //create a prepared statement
     $stmt = mysqli_stmt_init($link);
-    //ir buscar os dados
-    $query = "SELECT idUser, name_user, email_user, contact_user, birth_date, info_young, work_xp, profile_img, website_ue, facebook_ue, instagram_ue, description_ue, history_ue, Educ_lvl_idEduc_lvl, active, Study_work_idStudy_work, type_user
+    //ir buscar os dados do user
+    $query = "SELECT idUser, name_user, email_user, contact_user, birth_date, info_young, work_xp, profile_img, website_ue, facebook_ue, instagram_ue, description_ue, history_ue, Educ_lvl_idEduc_lvl, active, type_user
     FROM users INNER JOIN user_type ON users.User_type_idUser_type= user_type.idUser_type
     WHERE idUser = ?";
+    //areas
+    $query2 = "SELECT name_interested_area FROM areas INNER JOIN user_has_areas ON  areas.idAreas= user_has_areas.Areas_idAreas INNER JOIN users ON user_has_areas.User_idUser=users.idUser WHERE idUser=?";
+    //nome da educação
+    $query3 = "SELECT name_education FROM educ_lvl INNER JOIN users ON educ_lvl.idEduc_lvl=users.Educ_lvl_idEduc_lvl WHERE idUser=?";
+    //capacidades
+    $query4 = "SELECT capacity FROM capacities INNER JOIN capacities_has_users ON capacities.idcapacities = capacities_has_users.capacities WHERE users_idUser = ?";
+    //região
+    $query5 = "SELECT name_region FROM region INNER JOIN user_has_region ON region.idRegion= user_has_region.Region_idRegion INNER JOIN users ON user_has_region.User_idUser_region=users.idUser WHERE idUser=?";
+    //ambiente de trabalho
+    $query6 = "SELECT name_environment FROM work_environment INNER JOIN work_environment_has_users ON work_environment.idwork_environment = work_environment_has_users.favorite_environment WHERE users_idUser = ?";
     if (mysqli_stmt_prepare($stmt, $query)) {
 
         mysqli_stmt_bind_param($stmt, 'i', $idUser);
         mysqli_stmt_execute($stmt);
-        mysqli_stmt_bind_result($stmt, $idUser, $name_user, $email_user, $contact_user, $birth_date, $info_young, $work_xp, $profile_img, $website_ue, $facebook_ue, $instagram_ue, $description_ue, $history_ue, $Educ_lvl_idEduc_lvl, $active, $Study_work_idStudy_work, $type_user);
+        mysqli_stmt_bind_result($stmt, $idUser, $name_user, $email_user, $contact_user, $birth_date, $info_young, $work_xp, $profile_img, $website_ue, $facebook_ue, $instagram_ue, $description_ue, $history_ue, $Educ_lvl_idEduc_lvl, $active, $type_user);
         while (mysqli_stmt_fetch($stmt)) {
             $dob = $birth_date;
             $age = (date('Y') - date('Y', strtotime($dob)));
@@ -92,8 +102,6 @@ if (isset($_GET["info"])) {
                             <!----------------------->
                             <!--sexto input- ESCOLARIDADE-->
                             <?php
-                            $query3 = "SELECT name_education FROM educ_lvl INNER JOIN users ON educ_lvl.idEduc_lvl=users.Educ_lvl_idEduc_lvl WHERE idUser=?";
-
                             if (mysqli_stmt_prepare($stmt, $query3)) {
                                 mysqli_stmt_bind_param($stmt, 'i', $idUser);
                                 /* execute the prepared statement */
@@ -120,43 +128,10 @@ if (isset($_GET["info"])) {
                             ?>
 
                             <!----------------------->
-                            <!--sétimo input-ESTUDO OU TRABALHO-->
-                            <?php
-                            $query2 = "SELECT name_type FROM study_work INNER JOIN users ON study_work.idStudy_work=users.Study_work_idStudy_work WHERE idUser=?";
-
-                            if (mysqli_stmt_prepare($stmt, $query2)) {
-
-                                mysqli_stmt_bind_param($stmt, 'i', $idUser);
-                                /* execute the prepared statement */
-                                if (mysqli_stmt_execute($stmt)) {
-                                    /* bind result variables */
-                                    mysqli_stmt_bind_result($stmt, $name_type);
-
-                                    /* fetch values */
-                                    while (mysqli_stmt_fetch($stmt)) {
-                                        echo " <div class='text-left'>
-                                                <h5 for='nome'>O que procura: <span style='font-size: 16px;'>$name_type</span></h5>
-                                            </div>
-                                            <hr>";
-                                    }
-                                } else {
-                                    echo "Error: " . mysqli_stmt_error($stmt);
-                                }
-
-                                /* close statement */
-                                //mysqli_stmt_close($stmt);
-                            } else {
-                                echo "Error: " . mysqli_error($link);
-                            }
-                            ?>
-
-                            <!----------------------->
                             <!--oitavo input-AREAS-->
                             <div class='text-left'>
                                 <h5 for='nome'>Áreas de interesse: </h5>
                                 <?php
-                                $query2 = "SELECT name_interested_area FROM areas INNER JOIN user_has_areas ON  areas.idAreas= user_has_areas.Areas_idAreas INNER JOIN users ON user_has_areas.User_idUser=users.idUser WHERE idUser=?";
-
                                 if (mysqli_stmt_prepare($stmt, $query2)) {
                                     // Bind variables by type to each parameter
                                     mysqli_stmt_bind_param($stmt, 'i', $idUser);
@@ -187,11 +162,8 @@ if (isset($_GET["info"])) {
                             <!--nono input-REGIÃO PT-->
                             <div class='text-left'>
                                 <h5 for='nome'>Regiões de interesse: </h5>
-                                <?php
-
-                                $query3 = "SELECT name_region FROM region INNER JOIN user_has_region ON region.idRegion= user_has_region.Region_idRegion INNER JOIN users ON user_has_region.User_idUser_region=users.idUser WHERE idUser=?";
-
-                                if (mysqli_stmt_prepare($stmt, $query3)) {
+                                <?php                                
+                                if (mysqli_stmt_prepare($stmt, $query5)) {
                                     // Bind variables by type to each parameter
                                     mysqli_stmt_bind_param($stmt, 'i', $idUser);
                                     /* execute the prepared statement */
@@ -214,58 +186,96 @@ if (isset($_GET["info"])) {
                                     echo "Error: " . mysqli_error($link);
                                 }
                                 ?>
-                                <hr>
-                                <!------------EXPERIÊNCIA DE TRABALHO------------>
-                                <div class="text-left">
-                                    <h5 for="nome">Experiência de trabalho: <span style="font-size: 16px;"><?= $work_xp ?></span></h5>
-                                </div>
-                                <hr>
-                            <?php
-                        } else if ($type_user == "Empresa") {
-                            ?>
-                                <!--website-->
-                                <div class="text-left">
-                                    <h5 for="nome">Website: <span style="font-size: 16px;"><?= $website_ue ?></span></h5>
-                                </div>
-                                <hr>
-                                <!--facebook-->
-                                <div class="text-left">
-                                    <h5 for="nome">Facebook: <span style="font-size: 16px;"><?= $facebook_ue ?></span></h5>
-                                </div>
-                                <hr>
-                                <!--instagram-->
-                                <div class="text-left">
-                                    <h5 for="nome">Instagram: <span style="font-size: 16px;"><?= $instagram_ue ?></span></h5>
-                                </div>
-                                <hr>
-                                <!--REGIÃO PT-->
+                            </div>
+                            <hr>
+                            <!--------------------------------->
+                            <!---------CAPACIDADES--->
                             <div class='text-left'>
-                                <h5 for='nome'>Região da empresa: 
+                                <h5 for='nome'>Capacidades: </h5>
                                 <?php
+                                if (mysqli_stmt_prepare($stmt, $query4)) {
 
-                                $query3 = "SELECT name_region FROM region INNER JOIN user_has_region ON region.idRegion= user_has_region.Region_idRegion INNER JOIN users ON user_has_region.User_idUser_region=users.idUser WHERE idUser=?";
-
-                                if (mysqli_stmt_prepare($stmt, $query3)) {
-                                    // Bind variables by type to each parameter
                                     mysqli_stmt_bind_param($stmt, 'i', $idUser);
-                                    /* execute the prepared statement */
-                                    if (mysqli_stmt_execute($stmt)) {
-                                        /* bind result variables */
-                                        mysqli_stmt_bind_result($stmt, $name_region);
-
-                                        /* fetch values */
-                                        while (mysqli_stmt_fetch($stmt)) {
-                                            echo "<span style='font-size: 16px;'> $name_region</span>";
-                                        }
-                                    } else {
-                                        echo "Error: " . mysqli_stmt_error($stmt);
+                                    mysqli_stmt_execute($stmt);
+                                    mysqli_stmt_bind_result($stmt, $name_environment);
+                                    while (mysqli_stmt_fetch($stmt)) {
+                                        echo "<ul>
+                                            <li  style='font-size: 16px; font-family: Quicksand; list-style-type:circle;'>$name_environment</li>
+                                            </ul>";
                                     }
-                                    /* close statement */
-                                    //mysqli_stmt_close($stmt);
-                                } else {
-                                    echo "Error: " . mysqli_error($link);
                                 }
                                 ?>
+                            </div>
+                            <hr>
+                            <!--------------------------------------------->
+                            <!---------AMBIENTE DE TRABALHO--->
+                            <div class='text-left'>
+                                <h5 for='nome'>Ambientes de trabalho preferidos: </h5>
+                                <?php
+                                if (mysqli_stmt_prepare($stmt, $query4)) {
+
+                                    mysqli_stmt_bind_param($stmt, 'i', $idUser);
+                                    mysqli_stmt_execute($stmt);
+                                    mysqli_stmt_bind_result($stmt, $capacity);
+                                    while (mysqli_stmt_fetch($stmt)) {
+                                        echo "<ul>
+                                            <li  style='font-size: 16px; font-family: Quicksand; list-style-type:circle;'>$capacity</li>
+                                            </ul>";
+                                    }
+                                }
+                                ?>
+                            </div>
+                            <hr>
+                            <!--------------------------------------------->
+                            <!------------EXPERIÊNCIA DE TRABALHO------------>
+                            <div class="text-left">
+                                <h5 for="nome">Experiência de trabalho: <span style="font-size: 16px;"><?= $work_xp ?></span></h5>
+                            </div>
+                            <hr>
+                        <?php
+                        } else if ($type_user == "Empresa") {
+                        ?>
+                            <!--website-->
+                            <div class="text-left">
+                                <h5 for="nome">Website: <span style="font-size: 16px;"><?= $website_ue ?></span></h5>
+                            </div>
+                            <hr>
+                            <!--facebook-->
+                            <div class="text-left">
+                                <h5 for="nome">Facebook: <span style="font-size: 16px;"><?= $facebook_ue ?></span></h5>
+                            </div>
+                            <hr>
+                            <!--instagram-->
+                            <div class="text-left">
+                                <h5 for="nome">Instagram: <span style="font-size: 16px;"><?= $instagram_ue ?></span></h5>
+                            </div>
+                            <hr>
+                            <!--REGIÃO PT-->
+                            <div class='text-left'>
+                                <h5 for='nome'>Região da empresa:
+                                    <?php
+
+                                    if (mysqli_stmt_prepare($stmt, $query5)) {
+                                        // Bind variables by type to each parameter
+                                        mysqli_stmt_bind_param($stmt, 'i', $idUser);
+                                        /* execute the prepared statement */
+                                        if (mysqli_stmt_execute($stmt)) {
+                                            /* bind result variables */
+                                            mysqli_stmt_bind_result($stmt, $name_region);
+
+                                            /* fetch values */
+                                            while (mysqli_stmt_fetch($stmt)) {
+                                                echo "<span style='font-size: 16px;'> $name_region</span>";
+                                            }
+                                        } else {
+                                            echo "Error: " . mysqli_stmt_error($stmt);
+                                        }
+                                        /* close statement */
+                                        //mysqli_stmt_close($stmt);
+                                    } else {
+                                        echo "Error: " . mysqli_error($link);
+                                    }
+                                    ?>
                                 </h5>
                                 <hr>
                                 <!--descrição-->
@@ -292,104 +302,99 @@ if (isset($_GET["info"])) {
                                 </div>
                                 <hr>
                                 <!--oitavo input-AREAS-->
-                            <div class='text-left'>
-                                <h5 for='nome'>Áreas de oferta: </h5>
-                                <?php
-                                $query2 = "SELECT name_interested_area FROM areas INNER JOIN user_has_areas ON  areas.idAreas= user_has_areas.Areas_idAreas INNER JOIN users ON user_has_areas.User_idUser=users.idUser WHERE idUser=?";
+                                <div class='text-left'>
+                                    <h5 for='nome'>Áreas de oferta: </h5>
+                                    <?php
+                                    if (mysqli_stmt_prepare($stmt, $query2)) {
+                                        // Bind variables by type to each parameter
+                                        mysqli_stmt_bind_param($stmt, 'i', $idUser);
+                                        /* execute the prepared statement */
+                                        if (mysqli_stmt_execute($stmt)) {
+                                            /* bind result variables */
+                                            mysqli_stmt_bind_result($stmt, $name_interested_area);
 
-                                if (mysqli_stmt_prepare($stmt, $query2)) {
-                                    // Bind variables by type to each parameter
-                                    mysqli_stmt_bind_param($stmt, 'i', $idUser);
-                                    /* execute the prepared statement */
-                                    if (mysqli_stmt_execute($stmt)) {
-                                        /* bind result variables */
-                                        mysqli_stmt_bind_result($stmt, $name_interested_area);
-
-                                        /* fetch values */
-                                        while (mysqli_stmt_fetch($stmt)) {
-                                            echo "<ul>
+                                            /* fetch values */
+                                            while (mysqli_stmt_fetch($stmt)) {
+                                                echo "<ul>
                                             <li  style='font-size: 16px; font-family: Quicksand; list-style-type:circle;'>$name_interested_area</li>
                                             </ul>";
+                                            }
+                                        } else {
+                                            echo "Error: " . mysqli_stmt_error($stmt);
                                         }
+                                        /* close statement */
+                                        //mysqli_stmt_close($stmt);
                                     } else {
-                                        echo "Error: " . mysqli_stmt_error($stmt);
+                                        echo "Error: " . mysqli_error($link);
                                     }
-                                    /* close statement */
-                                    //mysqli_stmt_close($stmt);
-                                } else {
-                                    echo "Error: " . mysqli_error($link);
-                                }
-                                ?>
+                                    ?>
 
-                            </div>
-                            <hr>
+                                </div>
+                                <hr>
                                 <!--REGIÃO PT-->
-                            <div class='text-left'>
-                                <h5 for='nome'>Região da Universidade: 
-                                <?php
+                                <div class='text-left'>
+                                    <h5 for='nome'>Região da Universidade:
+                                        <?php
+                                        if (mysqli_stmt_prepare($stmt, $query5)) {
+                                            // Bind variables by type to each parameter
+                                            mysqli_stmt_bind_param($stmt, 'i', $idUser);
+                                            /* execute the prepared statement */
+                                            if (mysqli_stmt_execute($stmt)) {
+                                                /* bind result variables */
+                                                mysqli_stmt_bind_result($stmt, $name_region);
 
-                                $query3 = "SELECT name_region FROM region INNER JOIN user_has_region ON region.idRegion= user_has_region.Region_idRegion INNER JOIN users ON user_has_region.User_idUser_region=users.idUser WHERE idUser=?";
-
-                                if (mysqli_stmt_prepare($stmt, $query3)) {
-                                    // Bind variables by type to each parameter
-                                    mysqli_stmt_bind_param($stmt, 'i', $idUser);
-                                    /* execute the prepared statement */
-                                    if (mysqli_stmt_execute($stmt)) {
-                                        /* bind result variables */
-                                        mysqli_stmt_bind_result($stmt, $name_region);
-
-                                        /* fetch values */
-                                        while (mysqli_stmt_fetch($stmt)) {
-                                            echo "<span style='font-size: 16px;'> $name_region</span>";
+                                                /* fetch values */
+                                                while (mysqli_stmt_fetch($stmt)) {
+                                                    echo "<span style='font-size: 16px;'> $name_region</span>";
+                                                }
+                                            } else {
+                                                echo "Error: " . mysqli_stmt_error($stmt);
+                                            }
+                                            /* close statement */
+                                            //mysqli_stmt_close($stmt);
+                                        } else {
+                                            echo "Error: " . mysqli_error($link);
                                         }
-                                    } else {
-                                        echo "Error: " . mysqli_stmt_error($stmt);
-                                    }
-                                    /* close statement */
-                                    //mysqli_stmt_close($stmt);
-                                } else {
-                                    echo "Error: " . mysqli_error($link);
-                                }
+                                        ?>
+                                    </h5>
+                                    <hr>
+                                    <!--descrição-->
+                                    <div class="text-left">
+                                        <h5 for="nome">Descrição: <span style="font-size: 16px;"><?= $description_ue ?></span></h5>
+                                    </div>
+                                    <hr>
+                                    <!--história-->
+                                    <div class="text-left">
+                                        <h5 for="nome">História: <span style="font-size: 16px;"><?= $history_ue ?></span></h5>
+                                    </div>
+                                    <hr>
+                                <?php
+                            }
                                 ?>
-                                </h5>
-                                <hr>
-                                <!--descrição-->
-                                <div class="text-left">
-                                    <h5 for="nome">Descrição: <span style="font-size: 16px;"><?= $description_ue ?></span></h5>
+                                <!----------------------->
+                                <div class="form-group mt-5">
+                                    <div class="col-md-8">
+                                        <a class="col-xs-12 col-md-6" href="#" data-toggle="modal" data-target="#deleteModal<?= $idUser ?>"> <button class="btn cancel_btn"><i class="fas fa-trash"></i> Apagar utilizador</button></a>
+                                        <span></span>
+                                        <?php
+                                        if ($active == 1) {
+                                        ?>
+                                            <a class="col-xs-12 col-md-6" href="#" data-toggle="modal" data-target="#activeModal<?= $idUser ?>">
+                                                <button class="btn cancel_btn"><i class="fas fa-ban"></i> Bloquear utilizador</button>
+                                            </a>
+                                        <?php
+                                        } else {
+                                        ?>
+                                            <a class="col-xs-12 col-md-6" href="#" data-toggle="modal" data-target="#inactiveModal<?= $idUser ?>">
+                                                <button class="btn cancel_btn"><i class="fas fa-ban"></i> Desbloquear utilizador</button>
+                                            </a>
+                                        <?php
+                                        }
+                                        ?>
+                                    </div>
                                 </div>
-                                <hr>
-                                <!--história-->
-                                <div class="text-left">
-                                    <h5 for="nome">História: <span style="font-size: 16px;"><?= $history_ue ?></span></h5>
-                                </div>
-                                <hr>
-                            <?php
-                        }
-                            ?>
-                            <!----------------------->
-                            <div class="form-group mt-5">
-                                <div class="col-md-8">
-                                    <a class="col-xs-12 col-md-6" href="#" data-toggle="modal" data-target="#deleteModal<?= $idUser ?>"> <button class="btn cancel_btn"><i class="fas fa-trash"></i> Apagar utilizador</button></a>
-                                    <span></span>
-                                    <?php
-                                    if ($active == 1) {
-                                    ?>
-                                        <a class="col-xs-12 col-md-6" href="#" data-toggle="modal" data-target="#activeModal<?= $idUser ?>">
-                                            <button class="btn cancel_btn"><i class="fas fa-ban"></i> Bloquear utilizador</button>
-                                        </a>
-                                    <?php
-                                    } else {
-                                    ?>
-                                        <a class="col-xs-12 col-md-6" href="#" data-toggle="modal" data-target="#inactiveModal<?= $idUser ?>">
-                                            <button class="btn cancel_btn"><i class="fas fa-ban"></i> Desbloquear utilizador</button>
-                                        </a>
-                                    <?php
-                                    }
-                                    ?>
-                                </div>
-                            </div>
 
-                            </div>
+                                </div>
                 </form>
             </div>
 
