@@ -37,6 +37,8 @@ if ($_SESSION["idUser"]) {
     <div class='tagpost-top section' id='tagpost-top'>
     <div class='widget HTML' id='HTML5'>
     <div class='widget-content'>
+
+            <ul class='taglabel'>
     <?php
     if (mysqli_stmt_prepare($stmt, $query)) {
 
@@ -46,7 +48,6 @@ if ($_SESSION["idUser"]) {
 
         while (mysqli_stmt_fetch($stmt)) {
             ?>
-            <ul class='taglabel'>
                 <li class='clearfix_uni mt-2'>
                     <a href="">
                         <?php
@@ -80,11 +81,11 @@ if ($_SESSION["idUser"]) {
                         <h4 class="mb-0 link_title"><?= $name_user ?></h4>
                         <h5 class="mb-0 link_subtitle"><?= $Area ?></h5>
                     </a>
-                </li>
-            </ul>
-            <?php
+                </li>     <?php
         }
         ?>
+            </ul>
+
         </div>
         <div class='clear'></div>
         </div>

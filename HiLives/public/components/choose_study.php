@@ -37,7 +37,9 @@ $query = "SELECT id_match, User_university, Area, name_user, profile_img, favori
 
                 while (mysqli_stmt_fetch($stmt)) {
                     ?>
-                    <div class="card card-container col-lg-4">
+                    <div class="card-container col-lg-4" >
+                    <div class="card">
+
                         <?php
 
                         if ($favorite == 0){
@@ -71,6 +73,7 @@ $query = "SELECT id_match, User_university, Area, name_user, profile_img, favori
                                 <p class="card-intro description_title2"><?= $Area ?></p>
                             </div>
                         </a>
+                    </div>
                     </div>
                     <?php
                 }

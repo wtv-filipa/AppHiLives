@@ -43,7 +43,8 @@ if (isset($_GET["match"]) && isset($_GET["fav"])) {
     }
     /* close connection */
 
-    header("Location: ../home_people.php");
+    header("location:".$_SERVER['HTTP_REFERER']);
+
 } else {
 
     //header("Location: ../administradores.php?msg=1");
