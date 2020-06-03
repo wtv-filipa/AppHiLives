@@ -12,8 +12,8 @@
       Quando apagada a tua conta não pode voltar a ser reposta. Carrega em "Apagar" para confirmar.
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <a class="btn btn-primary" href="scripts/delete_user.php?apaga=<?=$id_navegar?>">Apagar</a>
+        <button type="button" class="btn btn_cancel" data-dismiss="modal">Cancelar</button>
+        <a class="btn btn-danger btn_apagar" href="scripts/delete_user.php?apaga=<?=$id_navegar?>">Apagar</a>
       </div>
     </div>
   </div>
@@ -33,8 +33,8 @@
       <div class="modal-body"style="font-size: 16px !important;">Quando apagares, não podes voltar atrás. Carrega em "Apagar" para confirmar.
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <a class="btn btn-danger" href="scripts/delete_uc.php?apaga=<?= $idDone_CU ?>">Apagar</a>
+        <button type="button" class="btn btn_cancel" data-dismiss="modal">Cancelar</button>
+        <a class="btn btn-danger btn_apagar" href="scripts/delete_uc.php?apaga=<?= $idDone_CU ?>">Apagar</a>
       </div>
     </div>
   </div>
@@ -55,8 +55,8 @@
             <div class="modal-body"style="font-size: 16px !important;">Quando apagar, não poderá voltar atrás. Carrega em "Apagar" para confirmar.
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <a class="btn btn-danger" href="scripts/delete_vac.php?apaga=<?= $idVacancie ?>">Apagar</a>
+                <button type="button" class="btn btn_cancel" data-dismiss="modal">Cancelar</button>
+                <a class="btn btn-danger btn_apagar" href="scripts/delete_vac.php?apaga=<?= $idVacancie ?>">Apagar</a>
             </div>
         </div>
     </div>
@@ -77,8 +77,8 @@
             <div class="modal-body"style="font-size: 16px !important;">Quando apagar, não poderá voltar atrás. Carrega em "Apagar" para confirmar.
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <a class="btn btn-danger" href="scripts/delete_vac.php?apaga=<?= $idExperiences ?>&user=<?= $idUser?>">Apagar</a>
+                <button type="button" class="btn btn_cancel" data-dismiss="modal">Cancelar</button>
+                <a class="btn btn-danger btn_apagar" href="scripts/delete_vac.php?apaga=<?= $idExperiences ?>&user=<?= $idUser?>">Apagar</a>
             </div>
         </div>
     </div>
