@@ -10,8 +10,8 @@
       </div>
       <div class="modal-body"> Quando apagado o utilizador não pode voltar a ser reposto. Carregue em "Apagar" para confirmar.</div>
       <div class="modal-footer">
-        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-        <a class="btn btn-primary" href="scripts/delete_user.php?apaga=<?= $row_users['idUser'] ?>">Apagar</a>
+        <button class="btn btn_cancel" type="button" data-dismiss="modal">Cancelar</button>
+        <a class="btn btn-danger btn_apagar" href="scripts/delete_user.php?apaga=<?= $row_users['idUser'] ?>">Apagar</a>
       </div>
     </div>
   </div>
@@ -29,8 +29,8 @@
       </div>
       <div class="modal-body"> Quando apagado o utilizador não pode voltar a ser reposto. Carregue em "Apagar" para confirmar.</div>
       <div class="modal-footer">
-        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-        <a class="btn btn-primary" href="scripts/delete_user.php?apaga=<?=$idUser?>">Apagar</a>
+        <button class="btn btn_cancel" type="button" data-dismiss="modal">Cancelar</button>
+        <a class="btn btn-danger btn_apagar" href="scripts/delete_user.php?apaga=<?=$idUser?>">Apagar</a>
       </div>
     </div>
   </div>
@@ -49,8 +49,8 @@
       </div>
       <div class="modal-body"> Quando apagada a vaga não pode voltar a ser reposta. Carregue em "Apagar" para confirmar.</div>
       <div class="modal-footer">
-        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-        <a class="btn btn-primary" href="scripts/delete_vac.php?apaga=<?=$idVacancies?>">Apagar</a>
+        <button class="btn btn_cancel" type="button" data-dismiss="modal">Cancelar</button>
+        <a class="btn btn-danger btn_apagar" href="scripts/delete_vac.php?apaga=<?=$idVacancies?>">Apagar</a>
       </div>
     </div>
   </div>
@@ -68,8 +68,8 @@
       </div>
       <div class="modal-body">  Quando apagada a vaga não pode voltar a ser reposta. Carregue em "Apagar" para confirmar.</div>
       <div class="modal-footer">
-        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-        <a class="btn btn-primary" href="scripts/delete_vac.php?apaga=<?= $row_vac['idVacancies'] ?>">Apagar</a>
+        <button class="btn btn_cancel" type="button" data-dismiss="modal">Cancelar</button>
+        <a class="btn btn-danger btn_apagar" href="scripts/delete_vac.php?apaga=<?= $row_vac['idVacancies'] ?>">Apagar</a>
       </div>
     </div>
   </div>
@@ -89,8 +89,8 @@
       </div>
       <div class="modal-body"> Quando apagada a experiência não pode voltar a ser reposta. Carregue em "Apagar" para confirmar.</div>
       <div class="modal-footer">
-        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-        <a class="btn btn-primary" href="scripts/delete_xp.php?apaga=<?=$idContent?>">Apagar</a>
+        <button class="btn btn_cancel" type="button" data-dismiss="modal">Cancelar</button>
+        <a class="btn btn-danger btn_apagar" href="scripts/delete_xp.php?apaga=<?=$idContent?>">Apagar</a>
       </div>
     </div>
   </div>
@@ -108,8 +108,8 @@
       </div>
       <div class="modal-body">  Quando apagada a experiência não pode voltar a ser reposta. Carregue em "Apagar" para confirmar.</div>
       <div class="modal-footer">
-        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-        <a class="btn btn-primary" href="scripts/delete_xp.php?apaga=<?= $row_vid['idContent'] ?>">Apagar</a>
+        <button class="btn btn_cancel" type="button" data-dismiss="modal">Cancelar</button>
+        <a class="btn btn-danger btn_apagar" href="scripts/delete_xp.php?apaga=<?= $row_vid['idContent'] ?>">Apagar</a>
       </div>
     </div>
   </div>
@@ -128,8 +128,8 @@
       </div>
       <div class="modal-body"> Quando apagada a vaga não pode voltar a ser reposta. Carregue em "Apagar" para confirmar.</div>
       <div class="modal-footer">
-        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-        <a class="btn btn-primary" href="scripts/delete_vid_emp.php?apaga=<?=$idContent?>">Apagar</a>
+        <button class="btn btn_cancel" type="button" data-dismiss="modal">Cancelar</button>
+        <a class="btn btn-danger btn_apagar" href="scripts/delete_vid_emp.php?apaga=<?=$idContent?>">Apagar</a>
       </div>
     </div>
   </div>
@@ -147,8 +147,8 @@
       </div>
       <div class="modal-body"> Quando apagada a vaga não pode voltar a ser reposta. Carregue em "Apagar" para confirmar.</div>
       <div class="modal-footer">
-        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-        <a class="btn btn-primary" href="scripts/delete_vid_emp.php?apaga=<?=$row_cont['idContent']?>">Apagar</a>
+        <button class="btn btn_cancel" type="button" data-dismiss="modal">Cancelar</button>
+        <a class="btn btn-danger btn_apagar" href="scripts/delete_vid_emp.php?apaga=<?=$row_cont['idContent']?>">Apagar</a>
       </div>
     </div>
   </div>
@@ -169,8 +169,8 @@
       </div>
       <div class="modal-body"> Quando apagado a UC não pode voltar a ser reposta. Carregue em "Apagar" para confirmar.</div>
       <div class="modal-footer">
-        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-        <a class="btn btn-primary" href="scripts/delete_uc.php?apaga=<?= $row_uc['idDone_CU'] ?>">Apagar</a>
+        <button class="btn btn_cancel" type="button" data-dismiss="modal">Cancelar</button>
+        <a class="btn btn-danger btn_apagar" href="scripts/delete_uc.php?apaga=<?= $row_uc['idDone_CU'] ?>">Apagar</a>
       </div>
     </div>
   </div>

@@ -50,13 +50,15 @@ $query1 = "SELECT idVacancies, vacancie_name, Areas_idAreas, name_interested_are
                                         <li class="lista">
                                             <span class="font-weight-bold"><?= $vacancie_name ?></span>
                                             <p class="instituicao"><?= $name_interested_area ?></p>
-                                            <a href="edit_vac.php?idvac=<?= $idVacancie ?>">
-                                                <i class="fas fa-edit mr-1" style="color:#00A5CF!important"></i>
-                                            </a>
-                                            <a href="#" data-toggle="modal" data-target="#deleteuc<?= $idVacancie ?>">
-                                                <i class="fas fa-trash mr-1" style="color:#2F2F2F!important"></i>
-                                            </a>
 
+                                            <div class="text-right">
+                                                <a href="edit_vac.php?idvac=<?= $idVacancie ?>">
+                                                    <i class="fas fa-edit mr-1" style="color:#00A5CF!important"></i>
+                                                </a>
+                                                <a href="#" data-toggle="modal" data-target="#deleteuc<?= $idVacancie ?>">
+                                                    <i class="fas fa-trash mr-1" style="color:#2F2F2F!important"></i>
+                                                </a>
+                                            </div>
                                         </li>
 
 

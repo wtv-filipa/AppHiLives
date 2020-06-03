@@ -8,7 +8,7 @@ if (isset($_GET["apaga"])) {
     $stmt = mysqli_stmt_init($link);
 
     $query = "DELETE FROM vacancies WHERE idVacancies = ?";
-    $query2 = "DELETE FROM personality_has_vacancies WHERE Vacancies_idVacancies = ?";
+    $query2 = "DELETE FROM vacancies_has_capacities WHERE vacancies_idVacancies = ?";
 
     //PRIMEIRA QUERY
     if (mysqli_stmt_prepare($stmt, $query)) {

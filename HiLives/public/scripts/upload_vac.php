@@ -3,12 +3,14 @@
 require_once("../connections/connection.php");
 // Create a new DB connection
 $link = new_db_connection();
+$idUser = $_GET["vac"];
+
 if (!empty($_FILES['fileToUpload'])) {
     /* create a prepared statement */
     $stmt = mysqli_stmt_init($link);
     //DIRETÓRIO PARA ONDE VAI O VÍDEO
     $target_dir = "../../admin/uploads/vid_vac/";
-    $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+    $target_file = $target_dir . $idUser.  "_" . basename($_FILES["fileToUpload"]["name"]);
     $uploadOk = 1;
     $vidFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
@@ -54,13 +56,13 @@ if (!empty($_FILES['fileToUpload'])) {
             if (!empty($_GET["vac"]) && !empty($_POST["nomevaga"]) && !empty($_POST["descricao"]) && !empty($_POST["numvagas"]) && !empty($_POST["requisitos"])) {
 
                 //parte do video
-                $ficheiro = $_FILES["fileToUpload"]["name"];
-                $query = "INSERT INTO content (content_type, content_name)
-            VALUES (?,?)";
+                $ficheiro = $idUser .  "_" . $_FILES["fileToUpload"]["name"];
+                $query = "INSERT INTO content (content_type, content_name, users_idUser)
+            VALUES (?,?,?)";
 
                 if (mysqli_stmt_prepare($stmt, $query)) {
 
-                    mysqli_stmt_bind_param($stmt, 'ss', $vidFileType, $ficheiro);
+                    mysqli_stmt_bind_param($stmt, 'ssi', $vidFileType, $ficheiro, $idUser);
 
                     /* execute the prepared statement */
                     if (!mysqli_stmt_execute($stmt)) {
@@ -71,7 +73,7 @@ if (!empty($_FILES['fileToUpload'])) {
                         echo "ID: " . "$last_id";
                     }
 
-                    $idUser = $_GET["vac"];
+
 
                     $link = new_db_connection();
                     $stmt = mysqli_stmt_init($link);
