@@ -51,10 +51,10 @@ $query1 = "SELECT idVacancies, vacancie_name, Areas_idAreas, name_interested_are
                                             <span class="font-weight-bold"><?= $vacancie_name ?></span>
                                             <p class="instituicao"><?= $name_interested_area ?></p>
                                             <a href="edit_vac.php?idvac=<?= $idVacancie ?>">
-                                                <p class="instituicao"
-                                                   style="color:#00A5CF!important; text-align: right"><i
-                                                        class="fas fa-edit mr-1 "
-                                                        style="color:#00A5CF!important"></i>Editar</p>
+                                                <i class="fas fa-edit mr-1" style="color:#00A5CF!important"></i>
+                                            </a>
+                                            <a href="#" data-toggle="modal" data-target="#deleteuc<?= $idVacancie ?>">
+                                                <i class="fas fa-trash mr-1" style="color:#2F2F2F!important"></i>
                                             </a>
 
                                         </li>
@@ -62,6 +62,7 @@ $query1 = "SELECT idVacancies, vacancie_name, Areas_idAreas, name_interested_are
 
                                     </ul>
                                     <?php
+                                    include('components/delete_modal.php');
                                 }
                             }
                             ?>

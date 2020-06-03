@@ -25,6 +25,7 @@
                 <h5 class="mt-3">Descrição</h5>
                 <p class="descricao"><?= $row_vid['description'] ?></p>
 
+
             </div>
         </div>
     </div>
@@ -57,6 +58,9 @@
                 <h5 class="mt-3">Descrição</h5>
                 <p class="descricao"><?= $description ?></p>
 
+                <a href="#" data-toggle="modal" data-target="#deleteuc<?= $idExperiences ?>">
+                    <i class="fas fa-trash mr-1" style="color:#2F2F2F!important"></i>
+                </a>
             </div>
         </div>
     </div>

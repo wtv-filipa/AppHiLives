@@ -31,11 +31,11 @@ if (isset($_GET["idvac"]) && isset($_POST["nomevaga"]) && isset($_POST["descrica
             echo "erro da stmt execute <br/>";
             echo "Error: " . mysqli_stmt_error($stmt);
         } else {
-            //PERSONALIDADE
-            if (isset($_POST["person"])) {
-                // APAGAR TODOS AS PERSONALIDADES ASSOCIADAS À VAGA
-                $query2 = "DELETE FROM personality_has_vacancies
-                        WHERE Vacancies_idVacancies = ?";
+            //CAPACIDADES
+            if (isset($_POST["capacity"])) {
+                // APAGAR TODOS AS CAPACIDADES ASSOCIADAS À VAGA
+                $query2 = "DELETE FROM vacancies_has_capacities
+                        WHERE vacancies_idVacancies = ?";
 
                 if (mysqli_stmt_prepare($stmt, $query2)) {
 
@@ -53,15 +53,15 @@ if (isset($_GET["idvac"]) && isset($_POST["nomevaga"]) && isset($_POST["descrica
                 $stmt = mysqli_stmt_init($link);
 
             }
-            $query3 = "INSERT INTO personality_has_vacancies (Personality_idPersonality, Vacancies_idVacancies)
+            $query3 = "INSERT INTO vacancies_has_capacities (vacancies_idVacancies, capacities_idcapacities)
                   VALUES (?, ?)";
 
             if (mysqli_stmt_prepare($stmt, $query3)) {
 
-                mysqli_stmt_bind_param($stmt, 'ii', $Personality_idPersonality, $idVacancies);
+                mysqli_stmt_bind_param($stmt, 'ii', $idVacancies, $capacities_idcapacities);
 
-                // PARA TODOS AS REGIÕES ESCOLHIDAS
-                foreach ($_POST["person"] as $Personality_idPersonality) {
+                // ADICIONA AS CAPACIDADES
+                foreach ($_POST["capacity"] as $capacities_idcapacities) {
                     /* execute the prepared statement */
                     if (!mysqli_stmt_execute($stmt)) {
                         echo "Error: " . mysqli_stmt_error($stmt);
@@ -75,9 +75,6 @@ if (isset($_GET["idvac"]) && isset($_POST["nomevaga"]) && isset($_POST["descrica
             mysqli_close($link);
             header("Location: ../vacancie.php");
         }
-
-
-
         }
 
 }
