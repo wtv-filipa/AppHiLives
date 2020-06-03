@@ -8,7 +8,7 @@
 <div class="row">
     <!--Cards-->
     <!--Card 1-->
-    <form class="col-md-4 col-xs-12 mt-4 text-center" method="post" action="register.php">
+    <form class="col-md-4 col-xs-12 mt-4 text-center" method="post" action="public/register.php">
         <button name="3" type="submit" class="btn">
             <div class="cards text-center">
                 <div class="card-item">
@@ -22,7 +22,7 @@
         </button>
     </form>
     <!--Card 2-->
-    <form class="col-md-4 col-xs-12 mt-4 text-center" method="post" action="register_uni.php">
+    <form class="col-md-4 col-xs-12 mt-4 text-center" method="post" action="public/register_uni.php">
         <button name="4" type="submit" class="btn">
             <div class="cards text-center">
                 <div class="card-item">
@@ -36,7 +36,7 @@
         </button>
     </form>
     <!--Card 3-->
-    <form class="col-md-4 col-xs-12 mt-4 text-center" method="post" action="register_comp.php">
+    <form class="col-md-4 col-xs-12 mt-4 text-center" method="post" action="public/gitregister_comp.php">
         <button name="2" type="submit" class="btn">
             <div class="cards text-center">
                 <div class="card-item">
