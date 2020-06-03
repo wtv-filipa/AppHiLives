@@ -393,6 +393,123 @@ if (isset($_GET["edit"])) {
                                         <textarea class="form-control " id="exp_t" rows="2" name="work" placeholder="Escreve aqui a tua experiência de trabalho"><?= $work_xp ?></textarea>
                                     </div>
                                     <!----------------------->
+
+
+
+
+
+                                    <!--EDITEI A PARTIR DAQUI-->
+
+
+                                    <hr>
+
+                                    <div class="form-group text-left">
+                                        <label class="negrito mt-3" role="heading" for="capacity">Sobre mim</label>
+                                    <!------------COMPETÊNCIAS------------>
+
+                                        <div class="form-check">
+                                            <?php
+                                            $query4 = "SELECT idCapacities, capacity, capacities
+                                FROM capacities
+                                LEFT JOIN capacities_has_users
+                                ON  capacities.idCapacities = capacities_has_users.capacities AND capacities_has_users.users_idUser = ?";
+
+                                            if (mysqli_stmt_prepare($stmt, $query4)) {
+                                                // Bind variables by type to each parameter
+                                                mysqli_stmt_bind_param($stmt, 'i', $idUser);
+                                                /* execute the prepared statement */
+                                                if (mysqli_stmt_execute($stmt)) {
+                                                    /* bind result variables */
+                                                    mysqli_stmt_bind_result($stmt, $idCapacities, $capacity, $capacities);
+
+                                                    /* fetch values */
+                                                    while (mysqli_stmt_fetch($stmt)) {
+                                                        $checked = "";
+                                                        if ($capacities != null) {
+                                                            $checked = "checked";
+                                                        }
+
+                                                        echo "\n\t\t";
+                                                        echo "<label class='form-check-label col-xs-12 col-md-6 label-margin'>";
+                                                        echo "<input type='checkbox' class='form-check-input' name='capacity[]' value='$idCapacities' $checked>$capacity<br>";
+                                                        echo "</label>";
+                                                    }
+                                                } else {
+                                                    echo "Error: " . mysqli_stmt_error($stmt);
+                                                }
+                                                /* close statement */
+                                                //mysqli_stmt_close($stmt);
+                                            } else {
+                                                echo "Error: " . mysqli_error($link);
+                                            }
+                                            ?>
+                                        </div>
+                                    </div>
+                                    <!--LOCAL ONDE GOSTARIA DE TRABALHAR-->
+                                    <div class="form-group text-left">
+                                        <h6 class="negrito mt-4" for="environment" role="heading">Quais são os teus ambientes de trabalho favoritos?</h6>
+                                        <div class="form-check">
+                                            <?php
+                                            $query5 = "SELECT idwork_environment, name_environment, favorite_environment 
+                                                       FROM work_environment
+                                                       LEFT JOIN work_environment_has_users
+                                                       ON work_environment.idwork_environment = work_environment_has_users.favorite_environment AND  work_environment_has_users.users_idUser = ?";
+
+                                            if (mysqli_stmt_prepare($stmt, $query5)) {
+                                                // Bind variables by type to each parameter
+                                                mysqli_stmt_bind_param($stmt, 'i', $idUser);
+                                                /* execute the prepared statement */
+                                                if (mysqli_stmt_execute($stmt)) {
+                                                    /* bind result variables */
+                                                    mysqli_stmt_bind_result($stmt, $idwork_environment, $name_environment, $favorite_environment );
+
+                                                    /* fetch values */
+                                                    while (mysqli_stmt_fetch($stmt)) {
+                                                        $checked = "";
+                                                        if ($favorite_environment != null) {
+                                                            $checked = "checked";
+                                                        }
+
+                                                        echo "\n\t\t";
+                                                        echo "<label class='form-check-label col-xs-12 col-md-6 label-margin'>";
+                                                        echo "<input type='checkbox' class='form-check-input' name='spot[]' value='$idwork_environment' $checked>$name_environment<br>";
+                                                        echo "</label>";
+                                                    }
+                                                } else {
+                                                    echo "Error: " . mysqli_stmt_error($stmt);
+                                                }
+                                                /* close statement */
+                                                //mysqli_stmt_close($stmt);
+                                            } else {
+                                                echo "Error: " . mysqli_error($link);
+                                            }
+                                            ?>
+                                        </div>
+                                    </div>
+
+                                    <!--ACABEI DE EDITAR AQUI-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                                     <!--quinto input-DID-->
                                     <div class="form-group text-left">
                                         <label for="def">O que mais posso dizer sobre mim <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>

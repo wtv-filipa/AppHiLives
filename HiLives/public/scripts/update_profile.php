@@ -1,5 +1,5 @@
 <?php
-if (isset($_GET["id"]) && isset($_POST["nome"])  && isset($_POST["email"]) && isset($_POST["def"])) {
+if (isset($_GET["id"]) && isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["def"])) {
     echo "estou a editar um jovem";
     $idUser = $_GET["id"];
     $nome = $_POST["nome"];
@@ -126,7 +126,97 @@ if (isset($_GET["id"]) && isset($_POST["nome"])  && isset($_POST["email"]) && is
         }
         /* close statement */
         //mysqli_stmt_close($stmt);
-        
+
+        // INSERIR TODAS AS NOVAS COMPETÊNCIAS
+        //UPDATE COMPETÊNCIAS
+        if (isset($_POST["capacity"])) {
+            // Create a new DB connection
+            $link = new_db_connection();
+            /* create a prepared statement */
+            $stmt = mysqli_stmt_init($link);
+            // APAGAR TODOS AS COMPETÊNCIAS ASSOCIADAS AO USER
+            $query6 = "DELETE FROM capacities_has_users
+ WHERE users_idUser = ?";
+
+            if (mysqli_stmt_prepare($stmt, $query6)) {
+
+                mysqli_stmt_bind_param($stmt, 'i', $idUser);
+
+                /* execute the prepared statement */
+                if (!mysqli_stmt_execute($stmt)) {
+                    echo "Error: " . mysqli_stmt_error($stmt);
+                }
+
+                /* close statement */
+                mysqli_stmt_close($stmt);
+            }
+            /* create a prepared statement */
+            $stmt = mysqli_stmt_init($link);
+
+            $query7 = "INSERT INTO capacities_has_users (capacities, users_idUser)
+               VALUES (?, ?)";
+
+            if (mysqli_stmt_prepare($stmt, $query7)) {
+
+                mysqli_stmt_bind_param($stmt, 'ii', $capacities, $idUser);
+
+                // PARA TODSS AS AREAS ESCOLHIDAS
+                foreach ($_POST["capacity"] as $capacities) {
+                    /* execute the prepared statement */
+                    if (!mysqli_stmt_execute($stmt)) {
+                        echo "Error: " . mysqli_stmt_error($stmt);
+                    }
+                }
+                /* close statement */
+                mysqli_stmt_close($stmt);
+            }
+        }
+
+        // INSERIR TODAS OS NOVOS AMBIENTES DE TRABALHO
+        //UPDATE AMBIENTES
+        if (isset($_POST["spot"])) {
+            // Create a new DB connection
+            $link = new_db_connection();
+            /* create a prepared statement */
+            $stmt = mysqli_stmt_init($link);
+            // APAGAR TODOS OS AMBIENTES ASSOCIADAS AO USER
+            $query8 = "DELETE FROM work_environment_has_users
+ WHERE users_idUser = ?";
+
+            if (mysqli_stmt_prepare($stmt, $query8)) {
+
+                mysqli_stmt_bind_param($stmt, 'i', $idUser);
+
+                /* execute the prepared statement */
+                if (!mysqli_stmt_execute($stmt)) {
+                    echo "Error: " . mysqli_stmt_error($stmt);
+                }
+
+                /* close statement */
+                mysqli_stmt_close($stmt);
+            }
+            /* create a prepared statement */
+            $stmt = mysqli_stmt_init($link);
+
+            $query9 = "INSERT INTO work_environment_has_users (favorite_environment, users_idUser)
+               VALUES (?, ?)";
+
+            if (mysqli_stmt_prepare($stmt, $query9)) {
+
+                mysqli_stmt_bind_param($stmt, 'ii', $favorite_environment, $idUser);
+
+                // PARA TODAS AS AREAS ESCOLHIDAS
+                foreach ($_POST["spot"] as $favorite_environment) {
+                    /* execute the prepared statement */
+                    if (!mysqli_stmt_execute($stmt)) {
+                        echo "Error: " . mysqli_stmt_error($stmt);
+                    }
+                }
+                /* close statement */
+                mysqli_stmt_close($stmt);
+            }
+        }
+
         echo $idUser;
         header("Location: ../edit_profile.php?edit=$idUser");
         echo "sucesso";
@@ -137,7 +227,7 @@ if (isset($_GET["id"]) && isset($_POST["nome"])  && isset($_POST["email"]) && is
     }
     /* close connection */
     //mysqli_close($link);
-} else if (isset($_GET["id_uni_emp"]) && isset($_POST["nome"])  && isset($_POST["email"])) {
+} else if (isset($_GET["id_uni_emp"]) && isset($_POST["nome"]) && isset($_POST["email"])) {
     echo "estou a editar uma empresa/universidade";
     $idUser = $_GET["id_uni_emp"];
     $nome = $_POST["nome"];
@@ -259,17 +349,14 @@ WHERE User_idUser_region = ?";
                     /* close statement */
                     mysqli_stmt_close($stmt);
                 }
-
-                /* close connection */
-                mysqli_close($link);
                 //header("Location: clube.php?id=$id_clubes");
             } //FIM DO ISSET DA AREA
         }
-        
+
         echo $idUser;
         header("Location: ../edit_profile.php?edit=$idUser");
         echo "sucesso";
-    } else{
+    } else {
         //header("Location: ../editar_conta.php?edit=" . $nickname . "&msg=1");*/
         echo " erro do stmt prepare <br/>";
         echo "Error: " . mysqli_stmt_error($stmt);
