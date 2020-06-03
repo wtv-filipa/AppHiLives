@@ -150,20 +150,8 @@ $idUser = $_SESSION["idUser"];
             <!-------------------------------------------->
 
 
-
             <!--nono campo-->
-            <!------------PAÍS------------>
-            <div class="form-group text-left">
-                <label class="negrito mt-3" for="pais">Seleciona o país da vaga:
-                    <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
-                <select class="form-control" id="pais">
-                    <option value="pt">Portugal</option>
-                    <option value="es">Espanha</option>
-                    <option value="be">Bélgica</option>
-                    <option value="ic">Islândia</option>
-                </select>
-            </div>
-            <!------------REGIÕES DE PORTUGAL------------>
+            <!------------REGIÃO DA VAGA------------>
             <div class="form-group formulario" id="pt">
                 <div class="form-group text-left">
                     <label class="negrito mt-3" for="regiao_pt">Região da Vaga
@@ -172,21 +160,25 @@ $idUser = $_SESSION["idUser"];
                     <select class="form-control" id="regiao_pt" name="regiao">
                         <option selected disabled>Seleciona uma opção</option>
                         <?php
-                        $query2 = "SELECT idRegion, name_region FROM region 
-                                                                    INNER JOIN country ON region.country_idcountry = country.idcountry
-                                                                    WHERE name_country = 'Portugal'";
+                        $query2 = "SELECT Region_idRegion, idRegion, name_region FROM user_has_region
+                                    INNER JOIN region ON user_has_region.Region_idRegion = region.idRegion
+                                   WHERE User_idUser_region = ?";
 
                         if (mysqli_stmt_prepare($stmt, $query2)) {
-
+                            mysqli_stmt_bind_param($stmt, 'i', $idUser);
                             /* execute the prepared statement */
                             if (mysqli_stmt_execute($stmt)) {
                                 /* bind result variables */
-                                mysqli_stmt_bind_result($stmt, $idRegion, $name_region);
+                                mysqli_stmt_bind_result($stmt, $Region_idRegion, $idRegion, $name_region);
 
                                 /* fetch values */
                                 while (mysqli_stmt_fetch($stmt)) {
-
-                                    echo "\n\t\t<option value=\"$idRegion\">$name_region</option>";
+                                    if ($Region_idRegion == $idRegion) {
+                                        $selected = "selected";
+                                    } else {
+                                        $selected = "";
+                                    }
+                                    echo "\n\t\t<option value=\"$Region_idRegion\" $selected>$name_region</option>";
                                 }
                             } else {
                                 echo "Error: " . mysqli_stmt_error($stmt);
@@ -200,117 +192,7 @@ $idUser = $_SESSION["idUser"];
                     </select>
                 </div>
             </div>
-            <!------------REGIÕES DE ESPANHA------------>
-            <div class="form-group formulario" style="display:none;" id="es">
-                <div class="form-group text-left">
-                    <label class="negrito mt-3" for="regiao_es">Região da Empresa
-                        <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span>
-                    </label>
-                    <select class="form-control" id="regiao_es" name="regiao">
-                        <option selected disabled>Seleciona uma opção</option>
-                        <?php
-                        $query2 = "SELECT idRegion, name_region FROM region 
-                                                                    INNER JOIN country ON region.country_idcountry = country.idcountry
-                                                                    WHERE name_country = 'Espanha'";
 
-                        if (mysqli_stmt_prepare($stmt, $query2)) {
-
-                            /* execute the prepared statement */
-                            if (mysqli_stmt_execute($stmt)) {
-                                /* bind result variables */
-                                mysqli_stmt_bind_result($stmt, $idRegion, $name_region);
-
-                                /* fetch values */
-                                while (mysqli_stmt_fetch($stmt)) {
-
-                                    echo "\n\t\t<option value=\"$idRegion\">$name_region</option>";
-                                }
-                            } else {
-                                echo "Error: " . mysqli_stmt_error($stmt);
-                            }
-                            /* close statement */
-                            //mysqli_stmt_close($stmt);
-                        } else {
-                            echo "Error: " . mysqli_error($link);
-                        }
-                        ?>
-                    </select>
-                </div>
-            </div>
-            <!------------REGIÕES DE BÉLGICA------------>
-            <div class="form-group formulario" style="display:none;" id="be">
-                <div class="form-group text-left">
-                    <label class="negrito mt-3" for="regiao_be">Região da Empresa
-                        <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span>
-                    </label>
-                    <select class="form-control" id="regiao_be" name="regiao">
-                        <option selected disabled>Seleciona uma opção</option>
-                        <?php
-                        $query2 = "SELECT idRegion, name_region FROM region 
-                                                                    INNER JOIN country ON region.country_idcountry = country.idcountry
-                                                                    WHERE name_country = 'Bélgica'";
-
-                        if (mysqli_stmt_prepare($stmt, $query2)) {
-
-                            /* execute the prepared statement */
-                            if (mysqli_stmt_execute($stmt)) {
-                                /* bind result variables */
-                                mysqli_stmt_bind_result($stmt, $idRegion, $name_region);
-
-                                /* fetch values */
-                                while (mysqli_stmt_fetch($stmt)) {
-
-                                    echo "\n\t\t<option value=\"$idRegion\">$name_region</option>";
-                                }
-                            } else {
-                                echo "Error: " . mysqli_stmt_error($stmt);
-                            }
-                            /* close statement */
-                            //mysqli_stmt_close($stmt);
-                        } else {
-                            echo "Error: " . mysqli_error($link);
-                        }
-                        ?>
-                    </select>
-                </div>
-            </div>
-            <!------------REGIÕES DE ISLÂNDIA------------>
-            <div class="form-group formulario" style="display:none;" id="ic">
-                <div class="form-group text-left">
-                    <label class="negrito mt-3" for="regiao_ic">Região da Empresa
-                        <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span>
-                    </label>
-                    <select class="form-control" id="regiao_ic" name="regiao">
-                        <option selected disabled>Seleciona uma opção</option>
-                        <?php
-                        $query2 = "SELECT idRegion, name_region FROM region 
-                                                                    INNER JOIN country ON region.country_idcountry = country.idcountry
-                                                                    WHERE name_country = 'Islândia'";
-
-                        if (mysqli_stmt_prepare($stmt, $query2)) {
-
-                            /* execute the prepared statement */
-                            if (mysqli_stmt_execute($stmt)) {
-                                /* bind result variables */
-                                mysqli_stmt_bind_result($stmt, $idRegion, $name_region);
-
-                                /* fetch values */
-                                while (mysqli_stmt_fetch($stmt)) {
-
-                                    echo "\n\t\t<option value=\"$idRegion\">$name_region</option>";
-                                }
-                            } else {
-                                echo "Error: " . mysqli_stmt_error($stmt);
-                            }
-                            /* close statement */
-                            //mysqli_stmt_close($stmt);
-                        } else {
-                            echo "Error: " . mysqli_error($link);
-                        }
-                        ?>
-                    </select>
-                </div>
-            </div>
             <!-------------------------------------------->
             <!--input de upload-->
             <div class="alert alert-warning mt-4" role="alert">

@@ -3,7 +3,7 @@
 require_once("../connections/connection.php");
 // Create a new DB connection
 $link = new_db_connection();
-if (isset($_FILES['fileToUpload'])) {
+if (!empty($_FILES['fileToUpload'])) {
     /* create a prepared statement */
     $stmt = mysqli_stmt_init($link);
     //DIRETÓRIO PARA ONDE VAI O VÍDEO
@@ -51,7 +51,7 @@ if (isset($_FILES['fileToUpload'])) {
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
             echo "The file " . basename($_FILES["fileToUpload"]["name"]) . " has been uploaded.";
 
-            if (isset($_GET["vac"]) && isset($_POST["nomevaga"]) && isset($_POST["descricao"]) && isset($_POST["numvagas"]) && isset($_POST["requisitos"])) {
+            if (!empty($_GET["vac"]) && !empty($_POST["nomevaga"]) && !empty($_POST["descricao"]) && !empty($_POST["numvagas"]) && !empty($_POST["requisitos"])) {
 
                 //parte do video
                 $ficheiro = $_FILES["fileToUpload"]["name"];
@@ -80,7 +80,6 @@ if (isset($_FILES['fileToUpload'])) {
                     if (mysqli_stmt_prepare($stmt, $query)) {
                         mysqli_stmt_bind_param($stmt, 'ssssiiiiii', $vacancie_name, $description_vac, $number_free_vanc, $requirements, $Region_idRegion, $idUser, $last_id, $Workday_idWorkday, $Educ_lvl_idEduc_lvl, $Areas_idAreas);
 
-
                         echo "User que publicou: $idUser";
                         $vacancie_name = $_POST["nomevaga"];
                         $description_vac = $_POST["descricao"];
@@ -91,7 +90,6 @@ if (isset($_FILES['fileToUpload'])) {
                         $Educ_lvl_idEduc_lvl = $_POST["educ"];
                         $Areas_idAreas = $_POST["area"];
 
-
                         // VALIDAÇÃO DO RESULTADO DO EXECUTE
                         if (mysqli_stmt_execute($stmt)) {
                             mysqli_stmt_close($stmt);
@@ -100,8 +98,8 @@ if (isset($_FILES['fileToUpload'])) {
                             // SUCCESS ACTION
                             echo "ESTÁ NA BD <br>";
 
-                            //INSERIR PERSONALIDADE
-                            if (isset($_POST["personalidade"])) {
+                            //INSERIR CAPACIDADE
+                            if (isset($_POST["capacity"])) {
 
                                 $link = new_db_connection();
                                 $stmt = mysqli_stmt_init($link);
@@ -115,16 +113,16 @@ if (isset($_FILES['fileToUpload'])) {
 
                                         /* fetch values */
                                         while (mysqli_stmt_fetch($stmt)) {
-                                            $query2 = "INSERT INTO personality_has_vacancies (Personality_idPersonality, Vacancies_idVacancies)
+                                            $query2 = "INSERT INTO vacancies_has_capacities (vacancies_idVacancies, capacities_idcapacities)
                               VALUES (?, ?)";
                                             //parte do insert
                                             if (mysqli_stmt_prepare($stmt, $query2)) {
 
-                                                mysqli_stmt_bind_param($stmt, 'ii', $Personality_idPersonality, $idVacancies);
+                                                mysqli_stmt_bind_param($stmt, 'ii', $idVacancies, $capacities_idcapacities);
 
-                                                // PARA TODOS OS JOGADORES QUE FORAM ESCOLHIDOS
-                                                foreach ($_POST["personalidade"] as $Personality_idPersonality) {
-                                                    echo "id da personalidade: $Personality_idPersonality<br>";
+                                                // PARA TODAS AS CAPACIDADES ESCOLHIDAS
+                                                foreach ($_POST["capacity"] as $capacities_idcapacities) {
+                                                    //echo "id da capacidade: $capacities_idcapacities<br>";
                                                     /* execute the prepared statement */
                                                     if (!mysqli_stmt_execute($stmt)) {
                                                         echo "Error: " . mysqli_stmt_error($stmt);
@@ -142,7 +140,7 @@ if (isset($_FILES['fileToUpload'])) {
                                 echo "ERRO de não temos nada inserido";
                                 // header("Location: ../register.php?msg=2");
                             }
-                            header("Location: ../home_people.php");
+                            header("Location: ../all_vacancies_comp.php");
                         } else {
                             // ERROR ACTION
                             echo "Error: " . mysqli_stmt_error($stmt);
@@ -160,7 +158,7 @@ if (isset($_FILES['fileToUpload'])) {
     }
 } else {
     echo "quero carregar a vaga sem vídeo";
-    if (isset($_GET["vac"]) && isset($_POST["nomevaga"]) && isset($_POST["descricao"]) && isset($_POST["numvagas"]) && isset($_POST["requisitos"])) {
+    if (!empty($_GET["vac"]) && !empty($_POST["nomevaga"]) && !empty($_POST["descricao"]) && !empty($_POST["numvagas"]) && !empty($_POST["requisitos"])) {
 
         $idUser = $_GET["vac"];
 
@@ -191,8 +189,8 @@ if (isset($_FILES['fileToUpload'])) {
                 // SUCCESS ACTION
                 echo "ESTÁ NA BD <br>";
 
-                //INSERIR PERSONALIDADE
-                if (isset($_POST["personalidade"])) {
+                //INSERIR CAPACIDADE
+                if (isset($_POST["capacity"])) {
 
                     $link = new_db_connection();
                     $stmt = mysqli_stmt_init($link);
@@ -206,16 +204,16 @@ if (isset($_FILES['fileToUpload'])) {
 
                             /* fetch values */
                             while (mysqli_stmt_fetch($stmt)) {
-                                $query2 = "INSERT INTO personality_has_vacancies (Personality_idPersonality, Vacancies_idVacancies)
-                          VALUES (?, ?)";
+                                $query2 = "INSERT INTO vacancies_has_capacities (vacancies_idVacancies, capacities_idcapacities)
+                              VALUES (?, ?)";
                                 //parte do insert
                                 if (mysqli_stmt_prepare($stmt, $query2)) {
 
-                                    mysqli_stmt_bind_param($stmt, 'ii', $Personality_idPersonality, $idVacancies);
+                                    mysqli_stmt_bind_param($stmt, 'ii', $idVacancies, $capacities_idcapacities);
 
-                                    // PARA TODOS OS JOGADORES QUE FORAM ESCOLHIDOS
-                                    foreach ($_POST["personalidade"] as $Personality_idPersonality) {
-                                        echo "id da personalidade: $Personality_idPersonality<br>";
+                                    // PARA TODAS AS CAPACIDADES ESCOLHIDAS
+                                    foreach ($_POST["capacity"] as $capacities_idcapacities) {
+                                        //echo "id da capacidade: $capacities_idcapacities<br>";
                                         /* execute the prepared statement */
                                         if (!mysqli_stmt_execute($stmt)) {
                                             echo "Error: " . mysqli_stmt_error($stmt);
@@ -228,7 +226,7 @@ if (isset($_FILES['fileToUpload'])) {
                             }
                         }
                     }
-                } else {
+                }else {
                     ///isto é do isset
                     echo "ERRO de não temos nada inserido";
                     // header("Location: ../register.php?msg=2");
