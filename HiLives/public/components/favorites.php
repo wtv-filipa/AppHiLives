@@ -91,12 +91,6 @@ if ($_SESSION["idUser"]) {
         </div>
         </div>
         </div>
-
-        <div id='footer'>
-            <a href="can_choose_study.php">
-                <button class="btn_cards mx-auto">Ver mais</button>
-            </a>
-        </div>
         </div>
         </div>
         <?php
