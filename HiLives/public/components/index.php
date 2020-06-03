@@ -13,7 +13,7 @@
             <div class="cards text-center">
                 <div class="card-item">
                     <div class="card-image">
-                        <img class="card-img-top img-fluid" src="img/jovem_icon.png"></div>
+                        <img class="card-img-top img-fluid" src="public/img/jovem_icon.png"></div>
                     <div class="card-info">
                         <h4 class="card-title">Jovem</h4>
                     </div>
@@ -27,7 +27,7 @@
             <div class="cards text-center">
                 <div class="card-item">
                     <div class="card-image">
-                        <img class="card-img-top img-fluid" src="img/uni_icon.png"></div>
+                        <img class="card-img-top img-fluid" src="public/img/uni_icon.png"></div>
                     <div class="card-info">
                         <h4 class="card-title">Universidade</h4>
                     </div>
@@ -41,7 +41,7 @@
             <div class="cards text-center">
                 <div class="card-item">
                     <div class="card-image">
-                        <img class="card-img-top img-fluid" src="img/empresa_icon.png"></div>
+                        <img class="card-img-top img-fluid" src="public/img/empresa_icon.png"></div>
                     <div class="card-info">
                         <h4 class="card-title">Empresa</h4>
                     </div>
@@ -55,7 +55,7 @@
 
 <div class="text-center">
     <h4 class="mt-5">Já tens conta?</h4>
-    <a href="login.php">
+    <a href="public/login.php">
         <button class="btn inicia_index">Inicia Sessão</button>
     </a>
 </div>
@@ -64,7 +64,7 @@
 
 <div class="mt-5 row">
     <div class="col-md-3 col-xs-12 ">
-        <img class="rounded-circle centrado sombra" src="img/index_1.png"
+        <img class="rounded-circle centrado sombra" src="public/img/index_1.png"
              alt="imagem sobre o que é o HiLives"/>
     </div>
     <div class="col-md-8 col-xs-12 texto_centrado">
@@ -81,7 +81,7 @@
 <hr>
 <div class="mt-5 row">
     <div class="col-md-3 col-xs-12">
-        <img class="rounded-circle centrado sombra" src="img/index_2.png"
+        <img class="rounded-circle centrado sombra" src="public/img/index_2.png"
              alt="imagem sobre o que é o HiLives"/>
     </div>
     <div class="col-md-8 col-xs-12 texto_centrado">
@@ -93,7 +93,7 @@
 <hr>
 <div class="mt-5 row">
     <div class="col-md-3 col-xs-12">
-        <img class="rounded-circle centrado sombra" src="img/index_3.png"
+        <img class="rounded-circle centrado sombra" src="public/img/index_3.png"
              alt="imagem sobre o que é o HiLives"/>
     </div>
     <div class="col-md-8 col-xs-12 texto_centrado">

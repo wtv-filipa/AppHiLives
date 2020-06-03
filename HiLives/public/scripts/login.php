@@ -42,6 +42,8 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
                         header("Location: ../home_companies.php");
                     } else if ($type_user == "Universidade") {
                         header("Location: ../home_uni.php");
+                    }else if ($type_user == "Admin") {
+                        header("Location: ../../admin/index.php");
                     }
                     echo "LOGIN DEU";
                 } else {

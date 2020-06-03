@@ -143,7 +143,7 @@ $stmt = mysqli_stmt_init($link);
                         </a>
                     </div>
                     <div class=" col-4 text-right my-auto pr-0">
-                        <a href="login.php">
+                        <a href="public/login.php">
                             <button class="btn inicia_nav m-0">Inicia Sessão</button>
                         </a>
                     </div>

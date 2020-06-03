@@ -5,3 +5,6 @@
 <!----favicon------>
 <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+<!----favicon------>
+<link rel="shortcut icon" href="public/img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="public/img/favicon.ico" type="image/x-icon">
