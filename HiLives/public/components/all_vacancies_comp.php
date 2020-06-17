@@ -38,6 +38,7 @@ $query1 = "SELECT idVacancies, vacancie_name, Areas_idAreas, name_interested_are
                 <div class='widget HTML' id='HTML5'>
                     <div class='widget-content'>
                         <blockquote class="blockquote mb-0">
+                            <ul id="notebook_ul">
                             <?php
                             if (mysqli_stmt_prepare($stmt, $query1)) {
 
@@ -46,7 +47,6 @@ $query1 = "SELECT idVacancies, vacancie_name, Areas_idAreas, name_interested_are
                                 mysqli_stmt_bind_result($stmt, $idVacancie, $vacancie_name, $Areas_idAreas, $name_interested_area);
                                 while (mysqli_stmt_fetch($stmt)) {
                                     ?>
-                                    <ul id="notebook_ul">
                                         <li class="lista">
                                             <span class="font-weight-bold"><?= $vacancie_name ?></span>
                                             <p class="instituicao"><?= $name_interested_area ?></p>
@@ -60,15 +60,12 @@ $query1 = "SELECT idVacancies, vacancie_name, Areas_idAreas, name_interested_are
                                                 </a>
                                             </div>
                                         </li>
-
-
-                                    </ul>
                                     <?php
                                     include('components/delete_modal.php');
                                 }
                             }
                             ?>
-
+                            </ul>
                         </blockquote>
                     </div>
                 </div>

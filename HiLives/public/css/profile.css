@@ -171,7 +171,7 @@ li.lista {
     background-image: linear-gradient( 90deg, #00A5CF 10px, #EEE 10px, #EEE 11px, transparent 11px);
     padding: 10px 15px 10px 25px;
     box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5);
-    margin-bottom: 4% !important;
+    margin-bottom: 2% !important;
     width: 100%;
     box-sizing: border-box;
 }
@@ -242,7 +242,7 @@ li.lista {
         width: 90%!important;
     }
     .card {
-        box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+        box-shadow: 0px 0px 31px -2px rgba(0,0,0,0.17);
         width: 100%;
         border-radius: 5px;
         margin-bottom: 30px;
@@ -469,7 +469,7 @@ li.lista {
     padding: 50px;
     padding-bottom: 80px;
     height: 100%;
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    box-shadow: 0px 0px 31px -2px rgba(0,0,0,0.17);
     border-radius: 5px;
     min-width: 240px;
     z-index: 1;
@@ -507,7 +507,7 @@ li.lista {
     box-sizing: border-box;
     -webkit-box-flex: 1;
     flex: 1;
-    width: 60%;
+    width: 50%;
     text-align: left;
 }
 
@@ -773,6 +773,10 @@ li.lista {
     .tabs .content section h2 {
         display: block;
     }
+    .tabs .content section h5 {
+        display: none;
+    }
+
     .tabs {
         width: 100%;
         left: 50%;
