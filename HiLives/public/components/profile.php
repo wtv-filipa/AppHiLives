@@ -212,7 +212,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                             <section>
                                 <h2>Últimas disciplinas que fiz</h2>
                                 <h5 class="mb-3">Últimas disciplinas que fiz</h5>
-
+                                <ul id="notebook_ul">
                                 <?php
                                 if (mysqli_stmt_prepare($stmt, $query3)) {
 
@@ -221,7 +221,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                     mysqli_stmt_bind_result($stmt, $idDone_CU, $Cu_name, $University_name, $date_CU);
                                     while (mysqli_stmt_fetch($stmt)) {
                                 ?>
-                                        <ul id="notebook_ul">
+
                                             <li class="lista">
                                                 <?= $Cu_name ?>
                                                 <p class="instituicao"><?= $University_name ?></p>
@@ -244,13 +244,14 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                                 ?>
                                             </li>
 
-                                        </ul>
+
                                 <?php
                                         //modal de apagar a UC
                                         include('components/delete_modal.php');
                                     }
                                 }
                                 ?>
+                                </ul>
                                 <!--Se não for igual vai esconder determinados elementos que pessoas que não são o próprio user não podem ver-->
                                 <?php
                                 if ($idUser == $id_navegar) {
@@ -381,7 +382,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                 ?>
                     <div class="mt-5 mb-5">
                         <h3 class="mb-4 titulo_videos">As minhas experiências</h3>
-                        <div class="card mt-4">
+                        <div class="card mt-4" style="border: none">
                             <div class="row m-3">
                                 <?php
 

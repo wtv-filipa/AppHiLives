@@ -36,6 +36,7 @@ if ($_SESSION["idUser"]) {
                 <div class='widget HTML' id='HTML5'>
                     <div class='widget-content'>
                         <blockquote class="blockquote mb-0">
+                            <ul id="notebook_ul">
                             <?php
                             if (mysqli_stmt_prepare($stmt, $query)) {
 
@@ -44,7 +45,6 @@ if ($_SESSION["idUser"]) {
                                 mysqli_stmt_bind_result($stmt, $idDone_CU, $Cu_name, $University_name, $date_CU);
                                 while (mysqli_stmt_fetch($stmt)) {
                                     ?>
-                                    <ul id="notebook_ul">
                                         <li class="lista">
                                             <span class="font-weight-bold"><?= $Cu_name ?></span>
                                             <p class="instituicao"><?= $University_name ?></p>
@@ -57,18 +57,14 @@ if ($_SESSION["idUser"]) {
                                                     <i class="fas fa-trash mr-1" style="color:#2F2F2F!important"></i>
                                                 </a>
                                             </div>
-
-
                                         </li>
 
-
-                                    </ul>
                                     <?php
                                     include('components/delete_modal.php');
                                 }
                             }
                             ?>
-
+                            </ul>
                         </blockquote>
                     </div>
                 </div>

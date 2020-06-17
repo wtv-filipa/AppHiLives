@@ -30,18 +30,6 @@ padding-bottom: 0 !important;
 
 /*cards highlights*/
 
-.lista {
-    font-family: Quicksand, sans-serif;
-    font-size: 16px !important;
-    list-style: none;
-    background-color: rgba(0, 0, 0, 0.05);
-    background-image: linear-gradient( 90deg, #00A5CF 10px, #EEE 10px, #EEE 11px, transparent 11px);
-    padding: 10px 15px 10px 25px;
-    box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5);
-    margin-bottom: 4% !important;
-    box-sizing: border-box;
-    margin-top: 0;
-}
 
 ul#notebook_ul {
     margin: 0 auto;
@@ -52,7 +40,8 @@ ul#notebook_ul {
     border-left: none;
     border-right: none;
     display: block;
-    width: 100%
+    width: 100%  ;
+    overflow-x: hidden;
 }
 .instituicao {
     font-size: 0.9rem;
@@ -65,11 +54,12 @@ li.lista {
     list-style: none;
     background-color: rgba(0, 0, 0, 0.05);
     background-image: linear-gradient( 90deg, #00A5CF 10px, #EEE 10px, #EEE 11px, transparent 11px);
-    padding: 10px 15px 10px 25px;
+    padding: 10px 15px 10px 25px !important;
     box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5);
     margin-bottom: 4% !important;
     width: 100%;
     box-sizing: border-box;
+    margin-top: 0;
 }
 /* Font */
 
@@ -456,7 +446,6 @@ ul.taglabel li {
         float: left;
         margin-bottom: 15px;
         margin-right: 15px;
-        padding: 0;
         transition: all 1s;
     }
     #wrapper {
