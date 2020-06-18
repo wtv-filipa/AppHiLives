@@ -97,7 +97,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                 <div class="p-0 mt-3 edit_align">
                                     <a href="edit_profile.php?edit=<?= $idUser ?>">
                                         <button class="btn edit_btn">
-                                            <i class="teste fas fa-edit"></i>
+                                            <i class="faw_hover fas fa-edit"></i>
                                             Editar as minhas informações
                                         </button>
                                     </a>
@@ -258,7 +258,8 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                 ?>
                                     <div class="text-center">
                                         <a href="done_uc.php">
-                                            <button class="btn add_btn">Adicionar novas unidades curriculares</button>
+                                            <button class="btn add_btn"><i class="faw_hover fas fa-plus-circle mr-1">
+                                                </i>Adicionar novas unidades curriculares</button>
                                         </a>
                                     </div>
                                 <?php
@@ -453,6 +454,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                     <div class="col-md-3 mt-3 ">
                                         <a href="upload_xp.php">
                                             <button type="" class="btn bt_add" style="background-color: #D2D2D2;">
+
                                                 Adicionar uma nova
                                                 experiência
                                             </button>

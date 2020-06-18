@@ -351,7 +351,7 @@
             //the user that they have entered the correct password
             pass2.css("backgroundColor", goodColor);
             message.css("color", goodColor);
-            message.html("Passwords Match");
+            message.html("As palavras-passe estão iguais!");
         } else {
             //The passwords do not match.
             //Set the color to the bad color and
@@ -359,7 +359,7 @@
             pass2.css("backgroundColor", badColor);
             pass2.css("opacity", opacidade);
             message.css("color", badColor);
-            message.html("Passwords Do Not Match!");
+            message.html("As palavras-passe são diferentes!");
         }
     }
 </script>
