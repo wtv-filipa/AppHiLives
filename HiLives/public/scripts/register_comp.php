@@ -26,8 +26,7 @@ if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["data_fund"]
         $password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
         // VALIDAÇÃO DO RESULTADO DO EXECUTE
         if (mysqli_stmt_execute($stmt)) {
-            mysqli_stmt_close($stmt);
-            mysqli_close($link);
+            $last_id = mysqli_insert_id($link);
 
             // SUCCESS ACTION
             //echo "ESTÁ NA BD <br>";
@@ -35,26 +34,12 @@ if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["data_fund"]
             //INSERIR REGIAO
             if (isset($_POST["regiao"])) {
 
-                $link = new_db_connection();
-                $stmt = mysqli_stmt_init($link);
-                $query1 = "SELECT MAX(idUser) FROM users";
-
-                $idRegion = $_POST["regiao"];
-                if (mysqli_stmt_prepare($stmt, $query1)) {
-                    /* execute the prepared statement */
-                    if (mysqli_stmt_execute($stmt)) {
-                        /* bind result variables */
-                        mysqli_stmt_bind_result($stmt, $idUser);
-
-                        /* fetch values */
-                        while (mysqli_stmt_fetch($stmt)) {
-//                            echo "id do user: $idUser <br>";
                             $query2 = "INSERT INTO user_has_region (User_idUser_region, Region_idRegion) VALUES (?, ?)";
                             //parte do insert
                             if (mysqli_stmt_prepare($stmt, $query2)) {
 //                                echo "id do user: $idUser <br>";
 
-                                mysqli_stmt_bind_param($stmt, 'ii',$idUser, $idRegion);
+                                mysqli_stmt_bind_param($stmt, 'ii',$last_id, $idRegion);
 //                                echo"id da região: $idRegion<br>";
 
                                 if (!mysqli_stmt_execute($stmt)) {
@@ -64,9 +49,7 @@ if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["data_fund"]
                                 mysqli_stmt_close($stmt);
                             }
                             //fim da cena do insert
-                        }
-                    }
-                }
+
             } else {
                 ///isto é do isset
                 echo "ERRO de não temos nada inserido";

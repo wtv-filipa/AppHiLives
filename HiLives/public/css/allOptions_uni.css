@@ -56,6 +56,7 @@ a:hover {
     padding: 1rem;
     margin-bottom: 1rem;
     width: 100%;
+    height: 410px;
 }
 
 @media (min-width: 40rem) {
@@ -75,7 +76,7 @@ a:hover {
     flex-direction: column;
     background-color: #fff;
     width: 100%;
-    height: 90%;
+    height: 100%;
     border-radius: 5px;
     box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
     overflow: hidden;
