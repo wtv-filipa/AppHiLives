@@ -98,6 +98,6 @@
     </div>
     <div class="col-md-8 col-xs-12 texto_centrado">
         <h3 class="titulo_centrado">Procuras trabalhar?</h3>
-        <p>Se gostavas de experimentar trabalhar numa empresa experimenta connosco!</p>
+        <p>Se gostavas de trabalhar numa empresa experimenta connosco!</p>
     </div>
 </div>

@@ -21,6 +21,7 @@
         <!--componente da home sem login-->
         <?php include "public/components/index.php"; ?>
     </main>
+    <?php include "public/components/footer.php"; ?>
     <!-- JavaScript-->
     <?php include "public/helpers/js.php"; ?>
     <?php include "public/helpers/fontawesome.php"; ?>

@@ -325,7 +325,7 @@ a.more-link {
 .social-icons a:active,
 .social-icons a:focus,
 .social-icons a:hover {
-    color: #fff;
+    color: #fff ;
     background-color: #29aafe
 }
 
@@ -333,7 +333,7 @@ a.more-link {
     line-height: 34px;
     height: 34px;
     width: 34px;
-    font-size: 14px
+    font-size: 14px;
 }
 
 .social-icons a.facebook:hover {
