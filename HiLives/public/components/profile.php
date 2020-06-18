@@ -50,7 +50,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
             $dob = $birth_date;
             $age = (date('Y') - date('Y', strtotime($dob)));
 ?>
-            <div class="w-75 mx-auto largura">
+            <div class="div_geral mx-auto largura">
                 <div class="row mt-5 perfil_info">
                     <div class="col-xs-3 col-lg-3 ">
                         <?php
@@ -94,7 +94,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                             <?php
                             if ($idUser == $id_navegar) {
                             ?>
-                                <div class="p-0 mt-3">
+                                <div class="p-0 mt-3 edit_align">
                                     <a href="edit_profile.php?edit=<?= $idUser ?>">
                                         <button class="btn edit_btn">
                                             <i class="teste fas fa-edit"></i>
@@ -169,7 +169,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                         <path d="M8 0l1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864 8 0z" />
                                         <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z" />
                                     </svg>
-                                    <br><span>Disciplinas</span>
+                                    <br><span>Unidades curriculares</span>
                                 </label>
                             </li>
                             <!--2-->
@@ -211,7 +211,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                             <!--DISCIPLINAS FEITAS-->
                             <section>
                                 <h2>Últimas disciplinas que fiz</h2>
-                                <h5 class="mb-3">Últimas disciplinas que fiz</h5>
+                                <h5 class="mb-3">Últimas unidades curriculares que fiz</h5>
                                 <ul id="notebook_ul">
                                 <?php
                                 if (mysqli_stmt_prepare($stmt, $query3)) {
@@ -258,7 +258,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                 ?>
                                     <div class="text-center">
                                         <a href="done_uc.php">
-                                            <button class="btn add_btn">Adicionar novas disciplinas</button>
+                                            <button class="btn add_btn">Adicionar novas unidades curriculares</button>
                                         </a>
                                     </div>
                                 <?php

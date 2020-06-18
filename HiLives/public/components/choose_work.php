@@ -7,15 +7,14 @@ include "navbar_2.php";
         <div class='tagpost-top section' id='tagpost-top'>
             <div class='widget HTML' id='HTML5'>
                 <div data-aos="fade-up">
-                    <h3 class="mb-4 main_title">Vagas de trabalho que posso escolher</h3>
-                    <p>Aqui encontras todos os trabalhos que tens disponíveis para ti Aqui encontras todos os trabalhos
-                        que tens disponíveis para ti</p>
+                    <h3 class="mb-1 main_title">Vagas de trabalho que posso escolher</h3>
+                    <p>Aqui encontras as vagas onde cumpres todos os requisitos</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="card-slider">
+    <div class="card-slider mt-5">
         <div class="col-lg-12">
             <div class="card w-100">
                 <a href="vacancie.php">
@@ -90,15 +89,14 @@ include "navbar_2.php";
         <div class='tagpost-top section' id='tagpost-top'>
             <div class='widget HTML' id='HTML5'>
                 <div data-aos="fade-up">
-                    <h3 class="mb-4 main_title">Percursos de aprendizagem</h3>
-                    <p>Aqui encontras todos os trabalhos que tens disponíveis para ti Aqui encontras todos os trabalhos
-                        que tens disponíveis para ti</p>
+                    <h3 class="mb-1 main_title">Ainda não foi desta...</h3>
+                    <p> Vê o que precisas de fazer para cumprires os requisitos destas vagas</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="card-slider">
+    <div class="card-slider mt-5">
         <div class="col-lg-12">
             <div class="card w-100">
                 <a href="vacancie_learn.php">

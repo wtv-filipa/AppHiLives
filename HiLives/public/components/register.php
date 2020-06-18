@@ -367,7 +367,7 @@
                                     </div>
                                     <!--LOCAL ONDE GOSTARIA DE TRABALHAR-->
                                     <div class="form-group">
-                                        <h6 class="negrito mt-4" for="environment" role="heading">Quais são os teus ambientes de trabalho favoritos?<span class="asterisco">*</span></h6>
+                                        <h6 class="negrito mt-4" for="environment" role="heading">Quais são os meus ambientes de trabalho favoritos?<span class="asterisco">*</span></h6>
                                         <div class="form-check">
                                             <?php
                                             $query = "SELECT idwork_environment, name_environment FROM work_environment";
