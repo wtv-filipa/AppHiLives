@@ -16,8 +16,7 @@ $idUser = $_SESSION["idUser"];
                 Criar nova vaga</h3>
         </div>
         <!----------->
-        <form class="md-form inserir_dados" class="mb-3" action="scripts/upload_vac.php?vac=<?= $idUser ?>"
-              enctype="multipart/form-data" method="post">
+        <form class="md-form inserir_dados" class="mb-3" action="scripts/upload_vac.php?vac=<?= $idUser ?>" enctype="multipart/form-data" method="post">
             <!--primeiro campo-->
             <div class="form-group text-left">
                 <label class="label-margin" for="nomevaga">Cargo na empresa:</label>
@@ -78,7 +77,7 @@ $idUser = $_SESSION["idUser"];
 
                         if (mysqli_stmt_execute($stmt)) {
                             /* bind result variables */
-                            mysqli_stmt_bind_result($stmt, $id_Workday,$name_workday);
+                            mysqli_stmt_bind_result($stmt, $id_Workday, $name_workday);
 
                             /* fetch values */
                             while (mysqli_stmt_fetch($stmt)) {
@@ -95,22 +94,23 @@ $idUser = $_SESSION["idUser"];
                 <label class="label-margin" for="personality">Capacidades necessárias: </label>
                 <div class="form-check">
                     <?php
-                    $query = "SELECT idcapacities, capacity FROM capacities";
+                    $query = "SELECT idcapacities, capacity_comp FROM capacities";
 
                     if (mysqli_stmt_prepare($stmt, $query)) {
 
                         /* execute the prepared statement */
                         if (mysqli_stmt_execute($stmt)) {
                             /* bind result variables */
-                            mysqli_stmt_bind_result($stmt, $idcapacities, $capacity);
+                            mysqli_stmt_bind_result($stmt, $idcapacities, $capacity_comp);
 
                             /* fetch values */
                             while (mysqli_stmt_fetch($stmt)) {
-
-                                echo "\n\t\t";
-                                echo "<label class='form-check-label col-xs-12 col-md-6 label_margin'>";
-                                echo "<input type='checkbox' class='form-check-input' name='capacity[]' value='$idcapacities'>$capacity<br>";
-                                echo "</label>";
+                                if (isset($capacity_comp)) {
+                                    echo "\n\t\t";
+                                    echo "<label class='form-check-label col-xs-12 col-md-12 p-1 label_margin'>";
+                                    echo "<input type='checkbox' class='form-check-input' name='capacity[]' value='$idcapacities'>$capacity_comp<br>";
+                                    echo "</label>";
+                                }
                             }
                         } else {
                             echo "Error: " . mysqli_stmt_error($stmt);

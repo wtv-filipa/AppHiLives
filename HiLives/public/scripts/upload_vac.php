@@ -5,12 +5,13 @@ require_once("../connections/connection.php");
 $link = new_db_connection();
 $idUser = $_GET["vac"];
 
-if (!empty($_FILES['fileToUpload'])) {
+if ($_FILES['fileToUpload']['size'] != 0) {
+    echo "quero carregar a vaga COM vídeo";
     /* create a prepared statement */
     $stmt = mysqli_stmt_init($link);
     //DIRETÓRIO PARA ONDE VAI O VÍDEO
     $target_dir = "../../admin/uploads/vid_vac/";
-    $target_file = $target_dir . $idUser.  "_" . basename($_FILES["fileToUpload"]["name"]);
+    $target_file = $target_dir . $idUser .  "_" . basename($_FILES["fileToUpload"]["name"]);
     $uploadOk = 1;
     $vidFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
@@ -58,7 +59,7 @@ if (!empty($_FILES['fileToUpload'])) {
                 //parte do video
                 $ficheiro = $idUser .  "_" . $_FILES["fileToUpload"]["name"];
                 $query = "INSERT INTO content (content_type, content_name, users_idUser)
-            VALUES (?,?,?)";
+             VALUES (?,?,?)";
 
                 if (mysqli_stmt_prepare($stmt, $query)) {
 
@@ -75,12 +76,12 @@ if (!empty($_FILES['fileToUpload'])) {
 
 
 
-                    $link = new_db_connection();
-                    $stmt = mysqli_stmt_init($link);
+                    $link1 = new_db_connection();
+                    $stmt1 = mysqli_stmt_init($link1);
                     $query = "INSERT INTO vacancies (vacancie_name, description_vac, number_free_vanc, requirements, Region_idRegion, User_publicou, Content_idContent, Workday_idWorkday, Educ_lvl_idEduc_lvl, Areas_idAreas) VALUES (?,?,?,?,?,?,?,?,?,?)";
 
-                    if (mysqli_stmt_prepare($stmt, $query)) {
-                        mysqli_stmt_bind_param($stmt, 'ssssiiiiii', $vacancie_name, $description_vac, $number_free_vanc, $requirements, $Region_idRegion, $idUser, $last_id, $Workday_idWorkday, $Educ_lvl_idEduc_lvl, $Areas_idAreas);
+                    if (mysqli_stmt_prepare($stmt1, $query)) {
+                        mysqli_stmt_bind_param($stmt1, 'ssssiiiiii', $vacancie_name, $description_vac, $number_free_vanc, $requirements, $Region_idRegion, $idUser, $last_id, $Workday_idWorkday, $Educ_lvl_idEduc_lvl, $Areas_idAreas);
 
                         echo "User que publicou: $idUser";
                         $vacancie_name = $_POST["nomevaga"];
@@ -93,10 +94,9 @@ if (!empty($_FILES['fileToUpload'])) {
                         $Areas_idAreas = $_POST["area"];
 
                         // VALIDAÇÃO DO RESULTADO DO EXECUTE
-                        if (mysqli_stmt_execute($stmt)) {
-                            mysqli_stmt_close($stmt);
-                            mysqli_close($link);
-
+                        if (mysqli_stmt_execute($stmt1)) {
+                            $last_vac = mysqli_insert_id($link1);
+                            echo "num vaga: $last_vac";
                             // SUCCESS ACTION
                             echo "ESTÁ NA BD <br>";
 
@@ -105,38 +105,25 @@ if (!empty($_FILES['fileToUpload'])) {
 
                                 $link = new_db_connection();
                                 $stmt = mysqli_stmt_init($link);
-                                $query1 = "SELECT MAX(idVacancies) FROM vacancies";
+                                $query2 = "INSERT INTO vacancies_has_capacities (vacancies_idVacancies, capacities_idcapacities)
+                               VALUES (?, ?)";
+                                //parte do insert
+                                if (mysqli_stmt_prepare($stmt, $query2)) {
 
-                                if (mysqli_stmt_prepare($stmt, $query1)) {
-                                    /* execute the prepared statement */
-                                    if (mysqli_stmt_execute($stmt)) {
-                                        /* bind result variables */
-                                        mysqli_stmt_bind_result($stmt, $idVacancies);
+                                    mysqli_stmt_bind_param($stmt, 'ii', $last_vac, $capacities_idcapacities);
 
-                                        /* fetch values */
-                                        while (mysqli_stmt_fetch($stmt)) {
-                                            $query2 = "INSERT INTO vacancies_has_capacities (vacancies_idVacancies, capacities_idcapacities)
-                              VALUES (?, ?)";
-                                            //parte do insert
-                                            if (mysqli_stmt_prepare($stmt, $query2)) {
-
-                                                mysqli_stmt_bind_param($stmt, 'ii', $idVacancies, $capacities_idcapacities);
-
-                                                // PARA TODAS AS CAPACIDADES ESCOLHIDAS
-                                                foreach ($_POST["capacity"] as $capacities_idcapacities) {
-                                                    //echo "id da capacidade: $capacities_idcapacities<br>";
-                                                    /* execute the prepared statement */
-                                                    if (!mysqli_stmt_execute($stmt)) {
-                                                        echo "Error: " . mysqli_stmt_error($stmt);
-                                                    }
-                                                }
-                                                /* close statement */
-                                                mysqli_stmt_close($stmt);
-                                            }
-                                            //fim da cena do insert
+                                    // PARA TODAS AS CAPACIDADES ESCOLHIDAS
+                                    foreach ($_POST["capacity"] as $capacities_idcapacities) {
+                                        //echo "id da capacidade: $capacities_idcapacities<br>";
+                                        /* execute the prepared statement */
+                                        if (!mysqli_stmt_execute($stmt)) {
+                                            echo "Error: " . mysqli_stmt_error($stmt);
                                         }
                                     }
+                                    /* close statement */
+                                    mysqli_stmt_close($stmt);
                                 }
+                                //fim da cena do insert
                             } else {
                                 ///isto é do isset
                                 echo "ERRO de não temos nada inserido";
@@ -159,7 +146,7 @@ if (!empty($_FILES['fileToUpload'])) {
         }
     }
 } else {
-    echo "quero carregar a vaga sem vídeo";
+    echo "quero carregar a vaga SEM vídeo";
     if (!empty($_GET["vac"]) && !empty($_POST["nomevaga"]) && !empty($_POST["descricao"]) && !empty($_POST["numvagas"]) && !empty($_POST["requisitos"])) {
 
         $idUser = $_GET["vac"];
@@ -185,55 +172,39 @@ if (!empty($_FILES['fileToUpload'])) {
 
             // VALIDAÇÃO DO RESULTADO DO EXECUTE
             if (mysqli_stmt_execute($stmt)) {
-                mysqli_stmt_close($stmt);
-                mysqli_close($link);
-
+                $last_vac = mysqli_insert_id($link);
+                echo "num vaga: $last_vac";
                 // SUCCESS ACTION
                 echo "ESTÁ NA BD <br>";
 
                 //INSERIR CAPACIDADE
                 if (isset($_POST["capacity"])) {
 
-                    $link = new_db_connection();
-                    $stmt = mysqli_stmt_init($link);
-                    $query1 = "SELECT MAX(idVacancies) FROM vacancies";
-
-                    if (mysqli_stmt_prepare($stmt, $query1)) {
-                        /* execute the prepared statement */
-                        if (mysqli_stmt_execute($stmt)) {
-                            /* bind result variables */
-                            mysqli_stmt_bind_result($stmt, $idVacancies);
-
-                            /* fetch values */
-                            while (mysqli_stmt_fetch($stmt)) {
-                                $query2 = "INSERT INTO vacancies_has_capacities (vacancies_idVacancies, capacities_idcapacities)
+                    $query2 = "INSERT INTO vacancies_has_capacities (vacancies_idVacancies, capacities_idcapacities)
                               VALUES (?, ?)";
-                                //parte do insert
-                                if (mysqli_stmt_prepare($stmt, $query2)) {
+                    //parte do insert
+                    if (mysqli_stmt_prepare($stmt, $query2)) {
 
-                                    mysqli_stmt_bind_param($stmt, 'ii', $idVacancies, $capacities_idcapacities);
+                        mysqli_stmt_bind_param($stmt, 'ii', $last_vac, $capacities_idcapacities);
 
-                                    // PARA TODAS AS CAPACIDADES ESCOLHIDAS
-                                    foreach ($_POST["capacity"] as $capacities_idcapacities) {
-                                        //echo "id da capacidade: $capacities_idcapacities<br>";
-                                        /* execute the prepared statement */
-                                        if (!mysqli_stmt_execute($stmt)) {
-                                            echo "Error: " . mysqli_stmt_error($stmt);
-                                        }
-                                    }
-                                    /* close statement */
-                                    mysqli_stmt_close($stmt);
-                                }
-                                //fim da cena do insert
+                        // PARA TODAS AS CAPACIDADES ESCOLHIDAS
+                        foreach ($_POST["capacity"] as $capacities_idcapacities) {
+                            //echo "id da capacidade: $capacities_idcapacities<br>";
+                            /* execute the prepared statement */
+                            if (!mysqli_stmt_execute($stmt)) {
+                                echo "Error: " . mysqli_stmt_error($stmt);
                             }
                         }
+                        /* close statement */
+                        mysqli_stmt_close($stmt);
                     }
-                }else {
+                    //fim da cena do insert
+                } else {
                     ///isto é do isset
                     echo "ERRO de não temos nada inserido";
                     // header("Location: ../register.php?msg=2");
                 }
-                header("Location: ../home_people.php");
+               header("Location: ../home_people.php");
             } else {
                 // ERROR ACTION
                 echo "Error: " . mysqli_stmt_error($stmt);
