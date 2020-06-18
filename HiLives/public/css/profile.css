@@ -31,7 +31,9 @@ ul.taglabel li {
     margin-bottom: 2%;
 }
 
-
+.div_geral {
+    width: 75%;
+}
 /*BOTÕES*/
 
 .edit_btn {
@@ -177,6 +179,16 @@ li.lista {
 }
 
 
+
+@media only screen and (max-width: 992px) {
+    .perfil_info {
+        text-align: center!important;
+    }
+    .edit_align {
+        text-align: center!important;
+    }
+
+}
 /* Small devices (portrait tablets and large phones, 600px and up) */
 
 @media only screen and (max-width: 600px) {
@@ -199,9 +211,6 @@ li.lista {
     .card-body {
         margin-bottom: 20px;
     }
-    .perfil_info {
-        text-align: center!important;
-    }
     .centrar_cont {
         text-align: center;
     }
@@ -223,12 +232,11 @@ li.lista {
 }
 
 
+
 /* Medium devices (landscape tablets, 768px and up) */
 
 @media only screen and (min-width: 768px) {
-    .perfil_info {
-        text-align: center!important;
-    }
+
     .edit_btn {
         width: 50%!important;
     }
@@ -265,6 +273,7 @@ li.lista {
     }
     .edit_btn {
         width: 50%!important;
+        text-align: center;
     }
     .edit_btn:hover {
         width: 50%!important;
@@ -289,9 +298,7 @@ li.lista {
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 
 @media only screen and (min-width: 1200px) {
-    .perfil_info {
-        text-align: left!important;
-    }
+
     .edit_btn {
         width: 50%!important;
         font-size: 16px;
@@ -415,6 +422,7 @@ li.lista {
 /* Medium devices (landscape tablets, 768px and up) */
 
 @media only screen and (min-width: 768px) {
+
     .username_modal {
         margin-top: -26px;
         margin-left: 40px;
@@ -427,9 +435,25 @@ li.lista {
 }
 
 
+@media only screen and (max-width: 1200px) {
+    .div_geral {
+        width: 90% !important;
+    }
+
+}
+@media only screen and (max-width: 768px) {
+    .div_geral {
+        width: 100% !important;
+    }
+
+}
+
+
+
 /* Large devices (laptops/desktops, 992px and up) */
 
 @media only screen and (min-width: 992px) {
+
     .username_modal {
         margin-top: -26px;
         margin-left: 40px;
@@ -439,12 +463,14 @@ li.lista {
         font-size: 12px;
         margin-top: 10px;
     }
+
 }
 
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 
 @media only screen and (min-width: 1200px) {
+
     .username_modal {
         margin-top: -26px;
         margin-left: 40px;
@@ -756,7 +782,7 @@ li.lista {
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .tabs ul li label {
         padding: 5px;
         border-radius: 5px;
@@ -787,7 +813,7 @@ li.lista {
         padding: 20px;
         padding-bottom: 10px;
         height: 100%;
-        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+        box-shadow: 0px 0px 31px -2px rgba(0,0,0,0.17);
         border-radius: 5px;
         min-width: 240px;
     }

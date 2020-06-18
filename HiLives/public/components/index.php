@@ -69,9 +69,9 @@
     </div>
     <div class="col-md-8 col-xs-12 texto_centrado">
         <h3 class="titulo_centrado">O que é a HiLives?</h3>
-        <p>A HiLives é uma plataforma que permite a jovens com dificuldades intelectuais e desenvolvimentais poderem
-            frequentar áreas do seu interesse em várias universidades da União Europeia.</p>
-        <p>Para além disto, a HiLives permite também que estes jovens possam encontrar empregadores que correspondam às
+        <p>A HiLives é uma plataforma que permite a jovens com Dificuldades Intelectuais e Desenvolvimentais
+            frequentarem áreas do seu interesse em várias universidades da União Europeia.</p>
+        <p>Para além disto, a HiLives possibilita também que estes jovens possam encontrar empregadores que correspondam às
             suas
             necessidades e, assim, incluí-los numa empresa.</p>
         <p>Esta plataforma permite o registo de <b>três entidades</b> diferentes: <b>jovens</b>, <b>universidades</b> e
