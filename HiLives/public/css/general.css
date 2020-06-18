@@ -354,6 +354,12 @@ a.more-link {
 
 
 /*HOME MENU*/
+/*.sticky-top {*/
+/*    position: sticky !important;*/
+/*    top: 50% !important;*/
+/*    z-index: 1020 !important;*/
+/*}*/
+
 
 .home_menu {
     text-decoration: none !important;
@@ -361,6 +367,7 @@ a.more-link {
     background-color: #ffffff;
     font-family: Quicksand, sans-serif;
     color: #555555;
+
 }
 
 ul {

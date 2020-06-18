@@ -45,7 +45,7 @@ ul.taglabel li {
     border-radius: 5px;
     font-weight: 800;
     display: block;
-    width: 30%;
+    width: 50%;
     cursor: pointer;
     background: #fff;
 }
@@ -65,7 +65,7 @@ ul.taglabel li {
     font-weight: 800;
     display: block;
     margin: auto;
-    width: 30%;
+    width: 65%;
     cursor: pointer;
     background: #fff;
 }
@@ -74,6 +74,14 @@ ul.taglabel li {
     background-color: #00A5CF;
     color: #fff;
 }
+
+.faw_hover {
+    color: #00A5CF;
+}
+.faw_hover:hover {
+    color: white;
+}
+
 
 
 /*PERFIL*/
@@ -187,6 +195,11 @@ li.lista {
     .edit_align {
         text-align: center!important;
     }
+    .edit_btn {
+       margin: auto;
+    }
+
+
 
 }
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -200,10 +213,10 @@ li.lista {
         height: 80px;
     }
     .edit_btn {
-        width: 80%!important;
+        width: 75%!important;
     }
     .edit_btn:hover {
-        width: 80%!important;
+        width: 75%!important;
     }
     .titulo_videos {
         text-align: center;
@@ -244,10 +257,10 @@ li.lista {
         width: 50%!important;
     }
     .add_btn {
-        width: 90%!important;
+        width: 50%!important;
     }
     .add_btn:hover {
-        width: 90%!important;
+        width: 50%!important;
     }
     .card {
         box-shadow: 0px 0px 31px -2px rgba(0,0,0,0.17);
@@ -279,11 +292,11 @@ li.lista {
         width: 50%!important;
     }
     .add_btn {
-        width: 80%!important;
+        width: 45%!important;
         margin-top: 5%!important;
     }
     .add_btn:hover {
-        width: 80%!important;
+        width: 45%!important;
         margin-top: 5%!important;
     }
     .titulo_videos {
@@ -309,11 +322,11 @@ li.lista {
     }
     .add_btn {
         font-size: 16px !important;
-        width: 80%!important;
+        width: 50%!important;
     }
     .add_btn:hover {
         font-size: 16px !important;
-        width: 80%!important;
+        width: 50%!important;
     }
     .tamanho_card_tablet {
         padding-bottom: 5%!important;
