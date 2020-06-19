@@ -5,7 +5,7 @@ require_once("../connections/connection.php");
 $link = new_db_connection();
 /* create a prepared statement */
 $stmt = mysqli_stmt_init($link);
-if (isset($_GET["update_xp"]) && isset($_POST["nomeVideo"])) {
+if (isset($_GET["update_xp"]) && !empty($_POST["nomeVideo"])) {
     $id_xp = $_GET["update_xp"];
     $title_exp = $_POST['nomeVideo'];
     $description = $_POST['descricao'];

@@ -98,23 +98,24 @@ if (isset($_GET["edit"])) {
                             <!-- edit form column -->
                             <div class="col-xs-12 col-md-8">
                                 <form class="form-horizontal" role="form" method="post" action="scripts/update_profile.php?id=<?= $idUser ?>">
-
+                                    <!------------****------------>
+                                    <p style="font-size: 12px; color: #00A5CF !important;">* Campos de preenchimento obrigatório.</p>
                                     <!--primeiro input-NOME-->
                                     <div class="form-group text-left">
                                         <label class="negrito mt-3" for="nome">Nome <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
-                                        <input type="text" id="nome" name="nome" placeholder="Escreve aqui o teu nome" class="form-control" value="<?= $name_user ?>">
+                                        <input type="text" id="nome" name="nome" placeholder="Escreve aqui o teu nome" required="required" class="form-control" value="<?= $name_user ?>">
                                     </div>
                                     <!----------------------->
                                     <!--segundo input-EMAIL-->
                                     <div class="form-group text-left">
                                         <label class="negrito mt-3" for="email">Email <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
-                                        <input type="text" id="email" name="email" placeholder="Escreve aqui o teu email" class="form-control" value="<?= $email_user ?>">
+                                        <input type="text" id="email" name="email" placeholder="Escreve aqui o teu email" required="required" class="form-control" value="<?= $email_user ?>">
                                     </div>
                                     <!----------------------->
                                     <!--terceiro input-DATA DE NASCIMENTO-->
                                     <div class="form-group text-left">
-                                        <label class="negrito mt-3" for="born">Data de nascimento</label>
-                                        <input type="date" id="born" name="data_nasc" placeholder="data de nascimento" class="form-control" value="<?= $birth_date ?>">
+                                        <label class="negrito mt-3" for="born">Data de nascimento <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                        <input type="date" id="born" name="data_nasc" placeholder="data de nascimento" required="required" class="form-control" value="<?= $birth_date ?>">
                                     </div>
                                     <!----------------------->
                                     <!--quarto input- TELEMÓVEL-->
@@ -404,8 +405,8 @@ if (isset($_GET["edit"])) {
                                     <hr>
 
                                     <div class="form-group text-left">
-                                        <label class="negrito mt-3" role="heading" for="capacity">Sobre mim</label>
-                                    <!------------COMPETÊNCIAS------------>
+                                        <label class="negrito mt-3" role="heading" for="capacity">Sobre mim <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                        <!------------COMPETÊNCIAS------------>
 
                                         <div class="form-check">
                                             <?php
@@ -447,7 +448,7 @@ if (isset($_GET["edit"])) {
                                     </div>
                                     <!--LOCAL ONDE GOSTARIA DE TRABALHAR-->
                                     <div class="form-group text-left">
-                                        <h6 class="negrito mt-4" for="environment" role="heading">Quais são os teus ambientes de trabalho favoritos?</h6>
+                                        <h6 class="negrito mt-4" for="environment" role="heading">Os meus ambientes de trabalho favoritos <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></h6>
                                         <div class="form-check">
                                             <?php
                                             $query5 = "SELECT idwork_environment, name_environment, favorite_environment 
@@ -461,7 +462,7 @@ if (isset($_GET["edit"])) {
                                                 /* execute the prepared statement */
                                                 if (mysqli_stmt_execute($stmt)) {
                                                     /* bind result variables */
-                                                    mysqli_stmt_bind_result($stmt, $idwork_environment, $name_environment, $favorite_environment );
+                                                    mysqli_stmt_bind_result($stmt, $idwork_environment, $name_environment, $favorite_environment);
 
                                                     /* fetch values */
                                                     while (mysqli_stmt_fetch($stmt)) {
@@ -513,7 +514,7 @@ if (isset($_GET["edit"])) {
                                     <!--quinto input-DID-->
                                     <div class="form-group text-left">
                                         <label for="def">O que mais posso dizer sobre mim <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
-                                        <textarea class="form-control cinza" id="def" rows="2" name="def" placeholder="Por exemplo: Sei usar computador, Sei falar outras línguas para além da minha, gosto de desenhar, pintar, pratico desporto, etc. &#10;Se tiveres alguma necessidade indica aqui também (por exemplo: elevador e/ou rampas de acesso)."><?= $info_young ?></textarea>
+                                        <textarea class="form-control cinza" id="def" rows="2" name="def" placeholder="Por exemplo: Sei usar computador, Sei falar outras línguas para além da minha, gosto de desenhar, pintar, pratico desporto, etc. &#10;Se tiveres alguma necessidade indica aqui também (por exemplo: elevador e/ou rampas de acesso)." required="required"><?= $info_young ?></textarea>
                                     </div>
                                     <!----------------------->
                                     <!---div com o valor de edit para poder voltar para aqui-->

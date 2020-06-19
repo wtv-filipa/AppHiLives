@@ -1,7 +1,7 @@
 <?php
 require_once "../connections/connection.php";
 
-if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["data_nasc"]) && isset($_POST["def"]) && isset($_POST["password"])) {
+if (!empty($_POST["nome"]) && !empty($_POST["email"]) && !empty($_POST["data_nasc"]) && !empty($_POST["def"]) && !empty($_POST["password"])) {
 
     $type = 10;
 
@@ -35,7 +35,7 @@ if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["data_nasc"]
         }
         //JÁ INSERIU OS USERS
         //AGORA VAI INSERIR REGIÕES
-        if (isset($_POST["regiao"])) {
+        if (!empty($_POST["regiao"])) {
             $query2 = "INSERT INTO user_has_region (User_idUser_region, Region_idRegion)
                        VALUES (?, ?)";
 
@@ -55,11 +55,11 @@ if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["data_nasc"]
                 }
             }
         } else {
-            echo "nada inserido no fb";
+            echo "Região não escolhida";
         }
         //JÁ INSERIU AS REGIÕES
         //INSERIR AS ÁREAS
-        if (isset($_POST["area"])) {
+        if (!empty($_POST["area"])) {
             $query3 = "INSERT INTO user_has_areas (User_idUser, Areas_idAreas)
             VALUES (?, ?)";
             if (mysqli_stmt_prepare($stmt, $query3)) {
@@ -81,7 +81,7 @@ if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["data_nasc"]
         }
         //JÁ INSERIU AS ÁREAS
         //AGORA VAI INSERIR AS COMPETÊNCIAS
-         if (isset($_POST["capacity"])) {
+         if (!empty($_POST["capacity"])) {
             $query4 = "INSERT INTO capacities_has_users (capacities, users_idUser)
                        VALUES (?, ?)";
 
@@ -101,11 +101,11 @@ if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["data_nasc"]
                 }
             }
         } else {
-            echo "nada inserido no fb";
+            echo "nada inserido nas capacidades";
         }
         //JÁ INSERIU AS COMPETÊNCIAS
         //AGORA VAI INSERIR OS AMBIENTES
-        if (isset($_POST["environment"])) {
+        if (!empty($_POST["environment"])) {
             $query5 = "INSERT INTO work_environment_has_users (favorite_environment, users_idUser)
                        VALUES (?, ?)";
 
@@ -125,13 +125,15 @@ if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["data_nasc"]
                 }
             }
         } else {
-            echo "nada inserido no fb";
+            echo "nada inserido nos ambientes favoritos";
         }
         //JÁ INSERIU OS AMBIENTES
         //INSERIR O MATCH
-        include "match_uni.php";
+        //include "match_uni.php";
         mysqli_stmt_close($stmt);
         mysqli_close($link);
-        header("Location: ../login.php");
+        //header("Location: ../login.php");
     }
+}else{
+    echo"falta o preenchimento de campos obrigatórios";
 }

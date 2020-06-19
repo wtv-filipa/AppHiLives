@@ -1,6 +1,6 @@
 <?php
 
-if (isset($_POST["email"]) && isset($_POST["password"])) {
+if (!empty($_POST["email"]) && !empty($_POST["password"])) {
 
     require_once("../connections/connection.php");
 
@@ -63,4 +63,6 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
         mysqli_stmt_close($stmt);
         mysqli_close($link);
     }
+}else{
+    echo"campo vazio";
 }

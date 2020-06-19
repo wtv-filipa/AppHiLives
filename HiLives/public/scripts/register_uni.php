@@ -2,7 +2,7 @@
 require_once "../connections/connection.php";
 
 
-if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["data_fund"]) && isset($_POST["phone"]) && isset($_POST["site"]) && isset($_POST["desc"]) && isset($_POST["hist"]) && isset($_POST["password"])) {
+if (!empty($_POST["nome"]) && !empty($_POST["email"]) && !empty($_POST["data_fund"]) && !empty($_POST["phone"]) && !empty($_POST["site"]) && !empty($_POST["desc"]) && !empty($_POST["hist"]) && !empty($_POST["password"])) {
 
     $type = 13;
 
@@ -35,7 +35,7 @@ if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["data_fund"]
             //echo "ESTÁ NA BD <br>";
 
             //INSERIR REGIAO
-            if (isset($_POST["regiao"])) {
+            if (!empty($_POST["regiao"])) {
 
 
                 $idRegion = $_POST["regiao"];
@@ -58,13 +58,13 @@ if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["data_fund"]
 
             } else {
                 ///isto é do isset
-                echo "ERRO de não temos nada inserido";
+                echo "ERRO de não temos nada inserido na região";
                 // header("Location: ../register.php?msg=2");
             }
             //FIM DO INSERT REGIAO
 
             //INSERIR AREA
-            if (isset($_POST["area"])) {
+            if (!empty($_POST["area"])) {
 
 
                 $query2 = "INSERT INTO user_has_areas (User_idUser, Areas_idAreas) VALUES (?, ?)";
@@ -89,7 +89,7 @@ if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["data_fund"]
 
             } else {
                 ///isto é do isset
-                echo "ERRO de não temos nada inserido";
+                echo "ERRO de não temos nada inserido nas areas";
                 // header("Location: ../register.php?msg=2");
             }
             //FIM INSERT ÁREA

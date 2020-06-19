@@ -1,5 +1,5 @@
 <?php
-if (isset($_GET["id"]) && isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["def"])) {
+if (isset($_GET["id"]) && !empty($_POST["nome"]) && !empty($_POST["email"]) && !empty($_POST["def"])) {
     echo "estou a editar um jovem";
     $idUser = $_GET["id"];
     $nome = $_POST["nome"];
@@ -34,7 +34,7 @@ if (isset($_GET["id"]) && isset($_POST["nome"]) && isset($_POST["email"]) && iss
         } else {
             echo "we did it";
             //REGIÃO
-            if (isset($_POST["regiao"])) {
+            if (!empty($_POST["regiao"])) {
                 // APAGAR TODOS AS REGIÕES ASSOCIADAS AO USER
                 $query2 = "DELETE FROM user_has_region
     WHERE User_idUser_region = ?";
@@ -78,7 +78,7 @@ if (isset($_GET["id"]) && isset($_POST["nome"]) && isset($_POST["email"]) && iss
                 //header("Location: clube.php?id=$id_clubes");
             } //FIM DO ISSET DA REGIÃO
             //UPDATE AREA
-            if (isset($_POST["area"])) {
+            if (!empty($_POST["area"])) {
                 // Create a new DB connection
                 $link = new_db_connection();
                 /* create a prepared statement */
@@ -129,7 +129,7 @@ if (isset($_GET["id"]) && isset($_POST["nome"]) && isset($_POST["email"]) && iss
 
         // INSERIR TODAS AS NOVAS COMPETÊNCIAS
         //UPDATE COMPETÊNCIAS
-        if (isset($_POST["capacity"])) {
+        if (!empty($_POST["capacity"])) {
             // Create a new DB connection
             $link = new_db_connection();
             /* create a prepared statement */
@@ -174,7 +174,7 @@ if (isset($_GET["id"]) && isset($_POST["nome"]) && isset($_POST["email"]) && iss
 
         // INSERIR TODAS OS NOVOS AMBIENTES DE TRABALHO
         //UPDATE AMBIENTES
-        if (isset($_POST["spot"])) {
+        if (!empty($_POST["spot"])) {
             // Create a new DB connection
             $link = new_db_connection();
             /* create a prepared statement */
@@ -227,7 +227,7 @@ if (isset($_GET["id"]) && isset($_POST["nome"]) && isset($_POST["email"]) && iss
     }
     /* close connection */
     //mysqli_close($link);
-} else if (isset($_GET["id_uni_emp"]) && isset($_POST["nome"]) && isset($_POST["email"])) {
+} else if (isset($_GET["id_uni_emp"]) && !empty($_POST["nome"]) && !empty($_POST["email"])) {
     echo "estou a editar uma empresa/universidade";
     $idUser = $_GET["id_uni_emp"];
     $nome = $_POST["nome"];
@@ -265,7 +265,7 @@ if (isset($_GET["id"]) && isset($_POST["nome"]) && isset($_POST["email"]) && iss
         } else {
             echo "we did it";
             //REGIÃO
-            if (isset($_POST["regiao"])) {
+            if (!empty($_POST["regiao"])) {
                 // APAGAR TODOS AS REGIÕES ASSOCIADAS AO USER
                 $query2 = "DELETE FROM user_has_region
 WHERE User_idUser_region = ?";
@@ -307,7 +307,7 @@ WHERE User_idUser_region = ?";
                 mysqli_close($link);
             } //FIM DO ISSET DA REGIÃO
             //UPDATE AREA
-            if (isset($_POST["area"])) {
+            if (!empty($_POST["area"])) {
                 // Create a new DB connection
                 $link = new_db_connection();
                 /* create a prepared statement */
