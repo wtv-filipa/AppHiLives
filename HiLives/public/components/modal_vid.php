@@ -19,7 +19,17 @@
             <!--Footer-->
             <div class="ml-3 mr-3">
                 <h3 class="mt-4"><?= $row_vid['title_exp'] ?></h3>
-                <img class="avatar_modal" src="../admin/uploads/img_perfil/<?= $row_vid['profile_img'] ?>">
+                <?php
+                if (isset($profile_img)) {
+                ?>
+                    <img class="avatar_modal" src="../admin/uploads/img_perfil/<?= $profile_img ?>" alt="<?= $profile_img ?>" />
+                <?php
+                } else {
+                ?>
+                    <img class="avatar_modal" src="img/no_profile_img.png" alt="sem imagem de perfil" />
+                <?php
+                }
+                ?>
                 <p class="username_modal"><?= $row_vid['name_user'] ?></p>
                 <hr>
                 <h5 class="mt-3">Descrição</h5>
@@ -52,7 +62,17 @@
             <!--Footer-->
             <div class="ml-3 mr-3">
                 <h3 class="mt-4"><?= $title_exp ?></h3>
-                <img class="avatar_modal" src="../admin/uploads/img_perfil/<?= $profile_img ?>">
+                <?php
+                if (isset($profile_img)) {
+                ?>
+                    <img class="avatar_modal" src="../admin/uploads/img_perfil/<?= $profile_img ?>" alt="<?= $profile_img ?>" />
+                <?php
+                } else {
+                ?>
+                    <img class="avatar_modal" src="img/no_profile_img.png" alt="sem imagem de perfil" />
+                <?php
+                }
+                ?>
                 <p class="username_modal"><?= $name_user ?></p>
                 <hr>
                 <h5 class="mt-3">Descrição</h5>

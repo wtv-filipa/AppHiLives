@@ -1,5 +1,5 @@
 <?php
-if (isset($_POST["nomeuc"]) && isset($_POST["uniuc"]) && isset($_POST["data"])&& isset($_GET["uc"])) {
+if (!empty($_POST["nomeuc"]) && !empty($_POST["uniuc"]) && !empty($_POST["data"])&& isset($_GET["uc"])) {
     //echo "estou a editar";
     $idDone_CU = $_GET["uc"];
     $nomeuc = $_POST["nomeuc"];

@@ -83,7 +83,7 @@
                                                 <div class="p-0 m-0">
                                                     <input type="date" class="form-control cinza" id="data_fund"
                                                            name="data_fund"
-                                                           placeholder="Data de fundação da universidade">
+                                                           placeholder="Data de fundação da universidade" required="required">
                                                 </div>
                                             </div>
                                             <!------------TELEFONE------------>
@@ -91,7 +91,7 @@
                                                 <label class="negrito mt-3" for="phone">Contacto telefónico <span class="asterisco">*</span></label>
                                                 <div class="p-0 m-0">
                                                     <input type="tel" class="form-control cinza" id="phone" name="phone"
-                                                           placeholder="Escreva aqui o contacto telefónico da universidade">
+                                                           placeholder="Escreva aqui o contacto telefónico da universidade" required="required">
                                                 </div>
                                             </div>
                                             <!------------PAÍS------------>
@@ -111,8 +111,8 @@
                                                     <label class="negrito mt-3" for="regiao_pt">Região da Universidade
                                                         <span class="asterisco">*</span>
                                                     </label>
-                                                    <select class="form-control" id="regiao_pt" name="regiao">
-                                                        <option selected disabled>Seleciona uma opção</option>
+                                                    <select class="form-control" id="regiao_pt" name="regiao" required>
+                                                        <option value="" selected disabled>Seleciona uma opção</option>
                                                         <?php
                                                         $query2 = "SELECT idRegion, name_region FROM region 
                                                                     INNER JOIN country ON region.country_idcountry = country.idcountry
@@ -294,7 +294,7 @@
                                                 <label class="negrito mt-3" for="site">Website <span class="asterisco">*</span></label>
                                                 <div class="p-0 m-0">
                                                     <input type="text" class="form-control cinza" id="site" name="site"
-                                                           placeholder="Insira aqui o website da universidade">
+                                                           placeholder="Insira aqui o website da universidade" required="required">
                                                 </div>
                                             </div>
                                             <!------------FACEBOOK------------>
@@ -317,12 +317,12 @@
                                             <!------------DESCRIÇÃO------------>
                                             <div class="form-group">
                                                 <label class="negrito mt-3" for="desc">Descrição <span class="asterisco">*</span></label>
-                                                <textarea class="form-control " id="exp_t" rows="2" name="desc" placeholder="Escreva aqui uma descrição"></textarea>
+                                                <textarea class="form-control " id="exp_t" rows="2" name="desc" placeholder="Escreva aqui uma descrição" required="required"></textarea>
                                             </div>
                                             <!------------HISTÓRIA------------>
                                             <div class="form-group">
                                                 <label class="negrito mt-3" for="hist">História <span class="asterisco">*</span></label>
-                                                <textarea class="form-control " id="exp_t" rows="2" name="hist" placeholder="Escreva aqui a história da universidade"></textarea>
+                                                <textarea class="form-control " id="exp_t" rows="2" name="hist" placeholder="Escreva aqui a história da universidade" required="required"></textarea>
                                             </div>
 
 

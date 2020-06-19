@@ -350,32 +350,6 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                 <!------------------------------FIM DAS INFORMAÇÕES DOS JOVENS-------------------->
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 <!--videos-->
                 <?php
                 if ($type_user == "Jovem") {

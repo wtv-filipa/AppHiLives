@@ -36,7 +36,7 @@
         </button>
     </form>
     <!--Card 3-->
-    <form class="col-md-4 col-xs-12 mt-4 text-center" method="post" action="public/gitregister_comp.php">
+    <form class="col-md-4 col-xs-12 mt-4 text-center" method="post" action="public/register_comp.php">
         <button name="2" type="submit" class="btn">
             <div class="cards text-center">
                 <div class="card-item">

@@ -1,7 +1,7 @@
 <?php
 require_once "../connections/connection.php";
 
-if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["data_fund"]) && isset($_POST["phone"]) && isset($_POST["site"]) && isset($_POST["desc"]) && isset($_POST["password"])) {
+if (!empty($_POST["nome"]) && !empty($_POST["email"]) && !empty($_POST["data_fund"]) && !empty($_POST["phone"]) && !empty($_POST["desc"]) && !empty($_POST["password"])) {
 
     $type = 7;
 
@@ -32,7 +32,7 @@ if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["data_fund"]
             //echo "ESTÁ NA BD <br>";
 
             //INSERIR REGIAO
-            if (isset($_POST["regiao"])) {
+            if (!empty($_POST["regiao"])) {
 
                             $query2 = "INSERT INTO user_has_region (User_idUser_region, Region_idRegion) VALUES (?, ?)";
                             //parte do insert
@@ -52,7 +52,7 @@ if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["data_fund"]
 
             } else {
                 ///isto é do isset
-                echo "ERRO de não temos nada inserido";
+                echo "Região não inserida";
                 // header("Location: ../register.php?msg=2");
             }
             //FIM DO INSERT REGIAO
@@ -72,6 +72,6 @@ if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["data_fund"]
         mysqli_close($link);
     }
 } else {
-    echo "ERRO de não temos nada inserido <br>";
+    echo "faltam campos <br>";
     // header("Location: ../register.php?msg=2");
 }

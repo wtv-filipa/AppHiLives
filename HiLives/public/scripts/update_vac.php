@@ -1,7 +1,7 @@
 <?php
 require_once "../connections/connection.php";
 
-if (isset($_GET["idvac"]) && isset($_POST["nomevaga"]) && isset($_POST["descricao"]) && isset($_POST["numvagas"]) && isset($_POST["requisitos"])) {
+if (isset($_GET["idvac"]) && !empty($_POST["nomevaga"]) && !empty($_POST["descricao"]) && !empty($_POST["numvagas"]) && !empty($_POST["requisitos"])) {
 
     $idVacancies = $_GET["idvac"];
     $vacancie_name = $_POST["nomevaga"];
@@ -32,7 +32,7 @@ if (isset($_GET["idvac"]) && isset($_POST["nomevaga"]) && isset($_POST["descrica
             echo "Error: " . mysqli_stmt_error($stmt);
         } else {
             //CAPACIDADES
-            if (isset($_POST["capacity"])) {
+            if (!empty($_POST["capacity"])) {
                 // APAGAR TODOS AS CAPACIDADES ASSOCIADAS À VAGA
                 $query2 = "DELETE FROM vacancies_has_capacities
                         WHERE vacancies_idVacancies = ?";
@@ -77,4 +77,6 @@ if (isset($_GET["idvac"]) && isset($_POST["nomevaga"]) && isset($_POST["descrica
         }
         }
 
+} else{
+    echo"faltam campos obrigatórios";
 }
