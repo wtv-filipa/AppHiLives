@@ -33,20 +33,20 @@ if (isset($_SESSION["idUser"])) {
                         Insere um vídeo até 50MB.
                     </div>
                     <div class="custom-file mb-3">
-                        <input type="file" class="custom-file-input file-upload" id="fileToUpload" name="fileToUpload" accept=".avi, .wmv, .mp4" >
+                        <input type="file" class="custom-file-input file-upload" id="fileToUpload" name="fileToUpload" accept=".avi, .wmv, .mp4" required="required">
                         <label class="custom-file-label" for="fileToUpload">Escolher ficheiro</label>
                     </div>
                     <!-------------------------------------------->
                     <!--primeiro campo-->
                     <div class="form-group text-left">
-                        <label class="label-margin" for="nomeVideo">Título da experiência</label>
-                        <input type="text" id="nomeVideo" name="nomeVideo" class="form-control" placeholder="Escreve aqui o título da tua experiência">
+                        <label class="label-margin" for="nomeVideo">Título da experiência<span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                        <input type="text" id="nomeVideo" name="nomeVideo" class="form-control" placeholder="Escreve aqui o título da tua experiência"  required="required">
                     </div>
                     <!-------------------------------------------->
                     <!--segundo campo-->
                     <div class="form-group text-left mt-4">
-                        <label class="label-margin" for="descricao">Descrição</label>
-                        <textarea type="text" id="descricao" name="descricao" class="form-control" placeholder="Descreve aqui o vídeo da tua experiência"></textarea>
+                        <label class="label-margin" for="descricao">Descrição <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                        <textarea type="text" id="descricao" name="descricao" class="form-control" placeholder="Descreve aqui o vídeo da tua experiência" required="required"></textarea>
                     </div>
                     <!-------------------------------------------->
                     <div>
