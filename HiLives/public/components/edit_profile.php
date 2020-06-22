@@ -102,19 +102,19 @@ if (isset($_GET["edit"])) {
                                     <p style="font-size: 12px; color: #00A5CF !important;">* Campos de preenchimento obrigatório.</p>
                                     <!--primeiro input-NOME-->
                                     <div class="form-group text-left">
-                                        <label class="negrito mt-3" for="nome">Nome <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                        <label class="negrito mt-3" for="nome">Nome <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
                                         <input type="text" id="nome" name="nome" placeholder="Escreve aqui o teu nome" required="required" class="form-control" value="<?= $name_user ?>">
                                     </div>
                                     <!----------------------->
                                     <!--segundo input-EMAIL-->
                                     <div class="form-group text-left">
-                                        <label class="negrito mt-3" for="email">Email <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                        <label class="negrito mt-3" for="email">Email <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
                                         <input type="text" id="email" name="email" placeholder="Escreve aqui o teu email" required="required" class="form-control" value="<?= $email_user ?>">
                                     </div>
                                     <!----------------------->
                                     <!--terceiro input-DATA DE NASCIMENTO-->
                                     <div class="form-group text-left">
-                                        <label class="negrito mt-3" for="born">Data de nascimento <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                        <label class="negrito mt-3" for="born">Data de nascimento <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
                                         <input type="date" id="born" name="data_nasc" placeholder="data de nascimento" required="required" class="form-control" value="<?= $birth_date ?>">
                                     </div>
                                     <!----------------------->
@@ -164,7 +164,7 @@ if (isset($_GET["edit"])) {
                                     <!----------------------->
                                     <!--oitavo input-AREAS-->
                                     <div class="form-group text-left">
-                                        <label class="negrito mt-3" for="area">Áreas de interesse <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                        <label class="negrito mt-3" for="area">Áreas de interesse <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
                                         <div class="form-check">
                                             <?php
                                             $query2 = "SELECT idAreas, name_interested_area, Areas_idAreas
@@ -206,7 +206,7 @@ if (isset($_GET["edit"])) {
                                     <!----------------------->
                                     <!--nono input-PAÍS-->
                                     <div class="form-group text-left">
-                                        <label class="negrito mt-3" for="pais">Seleciona o país onde queres estudar: <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                        <label class="negrito mt-3" for="pais">Seleciona o país onde queres estudar: <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
                                         <select class="form-control" id="pais">
                                             <option value="pt">Portugal</option>
                                             <option value="es">Espanha</option>
@@ -217,7 +217,7 @@ if (isset($_GET["edit"])) {
                                     <!----------------------->
                                     <!--nono input-REGIÃO PT-->
                                     <div class="form-group formulario text-left" id="pt">
-                                        <label class="negrito mt-3" for="regiao">Região que procuras estudar ou trabalhar <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                        <label class="negrito mt-3" for="regiao">Região que procuras estudar ou trabalhar <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
                                         <div class="form-check">
                                             <?php
 
@@ -260,7 +260,7 @@ if (isset($_GET["edit"])) {
                                     </div>
                                     <!--nono input-REGIÃO ES-->
                                     <div class="form-group formulario text-left" style="display:none;" id="es">
-                                        <label class="negrito mt-3" for="regiao">Região que procuras estudar ou trabalhar <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                        <label class="negrito mt-3" for="regiao">Região que procuras estudar ou trabalhar <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
                                         <div class="form-check">
                                             <?php
 
@@ -303,7 +303,7 @@ if (isset($_GET["edit"])) {
                                     </div>
                                     <!--nono input-REGIÃO BE-->
                                     <div class="form-group formulario text-left" style="display:none;" id="be">
-                                        <label class="negrito mt-3" for="regiao">Região que procuras estudar ou trabalhar <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                        <label class="negrito mt-3" for="regiao">Região que procuras estudar ou trabalhar <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
                                         <div class="form-check">
                                             <?php
 
@@ -346,7 +346,7 @@ if (isset($_GET["edit"])) {
                                     </div>
                                     <!--nono input-REGIÃO IC-->
                                     <div class="form-group formulario text-left" style="display:none;" id="ic">
-                                        <label class="negrito mt-3" for="regiao">Região que procuras estudar ou trabalhar <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                        <label class="negrito mt-3" for="regiao">Região que procuras estudar ou trabalhar <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
                                         <div class="form-check">
                                             <?php
 
@@ -405,7 +405,7 @@ if (isset($_GET["edit"])) {
                                     <hr>
 
                                     <div class="form-group text-left">
-                                        <label class="negrito mt-3" role="heading" for="capacity">Sobre mim <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                        <label class="negrito mt-3" role="heading" for="capacity">Sobre mim <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
                                         <!------------COMPETÊNCIAS------------>
 
                                         <div class="form-check">
@@ -448,7 +448,7 @@ if (isset($_GET["edit"])) {
                                     </div>
                                     <!--LOCAL ONDE GOSTARIA DE TRABALHAR-->
                                     <div class="form-group text-left">
-                                        <h6 class="negrito mt-4" for="environment" role="heading">Os meus ambientes de trabalho favoritos <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></h6>
+                                        <h6 class="negrito mt-4" for="environment" role="heading">Os meus ambientes de trabalho favoritos <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></h6>
                                         <div class="form-check">
                                             <?php
                                             $query5 = "SELECT idwork_environment, name_environment, favorite_environment 
@@ -513,7 +513,7 @@ if (isset($_GET["edit"])) {
 
                                     <!--quinto input-DID-->
                                     <div class="form-group text-left">
-                                        <label for="def">O que mais posso dizer sobre mim <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                        <label for="def">O que mais posso dizer sobre mim <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
                                         <textarea class="form-control cinza" id="def" rows="2" name="def" placeholder="Por exemplo: Sei usar computador, Sei falar outras línguas para além da minha, gosto de desenhar, pintar, pratico desporto, etc. &#10;Se tiveres alguma necessidade indica aqui também (por exemplo: elevador e/ou rampas de acesso)." required="required"><?= $info_young ?></textarea>
                                     </div>
                                     <!----------------------->
@@ -610,13 +610,13 @@ if (isset($_GET["edit"])) {
 
                                     <!--primeiro input-NOME-->
                                     <div class="form-group text-left">
-                                        <label class="negrito mt-3" for="nome">Nome <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                        <label class="negrito mt-3" for="nome">Nome <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
                                         <input type="text" id="nome" name="nome" placeholder="Escreva aqui o seu nome" class="form-control" required="required" value="<?= $name_user ?>">
                                     </div>
                                     <!----------------------->
                                     <!--segundo input-EMAIL-->
                                     <div class="form-group text-left">
-                                        <label class="negrito mt-3" for="email">Email <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                        <label class="negrito mt-3" for="email">Email <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
                                         <input type="text" id="email" name="email" placeholder="Escreva aqui o seu email" class="form-control" required="required" value="<?= $email_user ?>">
                                     </div>
                                     <!----------------------->
@@ -628,7 +628,7 @@ if (isset($_GET["edit"])) {
                                     <!----------------------->
                                     <!--quarto input- TELEMÓVEL-->
                                     <div class="form-group text-left">
-                                        <label class="negrito mt-3" for="tlm">Contacto <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                        <label class="negrito mt-3" for="tlm">Contacto <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
                                         <input type="text" id="tlm" name="phone" placeholder="Escreva aqui o seu contacto" class="form-control" required="required" value="<?= $contact_user ?>">
                                     </div>
                                     <!----------------------->
@@ -637,7 +637,7 @@ if (isset($_GET["edit"])) {
                                     ?>
                                         <!--oitavo input-AREAS-->
                                         <div class="form-group text-left">
-                                            <label class="negrito mt-3" for="area">Áreas de disponíveis <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                            <label class="negrito mt-3" for="area">Áreas de disponíveis <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
                                             <div class="form-check">
                                                 <?php
                                                 $query2 = "SELECT idAreas, name_interested_area, Areas_idAreas
@@ -683,7 +683,7 @@ if (isset($_GET["edit"])) {
                                     <!------------PAÍS------------>
                                     <div class="form-group text-left">
                                         <label class="negrito mt-3" for="pais">Seleciona o país da empresa:
-                                            <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                            <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
                                         <select class="form-control" id="pais" required="required">
                                             <option value="pt">Portugal</option>
                                             <option value="es">Espanha</option>
@@ -695,7 +695,7 @@ if (isset($_GET["edit"])) {
                                     <div class="form-group formulario" id="pt">
                                         <div class="form-group text-left">
                                             <label class="negrito mt-3" for="regiao_pt">Região da Empresa
-                                                <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span>
+                                                <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span>
                                             </label>
                                             <select class="form-control" id="regiao_pt" name="regiao" required="required">
                                                 <option selected disabled>Seleciona uma opção</option>
@@ -863,7 +863,7 @@ if (isset($_GET["edit"])) {
                                     </div>
                                     <!------------WEBSITE------------>
                                     <div class="form-group text-left">
-                                        <label class="negrito mt-3" for="site">Website <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                        <label class="negrito mt-3" for="site">Website <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
                                         <input type="text" class="form-control cinza" id="site" name="site" placeholder="Insira aqui o website" required="required" value="<?= $website_ue ?>">
                                     </div>
                                     <!------------FACEBOOK------------>
@@ -882,7 +882,7 @@ if (isset($_GET["edit"])) {
                                     </div>
                                     <!------------DESCRIÇÃO------------>
                                     <div class="form-group text-left">
-                                        <label class="negrito mt-3" for="desc">Descrição <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                        <label class="negrito mt-3" for="desc">Descrição <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
                                         <textarea class="form-control " id="desc" rows="7" name="desc" placeholder="Escreva aqui uma descrição" required="required"> <?= $description_ue ?></textarea>
                                     </div>
                                     <?php
@@ -890,7 +890,7 @@ if (isset($_GET["edit"])) {
                                     ?>
                                         <!------------HISTÓRIA------------>
                                         <div class="form-group text-left">
-                                            <label class="negrito mt-3" for="hist">História <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                            <label class="negrito mt-3" for="hist">História <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
                                             <textarea class="form-control " id="hist" rows="9" name="hist" placeholder="Escreva aqui a história da Universidade" required="required"> <?= $history_ue ?></textarea>
                                         </div>
                                     <?php

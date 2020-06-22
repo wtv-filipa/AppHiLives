@@ -39,14 +39,14 @@ if (isset($_SESSION["idUser"])) {
                     <!-------------------------------------------->
                     <!--primeiro campo-->
                     <div class="form-group text-left">
-                        <label class="label-margin" for="nomeVideo">Título da experiência<span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                        <label class="label-margin" for="nomeVideo">Título da experiência<span style="color:  #00A5CF!important; font-weight: bold; font-size: 20px">*</span></label>
                         <input type="text" id="nomeVideo" name="nomeVideo" class="form-control" placeholder="Escreve aqui o título da tua experiência"  required="required">
                     </div>
                     <!-------------------------------------------->
                     <!--segundo campo-->
                     <div class="form-group text-left mt-4">
-                        <label class="label-margin" for="descricao">Descrição <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
-                        <textarea type="text" id="descricao" name="descricao" class="form-control" placeholder="Descreve aqui o vídeo da tua experiência" required="required"></textarea>
+                        <label class="label-margin" for="descricao">Descrição</label>
+                        <textarea type="text" id="descricao" name="descricao" class="form-control" placeholder="Descreve aqui o vídeo da tua experiência"></textarea>
                     </div>
                     <!-------------------------------------------->
                     <div>

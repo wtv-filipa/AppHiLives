@@ -34,31 +34,31 @@ if (isset($_GET["idvac"])) {
                         <form class="md-form inserir_dados" class="mb-3" action="scripts/update_vac.php?idvac=<?= $idVacancies ?>" enctype="multipart/form-data" method="post">
                             <!--primeiro campo-->
                             <div class="form-group text-left">
-                                <label class="label-margin" for="nomevaga">Cargo na empresa: <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                <label class="label-margin" for="nomevaga">Cargo na empresa: <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
                                 <input type="text" id="nomevaga" name="nomevaga" class="form-control" required="required" value="<?= $vacancie_name ?>">
                             </div>
                             <!-------------------------------------------->
                             <!--segundo campo-->
                             <div class="form-group text-left mt-4">
-                                <label class="label-margin" for="descricao">Descrição da vaga: <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                <label class="label-margin" for="descricao">Descrição da vaga: <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
                                 <textarea type="text" id="descricao" rows="4" name="descricao" class="form-control" required="required"><?= $description_vac ?></textarea>
                             </div>
                             <!-------------------------------------------->
                             <!--terceiro campo-->
                             <div class="form-group text-left">
-                                <label class="label-margin" for="numvagas">Número de vagas disponíveis: <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                <label class="label-margin" for="numvagas">Número de vagas disponíveis: <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
                                 <input type="text" id="numvagas" name="numvagas" class="form-control" required="required" value="<?= $number_free_vanc ?>">
                             </div>
                             <!-------------------------------------------->
                             <!--quarto campo-->
                             <div class="form-group text-left mt-4">
-                                <label class="label-margin" for="requisitos">Requisitos: <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                <label class="label-margin" for="requisitos">Requisitos: <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
                                 <textarea type="text" id="requisitos" rows="4" name="requisitos" class="form-control" required="required"><?= $requirements ?></textarea>
                             </div>
                             <!-------------------------------------------->
                             <!--quinto campo-->
                             <div class="form-group text-left">
-                                <label class="label-margin" for="area">Áreas: <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                <label class="label-margin" for="area">Áreas: <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
                                 <select class="form-control" id="area" name="area" required="required">
                                     <option selected disabled>Selecionar uma opção</option>
                                     <?php
@@ -96,7 +96,7 @@ if (isset($_GET["idvac"])) {
                             <!-------------------------------------------->
                             <!--sexto campo-->
                             <div class="form-group text-left">
-                                <label class="label-margin" for="jornada">Jornada de trabalho: <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                <label class="label-margin" for="jornada">Jornada de trabalho: <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
                                 <select class="form-control" id="jornada" name="jornada" required="required">
                                     <option selected disabled>Selecionar uma opção</option>
                                     <?php
@@ -133,7 +133,7 @@ if (isset($_GET["idvac"])) {
                             <!-------------------------------------------->
                             <!--sétimo campo-->
                             <div class="form-group text-left">
-                                <label class="label-margin" for="personality">Personalidade necessária: <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                <label class="label-margin" for="personality">Personalidade necessária: <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
                                 <div class="form-check">
                                     <?php
                                     $query4 = "SELECT idPersonality, name_perso, Vacancies_idVacancies FROM personality
@@ -174,7 +174,7 @@ if (isset($_GET["idvac"])) {
                             <!-------------------------------------------->
                             <!--oitavo campo-->
                             <div class="form-group text-left">
-                                <label class="label-margin" for="educ">Nível de educação: <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                <label class="label-margin" for="educ">Nível de educação: <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
                                 <select class="form-control" id="educ" name="educ" required="required">
                                     <option selected disabled>Selecionar uma opção</option>
                                     <?php
@@ -216,7 +216,7 @@ if (isset($_GET["idvac"])) {
                             <!------------PAÍS------------>
                             <div class="form-group text-left">
                                 <label class="negrito mt-3" for="pais">Seleciona o país da vaga:
-                                    <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                    <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
                                 <select class="form-control" id="pais" required="required">
                                     <option value="pt">Portugal</option>
                                     <option value="es">Espanha</option>
@@ -228,7 +228,7 @@ if (isset($_GET["idvac"])) {
                             <div class="form-group formulario" id="pt">
                                 <div class="form-group text-left">
                                     <label class="negrito mt-3" for="regiao_pt">Região da Vaga
-                                        <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span>
+                                        <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span>
                                     </label>
                                     <select class="form-control" id="regiao_pt" name="regiao" required="required">
                                         <option selected disabled>Seleciona uma opção</option>
@@ -270,7 +270,7 @@ if (isset($_GET["idvac"])) {
                             <div class="form-group formulario" style="display:none;" id="es">
                                 <div class="form-group text-left">
                                     <label class="negrito mt-3" for="regiao_es">Região da Empresa
-                                        <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span>
+                                        <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span>
                                     </label>
                                     <select class="form-control" id="regiao_es" name="regiao">
                                         <option selected disabled>Seleciona uma opção</option>
@@ -312,7 +312,7 @@ if (isset($_GET["idvac"])) {
                             <div class="form-group formulario" style="display:none;" id="be">
                                 <div class="form-group text-left">
                                     <label class="negrito mt-3" for="regiao_be">Região da Empresa
-                                        <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span>
+                                        <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span>
                                     </label>
                                     <select class="form-control" id="regiao_be" name="regiao">
                                         <option selected disabled>Seleciona uma opção</option>
@@ -354,7 +354,7 @@ if (isset($_GET["idvac"])) {
                             <div class="form-group formulario" style="display:none;" id="ic">
                                 <div class="form-group text-left">
                                     <label class="negrito mt-3" for="regiao_ic">Região da Empresa
-                                        <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span>
+                                        <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span>
                                     </label>
                                     <select class="form-control" id="regiao_ic" name="regiao">
                                         <option selected disabled>Seleciona uma opção</option>
