@@ -34,6 +34,8 @@ session_start();
                 <div class="container-fluid">
                     <!-- Page Heading -->
                     <?php include "components/heading.php"; ?>
+                    <!--content-->
+                    <?php include "components/index.php"; ?>
                 </div>
                 <!-- /.container-fluid -->
             </div>

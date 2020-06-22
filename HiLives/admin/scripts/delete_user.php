@@ -5,358 +5,368 @@ if (isset($_GET["apaga"])) {
     require_once "../connections/connection.php";
     $link = new_db_connection();
     $stmt = mysqli_stmt_init($link);
+
     $link2 = new_db_connection();
     $stmt2 = mysqli_stmt_init($link2);
+
+    $link3 = new_db_connection();
+    $stmt3 = mysqli_stmt_init($link3);
+
+    /*QUERYS PARA TODOS OS USERS*/
     //verificar que tipo de user é
-    $query7 = "SELECT type_user FROM user_type INNER JOIN users ON user_type.idUser_type = users.User_type_idUser_type WHERE idUser = ?";
-    /********************************************************* */
-    //apagar das areas
-    $query = "DELETE FROM user_has_areas WHERE User_idUser = ?";
-    //apagar da região
-    $query2 = "DELETE FROM user_has_region WHERE User_idUser_region = ?";
-    //apagar das capacidades
-    $query3 = "DELETE FROM capacities_has_users WHERE users_idUser = ?";
-    //apagar dos ambientes
-    $query8 = "DELETE FROM work_environment_has_users WHERE users_idUser = ?";
+    $query = "SELECT type_user FROM user_type INNER JOIN users ON user_type.idUser_type = users.User_type_idUser_type WHERE idUser = ?";
     //apagar user
-    $query4 = "DELETE FROM users WHERE idUser = ?";
-    //apagar match com UNI
-    $query5 = "DELETE FROM young_university WHERE User_young = ?";
-    //verificar o que existe na tabela do match
-    $query6 = "SELECT User_young, User_university, Area FROM young_university WHERE User_young = ?";
-    //apagar match com EMP
-    $query9 = "DELETE FROM user_has_vacancies WHERE User_young = ?";
-    //verificar o que existe na tabela do match da vaga
-    $query10 = "SELECT User_young, Vacancies_idVacancies FROM user_has_vacancies WHERE User_young = ?";
-    //apagar UC feita
-    $query11 = "DELETE FROM done_CU WHERE User_idUser = ?";
-    //apagar experiências
-    $query12 = "DELETE FROM experiences WHERE Content_idContent = ?";
+    $query2 = "DELETE FROM users WHERE idUser = ?";
     //apagar content
-    $query13 = "DELETE FROM content WHERE idContent = ?";
-    //verificar se existem XP
-    $query14 = "SELECT idExperiences FROM experiences WHERE User_idUser = ?";
-    //verificar se existe algum content
-    $query15 = "SELECT idContent FROM content WHERE users_idUser = ?";
+    $query3 = "DELETE FROM content WHERE users_idUser = ?";
+    //apagar da região
+    $query4 = "DELETE FROM user_has_region WHERE User_idUser_region = ?";
+    //apagar das areas
+    $query5 = "DELETE FROM user_has_areas WHERE User_idUser = ?";
+    //selecionar o nome da imagem de perfil do utilizador para que se possa apaga-la da pasta
+    $query6 = "SELECT profile_img FROM users WHERE idUser = ?";
+    //selecionar o nome do conteúdo para que possa apagá-lo da pasta
+    $query7 = "SELECT content_name FROM content WHERE users_idUser = ?";
+    /**********************************************************/
+    /*QUERYS PARA OS JOVENS*/
+    //apagar capacidades
+    $query8 = "DELETE FROM capacities_has_users WHERE users_idUser = ?";
+    //apagar UC's feitas
+    $query9 = "DELETE FROM done_cu WHERE User_idUser = ?";
+    //apagar experiências
+    $query10 = "DELETE FROM experiences WHERE User_idUser = ?";
+    //apagar match com as VAGAS
+    $query11 = "DELETE FROM user_has_vacancies WHERE User_young = ?";
+    //apagar ambientes favoritos
+    $query12 = "DELETE FROM work_environment_has_users WHERE users_idUser = ?";
+    //apagar match com as UNIVERSIDADES
+    $query13 = "DELETE FROM young_university WHERE User_young = ?";
+    /**********************************************************/
+    /*QUERYS PARA AS EMPRESAS*/
+    $query14 = "DELETE FROM vacancies WHERE User_publicou = ?";
+    $query15 = "SELECT idVacancies FROM vacancies WHERE User_publicou = ?";
+    $query16 = "DELETE FROM vacancies_has_capacities WHERE vacancies_idVacancies = ?";
+    $query17 = "DELETE FROM user_has_vacancies WHERE vacancies_idVacancies = ?";
+    /**********************************************************/
+    /*QUERYS PARA AS UNIVERSIDADES*/
+    //apagar match com os JOVENS
+    $query18 = "DELETE FROM young_university WHERE User_university = ?";
+    /**********************************************************/
+    if (mysqli_stmt_prepare($stmt, $query)) {
+        mysqli_stmt_bind_param($stmt, 'i', $idUser);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_bind_result($stmt, $type_user);
+        while (mysqli_stmt_fetch($stmt)) {
 
-    if (mysqli_stmt_prepare($stmt2, $query7)) {
-
-        mysqli_stmt_bind_param($stmt2, 'i', $idUser);
-        mysqli_stmt_execute($stmt2);
-        mysqli_stmt_bind_result($stmt2, $type_user);
-        while (mysqli_stmt_fetch($stmt2)) {
             if ($type_user == "Jovem") {
-                echo "apagar jovem";
-                //PRIMEIRA QUERY- APAGAR DA RELAÇÃO COM AS AREAS
-                if (mysqli_stmt_prepare($stmt, $query)) {
-                    mysqli_stmt_bind_param($stmt, 'i', $idUser);
-
-
+                /*JOVEM*/
+                echo "apagar jovem <br>";
+                //APAGAR REGIÕES
+                if (mysqli_stmt_prepare($stmt2, $query4)) {
+                    mysqli_stmt_bind_param($stmt2, 'i', $idUser);
                     // VALIDAÇÃO DO RESULTADO DO EXECUTE
-                    if (!mysqli_stmt_execute($stmt)) {
-
+                    if (!mysqli_stmt_execute($stmt2)) {
                         //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-                        echo "Error: " . mysqli_stmt_error($stmt);
+                        echo "Error: " . mysqli_stmt_error($stmt2);
+                    } else {
+                        echo "sucesso a apagar as regiões <br>";
+                        //mysqli_stmt_close($stmt2);
                     }
-
-                    mysqli_stmt_close($stmt);
                 } else {
-                    echo "erro";
+                    echo "erro nas regiões <br>";
                     //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
                 }
-                //SEGUNDA QUERY- APAGAR A RELAÇÃO COM AS REGIÕES
-                $stmt = mysqli_stmt_init($link);
-                if (mysqli_stmt_prepare($stmt, $query2)) {
-                    mysqli_stmt_bind_param($stmt, 'i', $idUser);
-
-
+                /**********************************************************/
+                //APAGAR AS AREAS
+                if (mysqli_stmt_prepare($stmt2, $query5)) {
+                    mysqli_stmt_bind_param($stmt2, 'i', $idUser);
                     // VALIDAÇÃO DO RESULTADO DO EXECUTE
-                    if (!mysqli_stmt_execute($stmt)) {
-
+                    if (!mysqli_stmt_execute($stmt2)) {
                         //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-                        echo "Error: " . mysqli_stmt_error($stmt);
+                        echo "Error: " . mysqli_stmt_error($stmt2);
+                    } else {
+                        echo "sucesso a apagar as areas <br>";
+                        //mysqli_stmt_close($stmt2);
                     }
-
-                    mysqli_stmt_close($stmt);
                 } else {
-                    echo "erro";
+                    echo "erro nas areas <br>";
                     //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
                 }
-                //TERCEIRA QUERY- APAGAR DA RELAÇÃO COM AS CAPACIDADES
-                $stmt = mysqli_stmt_init($link);
-                if (mysqli_stmt_prepare($stmt, $query3)) {
-                    mysqli_stmt_bind_param($stmt, 'i', $idUser);
+                /**********************************************************/
+                //apagar conteúdos da pasta e tabela
+                if (mysqli_stmt_prepare($stmt2, $query7)) {
 
-
-                    // VALIDAÇÃO DO RESULTADO DO EXECUTE
-                    if (!mysqli_stmt_execute($stmt)) {
-
-                        //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-                        echo "Error: " . mysqli_stmt_error($stmt);
-                    }
-
-                    mysqli_stmt_close($stmt);
-                } else {
-                    echo "erro";
-                    //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-                }
-                //OITAVA QUERY- APAGAR A RELAÇÃO COM OS AMBIENTES DE TRABALHO
-                $stmt = mysqli_stmt_init($link);
-                if (mysqli_stmt_prepare($stmt, $query8)) {
-                    mysqli_stmt_bind_param($stmt, 'i', $idUser);
-
-
-                    // VALIDAÇÃO DO RESULTADO DO EXECUTE
-                    if (!mysqli_stmt_execute($stmt)) {
-
-                        //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-                        echo "Error: " . mysqli_stmt_error($stmt);
-                    }
-
-                    mysqli_stmt_close($stmt);
-                } else {
-                    echo "erro";
-                    //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-                }
-                //DECIMA PRIMEIRA QUERY- APAGAR AS UCS JÁ FEITAS
-                $stmt = mysqli_stmt_init($link);
-                if (mysqli_stmt_prepare($stmt, $query11)) {
-                    mysqli_stmt_bind_param($stmt, 'i', $idUser);
-
-
-                    // VALIDAÇÃO DO RESULTADO DO EXECUTE
-                    if (!mysqli_stmt_execute($stmt)) {
-
-                        //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-                        echo "Error: " . mysqli_stmt_error($stmt);
-                    }
-
-                    mysqli_stmt_close($stmt);
-                } else {
-                    echo "erro";
-                    //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-                }
-                //QUARTA QUERY- APAGAR DA TABELA DOS USERS
-                $stmt = mysqli_stmt_init($link);
-                if (mysqli_stmt_prepare($stmt, $query4)) {
-                    mysqli_stmt_bind_param($stmt, 'i', $idUser);
-
-
-                    // VALIDAÇÃO DO RESULTADO DO EXECUTE
-                    if (!mysqli_stmt_execute($stmt)) {
-
-                        //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-                        echo "Error: " . mysqli_stmt_error($stmt);
-                    }
-
-                    mysqli_stmt_close($stmt);
-                } else {
-                    echo "erro";
-                    //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-                }
-
-                //Verificar se já existe alguma coisa inserida na tabela do match entre universidade e jovem e só faz a query de apagar se existir
-                $stmt = mysqli_stmt_init($link);
-                if (mysqli_stmt_prepare($stmt, $query6)) {
-                    mysqli_stmt_bind_param($stmt, 'i', $idUser);
-
-                    mysqli_stmt_execute($stmt);
-                    mysqli_stmt_bind_result($stmt, $User_young, $User_university, $Area);
-                    if (mysqli_stmt_fetch($stmt)) {
-                        echo "areas já inseridas <br>";
-                        //QUINTA QUERY
-                        $stmt = mysqli_stmt_init($link);
-                        if (mysqli_stmt_prepare($stmt, $query9)) {
-                            mysqli_stmt_bind_param($stmt, 'i', $idUser);
-                            // VALIDAÇÃO DO RESULTADO DO EXECUTE
-                            if (!mysqli_stmt_execute($stmt)) {
-                                //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-                                echo "Error: " . mysqli_stmt_error($stmt);
-                            }
-                            mysqli_stmt_close($stmt);
+                    mysqli_stmt_bind_param($stmt2, 'i', $idUser);
+                    mysqli_stmt_execute($stmt2);
+                    mysqli_stmt_bind_result($stmt2, $content_name);
+                    while (mysqli_stmt_fetch($stmt2)) {
+                        $xp = "../uploads/xp/" . $content_name;
+                        echo "Experiência diretório: $xp <br>";
+                        if (!unlink($xp)) {
+                            echo "erro a apagar o ficheiro da pasta <br>";
                         } else {
-                            echo "erro";
-                            //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-                        }
-                    } else {
-                        echo "areas ainda não inseridas <br>";
-                    }
-                }
-
-                //Verificar se já existe alguma coisa inserida na tabela do match entre VAGA e jovem e só faz a query de apagar se existir
-                $stmt = mysqli_stmt_init($link);
-                if (mysqli_stmt_prepare($stmt, $query10)) {
-                    mysqli_stmt_bind_param($stmt, 'i', $idUser);
-
-                    mysqli_stmt_execute($stmt);
-                    mysqli_stmt_bind_result($stmt, $User_young, $Vacancies_idVacancies);
-                    if (mysqli_stmt_fetch($stmt)) {
-                        echo "Match com a vaga <br>";
-                        //QUINTA QUERY
-                        $stmt = mysqli_stmt_init($link);
-                        if (mysqli_stmt_prepare($stmt, $query5)) {
-                            mysqli_stmt_bind_param($stmt, 'i', $idUser);
-                            // VALIDAÇÃO DO RESULTADO DO EXECUTE
-                            if (!mysqli_stmt_execute($stmt)) {
-                                //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-                                echo "Error: " . mysqli_stmt_error($stmt);
-                            }
-                            mysqli_stmt_close($stmt);
-                        } else {
-                            echo "erro";
-                            //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-                        }
-                    } else {
-                        echo "Ainda não existiam match com vagas <br>";
-                    }
-                }
-
-                //Verificar se já existe alguma coisa inserida na tabela das XP
-                $stmt = mysqli_stmt_init($link);
-                if (mysqli_stmt_prepare($stmt, $query14)) {
-                    mysqli_stmt_bind_param($stmt, 'i', $idUser);
-
-                    mysqli_stmt_execute($stmt);
-                    mysqli_stmt_bind_result($stmt, $idExperiences);
-                    if (mysqli_stmt_fetch($stmt)) {
-                        echo "XP inseridas <br>";
-                        //QUINTA QUERY
-                        $stmt = mysqli_stmt_init($link);
-                        if (mysqli_stmt_prepare($stmt, $query12)) {
-                            mysqli_stmt_bind_param($stmt, 'i', $idUser);
-                            // VALIDAÇÃO DO RESULTADO DO EXECUTE
-                            if (!mysqli_stmt_execute($stmt)) {
-                                //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-                                echo "Error: " . mysqli_stmt_error($stmt);
-                            }
-                            mysqli_stmt_close($stmt);
-                        } else {
-                            echo "erro";
-                            //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-                        }
-                    } else {
-                        echo "ainda não existiam XP <br>";
-                    }
-                }
-
-                //Verificar se já existe alguma coisa inserida na tabela dos VIDEOS
-                $stmt = mysqli_stmt_init($link);
-                if (mysqli_stmt_prepare($stmt, $query15)) {
-                    mysqli_stmt_bind_param($stmt, 'i', $idUser);
-
-                    mysqli_stmt_execute($stmt);
-                    mysqli_stmt_bind_result($stmt, $idContent);
-                    if (mysqli_stmt_fetch($stmt)) {
-                        echo "existem conteudos <br>";
-                        //QUINTA QUERY
-                        $stmt = mysqli_stmt_init($link);
-                        if (mysqli_stmt_prepare($stmt, $query13)) {
-                            mysqli_stmt_bind_param($stmt, 'i', $idUser);
-                            // VALIDAÇÃO DO RESULTADO DO EXECUTE
-                            if (!mysqli_stmt_execute($stmt)) {
-                                //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-                                echo "Error: " . mysqli_stmt_error($stmt);
-                            }
-                            mysqli_stmt_close($stmt);
-                        } else {
-                            echo "erro";
-                            //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-                        }
-                    } else {
-                        echo "ainda não existiam conteudos <br>";
-                    }
-                    mysqli_close($link);
-                    echo "utilizador apagado com sucesso";
-                    //header("Location:../index.php");
-                    /**********************************************************************/
-                } else if ($type_user == "Empresa") {
-                    echo "apagar empresa";
-                    /*********************************************************************/
-                } else if ($type_user == "Universidade") {
-                    echo "apagar universidade";
-                    //PRIMEIRA QUERY- APAGAR A RELAÇÃO COM AREAS
-                    if (mysqli_stmt_prepare($stmt, $query)) {
-                        mysqli_stmt_bind_param($stmt, 'i', $idUser);
-
-
-                        // VALIDAÇÃO DO RESULTADO DO EXECUTE
-                        if (!mysqli_stmt_execute($stmt)) {
-
-                            //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-                            echo "Error: " . mysqli_stmt_error($stmt);
-                        }
-
-                        mysqli_stmt_close($stmt);
-                    } else {
-                        echo "erro";
-                        //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-                    }
-                    //SEGUNDA QUERY- APAGAR RELAÇÃO COM REGIÕES
-                    $stmt = mysqli_stmt_init($link);
-                    if (mysqli_stmt_prepare($stmt, $query2)) {
-                        mysqli_stmt_bind_param($stmt, 'i', $idUser);
-
-
-                        // VALIDAÇÃO DO RESULTADO DO EXECUTE
-                        if (!mysqli_stmt_execute($stmt)) {
-
-                            //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-                            echo "Error: " . mysqli_stmt_error($stmt);
-                        }
-
-                        mysqli_stmt_close($stmt);
-                    } else {
-                        echo "erro";
-                        //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-                    }
-                    //QUARTA QUERY- APAGAR DA TABELA DOS USERS
-                    $stmt = mysqli_stmt_init($link);
-                    if (mysqli_stmt_prepare($stmt, $query4)) {
-                        mysqli_stmt_bind_param($stmt, 'i', $idUser);
-
-
-                        // VALIDAÇÃO DO RESULTADO DO EXECUTE
-                        if (!mysqli_stmt_execute($stmt)) {
-
-                            //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-                            echo "Error: " . mysqli_stmt_error($stmt);
-                        }
-
-                        mysqli_stmt_close($stmt);
-                    } else {
-                        echo "erro";
-                        //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-                    }
-
-                    //Verificar se já existe alguma coisa inserida na tabela do match entre universidade e jovem e só faz a query de apagar se existir
-                    $stmt = mysqli_stmt_init($link);
-                    if (mysqli_stmt_prepare($stmt, $query6)) {
-                        mysqli_stmt_bind_param($stmt, 'i', $idUser);
-
-                        mysqli_stmt_execute($stmt);
-                        mysqli_stmt_bind_result($stmt, $User_young, $User_university, $Area);
-                        if (mysqli_stmt_fetch($stmt)) {
-                            echo "areas já inseridas <br>";
-                            //QUINTA QUERY
-                            $stmt = mysqli_stmt_init($link);
-                            if (mysqli_stmt_prepare($stmt, $query9)) {
-                                mysqli_stmt_bind_param($stmt, 'i', $idUser);
+                            echo "sucesso a apagar o ficheiro da pasta <br>";
+                            //apagar da tabela
+                            if (mysqli_stmt_prepare($stmt3, $query3)) {
+                                mysqli_stmt_bind_param($stmt3, 'i', $idUser);
                                 // VALIDAÇÃO DO RESULTADO DO EXECUTE
-                                if (!mysqli_stmt_execute($stmt)) {
+                                if (!mysqli_stmt_execute($stmt3)) {
                                     //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-                                    echo "Error: " . mysqli_stmt_error($stmt);
+                                    echo "Error: " . mysqli_stmt_error($stmt3);
+                                } else {
+                                    echo "sucesso a apagar os conteudos <br>";
+                                    //mysqli_stmt_close($stmt2);
                                 }
-                                mysqli_stmt_close($stmt);
                             } else {
-                                echo "erro";
+                                echo "erro nos conteudos <br>";
                                 //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
                             }
-                        } else {
-                            echo "areas ainda não inseridas <br>";
                         }
                     }
                 }
+                /**********************************************************/
+                //apagar img de perfil da pasta
+                if (mysqli_stmt_prepare($stmt2, $query6)) {
+
+                    mysqli_stmt_bind_param($stmt2, 'i', $idUser);
+                    mysqli_stmt_execute($stmt2);
+                    mysqli_stmt_bind_result($stmt2, $profile_img);
+                    while (mysqli_stmt_fetch($stmt2)) {
+                        if (isset($profile_img)) {
+                            $img = "../uploads/img_perfil/" . $profile_img;
+                            echo "diretorio img perfil: $img <br>";
+                            if (!unlink($img)) {
+                                echo "erro a apagar a img da pasta <br>";
+                            } else {
+                                echo "sucesso a apagar a img da pasta <br>";
+                            }
+                        }
+                    }
+                }
+                /**********************************************************/
+                //apagar capacidades
+                if (mysqli_stmt_prepare($stmt2, $query8)) {
+                    mysqli_stmt_bind_param($stmt2, 'i', $idUser);
+                    // VALIDAÇÃO DO RESULTADO DO EXECUTE
+                    if (!mysqli_stmt_execute($stmt2)) {
+                        //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                        echo "Error: " . mysqli_stmt_error($stmt2);
+                    } else {
+                        echo "sucesso a apagar as capacidades <br>";
+                        //mysqli_stmt_close($stmt2);
+                    }
+                } else {
+                    echo "erro nas capacidades <br>";
+                    //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                }
+                /**********************************************************/
+                //apagar UC's feitas
+                if (mysqli_stmt_prepare($stmt2, $query9)) {
+                    mysqli_stmt_bind_param($stmt2, 'i', $idUser);
+                    // VALIDAÇÃO DO RESULTADO DO EXECUTE
+                    if (!mysqli_stmt_execute($stmt2)) {
+                        //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                        echo "Error: " . mysqli_stmt_error($stmt2);
+                    } else {
+                        echo "sucesso a apagar as UC's feitas <br>";
+                        //mysqli_stmt_close($stmt2);
+                    }
+                } else {
+                    echo "erro nas UC's feitas <br>";
+                    //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                }
+                /**********************************************************/
+                //apagar experiências
+                if (mysqli_stmt_prepare($stmt2, $query10)) {
+                    mysqli_stmt_bind_param($stmt2, 'i', $idUser);
+                    // VALIDAÇÃO DO RESULTADO DO EXECUTE
+                    if (!mysqli_stmt_execute($stmt2)) {
+                        //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                        echo "Error: " . mysqli_stmt_error($stmt2);
+                    } else {
+                        echo "sucesso a apagar as experiências <br>";
+                        //mysqli_stmt_close($stmt2);
+                    }
+                } else {
+                    echo "erro nas experiências <br>";
+                    //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                }
+                /**********************************************************/
+                //apagar VAGAS associadas por match
+                if (mysqli_stmt_prepare($stmt2, $query11)) {
+                    mysqli_stmt_bind_param($stmt2, 'i', $idUser);
+                    // VALIDAÇÃO DO RESULTADO DO EXECUTE
+                    if (!mysqli_stmt_execute($stmt2)) {
+                        //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                        echo "Error: " . mysqli_stmt_error($stmt2);
+                    } else {
+                        echo "sucesso a apagar as vagas macth <br>";
+                        //mysqli_stmt_close($stmt2);
+                    }
+                } else {
+                    echo "erro nas vagas match <br>";
+                    //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                }
+                /**********************************************************/
+                //apagar ambientes de trabalho preferidos
+                if (mysqli_stmt_prepare($stmt2, $query12)) {
+                    mysqli_stmt_bind_param($stmt2, 'i', $idUser);
+                    // VALIDAÇÃO DO RESULTADO DO EXECUTE
+                    if (!mysqli_stmt_execute($stmt2)) {
+                        //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                        echo "Error: " . mysqli_stmt_error($stmt2);
+                    } else {
+                        echo "sucesso a apagar os ambientes <br>";
+                        //mysqli_stmt_close($stmt2);
+                    }
+                } else {
+                    echo "erro nos ambientes <br>";
+                    //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                }
+                /**********************************************************/
+                //apagar macth com as UNIVERSIDADES
+                if (mysqli_stmt_prepare($stmt2, $query13)) {
+                    mysqli_stmt_bind_param($stmt2, 'i', $idUser);
+                    // VALIDAÇÃO DO RESULTADO DO EXECUTE
+                    if (!mysqli_stmt_execute($stmt2)) {
+                        //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                        echo "Error: " . mysqli_stmt_error($stmt2);
+                    } else {
+                        echo "sucesso a apagar os matchs areas <br>";
+                        //mysqli_stmt_close($stmt2);
+                    }
+                } else {
+                    echo "erro nos match areas <br>";
+                    //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                }
+                /**********************************************************/
+                //apagar da tabela dos users
+                if (mysqli_stmt_prepare($stmt2, $query2)) {
+                    mysqli_stmt_bind_param($stmt2, 'i', $idUser);
+                    // VALIDAÇÃO DO RESULTADO DO EXECUTE
+                    if (!mysqli_stmt_execute($stmt2)) {
+                        //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                        echo "Error: " . mysqli_stmt_error($stmt2);
+                    } else {
+                        echo "sucesso a apagar o utilizador <br>";
+                        //mysqli_stmt_close($stmt2);
+                    }
+                } else {
+                    echo "erro no apagar utilizador <br>";
+                    //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                }
+                //header("Location:../users_jovem.php");
+                /**********************************************************/
+            } else if ($type_user == "Empresa") {
+                /*EMPRESA*/
+                echo "apagar Empresa <br>";
+                //APAGAR REGIÕES
+                if (mysqli_stmt_prepare($stmt2, $query4)) {
+                    mysqli_stmt_bind_param($stmt2, 'i', $idUser);
+                    // VALIDAÇÃO DO RESULTADO DO EXECUTE
+                    if (!mysqli_stmt_execute($stmt2)) {
+                        //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                        echo "Error: " . mysqli_stmt_error($stmt2);
+                    } else {
+                        echo "sucesso a apagar as regiões <br>";
+                        //mysqli_stmt_close($stmt2);
+                    }
+                } else {
+                    echo "erro nas regiões <br>";
+                    //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                }
+                /**********************************************************/
+            } else if ($type_user == "Universidade") {
+                /*UNIVERSIDADE*/
+                echo "apagar Universidade <br>";
+                //APAGAR REGIÕES
+                if (mysqli_stmt_prepare($stmt2, $query4)) {
+                    mysqli_stmt_bind_param($stmt2, 'i', $idUser);
+                    // VALIDAÇÃO DO RESULTADO DO EXECUTE
+                    if (!mysqli_stmt_execute($stmt2)) {
+                        //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                        echo "Error: " . mysqli_stmt_error($stmt2);
+                    } else {
+                        echo "sucesso a apagar as regiões <br>";
+                        //mysqli_stmt_close($stmt2);
+                    }
+                } else {
+                    echo "erro nas regiões <br>";
+                    //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                }
+                /**********************************************************/
+                 //APAGAR AS AREAS
+                 if (mysqli_stmt_prepare($stmt2, $query5)) {
+                    mysqli_stmt_bind_param($stmt2, 'i', $idUser);
+                    // VALIDAÇÃO DO RESULTADO DO EXECUTE
+                    if (!mysqli_stmt_execute($stmt2)) {
+                        //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                        echo "Error: " . mysqli_stmt_error($stmt2);
+                    } else {
+                        echo "sucesso a apagar as areas <br>";
+                        //mysqli_stmt_close($stmt2);
+                    }
+                } else {
+                    echo "erro nas areas <br>";
+                    //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                }
+                /**********************************************************/
+                //apagar img de perfil da pasta
+                if (mysqli_stmt_prepare($stmt2, $query6)) {
+
+                    mysqli_stmt_bind_param($stmt2, 'i', $idUser);
+                    mysqli_stmt_execute($stmt2);
+                    mysqli_stmt_bind_result($stmt2, $profile_img);
+                    while (mysqli_stmt_fetch($stmt2)) {
+                        if (isset($profile_img)) {
+                            $img = "../uploads/img_perfil/" . $profile_img;
+                            echo "diretorio img perfil: $img <br>";
+                            if (!unlink($img)) {
+                                echo "erro a apagar a img da pasta <br>";
+                            } else {
+                                echo "sucesso a apagar a img da pasta <br>";
+                            }
+                        }
+                    }
+                }
+                /**********************************************************/
+                //apagar match com os JOVENS
+                if (mysqli_stmt_prepare($stmt2, $query18)) {
+                    mysqli_stmt_bind_param($stmt2, 'i', $idUser);
+                    // VALIDAÇÃO DO RESULTADO DO EXECUTE
+                    if (!mysqli_stmt_execute($stmt2)) {
+                        //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                        echo "Error: " . mysqli_stmt_error($stmt2);
+                    } else {
+                        echo "sucesso a apagar os matchs areas com os jovens <br>";
+                        //mysqli_stmt_close($stmt2);
+                    }
+                } else {
+                    echo "erro nos match areas com os jovens <br>";
+                    //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                }
+                /**********************************************************/
+                //apagar da tabela dos users
+                if (mysqli_stmt_prepare($stmt2, $query2)) {
+                    mysqli_stmt_bind_param($stmt2, 'i', $idUser);
+                    // VALIDAÇÃO DO RESULTADO DO EXECUTE
+                    if (!mysqli_stmt_execute($stmt2)) {
+                        //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                        echo "Error: " . mysqli_stmt_error($stmt2);
+                    } else {
+                        echo "sucesso a apagar o utilizador <br>";
+                        //mysqli_stmt_close($stmt2);
+                    }
+                } else {
+                    echo "erro no apagar utilizador <br>";
+                    //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                }
+                //header("Location:../users_uni.php");
+                /**********************************************************/
             }
-        }
-    }
+        } //fim do while da query7
+    } //fim do if da query7
+
+} else {
+    echo "localização errada";
 }
