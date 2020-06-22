@@ -129,7 +129,7 @@ if (!empty($_POST["nome"]) && !empty($_POST["email"]) && !empty($_POST["data_nas
         }
         //JÁ INSERIU OS AMBIENTES
         //INSERIR O MATCH
-        //include "match_uni.php";
+        include "match_uni.php";
         mysqli_stmt_close($stmt);
         mysqli_close($link);
         //header("Location: ../login.php");

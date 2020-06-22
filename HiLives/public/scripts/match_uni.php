@@ -15,7 +15,7 @@ $query9 = "SELECT User_idUser, Areas_idAreas, User_type_idUser_type, name_intere
 if (mysqli_stmt_prepare($stmt3, $query9)) {
     mysqli_stmt_bind_param($stmt3, 'ii', $last_id, $last_id);
     mysqli_stmt_execute($stmt3);
-    mysqli_stmt_bind_result($stmt3, $idUser, $Areas_idAreas, $User_type_idUser_type, $name_interested_area);
+    mysqli_stmt_bind_result($stmt3, $idUser, $Areas_idAreas, $User_type_idUser_type, $name_interested_area, $name_region);
     while (mysqli_stmt_fetch($stmt3)) {
         //Faz o prepare da query2 que é a que vai inserir os dados
         if (mysqli_stmt_prepare($stmt4, $query8)) {
