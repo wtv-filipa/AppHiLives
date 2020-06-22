@@ -1,9 +1,10 @@
+
 <div class="container">
 
 
-    <div class="row justify-content-center">
+    <div class="row justify-content-center "  id="inicio2">
 
-        <div class="col-xl-6 col-lg-6 col-md-6">
+        <div class="col-xl-6 col-lg-6 col-md-6"  id="inicio">
 
             <div class="card o-hidden border-0 shadow-lg my-5">
                 <div class="card-body p-0">
@@ -13,7 +14,7 @@
                         <div class="col-12">
                             <div class="p-5">
                                 <div class="text-center">
-                                    <img class="pb-4 img-fluid re_size" src="img/logo.png" alt="Logótipo do HiLives">
+                                    <img class="pb-4 img-fluid re_size" src="img/logo.png" alt="Logótipo do HiLives"">
                                     <h4 class="negrito mb-4" role="heading">Junta-te a nós!</h4>
                                     <p class="mb-4 descricao">Plataforma de apoio à qualificação e emprego de jovens com dificuldades intelectuais e desenvolvimentais.</p>
                                 </div>
@@ -50,16 +51,19 @@
 
 
                                 <form method="post" role="form" id="register-form" action="scripts/register.php">
+
                                     <?php
                                     require_once("connections/connection.php");
                                     $link = new_db_connection();
                                     $stmt = mysqli_stmt_init($link);
 
                                     ?>
+
                                     <!------------****------------>
                                     <p style="font-size: 12px; color: #00A5CF !important;">* Preenchimento
                                         obrigatório</p>
                                     <!------------NOME------------>
+                                    <div class="tab">
                                     <div class="form-group">
                                         <label class="negrito" for="username">Nome <span class="asterisco">*</span></label>
                                         <div class=" p-0 m-0">
@@ -92,7 +96,7 @@
                                     <div class="form-group">
                                         <label class="negrito mt-3" for="data_nasc">Data de nascimento <span class="asterisco">*</span></label>
                                         <div class="p-0 m-0">
-                                            <input type="date" class="form-control cinza" id="data_nasc" name="data_nasc" placeholder="data de nascimento">
+                                            <input type="date" class="form-control cinza" id="data_nasc" name="data_nasc" placeholder="data de nascimento" required="required">
                                         </div>
                                     </div>
                                     <!------------TELEFONE------------>
@@ -105,8 +109,8 @@
                                     <!------------ESCOLARIDADE------------>
                                     <div class="form-group text-left">
                                         <label class="label-margin negrito mt-3" for="esc">Escolaridade</label>
-                                        <select class="form-control" id="esc" name="esc">
-                                            <option selected disabled>Selecionar uma opção</option>
+                                        <select class="form-control" id="esc" name="esc" required>
+                                            <option value="" selected disabled>Selecionar uma opção</option>
                                             <?php
                                             $query = "SELECT idEduc_lvl, name_education FROM educ_lvl";
 
@@ -153,7 +157,7 @@
                                                     while (mysqli_stmt_fetch($stmt)) {
 
                                                         echo "\n\t\t";
-                                                        echo "<label class='form-check-label col-xs-12 col-md-6  label_margin' role='checkbox'>";
+                                                        echo "<label class='form-check-label col-xs-12 col-md-12  label_margin' role='checkbox'>";
                                                         echo "<input type='checkbox' class='form-check-input' name='area[]' value='$idAreas'>$name_interested_area<br>";
                                                         echo "</label>";
                                                     }
@@ -330,8 +334,11 @@
                                     </div>
 
                                     <hr>
+
+                                    </div>
+                                    <div class="tab">
                                     <!------------SOBRE MIM------------>
-                                    <h5 class="titulo_cinza" role="heading">Sobre mim</h5>
+                                    <h5 class="titulo_cinza" role="heading" >Sobre mim</h5>
                                     <!------------COMPETÊNCIAS------------>
                                     <div class="form-group">
                                         <h6 class="negrito mt-4" for="capacity" role="heading">As minhas competências (assinalar apenas as que melhor se adequam)<span class="asterisco">*</span></h6>
@@ -350,7 +357,7 @@
                                                     while (mysqli_stmt_fetch($stmt)) {
 
                                                         echo "\n\t\t";
-                                                        echo "<label class='form-check-label col-xs-12 col-md-6  label_margin' role='checkbox'>";
+                                                        echo "<label class='form-check-label col-xs-12 col-md-12 label_margin' role='checkbox'>";
                                                         echo "<input type='checkbox' class='form-check-input' name='capacity[]' value='$idcapacities'>$capacity<br>";
                                                         echo "</label>";
                                                     }
@@ -403,11 +410,29 @@
                                         <label class="negrito mt-3" for="def">O que mais posso dizer sobre mim <span class="asterisco">*</span></label>
                                         <textarea class="form-control cinza" id="def" rows="7" name="def" placeholder="Por exemplo: Sei usar computador, Sei falar outras línguas para além da minha, gosto de desenhar, pintar, pratico desporto, etc. &#10;Se tiveres alguma necessidade indica aqui também (por exemplo: elevador e/ou rampas de acesso)."></textarea>
                                     </div>
-                                    <div class="form-group mt-4 text-center">
-                                        <div class="pb-3 pt-2">
-                                            <button type="submit" class="btn publicar_btn">Registar</button>
+
+                                    </div>
+
+
+
+                                    <div style="overflow:auto;">
+                                        <div style=" width: 100%; text-align: center">
+                                            <a href="#inicio"><button class="publicar_btn_reg" type="button" id="prevBtn" onclick="nextPrev(-1)">Anterior </button></a>
+                                            <a href="#inicio2"><button class="publicar_btn_reg" type="button" id="nextBtn" onclick="nextPrev(1)">Próximo</button></a>
                                         </div>
                                     </div>
+
+                                    <!-- Circles which indicates the steps of the form: -->
+                                    <div style="text-align:center; margin-top:40px;">
+                                        <span class="step"></span>
+                                        <span class="step"></span>
+                                    </div>
+
+<!--                                    <div class="form-group mt-4 text-center">-->
+<!--                                        <div class="pb-3 pt-2">-->
+<!--                                            <button type="submit" class="btn publicar_btn">Registar</button>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
                                 </form>
 
                                 <hr>
@@ -427,6 +452,7 @@
 </div>
 
 <script>
+
     function checkPass() {
         //Store the password field objects into variables ...
         var pass1 = $("#register-form #password");
@@ -458,4 +484,80 @@
             message.html("As palavras-passe são diferentes!");
         }
     }
+
+
+
+    var currentTab = 0; // Current tab is set to be the first tab (0)
+    showTab(currentTab); // Display the current tab
+
+    function showTab(n) {
+        // This function will display the specified tab of the form ...
+        var x = document.getElementsByClassName("tab");
+        x[n].style.display = "block";
+        // ... and fix the Previous/Next buttons:
+        if (n == 0) {
+            document.getElementById("prevBtn").style.display = "none";
+        } else {
+            document.getElementById("prevBtn").style.display = "inline";
+        }
+        if (n == (x.length - 1)) {
+            document.getElementById("nextBtn").innerHTML = "Finalizar";
+        } else {
+            document.getElementById("nextBtn").innerHTML = "Próximo";
+        }
+        // ... and run a function that displays the correct step indicator:
+        fixStepIndicator(n)
+    }
+
+    function nextPrev(n) {
+        // This function will figure out which tab to display
+        var x = document.getElementsByClassName("tab");
+        // Exit the function if any field in the current tab is invalid:
+        if (n == 1 && !validateForm()) return false;
+        // Hide the current tab:
+        x[currentTab].style.display = "none";
+        // Increase or decrease the current tab by 1:
+        currentTab = currentTab + n;
+        // if you have reached the end of the form... :
+        if (currentTab >= x.length) {
+            //...the form gets submitted:
+            document.getElementById("register-form").submit();
+            return false;
+        }
+        // Otherwise, display the correct tab:
+        showTab(currentTab);
+    }
+
+    function validateForm() {
+        // This function deals with validation of the form fields
+        var x, y, i, valid = true;
+        x = document.getElementsByClassName("tab");
+        y = x[currentTab].getElementsByTagName("input");
+        // A loop that checks every input field in the current tab:
+        for (i = 0; i < y.length; i++) {
+            // If a field is empty...
+            if (y[i].value == "") {
+                // add an "invalid" class to the field:
+                y[i].className += " invalid";
+                // and set the current valid status to false:
+                valid = false;
+            }
+        }
+        // If the valid status is true, mark the step as finished and valid:
+        if (valid) {
+            document.getElementsByClassName("step")[currentTab].className += " finish";
+        }
+        return valid; // return the valid status
+    }
+
+    function fixStepIndicator(n) {
+        // This function removes the "active" class of all steps...
+        var i, x = document.getElementsByClassName("step");
+        for (i = 0; i < x.length; i++) {
+            x[i].className = x[i].className.replace(" active", "");
+        }
+        //... and adds the "active" class to the current step:
+        x[n].className += " active";
+    }
+
 </script>
