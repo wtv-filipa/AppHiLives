@@ -21,7 +21,7 @@ if (isset($_GET['apaga'])){
             echo "Error: " . mysqli_stmt_error($stmt);
         }
         mysqli_stmt_close($stmt);
-        //header("Location:../UC_jovem.php");
+        header("Location:../UC_jovem.php");
         echo "sucesso";
      
     } else {

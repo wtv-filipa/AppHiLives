@@ -162,7 +162,7 @@ if (isset($_GET["info"])) {
                             <!--nono input-REGIÃO PT-->
                             <div class='text-left'>
                                 <h5 for='nome'>Regiões de interesse: </h5>
-                                <?php                                
+                                <?php
                                 if (mysqli_stmt_prepare($stmt, $query5)) {
                                     // Bind variables by type to each parameter
                                     mysqli_stmt_bind_param($stmt, 'i', $idUser);
@@ -197,25 +197,6 @@ if (isset($_GET["info"])) {
 
                                     mysqli_stmt_bind_param($stmt, 'i', $idUser);
                                     mysqli_stmt_execute($stmt);
-                                    mysqli_stmt_bind_result($stmt, $name_environment);
-                                    while (mysqli_stmt_fetch($stmt)) {
-                                        echo "<ul>
-                                            <li  style='font-size: 16px; font-family: Quicksand; list-style-type:circle;'>$name_environment</li>
-                                            </ul>";
-                                    }
-                                }
-                                ?>
-                            </div>
-                            <hr>
-                            <!--------------------------------------------->
-                            <!---------AMBIENTE DE TRABALHO--->
-                            <div class='text-left'>
-                                <h5 for='nome'>Ambientes de trabalho preferidos: </h5>
-                                <?php
-                                if (mysqli_stmt_prepare($stmt, $query4)) {
-
-                                    mysqli_stmt_bind_param($stmt, 'i', $idUser);
-                                    mysqli_stmt_execute($stmt);
                                     mysqli_stmt_bind_result($stmt, $capacity);
                                     while (mysqli_stmt_fetch($stmt)) {
                                         echo "<ul>
@@ -227,11 +208,28 @@ if (isset($_GET["info"])) {
                             </div>
                             <hr>
                             <!--------------------------------------------->
-                            <!------------EXPERIÊNCIA DE TRABALHO------------>
-                            <div class="text-left">
-                                <h5 for="nome">Experiência de trabalho: <span style="font-size: 16px;"><?= $work_xp ?></span></h5>
-                            </div>
-                            <hr>
+                            <!---------AMBIENTE DE TRABALHO--->
+                            <div class='text-left'>
+                                <h5 for='nome'>Ambientes de trabalho preferidos: </h5>
+                                <?php
+                                if (mysqli_stmt_prepare($stmt, $query6)) {
+
+                                    mysqli_stmt_bind_param($stmt, 'i', $idUser);
+                                    mysqli_stmt_execute($stmt);
+                                    mysqli_stmt_bind_result($stmt, $name_environment);
+                                    while (mysqli_stmt_fetch($stmt)) {
+                                        echo "<ul>
+                                            <li  style='font-size: 16px; font-family: Quicksand; list-style-type:circle;'>$name_environment</li>
+                                            </ul>";
+                                    }
+                                }
+                                ?>
+                            
+                            <!------------EXPERIÊNCIA DE TRABALHO------------>                            
+                                <div class="text-left">
+                                    <h5 for="nome">Experiência de trabalho: <span style="font-size: 16px;"><?= $work_xp ?></span></h5>
+                                </div>
+                                <hr>
                         <?php
                         } else if ($type_user == "Empresa") {
                         ?>
