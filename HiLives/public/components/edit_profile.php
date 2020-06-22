@@ -611,13 +611,13 @@ if (isset($_GET["edit"])) {
                                     <!--primeiro input-NOME-->
                                     <div class="form-group text-left">
                                         <label class="negrito mt-3" for="nome">Nome <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
-                                        <input type="text" id="nome" name="nome" placeholder="Escreva aqui o seu nome" class="form-control" value="<?= $name_user ?>">
+                                        <input type="text" id="nome" name="nome" placeholder="Escreva aqui o seu nome" class="form-control" required="required" value="<?= $name_user ?>">
                                     </div>
                                     <!----------------------->
                                     <!--segundo input-EMAIL-->
                                     <div class="form-group text-left">
                                         <label class="negrito mt-3" for="email">Email <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
-                                        <input type="text" id="email" name="email" placeholder="Escreva aqui o seu email" class="form-control" value="<?= $email_user ?>">
+                                        <input type="text" id="email" name="email" placeholder="Escreva aqui o seu email" class="form-control" required="required" value="<?= $email_user ?>">
                                     </div>
                                     <!----------------------->
                                     <!--terceiro input-DATA DE NASCIMENTO-->
@@ -628,8 +628,8 @@ if (isset($_GET["edit"])) {
                                     <!----------------------->
                                     <!--quarto input- TELEMÓVEL-->
                                     <div class="form-group text-left">
-                                        <label class="negrito mt-3" for="tlm">Contacto</label>
-                                        <input type="text" id="tlm" name="phone" placeholder="Escreva aqui o seu contacto" class="form-control" value="<?= $contact_user ?>">
+                                        <label class="negrito mt-3" for="tlm">Contacto <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                        <input type="text" id="tlm" name="phone" placeholder="Escreva aqui o seu contacto" class="form-control" required="required" value="<?= $contact_user ?>">
                                     </div>
                                     <!----------------------->
                                     <?php
@@ -662,7 +662,7 @@ if (isset($_GET["edit"])) {
 
                                                             echo "\n\t\t";
                                                             echo "<label class='form-check-label col-xs-12 col-md-6 label-margin'>";
-                                                            echo "<input type='checkbox' class='form-check-input' name='area[]' value='$idAreas' $checked>$name_interested_area<br>";
+                                                            echo "<input type='checkbox' class='form-check-input' name='area[]' required='required' value='$idAreas' $checked>$name_interested_area<br>";
                                                             echo "</label>";
                                                         }
                                                     } else {
@@ -683,8 +683,8 @@ if (isset($_GET["edit"])) {
                                     <!------------PAÍS------------>
                                     <div class="form-group text-left">
                                         <label class="negrito mt-3" for="pais">Seleciona o país da empresa:
-                                            <span class="asterisco">*</span></label>
-                                        <select class="form-control" id="pais">
+                                            <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                        <select class="form-control" id="pais" required="required">
                                             <option value="pt">Portugal</option>
                                             <option value="es">Espanha</option>
                                             <option value="be">Bélgica</option>
@@ -695,9 +695,9 @@ if (isset($_GET["edit"])) {
                                     <div class="form-group formulario" id="pt">
                                         <div class="form-group text-left">
                                             <label class="negrito mt-3" for="regiao_pt">Região da Empresa
-                                                <span class="asterisco">*</span>
+                                                <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span>
                                             </label>
-                                            <select class="form-control" id="regiao_pt" name="regiao">
+                                            <select class="form-control" id="regiao_pt" name="regiao" required="required">
                                                 <option selected disabled>Seleciona uma opção</option>
                                                 <?php
                                                 $query2 = "SELECT idRegion, name_region, Region_idRegion FROM region 
@@ -864,7 +864,7 @@ if (isset($_GET["edit"])) {
                                     <!------------WEBSITE------------>
                                     <div class="form-group text-left">
                                         <label class="negrito mt-3" for="site">Website <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
-                                        <input type="text" class="form-control cinza" id="site" name="site" placeholder="Insira aqui o website" value="<?= $website_ue ?>">
+                                        <input type="text" class="form-control cinza" id="site" name="site" placeholder="Insira aqui o website" required="required" value="<?= $website_ue ?>">
                                     </div>
                                     <!------------FACEBOOK------------>
                                     <div class="form-group text-left">
@@ -882,16 +882,16 @@ if (isset($_GET["edit"])) {
                                     </div>
                                     <!------------DESCRIÇÃO------------>
                                     <div class="form-group text-left">
-                                        <label class="negrito mt-3" for="desc">Descrição <span class="asterisco">*</span></label>
-                                        <textarea class="form-control " id="desc" rows="7" name="desc" placeholder="Escreva aqui uma descrição"> <?= $description_ue ?></textarea>
+                                        <label class="negrito mt-3" for="desc">Descrição <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                        <textarea class="form-control " id="desc" rows="7" name="desc" placeholder="Escreva aqui uma descrição" required="required"> <?= $description_ue ?></textarea>
                                     </div>
                                     <?php
                                     if ($type_user == "Universidade") {
                                     ?>
                                         <!------------HISTÓRIA------------>
                                         <div class="form-group text-left">
-                                            <label class="negrito mt-3" for="hist">História <span class="asterisco">*</span></label>
-                                            <textarea class="form-control " id="hist" rows="9" name="hist" placeholder="Escreva aqui a história da Universidade"> <?= $history_ue ?></textarea>
+                                            <label class="negrito mt-3" for="hist">História <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                                            <textarea class="form-control " id="hist" rows="9" name="hist" placeholder="Escreva aqui a história da Universidade" required="required"> <?= $history_ue ?></textarea>
                                         </div>
                                     <?php
                                     }

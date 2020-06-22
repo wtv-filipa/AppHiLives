@@ -42,20 +42,20 @@ if ($_SESSION["idUser"] && isset($_GET["uc"])) {
                          enctype="multipart/form-data" method="post">
                        <!--primeiro campo-->
                        <div class="form-group text-left">
-                           <label class="label-margin" for="nomeuc">Nome da Unidade Curricular:</label>
-                           <input type="text" id="nomeuc" name="nomeuc" class="form-control" value="<?= $Cu_name ?>">
+                           <label class="label-margin" for="nomeuc">Nome da Unidade Curricular: <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                           <input type="text" id="nomeuc" name="nomeuc" class="form-control" required="required" value="<?= $Cu_name ?>">
                        </div>
                        <!-------------------------------------------->
                        <!--segundo campo-->
                        <div class="form-group text-left">
-                           <label class="label-margin" for="uniuc">Universidade onde foi feita:</label>
-                           <input type="text" id="uniuc" name="uniuc" class="form-control" value="<?= $University_name ?>">
+                           <label class="label-margin" for="uniuc">Universidade onde foi feita: <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                           <input type="text" id="uniuc" name="uniuc" class="form-control" required="required" value="<?= $University_name ?>">
                        </div>
                        <!-------------------------------------------->
                        <!--terceiro campo-->
                        <div class="form-group text-left">
-                           <label class="label-margin" for="data">Data de conclusão:</label>
-                           <input type="date" id="data" name="data" class="form-control" value="<?= $date_CU ?>">
+                           <label class="label-margin" for="data">Data de conclusão: <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                           <input type="date" id="data" name="data" class="form-control" required="required" value="<?= $date_CU ?>">
                        </div>
                        <!-------------------------------------------->
                        <div>
