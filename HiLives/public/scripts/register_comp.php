@@ -33,22 +33,21 @@ if (!empty($_POST["nome"]) && !empty($_POST["email"]) && !empty($_POST["data_fun
 
             //INSERIR REGIAO
             if (!empty($_POST["regiao"])) {
+                $idRegion = $_POST["regiao"];
+                $query2 = "INSERT INTO user_has_region (User_idUser_region, Region_idRegion) VALUES (?, ?)";
+                //parte do insert
+                if (mysqli_stmt_prepare($stmt, $query2)) {
+                    //echo "id do user: $idUser <br>";
 
-                            $query2 = "INSERT INTO user_has_region (User_idUser_region, Region_idRegion) VALUES (?, ?)";
-                            //parte do insert
-                            if (mysqli_stmt_prepare($stmt, $query2)) {
-//                                echo "id do user: $idUser <br>";
-
-                                mysqli_stmt_bind_param($stmt, 'ii',$last_id, $idRegion);
-//                                echo"id da região: $idRegion<br>";
-
-                                if (!mysqli_stmt_execute($stmt)) {
-                                    echo "Error: " . mysqli_stmt_error($stmt);
-                                }
-                                /* close statement */
-                                mysqli_stmt_close($stmt);
-                            }
-                            //fim da cena do insert
+                    mysqli_stmt_bind_param($stmt, 'ii', $last_id, $idRegion);
+                    //echo"id da região: $idRegion<br>";
+                    if (!mysqli_stmt_execute($stmt)) {
+                        echo "Error: " . mysqli_stmt_error($stmt);
+                    }
+                    /* close statement */
+                    mysqli_stmt_close($stmt);
+                }
+                //fim da cena do insert
 
             } else {
                 ///isto é do isset
@@ -57,14 +56,13 @@ if (!empty($_POST["nome"]) && !empty($_POST["email"]) && !empty($_POST["data_fun
             }
             //FIM DO INSERT REGIAO
 
-            header("Location: ../login.php");
+            //header("Location: ../login.php");
         } else {
             // ERROR ACTION
             echo "Error: " . mysqli_stmt_error($stmt);
             echo "NAO DEU POR ERRO DA BD <br>";
             //header("Location: ../register.php?msg=0");
         }
-
     } else {
         // ERROR ACTION
         echo "ERRO <br>";
