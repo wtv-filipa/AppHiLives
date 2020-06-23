@@ -15,7 +15,6 @@ if (isset($_GET["edit_xp"]) && isset($_SESSION["idUser"])) {
 
     $query = "SELECT idExperiences, title_exp, description FROM experiences WHERE idExperiences=?";
     if (mysqli_stmt_prepare($stmt, $query)) {
-
         mysqli_stmt_bind_param($stmt, 'i', $id_xp);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_bind_result($stmt, $idExperiences, $title_exp, $description);

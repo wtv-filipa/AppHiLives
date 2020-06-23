@@ -1,11 +1,13 @@
 <?php
+session_start();
 // We need the function!
 require_once("../connections/connection.php");
 // Create a new DB connection
 $link = new_db_connection();
 /* create a prepared statement */
 $stmt = mysqli_stmt_init($link);
-if (isset($_GET["update_xp"]) && !empty($_POST["nomeVideo"])) {
+if (isset($_GET["update_xp"]) && isset($_SESSION["idUser"]) && !empty($_POST["nomeVideo"])) {
+    $id_navegar = $_SESSION["idUser"];
     $id_xp = $_GET["update_xp"];
     $title_exp = $_POST['nomeVideo'];
     $description = $_POST['descricao'];
@@ -26,7 +28,7 @@ if (isset($_GET["update_xp"]) && !empty($_POST["nomeVideo"])) {
             echo "Error: " . mysqli_stmt_error($stmt);
         } else {
             echo "we did it";
-            header("Location: ../edit_xp.php?edit_xp=$id_xp");
+            header("Location:../profile.php?user=$id_navegar");
         }
     } else {
         /* $nickname = $_POST["edit"];
