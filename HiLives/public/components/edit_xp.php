@@ -31,14 +31,14 @@ if (isset($_GET["edit_xp"]) && isset($_SESSION["idUser"])) {
                 <form class="md-form inserir_dados" class="mb-3" action="scripts/update_xp.php?update_xp=<?=$id_xp?>" method="post">
                     <!--primeiro campo-->
                     <div class="form-group text-left">
-                        <label class="label-margin" for="nomeVideo">Nome da experiência: <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
+                        <label class="label-margin" for="nomeVideo">Nome da experiência: <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
                         <input type="text" id="nomeVideo" name="nomeVideo" class="form-control" value="<?= $title_exp?>" placeholder="Escreve aqui o título que melhor descreve o vídeo da tua experiência" required="required">
                     </div>
                     <!-------------------------------------------->
                     <!--segundo campo-->
                     <div class="form-group text-left mt-4">
-                        <label class="label-margin" for="descricao">Descrição do vídeo: <span style="color: #79C4D9; font-weight: bold; font-size: 20px">*</span></label>
-                        <textarea type="text" id="descricao" name="descricao" class="form-control" placeholder="Escreve aqui a descrição que melhor descreve o vídeo da tua experiência" required="required"> <?= $description?></textarea>
+                        <label class="label-margin" for="descricao">Descrição do vídeo:</label>
+                        <textarea type="text" id="descricao" name="descricao" class="form-control" placeholder="Escreve aqui a descrição que melhor descreve o vídeo da tua experiência"> <?= $description?></textarea>
                     </div>
                     <!-------------------------------------------->
                     <div>
