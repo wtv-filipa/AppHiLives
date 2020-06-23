@@ -15,7 +15,105 @@ if (isset($_GET["id"]) && !empty($_POST["nome"]) && !empty($_POST["email"]) && !
     $link = new_db_connection();
     /* create a prepared statement */
     $stmt = mysqli_stmt_init($link);
+    // Create a new DB connection
+    $link2 = new_db_connection();
+    /* create a prepared statement */
+    $stmt2 = mysqli_stmt_init($link2);
 
+    /*VER O QUE VEM DA BD E COMPARAR COM OS ARRAYS QUE VEEM DO ATUALIZAR PERFIL (AERAS E REGIOES) PARA VER SE SE APAGA O MATCH*/
+    //regiao
+    $query10 = "SELECT Region_idRegion FROM user_has_region WHERE User_idUser_region = ?";
+    $query11 = "DELETE FROM young_university
+            WHERE User_young = ? AND User_university IN (
+	        SELECT idUser FROM users
+	        INNER JOIN user_has_region
+	        ON users.idUser = user_has_region.User_idUser_region
+	        WHERE users.User_type_idUser_type = 13 AND Region_idRegion = ?)";
+    $regiao = $_POST["regiao"];
+
+    if (mysqli_stmt_prepare($stmt, $query10)) {
+        mysqli_stmt_bind_param($stmt, 'i', $idUser);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_bind_result($stmt, $Region_idRegion);
+        while (mysqli_stmt_fetch($stmt)) {
+            //echo "<br> região bd: $Region_idRegion <br>";
+            //var_dump($regiao);
+            echo "<br>";
+            $search_val = in_array($Region_idRegion, $regiao);
+            //echo "array search: $search_val <br>";
+            if ($search_val == false) {
+                echo "REGIÃO NÃO EXISTE NO ARRAY! <br>";
+                echo "regiao em falta: $Region_idRegion";
+                //Apagar o match
+                if (mysqli_stmt_prepare($stmt2, $query11)) {
+                    mysqli_stmt_bind_param($stmt2, 'ii', $idUser, $Region_idRegion);
+                    // VALIDAÇÃO DO RESULTADO DO EXECUTE
+                    if (!mysqli_stmt_execute($stmt2)) {
+                        //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                        echo "Error: " . mysqli_stmt_error($stmt2);
+                    } else {
+                        echo "sucesso a apagar o mtach com base em regioes <br>";
+                        //mysqli_stmt_close($stmt2);
+                    }
+                } else {
+                    echo "erro a apagar o mtach com base em regioes <br>";
+                    //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                }
+            }
+        }
+    }
+    /************************************************************/
+    //area
+    $query12 = "SELECT Areas_idAreas, name_interested_area 
+FROM user_has_areas 
+INNER JOIN areas 
+ON user_has_areas.Areas_idAreas = areas.idAreas
+WHERE User_idUser = ?";
+
+    $query13 = "DELETE FROM young_university
+WHERE User_young = ?  AND User_university IN 
+(SELECT idUser FROM users
+INNER JOIN user_has_areas
+ON users.idUser = user_has_areas.User_idUser
+INNER JOIN areas
+ON areas.idAreas = user_has_areas.Areas_idAreas
+WHERE users.User_type_idUser_type = 13 AND young_university.Area = ?)";
+    $area = $_POST["area"];
+
+    if (mysqli_stmt_prepare($stmt, $query12)) {
+        mysqli_stmt_bind_param($stmt, 'i', $idUser);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_bind_result($stmt, $Areas_idAreas, $name_interested_area);
+        while (mysqli_stmt_fetch($stmt)) {
+            echo "<br> area bd: $Areas_idAreas <br>";
+            var_dump($area);
+            echo "<br>";
+            $search_area = in_array($Areas_idAreas, $area);
+            echo "array search: $search_area <br>";
+            if ($search_area == false) {
+                echo "AREA NÃO EXISTE NO ARRAY! <br>";
+                echo "area em falta: $Areas_idAreas e nome: $name_interested_area";
+                //Apagar o match
+                if (mysqli_stmt_prepare($stmt2, $query13)) {
+                    mysqli_stmt_bind_param($stmt2, 'is', $idUser, $name_interested_area);
+                    // VALIDAÇÃO DO RESULTADO DO EXECUTE
+                    if (!mysqli_stmt_execute($stmt2)) {
+                        //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                        echo "Error: " . mysqli_stmt_error($stmt2);
+                    } else {
+                        echo "sucesso a apagar o mtach com base em areas <br>";
+                        //mysqli_stmt_close($stmt2);
+                    }
+                } else {
+                    echo "erro a apagar o mtach com base em areas <br>";
+                    //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                }
+            }
+        }
+    }
+
+
+    /*UPDATE DO PERFIL*/
     $query = "UPDATE users
       SET name_user = ?, email_user=?, contact_user=?, birth_date = ?, info_young=?, work_xp=?, Educ_lvl_idEduc_lvl=?
       WHERE idUser = ?";
@@ -219,6 +317,8 @@ if (isset($_GET["id"]) && !empty($_POST["nome"]) && !empty($_POST["email"]) && !
 
         echo $idUser;
         header("Location: ../edit_profile.php?edit=$idUser");
+        //match com a uni
+        include "match_uni_login.php";
         echo "sucesso";
     } else {
         //header("Location: ../editar_conta.php?edit=" . $nickname . "&msg=1");*/
@@ -245,7 +345,73 @@ if (isset($_GET["id"]) && !empty($_POST["nome"]) && !empty($_POST["email"]) && !
     $link = new_db_connection();
     /* create a prepared statement */
     $stmt = mysqli_stmt_init($link);
+    // Create a new DB connection
+    $link2 = new_db_connection();
+    /* create a prepared statement */
+    $stmt2 = mysqli_stmt_init($link2);
 
+    //APAGAR DO MATCH CASO AS AREAS DA UNIVERSIDADE SEJAM APAGADAS
+    $query14 = "SELECT type_user FROM user_type INNER JOIN users ON user_type.idUser_type = users.User_type_idUser_type WHERE users.idUser = ?";
+
+    $query15 = "SELECT Areas_idAreas, name_interested_area 
+FROM user_has_areas 
+INNER JOIN areas 
+ON user_has_areas.Areas_idAreas = areas.idAreas
+WHERE User_idUser = ?";
+
+    $query16 = "DELETE FROM young_university
+WHERE User_university = ?  AND User_young IN 
+(SELECT idUser FROM users
+INNER JOIN user_has_areas
+ON users.idUser = user_has_areas.User_idUser
+INNER JOIN areas
+ON areas.idAreas = user_has_areas.Areas_idAreas
+WHERE users.User_type_idUser_type = 10 AND young_university.Area = ?)";
+
+    $area = $_POST["area"];
+
+    if (mysqli_stmt_prepare($stmt, $query14)) {
+        mysqli_stmt_bind_param($stmt, 'i', $idUser);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_bind_result($stmt, $type_user);
+        while (mysqli_stmt_fetch($stmt)) {
+            if ($type_user == "Universidade") {
+                if (mysqli_stmt_prepare($stmt, $query15)) {
+                    mysqli_stmt_bind_param($stmt, 'i', $idUser);
+                    mysqli_stmt_execute($stmt);
+                    mysqli_stmt_bind_result($stmt, $Areas_idAreas, $name_interested_area);
+                    while (mysqli_stmt_fetch($stmt)) {
+                        echo "<br> area bd: $Areas_idAreas <br>";
+                        var_dump($area);
+                        echo "<br>";
+                        $search_area = in_array($Areas_idAreas, $area);
+                        echo "array search: $search_area <br>";
+                        if ($search_area == false) {
+                            echo "AREA NÃO EXISTE NO ARRAY! <br>";
+                            echo "area em falta: $Areas_idAreas e nome: $name_interested_area";
+                            //Apagar o match
+                            if (mysqli_stmt_prepare($stmt2, $query16)) {
+                                mysqli_stmt_bind_param($stmt2, 'is', $idUser, $name_interested_area);
+                                // VALIDAÇÃO DO RESULTADO DO EXECUTE
+                                if (!mysqli_stmt_execute($stmt2)) {
+                                    //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                                    echo "Error: " . mysqli_stmt_error($stmt2);
+                                } else {
+                                    echo "sucesso a apagar o mtach com base em areas <br>";
+                                    //mysqli_stmt_close($stmt2);
+                                }
+                            } else {
+                                echo "erro a apagar o mtach com base em areas <br>";
+                                //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /************************************************************/
     $query = "UPDATE users
       SET name_user = ?, email_user=?, contact_user=?, birth_date = ?, website_ue = ?, facebook_ue = ?, instagram_ue = ?, description_ue = ?, history_ue = ?
       WHERE idUser = ?";
@@ -355,6 +521,21 @@ WHERE User_idUser_region = ?";
 
         echo $idUser;
         header("Location: ../edit_profile.php?edit=$idUser");
+        //match com o jovem
+        $link = new_db_connection();
+        $stmt = mysqli_stmt_init($link);
+        if (mysqli_stmt_prepare($stmt, $query14)) {
+            mysqli_stmt_bind_param($stmt, 'i', $idUser);
+            mysqli_stmt_execute($stmt);
+            mysqli_stmt_bind_result($stmt, $type_user);
+            while (mysqli_stmt_fetch($stmt)) {
+                if ($type_user == "Universidade") {
+                    include "match_young_login.php";
+                }
+            }
+        }
+         /* close statement */
+         mysqli_stmt_close($stmt);
         echo "sucesso";
     } else {
         //header("Location: ../editar_conta.php?edit=" . $nickname . "&msg=1");*/

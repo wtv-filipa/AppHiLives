@@ -41,6 +41,7 @@ if (!empty($_POST["email"]) && !empty($_POST["password"])) {
                     } else if ($type_user == "Empresa") {
                         header("Location: ../home_companies.php");
                     } else if ($type_user == "Universidade") {
+                        include "match_young_login.php";
                         header("Location: ../home_uni.php");
                     }else if ($type_user == "Admin") {
                         header("Location: ../../admin/index.php");

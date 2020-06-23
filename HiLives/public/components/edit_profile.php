@@ -490,27 +490,6 @@ if (isset($_GET["edit"])) {
 
                                     <!--ACABEI DE EDITAR AQUI-->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                     <!--quinto input-DID-->
                                     <div class="form-group text-left">
                                         <label for="def">O que mais posso dizer sobre mim <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
@@ -622,8 +601,8 @@ if (isset($_GET["edit"])) {
                                     <!----------------------->
                                     <!--terceiro input-DATA DE NASCIMENTO-->
                                     <div class="form-group text-left">
-                                        <label class="negrito mt-3" for="born">Data de fundação</label>
-                                        <input type="date" id="born" name="data_fund" placeholder="data de nascimento" class="form-control" value="<?= $birth_date ?>">
+                                        <label class="negrito mt-3" for="born">Data de fundação <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
+                                        <input type="date" id="born" name="data_fund" placeholder="data de nascimento" class="form-control" required="required" value="<?= $birth_date ?>">
                                     </div>
                                     <!----------------------->
                                     <!--quarto input- TELEMÓVEL-->
@@ -662,7 +641,7 @@ if (isset($_GET["edit"])) {
 
                                                             echo "\n\t\t";
                                                             echo "<label class='form-check-label col-xs-12 col-md-6 label-margin'>";
-                                                            echo "<input type='checkbox' class='form-check-input' name='area[]' required='required' value='$idAreas' $checked>$name_interested_area<br>";
+                                                            echo "<input type='checkbox' class='form-check-input' name='area[]' value='$idAreas' $checked>$name_interested_area<br>";
                                                             echo "</label>";
                                                         }
                                                     } else {
@@ -681,6 +660,9 @@ if (isset($_GET["edit"])) {
                                     }
                                     ?>
                                     <!------------PAÍS------------>
+                                    <?php
+                                    if ($type_user == "Empresa") {
+                                    ?>
                                     <div class="form-group text-left">
                                         <label class="negrito mt-3" for="pais">Seleciona o país da empresa:
                                             <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
@@ -698,7 +680,7 @@ if (isset($_GET["edit"])) {
                                                 <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span>
                                             </label>
                                             <select class="form-control" id="regiao_pt" name="regiao" required="required">
-                                                <option selected disabled>Seleciona uma opção</option>
+                                                <option value ="" selected disabled>Seleciona uma opção</option>
                                                 <?php
                                                 $query2 = "SELECT idRegion, name_region, Region_idRegion FROM region 
                                                                     INNER JOIN country ON region.country_idcountry = country.idcountry
@@ -861,6 +843,9 @@ if (isset($_GET["edit"])) {
                                             </select>
                                         </div>
                                     </div>
+                                    <?php
+                                    }
+                                    ?>
                                     <!------------WEBSITE------------>
                                     <div class="form-group text-left">
                                         <label class="negrito mt-3" for="site">Website <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
