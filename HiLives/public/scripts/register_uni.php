@@ -110,6 +110,6 @@ if (!empty($_POST["nome"]) && !empty($_POST["email"]) && !empty($_POST["data_fun
         mysqli_close($link);
     }
 } else {
-    echo "ERRO de não temos nada inserido <br>";
+    echo "ERRO de não termos nada inserido <br>";
     // header("Location: ../register.php?msg=2");
 }

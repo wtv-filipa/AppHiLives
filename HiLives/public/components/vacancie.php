@@ -120,7 +120,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                                                                     class="mr-2">Telefone:</b><?= $contact_user ?>
                                                         </li>
                                                         <?php
-                                                        if (isset($website_ue)) {
+                                                        if ($website_ue != NULL) {
                                                             ?>
 
                                                             <li class="lista">
@@ -129,7 +129,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                                                             </li>
                                                             <?php
                                                         }
-                                                        if (isset($facebook_ue)) {
+                                                        if ($facebook_ue != NULL) {
                                                             ?>
                                                             <li class="lista">
                                                                 <i class="fab fa-facebook mr-2"></i><b
@@ -137,7 +137,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                                                             </li>
                                                             <?php
                                                         }
-                                                        if (isset($instagram_ue)) {
+                                                        if ($instagram_ue != NULL) {
                                                             ?>
                                                             <li class="lista">
                                                                 <i class="fab fa-instagram mr-2"></i><b
