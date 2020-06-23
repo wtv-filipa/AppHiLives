@@ -44,7 +44,7 @@ $query1 = "SELECT idVacancies, vacancie_name, Areas_idAreas, name_interested_are
 
                                 mysqli_stmt_bind_param($stmt, 'i', $idUser);
                                 mysqli_stmt_execute($stmt);
-                                mysqli_stmt_bind_result($stmt, $idVacancie, $vacancie_name, $Areas_idAreas, $name_interested_area);
+                                mysqli_stmt_bind_result($stmt, $idVacancies, $vacancie_name, $Areas_idAreas, $name_interested_area);
                                 while (mysqli_stmt_fetch($stmt)) {
                                     ?>
                                         <li class="lista">
@@ -52,10 +52,10 @@ $query1 = "SELECT idVacancies, vacancie_name, Areas_idAreas, name_interested_are
                                             <p class="instituicao"><?= $name_interested_area ?></p>
 
                                             <div class="text-right">
-                                                <a href="edit_vac.php?idvac=<?= $idVacancie ?>">
+                                                <a href="edit_vac.php?idvac=<?= $idVacancies ?>">
                                                     <i class="fas fa-edit mr-1" style="color:#00A5CF!important"></i>
                                                 </a>
-                                                <a href="#" data-toggle="modal" data-target="#deleteuc<?= $idVacancie ?>">
+                                                <a href="#" data-toggle="modal" data-target="#deletevac<?= $idVacancies ?>">
                                                     <i class="fas fa-trash mr-1" style="color:#2F2F2F!important"></i>
                                                 </a>
                                             </div>

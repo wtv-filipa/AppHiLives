@@ -134,8 +134,9 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                 ?>
                                 <div class="p-0 mt-3">
                                     <a href="edit_profile.php?edit=<?= $idUser ?>">
-                                        <button class="btn edit_btn"><i class="fas fa-edit text-dark"></i>Editar as
-                                            minhas informações
+                                        <button class="btn edit_btn">
+                                            <i class="faw_hover fas fa-edit"></i>
+                                            Editar as minhas informações
                                         </button>
                                     </a>
                                 </div>
@@ -470,12 +471,12 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                                 if ($idUser == $id_navegar) {
                                                     ?>
                                                     <div class="text-right">
-                                                        <a href="edit_done_uc.php?uc=<?= $idDone_CU ?>">
+                                                        <a href="edit_vac.php?idvac=<?= $idVacancies ?>">
                                                             <i class="fas fa-edit mr-1"
                                                                style="color:#00A5CF!important"></i>
                                                         </a>
                                                         <a href="#" data-toggle="modal"
-                                                           data-target="#deleteuc<?= $idDone_CU ?>">
+                                                           data-target="#deletevac<?= $idVacancies ?>">
                                                             <i class="fas fa-trash mr-1"
                                                                style="color:#2F2F2F!important"></i>
                                                         </a>
@@ -484,11 +485,27 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                                 }
                                                 ?>
                                             </li>
+
                                             <?php
+                                            //modal de apagar a UC
+                                            include('components/delete_modal.php');
                                         }
                                     }
                                     ?>
                                 </ul>
+                                <?php
+                                if ($idUser == $id_navegar) {
+                                    ?>
+                                    <div class="text-center">
+                                        <a href="upload_vac.php">
+                                            <button class="btn add_btn"><i class="faw_hover fas fa-plus-circle mr-1">
+                                                </i>Adicionar novas vagas
+                                            </button>
+                                        </a>
+                                    </div>
+                                    <?php
+                                }
+                                ?>
                             </section>
                             <!--CONTACTOS-->
                             <section>
@@ -512,16 +529,15 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                                     class="mr-2">Telefone:</b><?= $contact_user ?>
                                         </li>
                                         <?php
-                                        if (isset($website_ue)) {
+                                        if ($website_ue != NULL) {
                                             ?>
-
                                             <li class="lista">
                                                 <i class="fas fa-globe mr-2"></i><b
                                                         class="mr-2">Website:</b><?= $website_ue ?>
                                             </li>
                                             <?php
                                         }
-                                        if (isset($facebook_ue)) {
+                                        if ($facebook_ue != NULL) {
                                             ?>
                                             <li class="lista">
                                                 <i class="fab fa-facebook mr-2"></i><b
@@ -529,7 +545,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                             </li>
                                             <?php
                                         }
-                                        if (isset($instagram_ue)) {
+                                        if ($instagram_ue != NULL) {
                                             ?>
                                             <li class="lista">
                                                 <i class="fab fa-instagram mr-2"></i><b
@@ -548,7 +564,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                     </div>
 
                     <div class="mt-5 mb-5 centrar_cont">
-                        <h3 class="mb-4 titulo_videos">As minhas experiências</h3>
+                        <h3 class="mb-4 titulo_videos">Vídeos</h3>
                         <div class="card mt-4">
                             <div class="row m-3 centrar_cont">
                                 <?php
@@ -575,27 +591,15 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                         include "modal_vid.php";
                                     }
                                 }
-                                if ($idUser == $id_navegar) {
-                                    ?>
-                                    <div class="col-md-3 mt-3 ">
-                                        <a href="upload_xp.php">
-                                            <button type="" class="btn bt_add" style="background-color: #D2D2D2;">
-
-                                                Adicionar uma nova
-                                                experiência
-                                            </button>
-                                        </a>
-                                    </div>
-                                    <?php
-                                }
                                 ?>
                             </div>
                         </div>
                     </div>
                     <?php
                 } else {
+                    //UNIVERSIDADES
                     ?>
-                    <div class="tabs">
+                    <div class="tabs mb-5">
                         <input type="radio" id="tab1" name="tab-control" checked>
                         <input type="radio" id="tab2" name="tab-control">
                         <ul>
@@ -643,24 +647,6 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
 
                                             <li class="lista">
                                                 <?= $name_interested_area ?>
-                                                <!--Se não for igual vai esconder determinados elementos que pessoas que não são o próprio user não podem ver-->
-                                                <?php
-                                                if ($idUser == $id_navegar) {
-                                                    ?>
-                                                    <div class="text-right">
-                                                        <a href="edit_done_uc.php?uc=<?= $idDone_CU ?>">
-                                                            <i class="fas fa-edit mr-1"
-                                                               style="color:#00A5CF!important"></i>
-                                                        </a>
-                                                        <a href="#" data-toggle="modal"
-                                                           data-target="#deleteuc<?= $idDone_CU ?>">
-                                                            <i class="fas fa-trash mr-1"
-                                                               style="color:#2F2F2F!important"></i>
-                                                        </a>
-                                                    </div>
-                                                    <?php
-                                                }
-                                                ?>
                                             </li>
                                             <?php
                                         }
@@ -690,16 +676,15 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                                     class="mr-2">Telefone:</b><?= $contact_user ?>
                                         </li>
                                         <?php
-                                        if (isset($website_ue)) {
+                                        if ($website_ue != NULL) {
                                             ?>
-
                                             <li class="lista">
                                                 <i class="fas fa-globe mr-2"></i><b
                                                         class="mr-2">Website:</b><?= $website_ue ?>
                                             </li>
                                             <?php
                                         }
-                                        if (isset($facebook_ue)) {
+                                        if ($facebook_ue != NULL) {
                                             ?>
                                             <li class="lista">
                                                 <i class="fab fa-facebook mr-2"></i><b
@@ -707,7 +692,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                             </li>
                                             <?php
                                         }
-                                        if (isset($instagram_ue)) {
+                                        if ($instagram_ue != NULL) {
                                             ?>
                                             <li class="lista">
                                                 <i class="fab fa-instagram mr-2"></i><b
@@ -722,53 +707,6 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                 </blockquote>
                             </section>
 
-                        </div>
-                    </div>
-
-                    <div class="mt-5 mb-5 centrar_cont">
-                        <h3 class="mb-4 titulo_videos">As minhas experiências</h3>
-                        <div class="card mt-4">
-                            <div class="row m-3 centrar_cont">
-                                <?php
-
-                                if (mysqli_stmt_prepare($stmt, $query8)) {
-
-                                    mysqli_stmt_bind_param($stmt, 'i', $idUser);
-                                    mysqli_stmt_execute($stmt);
-                                    mysqli_stmt_bind_result($stmt, $idVacancies, $vacancie_name, $Content_idContent, $content_name);
-                                    while (mysqli_stmt_fetch($stmt)) {
-                                        ?>
-                                        <div class="col-md-3 mt-3 div_videos">
-                                            <a href="#" data-toggle="modal"
-                                               data-target="#modalvideo<?= $idVacancies ?>">
-                                                <video class="img-fluid z-depth-1 p-0 m-0 tam_video"
-                                                       src="../admin/uploads/vid_vac/<?= $content_name ?>" alt="video"
-                                                       data-toggle="modal" data-target="#modal1"
-                                                       style="background-color: #2f2f2f;">
-                                            </a>
-                                        </div>
-
-                                        <!--Se não for igual vai esconder determinados elementos que pessoas que não são o próprio user não podem ver-->
-                                        <?php
-                                        include "modal_vid.php";
-                                    }
-                                }
-                                if ($idUser == $id_navegar) {
-                                    ?>
-                                    <div class="col-md-3 mt-3 ">
-                                        <a href="upload_xp.php">
-                                            <button type="" class="btn bt_add" style="background-color: #D2D2D2;">
-
-                                                Adicionar uma nova
-                                                experiência
-                                            </button>
-                                        </a>
-                                    </div>
-                                    <?php
-                                }
-
-                                ?>
-                            </div>
                         </div>
                     </div>
                     <?php
