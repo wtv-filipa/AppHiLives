@@ -1,7 +1,10 @@
 <?php
+session_start();
 
-if (isset($_GET['apaga'])) {
+if (isset($_GET['apaga']) ) {
+
     echo "estou a apagar um vídeo de uma empresa";
+    $idUser=$_SESSION["idUser"];
     $idContent = $_GET["apaga"];
     require_once "../connections/connection.php";
     $link = new_db_connection();
@@ -17,7 +20,7 @@ if (isset($_GET['apaga'])) {
         mysqli_stmt_execute($stmt);
         mysqli_stmt_bind_result($stmt, $content_name);
         while (mysqli_stmt_fetch($stmt)) {
-            $ficheiro = "../uploads/vid_vac/" . $content_name;
+            $ficheiro = "../../admin/uploads/vid_vac/" . $content_name;
             echo $ficheiro;
             if (!unlink($ficheiro)) {
                 echo "ero a apagar o ficheiro da pasta";
@@ -58,7 +61,7 @@ if (isset($_GET['apaga'])) {
                     //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
                 }
                 echo "sucesso";
-                header("Location:../contents_emp.php");
+                header("Location:../profile.php?user=$idUser");
             }
         }
     }
