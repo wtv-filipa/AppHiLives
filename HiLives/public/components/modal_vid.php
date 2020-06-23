@@ -77,10 +77,14 @@
                 <hr>
                 <h5 class="mt-3">Descrição</h5>
                 <p class="descricao"><?= $description ?></p>
-
-                <a href="#" data-toggle="modal" data-target="#deleteuc<?= $idExperiences ?>">
-                    <i class="fas fa-trash mr-1" style="color:#2F2F2F!important"></i>
-                </a>
+                <?php
+                if ($idUser == $id_navegar) {
+                ?>
+        <button onclick="delXp_jovem()" class="btn btn-light mb-3" style="float: right"><i class="fas fa-trash" style="color:#2F2F2F!important"></i></button>
+                <button class="btn btn-light mb-3" style="float: right"> <a href="edit_xp.php?edit_xp=<?=$idExperiences?>"><i class="fas fa-edit" style="color:#00A5CF!important"></i></a></button>
+                <?php
+                }
+                ?>
             </div>
         </div>
     </div>
@@ -124,3 +128,20 @@
         </div>
     </div>
 </div>
+
+
+<script>
+    function delXp_jovem() {
+        var txt;
+        var r = confirm("Tens a certeza que queres eliminar a experiência <?=$title_exp?>?");
+        if (r == true) {
+            txt = "You pressed OK!";
+            window.location.href = 'scripts/delete_xp.php?apaga=<?=$idContent?>&user=<?=$idUser?>';
+        } else {
+            txt = "You pressed Cancel!";
+            window.location.href = 'profile.php?user=<?=$idUser?>';
+
+        }
+        document.getElementById("demo").innerHTML = txt;
+    }
+</script>
