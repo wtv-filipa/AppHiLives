@@ -37,7 +37,7 @@ if (isset($_SESSION["idUser"])) {
               <?php
               if (isset($img_perfil)) {
               ?>
-                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60" alt="imagem de perfil">
+                <img class="img-profile rounded-circle" src="uploads/img_perfil/<?=$img_perfil;?>" alt="imagem de perfil">
               <?php
               } else {
               ?>
@@ -50,9 +50,9 @@ if (isset($_SESSION["idUser"])) {
         </a>
         <!-- Dropdown - User Information -->
         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-          <a class="dropdown-item" href="../public/profile.php?user=<?=$idUser?>">
-            <i class="fas fa-home fa-sm fa-fw mr-2 text-gray-400"></i>
-            Website
+          <a class="dropdown-item" href="edit_profile.php?edit=<?=$idUser?>">
+            <i class="fas fa-user-edit mr-2 text-gray-400"></i>
+            Editar perfil
           </a>
           <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
             <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>

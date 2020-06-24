@@ -1,20 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+session_start();
+if (!isset($_SESSION["idUser"])) {
+?>
+    <!DOCTYPE html>
+    <html lang="en">
 
-<head>
-    <!-- metadados -->
-    <?php include "helpers/meta.php"; ?>
-    <title>Registo Empresa</title>
-    <!-- Custom fonts for this template-->
-    <?php include "helpers/fonts.php"; ?>
-    <!-- Custom styles for this template-->
-    <?php include "helpers/css_register_login.php"; ?>
-</head>
+    <head>
+        <!-- metadados -->
+        <?php include "helpers/meta.php"; ?>
+        <title>Registo Empresa</title>
+        <!-- Custom fonts for this template-->
+        <?php include "helpers/fonts.php"; ?>
+        <!-- Custom styles for this template-->
+        <?php include "helpers/css_register_login.php"; ?>
+    </head>
 
-<body id="page-top" class="fundo_login_reg">
+    <body id="page-top" class="fundo_login_reg">
 
-<!-- Page Wrapper -->
-<div id="wrapper">
+        <!-- Page Wrapper -->
+        <div id="wrapper">
 
             <!-- Begin Page Content -->
             <div class="container-fluid">
@@ -26,21 +30,32 @@
         </div>
         <!-- End of Main Content -->
 
-<!-- JavaScript-->
-<script>
-    var select = document.getElementById("pais");
-    var formularios = document.querySelectorAll('.formulario');
+        <!-- JavaScript-->
+        <script>
+            var select = document.getElementById("pais");
+            var formularios = document.querySelectorAll('.formulario');
 
-    select.onchange = function () {
-        for (var i = 0; i < formularios.length; i++) formularios[i].style.display = 'none';
-        var divID = select.options[select.selectedIndex].value;
-        var div = document.getElementById(divID);
-        div.style.display = 'block';
-    };
-</script>
+            select.onchange = function() {
+                for (var i = 0; i < formularios.length; i++) formularios[i].style.display = 'none';
+                var divID = select.options[select.selectedIndex].value;
+                var div = document.getElementById(divID);
+                div.style.display = 'block';
+            };
+        </script>
 
-<?php include "helpers/js.php"; ?>
-<?php include "helpers/fontawesome.php"; ?>
-</body>
+        <?php include "helpers/js.php"; ?>
+        <?php include "helpers/fontawesome.php"; ?>
+    </body>
 
-</html>
+    </html>
+<?php
+} else if (isset($_SESSION["idUser"]) and $_SESSION["type"] == 4) {
+    header("Location: ../admin/index.php");
+} else if (isset($_SESSION["idUser"]) and $_SESSION["type"] == 7) {
+    header("Location: home_companies.php");
+} else  if (isset($_SESSION["idUser"]) and $_SESSION["type"] == 10) {
+    header("Location: home_people.php");
+} else if (isset($_SESSION["idUser"]) and $_SESSION["type"] == 13) {
+    header("Location: home_uni.php");
+}
+?>

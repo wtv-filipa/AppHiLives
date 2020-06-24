@@ -255,7 +255,7 @@ if (isset($_GET["apaga"])) {
                     echo "erro no apagar utilizador <br>";
                     //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
                 }
-                //header("Location:../users_jovem.php");
+                header("Location:../users_jovem.php");
                 /**********************************************************/
             } else if ($type_user == "Empresa") {
                 /*EMPRESA*/
@@ -400,7 +400,7 @@ if (isset($_GET["apaga"])) {
                     echo "erro no apagar utilizador <br>";
                     //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
                 }
-                //header("Location:../users_emp.php");
+                header("Location:../users_emp.php");
                 /**********************************************************/
             } else if ($type_user == "Universidade") {
                 /*UNIVERSIDADE*/
@@ -487,7 +487,7 @@ if (isset($_GET["apaga"])) {
                     echo "erro no apagar utilizador <br>";
                     //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
                 }
-                //header("Location:../users_uni.php");
+                header("Location:../users_uni.php");
                 /**********************************************************/
             }
             mysqli_stmt_close ($stmt);
