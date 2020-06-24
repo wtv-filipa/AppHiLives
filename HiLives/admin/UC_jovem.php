@@ -1,10 +1,11 @@
 <?php
 session_start();
+if (isset($_SESSION["idUser"]) and $_SESSION["type"] == 4) {
 ?>
-<!DOCTYPE html>
-<html lang="en">
+  <!DOCTYPE html>
+  <html lang="en">
 
-<head>
+  <head>
     <?php include "helpers/meta.php"; ?>
     <title>Vagas publicadas</title>
     <!-- Custom fonts for this template-->
@@ -13,53 +14,64 @@ session_start();
     <?php include "helpers/css.php"; ?>
     <!-- Custom styles for this page -->
     <?php include "helpers/datatable.php"; ?>
-</head>
+  </head>
 
-<body id="page-top">
+  <body id="page-top">
 
-  <!-- Page Wrapper -->
-  <div id="wrapper">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
 
-    <!-- Sidebar -->
-    <?php include "components/side_nav.php"; ?>
-    <!-- End of Sidebar -->
+      <!-- Sidebar -->
+      <?php include "components/side_nav.php"; ?>
+      <!-- End of Sidebar -->
 
-    <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column">
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
 
-      <!-- Main Content -->
-      <div id="content">
+        <!-- Main Content -->
+        <div id="content">
 
-        <!-- Topbar -->
-        <?php include "components/nav_top.php"; ?>
-        <!-- End of Topbar -->
+          <!-- Topbar -->
+          <?php include "components/nav_top.php"; ?>
+          <!-- End of Topbar -->
 
-        <!-- Begin Page Content -->
-        <div class="container-fluid">
-        <!-- /.container-fluid -->
-        <?php include "components/UC_jovem.php"; ?>
+          <!-- Begin Page Content -->
+          <div class="container-fluid">
+            <!-- /.container-fluid -->
+            <?php include "components/UC_jovem.php"; ?>
+          </div>
+          <!-- End of Main Content -->
+
+          <!-- Footer -->
+          <?php include "components/footer.php"; ?>
+          <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
       </div>
-      <!-- End of Main Content -->
+      <!-- End of Page Wrapper -->
 
-      <!-- Footer -->
-      <?php include "components/footer.php"; ?>
-      <!-- End of Footer -->
+      <!-- Scroll to Top Button-->
+      <?php include "components/scroll_button.php"; ?>
 
-    </div>
-    <!-- End of Content Wrapper -->
+      <!-- Logout Modal-->
+      <?php include "components/logout_modal.php"; ?>
 
-  </div>
-  <!-- End of Page Wrapper -->
+      <!-- Bootstrap core JavaScript-->
+      <?php include "helpers/js_tables.php"; ?>
 
-  <!-- Scroll to Top Button-->
-  <?php include "components/scroll_button.php"; ?>
+  </body>
 
-  <!-- Logout Modal-->
-  <?php include "components/logout_modal.php"; ?>
-
-  <!-- Bootstrap core JavaScript-->
-  <?php include "helpers/js_tables.php"; ?>
-
-</body>
-
-</html>
+  </html>
+<?php
+} else if (isset($_SESSION["idUser"]) and $_SESSION["type"] == 7) {
+  header("Location: home_companies.php");
+} else if (isset($_SESSION["idUser"]) and $_SESSION["type"] == 10) {
+  header("Location: home_people.php");
+} else if (isset($_SESSION["idUser"]) and $_SESSION["type"] == 13) {
+  header("Location: home_uni.php");
+} else {
+  header("Location: ../public/login.php");
+}
+?>

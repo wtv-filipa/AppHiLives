@@ -1,59 +1,72 @@
 <?php
 session_start();
+
+if (isset($_SESSION["idUser"]) and $_SESSION["type"] == 4) {
 ?>
-<!DOCTYPE html>
-<html lang="en">
+    <!DOCTYPE html>
+    <html lang="en">
 
-<head>
-    <?php include "helpers/meta.php"; ?>
+    <head>
+        <?php include "helpers/meta.php"; ?>
 
-    <title>Página Inicial</title>
+        <title>Página Inicial</title>
 
-    <!-- Custom fonts for this template-->
-    <?php include "helpers/fonts.php"; ?>
+        <!-- Custom fonts for this template-->
+        <?php include "helpers/fonts.php"; ?>
 
-    <!-- Custom styles for this template-->
-    <?php include "helpers/css.php"; ?>
+        <!-- Custom styles for this template-->
+        <?php include "helpers/css.php"; ?>
 
-</head>
+    </head>
 
-<body id="page-top">
-    <!-- Page Wrapper -->
-    <div id="wrapper">
-        <!-- Sidebar -->
-        <?php include "components/side_nav.php"; ?>
-        <!-- End of Sidebar -->
-        <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
-            <!-- Main Content -->
-            <div id="content">
-                <!-- Topbar -->
-                <?php include "components/nav_top.php"; ?>
-                <!-- End of Topbar -->
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
-                    <!-- Page Heading -->
-                    <?php include "components/heading.php"; ?>
-                    <!--content-->
-                    <?php include "components/index.php"; ?>
+    <body id="page-top">
+        <!-- Page Wrapper -->
+        <div id="wrapper">
+            <!-- Sidebar -->
+            <?php include "components/side_nav.php"; ?>
+            <!-- End of Sidebar -->
+            <!-- Content Wrapper -->
+            <div id="content-wrapper" class="d-flex flex-column">
+                <!-- Main Content -->
+                <div id="content">
+                    <!-- Topbar -->
+                    <?php include "components/nav_top.php"; ?>
+                    <!-- End of Topbar -->
+                    <!-- Begin Page Content -->
+                    <div class="container-fluid">
+                        <!-- Page Heading -->
+                        <?php include "components/heading.php"; ?>
+                        <!--content-->
+                        <?php include "components/index.php"; ?>
+                    </div>
+                    <!-- /.container-fluid -->
                 </div>
-                <!-- /.container-fluid -->
+                <!-- End of Main Content -->
+                <!-- Footer -->
+                <?php include "components/footer.php"; ?>
+                <!-- End of Footer -->
             </div>
-            <!-- End of Main Content -->
-            <!-- Footer -->
-            <?php include "components/footer.php"; ?>
-            <!-- End of Footer -->
+            <!-- End of Content Wrapper -->
         </div>
-        <!-- End of Content Wrapper -->
-    </div>
-    <!-- End of Page Wrapper -->
-    <!-- Scroll to Top Button-->
-    <?php include "components/scroll_button.php"; ?>
-    <!-- Logout Modal-->
-    <?php include "components/logout_modal.php"; ?>
-    <!-- Bootstrap core JavaScript-->
-    <?php include "helpers/js.php"; ?>
+        <!-- End of Page Wrapper -->
+        <!-- Scroll to Top Button-->
+        <?php include "components/scroll_button.php"; ?>
+        <!-- Logout Modal-->
+        <?php include "components/logout_modal.php"; ?>
+        <!-- Bootstrap core JavaScript-->
+        <?php include "helpers/js.php"; ?>
 
-</body>
+    </body>
 
-</html>
+    </html>
+<?php
+}else if (isset($_SESSION["idUser"]) and $_SESSION["type"] == 7) {
+    header("Location: ../public/home_companies.php");
+  } else if (isset($_SESSION["idUser"]) and $_SESSION["type"] == 10) {
+    header("Location: ../public/home_people.php");
+  } else if (isset($_SESSION["idUser"]) and $_SESSION["type"] == 13) {
+    header("Location: ../public/home_uni.php");
+  } else {
+    header("Location: ../public/login.php");
+  }
+?>

@@ -24,56 +24,42 @@
     .label-margin {
         margin-left: -1%;
     }
-    /*.guardar_btn {
-        width: 40%!important;
-        height: 10%!important;
-        color: #2f2f2f!important;
-        background-color: #D3D3D3!important;
-        margin-bottom: 0.3125rem!important;
-        text-decoration: none!important;
-        cursor: pointer!important;
-        display: inline-block!important;
-        border-radius: 40px!important;
-        font-weight: bold;
-        border-color: #D3D3D3!important;
+    .guardar_btn {
+        color: #00A5CF;
+        padding: 0.3rem;
+        font-size: 14px;
+        font-family: "Quicksand", sans-serif;
+        border: 0.1em solid #00A5CF;
+        border-radius: 5px;
+        font-weight: 800;
+        width: 30%;
+        cursor: pointer;
+        background: #fff;
     }
     
     .guardar_btn:hover {
-        width: 40%!important;
-        height: 10%!important;
-        color: #fff!important;
-        background-color: #2F2F2F !important;
-        margin-bottom: 0.3125rem!important;
-        text-decoration: none!important;
-        cursor: pointer!important;
-        display: inline-block!important;
-        border-color: #2F2F2F!important;
-        border-radius: 40px!important;
-    }*/
-    
-    .cancel_btn {
-        width: 40%!important;
-        height: 10%!important;
-        color: #2F2F2F!important;
-        margin-bottom: 0.3125rem!important;
-        text-decoration: none!important;
-        cursor: pointer!important;
-        display: inline-block!important;
-        border-radius: 40px!important;
-        font-weight: bold;
-        border-color: #D3D3D3!important;
+        background-color: #00A5CF;
+        color: #fff;
+        border: 0.1em solid #00A5CF;
     }
-    
+
+    .cancel_btn {
+        color: #2F2F2F;
+        padding: 0.3rem;
+        font-size: 14px;
+        font-family: "Quicksand", sans-serif;
+        border: 0.1em solid #2F2F2F;
+        border-radius: 5px;
+        font-weight: 800;
+        width: 30%;
+        cursor: pointer;
+        background: #fff;
+    }
+
     .cancel_btn:hover {
-        width: 40%!important;
-        height: 10%!important;
-        color: #2F2F2F!important;
-        margin-bottom: 0.3125rem!important;
-        text-decoration: none!important;
-        cursor: pointer!important;
-        display: inline-block!important;
-        border-color: #2F2F2F!important;
-        border-radius: 40px!important;
+        background-color: #2F2F2F;
+        color: #fff;
+        border: 0.1em solid #2F2F2F;
     }
     /*IMAGEM DE PERFIL*/
     
@@ -94,8 +80,85 @@
     
     .avatar_modal {
         vertical-align: middle;
-        width: 35px;
-        height: 35px;
+        width: 35px !important;
+        height: 57px !important;
         border-radius: 50%;
         margin-top: 4px;
+    }
+    /*estilos para o upload da img*/
+    
+    .avatar-upload {
+        position: relative;
+        max-width: 205px;
+        display: block;
+        margin: auto;
+    }
+    
+    .avatar-edit {
+        position: absolute;
+        z-index: 1;
+    }
+    
+    label.label :hover {
+        background: #ffffff;
+        border-color: #ffffff;
+    }
+    
+    label.label::before {
+        color: #2f2f2f;
+        position: relative;
+        top: 17%;
+        text-align: center;
+        display: block;
+        margin: auto;
+    }
+    
+    label.label {
+        align-content: end;
+        width: 34px;
+        height: 34px;
+        border-radius: 100%;
+        background: #FFFFFF;
+        border: 1px solid transparent;
+        box-shadow: 1px 2px 4px 1px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        font-weight: normal;
+        transition: all 0.2s ease-in-out;
+        display: block;
+        margin-left: -85%;
+        z-index: 200;
+    }
+    
+    @media only screen and (max-width: 600px) {
+        .guardar_btn {
+            width: 50%!important;
+        }
+        .guardar_btn:hover {
+            width: 50%!important;
+        }
+        .cancel_btn {
+            width: 50%!important;
+            margin-top: 2%;
+        }
+        .cancel_btn:hover {
+            width: 50%!important;
+            margin-top: 2%;
+        }
+        .avatar-edit {
+            top: 12%;
+        }
+    }
+    
+    @media only screen and (min-width: 768px) {
+        .avatar-edit {
+            top: 7%;
+            right: -21%;
+        }
+    }
+    
+    @media only screen and (min-width: 992px) {
+        .avatar-edit {
+            right: -1%;
+            top: 7%;
+        }
     }

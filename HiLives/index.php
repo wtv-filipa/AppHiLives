@@ -1,3 +1,7 @@
+<?php
+session_start();
+if (!isset($_SESSION["idUser"])) {
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,3 +32,14 @@
 </body>
 
 </html>
+<?php
+} else if (isset($_SESSION["idUser"]) and $_SESSION["type"] == 4) {
+    header("Location: admin/index.php");
+} else if (isset($_SESSION["idUser"]) and $_SESSION["type"] == 7) {
+    header("Location: public/home_companies.php");
+} else  if (isset($_SESSION["idUser"]) and $_SESSION["type"] == 10) {
+    header("Location: public/home_people.php");
+} else if (isset($_SESSION["idUser"]) and $_SESSION["type"] == 13) {
+    header("Location: public/home_uni.php");
+}
+?>
