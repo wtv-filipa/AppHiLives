@@ -1,5 +1,6 @@
 <?php
 session_start();
+if (isset($_SESSION["idUser"]) and $_SESSION["type"] == 13) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,3 +36,14 @@ session_start();
 </body>
 
 </html>
+<?php
+} else if (isset($_SESSION["idUser"]) and $_SESSION["type"] == 4) {
+    header("Location: ../admin/index.php");
+} else if (isset($_SESSION["idUser"]) and $_SESSION["type"] == 7) {
+    header("Location: home_companies.php");
+} else  if (isset($_SESSION["idUser"]) and $_SESSION["type"] == 10) {
+    header("Location: home_people.php");
+} else {
+    header("Location: ../public/login.php");
+}
+?>

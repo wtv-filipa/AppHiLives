@@ -42,7 +42,7 @@ if (isset($_GET["info"])) {
                             <?php
                             if (isset($profile_img)) {
                             ?>
-                                <img class="image_profile" src="https://images.unsplash.com/photo-1513721032312-6a18a42c8763?w=152&h=152&fit=crop&crop=faces" alt="<?= $profile_img ?>" />
+                                <img class="image_profile" src="uploads/img_perfil/<?=$img_perfil;?>" alt="<?= $profile_img ?>" />
                             <?php
                             } else {
                             ?>

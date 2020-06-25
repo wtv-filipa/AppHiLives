@@ -1,39 +1,47 @@
 <?php
 session_start();
+if (isset($_SESSION["idUser"]) and $_SESSION["type"] != 4) {
 ?>
-<!DOCTYPE html>
-<html lang="en">
+    <!DOCTYPE html>
+    <html lang="en">
 
-<head>
+    <head>
 
-    <!-- metadados -->
-    <?php include "helpers/meta.php"; ?>
+        <!-- metadados -->
+        <?php include "helpers/meta.php"; ?>
 
-    <title>Mapa da Aplicação</title>
+        <title>Mapa da Aplicação</title>
 
-    <!-- Custom fonts for this template-->
-    <?php include "helpers/fonts.php"; ?>
+        <!-- Custom fonts for this template-->
+        <?php include "helpers/fonts.php"; ?>
 
-    <!-- Custom styles for this template-->
-    <?php include "helpers/css_sitemap.php"; ?>
+        <!-- Custom styles for this template-->
+        <?php include "helpers/css_sitemap.php"; ?>
 
-</head>
+    </head>
 
-<body>
+    <body>
 
-<header class="sticky-top">
-    <!--navbar-->
-    <?php include "components/navbar.php"; ?>
-</header>
+        <header class="sticky-top">
+            <!--navbar-->
+            <?php include "components/navbar.php"; ?>
+        </header>
 
-<main class="container">
-    <?php include "components/sitemap.php"; ?>
-</main>
-<?php include "components/footer.php"; ?>
+        <main class="container">
+            <?php include "components/sitemap.php"; ?>
+        </main>
+        <?php include "components/footer.php"; ?>
 
-<!-- JavaScript-->
-<?php include "helpers/js.php"; ?>
-<?php include "helpers/fontawesome.php"; ?>
-</body>
+        <!-- JavaScript-->
+        <?php include "helpers/js.php"; ?>
+        <?php include "helpers/fontawesome.php"; ?>
+    </body>
 
-</html>
+    </html>
+<?php
+} else if (isset($_SESSION["idUser"]) and $_SESSION["type"] == 4) {
+    header("Location: ../admin/index.php");
+} else {
+    header("Location: ../public/login.php");
+}
+?>
