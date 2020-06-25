@@ -127,11 +127,38 @@ $stmt = mysqli_stmt_init($link);
 
                 <?php
                 if (isset($_SESSION["idUser"])) {
+
                 ?>
                     <div class="col-4 text-center p-0">
+                        <?php
+                        if ($User_type == 10 ) {
+                        ?>
                         <a class="navbar-brand mx-auto" href="home_people.php">
                             <img src="img/logo.png" class="img-responsive logo" alt="Logótipo do HiLives">
                         </a>
+                        <?php
+                        }
+                        ?>
+
+                        <?php
+                        if ($User_type == 7 ) {
+                            ?>
+                            <a class="navbar-brand mx-auto" href="home_companies.php">
+                                <img src="img/logo.png" class="img-responsive logo" alt="Logótipo do HiLives">
+                            </a>
+                            <?php
+                        }
+                        ?>
+
+                        <?php
+                        if ($User_type == 13) {
+                            ?>
+                            <a class="navbar-brand mx-auto" href="home_uni.php">
+                                <img src="img/logo.png" class="img-responsive logo" alt="Logótipo do HiLives">
+                            </a>
+                            <?php
+                        }
+                        ?>
                     </div>
                 <?php
                 } else {

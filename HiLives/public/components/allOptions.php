@@ -2,7 +2,7 @@
 include "navbar_2.php";
 ?>
 <!--UNIVERSIDADES E EMPRESAS-->
-<div class=" mx-auto w-75">
+<div class=" mx-auto div_geral2">
     <div id='wrapper_title' class="mb-4">
         <div class='tagpost-top section' id='tagpost-top'>
             <div class='widget HTML' id='HTML5'>

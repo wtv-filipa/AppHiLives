@@ -83,6 +83,7 @@
      transition: box-shadow 0.3s, transform 0.3s;
      transform: scale(1);
      border: none;
+     height: 376px !important;
  }
 
  .card:hover{
