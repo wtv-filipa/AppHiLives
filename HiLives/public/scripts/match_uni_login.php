@@ -75,7 +75,7 @@ $query23 = "INSERT INTO user_has_vacancies (User_young, Vacancies_idVancancies) 
 
 //MATCH COM REGIAO, CAPACIDADES, ESCOLARIDADE, AREA
 $query20 = "SELECT Educ_lvl_idEduc_lvl FROM users WHERE idUser = ?";
-$query21= "SELECT idVacancies, vacancies.Region_idRegion, User_publicou, vacancies.Educ_lvl_idEduc_lvl, Areas_idAreas, capacities_idcapacities FROM vacancies
+$query21 = "SELECT idVacancies, vacancies.Region_idRegion, User_publicou, vacancies.Educ_lvl_idEduc_lvl, Areas_idAreas, capacities_idcapacities FROM vacancies
             INNER JOIN users ON vacancies.User_publicou = users.idUser
             INNER JOIN user_has_region ON vacancies.User_publicou = user_has_region.User_idUser_region
             INNER JOIN areas ON vacancies.Areas_idAreas = areas.idAreas
@@ -87,14 +87,14 @@ $query21= "SELECT idVacancies, vacancies.Region_idRegion, User_publicou, vacanci
             AND vacancies.Region_idRegion IN (SELECT user_has_region.Region_idRegion FROM user_has_region WHERE user_has_region.User_idUser_region= ?)
             AND capacities_idcapacities IN (SELECT capacities FROM capacities_has_users WHERE users_idUser = ?)
             AND vacancies.Educ_lvl_idEduc_lvl <= ?";
-$capacidades_match = array();
-
+$capacidades_match = [];
+$capacidades_jovem = array();
 if (mysqli_stmt_prepare($stmt2, $query20)) {
     mysqli_stmt_bind_param($stmt2, 'i', $idUser);
     mysqli_stmt_execute($stmt2);
     mysqli_stmt_bind_result($stmt2, $Educ_lvl_idEduc_lvl_young);
     if (mysqli_stmt_fetch($stmt2)) {
-            //echo $Educ_lvl_idEduc_lvl_young;
+        //echo $Educ_lvl_idEduc_lvl_young;
 
         if (mysqli_stmt_prepare($stmt3, $query21)) {
             mysqli_stmt_bind_param($stmt3, 'iiii', $idUser, $idUser, $idUser, $Educ_lvl_idEduc_lvl_young);
@@ -102,7 +102,7 @@ if (mysqli_stmt_prepare($stmt2, $query20)) {
             mysqli_stmt_execute($stmt3);
             mysqli_stmt_bind_result($stmt3, $idVacancies, $Region_idRegion, $User_publicou, $Educ_lvl_idEduc_lvl, $Areas_idAreas, $capacities_idcapacities_match);
             while (mysqli_stmt_fetch($stmt3)) {
-//                echo "<br>IDVAGA: $idVacancies ____ Nível de educação: $Educ_lvl_idEduc_lvl";
+                //                echo "<br>IDVAGA: $idVacancies ____ Nível de educação: $Educ_lvl_idEduc_lvl";
                 $query22 = "SELECT vacancies_idVacancies, capacities_idcapacities FROM vacancies_has_capacities WHERE vacancies_idVacancies = ?";
 
                 if (mysqli_stmt_prepare($stmt2, $query22)) {
@@ -111,22 +111,57 @@ if (mysqli_stmt_prepare($stmt2, $query20)) {
                     mysqli_stmt_bind_result($stmt2, $vacancies_idVacancies, $capacities_idcapacities);
                     while (mysqli_stmt_fetch($stmt2)) {
 
-                        array_push($capacidades_match, $capacities_idcapacities_match);
-                        //var_dump($capacidades_match);
+                        //array_push($capacidades_match, $capacities_idcapacities_match);
+                        //array com as capacidades da vaga
+                        if ($capacidades_match[$idVacancies] === NULL) {
+                            $capacidades_match[$idVacancies] = [];
+                        }
+                        if (!in_array($capacities_idcapacities, $capacidades_match[$idVacancies])) {
+                            array_push($capacidades_match[$idVacancies], $capacities_idcapacities);
+                        }
+                        //array capacidades jovem (que já fazem match)
+                        array_push($capacidades_jovem, $capacities_idcapacities_match);
+                        //match
+                       //vagas= capacidades todas dentro da vaga aka key
+                        
                         echo "<br>idvaga_primeiro: $idVacancies";
                         echo "<br>idvaga: $vacancies_idVacancies";
                         echo "<br>vaga: $capacities_idcapacities";
                         echo "<br>match: $capacities_idcapacities_match<br>";
 
-//                        $search_val = in_array($capacities_idcapacities, $capacidades_match);
-//                        echo "<br>PROCURA: $search_val";
-//                        if ($search_val == false) {
-//                            //echo "REGIÃO NÃO EXISTE NO ARRAY! <br>";
-//                            echo "<br>$vacancies_idVacancies";
-//                            echo "<br>Capacidades da vaga: $capacities_idcapacities";
-//
-//                        }
+                        //                        $search_val = in_array($capacities_idcapacities, $capacidades_match);
+                        //                        echo "<br>PROCURA: $search_val";
+                        //                        if ($search_val == false) {
+                        //                            //echo "REGIÃO NÃO EXISTE NO ARRAY! <br>";
+                        //                            echo "<br>$vacancies_idVacancies";
+                        //                            echo "<br>Capacidades da vaga: $capacities_idcapacities";
+                        //
+                        //                        }
                     }
+                    foreach ($capacidades_match as $key => $vagas) {
+                        $capacidades_matched= array();
+                        $capacidades_not_matched = array();
+                        foreach ($vagas as $capacidades) {
+
+                            if (in_array($capacidades, $capacidades_jovem)) {
+                                array_push($capacidades_matched, $capacidades);
+                            } else {
+                                array_push($capacidades_not_matched, $capacidades);
+                            }
+                        }
+                        if (count($capacidades_not_matched) == 0) {
+                            # MATCH! :)
+                            echo "match!";
+                            echo $key;
+                            echo "<br>";
+                        } else {
+                            # programa de aprendizagem
+                            echo "percurso";
+                            echo $key;
+                            echo "<br>";
+                        }
+                    }
+                    print_r($capacidades_match);
                 }
             }
         }

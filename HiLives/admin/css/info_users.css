@@ -162,3 +162,6 @@
             top: 7%;
         }
     }
+    .modal-content{
+        width: 120% !important;
+    }

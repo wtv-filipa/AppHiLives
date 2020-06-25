@@ -37,11 +37,11 @@ if (isset($_GET["edit"])) {
                             <div class="col-xs-12 col-md-4">
 
                                 <div class="text-center">
-                                    <form class="form-horizontal" role="form" method="post" action="scripts/upload_img.php?id=<?= $idUser ?>" enctype="multipart/form-data">
                                         <div class="avatar-upload">
                                             <div class="avatar-edit">
-                                                <input style="display: none" type="file" id="fileToUpload" name="fileToUpload" accept=".png, .jpg, .jpeg" />
+                                                <input style="display: none" type="file" id="fileToUpload" name="fileToUpload image" accept=".png, .jpg, .jpeg" />
                                                 <label class="label" for="fileToUpload"><i class="fas fa-edit mx-auto my-auto  text-align-center"></i></label>
+                                                <input id="userIDhidden" value="<?=$idUser?>" style="display: none;"></input>
                                             </div>
                                             <?php
                                             //var_dump($img_perfil);
@@ -71,7 +71,7 @@ if (isset($_GET["edit"])) {
                                                 <div class="modal-body">
                                                     <div class="row mx-auto">
                                                         <div class="col-12 text-center">
-                                                            <div id="image_demo" style="width:350px; display:block; margin:auto;"></div>
+                                                            <div id="image_demo" style="display:block; margin:auto;"></div>
                                                         </div>
 
                                                     </div>
@@ -79,7 +79,7 @@ if (isset($_GET["edit"])) {
                                                 <div class="modal-footer">
                                                     <div class="row">
                                                         <div class="col-md-4">
-                                                            <button class="buttonCustomise btn btn-primary crop_image" type="submit" value="Upload Image" name="Submit"> Editar</button>
+                                                            <button class="buttonCustomise btn btn-primary crop_image" value="Upload Image" name="Submit"> Editar</button>
                                                         </div>
                                                         <div class="col-md-4">
                                                             <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
@@ -90,7 +90,6 @@ if (isset($_GET["edit"])) {
                                         </div>
                                     </div>
                                         <!------------------->
-                                    </form>
                                 </div>
                             </div>
 
@@ -524,12 +523,12 @@ if (isset($_GET["edit"])) {
 
                             <div class="col-xs-12 col-md-4">
 
-                                <div class="text-center">
-                                    <form class="form-horizontal" role="form" method="post" action="scripts/upload_img.php?id=<?= $idUser ?>" enctype="multipart/form-data">
+                            <div class="text-center">
                                         <div class="avatar-upload">
                                             <div class="avatar-edit">
-                                                <input style="display: none" type="file" id="fileToUpload" name="fileToUpload" accept=".png, .jpg, .jpeg" />
+                                                <input style="display: none" type="file" id="fileToUpload" name="fileToUpload image" accept=".png, .jpg, .jpeg" />
                                                 <label class="label" for="fileToUpload"><i class="fas fa-edit mx-auto my-auto  text-align-center"></i></label>
+                                                <input id="userIDhidden" value="<?=$idUser?>" style="display: none;"></input>
                                             </div>
                                             <?php
                                             //var_dump($img_perfil);
@@ -550,35 +549,34 @@ if (isset($_GET["edit"])) {
                                         </div>
                                         <!----------------------MODAL DE CROP--------------->
                                         <div id="uploadimageModal" class="modal" role="dialog">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                        <h4 class="modal-title">Importar e cortar a imagem de perfil</h4>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <div class="row">
-                                                            <div class="col-md-8 text-center">
-                                                                <div id="image_demo" style="width:350px; margin-top:30px"></div>
-                                                            </div>
-                                                            <div class="col-md-4" style="padding-top:30px;">
-                                                                <br />
-                                                                <br />
-                                                                <br />
-                                                                <button class="buttonCustomise btn btn-primary crop_image" type="submit" value="Upload Image" name="Submit"> Editar
-                                                                </button>
-                                                            </div>
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title">Importar e cortar a imagem de perfil</h4>
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="row mx-auto">
+                                                        <div class="col-12 text-center">
+                                                            <div id="image_demo" style="display:block; margin:auto;"></div>
                                                         </div>
+
                                                     </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar
-                                                        </button>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                            <button class="buttonCustomise btn btn-primary crop_image" value="Upload Image" name="Submit"> Editar</button>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
                                         <!------------------->
-                                    </form>
                                 </div>
                             </div>
 

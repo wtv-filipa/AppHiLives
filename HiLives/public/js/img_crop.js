@@ -1,24 +1,24 @@
-$(document).ready(function() {
+$(document).ready(function () {
 
     $image_crop = $('#image_demo').croppie({
         enableExif: true,
         viewport: {
-            width: 200,
-            height: 200,
-            type: 'circle' //circle
+            width: 400,
+            height: 400,
+            type: 'square' //circle
         },
         boundary: {
-            width: 300,
-            height: 300
+            width: 500,
+            height: 500
         }
     });
 
-    $('#fileToUpload').on('change', function() {
+    $('#fileToUpload').on('change', function () {
         var reader = new FileReader();
-        reader.onload = function(event) {
+        reader.onload = function (event) {
             $image_crop.croppie('bind', {
                 url: event.target.result
-            }).then(function() {
+            }).then(function () {
                 console.log('jQuery bind complete');
             });
         };
@@ -26,21 +26,27 @@ $(document).ready(function() {
         $('#uploadimageModal').modal('show');
     });
 
-    $('.crop_image').click(function(event) {
+    let nome = $('#userIDhidden').val();
+
+    $('.crop_image').click(function (event) {
         $image_crop.croppie('result', {
             type: 'canvas',
             size: 'viewport'
-        }).then(function(response) {
+        }).then(function (response) {
             $.ajax({
                 url: "scripts/upload_img.php",
                 type: "POST",
                 data: {
-                    "image": response
+                    "image": response,
+                    "name": nome
                 },
-                success: function(data) {
+                success: function (data) {
                     $('#uploadimageModal').modal('hide');
                     $('#img_perf').html(data);
                 }
+            });
+            $(document).ajaxStop(function(){
+                window.location.reload();
             });
         })
     });
