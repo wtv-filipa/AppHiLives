@@ -31,7 +31,6 @@ session_start();
     <script>
         $('.modal_problem').appendTo("body");
     </script>
-    <?php include "scripts/confirm.php";?>
 </body>
 
 </html>

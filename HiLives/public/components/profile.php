@@ -418,7 +418,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                 } else if ($type_user == "Empresa") {
                     ?>
 
-                    <div class="tabs">
+                    <div class="tabs tabs2">
                         <input type="radio" id="tab1" name="tab-control" checked>
                         <input type="radio" id="tab2" name="tab-control">
                         <ul>
@@ -599,9 +599,11 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                 } else {
                     //UNIVERSIDADES
                     ?>
-                    <div class="tabs mb-5">
+                    <div class="tabs tabs2 mb-5">
                         <input type="radio" id="tab1" name="tab-control" checked>
                         <input type="radio" id="tab2" name="tab-control">
+
+
                         <ul>
                             <!--1-->
                             <li title="Áreas">
