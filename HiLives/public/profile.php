@@ -22,7 +22,6 @@ if (isset($_SESSION["idUser"]) and $_SESSION["type"] != 4) {
             <?php include "components/navbar.php"; ?>
         </header>
         <main class="container">
-
             <?php include "components/profile.php"; ?>
         </main>
         <?php include "components/footer.php"; ?>
@@ -32,7 +31,6 @@ if (isset($_SESSION["idUser"]) and $_SESSION["type"] != 4) {
         <script>
             $('.modal_problem').appendTo("body");
         </script>
-        <?php include "scripts/confirm.php"; ?>
     </body>
 
     </html>
