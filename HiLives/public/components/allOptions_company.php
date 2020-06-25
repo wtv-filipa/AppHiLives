@@ -14,7 +14,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
     mysqli_stmt_bind_result($stmt, $idVacancies, $vacancie_name, $User_publicou, $name_user, $profile_img);
     ?>
     <!--EMPRESAS-->
-    <div class=" mx-auto w-75">
+    <div class=" mx-auto div_geral2">
         <div id='wrapper_title' class="mb-4">
             <div class='tagpost-top section' id='tagpost-top'>
                 <div class='widget HTML' id='HTML5'>
@@ -35,11 +35,11 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                             <?php
                             if (isset($profile_img)) {
                                 ?>
-                                <img class="imagem img-fluid" src="../admin/uploads/img_perfil/<?= $profile_img?>">
+                                <img class="imagem_db" src="../admin/uploads/img_perfil/<?= $profile_img?>">
                                 <?php
                             } else {
                                 ?>
-                                <img class="imagem img-fluid" src="img/index_3.png">
+                                <img class="imagem" src="img/def_comp.png" alt="sem imagem de perfil">
 
                                 <?php
                             }
