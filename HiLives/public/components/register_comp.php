@@ -281,7 +281,7 @@
                                             <!------------DESCRIÇÃO------------>
                                             <div class="form-group">
                                                 <label class="negrito mt-3" for="desc">Descrição <span style="color: #00A5CF!important; font-weight: bold; font-size: 20px">*</span></label>
-                                                <textarea class="form-control " id="exp_t" rows="2" name="desc" placeholder="Escreva aqui uma descrição" required="required"></textarea>
+                                                <textarea class="form-control " id="exp_t" rows="5" name="desc" placeholder="Escreva aqui uma descrição" required="required"></textarea>
                                             </div>
 
 

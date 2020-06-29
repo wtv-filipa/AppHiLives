@@ -132,7 +132,7 @@ if (!empty($_POST["nome"]) && !empty($_POST["email"]) && !empty($_POST["data_nas
         include "match_uni.php";
         mysqli_stmt_close($stmt);
         mysqli_close($link);
-        //header("Location: ../login.php");
+        header("Location: ../login.php");
     }
 }else{
     echo"falta o preenchimento de campos obrigatórios";
