@@ -58,7 +58,6 @@ if (isset($_SESSION["idUser"])) {
                                     </div>
                                     <ul class="menu-dropdown">
                                          <li> <a class="btn" style="width:100%; font-size: 0.8rem;" href="can_choose_study.php">As minhas ligações</a></li>
-                                        <li> <a class="btn" style="width:100%; font-size: 0.8rem;" href="allOptions_uni.php">Todas as opções disponíveis</a></li>
                                     </ul>
                                 </div>
                             </li>
@@ -101,11 +100,10 @@ if (isset($_SESSION["idUser"])) {
                         <li class="col-lg-4 col-sm-12 p-0">
                             <div class="menu">
                                 <div class="menu-title mb-0">
-                                    <h5 class='mx-auto titulo'>OUTRO TITULO</h5>
+                                    <h5 class='mx-auto titulo'>Vagas de Empresas</h5>
                                 </div>
                                 <ul class="menu-dropdown">
-                                    <li> <a class="btn" style="width:100%; font-size: 0.8rem;" href="can_choose_study.php">As minhas ligações</a></li>
-                                    <li> <a class="btn" style="width:100%; font-size: 0.8rem;" href="allOptions_uni.php">Todas as opções disponíveis</a></li>
+                                    <li> <a class="btn" style="width:100%; font-size: 0.8rem;" href="allOptions_company.php?user=<?= $idUser?>">Ver todas as vagas</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -145,11 +143,10 @@ if (isset($_SESSION["idUser"])) {
                         <li class="col-lg-4 col-sm-12 p-0">
                             <div class="menu">
                                 <div class="menu-title mb-0">
-                                    <h5 class='mx-auto titulo'>OUTRO TITULO</h5>
+                                    <h5 class='mx-auto titulo'>Experiências de Jovens</h5>
                                 </div>
                                 <ul class="menu-dropdown">
-                                    <li> <a class="btn" style="width:100%; font-size: 0.8rem;" href="can_choose_study.php">As minhas ligações</a></li>
-                                    <li> <a class="btn" style="width:100%; font-size: 0.8rem;" href="allOptions_uni.php">Todas as opções disponíveis</a></li>
+                                    <li> <a class="btn" style="width:100%; font-size: 0.8rem;" href="experiences.php">Ver todas as experiências</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -171,22 +168,7 @@ if (isset($_SESSION["idUser"])) {
                             </div>
                         </li>
                         <?php
-                        } else if ($type_user == "Universidade") {
-                            ?>
-                            <li class="col-lg-4 col-sm-12 p-0">
-                                <div class="menu">
-                                    <div class="menu-title mb-0">
-                                        <h5 class='mx-auto titulo'>OUTRO TITULO</h5>
-                                    </div>
-                                    <ul class="menu-dropdown">
-                                        <li> <a class="btn" style="width:100%; font-size: 0.8rem;" href="can_choose_study.php">As minhas ligações</a></li>
-                                        <li> <a class="btn" style="width:100%; font-size: 0.8rem;" href="allOptions_uni.php">Todas as opções disponíveis</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <!---*******************************-->
-                                <?php
-                            }
+                        }
                                 ?>
                             </ul>
                         </div>

@@ -2,6 +2,7 @@
 include "navbar_2.php";
 
 if ($_SESSION["idUser"]) {
+
 $id_navegar = $_SESSION["idUser"];
 
 // We need the function!
@@ -16,13 +17,11 @@ $query1 = "SELECT idVacancies, vacancie_name, Areas_idAreas, name_interested_are
                     FROM vacancies
                     INNER JOIN areas ON vacancies.Areas_idAreas = areas.idAreas
                     WHERE User_publicou LIKE ?";
-
 ?>
+
+
 <div class="mx-auto w-75 list_links">
-
-
     <div id='wrapper_title'>
-
         <div class='tagpost-top section' id='tagpost-top'>
             <div class='widget HTML' id='HTML5'>
                 <div data-aos="fade-up">
@@ -39,32 +38,34 @@ $query1 = "SELECT idVacancies, vacancie_name, Areas_idAreas, name_interested_are
                     <div class='widget-content'>
                         <blockquote class="blockquote mb-0">
                             <ul id="notebook_ul">
-                            <?php
-                            if (mysqli_stmt_prepare($stmt, $query1)) {
+                                <?php
 
-                                mysqli_stmt_bind_param($stmt, 'i', $idUser);
-                                mysqli_stmt_execute($stmt);
-                                mysqli_stmt_bind_result($stmt, $idVacancies, $vacancie_name, $Areas_idAreas, $name_interested_area);
-                                while (mysqli_stmt_fetch($stmt)) {
-                                    ?>
-                                        <li class="lista">
-                                            <span class="font-weight-bold"><?= $vacancie_name ?></span>
-                                            <p class="instituicao"><?= $name_interested_area ?></p>
+                                    if (mysqli_stmt_prepare($stmt, $query1)) {
 
-                                            <div class="text-right">
-                                                <a href="edit_vac.php?idvac=<?= $idVacancies ?>">
-                                                    <i class="fas fa-edit mr-1" style="color:#00A5CF!important"></i>
-                                                </a>
-                                                <a href="#" data-toggle="modal" data-target="#deletevac<?= $idVacancies ?>">
-                                                    <i class="fas fa-trash mr-1" style="color:#2F2F2F!important"></i>
-                                                </a>
-                                            </div>
-                                        </li>
-                                    <?php
-                                    include('components/delete_modal.php');
-                                }
-                            }
-                            ?>
+                                        mysqli_stmt_bind_param($stmt, 'i', $idUser);
+                                        mysqli_stmt_execute($stmt);
+                                        mysqli_stmt_bind_result($stmt, $idVacancies, $vacancie_name, $Areas_idAreas, $name_interested_area);
+                                        while (mysqli_stmt_fetch($stmt)) {
+                                            ?>
+                                            <li class="lista">
+                                                <span class="font-weight-bold"><?= $vacancie_name ?></span>
+                                                <p class="instituicao"><?= $name_interested_area ?></p>
+
+                                                <div class="text-right">
+                                                    <a href="edit_vac.php?idvac=<?= $idVacancies ?>">
+                                                        <i class="fas fa-edit mr-1" style="color:#00A5CF!important"></i>
+                                                    </a>
+                                                    <a href="#" data-toggle="modal"
+                                                       data-target="#deletevac<?= $idVacancies ?>">
+                                                        <i class="fas fa-trash mr-1" style="color:#2F2F2F!important"></i>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                            <?php
+                                            include('components/delete_modal.php');
+                                        }
+                                    }
+                                ?>
                             </ul>
                         </blockquote>
                     </div>
@@ -73,6 +74,5 @@ $query1 = "SELECT idVacancies, vacancie_name, Areas_idAreas, name_interested_are
         </div>
     </div>
     <?php
-
     }
     ?>
