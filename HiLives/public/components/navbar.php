@@ -122,12 +122,12 @@ $stmt = mysqli_stmt_init($link);
                                     </li>
                                     <li>
                                         <a href="can_choose_study.php" class="nav__link mr-2 mb-1 zoom">
-                                            <span class="nav__link--text">As minha ligações</span>
+                                            <span class="nav__link--text">As minhas ligações</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="" class="nav__link mr-2 mb-1 zoom">
-                                            <span class="nav__link--text">Todos os candidatos possíveis</span>
+                                        <a href="allOptions_uni.php" class="nav__link mr-2 mb-1 zoom">
+                                            <span class="nav__link--text">Todos os jovens</span>
                                         </a>
                                     </li>
                                     <!-- VAGAS DE EMPRESAS -->
@@ -138,7 +138,7 @@ $stmt = mysqli_stmt_init($link);
                                     </li>
                                     <li>
                                         <a href="allOptions_company.php" class="nav__link mr-2 mb-1 zoom">
-                                            <span class="nav__link--text">Ver todas as vagas</span>
+                                            <span class="nav__link--text">Todas as vagas</span>
 
                                         </a>
                                     </li>
@@ -151,7 +151,7 @@ $stmt = mysqli_stmt_init($link);
                                     </li>
                                     <li>
                                         <a href="experiences.php" class="nav__link mr-2 mb-1 zoom">
-                                            <span class="nav__link--text">Ver todas as experiências</span>
+                                            <span class="nav__link--text">Todas as experiências</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -167,13 +167,13 @@ $stmt = mysqli_stmt_init($link);
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="" class="nav__link mr-2 mb-1 zoom">
-                                                <span class="nav__link--text">Ver os meus candidatos</span>
+                                            <a href="can_choose_work.php" class="nav__link mr-2 mb-1 zoom">
+                                                <span class="nav__link--text">Os meus candidatos</span>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="" class="nav__link mr-2 mb-1 zoom">
-                                                <span class="nav__link--text">Ver todas as ligações</span>
+                                            <a href="allOptions_company.php" class="nav__link mr-2 mb-1 zoom">
+                                                <span class="nav__link--text">Todos os jovens</span>
                                             </a>
                                         </li>
                                         <!-- VAGAS DE EMPRESAS -->
@@ -184,7 +184,7 @@ $stmt = mysqli_stmt_init($link);
                                         </li>
                                         <li>
                                             <a href="all_vacancies_comp.php" class="nav__link mr-2 mb-1 zoom">
-                                                <span class="nav__link--text">Ver todas as minhas vagas</span>
+                                                <span class="nav__link--text">As minhas vagas</span>
                                             </a>
                                         </li>
                                         <li>
@@ -201,7 +201,7 @@ $stmt = mysqli_stmt_init($link);
                                         </li>
                                         <li>
                                             <a href="experiences.php" class="nav__link mr-2 mb-1 zoom">
-                                                <span class="nav__link--text">Ver todas as experiências</span>
+                                                <span class="nav__link--text">Todas as experiências</span>
                                             </a>
                                         </li>
                                     </ul>

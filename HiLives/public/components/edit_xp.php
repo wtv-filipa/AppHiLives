@@ -37,7 +37,7 @@ if (isset($_GET["edit_xp"]) && isset($_SESSION["idUser"])) {
                     <!--segundo campo-->
                     <div class="form-group text-left mt-4">
                         <label class="label-margin" for="descricao">Descrição do vídeo:</label>
-                        <textarea type="text" id="descricao" name="descricao" class="form-control" placeholder="Escreve aqui a descrição que melhor descreve o vídeo da tua experiência"> <?= $description?></textarea>
+                        <textarea type="text" id="descricao" name="descricao" rows="7" class="form-control" placeholder="Escreve aqui a descrição que melhor descreve o vídeo da tua experiência"> <?= $description?></textarea>
                     </div>
                     <!-------------------------------------------->
                     <div>

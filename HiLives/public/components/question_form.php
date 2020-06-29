@@ -37,7 +37,7 @@
                 <label class="label-margin" for="sugestao">Dúvida/Sugestão:</label>
                 <input type="text" name="assunto" class="form-control mb-1"
                        placeholder="Escreve aqui o assunto do teu e-mail...">
-                <textarea rows="5" type="text" id="sugestao" name="sugestao" class="form-control" maxlength="500"
+                <textarea rows="7" type="text" id="sugestao" name="sugestao" class="form-control" maxlength="500"
                           placeholder="Escreve aqui a tua dúvida ou sugestão..."></textarea>
             </div>
             <!-------------------------------------------->

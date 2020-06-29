@@ -390,16 +390,11 @@ if (isset($_GET["edit"])) {
                                     <!------------EXPERIÊNCIA DE TRABALHO------------>
                                     <div class="form-group text-left">
                                         <label class="negrito mt-3" for="exp_t">Experiência de trabalho</label>
-                                        <textarea class="form-control " id="exp_t" rows="2" name="work" placeholder="Escreve aqui a tua experiência de trabalho"><?= $work_xp ?></textarea>
+                                        <textarea class="form-control " id="exp_t" rows="5" name="work" placeholder="Escreve aqui a tua experiência de trabalho"><?= $work_xp ?></textarea>
                                     </div>
                                     <!----------------------->
 
-
-
-
-
                                     <!--EDITEI A PARTIR DAQUI-->
-
 
                                     <hr>
 
@@ -492,7 +487,7 @@ if (isset($_GET["edit"])) {
                                     <!--quinto input-DID-->
                                     <div class="form-group text-left">
                                         <label for="def">O que mais posso dizer sobre mim <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
-                                        <textarea class="form-control cinza" id="def" rows="2" name="def" placeholder="Por exemplo: Sei usar computador, Sei falar outras línguas para além da minha, gosto de desenhar, pintar, pratico desporto, etc. &#10;Se tiveres alguma necessidade indica aqui também (por exemplo: elevador e/ou rampas de acesso)." required="required"><?= $info_young ?></textarea>
+                                        <textarea class="form-control cinza" id="def" rows="7" name="def" placeholder="Por exemplo: Se tiveres alguma necessidade indica aqui (como necessidade de elevador e/ou rampas de acesso)." required="required"><?= $info_young ?></textarea>
                                     </div>
                                     <!----------------------->
                                     <!---div com o valor de edit para poder voltar para aqui-->

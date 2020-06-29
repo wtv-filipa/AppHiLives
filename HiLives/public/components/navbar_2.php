@@ -43,8 +43,8 @@ if (isset($_SESSION["idUser"])) {
                                     <h5 class='mx-auto titulo'>Candidatos</h5>
                                 </div>
                                 <ul class="menu-dropdown">
-                                    <li> <a class="btn" style="width:100%; font-size: 0.8rem;" href="all_vacancies_comp.php">Os meus candidatos</a></li>
-                                    <li> <a class="btn" style="width:100%; font-size: 0.8rem;" href="upload_vac.php">Todas as ligações</a></li>
+                                    <li> <a class="btn" style="width:100%; font-size: 0.8rem;" href="can_choose_work.php">Os meus candidatos</a></li>
+                                    <li> <a class="btn" style="width:100%; font-size: 0.8rem;" href="allOptions_company.php">Todos os jovens</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -58,7 +58,7 @@ if (isset($_SESSION["idUser"])) {
                                     </div>
                                     <ul class="menu-dropdown">
                                         <li> <a class="btn" style="width:100%; font-size: 0.8rem;" href="can_choose_study.php">As minhas ligações</a></li>
-                                        <li> <a class="btn" style="width:100%; font-size: 0.8rem;" href="allOptions_uni.php">Todos os candidatos possíveis</a></li>
+                                        <li> <a class="btn" style="width:100%; font-size: 0.8rem;" href="allOptions_uni.php">Todos os jovens</a></li>
                                     </ul>
                                 </div>
                             </li>

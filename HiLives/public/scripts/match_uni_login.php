@@ -68,10 +68,8 @@ $link2 = new_db_connection();
 $stmt2 = mysqli_stmt_init($link2);
 $link3 = new_db_connection();
 $stmt3 = mysqli_stmt_init($link3);
-
-
-$query23 = "INSERT INTO user_has_vacancies (User_young, Vacancies_idVancancies) VALUES (?, ?)";
-
+$link4 = new_db_connection();
+$stmt4 = mysqli_stmt_init($link4);
 
 //MATCH COM REGIAO, CAPACIDADES, ESCOLARIDADE, AREA
 $query20 = "SELECT Educ_lvl_idEduc_lvl FROM users WHERE idUser = ?";
@@ -87,6 +85,12 @@ $query21 = "SELECT idVacancies, vacancies.Region_idRegion, User_publicou, vacanc
             AND vacancies.Region_idRegion IN (SELECT user_has_region.Region_idRegion FROM user_has_region WHERE user_has_region.User_idUser_region= ?)
             AND capacities_idcapacities IN (SELECT capacities FROM capacities_has_users WHERE users_idUser = ?)
             AND vacancies.Educ_lvl_idEduc_lvl <= ?";
+
+//inserir quando dá match/percurso
+$query23 = "INSERT INTO user_has_vacancies (User_young, Vacancies_idVacancies, match_perc) VALUES (?, ?, ?)";
+//inserir capacidades para o percurso
+$query24 = "INSERT INTO learning_path_capacities (fk_match_vac, missing_learn) VALUES (?, ?)";
+
 $capacidades_match = [];
 $capacidades_jovem = array();
 if (mysqli_stmt_prepare($stmt2, $query20)) {
@@ -120,14 +124,16 @@ if (mysqli_stmt_prepare($stmt2, $query20)) {
                             array_push($capacidades_match[$idVacancies], $capacities_idcapacities);
                         }
                         //array capacidades jovem (que já fazem match)
-                        array_push($capacidades_jovem, $capacities_idcapacities_match);
+                        if (!in_array($capacities_idcapacities_match, $capacidades_jovem)) {
+                            array_push($capacidades_jovem, $capacities_idcapacities_match);
+                        }
                         //match
-                       //vagas= capacidades todas dentro da vaga aka key
-                        
-                        echo "<br>idvaga_primeiro: $idVacancies";
+                        //vagas= capacidades todas dentro da vaga aka key
+
+                        /* echo "<br>idvaga_primeiro: $idVacancies";
                         echo "<br>idvaga: $vacancies_idVacancies";
                         echo "<br>vaga: $capacities_idcapacities";
-                        echo "<br>match: $capacities_idcapacities_match<br>";
+                        echo "<br>match: $capacities_idcapacities_match<br>"; */
 
                         //                        $search_val = in_array($capacities_idcapacities, $capacidades_match);
                         //                        echo "<br>PROCURA: $search_val";
@@ -139,7 +145,7 @@ if (mysqli_stmt_prepare($stmt2, $query20)) {
                         //                        }
                     }
                     foreach ($capacidades_match as $key => $vagas) {
-                        $capacidades_matched= array();
+                        $capacidades_matched = array();
                         $capacidades_not_matched = array();
                         foreach ($vagas as $capacidades) {
 
@@ -149,19 +155,26 @@ if (mysqli_stmt_prepare($stmt2, $query20)) {
                                 array_push($capacidades_not_matched, $capacidades);
                             }
                         }
-                        if (count($capacidades_not_matched) == 0) {
-                            # MATCH! :)
-                            echo "match!";
-                            echo $key;
-                            echo "<br>";
-                        } else {
-                            # programa de aprendizagem
-                            echo "percurso";
-                            echo $key;
-                            echo "<br>";
-                        }
+                    } //fim do primeiro foreach
+                    if (count($capacidades_not_matched) <= 1) {
+                        # MATCH! :)
+                        echo "match!";
+                        echo "<br> vaga: $key";
+                        echo "<br>";
+                    } else  if (count($capacidades_not_matched) == 2 || count($capacidades_not_matched) == 3) {
+
+                        # programa de aprendizagem
+                        echo "percurso";
+                        echo "<br> vaga: $key";
+                        echo "<br>";
+                    } else if (count($capacidades_not_matched) >= 4) {
+                        echo "não tem match";
+                        echo "<br> vaga: $key";
+                        echo "<br>";
+                        /***********************************/
                     }
-                    print_r($capacidades_match);
+
+                    /*  print_r($capacidades_match); */
                 }
             }
         }

@@ -11,8 +11,10 @@
                         <div class="col-12">
                             <div class="p-5">
                                 <div class="text-center">
-                                    <img class="pb-5 img-fluid" src="img/logo.png">
-                                    <h1 class="h4 negrito mb-4">Junta-te a nós!</h1>
+                                    <a href="../index.php">
+                                        <img class="pb-4 img-fluid re_size" src="img/logo.png" alt="Logótipo do HiLives">
+                                    </a>
+                                    <h4 class="h4 negrito mb-4">Junte-se a nós!</h4>
                                 </div>
                                 <?php
                                 if (isset($_GET["msg"])) {
@@ -51,265 +53,248 @@
                                     require_once("connections/connection.php");
                                     $link = new_db_connection();
                                     $stmt = mysqli_stmt_init($link);
-                                  ?>
-                                            <!------------****------------>
-                                            <p style="font-size: 12px; color: #00A5CF !important;">* Preenchimento obrigatório</p>
-                                            <!------------NOME------------>
-                                            <div class="form-group">
-                                                <label class="negrito" for="username">Nome <span style="color: #00A5CF!important; font-weight: bold; font-size: 20px">*</span></label>
-                                                <div class=" p-0 m-0">
-                                                    <input type="text" class="form-control cinza" id="username"
-                                                           name="nome"
-                                                           placeholder="Escreva aqui o nome da empresa"
-                                                           required="required">
-                                                </div>
-                                            </div>
-                                            <!------------EMAIL------------>
-                                            <div class="form-group">
-                                                <label class="negrito mt-3" for="email">Email <span style="color: #00A5CF!important; font-weight: bold; font-size: 20px">*</span></label>
-                                                <div class="p-0 m-0">
-                                                    <input type="email" class="form-control cinza" id="email"
-                                                           name="email"
-                                                           placeholder="Escreva aqui o email da empresa"
-                                                           required="required" onchange="email_validate(this.value);">
-                                                </div>
-                                            </div>
-                                            <!------------DATA DE FUNDAÇÃO------------>
-                                            <div class="form-group">
-                                                <label class="negrito mt-3" for="data_fund">Data de fundação <span style="color: #00A5CF!important; font-weight: bold; font-size: 20px">*</span></label>
-                                                <div class="p-0 m-0">
-                                                    <input type="date" class="form-control cinza" id="data_fund"
-                                                           name="data_fund"
-                                                           placeholder="Data de fundação da empresa"  required="required">
-                                                </div>
-                                            </div>
-                                            <!------------TELEFONE------------>
-                                            <div class="form-group">
-                                                <label class="negrito mt-3" for="phone">Contacto telefónico <span style="color: #00A5CF!important; font-weight: bold; font-size: 20px">*</span></label>
-                                                <div class="p-0 m-0">
-                                                    <input type="tel" class="form-control cinza" id="phone" name="phone"
-                                                           placeholder="Escreva aqui o contacto telefónico da empresa" required="required">
-                                                </div>
-                                            </div>
-                                            <!------------PAÍS------------>
-                                            <div class="form-group">
-                                                <label class="negrito mt-3" for="pais">Seleciona o país da empresa:
-                                                    <span style="color: #00A5CF!important; font-weight: bold; font-size: 20px">*</span></label>
-                                                <select class="form-control" id="pais">
-                                                    <option value="pt">Portugal</option>
-                                                    <option value="es">Espanha</option>
-                                                    <option value="be">Bélgica</option>
-                                                    <option value="ic">Islândia</option>
-                                                </select>
-                                            </div>
-                                            <!------------REGIÕES DE PORTUGAL------------>
-                                            <div class="form-group formulario" id="pt">
-                                                <div class="form-group text-left">
-                                                    <label class="negrito mt-3" for="regiao_pt">Região da Empresa
-                                                        <span style="color: #00A5CF!important; font-weight: bold; font-size: 20px">*</span>
-                                                    </label>
-                                                    <select class="form-control" id="regiao_pt" name="regiao" required>
-                                                        <option value="" selected disabled>Seleciona uma opção</option>
-                                                        <?php
-                                                        $query2 = "SELECT idRegion, name_region FROM region 
+                                    ?>
+                                    <!------------****------------>
+                                    <p style="font-size: 12px; color: #00A5CF !important;">* Preenchimento obrigatório</p>
+                                    <!------------NOME------------>
+                                    <div class="form-group">
+                                        <label class="negrito" for="username">Nome <span style="color: #00A5CF!important; font-weight: bold; font-size: 20px">*</span></label>
+                                        <div class=" p-0 m-0">
+                                            <input type="text" class="form-control cinza" id="username" name="nome" placeholder="Escreva aqui o nome da empresa" required="required">
+                                        </div>
+                                    </div>
+                                    <!------------EMAIL------------>
+                                    <div class="form-group">
+                                        <label class="negrito mt-3" for="email">Email <span style="color: #00A5CF!important; font-weight: bold; font-size: 20px">*</span></label>
+                                        <div class="p-0 m-0">
+                                            <input type="email" class="form-control cinza" id="email" name="email" placeholder="Escreva aqui o email da empresa" required="required" onchange="email_validate(this.value);">
+                                        </div>
+                                    </div>
+                                    <!------------DATA DE FUNDAÇÃO------------>
+                                    <div class="form-group">
+                                        <label class="negrito mt-3" for="data_fund">Data de fundação <span style="color: #00A5CF!important; font-weight: bold; font-size: 20px">*</span></label>
+                                        <div class="p-0 m-0">
+                                            <input type="date" class="form-control cinza" id="data_fund" name="data_fund" placeholder="Data de fundação da empresa" required="required">
+                                        </div>
+                                    </div>
+                                    <!------------TELEFONE------------>
+                                    <div class="form-group">
+                                        <label class="negrito mt-3" for="phone">Contacto telefónico <span style="color: #00A5CF!important; font-weight: bold; font-size: 20px">*</span></label>
+                                        <div class="p-0 m-0">
+                                            <input type="tel" class="form-control cinza" id="phone" name="phone" placeholder="Escreva aqui o contacto telefónico da empresa" required="required">
+                                        </div>
+                                    </div>
+                                    <!------------PAÍS------------>
+                                    <div class="form-group">
+                                        <label class="negrito mt-3" for="pais">Seleciona o país da empresa:
+                                            <span style="color: #00A5CF!important; font-weight: bold; font-size: 20px">*</span></label>
+                                        <select class="form-control" id="pais">
+                                            <option value="pt">Portugal</option>
+                                            <option value="es">Espanha</option>
+                                            <option value="be">Bélgica</option>
+                                            <option value="ic">Islândia</option>
+                                        </select>
+                                    </div>
+                                    <!------------REGIÕES DE PORTUGAL------------>
+                                    <div class="form-group formulario" id="pt">
+                                        <div class="form-group text-left">
+                                            <label class="negrito mt-3" for="regiao_pt">Região da Empresa
+                                                <span style="color: #00A5CF!important; font-weight: bold; font-size: 20px">*</span>
+                                            </label>
+                                            <select class="form-control" id="regiao_pt" name="regiao" required>
+                                                <option value="" selected disabled>Seleciona uma opção</option>
+                                                <?php
+                                                $query2 = "SELECT idRegion, name_region FROM region 
                                                                     INNER JOIN country ON region.country_idcountry = country.idcountry
                                                                     WHERE name_country = 'Portugal'";
 
-                                                        if (mysqli_stmt_prepare($stmt, $query2)) {
+                                                if (mysqli_stmt_prepare($stmt, $query2)) {
 
-                                                            /* execute the prepared statement */
-                                                            if (mysqli_stmt_execute($stmt)) {
-                                                                /* bind result variables */
-                                                                mysqli_stmt_bind_result($stmt, $idRegion, $name_region);
+                                                    /* execute the prepared statement */
+                                                    if (mysqli_stmt_execute($stmt)) {
+                                                        /* bind result variables */
+                                                        mysqli_stmt_bind_result($stmt, $idRegion, $name_region);
 
-                                                                /* fetch values */
-                                                                while (mysqli_stmt_fetch($stmt)) {
+                                                        /* fetch values */
+                                                        while (mysqli_stmt_fetch($stmt)) {
 
-                                                                    echo "\n\t\t<option value=\"$idRegion\">$name_region</option>";
-                                                                }
-                                                            } else {
-                                                                echo "Error: " . mysqli_stmt_error($stmt);
-                                                            }
-                                                            /* close statement */
-                                                            //mysqli_stmt_close($stmt);
-                                                        } else {
-                                                            echo "Error: " . mysqli_error($link);
+                                                            echo "\n\t\t<option value=\"$idRegion\">$name_region</option>";
                                                         }
-                                                        ?>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <!------------REGIÕES DE ESPANHA------------>
-                                            <div class="form-group formulario" style="display:none;" id="es">
-                                                <div class="form-group text-left">
-                                                    <label class="negrito mt-3" for="regiao_es">Região da Empresa
-                                                        <span style="color: #00A5CF!important; font-weight: bold; font-size: 20px">*</span>
-                                                    </label>
-                                                    <select class="form-control" id="regiao_es" name="regiao">
-                                                        <option selected disabled>Seleciona uma opção</option>
-                                                        <?php
-                                                        $query2 = "SELECT idRegion, name_region FROM region 
+                                                    } else {
+                                                        echo "Error: " . mysqli_stmt_error($stmt);
+                                                    }
+                                                    /* close statement */
+                                                    //mysqli_stmt_close($stmt);
+                                                } else {
+                                                    echo "Error: " . mysqli_error($link);
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!------------REGIÕES DE ESPANHA------------>
+                                    <div class="form-group formulario" style="display:none;" id="es">
+                                        <div class="form-group text-left">
+                                            <label class="negrito mt-3" for="regiao_es">Região da Empresa
+                                                <span style="color: #00A5CF!important; font-weight: bold; font-size: 20px">*</span>
+                                            </label>
+                                            <select class="form-control" id="regiao_es" name="regiao">
+                                                <option selected disabled>Seleciona uma opção</option>
+                                                <?php
+                                                $query2 = "SELECT idRegion, name_region FROM region 
                                                                     INNER JOIN country ON region.country_idcountry = country.idcountry
                                                                     WHERE name_country = 'Espanha'";
 
-                                                        if (mysqli_stmt_prepare($stmt, $query2)) {
+                                                if (mysqli_stmt_prepare($stmt, $query2)) {
 
-                                                            /* execute the prepared statement */
-                                                            if (mysqli_stmt_execute($stmt)) {
-                                                                /* bind result variables */
-                                                                mysqli_stmt_bind_result($stmt, $idRegion, $name_region);
+                                                    /* execute the prepared statement */
+                                                    if (mysqli_stmt_execute($stmt)) {
+                                                        /* bind result variables */
+                                                        mysqli_stmt_bind_result($stmt, $idRegion, $name_region);
 
-                                                                /* fetch values */
-                                                                while (mysqli_stmt_fetch($stmt)) {
+                                                        /* fetch values */
+                                                        while (mysqli_stmt_fetch($stmt)) {
 
-                                                                    echo "\n\t\t<option value=\"$idRegion\">$name_region</option>";
-                                                                }
-                                                            } else {
-                                                                echo "Error: " . mysqli_stmt_error($stmt);
-                                                            }
-                                                            /* close statement */
-                                                            //mysqli_stmt_close($stmt);
-                                                        } else {
-                                                            echo "Error: " . mysqli_error($link);
+                                                            echo "\n\t\t<option value=\"$idRegion\">$name_region</option>";
                                                         }
-                                                        ?>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <!------------REGIÕES DE BÉLGICA------------>
-                                            <div class="form-group formulario" style="display:none;" id="be">
-                                                <div class="form-group text-left">
-                                                    <label class="negrito mt-3" for="regiao_be">Região da Empresa
-                                                        <span style="color: #00A5CF!important; font-weight: bold; font-size: 20px">*</span>
-                                                    </label>
-                                                    <select class="form-control" id="regiao_be" name="regiao">
-                                                        <option selected disabled>Seleciona uma opção</option>
-                                                        <?php
-                                                        $query2 = "SELECT idRegion, name_region FROM region 
+                                                    } else {
+                                                        echo "Error: " . mysqli_stmt_error($stmt);
+                                                    }
+                                                    /* close statement */
+                                                    //mysqli_stmt_close($stmt);
+                                                } else {
+                                                    echo "Error: " . mysqli_error($link);
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!------------REGIÕES DE BÉLGICA------------>
+                                    <div class="form-group formulario" style="display:none;" id="be">
+                                        <div class="form-group text-left">
+                                            <label class="negrito mt-3" for="regiao_be">Região da Empresa
+                                                <span style="color: #00A5CF!important; font-weight: bold; font-size: 20px">*</span>
+                                            </label>
+                                            <select class="form-control" id="regiao_be" name="regiao">
+                                                <option selected disabled>Seleciona uma opção</option>
+                                                <?php
+                                                $query2 = "SELECT idRegion, name_region FROM region 
                                                                     INNER JOIN country ON region.country_idcountry = country.idcountry
                                                                     WHERE name_country = 'Bélgica'";
 
-                                                        if (mysqli_stmt_prepare($stmt, $query2)) {
+                                                if (mysqli_stmt_prepare($stmt, $query2)) {
 
-                                                            /* execute the prepared statement */
-                                                            if (mysqli_stmt_execute($stmt)) {
-                                                                /* bind result variables */
-                                                                mysqli_stmt_bind_result($stmt, $idRegion, $name_region);
+                                                    /* execute the prepared statement */
+                                                    if (mysqli_stmt_execute($stmt)) {
+                                                        /* bind result variables */
+                                                        mysqli_stmt_bind_result($stmt, $idRegion, $name_region);
 
-                                                                /* fetch values */
-                                                                while (mysqli_stmt_fetch($stmt)) {
+                                                        /* fetch values */
+                                                        while (mysqli_stmt_fetch($stmt)) {
 
-                                                                    echo "\n\t\t<option value=\"$idRegion\">$name_region</option>";
-                                                                }
-                                                            } else {
-                                                                echo "Error: " . mysqli_stmt_error($stmt);
-                                                            }
-                                                            /* close statement */
-                                                            //mysqli_stmt_close($stmt);
-                                                        } else {
-                                                            echo "Error: " . mysqli_error($link);
+                                                            echo "\n\t\t<option value=\"$idRegion\">$name_region</option>";
                                                         }
-                                                        ?>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <!------------REGIÕES DE ISLÂNDIA------------>
-                                            <div class="form-group formulario" style="display:none;" id="ic">
-                                                <div class="form-group text-left">
-                                                    <label class="negrito mt-3" for="regiao_ic">Região da Empresa
-                                                        <span style="color: #00A5CF!important; font-weight: bold; font-size: 20px">*</span>
-                                                    </label>
-                                                    <select class="form-control" id="regiao_ic" name="regiao">
-                                                        <option selected disabled>Seleciona uma opção</option>
-                                                        <?php
-                                                        $query2 = "SELECT idRegion, name_region FROM region 
+                                                    } else {
+                                                        echo "Error: " . mysqli_stmt_error($stmt);
+                                                    }
+                                                    /* close statement */
+                                                    //mysqli_stmt_close($stmt);
+                                                } else {
+                                                    echo "Error: " . mysqli_error($link);
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!------------REGIÕES DE ISLÂNDIA------------>
+                                    <div class="form-group formulario" style="display:none;" id="ic">
+                                        <div class="form-group text-left">
+                                            <label class="negrito mt-3" for="regiao_ic">Região da Empresa
+                                                <span style="color: #00A5CF!important; font-weight: bold; font-size: 20px">*</span>
+                                            </label>
+                                            <select class="form-control" id="regiao_ic" name="regiao">
+                                                <option selected disabled>Seleciona uma opção</option>
+                                                <?php
+                                                $query2 = "SELECT idRegion, name_region FROM region 
                                                                     INNER JOIN country ON region.country_idcountry = country.idcountry
                                                                     WHERE name_country = 'Islândia'";
 
-                                                        if (mysqli_stmt_prepare($stmt, $query2)) {
+                                                if (mysqli_stmt_prepare($stmt, $query2)) {
 
-                                                            /* execute the prepared statement */
-                                                            if (mysqli_stmt_execute($stmt)) {
-                                                                /* bind result variables */
-                                                                mysqli_stmt_bind_result($stmt, $idRegion, $name_region);
+                                                    /* execute the prepared statement */
+                                                    if (mysqli_stmt_execute($stmt)) {
+                                                        /* bind result variables */
+                                                        mysqli_stmt_bind_result($stmt, $idRegion, $name_region);
 
-                                                                /* fetch values */
-                                                                while (mysqli_stmt_fetch($stmt)) {
+                                                        /* fetch values */
+                                                        while (mysqli_stmt_fetch($stmt)) {
 
-                                                                    echo "\n\t\t<option value=\"$idRegion\">$name_region</option>";
-                                                                }
-                                                            } else {
-                                                                echo "Error: " . mysqli_stmt_error($stmt);
-                                                            }
-                                                            /* close statement */
-                                                            //mysqli_stmt_close($stmt);
-                                                        } else {
-                                                            echo "Error: " . mysqli_error($link);
+                                                            echo "\n\t\t<option value=\"$idRegion\">$name_region</option>";
                                                         }
-                                                        ?>
-                                                    </select>
-                                                </div>
-                                            </div>
+                                                    } else {
+                                                        echo "Error: " . mysqli_stmt_error($stmt);
+                                                    }
+                                                    /* close statement */
+                                                    //mysqli_stmt_close($stmt);
+                                                } else {
+                                                    echo "Error: " . mysqli_error($link);
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
+                                    </div>
 
 
 
-                                            <!------------WEBSITE------------>
-                                            <div class="form-group">
-                                                <label class="negrito mt-3" for="site">Website <span style="color: #00A5CF!important; font-weight: bold; font-size: 20px">*</span></label>
-                                                <div class="p-0 m-0">
-                                                    <input type="text" class="form-control cinza" id="site" name="site"
-                                                           placeholder="Insira aqui o website da empresa" required="required">
-                                                </div>
-                                            </div>
-                                            <!------------FACEBOOK------------>
-                                            <div class="form-group">
-                                                <label class="negrito mt-3" for="face">Facebook</label>
-                                                <div class="p-0 m-0">
-                                                    <input type="text" class="form-control cinza" id="face" name="face"
-                                                           placeholder="Insira aqui o facebook da empresa">
-                                                </div>
-                                            </div>
-                                            <!------------INSTAGRAM------------>
-                                            <div class="form-group">
-                                                <label class="negrito mt-3" for="insta">Instagram</label>
-                                                <div class="p-0 m-0">
-                                                    <input type="text" class="form-control cinza" id="insta" name="insta"
-                                                           placeholder="Insira aqui o instagram da empresa">
-                                                </div>
-                                            </div>
+                                    <!------------WEBSITE------------>
+                                    <div class="form-group">
+                                        <label class="negrito mt-3" for="site">Website <span style="color: #00A5CF!important; font-weight: bold; font-size: 20px">*</span></label>
+                                        <div class="p-0 m-0">
+                                            <input type="text" class="form-control cinza" id="site" name="site" placeholder="Insira aqui o website da empresa" required="required">
+                                        </div>
+                                    </div>
+                                    <!------------FACEBOOK------------>
+                                    <div class="form-group">
+                                        <label class="negrito mt-3" for="face">Facebook</label>
+                                        <div class="p-0 m-0">
+                                            <input type="text" class="form-control cinza" id="face" name="face" placeholder="Insira aqui o facebook da empresa">
+                                        </div>
+                                    </div>
+                                    <!------------INSTAGRAM------------>
+                                    <div class="form-group">
+                                        <label class="negrito mt-3" for="insta">Instagram</label>
+                                        <div class="p-0 m-0">
+                                            <input type="text" class="form-control cinza" id="insta" name="insta" placeholder="Insira aqui o instagram da empresa">
+                                        </div>
+                                    </div>
 
-                                            <!------------DESCRIÇÃO------------>
-                                            <div class="form-group">
-                                                <label class="negrito mt-3" for="desc">Descrição <span style="color: #00A5CF!important; font-weight: bold; font-size: 20px">*</span></label>
-                                                <textarea class="form-control " id="exp_t" rows="5" name="desc" placeholder="Escreva aqui uma descrição" required="required"></textarea>
-                                            </div>
+                                    <!------------DESCRIÇÃO------------>
+                                    <div class="form-group">
+                                        <label class="negrito mt-3" for="desc">Descrição <span style="color: #00A5CF!important; font-weight: bold; font-size: 20px">*</span></label>
+                                        <textarea class="form-control " id="exp_t" rows="5" name="desc" placeholder="Escreva aqui uma descrição" required="required"></textarea>
+                                    </div>
 
 
-                                            <!------------PASSWORD------------>
-                                            <div class="form-group">
-                                                <label class="negrito mt-3" for="pass">Palavra-passe <span style="color: #00A5CF!important; font-weight: bold; font-size: 20px">*</span></label>
-                                                <div class="p-0 m-0">
-                                                    <input type="password" class="form-control" id="password"
-                                                           name="password"
-                                                           placeholder="Crie a palavra-passe para o HiLives"
-                                                           required="required" onkeyup="checkPass(); return false;">
-                                                </div>
-                                            </div>
-                                            <div class="form-group mb-3">
-                                                <label class="negrito mt-3" for="vpass">Verificar palavra-passe <span style="color: #00A5CF!important; font-weight: bold; font-size: 20px">*</span></label>
-                                                <div class="p-0 m-0">
-                                                    <input type="password" class="form-control" id="password_confirm"
-                                                           placeholder="Repita a palavra-passe" required="required"
-                                                           onkeyup="checkPass(); return false;">
-                                                    <span id="confirmMessage" class="confirmMessage"></span>
-                                                </div>
-                                            </div>
+                                    <!------------PASSWORD------------>
+                                    <div class="form-group">
+                                        <label class="negrito mt-3" for="pass">Palavra-passe <span style="color: #00A5CF!important; font-weight: bold; font-size: 20px">*</span></label>
+                                        <div class="p-0 m-0">
+                                            <input type="password" class="form-control" id="password" name="password" placeholder="Crie a palavra-passe para o HiLives" required="required" onkeyup="checkPass(); return false;">
+                                        </div>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label class="negrito mt-3" for="vpass">Verificar palavra-passe <span style="color: #00A5CF!important; font-weight: bold; font-size: 20px">*</span></label>
+                                        <div class="p-0 m-0">
+                                            <input type="password" class="form-control" id="password_confirm" placeholder="Repita a palavra-passe" required="required" onkeyup="checkPass(); return false;">
+                                            <span id="confirmMessage" class="confirmMessage"></span>
+                                        </div>
+                                    </div>
 
-                                            <div class="form-group text-center">
-                                                <div class="pb-3 pt-2">
-                                                    <button type="submit" class="btn publicar_btn">Registar</button>
-                                                </div>
-                                            </div>
+                                    <div class="form-group text-center">
+                                        <div class="pb-3 pt-2">
+                                            <button type="submit" class="btn publicar_btn">Registar</button>
+                                        </div>
+                                    </div>
                                 </form>
 
                                 <hr>

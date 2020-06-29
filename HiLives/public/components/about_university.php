@@ -30,17 +30,17 @@ if (isset($_GET["u"])) {
         <?php
         if (isset($profile_img)) {
             ?>
-            <img class="img-fluid imagem mb-5" src="../admin/uploads/img_perfil/<?= $profile_img ?>"
-                 alt="<?= $profile_img ?>" width="890" height="250"/>
+            <img class="img-fluid imagem mr-3 mb-2" src="../admin/uploads/img_perfil/<?= $profile_img ?>"
+                 alt="<?= $profile_img ?>" align=left width="350px"/>
             <?php
         } else {
             ?>
-            <img class="img-fluid imagem mb-5" src="img/no_profile_img.png" alt="sem imagem de perfil" width="890" height="250"/>
+            <img class="img-fluid imagem mr-3 mb-2" src="img/uni_icon.png" alt="sem imagem de perfil" align=left width="350px"/>
             <?php
         }
         ?>
 
-        <p class="text-justify"><?= $history_ue ?></p>
+        <p class="text-justify mb-4"><?= $history_ue ?></p>
     </div>
 </div>
 <?php

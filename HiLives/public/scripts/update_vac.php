@@ -73,7 +73,7 @@ if (isset($_GET["idvac"]) && !empty($_POST["nomevaga"]) && !empty($_POST["descri
 
             /* close connection */
             mysqli_close($link);
-            header("Location: ../vacancie.php");
+            header("Location: ../all_vacancies_comp.php");
         }
         }
 

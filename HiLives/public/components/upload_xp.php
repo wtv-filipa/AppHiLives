@@ -46,7 +46,7 @@ if (isset($_SESSION["idUser"])) {
                     <!--segundo campo-->
                     <div class="form-group text-left mt-4">
                         <label class="label-margin" for="descricao">Descrição</label>
-                        <textarea type="text" id="descricao" name="descricao" class="form-control" placeholder="Descreve aqui o vídeo da tua experiência"></textarea>
+                        <textarea type="text" id="descricao" name="descricao" rows="7" class="form-control" placeholder="Descreve aqui o vídeo da tua experiência"></textarea>
                     </div>
                     <!-------------------------------------------->
                     <div>
