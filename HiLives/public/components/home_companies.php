@@ -27,68 +27,16 @@ include "navbar_2.php";
                             <p class="mb-0 link_title">Maria Tavares</p>
                             <p class="mb-0 link_subtitle"><a href="">Ver perfil</a> </p>
                         </li>
-                        <li class='clearfix_companies'>
-                            <a href=""><img alt="" title="" class="tagpost_thumb" src="img/jovem.png"></a>
-                            <p class="mb-0 link_info"><i class="fa fa-briefcase mr-1" aria-hidden="true"></i>Vaga XPTO</p>
-                            <p class="mb-0 link_title">Maria Tavares</p>
-                            <p class="mb-0 link_subtitle"><a href="">Ver perfil</a> </p>
-                        </li>
-                        <li class='clearfix_companies'>
-                            <a href=""><img alt="" title="" class="tagpost_thumb" src="img/jovem.png"></a>
-                            <p class="mb-0 link_info"><i class="fa fa-briefcase mr-1" aria-hidden="true"></i>Vaga XPTO</p>
-                            <p class="mb-0 link_title">Maria Tavares</p>
-                            <p class="mb-0 link_subtitle"><a href="">Ver perfil</a> </p>
-                        </li>
-                        <li class='clearfix_companies'>
-                            <a href=""><img alt="" title="" class="tagpost_thumb" src="img/jovem.png"></a>
-                            <p class="mb-0 link_info"><i class="fa fa-briefcase mr-1" aria-hidden="true"></i>Vaga XPTO</p>
-                            <p class="mb-0 link_title">Maria Tavares</p>
-                            <p class="mb-0 link_subtitle"><a href="">Ver perfil</a> </p>
-                        </li>
-                        <li class='clearfix_companies'>
-                            <a href=""><img alt="" title="" class="tagpost_thumb" src="img/jovem.png"></a>
-                            <p class="mb-0 link_info"><i class="fa fa-briefcase mr-1" aria-hidden="true"></i>Vaga XPTO</p>
-                            <p class="mb-0 link_title">Maria Tavares</p>
-                            <p class="mb-0 link_subtitle"><a href="">Ver perfil</a> </p>
-                        </li>
-                        <li class='clearfix_companies'>
-                            <a href=""><img alt="" title="" class="tagpost_thumb" src="img/jovem.png"></a>
-                            <p class="mb-0 link_info"><i class="fa fa-briefcase mr-1" aria-hidden="true"></i>Vaga XPTO</p>
-                            <p class="mb-0 link_title">Maria Tavares</p>
-                            <p class="mb-0 link_subtitle"><a href="">Ver perfil</a> </p>
-                        </li>
-                        <li class='clearfix_companies'>
-                            <a href=""><img alt="" title="" class="tagpost_thumb" src="img/jovem.png"></a>
-                            <p class="mb-0 link_info"><i class="fa fa-briefcase mr-1" aria-hidden="true"></i>Vaga XPTO</p>
-                            <p class="mb-0 link_title">Maria Tavares</p>
-                            <p class="mb-0 link_subtitle"><a href="">Ver perfil</a> </p>
-                        </li>
-                        <li class='clearfix_companies'>
-                            <a href=""><img alt="" title="" class="tagpost_thumb" src="img/jovem.png"></a>
-                            <p class="mb-0 link_info"><i class="fa fa-briefcase mr-1" aria-hidden="true"></i>Vaga XPTO</p>
-                            <p class="mb-0 link_title">Maria Tavares</p>
-                            <p class="mb-0 link_subtitle"><a href="">Ver perfil</a> </p>
-                        </li>
-                        <li class='clearfix_companies'>
-                            <a href=""><img alt="" title="" class="tagpost_thumb" src="img/jovem.png"></a>
-                            <p class="mb-0 link_info"><i class="fa fa-briefcase mr-1" aria-hidden="true"></i>Vaga XPTO</p>
-                            <p class="mb-0 link_title">Maria Tavares</p>
-                            <p class="mb-0 link_subtitle"><a href="">Ver perfil</a></p>
-                        </li>
-                        <li class='clearfix_companies'>
-                            <a href=""><img alt="" title="" class="tagpost_thumb" src="img/jovem.png"></a>
-                            <p class="mb-0 link_info"><i class="fa fa-briefcase mr-1" aria-hidden="true"></i>Vaga XPTO</p>
-                            <p class="mb-0 link_title">Maria Tavares</p>
-                            <p class="mb-0 link_subtitle"><a href="">Ver perfil</a> </p>
-                        </li>
-
                     </ul>
                 </div>
                 <div class='clear'></div>
             </div>
         </div>
     </div>
-    <div id='footer'><span class='credit'>Página 1 de 5</b></span>
+    <div id='footer'>
+        <a href="">
+            <button class="btn_cards mx-auto">Ver mais</button>
+        </a>
     </div>
 </div>
 </div>

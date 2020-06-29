@@ -122,34 +122,17 @@ if ($_SESSION["idUser"]) {
                             <div class="card-container col-lg-4">
                                 <div class="card">
                                     <?php
-                                    if ($favorite == 0) {
-                                        echo "";
-                                        ?>
-                                        <a href="scripts/update_fav.php?match=<?= $id_match ?>&fav=<?= $favorite ?>">
-                                            <button class="btn rounded-circle btn_fav">
-                                                <i class="fa fa-heart-o" aria-hidden="true" style="color: #2F2F2F"></i>
-                                            </button>
-                                        </a>
-                                        <?php
-                                    } else {
-                                        ?>
-                                        <a href="scripts/update_fav.php?match=<?= $id_match ?>&fav=<?= $favorite ?>">
-                                            <button class="btn rounded-circle btn_fav">
-                                                <i class="fa fa-heart" aria-hidden="true" style="color: #A31621"></i>
-                                            </button>
-                                        </a>
-                                        <?php
-                                    }
+
                                     if (isset($profile_img)) {
                                         ?>
                                         <a href="profile.php?user=<?= $User_young ?>">
-                                            <div class="image" style="background-image: url('../admin/uploads/img_perfil/<?= $profile_img ?>')"></div>
+                                            <div class="image mt-4" style="background-image: url('../admin/uploads/img_perfil/<?= $profile_img ?>')"></div>
                                         </a>
                                         <?php
                                     } else {
                                         ?>
                                         <a href="profile.php?user=<?= $User_young ?>">
-                                            <div class="image" style="background-image: url('img/index_2.png')"></div>
+                                            <div class="image mt-4" style="background-image: url('img/index_2.png')"></div>
                                         </a>
                                         <?php
                                     }

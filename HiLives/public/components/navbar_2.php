@@ -43,8 +43,8 @@ if (isset($_SESSION["idUser"])) {
                                     <h5 class='mx-auto titulo'>Candidatos</h5>
                                 </div>
                                 <ul class="menu-dropdown">
-                                    <li> <a class="btn" style="width:100%; font-size: 0.8rem;" href="all_vacancies_comp.php">Ver os meus candidatos</a></li>
-                                    <li> <a class="btn" style="width:100%; font-size: 0.8rem;" href="upload_vac.php">Ver todas as ligações</a></li>
+                                    <li> <a class="btn" style="width:100%; font-size: 0.8rem;" href="all_vacancies_comp.php">Os meus candidatos</a></li>
+                                    <li> <a class="btn" style="width:100%; font-size: 0.8rem;" href="upload_vac.php">Todas as ligações</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -57,7 +57,8 @@ if (isset($_SESSION["idUser"])) {
                                         <h5 class='mx-auto titulo'>Candidatos</h5>
                                     </div>
                                     <ul class="menu-dropdown">
-                                         <li> <a class="btn" style="width:100%; font-size: 0.8rem;" href="can_choose_study.php">As minhas ligações</a></li>
+                                        <li> <a class="btn" style="width:100%; font-size: 0.8rem;" href="can_choose_study.php">As minhas ligações</a></li>
+                                        <li> <a class="btn" style="width:100%; font-size: 0.8rem;" href="allOptions_uni.php">Todos os candidatos possíveis</a></li>
                                     </ul>
                                 </div>
                             </li>
@@ -89,8 +90,8 @@ if (isset($_SESSION["idUser"])) {
                                     <h5 class='mx-auto titulo'>Vagas</h5>
                                 </div>
                                 <ul class="menu-dropdown">
-                                    <li> <a class="btn" style="width:100%; font-size: 0.8rem;" href="all_vacancies_comp.php">Ver todas as vagas</a></li>
-                                    <li> <a class="btn" style="width:100%; font-size: 0.8rem;" href="upload_vac.php">Criar uma nova vaga</a></li>
+                                    <li> <a class="btn" style="width:100%; font-size: 0.8rem;" href="all_vacancies_comp.php">As minhas vagas</a></li>
+                                    <li> <a class="btn" style="width:100%; font-size: 0.8rem;" href="upload_vac.php">Criar uma vaga</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -103,7 +104,7 @@ if (isset($_SESSION["idUser"])) {
                                     <h5 class='mx-auto titulo'>Vagas de Empresas</h5>
                                 </div>
                                 <ul class="menu-dropdown">
-                                    <li> <a class="btn" style="width:100%; font-size: 0.8rem;" href="allOptions_company.php?user=<?= $idUser?>">Ver todas as vagas</a></li>
+                                    <li> <a class="btn" style="width:100%; font-size: 0.8rem;" href="allOptions_company.php">Todas as vagas</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -130,10 +131,10 @@ if (isset($_SESSION["idUser"])) {
                         <li class="col-lg-4 col-sm-12 p-0">
                             <div class="menu">
                                 <div class="menu-title mb-0">
-                                    <h5 class='mx-auto titulo'>Experiências</h5>
+                                    <h5 class='mx-auto titulo'>Experiências de Jovens</h5>
                                 </div>
                                 <ul class="menu-dropdown">
-                                    <li><a class="btn" style="width:100%; font-size: 0.8rem;" href="experiences.php">Experiências dos jovens</a></li>
+                                    <li><a class="btn" style="width:100%; font-size: 0.8rem;" href="experiences.php">Todas as experiências</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -146,7 +147,7 @@ if (isset($_SESSION["idUser"])) {
                                     <h5 class='mx-auto titulo'>Experiências de Jovens</h5>
                                 </div>
                                 <ul class="menu-dropdown">
-                                    <li> <a class="btn" style="width:100%; font-size: 0.8rem;" href="experiences.php">Ver todas as experiências</a></li>
+                                    <li> <a class="btn" style="width:100%; font-size: 0.8rem;" href="experiences.php">Todas as experiências</a></li>
                                 </ul>
                             </div>
                         </li>

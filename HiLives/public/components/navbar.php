@@ -18,8 +18,8 @@ if (isset($_SESSION["type"]) && isset($_SESSION["idUser"])) {
 
     $User_type = $_SESSION["type"];
     $idUser = $_SESSION["idUser"];
-}
 
+}
 // Create a new DB connection
 $link = new_db_connection();
 
@@ -35,16 +35,18 @@ $stmt = mysqli_stmt_init($link);
             <div class="row col-12 m-0 p-0 my-auto">
                 <?php
                 if (isset($_SESSION["idUser"])) {
-                ?>
+                    ?>
                     <!--menu do lado esquerdo-->
                     <div id="mySidenav" class="sidenav">
                         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-
+                        <?php
+                        if ($User_type == 10) {
+                        ?>
                         <ul>
-                            <!-- EU QUERO ESTUDAR -->
+                            <!-- QUERO ESTUDAR -->
                             <li>
                                 <a class="nav__link mr-2 mb-1">
-                                    <span class="nav__link--text_main font-weight-bold">Eu quero estudar</span>
+                                    <span class="nav__link--text_main font-weight-bold">Quero estudar</span>
                                 </a>
                             </li>
                             <li>
@@ -57,10 +59,10 @@ $stmt = mysqli_stmt_init($link);
                                     <span class="nav__link--text">Todas as opções disponíveis</span>
                                 </a>
                             </li>
-                            <!-- EU QUERO TRABALHAR -->
+                            <!-- QUERO TRABALHAR -->
                             <li>
                                 <a class="nav__link mr-2 mb-1 mt-4">
-                                    <span class="nav__link--text_main font-weight-bold">Eu quero trabalhar</span>
+                                    <span class="nav__link--text_main font-weight-bold">Quero trabalhar</span>
                                 </a>
                             </li>
                             <li>
@@ -74,11 +76,10 @@ $stmt = mysqli_stmt_init($link);
                                     <span class="nav__link--text">Todas as opções disponíveis</span>
                                 </a>
                             </li>
-
-                            <!-- EU QUERO ESTUDAR E TRABALHAR -->
+                            <!-- QUERO ESTUDAR E TRABALHAR -->
                             <li>
                                 <a class="nav__link mr-2 mb-1 mt-4">
-                                    <span class="nav__link--text_main font-weight-bold">Eu quero estudar e trabalhar</span>
+                                    <span class="nav__link--text_main font-weight-bold">Quero estudar e trabalhar</span>
                                 </a>
                             </li>
                             <li>
@@ -91,11 +92,10 @@ $stmt = mysqli_stmt_init($link);
                                     <span class="nav__link--text">Todas as opções disponíveis</span>
                                 </a>
                             </li>
-
-                            <!-- EU QUERO VER O QUE JÁ FOI FEITO -->
+                            <!-- EXPERIÊNCIAS -->
                             <li>
                                 <a class="nav__link mr-2 mb-1 mt-4">
-                                    <span class="nav__link--text_main font-weight-bold">Eu quero ver o que já foi feito</span>
+                                    <span class="nav__link--text_main font-weight-bold">Experiências</span>
                                 </a>
                             </li>
                             <li>
@@ -109,7 +109,106 @@ $stmt = mysqli_stmt_init($link);
                                 </a>
                             </li>
                         </ul>
+                            <?php
+                        } else
+                            if($User_type == 13) {
+                                ?>
+                                <ul>
+                                    <!-- CANDIDATOS -->
+                                    <li>
+                                        <a class="nav__link mr-2 mb-1">
+                                            <span class="nav__link--text_main font-weight-bold">Candidatos</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="can_choose_study.php" class="nav__link mr-2 mb-1 zoom">
+                                            <span class="nav__link--text">As minha ligações</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="nav__link mr-2 mb-1 zoom">
+                                            <span class="nav__link--text">Todos os candidatos possíveis</span>
+                                        </a>
+                                    </li>
+                                    <!-- VAGAS DE EMPRESAS -->
+                                    <li>
+                                        <a class="nav__link mr-2 mb-1 mt-4">
+                                            <span class="nav__link--text_main font-weight-bold">Vagas de Empresas</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="allOptions_company.php" class="nav__link mr-2 mb-1 zoom">
+                                            <span class="nav__link--text">Ver todas as vagas</span>
 
+                                        </a>
+                                    </li>
+
+                                    <!-- EXPERIÊNCIAS DOS JOVENS -->
+                                    <li>
+                                        <a class="nav__link mr-2 mb-1 mt-4">
+                                            <span class="nav__link--text_main font-weight-bold">Experiências dos Jovens</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="experiences.php" class="nav__link mr-2 mb-1 zoom">
+                                            <span class="nav__link--text">Ver todas as experiências</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                        <?php
+                            } else
+                                if($User_type == 7) {
+                                    ?>
+                                    <ul>
+                                        <!-- CANDIDATOS -->
+                                        <li>
+                                            <a class="nav__link mr-2 mb-1">
+                                                <span class="nav__link--text_main font-weight-bold">Candidatos</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="" class="nav__link mr-2 mb-1 zoom">
+                                                <span class="nav__link--text">Ver os meus candidatos</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="" class="nav__link mr-2 mb-1 zoom">
+                                                <span class="nav__link--text">Ver todas as ligações</span>
+                                            </a>
+                                        </li>
+                                        <!-- VAGAS DE EMPRESAS -->
+                                        <li>
+                                            <a class="nav__link mr-2 mb-1 mt-4">
+                                                <span class="nav__link--text_main font-weight-bold">Vagas</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="all_vacancies_comp.php" class="nav__link mr-2 mb-1 zoom">
+                                                <span class="nav__link--text">Ver todas as minhas vagas</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="upload_vac.php" class="nav__link mr-2 mb-1 zoom">
+                                                <span class="nav__link--text">Criar uma vaga</span>
+                                            </a>
+                                        </li>
+
+                                        <!-- EXPERIÊNCIAS DOS JOVENS -->
+                                        <li>
+                                            <a class="nav__link mr-2 mb-1 mt-4">
+                                                <span class="nav__link--text_main font-weight-bold">Experiências dos Jovens</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="experiences.php" class="nav__link mr-2 mb-1 zoom">
+                                                <span class="nav__link--text">Ver todas as experiências</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                    <?php
+                                }
+                        ?>
                     </div>
 
                     <!-- Use any element to open the sidenav -->
@@ -324,3 +423,4 @@ $stmt = mysqli_stmt_init($link);
         document.getElementById("mySidenav").style.width = "0";
     }
 </script>
+<?php

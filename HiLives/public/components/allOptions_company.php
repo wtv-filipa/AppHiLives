@@ -1,34 +1,18 @@
 <?php
 include "navbar_2.php";
 
-if (isset($_GET["user"])) {
-    $idUser = $_GET["user"];
+if (isset($_SESSION["type"])) {
 
+    $type = $_SESSION["type"];
 
     require_once("connections/connection.php");
     $link = new_db_connection();
     $stmt = mysqli_stmt_init($link);
-    $query = "SELECT idVacancies, vacancie_name, User_publicou, name_user, profile_img
-            FROM vacancies
-            INNER JOIN users ON vacancies.User_publicou = users.idUser";
-
-
-//query para mostrar as vagas dependendo do perfil
-    $query2 = "SELECT type_user FROM users
-            INNER JOIN user_type ON users.User_type_idUser_type = user_type.idUser_type
-            WHERE idUser = ?";
 
 //query que vai mostrar todas as vagas
-    $query3 = "SELECT idVacancies, vacancie_name, name_user, profile_img
+    $query = "SELECT idVacancies, vacancie_name, name_user, profile_img
                 FROM vacancies
                 INNER JOIN users ON vacancies.User_publicou = users.idUser";
-
-    if (mysqli_stmt_prepare($stmt, $query2)) {
-
-        mysqli_stmt_bind_param($stmt, 'i', $idUser);
-        mysqli_stmt_execute($stmt);
-        mysqli_stmt_bind_result($stmt, $type_user);
-        while (mysqli_stmt_fetch($stmt)) {
 
             ?>
             <!--EMPRESAS-->
@@ -38,10 +22,10 @@ if (isset($_GET["user"])) {
                         <div class='widget HTML' id='HTML5'>
                             <div>
                                 <?php
-                                if ($type_user == "Jovem") {
+                                if ($type == 10) {
                                     echo "<h3 class=\"main_title\">Todas as ligações | Empresas</h3>";
                                 } else
-                                    if ($type_user == "Universidade") {
+                                    if ($type == 13) {
                                         echo "<h3 class=\"main_title\">Todas as vagas de empresas</h3>";
                                     }
                                 ?>
@@ -50,14 +34,14 @@ if (isset($_GET["user"])) {
                     </div>
                 </div>
                 <?php
-                if ($type_user == "Jovem") {
+                if ($type == 10) {
                     ?>
                     <div class="card-deck text-center row">
                         <?php
                         if (mysqli_stmt_prepare($stmt, $query)) {
 
                             mysqli_stmt_execute($stmt);
-                            mysqli_stmt_bind_result($stmt, $idVacancies, $vacancie_name, $User_publicou, $name_user, $profile_img);
+                            mysqli_stmt_bind_result($stmt, $idVacancies, $vacancie_name, $name_user, $profile_img);
 
                             while (mysqli_stmt_fetch($stmt)) {
                                 ?>
@@ -93,11 +77,11 @@ if (isset($_GET["user"])) {
 
                     <?php
                 } else
-                    if ($type_user == "Universidade") {
+                    if ($type == 13) {
                         ?>
                         <div class="card-deck text-center row">
                             <?php
-                            if (mysqli_stmt_prepare($stmt, $query3)) {
+                            if (mysqli_stmt_prepare($stmt, $query)) {
 
                                 mysqli_stmt_execute($stmt);
                                 mysqli_stmt_bind_result($stmt, $idVacancies, $vacancie_name, $name_user, $profile_img);
@@ -137,11 +121,7 @@ if (isset($_GET["user"])) {
                         <?php
                     }
                 ?>
-
-
                 <!--fim do que engloba os cards-->
             </div> <!-- div da w-75-->
             <?php
-        }
-    }
 }
