@@ -128,27 +128,12 @@ if (mysqli_stmt_prepare($stmt2, $query20)) {
                             array_push($capacidades_jovem, $capacities_idcapacities_match);
                         }
                         //match
-                        //vagas= capacidades todas dentro da vaga aka key
 
-                        /* echo "<br>idvaga_primeiro: $idVacancies";
-                        echo "<br>idvaga: $vacancies_idVacancies";
-                        echo "<br>vaga: $capacities_idcapacities";
-                        echo "<br>match: $capacities_idcapacities_match<br>"; */
-
-                        //                        $search_val = in_array($capacities_idcapacities, $capacidades_match);
-                        //                        echo "<br>PROCURA: $search_val";
-                        //                        if ($search_val == false) {
-                        //                            //echo "REGIÃO NÃO EXISTE NO ARRAY! <br>";
-                        //                            echo "<br>$vacancies_idVacancies";
-                        //                            echo "<br>Capacidades da vaga: $capacities_idcapacities";
-                        //
-                        //                        }
-                    }
+                    } //fimm do segundo while
                     foreach ($capacidades_match as $key => $vagas) {
                         $capacidades_matched = array();
                         $capacidades_not_matched = array();
                         foreach ($vagas as $capacidades) {
-
                             if (in_array($capacidades, $capacidades_jovem)) {
                                 array_push($capacidades_matched, $capacidades);
                             } else {
@@ -156,14 +141,14 @@ if (mysqli_stmt_prepare($stmt2, $query20)) {
                             }
                         }
                     } //fim do primeiro foreach
-                    if (count($capacidades_not_matched) <= 1) {
-                        # MATCH! :)
+                    echo "<br> capacidades com match";
+                    var_dump($capacidades_jovem);
+
+                    if (count($capacidades_not_matched) <= 1 and count($capacidades_matched) >= 4) {
                         echo "match!";
                         echo "<br> vaga: $key";
                         echo "<br>";
-                    } else  if (count($capacidades_not_matched) == 2 || count($capacidades_not_matched) == 3) {
-
-                        # programa de aprendizagem
+                    } else  if (count($capacidades_not_matched) == 2 || count($capacidades_not_matched) == 3 ) {
                         echo "percurso";
                         echo "<br> vaga: $key";
                         echo "<br>";
@@ -171,12 +156,11 @@ if (mysqli_stmt_prepare($stmt2, $query20)) {
                         echo "não tem match";
                         echo "<br> vaga: $key";
                         echo "<br>";
-                        /***********************************/
-                    }
+                    } 
 
-                    /*  print_r($capacidades_match); */
-                }
-            }
+                    //print_r($capacidades_jovem);
+                } //fecho do if da query22
+            } //fecho do primeiro while
         }
-    }
+    } //fim do if da query20
 }

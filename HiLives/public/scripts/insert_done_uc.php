@@ -21,21 +21,22 @@ if (isset($_SESSION["idUser"]) && !empty($_POST["nomeuc"]) && !empty($_POST["uni
         if (mysqli_stmt_execute($stmt)) {
             mysqli_stmt_close($stmt);
             mysqli_close($link);
-
             // SUCCESS ACTION
-            //echo "INSERIUUU";
-            header("Location: ../profile.php?user=$User_idUser");
-        }
-        else {
+            header("Location: ../links_made.php");
+            $_SESSION["doneCU"] = 2;
+        } else {
+            //ERRO
             ///isto é do isset
-
-            echo "ERRO de não temos nada inserido";
-            // header("Location: ../register.php?msg=2");
+            header("Location: ../links_made.php");
+            $_SESSION["doneCU"] = 1;
         }
-
+    } else {
+        //ERRO
+        header("Location: ../links_made.php");
+        $_SESSION["doneCU"] = 1;
     }
-
 } else {
-    echo "falta algo";
+    //ERRO
+    header("Location: ../links_made.php");
+    $_SESSION["doneCU"] = 3;
 }
-
