@@ -68,10 +68,8 @@ $link2 = new_db_connection();
 $stmt2 = mysqli_stmt_init($link2);
 $link3 = new_db_connection();
 $stmt3 = mysqli_stmt_init($link3);
-
-
-$query23 = "INSERT INTO user_has_vacancies (User_young, Vacancies_idVancancies) VALUES (?, ?)";
-
+$link4 = new_db_connection();
+$stmt4 = mysqli_stmt_init($link4);
 
 //MATCH COM REGIAO, CAPACIDADES, ESCOLARIDADE, AREA
 $query20 = "SELECT Educ_lvl_idEduc_lvl FROM users WHERE idUser = ?";
@@ -87,6 +85,7 @@ $query21 = "SELECT idVacancies, vacancies.Region_idRegion, User_publicou, vacanc
             AND vacancies.Region_idRegion IN (SELECT user_has_region.Region_idRegion FROM user_has_region WHERE user_has_region.User_idUser_region= ?)
             AND capacities_idcapacities IN (SELECT capacities FROM capacities_has_users WHERE users_idUser = ?)
             AND vacancies.Educ_lvl_idEduc_lvl <= ?";
+
 $capacidades_match = [];
 $capacidades_jovem = array();
 if (mysqli_stmt_prepare($stmt2, $query20)) {
@@ -102,7 +101,11 @@ if (mysqli_stmt_prepare($stmt2, $query20)) {
             mysqli_stmt_execute($stmt3);
             mysqli_stmt_bind_result($stmt3, $idVacancies, $Region_idRegion, $User_publicou, $Educ_lvl_idEduc_lvl, $Areas_idAreas, $capacities_idcapacities_match);
             while (mysqli_stmt_fetch($stmt3)) {
-                //                echo "<br>IDVAGA: $idVacancies ____ Nível de educação: $Educ_lvl_idEduc_lvl";
+                //array capacidades jovem (que já fazem match)
+                if (!in_array($capacities_idcapacities_match, $capacidades_jovem)) {
+                    array_push($capacidades_jovem, $capacities_idcapacities_match);
+                }
+
                 $query22 = "SELECT vacancies_idVacancies, capacities_idcapacities FROM vacancies_has_capacities WHERE vacancies_idVacancies = ?";
 
                 if (mysqli_stmt_prepare($stmt2, $query22)) {
@@ -119,51 +122,132 @@ if (mysqli_stmt_prepare($stmt2, $query20)) {
                         if (!in_array($capacities_idcapacities, $capacidades_match[$idVacancies])) {
                             array_push($capacidades_match[$idVacancies], $capacities_idcapacities);
                         }
-                        //array capacidades jovem (que já fazem match)
-                        array_push($capacidades_jovem, $capacities_idcapacities_match);
-                        //match
-                       //vagas= capacidades todas dentro da vaga aka key
-                        
-                        echo "<br>idvaga_primeiro: $idVacancies";
-                        echo "<br>idvaga: $vacancies_idVacancies";
-                        echo "<br>vaga: $capacities_idcapacities";
-                        echo "<br>match: $capacities_idcapacities_match<br>";
+                    } //fim do segundo while
 
-                        //                        $search_val = in_array($capacities_idcapacities, $capacidades_match);
-                        //                        echo "<br>PROCURA: $search_val";
-                        //                        if ($search_val == false) {
-                        //                            //echo "REGIÃO NÃO EXISTE NO ARRAY! <br>";
-                        //                            echo "<br>$vacancies_idVacancies";
-                        //                            echo "<br>Capacidades da vaga: $capacities_idcapacities";
-                        //
-                        //                        }
-                    }
-                    foreach ($capacidades_match as $key => $vagas) {
-                        $capacidades_matched= array();
-                        $capacidades_not_matched = array();
-                        foreach ($vagas as $capacidades) {
+                    /* echo " array capacidades_match <br>";
+                    echo "<pre>" . print_r($capacidades_match, true) . "</pre>";  */
+                    //VERIFICAR CONDIÇÕES PARA REALIZAR O MATCH
+                    //fim do primeiro foreach
+                    //var_dump($capacidades_jovem);
+                } //fecho do if da query22
+            } //fecho do primeiro while
+        }
+    } //fim do if da query20
+}
 
-                            if (in_array($capacidades, $capacidades_jovem)) {
-                                array_push($capacidades_matched, $capacidades);
-                            } else {
-                                array_push($capacidades_not_matched, $capacidades);
-                            }
-                        }
-                        if (count($capacidades_not_matched) == 0) {
-                            # MATCH! :)
-                            echo "match!";
-                            echo $key;
-                            echo "<br>";
-                        } else {
-                            # programa de aprendizagem
-                            echo "percurso";
-                            echo $key;
-                            echo "<br>";
-                        }
+//inserir quando dá match/percurso
+$query23 = "INSERT INTO user_has_vacancies (User_young, Vacancies_idVacancies, match_perc) VALUES (?, ?, ?)";
+//inserir capacidades para o percurso
+$query24 = "INSERT INTO learning_path_capacities (fk_match_vac, missing_learn) VALUES (?, ?)";
+//verificar o que existe na tabela do match com a VAGA
+$query25 = "SELECT User_young, Vacancies_idVacancies FROM user_has_vacancies WHERE User_young = ? AND Vacancies_idVacancies = ?";
+
+
+$capacidades_final = $capacidades_match;
+foreach ($capacidades_match as $vaga => $capacidades) {
+    $capacidades_final[$vaga] = array_diff($capacidades, $capacidades_jovem);
+    //verificação do que é (match/percurso/não match)
+    if (count($capacidades_final[$vaga]) <= 1) {
+        echo "match!";
+        echo "<br> vaga: $vaga";
+        echo "<br>";
+        /***********/
+        //Verificar se já existe alguma coisa inserida
+        if (mysqli_stmt_prepare($stmt5, $query25)) {
+            mysqli_stmt_bind_param($stmt5, 'ii', $idUser, $vaga);
+
+            mysqli_stmt_execute($stmt5);
+            mysqli_stmt_bind_result($stmt5, $User_young, $fk_idVacancies);
+            if (mysqli_stmt_fetch($stmt5)) {
+                echo "match já existe <br>";
+            } else {
+                echo "match ainda não existe vai inserir <br>";
+                $match_vac = 1;
+                //insere os dados que faz match
+                if (mysqli_stmt_prepare($stmt4, $query23)) {
+                    mysqli_stmt_bind_param($stmt4, 'iii', $idUser, $vaga, $match_vac);
+
+                    // VALIDAÇÃO DO RESULTADO DO EXECUTE
+                    if (!mysqli_stmt_execute($stmt4)) {
+                        echo "Error: " . mysqli_stmt_error($stmt4);
+                    } else {
+                        echo "match feito <br>";
+                        // SUCCESS ACTION
+                        //header("Location: ../grupo_indv.php?id_g=".$id_g."&msg=1");
                     }
-                    print_r($capacidades_match);
+                } else {
+                    // ERROR ACTION
+                    //header("Location: ../grupo_indv.php?id_g=".$id_g."&msg=0");
+                    //mysqli_close($link);
                 }
             }
         }
+        /******************/
+        /***********************************/
+    } else  if (count($capacidades_final[$vaga]) == 2 || count($capacidades_final[$vaga]) == 3) {
+        echo "percurso";
+        echo "<br> vaga: $vaga";
+        echo "<br>";
+        /***********/
+        //Verificar se já existe alguma coisa inserida
+        if (mysqli_stmt_prepare($stmt5, $query25)) {
+            mysqli_stmt_bind_param($stmt5, 'ii', $idUser, $vaga);
+
+            mysqli_stmt_execute($stmt5);
+            mysqli_stmt_bind_result($stmt5, $User_young, $fk_idVacancies);
+            if (mysqli_stmt_fetch($stmt5)) {
+                echo "match já existe <br>";
+            } else {
+                echo "match ainda não existe vai inserir <br>";
+                $percurso = 0;
+                //insere os dados que faz o percurso
+                if (mysqli_stmt_prepare($stmt4, $query23)) {
+                    mysqli_stmt_bind_param($stmt4, 'iii', $idUser, $vaga, $percurso);
+
+                    // VALIDAÇÃO DO RESULTADO DO EXECUTE
+                    if (!mysqli_stmt_execute($stmt4)) {
+                        echo "Error: " . mysqli_stmt_error($stmt4);
+                    } else {
+                        echo "percurso feito <br>";
+                        $id_percurso = mysqli_insert_id($link4);
+                        echo "ID depois de inserir o percurso: " . "$id_percurso <br>";
+                        // SUCCESS ACTION
+                        //header("Location: ../grupo_indv.php?id_g=".$id_g."&msg=1");
+                    }
+                } else {
+                    // ERROR ACTION
+                    //header("Location: ../grupo_indv.php?id_g=".$id_g."&msg=0");
+                    //mysqli_close($link);
+                }
+                //insere os dados das capacidades que faltam
+                if (mysqli_stmt_prepare($stmt4, $query24)) {
+                    mysqli_stmt_bind_param($stmt4, 'ii', $id_percurso, $id_capacidades);
+                    //para todas as capacidades sem match
+                    foreach ($capacidades_final[$vaga] as $id_capacidades) {
+                        echo "id da cpacidade sem match: $id_capacidades<br>";
+                        /* execute the prepared statement */
+                        if (!mysqli_stmt_execute($stmt4)) {
+                            //ERRO
+                            //echo "Error: " . mysqli_stmt_error($stmt);
+                        } else {
+                            echo "capacidades inseridas do percurso <br>";
+                            // SUCCESS ACTION
+                            //header("Location: ../grupo_indv.php?id_g=".$id_g."&msg=1");
+                        }
+                    }
+                } else {
+                    // ERROR ACTION
+                    //header("Location: ../grupo_indv.php?id_g=".$id_g."&msg=0");
+                    //mysqli_close($link);
+                }
+            }
+        }
+        /******************/
+        /***********************************/
+    } else if (count($capacidades_final[$vaga]) >= 4) {
+        echo "não tem match";
+        echo "<br> vaga: $vaga";
+        echo "<br>";
     }
 }
+echo "<pre>" . print_r($capacidades_final, true) . "</pre>";

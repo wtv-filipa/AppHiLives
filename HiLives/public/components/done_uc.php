@@ -1,5 +1,36 @@
 <div class="events w-75 mx-auto">
+    <?php
+    if (isset($_SESSION["doneCU"])) {
+        $msg_show = true;
+        switch ($_SESSION["doneCU"]) {
+            case 1:
+                $message = "Ocorreu um erro a processar o teu pedido, por favor tenta novamente mais tarde.";
+                $class = "alert-warning";
+                $_SESSION["doneCU"] = 0;
+                break;
+            case 2:
+                $message = "É necessário preencher todos os campos obrigatórios.";
+                $class = "alert-warning";
+                $_SESSION["doneCU"] = 0;
+                break;
+            case 0:
+                $msg_show = false;
+                break;
+            default:
+                $msg_show = false;
+                $_SESSION["doneCU"] = 0;
+        }
 
+        if ($msg_show == true) {
+            echo "<div class=\"alert $class alert-dismissible fade show mt-5\" role=\"alert\">" . $message . "
+                <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+                <span aria-hidden=\"true\">&times;</span>
+                </button>
+                </div>";
+            echo '<script>window.onload=function (){$(\'.alert\').alert();}</script>';
+        }
+    }
+    ?>
     <!--Card-->
     <div class="card mdb-color lighten-4 text-center z-depth-2 light-version py-4 px-5">
 
@@ -9,8 +40,7 @@
                 Carregar nova Unidade Curricular feita</h3>
         </div>
         <!----------->
-        <form class="md-form inserir_dados" class="mb-3" action="scripts/insert_done_uc.php"
-              enctype="multipart/form-data" method="post">
+        <form class="md-form inserir_dados" class="mb-3" action="scripts/insert_done_uc.php" enctype="multipart/form-data" method="post">
             <!--primeiro campo-->
             <div class="form-group text-left">
                 <label class="label-margin" for="nomeuc">Nome da Unidade Curricular: <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>

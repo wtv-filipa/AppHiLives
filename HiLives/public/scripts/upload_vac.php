@@ -1,4 +1,5 @@
 <?php
+session_start();
 // We need the function!
 require_once("../connections/connection.php");
 // Create a new DB connection
@@ -19,40 +20,44 @@ if ($_FILES['fileToUpload']['size'] != 0) {
     if (isset($_POST["but_upload"])) {
         $check = filesize($_FILES["fileToUpload"]["tmp_name"]);
         if ($check !== false) {
-            echo "é um video";
             $uploadOk = 1;
         } else {
-            //header("Location: ../criar_evento.php?msg=1");
-            echo "não é img";
+            //ERRO- não é video
+            header("Location: ../upload_vac.php");
+            $_SESSION["vac"] = 3;
             $uploadOk = 0;
         }
     }
     // Check if file already exists
     if (file_exists($target_file)) {
-        //header("Location: ../criar_evento.php?msg=2");
-        echo "ficheiro já existe";
+        //ERRO
+        header("Location: ../upload_vac.php");
+        $_SESSION["vac"] = 4;
         $uploadOk = 0;
     }
     // Check file size
     if ($_FILES["fileToUpload"]["size"] > 70000000000) {
-        //header("Location: ../criar_evento.php?msg=3");
-        echo "ficheiro demasiado grande";
+        //ERRO
+        header("Location: ../upload_vac.php");
+        $_SESSION["vac"] = 5;
         $uploadOk = 0;
     }
     // Allow certain file formats
     if ($vidFileType != "avi" && $vidFileType != "wmv" && $vidFileType != "mp4") {
-        //header("Location: ../criar_evento.php?msg=4");
-        echo "formato de ficheiro não permitido";
+        //ERRO
+        header("Location: ../upload_vac.php");
+        $_SESSION["vac"] = 6;
         $uploadOk = 0;
     }
     // Check if $uploadOk is set to 0 by an error
     if ($uploadOk == 0) {
-        echo "erro de upload vir a 0";
-        //header("Location: ../criar_evento.php?msg=0");
+        //ERRO
+        header("Location: ../upload_vac.php");
+        $_SESSION["vac"] = 2;
         // if everything is ok, try to upload file
     } else {
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-            echo "The file " . basename($_FILES["fileToUpload"]["name"]) . " has been uploaded.";
+            //echo "The file " . basename($_FILES["fileToUpload"]["name"]) . " has been uploaded.";
 
             if (!empty($_GET["vac"]) && !empty($_POST["nomevaga"]) && !empty($_POST["descricao"]) && !empty($_POST["numvagas"]) && !empty($_POST["requisitos"])) {
 
@@ -67,15 +72,14 @@ if ($_FILES['fileToUpload']['size'] != 0) {
 
                     /* execute the prepared statement */
                     if (!mysqli_stmt_execute($stmt)) {
-                        //header("Location: ../criar_evento.php?msg=0");
-                        echo "Error: " . mysqli_stmt_error($stmt);
+                        //ERRO
+                        header("Location: ../upload_vac.php");
+                        $_SESSION["vac"] = 2;
+                        //echo "Error: " . mysqli_stmt_error($stmt);
                     } else {
                         $last_id = mysqli_insert_id($link);
-                        echo "ID: " . "$last_id";
+                        //echo "ID: " . "$last_id";
                     }
-
-
-
                     $link1 = new_db_connection();
                     $stmt1 = mysqli_stmt_init($link1);
                     $query = "INSERT INTO vacancies (vacancie_name, description_vac, number_free_vanc, requirements, Region_idRegion, User_publicou, Content_idContent, Workday_idWorkday, Educ_lvl_idEduc_lvl, Areas_idAreas) VALUES (?,?,?,?,?,?,?,?,?,?)";
@@ -96,10 +100,10 @@ if ($_FILES['fileToUpload']['size'] != 0) {
                         // VALIDAÇÃO DO RESULTADO DO EXECUTE
                         if (mysqli_stmt_execute($stmt1)) {
                             $last_vac = mysqli_insert_id($link1);
-                            echo "num vaga: $last_vac";
+                            /* echo "num vaga: $last_vac";
                             // SUCCESS ACTION
                             echo "ESTÁ NA BD <br>";
-
+ */
                             //INSERIR CAPACIDADE
                             if (isset($_POST["capacity"])) {
 
@@ -117,7 +121,10 @@ if ($_FILES['fileToUpload']['size'] != 0) {
                                         //echo "id da capacidade: $capacities_idcapacities<br>";
                                         /* execute the prepared statement */
                                         if (!mysqli_stmt_execute($stmt)) {
-                                            echo "Error: " . mysqli_stmt_error($stmt);
+                                            //ERRO
+                                            header("Location: ../upload_vac.php");
+                                            $_SESSION["vac"] = 2;
+                                            //echo "Error: " . mysqli_stmt_error($stmt);
                                         }
                                     }
                                     /* close statement */
@@ -125,24 +132,30 @@ if ($_FILES['fileToUpload']['size'] != 0) {
                                 }
                                 //fim da cena do insert
                             } else {
-                                ///isto é do isset
-                                echo "ERRO de não temos nada inserido";
-                                // header("Location: ../register.php?msg=2");
+                                //ERRO
+                                header("Location: ../upload_vac.php");
+                                $_SESSION["vac"] = 1;
                             }
+                            //SUCESSO
                             header("Location: ../all_vacancies_comp.php");
+                            $_SESSION["vac"] = 1;
                         } else {
-                            // ERROR ACTION
-                            echo "Error: " . mysqli_stmt_error($stmt);
-                            //echo "NAO DEU <br>";
-                            //header("Location: ../register.php?msg=0");
+                            //ERRO
+                            header("Location: ../upload_vac.php");
+                            $_SESSION["vac"] = 2;
+                            //echo "Error: " . mysqli_stmt_error($stmt);
                         }
                     }
                 }
             } else {
-                echo "nao passa no if";
+                //ERRO
+                header("Location: ../upload_vac.php");
+                $_SESSION["vac"] = 2;
             }
         } else {
-            //header("Location: ../criar_evento.php?msg=0");
+            //ERRO
+            header("Location: ../upload_vac.php");
+            $_SESSION["vac"] = 2;
         }
     }
 } else {
@@ -173,9 +186,9 @@ if ($_FILES['fileToUpload']['size'] != 0) {
             // VALIDAÇÃO DO RESULTADO DO EXECUTE
             if (mysqli_stmt_execute($stmt)) {
                 $last_vac = mysqli_insert_id($link);
-                echo "num vaga: $last_vac";
+                /*  echo "num vaga: $last_vac";
                 // SUCCESS ACTION
-                echo "ESTÁ NA BD <br>";
+                echo "ESTÁ NA BD <br>"; */
 
                 //INSERIR CAPACIDADE
                 if (isset($_POST["capacity"])) {
@@ -192,7 +205,10 @@ if ($_FILES['fileToUpload']['size'] != 0) {
                             //echo "id da capacidade: $capacities_idcapacities<br>";
                             /* execute the prepared statement */
                             if (!mysqli_stmt_execute($stmt)) {
-                                echo "Error: " . mysqli_stmt_error($stmt);
+                                //ERRO
+                                header("Location: ../upload_vac.php");
+                                $_SESSION["vac"] = 2;
+                                //echo "Error: " . mysqli_stmt_error($stmt);
                             }
                         }
                         /* close statement */
@@ -200,19 +216,23 @@ if ($_FILES['fileToUpload']['size'] != 0) {
                     }
                     //fim da cena do insert
                 } else {
-                    ///isto é do isset
-                    echo "ERRO de não temos nada inserido";
-                    // header("Location: ../register.php?msg=2");
+                    //ERRO
+                    header("Location: ../upload_vac.php");
+                    $_SESSION["vac"] = 2;
                 }
-               header("Location: ../home_people.php");
+                //SUCESSO
+                header("Location: ../all_vacancies_comp.php");
+                $_SESSION["vac"] = 1;
             } else {
-                // ERROR ACTION
-                echo "Error: " . mysqli_stmt_error($stmt);
-                //echo "NAO DEU <br>";
-                //header("Location: ../register.php?msg=0");
+                //ERRO
+                header("Location: ../upload_vac.php");
+                $_SESSION["vac"] = 2;
+                //echo "Error: " . mysqli_stmt_error($stmt);
             }
         }
     } else {
-        echo "nao passa no if";
+        //ERRO
+        header("Location: ../upload_vac.php");
+        $_SESSION["vac"] = 1;
     }
 }

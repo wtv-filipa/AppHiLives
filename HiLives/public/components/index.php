@@ -41,7 +41,7 @@
             <div class="cards text-center">
                 <div class="card-item">
                     <div class="card-image">
-                        <img class="card-img-top img-fluid" src="public/img/empresa_icon.png"></div>
+                        <img class="card-img-top img-fluid" src="public/img/empresa_icon.jpg"></div>
                     <div class="card-info">
                         <h4 class="card-title">Empresa</h4>
                     </div>
@@ -64,7 +64,7 @@
 
 <div class="mt-5 row">
     <div class="col-md-3 col-xs-12 ">
-        <img class="rounded-circle centrado sombra" src="public/img/index_1.png"
+        <img class="rounded-circle centrado sombra" src="public/img/index_1.jpg"
              alt="imagem sobre o que é o HiLives"/>
     </div>
     <div class="col-md-8 col-xs-12 texto_centrado">
@@ -81,7 +81,7 @@
 <hr>
 <div class="mt-5 row">
     <div class="col-md-3 col-xs-12">
-        <img class="rounded-circle centrado sombra" src="public/img/index_2.png"
+        <img class="rounded-circle centrado sombra" src="public/img/index_2.jpg"
              alt="imagem sobre o que é o HiLives"/>
     </div>
     <div class="col-md-8 col-xs-12 texto_centrado">
@@ -93,7 +93,7 @@
 <hr>
 <div class="mt-5 row">
     <div class="col-md-3 col-xs-12">
-        <img class="rounded-circle centrado sombra" src="public/img/index_3.png"
+        <img class="rounded-circle centrado sombra" src="public/img/index_3.jpg"
              alt="imagem sobre o que é o HiLives"/>
     </div>
     <div class="col-md-8 col-xs-12 texto_centrado">

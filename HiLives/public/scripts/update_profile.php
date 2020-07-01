@@ -1,4 +1,6 @@
 <?php
+session_start();
+$id_navegar = $_SESSION["idUser"];
 if (isset($_GET["id"]) && !empty($_POST["nome"]) && !empty($_POST["email"]) && !empty($_POST["def"])) {
     echo "estou a editar um jovem";
     $idUser = $_GET["id"];
@@ -36,28 +38,26 @@ if (isset($_GET["id"]) && !empty($_POST["nome"]) && !empty($_POST["email"]) && !
         mysqli_stmt_execute($stmt);
         mysqli_stmt_bind_result($stmt, $Region_idRegion);
         while (mysqli_stmt_fetch($stmt)) {
-            //echo "<br> região bd: $Region_idRegion <br>";
-            //var_dump($regiao);
-            echo "<br>";
             $search_val = in_array($Region_idRegion, $regiao);
-            //echo "array search: $search_val <br>";
             if ($search_val == false) {
-                echo "REGIÃO NÃO EXISTE NO ARRAY! <br>";
-                echo "regiao em falta: $Region_idRegion";
+                /* echo "REGIÃO NÃO EXISTE NO ARRAY! <br>";
+                echo "regiao em falta: $Region_idRegion"; */
                 //Apagar o match
                 if (mysqli_stmt_prepare($stmt2, $query11)) {
                     mysqli_stmt_bind_param($stmt2, 'ii', $idUser, $Region_idRegion);
                     // VALIDAÇÃO DO RESULTADO DO EXECUTE
                     if (!mysqli_stmt_execute($stmt2)) {
-                        //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-                        echo "Error: " . mysqli_stmt_error($stmt2);
+                        //ERRO
+                        header("Location: ../edit_profile.php?edit=$id_navegar");
+                        $_SESSION["edit_jovem"] = 3;
+                        //echo "Error: " . mysqli_stmt_error($stmt2);
                     } else {
-                        echo "sucesso a apagar o mtach com base em regioes <br>";
-                        //mysqli_stmt_close($stmt2);
+                        /*  echo "sucesso a apagar o mtach com base em regioes <br>"; */
                     }
                 } else {
-                    echo "erro a apagar o mtach com base em regioes <br>";
-                    //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                    //ERRO
+                    header("Location: ../edit_profile.php?edit=$id_navegar");
+                    $_SESSION["edit_jovem"] = 3;
                 }
             }
         }
@@ -85,28 +85,31 @@ WHERE users.User_type_idUser_type = 13 AND young_university.Area = ?)";
         mysqli_stmt_execute($stmt);
         mysqli_stmt_bind_result($stmt, $Areas_idAreas, $name_interested_area);
         while (mysqli_stmt_fetch($stmt)) {
-            echo "<br> area bd: $Areas_idAreas <br>";
+            /*  echo "<br> area bd: $Areas_idAreas <br>";
             var_dump($area);
-            echo "<br>";
+            echo "<br>"; */
             $search_area = in_array($Areas_idAreas, $area);
-            echo "array search: $search_area <br>";
+            /* echo "array search: $search_area <br>"; */
             if ($search_area == false) {
-                echo "AREA NÃO EXISTE NO ARRAY! <br>";
-                echo "area em falta: $Areas_idAreas e nome: $name_interested_area";
+                /* echo "AREA NÃO EXISTE NO ARRAY! <br>";
+                echo "area em falta: $Areas_idAreas e nome: $name_interested_area"; */
                 //Apagar o match
                 if (mysqli_stmt_prepare($stmt2, $query13)) {
                     mysqli_stmt_bind_param($stmt2, 'is', $idUser, $name_interested_area);
                     // VALIDAÇÃO DO RESULTADO DO EXECUTE
                     if (!mysqli_stmt_execute($stmt2)) {
-                        //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-                        echo "Error: " . mysqli_stmt_error($stmt2);
+                        //ERRO
+                        header("Location: ../edit_profile.php?edit=$id_navegar");
+                        $_SESSION["edit_jovem"] = 3;
+                        //echo "Error: " . mysqli_stmt_error($stmt2);
                     } else {
-                        echo "sucesso a apagar o mtach com base em areas <br>";
+                        /* echo "sucesso a apagar o match com base em areas <br>"; */
                         //mysqli_stmt_close($stmt2);
                     }
                 } else {
-                    echo "erro a apagar o mtach com base em areas <br>";
-                    //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                    //ERRO
+                    header("Location: ../edit_profile.php?edit=$id_navegar");
+                    $_SESSION["edit_jovem"] = 3;
                 }
             }
         }
@@ -123,14 +126,12 @@ WHERE users.User_type_idUser_type = 13 AND young_university.Area = ?)";
 
         /* execute the prepared statement */
         if (!mysqli_stmt_execute($stmt)) {
-            $idUser = $_POST["edit"];
-            echo $idUser;
-            /*header("Location: ../editar_conta.php?edit=" . $nickname . "&msg=1");
-            */
-            echo "erro da stmt execute <br/>";
-            echo "Error: " . mysqli_stmt_error($stmt);
+            //ERRO
+            header("Location: ../edit_profile.php?edit=$id_navegar");
+            $_SESSION["edit_jovem"] = 3;
+            //echo "Error: " . mysqli_stmt_error($stmt);
         } else {
-            echo "we did it";
+            /* echo "we did it"; */
             //REGIÃO
             if (!empty($_POST["regiao"])) {
                 // APAGAR TODOS AS REGIÕES ASSOCIADAS AO USER
@@ -143,9 +144,11 @@ WHERE users.User_type_idUser_type = 13 AND young_university.Area = ?)";
 
                     /* execute the prepared statement */
                     if (!mysqli_stmt_execute($stmt)) {
-                        echo "Error: " . mysqli_stmt_error($stmt);
+                        //ERRO
+                        header("Location: ../edit_profile.php?edit=$id_navegar");
+                        $_SESSION["edit_jovem"] = 3;
+                        //echo "Error: " . mysqli_stmt_error($stmt);
                     }
-
                     /* close statement */
                     mysqli_stmt_close($stmt);
                 }
@@ -164,16 +167,17 @@ WHERE users.User_type_idUser_type = 13 AND young_university.Area = ?)";
                     foreach ($_POST["regiao"] as $idRegion) {
                         /* execute the prepared statement */
                         if (!mysqli_stmt_execute($stmt)) {
-                            echo "Error: " . mysqli_stmt_error($stmt);
+                            //ERRO
+                            header("Location: ../edit_profile.php?edit=$id_navegar");
+                            $_SESSION["edit_jovem"] = 3;
+                            //echo "Error: " . mysqli_stmt_error($stmt);
                         }
                     }
                     /* close statement */
                     mysqli_stmt_close($stmt);
                 }
-
                 /* close connection */
                 mysqli_close($link);
-                //header("Location: clube.php?id=$id_clubes");
             } //FIM DO ISSET DA REGIÃO
             //UPDATE AREA
             if (!empty($_POST["area"])) {
@@ -191,7 +195,10 @@ WHERE users.User_type_idUser_type = 13 AND young_university.Area = ?)";
 
                     /* execute the prepared statement */
                     if (!mysqli_stmt_execute($stmt)) {
-                        echo "Error: " . mysqli_stmt_error($stmt);
+                        //ERRO
+                        header("Location: ../edit_profile.php?edit=$id_navegar");
+                        $_SESSION["edit_jovem"] = 3;
+                        // echo "Error: " . mysqli_stmt_error($stmt);
                     }
 
                     /* close statement */
@@ -212,7 +219,10 @@ WHERE users.User_type_idUser_type = 13 AND young_university.Area = ?)";
                     foreach ($_POST["area"] as $idAreas) {
                         /* execute the prepared statement */
                         if (!mysqli_stmt_execute($stmt)) {
-                            echo "Error: " . mysqli_stmt_error($stmt);
+                            //ERRO
+                            header("Location: ../edit_profile.php?edit=$id_navegar");
+                            $_SESSION["edit_jovem"] = 3;
+                            //echo "Error: " . mysqli_stmt_error($stmt);
                         }
                     }
                     /* close statement */
@@ -223,8 +233,7 @@ WHERE users.User_type_idUser_type = 13 AND young_university.Area = ?)";
             } //FIM DO ISSET DA AREA
         }
         /* close statement */
-        //mysqli_stmt_close($stmt);
-
+        mysqli_stmt_close($stmt);
         // INSERIR TODAS AS NOVAS COMPETÊNCIAS
         //UPDATE COMPETÊNCIAS
         if (!empty($_POST["capacity"])) {
@@ -242,7 +251,10 @@ WHERE users.User_type_idUser_type = 13 AND young_university.Area = ?)";
 
                 /* execute the prepared statement */
                 if (!mysqli_stmt_execute($stmt)) {
-                    echo "Error: " . mysqli_stmt_error($stmt);
+                    //ERRO
+                    header("Location: ../edit_profile.php?edit=$id_navegar");
+                    $_SESSION["edit_jovem"] = 3;
+                    //echo "Error: " . mysqli_stmt_error($stmt);
                 }
 
                 /* close statement */
@@ -262,7 +274,10 @@ WHERE users.User_type_idUser_type = 13 AND young_university.Area = ?)";
                 foreach ($_POST["capacity"] as $capacities) {
                     /* execute the prepared statement */
                     if (!mysqli_stmt_execute($stmt)) {
-                        echo "Error: " . mysqli_stmt_error($stmt);
+                        //ERRO
+                        header("Location: ../edit_profile.php?edit=$id_navegar");
+                        $_SESSION["edit_jovem"] = 3;
+                        //echo "Error: " . mysqli_stmt_error($stmt);
                     }
                 }
                 /* close statement */
@@ -287,7 +302,10 @@ WHERE users.User_type_idUser_type = 13 AND young_university.Area = ?)";
 
                 /* execute the prepared statement */
                 if (!mysqli_stmt_execute($stmt)) {
-                    echo "Error: " . mysqli_stmt_error($stmt);
+                    //ERRO
+                    header("Location: ../edit_profile.php?edit=$id_navegar");
+                    $_SESSION["edit_jovem"] = 3;
+                    //echo "Error: " . mysqli_stmt_error($stmt);
                 }
 
                 /* close statement */
@@ -307,23 +325,26 @@ WHERE users.User_type_idUser_type = 13 AND young_university.Area = ?)";
                 foreach ($_POST["spot"] as $favorite_environment) {
                     /* execute the prepared statement */
                     if (!mysqli_stmt_execute($stmt)) {
-                        echo "Error: " . mysqli_stmt_error($stmt);
+                        //ERRO
+                        header("Location: ../edit_profile.php?edit=$id_navegar");
+                        $_SESSION["edit_jovem"] = 3;
+                        //echo "Error: " . mysqli_stmt_error($stmt);
                     }
                 }
                 /* close statement */
                 mysqli_stmt_close($stmt);
             }
         }
-
-        echo $idUser;
-        header("Location: ../edit_profile.php?edit=$idUser");
         //match com a uni
         include "match_uni_login.php";
-        echo "sucesso";
+        //SUCESSO
+        header("Location: ../edit_profile.php?edit=$id_navegar");
+        $_SESSION["edit_jovem"] = 1;
     } else {
-        //header("Location: ../editar_conta.php?edit=" . $nickname . "&msg=1");*/
-        echo " erro do stmt prepare <br/>";
-        echo "Error: " . mysqli_stmt_error($stmt);
+        //ERRO
+        header("Location: ../edit_profile.php?edit=$id_navegar");
+        $_SESSION["edit_jovem"] = 3;
+        //echo "Error: " . mysqli_stmt_error($stmt);
     }
     /* close connection */
     //mysqli_close($link);
@@ -381,28 +402,32 @@ WHERE users.User_type_idUser_type = 10 AND young_university.Area = ?)";
                     mysqli_stmt_execute($stmt);
                     mysqli_stmt_bind_result($stmt, $Areas_idAreas, $name_interested_area);
                     while (mysqli_stmt_fetch($stmt)) {
-                        echo "<br> area bd: $Areas_idAreas <br>";
+                        /* echo "<br> area bd: $Areas_idAreas <br>";
                         var_dump($area);
-                        echo "<br>";
+                        echo "<br>"; */
                         $search_area = in_array($Areas_idAreas, $area);
-                        echo "array search: $search_area <br>";
+                        /* echo "array search: $search_area <br>"; */
                         if ($search_area == false) {
-                            echo "AREA NÃO EXISTE NO ARRAY! <br>";
-                            echo "area em falta: $Areas_idAreas e nome: $name_interested_area";
+                            /* echo "AREA NÃO EXISTE NO ARRAY! <br>";
+                            echo "area em falta: $Areas_idAreas e nome: $name_interested_area"; */
                             //Apagar o match
                             if (mysqli_stmt_prepare($stmt2, $query16)) {
                                 mysqli_stmt_bind_param($stmt2, 'is', $idUser, $name_interested_area);
                                 // VALIDAÇÃO DO RESULTADO DO EXECUTE
                                 if (!mysqli_stmt_execute($stmt2)) {
-                                    //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-                                    echo "Error: " . mysqli_stmt_error($stmt2);
+                                    //ERRO
+                                    header("Location: ../edit_profile.php?edit=$id_navegar");
+                                    $_SESSION["edit"] = 3;
+                                    //echo "Error: " . mysqli_stmt_error($stmt2);
                                 } else {
-                                    echo "sucesso a apagar o mtach com base em areas <br>";
+                                    /*  echo "sucesso a apagar o mtach com base em areas <br>"; */
                                     //mysqli_stmt_close($stmt2);
                                 }
                             } else {
-                                echo "erro a apagar o mtach com base em areas <br>";
-                                //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                                //echo "erro a apagar o mtach com base em areas <br>";
+                                //ERRO
+                                header("Location: ../edit_profile.php?edit=$id_navegar");
+                                $_SESSION["edit"] = 3;
                             }
                         }
                     }
@@ -422,14 +447,12 @@ WHERE users.User_type_idUser_type = 10 AND young_university.Area = ?)";
 
         /* execute the prepared statement */
         if (!mysqli_stmt_execute($stmt)) {
-            $idUser = $_POST["edit"];
-            echo $idUser;
-            /*header("Location: ../editar_conta.php?edit=" . $nickname . "&msg=1");
-        */
-            echo "erro da stmt execute <br/>";
-            echo "Error: " . mysqli_stmt_error($stmt);
+            //ERRO
+            header("Location: ../edit_profile.php?edit=$id_navegar");
+            $_SESSION["edit"] = 3;
+            //echo "Error: " . mysqli_stmt_error($stmt);
         } else {
-            echo "we did it";
+            //echo "we did it";
             //REGIÃO
             if (!empty($_POST["regiao"])) {
                 // APAGAR TODOS AS REGIÕES ASSOCIADAS AO USER
@@ -442,7 +465,10 @@ WHERE User_idUser_region = ?";
 
                     /* execute the prepared statement */
                     if (!mysqli_stmt_execute($stmt)) {
-                        echo "Error: " . mysqli_stmt_error($stmt);
+                        //ERRO
+                        header("Location: ../edit_profile.php?edit=$id_navegar");
+                        $_SESSION["edit"] = 3;
+                        //echo "Error: " . mysqli_stmt_error($stmt);
                     }
 
                     /* close statement */
@@ -462,9 +488,12 @@ WHERE User_idUser_region = ?";
                     $idRegion = $_POST["regiao"];
                     /* execute the prepared statement */
                     if (!mysqli_stmt_execute($stmt)) {
-                        echo "Error: " . mysqli_stmt_error($stmt);
+                        //ERRO
+                        header("Location: ../edit_profile.php?edit=$id_navegar");
+                        $_SESSION["edit"] = 3;
+                        //echo "Error: " . mysqli_stmt_error($stmt);
                     } else {
-                        echo "inseriu a região";
+                        /* echo "inseriu a região"; */
                     }
                     /* close statement */
                     mysqli_stmt_close($stmt);
@@ -488,7 +517,10 @@ WHERE User_idUser_region = ?";
 
                     /* execute the prepared statement */
                     if (!mysqli_stmt_execute($stmt)) {
-                        echo "Error: " . mysqli_stmt_error($stmt);
+                        //ERRO
+                        header("Location: ../edit_profile.php?edit=$id_navegar");
+                        $_SESSION["edit"] = 3;
+                        //echo "Error: " . mysqli_stmt_error($stmt);
                     }
 
                     /* close statement */
@@ -509,18 +541,17 @@ WHERE User_idUser_region = ?";
                     foreach ($_POST["area"] as $idAreas) {
                         /* execute the prepared statement */
                         if (!mysqli_stmt_execute($stmt)) {
-                            echo "Error: " . mysqli_stmt_error($stmt);
+                            //ERRO
+                            header("Location: ../edit_profile.php?edit=$id_navegar");
+                            $_SESSION["edit"] = 3;
+                            //echo "Error: " . mysqli_stmt_error($stmt);
                         }
                     }
                     /* close statement */
                     mysqli_stmt_close($stmt);
                 }
-                //header("Location: clube.php?id=$id_clubes");
             } //FIM DO ISSET DA AREA
         }
-
-        echo $idUser;
-        header("Location: ../edit_profile.php?edit=$idUser");
         //match com o jovem
         $link = new_db_connection();
         $stmt = mysqli_stmt_init($link);
@@ -534,14 +565,20 @@ WHERE User_idUser_region = ?";
                 }
             }
         }
-         /* close statement */
-         mysqli_stmt_close($stmt);
-        echo "sucesso";
+        /* close statement */
+        mysqli_stmt_close($stmt);
+        //SUCESSO
+        header("Location: ../edit_profile.php?edit=$id_navegar");
+        $_SESSION["edit"] = 1;
     } else {
-        //header("Location: ../editar_conta.php?edit=" . $nickname . "&msg=1");*/
-        echo " erro do stmt prepare <br/>";
-        echo "Error: " . mysqli_stmt_error($stmt);
+        //ERRO
+        header("Location: ../edit_profile.php?edit=$id_navegar");
+        $_SESSION["edit"] = 3;
+        //echo "Error: " . mysqli_stmt_error($stmt);
     }
 } else {
-    echo "faltam campos obrigatórios";
+    //ERRO
+    header("Location: ../edit_profile.php?edit=$id_navegar");
+    $_SESSION["edit_jovem"] = 2;
+    $_SESSION["edit"] = 2;
 }

@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once "../connections/connection.php";
 
 if (!empty($_POST["nome"]) && !empty($_POST["email"]) && !empty($_POST["data_nasc"]) && !empty($_POST["def"]) && !empty($_POST["password"])) {
@@ -27,7 +28,7 @@ if (!empty($_POST["nome"]) && !empty($_POST["email"]) && !empty($_POST["data_nas
         // VALIDAÇÃO DO RESULTADO DO EXECUTE
         if (mysqli_stmt_execute($stmt)) {
             $last_id = mysqli_insert_id($link);
-            echo "ID depois de inserir o user: " . "$last_id";
+            //echo "ID depois de inserir o user: " . "$last_id";
             //mysqli_stmt_close($stmt);
             //mysqli_close($link);
             // SUCCESS ACTION
@@ -40,22 +41,27 @@ if (!empty($_POST["nome"]) && !empty($_POST["email"]) && !empty($_POST["data_nas
                        VALUES (?, ?)";
 
             if (mysqli_stmt_prepare($stmt, $query2)) {
-                echo "id do user nas regiões: $last_id <br>";
+                //echo "id do user nas regiões: $last_id <br>";
 
                 mysqli_stmt_bind_param($stmt, 'ii', $last_id, $idRegion);
 
-                echo "id da região: $idRegion<br>";
+                //echo "id da região: $idRegion<br>";
                 // PARA TODOS OS JOGADORES QUE FORAM ESCOLHIDOS
                 foreach ($_POST["regiao"] as $idRegion) {
                     echo "id da região: $idRegion<br>";
                     /* execute the prepared statement */
                     if (!mysqli_stmt_execute($stmt)) {
-                        echo "Error: " . mysqli_stmt_error($stmt);
+                        //ERRO
+                        header("Location: ../register.php");
+                        $_SESSION["register"] = 1;
+                        //echo "Error: " . mysqli_stmt_error($stmt);
                     }
                 }
             }
         } else {
-            echo "Região não escolhida";
+            //ERRO
+            header("Location: ../register.php");
+            $_SESSION["register"] = 2;
         }
         //JÁ INSERIU AS REGIÕES
         //INSERIR AS ÁREAS
@@ -63,45 +69,55 @@ if (!empty($_POST["nome"]) && !empty($_POST["email"]) && !empty($_POST["data_nas
             $query3 = "INSERT INTO user_has_areas (User_idUser, Areas_idAreas)
             VALUES (?, ?)";
             if (mysqli_stmt_prepare($stmt, $query3)) {
-                echo "id do user nas areas: $last_id <br>";
+                //echo "id do user nas areas: $last_id <br>";
 
                 mysqli_stmt_bind_param($stmt, 'ii', $last_id, $idAreas);
-                echo "id das áreas: $idAreas<br>";
+                //echo "id das áreas: $idAreas<br>";
                 // PARA TODAS AS ÁREAS QUE FORAM ESCOLHIDAS
                 foreach ($_POST["area"] as $idAreas) {
-                    echo "id das áreas: $idAreas<br>";
+                    //echo "id das áreas: $idAreas<br>";
                     /* execute the prepared statement */
                     if (!mysqli_stmt_execute($stmt)) {
-                        echo "Error: " . mysqli_stmt_error($stmt);
+                        //ERRO
+                        header("Location: ../register.php");
+                        $_SESSION["register"] = 1;
+                        //echo "Error: " . mysqli_stmt_error($stmt);
                     }
                 }
             }
         } else {
-            echo "não inseriu àreas";
+            //ERRO
+            header("Location: ../register.php");
+            $_SESSION["register"] = 2;
         }
         //JÁ INSERIU AS ÁREAS
         //AGORA VAI INSERIR AS COMPETÊNCIAS
-         if (!empty($_POST["capacity"])) {
+        if (!empty($_POST["capacity"])) {
             $query4 = "INSERT INTO capacities_has_users (capacities, users_idUser)
                        VALUES (?, ?)";
 
             if (mysqli_stmt_prepare($stmt, $query4)) {
-                echo "id do user nas competencias: $last_id <br>";
+                //echo "id do user nas competencias: $last_id <br>";
 
                 mysqli_stmt_bind_param($stmt, 'ii', $capacities, $last_id);
 
-                echo "id da competencia: $capacities<br>";
+                //echo "id da competencia: $capacities<br>";
                 // PARA TODOS OS JOGADORES QUE FORAM ESCOLHIDOS
                 foreach ($_POST["capacity"] as $capacities) {
                     echo "id da competencia: $capacities<br>";
                     /* execute the prepared statement */
                     if (!mysqli_stmt_execute($stmt)) {
-                        echo "Error: " . mysqli_stmt_error($stmt);
+                        //ERRO
+                        header("Location: ../register.php");
+                        $_SESSION["register"] = 1;
+                        //echo "Error: " . mysqli_stmt_error($stmt);
                     }
                 }
             }
         } else {
-            echo "nada inserido nas capacidades";
+            //ERRO
+            header("Location: ../register.php");
+            $_SESSION["register"] = 2;
         }
         //JÁ INSERIU AS COMPETÊNCIAS
         //AGORA VAI INSERIR OS AMBIENTES
@@ -110,30 +126,43 @@ if (!empty($_POST["nome"]) && !empty($_POST["email"]) && !empty($_POST["data_nas
                        VALUES (?, ?)";
 
             if (mysqli_stmt_prepare($stmt, $query5)) {
-                echo "id do user nos ambientes: $last_id <br>";
+                //echo "id do user nos ambientes: $last_id <br>";
 
                 mysqli_stmt_bind_param($stmt, 'ii', $environment, $last_id);
 
-                echo "id dos ambientes: $environment<br>";
+                //echo "id dos ambientes: $environment<br>";
                 // PARA TODOS OS JOGADORES QUE FORAM ESCOLHIDOS
                 foreach ($_POST["environment"] as $environment) {
                     echo "id dos ambientes: $environment<br>";
                     /* execute the prepared statement */
                     if (!mysqli_stmt_execute($stmt)) {
-                        echo "Error: " . mysqli_stmt_error($stmt);
+                        //ERRO
+                        header("Location: ../register.php");
+                        $_SESSION["register"] = 1;
+                        //echo "Error: " . mysqli_stmt_error($stmt);
                     }
                 }
             }
         } else {
-            echo "nada inserido nos ambientes favoritos";
+            //ERRO
+            header("Location: ../register.php");
+            $_SESSION["register"] = 2;
         }
         //JÁ INSERIU OS AMBIENTES
         //INSERIR O MATCH
         include "match_uni.php";
         mysqli_stmt_close($stmt);
         mysqli_close($link);
+        //SUCESSO
         header("Location: ../login.php");
+        $_SESSION["login"] = 4;
+    } else {
+        //ERRO
+        header("Location: ../register.php");
+        $_SESSION["register"] = 1;
     }
-}else{
-    echo"falta o preenchimento de campos obrigatórios";
+} else {
+    //ERRO
+    header("Location: ../register.php");
+    $_SESSION["register"] = 2;
 }

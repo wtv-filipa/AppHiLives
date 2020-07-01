@@ -1,5 +1,7 @@
 <?php
-if (!empty($_POST["nomeuc"]) && !empty($_POST["uniuc"]) && !empty($_POST["data"])&& isset($_GET["uc"])) {
+session_start();
+$idDone_CU = $_GET["uc"];
+if (!empty($_POST["nomeuc"]) && !empty($_POST["uniuc"]) && !empty($_POST["data"]) && isset($_GET["uc"])) {
     //echo "estou a editar";
     $idDone_CU = $_GET["uc"];
     $nomeuc = $_POST["nomeuc"];
@@ -8,7 +10,7 @@ if (!empty($_POST["nomeuc"]) && !empty($_POST["uniuc"]) && !empty($_POST["data"]
 
     echo $idDone_CU;
     echo $nomeuc;
-    echo  $uniuc ;
+    echo  $uniuc;
     echo $data;
 
     // We need the function!
@@ -27,16 +29,22 @@ if (!empty($_POST["nomeuc"]) && !empty($_POST["uniuc"]) && !empty($_POST["data"]
         mysqli_stmt_bind_param($stmt, 'sssi', $nomeuc, $uniuc, $data, $idDone_CU);
 
         if (!mysqli_stmt_execute($stmt)) {
-
-            /*header("Location: ../editar_conta.php?edit=" . $nickname . "&msg=1");
-            */
-            echo "erro da stmt execute <br/>";
-            echo "Error: " . mysqli_stmt_error($stmt);
-        } else {
-            echo "we did it";
+            //echo "Error: " . mysqli_stmt_error($stmt);
+            //ERRO
             header("Location: ../edit_done_uc.php?uc=$idDone_CU");
+            $_SESSION["doneCU"] = 1;
+        } else {
+            // SUCCESS ACTION
+            header("Location: ../links_made.php");
+            $_SESSION["doneCU"] = 3;
         }
-
+    } else {
+        //ERRO
+        header("Location: ../edit_done_uc.php?uc=$idDone_CU");
+        $_SESSION["doneCU"] = 1;
     }
-
+} else {
+    //ERRO
+    header("Location: ../edit_done_uc.php?uc=$idDone_CU");
+    $_SESSION["doneCU"] = 2;
 }

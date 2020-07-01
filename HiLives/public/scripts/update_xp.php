@@ -6,9 +6,11 @@ require_once("../connections/connection.php");
 $link = new_db_connection();
 /* create a prepared statement */
 $stmt = mysqli_stmt_init($link);
+
+$id_xp = $_GET["update_xp"];
+
 if (isset($_GET["update_xp"]) && isset($_SESSION["idUser"]) && !empty($_POST["nomeVideo"])) {
     $id_navegar = $_SESSION["idUser"];
-    $id_xp = $_GET["update_xp"];
     $title_exp = $_POST['nomeVideo'];
     $description = $_POST['descricao'];
 
@@ -22,21 +24,23 @@ if (isset($_GET["update_xp"]) && isset($_SESSION["idUser"]) && !empty($_POST["no
 
         /* execute the prepared statement */
         if (!mysqli_stmt_execute($stmt)) {
-            /*header("Location: ../editar_conta.php?edit=" . $nickname . "&msg=1");
-            */
-            echo "erro da stmt execute <br/>";
-            echo "Error: " . mysqli_stmt_error($stmt);
+            //ERRO
+            header("Location: ../edit_xp.php?edit_xp=$id_xp");
+            $_SESSION["xp_jovem"] = 1;
+            //echo "Error: " . mysqli_stmt_error($stmt);
         } else {
-            echo "we did it";
-            header("Location:../profile.php?user=$id_navegar");
+            //SUCESSO
+            header("Location: ../profile.php?user=$id_navegar#xp_jovem");
+            $_SESSION["xp_jovem"] = 2;
         }
     } else {
-        /* $nickname = $_POST["edit"];
-            echo $nickname;
-            header("Location: ../editar_conta.php?edit=" . $nickname . "&msg=1");*/
-        echo " erro do stmt prepare <br/>";
-        echo "Error: " . mysqli_stmt_error($stmt);
+        //ERRO
+        header("Location: ../edit_xp.php?edit_xp=$id_xp");
+        $_SESSION["xp_jovem"] = 1;
+        //echo "Error: " . mysqli_stmt_error($stmt);
     }
 } else {
-    echo "página não encontrada";
+    //ERRO
+    header("Location: ../edit_xp.php?edit_xp=$id_xp");
+    $_SESSION["xp_jovem"] = 2;
 }

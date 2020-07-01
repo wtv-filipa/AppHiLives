@@ -122,12 +122,12 @@ $stmt = mysqli_stmt_init($link);
                                     </li>
                                     <li>
                                         <a href="can_choose_study.php" class="nav__link mr-2 mb-1 zoom">
-                                            <span class="nav__link--text">As minha ligações</span>
+                                            <span class="nav__link--text">As minhas ligações</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="" class="nav__link mr-2 mb-1 zoom">
-                                            <span class="nav__link--text">Todos os candidatos possíveis</span>
+                                        <a href="allOptions_uni.php" class="nav__link mr-2 mb-1 zoom">
+                                            <span class="nav__link--text">Todos os jovens</span>
                                         </a>
                                     </li>
                                     <!-- VAGAS DE EMPRESAS -->
@@ -138,7 +138,7 @@ $stmt = mysqli_stmt_init($link);
                                     </li>
                                     <li>
                                         <a href="allOptions_company.php" class="nav__link mr-2 mb-1 zoom">
-                                            <span class="nav__link--text">Ver todas as vagas</span>
+                                            <span class="nav__link--text">Todas as vagas</span>
 
                                         </a>
                                     </li>
@@ -151,7 +151,7 @@ $stmt = mysqli_stmt_init($link);
                                     </li>
                                     <li>
                                         <a href="experiences.php" class="nav__link mr-2 mb-1 zoom">
-                                            <span class="nav__link--text">Ver todas as experiências</span>
+                                            <span class="nav__link--text">Todas as experiências</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -167,13 +167,13 @@ $stmt = mysqli_stmt_init($link);
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="" class="nav__link mr-2 mb-1 zoom">
-                                                <span class="nav__link--text">Ver os meus candidatos</span>
+                                            <a href="can_choose_work.php" class="nav__link mr-2 mb-1 zoom">
+                                                <span class="nav__link--text">Os meus candidatos</span>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="" class="nav__link mr-2 mb-1 zoom">
-                                                <span class="nav__link--text">Ver todas as ligações</span>
+                                            <a href="allOptions_company.php" class="nav__link mr-2 mb-1 zoom">
+                                                <span class="nav__link--text">Todos os jovens</span>
                                             </a>
                                         </li>
                                         <!-- VAGAS DE EMPRESAS -->
@@ -184,7 +184,7 @@ $stmt = mysqli_stmt_init($link);
                                         </li>
                                         <li>
                                             <a href="all_vacancies_comp.php" class="nav__link mr-2 mb-1 zoom">
-                                                <span class="nav__link--text">Ver todas as minhas vagas</span>
+                                                <span class="nav__link--text">As minhas vagas</span>
                                             </a>
                                         </li>
                                         <li>
@@ -201,7 +201,7 @@ $stmt = mysqli_stmt_init($link);
                                         </li>
                                         <li>
                                             <a href="experiences.php" class="nav__link mr-2 mb-1 zoom">
-                                                <span class="nav__link--text">Ver todas as experiências</span>
+                                                <span class="nav__link--text">Todas as experiências</span>
                                             </a>
                                         </li>
                                     </ul>
@@ -233,7 +233,7 @@ $stmt = mysqli_stmt_init($link);
                         if ($User_type == 10 ) {
                         ?>
                         <a class="navbar-brand mx-auto" href="home_people.php">
-                            <img src="img/logo.png" class="img-responsive logo" alt="Logótipo do HiLives">
+                            <img src="img/logo.svg" class="img-responsive logo" alt="Logótipo do HiLives">
                         </a>
                         <?php
                         }
@@ -243,7 +243,7 @@ $stmt = mysqli_stmt_init($link);
                         if ($User_type == 7 ) {
                             ?>
                             <a class="navbar-brand mx-auto" href="home_companies.php">
-                                <img src="img/logo.png" class="img-responsive logo" alt="Logótipo do HiLives">
+                                <img src="img/logo.svg" class="img-responsive logo" alt="Logótipo do HiLives">
                             </a>
                             <?php
                         }
@@ -253,7 +253,7 @@ $stmt = mysqli_stmt_init($link);
                         if ($User_type == 13) {
                             ?>
                             <a class="navbar-brand mx-auto" href="home_uni.php">
-                                <img src="img/logo.png" class="img-responsive logo" alt="Logótipo do HiLives">
+                                <img src="img/logo.svg" class="img-responsive logo" alt="Logótipo do HiLives">
                             </a>
                             <?php
                         }
@@ -265,7 +265,7 @@ $stmt = mysqli_stmt_init($link);
                     <div class="col-4"></div>
                     <div class="col-4 text-center ">
                         <a class="navbar-brand mx-auto" href="index.php">
-                            <img src="img/logo.png" class="img-responsive logo" alt="Logótipo do HiLives">
+                            <img src="img/logo.svg" class="img-responsive logo" alt="Logótipo do HiLives">
                         </a>
                     </div>
                     <div class=" col-4 text-right my-auto pr-0">
@@ -399,7 +399,7 @@ $stmt = mysqli_stmt_init($link);
                                     <!--<i class="fa fa-sliders mr-2"></i>-->Definições</button>
                             </a>
                             <a href="scripts/logout.php">
-                                <button class="nav__btn2 nav__btn3" style="background: #FDE74C;"><i class="fa fa-sign-out mr-2"></i>Logout
+                                <button class="nav__btn2 nav__btn3" style="background: #FDE74C;"><i class="fa fa-sign-out mr-2"></i>Sair
                                 </button>
                             </a>
                         </ul>

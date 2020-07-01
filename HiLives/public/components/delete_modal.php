@@ -56,7 +56,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn_cancel" data-dismiss="modal">Cancelar</button>
-                <a class="btn btn-danger btn_apagar" href="scripts/delete_vac.php?apaga=<?= $idVacancie ?>">Apagar</a>
+                <a class="btn btn-danger btn_apagar" href="scripts/delete_vac.php?apaga=<?= $idVacancies ?>">Apagar</a>
             </div>
         </div>
     </div>
