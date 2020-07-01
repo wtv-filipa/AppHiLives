@@ -233,7 +233,7 @@ $stmt = mysqli_stmt_init($link);
                         if ($User_type == 10 ) {
                         ?>
                         <a class="navbar-brand mx-auto" href="home_people.php">
-                            <img src="img/logo.png" class="img-responsive logo" alt="Logótipo do HiLives">
+                            <img src="img/logo.svg" class="img-responsive logo" alt="Logótipo do HiLives">
                         </a>
                         <?php
                         }
@@ -243,7 +243,7 @@ $stmt = mysqli_stmt_init($link);
                         if ($User_type == 7 ) {
                             ?>
                             <a class="navbar-brand mx-auto" href="home_companies.php">
-                                <img src="img/logo.png" class="img-responsive logo" alt="Logótipo do HiLives">
+                                <img src="img/logo.svg" class="img-responsive logo" alt="Logótipo do HiLives">
                             </a>
                             <?php
                         }
@@ -253,7 +253,7 @@ $stmt = mysqli_stmt_init($link);
                         if ($User_type == 13) {
                             ?>
                             <a class="navbar-brand mx-auto" href="home_uni.php">
-                                <img src="img/logo.png" class="img-responsive logo" alt="Logótipo do HiLives">
+                                <img src="img/logo.svg" class="img-responsive logo" alt="Logótipo do HiLives">
                             </a>
                             <?php
                         }
@@ -265,7 +265,7 @@ $stmt = mysqli_stmt_init($link);
                     <div class="col-4"></div>
                     <div class="col-4 text-center ">
                         <a class="navbar-brand mx-auto" href="index.php">
-                            <img src="img/logo.png" class="img-responsive logo" alt="Logótipo do HiLives">
+                            <img src="img/logo.svg" class="img-responsive logo" alt="Logótipo do HiLives">
                         </a>
                     </div>
                     <div class=" col-4 text-right my-auto pr-0">
@@ -399,7 +399,7 @@ $stmt = mysqli_stmt_init($link);
                                     <!--<i class="fa fa-sliders mr-2"></i>-->Definições</button>
                             </a>
                             <a href="scripts/logout.php">
-                                <button class="nav__btn2 nav__btn3" style="background: #FDE74C;"><i class="fa fa-sign-out mr-2"></i>Logout
+                                <button class="nav__btn2 nav__btn3" style="background: #FDE74C;"><i class="fa fa-sign-out mr-2"></i>Sair
                                 </button>
                             </a>
                         </ul>

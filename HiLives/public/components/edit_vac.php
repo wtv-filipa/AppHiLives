@@ -21,6 +21,38 @@ if (isset($_GET["idvac"]) and isset($_SESSION["idUser"])) {
             if (mysqli_stmt_fetch($stmt)) {
 ?>
                 <div class="events w-75 mx-auto">
+                    <?php
+                    if (isset($_SESSION["vac"])) {
+                        $msg_show = true;
+                        switch ($_SESSION["vac"]) {
+                            case 1:
+                                $message = "É necessário preencher todos os campos obrigatórios.";
+                                $class = "alert-warning";
+                                $_SESSION["vac"] = 0;
+                                break;
+                            case 2:
+                                $message = "Ocorreu um erro a processar o seu pedido, por favor tente novamente mais tarde.";
+                                $class = "alert-warning";
+                                $_SESSION["vac"] = 0;
+                                break;
+                            case 0:
+                                $msg_show = false;
+                                break;
+                            default:
+                                $msg_show = false;
+                                $_SESSION["vac"] = 0;
+                        }
+
+                        if ($msg_show == true) {
+                            echo "<div class=\"alert $class alert-dismissible fade show mt-4\" role=\"alert\">" . $message . "
+                                <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+                                <span aria-hidden=\"true\">&times;</span>
+                                </button>
+                                </div>";
+                            echo '<script>window.onload=function (){$(\'.alert\').alert();}</script>';
+                        }
+                    }
+                    ?>
 
                     <!--Card-->
                     <div class="card mdb-color lighten-4 text-center z-depth-2 light-version py-4 px-5">
@@ -254,16 +286,6 @@ if (isset($_GET["idvac"]) and isset($_SESSION["idUser"])) {
                                 </div>
                             </div>
                             <!-------------------------------------------->
-                            <!--input de upload-->
-                            <div class="alert alert-warning mt-4" role="alert">
-                                Insira um vídeo da experiência na empresa até 50MB. (opcional)
-                            </div>
-                            <div class="custom-file mb-3">
-                                <input type="file" class="custom-file-input file-upload" id="customFile" name="fileToUpload">
-                                <label class="custom-file-label" for="customFile">Choose file</label>
-                            </div>
-
-                            <!-------------------------------------------->
 
                             <div>
                                 <button type="submit" class="btn btn-success publicar_btn">Publicar</button>
@@ -276,5 +298,7 @@ if (isset($_GET["idvac"]) and isset($_SESSION["idUser"])) {
             }
         }
     }
+} else{
+    include("404.php");
 }
 ?>

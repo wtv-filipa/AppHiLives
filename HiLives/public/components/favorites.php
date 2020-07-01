@@ -59,7 +59,7 @@ if ($_SESSION["idUser"]) {
                         } else {
                             ?>
                             <img alt="imagem de perfil default da universidade" title="" class="tagpost_thumb"
-                                 src="img/index_2.png">
+                                 src="img/index_2.jpg">
                             <?php
                         }
                         ?>
@@ -95,5 +95,7 @@ if ($_SESSION["idUser"]) {
         </div>
         <?php
     }
+} else {
+    include("404.php");
 }
 ?>

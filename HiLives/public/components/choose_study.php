@@ -92,7 +92,7 @@ if ($_SESSION["idUser"]) {
                                 } else {
                                     ?>
                                     <a href="profile.php?user=<?= $User_university ?>">
-                                        <div class="image" style="background-image: url('img/index_2.png')"></div>
+                                        <div class="image" style="background-image: url('img/index_2.jpg')"></div>
                                     </a>
                                     <?php
                                 }
@@ -132,7 +132,7 @@ if ($_SESSION["idUser"]) {
                                     } else {
                                         ?>
                                         <a href="profile.php?user=<?= $User_young ?>">
-                                            <div class="image mt-4" style="background-image: url('img/index_2.png')"></div>
+                                            <div class="image mt-4" style="background-image: url('img/index_2.jpg')"></div>
                                         </a>
                                         <?php
                                     }
@@ -159,4 +159,6 @@ if ($_SESSION["idUser"]) {
         <?php
     }
 }
+} else {
+    include("404.php");
 }

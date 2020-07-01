@@ -1,5 +1,6 @@
 <?php
 session_start();
+$idDone_CU = $_GET["uc"];
 if (!empty($_POST["nomeuc"]) && !empty($_POST["uniuc"]) && !empty($_POST["data"]) && isset($_GET["uc"])) {
     //echo "estou a editar";
     $idDone_CU = $_GET["uc"];
@@ -30,20 +31,20 @@ if (!empty($_POST["nomeuc"]) && !empty($_POST["uniuc"]) && !empty($_POST["data"]
         if (!mysqli_stmt_execute($stmt)) {
             //echo "Error: " . mysqli_stmt_error($stmt);
             //ERRO
-            header("Location: ../links_made.php");
+            header("Location: ../edit_done_uc.php?uc=$idDone_CU");
             $_SESSION["doneCU"] = 1;
         } else {
             // SUCCESS ACTION
             header("Location: ../links_made.php");
-            $_SESSION["doneCU"] = 4;
+            $_SESSION["doneCU"] = 3;
         }
     } else {
         //ERRO
-        header("Location: ../links_made.php");
+        header("Location: ../edit_done_uc.php?uc=$idDone_CU");
         $_SESSION["doneCU"] = 1;
     }
 } else {
     //ERRO
-    header("Location: ../links_made.php");
-    $_SESSION["doneCU"] = 3;
+    header("Location: ../edit_done_uc.php?uc=$idDone_CU");
+    $_SESSION["doneCU"] = 2;
 }

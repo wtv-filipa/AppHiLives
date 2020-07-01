@@ -1,10 +1,10 @@
 <?php
 session_start();
-
-if (isset($_GET['apaga']) ) {
+$id_navegar = $_SESSION["idUser"];
+if (isset($_GET['apaga'])) {
 
     echo "estou a apagar um vídeo de uma empresa";
-    $idUser=$_SESSION["idUser"];
+    $idUser = $_SESSION["idUser"];
     $idContent = $_GET["apaga"];
     require_once "../connections/connection.php";
     $link = new_db_connection();
@@ -23,9 +23,11 @@ if (isset($_GET['apaga']) ) {
             $ficheiro = "../../admin/uploads/vid_vac/" . $content_name;
             echo $ficheiro;
             if (!unlink($ficheiro)) {
-                echo "ero a apagar o ficheiro da pasta";
+                //ERRO
+                header("Location: ../profile.php?user=$id_navegar#xp_vac");
+                $_SESSION["xp_vac"] = 2;
             } else {
-                echo "sucesso a apagar o ficheiro da pasta";
+                //echo "sucesso a apagar o ficheiro da pasta";
                 //PRIMEIRA QUERY
                 if (mysqli_stmt_prepare($stmt, $query)) {
 
@@ -33,15 +35,17 @@ if (isset($_GET['apaga']) ) {
 
                     /* execute the prepared statement */
                     if (!mysqli_stmt_execute($stmt)) {
-
-                        //header("Location: ../administradores.php?msg=1");
+                        //ERRO
+                        header("Location: ../profile.php?user=$id_navegar#xp_vac");
+                        $_SESSION["xp_vac"] = 2;
                     }
 
                     /* close statement */
                     mysqli_stmt_close($stmt);
                 } else {
-
-                    //header("Location: ../administradores.php?msg=1");
+                    //ERRO
+                    header("Location: ../profile.php?user=$id_navegar#xp_vac");
+                    $_SESSION["xp_vac"] = 2;
                 }
                 //SEGUNDA QUERY
                 $stmt = mysqli_stmt_init($link);
@@ -50,19 +54,30 @@ if (isset($_GET['apaga']) ) {
 
                     // VALIDAÇÃO DO RESULTADO DO EXECUTE
                     if (!mysqli_stmt_execute($stmt)) {
-
-                        //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-                        echo "Error: " . mysqli_stmt_error($stmt);
+                        //ERRO
+                        header("Location: ../profile.php?user=$id_navegar#xp_vac");
+                        $_SESSION["xp_vac"] = 2;
+                        //echo "Error: " . mysqli_stmt_error($stmt);
                     }
 
                     mysqli_stmt_close($stmt);
                 } else {
-                    echo "erro";
-                    //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                    //ERRO
+                    header("Location: ../profile.php?user=$id_navegar#xp_vac");
+                    $_SESSION["xp_vac"] = 2;
                 }
-                echo "sucesso";
-                header("Location:../profile.php?user=$idUser");
+                //ERRO
+                header("Location: ../profile.php?user=$id_navegar#xp_vac");
+                $_SESSION["xp_vac"] = 1;
             }
         }
+    } else {
+        //ERRO
+        header("Location: ../profile.php?user=$id_navegar#xp_vac");
+        $_SESSION["xp_vac"] = 2;
     }
+} else {
+    //ERRO
+    header("Location: ../profile.php?user=$id_navegar#xp_vac");
+    $_SESSION["xp_vac"] = 2;
 }

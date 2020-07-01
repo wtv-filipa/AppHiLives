@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 if (!empty($_POST["email"]) && !empty($_POST["password"])) {
 
     require_once("../connections/connection.php");
@@ -43,27 +43,36 @@ if (!empty($_POST["email"]) && !empty($_POST["password"])) {
                     } else if ($type_user == "Universidade") {
                         include "match_young_login.php";
                         header("Location: ../home_uni.php");
-                    }else if ($type_user == "Admin") {
+                    } else if ($type_user == "Admin") {
                         header("Location: ../../admin/index.php");
                     }
                     echo "LOGIN DEU";
                 } else {
-                    // header("Location: ../login.php?msg=1");
-                    echo "não deu o login";
+                    //ERRO
+                    header("Location: ../login.php");
+                    $_SESSION["login"] = 1;
                 }
             } else {
                 // feedback de erro geral devido à password estar errada
-                echo "pass errada";
-                //header("Location: ../login.php?msg=0");
+                //ERRO
+                header("Location: ../login.php");
+                $_SESSION["login"] = 3;
             }
         } else {
-            // feedback de erro feral devido ao username estar errado
-            echo "nickname errado";
-            //header("Location: ../login.php?msg=0");
+            // feedback de erro geral devido ao username estar errado
+            //ERRO
+            header("Location: ../login.php");
+            $_SESSION["login"] = 3;
         }
         mysqli_stmt_close($stmt);
         mysqli_close($link);
+    } else{
+        //ERRO
+        header("Location: ../login.php");
+        $_SESSION["login"] = 1;
     }
-}else{
-    echo"campo vazio";
+} else {
+    //ERRO
+    header("Location: ../login.php");
+    $_SESSION["login"] = 2;
 }

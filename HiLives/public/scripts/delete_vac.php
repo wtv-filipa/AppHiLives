@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 if (isset($_GET["apaga"])) {
     //echo "estou aqui para apagar uma vaga de emprego";
     $idVacancies = $_GET["apaga"];
@@ -17,15 +17,17 @@ if (isset($_GET["apaga"])) {
 
         // VALIDAÇÃO DO RESULTADO DO EXECUTE
         if (!mysqli_stmt_execute($stmt)) {
-
-            //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-            echo "Error: " . mysqli_stmt_error($stmt);
+            //ERRO
+            header("Location: ../all_vacancies_comp.php");
+            $_SESSION["vac"] = 2;
+            //echo "Error: " . mysqli_stmt_error($stmt);
         }
 
         mysqli_stmt_close($stmt);
     } else {
-        echo "erro";
-        //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+        //ERRO
+        header("Location: ../all_vacancies_comp.php");
+        $_SESSION["vac"] = 2;
     }
     //SEGUNDA QUERY
     $stmt = mysqli_stmt_init($link);
@@ -35,16 +37,23 @@ if (isset($_GET["apaga"])) {
 
         // VALIDAÇÃO DO RESULTADO DO EXECUTE
         if (!mysqli_stmt_execute($stmt)) {
-
-            //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-            echo "Error: " . mysqli_stmt_error($stmt);
+            //ERRO
+            header("Location: ../all_vacancies_comp.php");
+            $_SESSION["vac"] = 2;
+            //echo "Error: " . mysqli_stmt_error($stmt);
         }
 
         mysqli_stmt_close($stmt);
     } else {
-        echo "erro";
-        //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+        //ERRO
+        header("Location: ../all_vacancies_comp.php");
+        $_SESSION["vac"] = 2;
     }
-    echo "sucesso";
+    //SUCESSO
     header("Location: ../all_vacancies_comp.php");
+    $_SESSION["vac"] = 4;
+} else {
+    //ERRO
+    header("Location: ../all_vacancies_comp.php");
+    $_SESSION["vac"] = 2;
 }

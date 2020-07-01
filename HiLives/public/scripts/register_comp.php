@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once "../connections/connection.php";
 
 if (!empty($_POST["nome"]) && !empty($_POST["email"]) && !empty($_POST["data_fund"]) && !empty($_POST["phone"]) && !empty($_POST["desc"]) && !empty($_POST["password"])) {
@@ -42,34 +43,43 @@ if (!empty($_POST["nome"]) && !empty($_POST["email"]) && !empty($_POST["data_fun
                     mysqli_stmt_bind_param($stmt, 'ii', $last_id, $idRegion);
                     //echo"id da região: $idRegion<br>";
                     if (!mysqli_stmt_execute($stmt)) {
-                        echo "Error: " . mysqli_stmt_error($stmt);
+                        //ERRO
+                        header("Location: ../register_comp.php");
+                        $_SESSION["register"] = 1;
+                        //echo "Error: " . mysqli_stmt_error($stmt);
                     }
                     /* close statement */
                     mysqli_stmt_close($stmt);
+                } else {
+                    //ERRO
+                    header("Location: ../register_comp.php");
+                    $_SESSION["register"] = 1;
                 }
                 //fim da cena do insert
 
             } else {
-                ///isto é do isset
-                echo "Região não inserida";
-                // header("Location: ../register.php?msg=2");
+                //ERRO
+                header("Location: ../register_comp.php");
+                $_SESSION["register"] = 2;
             }
             //FIM DO INSERT REGIAO
-
-            //header("Location: ../login.php");
+            //SUCESSO
+            header("Location: ../login.php");
+            $_SESSION["login"] = 4;
         } else {
-            // ERROR ACTION
-            echo "Error: " . mysqli_stmt_error($stmt);
-            echo "NAO DEU POR ERRO DA BD <br>";
-            //header("Location: ../register.php?msg=0");
+            //ERRO
+            header("Location: ../register_comp.php");
+            $_SESSION["register"] = 1;
+            //echo "Error: " . mysqli_stmt_error($stmt);
         }
     } else {
-        // ERROR ACTION
-        echo "ERRO <br>";
-        //header("Location: ../register.php?msg=0");
+        //ERRO
+        header("Location: ../register_comp.php");
+        $_SESSION["register"] = 1;
         mysqli_close($link);
     }
 } else {
-    echo "faltam campos <br>";
-    // header("Location: ../register.php?msg=2");
+    //ERRO
+    header("Location: ../register_comp.php");
+    $_SESSION["register"] = 2;
 }

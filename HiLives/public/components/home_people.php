@@ -60,7 +60,7 @@ if ($_SESSION["idUser"]) {
                                                 <?php
                                                 } else {
                                                 ?>
-                                                    <img alt="imagem de perfil default da universidade" title="" class="tagpost_thumb" src="img/index_2.png">
+                                                    <img alt="imagem de perfil default da universidade" title="" class="tagpost_thumb" src="img/index_2.jpg">
                                                 <?php
                                                 }
                                                 ?>
@@ -139,7 +139,7 @@ if ($_SESSION["idUser"]) {
                             <?php
                             } else {
                             ?>
-                                <img alt="" title="" class="imagem" src="img/uni_icon.png">
+                                <img alt="" title="" class="imagem" src="img/destaque.jpg">
                             <?php
                             }
                             ?>

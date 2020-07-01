@@ -1,6 +1,7 @@
 <?php
+session_start();
 require_once "../connections/connection.php";
-
+$idVacancies = $_GET["idvac"];
 if (isset($_GET["idvac"]) && !empty($_POST["nomevaga"]) && !empty($_POST["descricao"]) && !empty($_POST["numvagas"]) && !empty($_POST["requisitos"])) {
 
     $idVacancies = $_GET["idvac"];
@@ -28,8 +29,10 @@ if (isset($_GET["idvac"]) && !empty($_POST["nomevaga"]) && !empty($_POST["descri
 
         /* execute the prepared statement */
         if (!mysqli_stmt_execute($stmt)) {
-            echo "erro da stmt execute <br/>";
-            echo "Error: " . mysqli_stmt_error($stmt);
+            //ERRO
+            header("Location: ../edit_vac.php?idvac=$idVacancies");
+            $_SESSION["vac"] = 2;
+            //echo "Error: " . mysqli_stmt_error($stmt);
         } else {
             //CAPACIDADES
             if (!empty($_POST["capacity"])) {
@@ -43,7 +46,10 @@ if (isset($_GET["idvac"]) && !empty($_POST["nomevaga"]) && !empty($_POST["descri
 
                     /* execute the prepared statement */
                     if (!mysqli_stmt_execute($stmt)) {
-                        echo "Error: " . mysqli_stmt_error($stmt);
+                        //ERRO
+                        header("Location: ../edit_vac.php?idvac=$idVacancies");
+                        $_SESSION["vac"] = 2;
+                        //echo "Error: " . mysqli_stmt_error($stmt);
                     }
 
                     /* close statement */
@@ -51,7 +57,6 @@ if (isset($_GET["idvac"]) && !empty($_POST["nomevaga"]) && !empty($_POST["descri
                 }
                 /* create a prepared statement */
                 $stmt = mysqli_stmt_init($link);
-
             }
             $query3 = "INSERT INTO vacancies_has_capacities (vacancies_idVacancies, capacities_idcapacities)
                   VALUES (?, ?)";
@@ -64,7 +69,10 @@ if (isset($_GET["idvac"]) && !empty($_POST["nomevaga"]) && !empty($_POST["descri
                 foreach ($_POST["capacity"] as $capacities_idcapacities) {
                     /* execute the prepared statement */
                     if (!mysqli_stmt_execute($stmt)) {
-                        echo "Error: " . mysqli_stmt_error($stmt);
+                        //ERRO
+                        header("Location: ../edit_vac.php?idvac=$idVacancies");
+                        $_SESSION["vac"] = 2;
+                        //echo "Error: " . mysqli_stmt_error($stmt);
                     }
                 }
                 /* close statement */
@@ -73,10 +81,13 @@ if (isset($_GET["idvac"]) && !empty($_POST["nomevaga"]) && !empty($_POST["descri
 
             /* close connection */
             mysqli_close($link);
+            //sucess
             header("Location: ../all_vacancies_comp.php");
+            $_SESSION["vac"] = 3;
         }
-        }
-
-} else{
-    echo"faltam campos obrigatórios";
+    }
+} else {
+    //ERRO
+    header("Location: ../edit_vac.php?idvac=$idVacancies");
+    $_SESSION["vac"] = 1;
 }

@@ -46,4 +46,6 @@ if (isset($_GET["u"])) {
 <?php
 }
     }
+} else{
+    include("404.php");
 }

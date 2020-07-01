@@ -71,5 +71,7 @@ if (isset($_SESSION["idUser"])) {
     <?php
    //Modal de apagar user
    include('components/delete_modal.php');
+} else {
+    include("404.php");
 }
     ?>

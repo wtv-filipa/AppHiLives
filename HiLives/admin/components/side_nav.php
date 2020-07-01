@@ -4,7 +4,7 @@
   <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
     <div class="sidebar-brand-icon rotate-n-15">
     </div>
-    <div class="sidebar-brand-text mx-3"><img class="img-fluid tamanho" src="img/logo.png" alt="logotipo HiLives" /></div>
+    <div class="sidebar-brand-text mx-3"><img class="img-fluid tamanho" src="img/logo.svg" alt="logotipo HiLives" /></div>
   </a>
 
   <!-- Divider -->

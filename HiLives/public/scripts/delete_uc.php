@@ -25,7 +25,7 @@ if (isset($_GET['apaga'])) {
             mysqli_stmt_close($stmt);
             // SUCCESS ACTION
             header("Location: ../links_made.php");
-            $_SESSION["doneCU"] = 5;
+            $_SESSION["doneCU"] = 4;
         }
     } else {
         //ERRO

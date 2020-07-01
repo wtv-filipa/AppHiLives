@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once "../connections/connection.php";
 
 
@@ -30,7 +31,7 @@ if (!empty($_POST["nome"]) && !empty($_POST["email"]) && !empty($_POST["data_fun
         // VALIDAÇÃO DO RESULTADO DO EXECUTE
         if (mysqli_stmt_execute($stmt)) {
             $last_id = mysqli_insert_id($link);
-            echo $last_id;
+            //echo $last_id;
             // SUCCESS ACTION
             //echo "ESTÁ NA BD <br>";
 
@@ -43,13 +44,16 @@ if (!empty($_POST["nome"]) && !empty($_POST["email"]) && !empty($_POST["data_fun
                 $query2 = "INSERT INTO user_has_region (User_idUser_region, Region_idRegion) VALUES (?, ?)";
                 //parte do insert
                 if (mysqli_stmt_prepare($stmt, $query2)) {
-//                                echo "id do user: $idUser <br>";
+                    //echo "id do user: $idUser <br>";
 
                     mysqli_stmt_bind_param($stmt, 'ii', $last_id, $idRegion);
-//                                echo"id da região: $idRegion<br>";
+                    //echo"id da região: $idRegion<br>";
 
                     if (!mysqli_stmt_execute($stmt)) {
-                        echo "Error: " . mysqli_stmt_error($stmt);
+                        //ERRO
+                        header("Location: ../register_uni.php");
+                        $_SESSION["register"] = 1;
+                        //echo "Error: " . mysqli_stmt_error($stmt);
                     }
                     /* close statement */
                     //mysqli_stmt_close($stmt);
@@ -57,9 +61,9 @@ if (!empty($_POST["nome"]) && !empty($_POST["email"]) && !empty($_POST["data_fun
                 //fim da cena do insert
 
             } else {
-                ///isto é do isset
-                echo "ERRO de não temos nada inserido na região";
-                // header("Location: ../register.php?msg=2");
+                //ERRO
+                header("Location: ../register_uni.php");
+                $_SESSION["register"] = 2;
             }
             //FIM DO INSERT REGIAO
 
@@ -70,16 +74,19 @@ if (!empty($_POST["nome"]) && !empty($_POST["email"]) && !empty($_POST["data_fun
                 $query2 = "INSERT INTO user_has_areas (User_idUser, Areas_idAreas) VALUES (?, ?)";
                 //parte do insert
                 if (mysqli_stmt_prepare($stmt, $query2)) {
-//                                echo "id do user: $idUser <br>";
+                    //echo "id do user: $idUser <br>";
 
                     mysqli_stmt_bind_param($stmt, 'ii', $last_id, $idAreas);
-//                                echo"id das áreas: $idAreas<br>";
+                    //echo"id das áreas: $idAreas<br>";
                     // PARA TODAS AS ÁREAS QUE FORAM ESCOLHIDAS
                     foreach ($_POST["area"] as $idAreas) {
-                        echo "id das áreas: $idAreas<br>";
+                        //echo "id das áreas: $idAreas<br>";
                         /* execute the prepared statement */
                         if (!mysqli_stmt_execute($stmt)) {
-                            echo "Error: " . mysqli_stmt_error($stmt);
+                            //ERRO
+                            header("Location: ../register_uni.php");
+                            $_SESSION["register"] = 1;
+                            //echo "Error: " . mysqli_stmt_error($stmt);
                         }
                     }
                     /* close statement */
@@ -88,28 +95,28 @@ if (!empty($_POST["nome"]) && !empty($_POST["email"]) && !empty($_POST["data_fun
                 //fim da cena do insert
 
             } else {
-                ///isto é do isset
-                echo "ERRO de não temos nada inserido nas areas";
-                // header("Location: ../register.php?msg=2");
+                //ERRO
+                header("Location: ../register_uni.php");
+                $_SESSION["register"] = 2;
             }
             //FIM INSERT ÁREA
-
-
+            //SUCESSO
             header("Location: ../login.php");
+            $_SESSION["login"] = 4;
         } else {
-            // ERROR ACTION
-            echo "Error: " . mysqli_stmt_error($stmt);
-            echo "NAO DEU POR ERRO DA BD <br>";
-            //header("Location: ../register.php?msg=0");
+            //ERRO
+            header("Location: ../register_uni.php");
+            $_SESSION["register"] = 1;
+            //echo "Error: " . mysqli_stmt_error($stmt);
         }
-
     } else {
-        // ERROR ACTION
-        echo "ERRO <br>";
-        //header("Location: ../register.php?msg=0");
+        //ERRO
+        header("Location: ../register_uni.php");
+        $_SESSION["register"] = 1;
         mysqli_close($link);
     }
 } else {
-    echo "ERRO de não termos nada inserido <br>";
-    // header("Location: ../register.php?msg=2");
+    //ERRO
+    header("Location: ../register_uni.php");
+    $_SESSION["register"] = 2;
 }

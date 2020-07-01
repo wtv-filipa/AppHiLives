@@ -37,31 +37,31 @@ if (isset($_GET["edit"])) {
                             <div class="col-xs-12 col-md-4">
 
                                 <div class="text-center">
-                                        <div class="avatar-upload">
-                                            <div class="avatar-edit">
-                                                <input style="display: none" type="file" id="fileToUpload" name="fileToUpload image" accept=".png, .jpg, .jpeg" />
-                                                <label class="label" for="fileToUpload"><i class="fas fa-edit mx-auto my-auto  text-align-center"></i></label>
-                                                <input id="userIDhidden" value="<?=$idUser?>" style="display: none;"></input>
-                                            </div>
-                                            <?php
-                                            //var_dump($img_perfil);
-                                            if (isset($profile_img)) {
-                                            ?>
-                                                <img id="img_perf" class="image_profile" src="../admin/uploads/img_perfil/<?= $profile_img ?>" alt="<?= $profile_img ?>" />
-                                            <?php
-                                            } else {
-                                            ?>
-                                                <img id="img_perf" class="image_profile" src="img/no_profile_img.png" alt="sem imagem de perfil" />
+                                    <div class="avatar-upload">
+                                        <div class="avatar-edit">
+                                            <input style="display: none" type="file" id="fileToUpload" name="fileToUpload image" accept=".png, .jpg, .jpeg" />
+                                            <label class="label" for="fileToUpload"><i class="fas fa-edit mx-auto my-auto  text-align-center"></i></label>
+                                            <input id="userIDhidden" value="<?= $idUser ?>" style="display: none;"></input>
+                                        </div>
+                                        <?php
+                                        //var_dump($img_perfil);
+                                        if (isset($profile_img)) {
+                                        ?>
+                                            <img id="img_perf" class="image_profile" src="../admin/uploads/img_perfil/<?= $profile_img ?>" alt="<?= $profile_img ?>" />
+                                        <?php
+                                        } else {
+                                        ?>
+                                            <img id="img_perf" class="image_profile" src="img/no_profile_img.png" alt="sem imagem de perfil" />
 
-                                            <?php
-                                            }
-                                            ?>
-                                        </div>
-                                        <div class="alert alert-warning mt-3" role="alert">
-                                            <span>Carrega no botão que está em cima da imagem para alterar a tua imagem.</span>
-                                        </div>
-                                        <!----------------------MODAL DE CROP--------------->
-                                        <div id="uploadimageModal" class="modal" role="dialog">
+                                        <?php
+                                        }
+                                        ?>
+                                    </div>
+                                    <div class="alert alert-warning mt-3" role="alert">
+                                        <span>Carrega no botão que está em cima da imagem para alterar a tua imagem.</span>
+                                    </div>
+                                    <!----------------------MODAL DE CROP--------------->
+                                    <div id="uploadimageModal" class="modal" role="dialog">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -89,7 +89,7 @@ if (isset($_GET["edit"])) {
                                             </div>
                                         </div>
                                     </div>
-                                        <!------------------->
+                                    <!------------------->
                                 </div>
                             </div>
 
@@ -98,6 +98,43 @@ if (isset($_GET["edit"])) {
                             <div class="col-xs-12 col-md-8">
                                 <form class="form-horizontal" role="form" method="post" action="scripts/update_profile.php?id=<?= $idUser ?>">
                                     <!------------****------------>
+                                    <?php
+                                    if (isset($_SESSION["edit_jovem"])) {
+                                        $msg_show = true;
+                                        switch ($_SESSION["edit_jovem"]) {
+                                            case 1:
+                                                $message = "Utilizador editado com sucesso.";
+                                                $class = "alert-success";
+                                                $_SESSION["edit_jovem"] = 0;
+                                                break;
+                                            case 2:
+                                                $message = "É necessário preencher todos os campos obrigatórios.";
+                                                $class = "alert-warning";
+                                                $_SESSION["edit_jovem"] = 0;
+                                                break;
+                                            case 3:
+                                                $message = "Ocorreu um erro a processar o teu pedido, por favor tenta novamente mais tarde.";
+                                                $class = "alert-warning";
+                                                $_SESSION["edit_jovem"] = 0;
+                                                break;
+                                            case 0:
+                                                $msg_show = false;
+                                                break;
+                                            default:
+                                                $msg_show = false;
+                                                $_SESSION["edit_jovem"] = 0;
+                                        }
+
+                                        if ($msg_show == true) {
+                                            echo "<div class=\"alert $class alert-dismissible fade show\" role=\"alert\">" . $message . "
+                                <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+                                <span aria-hidden=\"true\">&times;</span>
+                                </button>
+                                </div>";
+                                            echo '<script>window.onload=function (){$(\'.alert\').alert();}</script>';
+                                        }
+                                    }
+                                    ?>
                                     <p style="font-size: 12px; color: #00A5CF !important;">* Campos de preenchimento obrigatório.</p>
                                     <!--primeiro input-NOME-->
                                     <div class="form-group text-left">
@@ -518,32 +555,32 @@ if (isset($_GET["edit"])) {
 
                             <div class="col-xs-12 col-md-4">
 
-                            <div class="text-center">
-                                        <div class="avatar-upload">
-                                            <div class="avatar-edit">
-                                                <input style="display: none" type="file" id="fileToUpload" name="fileToUpload image" accept=".png, .jpg, .jpeg" />
-                                                <label class="label" for="fileToUpload"><i class="fas fa-edit mx-auto my-auto  text-align-center"></i></label>
-                                                <input id="userIDhidden" value="<?=$idUser?>" style="display: none;"></input>
-                                            </div>
-                                            <?php
-                                            //var_dump($img_perfil);
-                                            if (isset($profile_img)) {
-                                            ?>
-                                                <img id="img_perf" class="image_profile" src="../admin/uploads/img_perfil/<?= $profile_img ?>" alt="<?= $profile_img ?>" />
-                                            <?php
-                                            } else {
-                                            ?>
-                                                <img id="img_perf" class="image_profile" src="img/no_profile_img.png" alt="sem imagem de perfil" />
+                                <div class="text-center">
+                                    <div class="avatar-upload">
+                                        <div class="avatar-edit">
+                                            <input style="display: none" type="file" id="fileToUpload" name="fileToUpload image" accept=".png, .jpg, .jpeg" />
+                                            <label class="label" for="fileToUpload"><i class="fas fa-edit mx-auto my-auto  text-align-center"></i></label>
+                                            <input id="userIDhidden" value="<?= $idUser ?>" style="display: none;"></input>
+                                        </div>
+                                        <?php
+                                        //var_dump($img_perfil);
+                                        if (isset($profile_img)) {
+                                        ?>
+                                            <img id="img_perf" class="image_profile" src="../admin/uploads/img_perfil/<?= $profile_img ?>" alt="<?= $profile_img ?>" />
+                                        <?php
+                                        } else {
+                                        ?>
+                                            <img id="img_perf" class="image_profile" src="img/no_profile_img.png" alt="sem imagem de perfil" />
 
-                                            <?php
-                                            }
-                                            ?>
-                                        </div>
-                                        <div class="alert alert-warning mt-3" role="alert">
-                                            <span>Carrega no botão que está em cima da imagem para alterar a tua imagem.</span>
-                                        </div>
-                                        <!----------------------MODAL DE CROP--------------->
-                                        <div id="uploadimageModal" class="modal" role="dialog">
+                                        <?php
+                                        }
+                                        ?>
+                                    </div>
+                                    <div class="alert alert-warning mt-3" role="alert">
+                                        <span>Carrega no botão que está em cima da imagem para alterar a tua imagem.</span>
+                                    </div>
+                                    <!----------------------MODAL DE CROP--------------->
+                                    <div id="uploadimageModal" class="modal" role="dialog">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -571,7 +608,7 @@ if (isset($_GET["edit"])) {
                                             </div>
                                         </div>
                                     </div>
-                                        <!------------------->
+                                    <!------------------->
                                 </div>
                             </div>
 
@@ -579,7 +616,44 @@ if (isset($_GET["edit"])) {
                             <!-- edit form column -->
                             <div class="col-xs-12 col-md-8">
                                 <form class="form-horizontal" role="form" method="post" action="scripts/update_profile.php?id_uni_emp=<?= $idUser ?>">
+                                    <?php
+                                    if (isset($_SESSION["edit"])) {
+                                        $msg_show = true;
+                                        switch ($_SESSION["edit"]) {
+                                            case 1:
+                                                $message = "Utilizador editado com sucesso.";
+                                                $class = "alert-success";
+                                                $_SESSION["edit"] = 0;
+                                                break;
+                                            case 2:
+                                                $message = "É necessário preencher todos os campos obrigatórios.";
+                                                $class = "alert-warning";
+                                                $_SESSION["edit"] = 0;
+                                                break;
+                                            case 3:
+                                                $message = "Ocorreu um erro a processar o seu pedido, por favor tente novamente mais tarde.";
+                                                $class = "alert-warning";
+                                                $_SESSION["edit"] = 0;
+                                                break;
+                                            case 0:
+                                                $msg_show = false;
+                                                break;
+                                            default:
+                                                $msg_show = false;
+                                                $_SESSION["edit"] = 0;
+                                        }
 
+                                        if ($msg_show == true) {
+                                            echo "<div class=\"alert $class alert-dismissible fade show\" role=\"alert\">" . $message . "
+                                <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+                                <span aria-hidden=\"true\">&times;</span>
+                                </button>
+                                </div>";
+                                            echo '<script>window.onload=function (){$(\'.alert\').alert();}</script>';
+                                        }
+                                    }
+                                    ?>
+                                    <p style="font-size: 12px; color: #00A5CF !important;">* Campos de preenchimento obrigatório.</p>
                                     <!--primeiro input-NOME-->
                                     <div class="form-group text-left">
                                         <label class="negrito mt-3" for="nome">Nome <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
@@ -656,186 +730,186 @@ if (isset($_GET["edit"])) {
                                     <?php
                                     if ($type_user == "Empresa") {
                                     ?>
-                                    <div class="form-group text-left">
-                                        <label class="negrito mt-3" for="pais">Seleciona o país da empresa:
-                                            <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
-                                        <select class="form-control" id="pais" required="required">
-                                            <option value="pt">Portugal</option>
-                                            <option value="es">Espanha</option>
-                                            <option value="be">Bélgica</option>
-                                            <option value="ic">Islândia</option>
-                                        </select>
-                                    </div>
-                                    <!------------REGIÕES DE PORTUGAL------------>
-                                    <div class="form-group formulario" id="pt">
                                         <div class="form-group text-left">
-                                            <label class="negrito mt-3" for="regiao_pt">Região da Empresa
-                                                <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span>
-                                            </label>
-                                            <select class="form-control" id="regiao_pt" name="regiao" required="required">
-                                                <option value ="" selected disabled>Seleciona uma opção</option>
-                                                <?php
-                                                $query2 = "SELECT idRegion, name_region, Region_idRegion FROM region 
+                                            <label class="negrito mt-3" for="pais">Seleciona o país da empresa:
+                                                <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
+                                            <select class="form-control" id="pais" required="required">
+                                                <option value="pt">Portugal</option>
+                                                <option value="es">Espanha</option>
+                                                <option value="be">Bélgica</option>
+                                                <option value="ic">Islândia</option>
+                                            </select>
+                                        </div>
+                                        <!------------REGIÕES DE PORTUGAL------------>
+                                        <div class="form-group formulario" id="pt">
+                                            <div class="form-group text-left">
+                                                <label class="negrito mt-3" for="regiao_pt">Região da Empresa
+                                                    <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span>
+                                                </label>
+                                                <select class="form-control" id="regiao_pt" name="regiao" required="required">
+                                                    <option value="" selected disabled>Seleciona uma opção</option>
+                                                    <?php
+                                                    $query2 = "SELECT idRegion, name_region, Region_idRegion FROM region 
                                                                     INNER JOIN country ON region.country_idcountry = country.idcountry
                                                                     LEFT JOIN user_has_region ON  region.idRegion= user_has_region.Region_idRegion AND user_has_region.User_idUser_region= ?
                                                                     WHERE name_country = 'Portugal'";
 
-                                                if (mysqli_stmt_prepare($stmt, $query2)) {
-                                                    // Bind variables by type to each parameter
-                                                    mysqli_stmt_bind_param($stmt, 'i', $idUser);
-                                                    /* execute the prepared statement */
-                                                    if (mysqli_stmt_execute($stmt)) {
-                                                        /* bind result variables */
-                                                        mysqli_stmt_bind_result($stmt, $idRegion, $name_region, $Region_idRegion);
+                                                    if (mysqli_stmt_prepare($stmt, $query2)) {
+                                                        // Bind variables by type to each parameter
+                                                        mysqli_stmt_bind_param($stmt, 'i', $idUser);
+                                                        /* execute the prepared statement */
+                                                        if (mysqli_stmt_execute($stmt)) {
+                                                            /* bind result variables */
+                                                            mysqli_stmt_bind_result($stmt, $idRegion, $name_region, $Region_idRegion);
 
-                                                        /* fetch values */
-                                                        while (mysqli_stmt_fetch($stmt)) {
-                                                            if ($Region_idRegion == $idRegion) {
-                                                                $selected = "selected";
-                                                            } else {
-                                                                $selected = "";
+                                                            /* fetch values */
+                                                            while (mysqli_stmt_fetch($stmt)) {
+                                                                if ($Region_idRegion == $idRegion) {
+                                                                    $selected = "selected";
+                                                                } else {
+                                                                    $selected = "";
+                                                                }
+                                                                echo "\n\t\t<option value=\"$idRegion\" $selected>$name_region</option>";
                                                             }
-                                                            echo "\n\t\t<option value=\"$idRegion\" $selected>$name_region</option>";
+                                                        } else {
+                                                            echo "Error: " . mysqli_stmt_error($stmt);
                                                         }
+                                                        /* close statement */
+                                                        //mysqli_stmt_close($stmt);
                                                     } else {
-                                                        echo "Error: " . mysqli_stmt_error($stmt);
+                                                        echo "Error: " . mysqli_error($link);
                                                     }
-                                                    /* close statement */
-                                                    //mysqli_stmt_close($stmt);
-                                                } else {
-                                                    echo "Error: " . mysqli_error($link);
-                                                }
-                                                ?>
-                                            </select>
+                                                    ?>
+                                                </select>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <!------------REGIÕES DE ESPANHA------------>
-                                    <div class="form-group formulario" style="display:none;" id="es">
-                                        <div class="form-group text-left">
-                                            <label class="negrito mt-3" for="regiao_es">Região da Empresa
-                                                <span class="asterisco">*</span>
-                                            </label>
-                                            <select class="form-control" id="regiao_es" name="regiao">
-                                                <option selected disabled>Seleciona uma opção</option>
-                                                <?php
-                                                $query2 = "SELECT idRegion, name_region, Region_idRegion FROM region 
+                                        <!------------REGIÕES DE ESPANHA------------>
+                                        <div class="form-group formulario" style="display:none;" id="es">
+                                            <div class="form-group text-left">
+                                                <label class="negrito mt-3" for="regiao_es">Região da Empresa
+                                                    <span class="asterisco">*</span>
+                                                </label>
+                                                <select class="form-control" id="regiao_es" name="regiao">
+                                                    <option selected disabled>Seleciona uma opção</option>
+                                                    <?php
+                                                    $query2 = "SELECT idRegion, name_region, Region_idRegion FROM region 
                                                 INNER JOIN country ON region.country_idcountry = country.idcountry
                                                 LEFT JOIN user_has_region ON  region.idRegion= user_has_region.Region_idRegion AND user_has_region.User_idUser_region= ?
                                                                     WHERE name_country = 'Espanha'";
 
-                                                if (mysqli_stmt_prepare($stmt, $query2)) {
+                                                    if (mysqli_stmt_prepare($stmt, $query2)) {
 
-                                                    /* execute the prepared statement */
-                                                    if (mysqli_stmt_execute($stmt)) {
-                                                        /* bind result variables */
-                                                        mysqli_stmt_bind_result($stmt, $idRegion, $name_region, $Region_idRegion);
+                                                        /* execute the prepared statement */
+                                                        if (mysqli_stmt_execute($stmt)) {
+                                                            /* bind result variables */
+                                                            mysqli_stmt_bind_result($stmt, $idRegion, $name_region, $Region_idRegion);
 
-                                                        /* fetch values */
-                                                        while (mysqli_stmt_fetch($stmt)) {
-                                                            if ($Region_idRegion == $idRegion) {
-                                                                $selected = "selected";
-                                                            } else {
-                                                                $selected = "";
+                                                            /* fetch values */
+                                                            while (mysqli_stmt_fetch($stmt)) {
+                                                                if ($Region_idRegion == $idRegion) {
+                                                                    $selected = "selected";
+                                                                } else {
+                                                                    $selected = "";
+                                                                }
+
+                                                                echo "\n\t\t<option value=\"$idRegion\" $selected>$name_region</option>";
                                                             }
-
-                                                            echo "\n\t\t<option value=\"$idRegion\" $selected>$name_region</option>";
+                                                        } else {
+                                                            echo "Error: " . mysqli_stmt_error($stmt);
                                                         }
+                                                        /* close statement */
+                                                        //mysqli_stmt_close($stmt);
                                                     } else {
-                                                        echo "Error: " . mysqli_stmt_error($stmt);
+                                                        echo "Error: " . mysqli_error($link);
                                                     }
-                                                    /* close statement */
-                                                    //mysqli_stmt_close($stmt);
-                                                } else {
-                                                    echo "Error: " . mysqli_error($link);
-                                                }
-                                                ?>
-                                            </select>
+                                                    ?>
+                                                </select>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <!------------REGIÕES DE BÉLGICA------------>
-                                    <div class="form-group formulario" style="display:none;" id="be">
-                                        <div class="form-group text-left">
-                                            <label class="negrito mt-3" for="regiao_be">Região da Empresa
-                                                <span class="asterisco">*</span>
-                                            </label>
-                                            <select class="form-control" id="regiao_be" name="regiao">
-                                                <option selected disabled>Seleciona uma opção</option>
-                                                <?php
-                                                $query2 = "SELECT idRegion, name_region, Region_idRegion FROM region 
+                                        <!------------REGIÕES DE BÉLGICA------------>
+                                        <div class="form-group formulario" style="display:none;" id="be">
+                                            <div class="form-group text-left">
+                                                <label class="negrito mt-3" for="regiao_be">Região da Empresa
+                                                    <span class="asterisco">*</span>
+                                                </label>
+                                                <select class="form-control" id="regiao_be" name="regiao">
+                                                    <option selected disabled>Seleciona uma opção</option>
+                                                    <?php
+                                                    $query2 = "SELECT idRegion, name_region, Region_idRegion FROM region 
                                                 INNER JOIN country ON region.country_idcountry = country.idcountry
                                                 LEFT JOIN user_has_region ON  region.idRegion= user_has_region.Region_idRegion AND user_has_region.User_idUser_region= ?
                                                                     WHERE name_country = 'Bélgica'";
 
-                                                if (mysqli_stmt_prepare($stmt, $query2)) {
+                                                    if (mysqli_stmt_prepare($stmt, $query2)) {
 
-                                                    /* execute the prepared statement */
-                                                    if (mysqli_stmt_execute($stmt)) {
-                                                        /* bind result variables */
-                                                        mysqli_stmt_bind_result($stmt, $idRegion, $name_region, $Region_idRegion);
+                                                        /* execute the prepared statement */
+                                                        if (mysqli_stmt_execute($stmt)) {
+                                                            /* bind result variables */
+                                                            mysqli_stmt_bind_result($stmt, $idRegion, $name_region, $Region_idRegion);
 
-                                                        /* fetch values */
-                                                        while (mysqli_stmt_fetch($stmt)) {
-                                                            if ($Region_idRegion == $idRegion) {
-                                                                $selected = "selected";
-                                                            } else {
-                                                                $selected = "";
+                                                            /* fetch values */
+                                                            while (mysqli_stmt_fetch($stmt)) {
+                                                                if ($Region_idRegion == $idRegion) {
+                                                                    $selected = "selected";
+                                                                } else {
+                                                                    $selected = "";
+                                                                }
+                                                                echo "\n\t\t<option value=\"$idRegion\" $selected>$name_region</option>";
                                                             }
-                                                            echo "\n\t\t<option value=\"$idRegion\" $selected>$name_region</option>";
+                                                        } else {
+                                                            echo "Error: " . mysqli_stmt_error($stmt);
                                                         }
+                                                        /* close statement */
+                                                        //mysqli_stmt_close($stmt);
                                                     } else {
-                                                        echo "Error: " . mysqli_stmt_error($stmt);
+                                                        echo "Error: " . mysqli_error($link);
                                                     }
-                                                    /* close statement */
-                                                    //mysqli_stmt_close($stmt);
-                                                } else {
-                                                    echo "Error: " . mysqli_error($link);
-                                                }
-                                                ?>
-                                            </select>
+                                                    ?>
+                                                </select>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <!------------REGIÕES DE ISLÂNDIA------------>
-                                    <div class="form-group formulario" style="display:none;" id="ic">
-                                        <div class="form-group text-left">
-                                            <label class="negrito mt-3" for="regiao_ic">Região da Empresa
-                                                <span class="asterisco">*</span>
-                                            </label>
-                                            <select class="form-control" id="regiao_ic" name="regiao">
-                                                <option selected disabled>Seleciona uma opção</option>
-                                                <?php
-                                                $query2 = "SELECT idRegion, name_region, Region_idRegion FROM region 
+                                        <!------------REGIÕES DE ISLÂNDIA------------>
+                                        <div class="form-group formulario" style="display:none;" id="ic">
+                                            <div class="form-group text-left">
+                                                <label class="negrito mt-3" for="regiao_ic">Região da Empresa
+                                                    <span class="asterisco">*</span>
+                                                </label>
+                                                <select class="form-control" id="regiao_ic" name="regiao">
+                                                    <option selected disabled>Seleciona uma opção</option>
+                                                    <?php
+                                                    $query2 = "SELECT idRegion, name_region, Region_idRegion FROM region 
                                                 INNER JOIN country ON region.country_idcountry = country.idcountry
                                                 LEFT JOIN user_has_region ON  region.idRegion= user_has_region.Region_idRegion AND user_has_region.User_idUser_region= ?
                                                                     WHERE name_country = 'Islândia'";
 
-                                                if (mysqli_stmt_prepare($stmt, $query2)) {
+                                                    if (mysqli_stmt_prepare($stmt, $query2)) {
 
-                                                    /* execute the prepared statement */
-                                                    if (mysqli_stmt_execute($stmt)) {
-                                                        /* bind result variables */
-                                                        mysqli_stmt_bind_result($stmt, $idRegion, $name_region, $Region_idRegion);
+                                                        /* execute the prepared statement */
+                                                        if (mysqli_stmt_execute($stmt)) {
+                                                            /* bind result variables */
+                                                            mysqli_stmt_bind_result($stmt, $idRegion, $name_region, $Region_idRegion);
 
-                                                        /* fetch values */
-                                                        while (mysqli_stmt_fetch($stmt)) {
-                                                            if ($Region_idRegion == $idRegion) {
-                                                                $selected = "selected";
-                                                            } else {
-                                                                $selected = "";
+                                                            /* fetch values */
+                                                            while (mysqli_stmt_fetch($stmt)) {
+                                                                if ($Region_idRegion == $idRegion) {
+                                                                    $selected = "selected";
+                                                                } else {
+                                                                    $selected = "";
+                                                                }
+                                                                echo "\n\t\t<option value=\"$idRegion\" $selected>$name_region</option>";
                                                             }
-                                                            echo "\n\t\t<option value=\"$idRegion\" $selected>$name_region</option>";
+                                                        } else {
+                                                            echo "Error: " . mysqli_stmt_error($stmt);
                                                         }
+                                                        /* close statement */
+                                                        //mysqli_stmt_close($stmt);
                                                     } else {
-                                                        echo "Error: " . mysqli_stmt_error($stmt);
+                                                        echo "Error: " . mysqli_error($link);
                                                     }
-                                                    /* close statement */
-                                                    //mysqli_stmt_close($stmt);
-                                                } else {
-                                                    echo "Error: " . mysqli_error($link);
-                                                }
-                                                ?>
-                                            </select>
+                                                    ?>
+                                                </select>
+                                            </div>
                                         </div>
-                                    </div>
                                     <?php
                                     }
                                     ?>

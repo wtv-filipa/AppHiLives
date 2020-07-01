@@ -12,6 +12,9 @@ if (isset($_GET["apaga"])) {
     $link3 = new_db_connection();
     $stmt3 = mysqli_stmt_init($link3);
 
+    $link4 = new_db_connection();
+    $stmt4 = mysqli_stmt_init($link4);
+
     /*QUERYS PARA TODOS OS USERS*/
     //verificar que tipo de user é
     $query = "SELECT type_user FROM user_type INNER JOIN users ON user_type.idUser_type = users.User_type_idUser_type WHERE idUser = ?";
@@ -27,6 +30,8 @@ if (isset($_GET["apaga"])) {
     $query6 = "SELECT profile_img FROM users WHERE idUser = ?";
     //selecionar o nome do conteúdo para que possa apagá-lo da pasta
     $query7 = "SELECT content_name FROM content WHERE users_idUser = ?";
+    //apagar as capacidades do percurso de aprendizagem
+    $query20 = "DELETE FROM learning_path_capacities WHERE fk_match_vac = ?";
     /**********************************************************/
     /*QUERYS PARA OS JOVENS*/
     //apagar capacidades
@@ -41,12 +46,16 @@ if (isset($_GET["apaga"])) {
     $query12 = "DELETE FROM work_environment_has_users WHERE users_idUser = ?";
     //apagar match com as UNIVERSIDADES
     $query13 = "DELETE FROM young_university WHERE User_young = ?";
+    //selecionar os macths com vagas
+    $query19 = "SELECT id_match_vac FROM user_has_vacancies WHERE User_young = ?";
     /**********************************************************/
     /*QUERYS PARA AS EMPRESAS*/
     $query14 = "DELETE FROM vacancies WHERE User_publicou = ?";
     $query15 = "SELECT idVacancies FROM vacancies WHERE User_publicou = ?";
     $query16 = "DELETE FROM vacancies_has_capacities WHERE vacancies_idVacancies = ?";
     $query17 = "DELETE FROM user_has_vacancies WHERE vacancies_idVacancies = ?";
+    //selecionar o id do match
+    $query21 = "SELECT id_match_vac FROM user_has_vacancies WHERE Vacancies_idVacancies = ?";
     /**********************************************************/
     /*QUERYS PARA AS UNIVERSIDADES*/
     //apagar match com os JOVENS
@@ -192,20 +201,46 @@ if (isset($_GET["apaga"])) {
                     //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
                 }
                 /**********************************************************/
-                //apagar VAGAS associadas por match
-                if (mysqli_stmt_prepare($stmt2, $query11)) {
+                //ver as vagas associadas para obter o id e apagar o percurso
+                if (mysqli_stmt_prepare($stmt2, $query19)) {
+
                     mysqli_stmt_bind_param($stmt2, 'i', $idUser);
-                    // VALIDAÇÃO DO RESULTADO DO EXECUTE
-                    if (!mysqli_stmt_execute($stmt2)) {
-                        //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-                        echo "Error: " . mysqli_stmt_error($stmt2);
-                    } else {
-                        echo "sucesso a apagar as vagas macth <br>";
-                        //mysqli_stmt_close($stmt2);
+                    mysqli_stmt_execute($stmt2);
+                    mysqli_stmt_bind_result($stmt2, $id_match_vac);
+                    while (mysqli_stmt_fetch($stmt2)) {
+                        //apagar os PERCURSOS associados por match
+                        if (mysqli_stmt_prepare($stmt3, $query20)) {
+                            mysqli_stmt_bind_param($stmt3, 'i', $id_match_vac);
+                            // VALIDAÇÃO DO RESULTADO DO EXECUTE
+                            if (!mysqli_stmt_execute($stmt3)) {
+                                //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                                echo "Error: " . mysqli_stmt_error($stmt3);
+                            } else {
+                                echo "sucesso a apagar os percursos macth <br>";
+                                //mysqli_stmt_close($stmt2);
+                            }
+                        } else {
+                            echo "erro nos percursos match <br>";
+                            //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                        }
+                        /**********************************************************/
+                        //apagar VAGAS associadas por match
+                        if (mysqli_stmt_prepare($stmt3, $query11)) {
+                            mysqli_stmt_bind_param($stmt3, 'i', $idUser);
+                            // VALIDAÇÃO DO RESULTADO DO EXECUTE
+                            if (!mysqli_stmt_execute($stmt3)) {
+                                //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                                echo "Error: " . mysqli_stmt_error($stmt3);
+                            } else {
+                                echo "sucesso a apagar as vagas macth <br>";
+                                //mysqli_stmt_close($stmt2);
+                            }
+                        } else {
+                            echo "erro nas vagas match <br>";
+                            //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                        }
+                        /**********************************************************/
                     }
-                } else {
-                    echo "erro nas vagas match <br>";
-                    //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
                 }
                 /**********************************************************/
                 //apagar ambientes de trabalho preferidos
@@ -255,7 +290,7 @@ if (isset($_GET["apaga"])) {
                     echo "erro no apagar utilizador <br>";
                     //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
                 }
-                //header("Location:../users_jovem.php");
+                header("Location:../login.php");
                 /**********************************************************/
             } else if ($type_user == "Empresa") {
                 /*EMPRESA*/
@@ -302,13 +337,13 @@ if (isset($_GET["apaga"])) {
                     mysqli_stmt_execute($stmt2);
                     mysqli_stmt_bind_result($stmt2, $idVacancies);
                     while (mysqli_stmt_fetch($stmt2)) {
-                        //APAGAR cpacidades
+                        //APAGAR capacidades
                         if (mysqli_stmt_prepare($stmt3, $query16)) {
                             mysqli_stmt_bind_param($stmt3, 'i', $idVacancies);
                             // VALIDAÇÃO DO RESULTADO DO EXECUTE
                             if (!mysqli_stmt_execute($stmt3)) {
                                 //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-                                echo "Error capacidades: " . mysqli_stmt_error($stmt2);
+                                echo "Error capacidades: " . mysqli_stmt_error($stmt3);
                             } else {
                                 echo "sucesso a apagar as capacidades da vaga <br>";
                                 //mysqli_stmt_close($stmt2);
@@ -318,22 +353,48 @@ if (isset($_GET["apaga"])) {
                             //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
                         }
                         /*****/
-                        //APAGAR matchs com as vagas
-                        if (mysqli_stmt_prepare($stmt3, $query17)) {
+                        //selecionar o matchs
+                        if (mysqli_stmt_prepare($stmt3, $query21)) {
+
                             mysqli_stmt_bind_param($stmt3, 'i', $idVacancies);
-                            // VALIDAÇÃO DO RESULTADO DO EXECUTE
-                            if (!mysqli_stmt_execute($stmt3)) {
-                                //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-                                echo "Error: " . mysqli_stmt_error($stmt2);
-                            } else {
-                                echo "sucesso a apagar os matchs <br>";
-                                //mysqli_stmt_close($stmt2);
+                            mysqli_stmt_execute($stmt3);
+                            mysqli_stmt_bind_result($stmt3, $id_match_vac);
+                            while (mysqli_stmt_fetch($stmt3)) {
+                                //APAGAR PERCURSOS do match
+                                if (mysqli_stmt_prepare($stmt4, $query20)) {
+                                    mysqli_stmt_bind_param($stmt4, 'i', $id_match_vac);
+                                    // VALIDAÇÃO DO RESULTADO DO EXECUTE
+                                    if (!mysqli_stmt_execute($stmt4)) {
+                                        //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                                        echo "Error: " . mysqli_stmt_error($stmt4);
+                                    } else {
+                                        echo "sucesso a apagar os percursos matchs <br>";
+                                        //mysqli_stmt_close($stmt2);
+                                    }
+                                } else {
+                                    echo "erro nos percursos matchs <br>";
+                                    //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                                }
+                                /*****/
+                                //APAGAR matchs com as vagas
+                                if (mysqli_stmt_prepare($stmt4, $query17)) {
+                                    mysqli_stmt_bind_param($stmt4, 'i', $idVacancies);
+                                    // VALIDAÇÃO DO RESULTADO DO EXECUTE
+                                    if (!mysqli_stmt_execute($stmt4)) {
+                                        //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                                        echo "Error: " . mysqli_stmt_error($stmt4);
+                                    } else {
+                                        echo "sucesso a apagar os matchs <br>";
+                                        //mysqli_stmt_close($stmt2);
+                                    }
+                                } else {
+                                    echo "erro nos matchs <br>";
+                                    //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                                }
+                                /*****/
                             }
-                        } else {
-                            echo "erro nos matchs <br>";
-                            //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
                         }
-                        /*****/
+                        /***********************************/
                     }
                 }
                 //apagar conteúdos da pasta e tabela
@@ -400,7 +461,7 @@ if (isset($_GET["apaga"])) {
                     echo "erro no apagar utilizador <br>";
                     //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
                 }
-                //header("Location:../users_emp.php");
+                header("Location:../login.php");
                 /**********************************************************/
             } else if ($type_user == "Universidade") {
                 /*UNIVERSIDADE*/
@@ -487,15 +548,14 @@ if (isset($_GET["apaga"])) {
                     echo "erro no apagar utilizador <br>";
                     //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
                 }
-                //header("Location:../users_uni.php");
+                header("Location:../login.php");
                 /**********************************************************/
             }
-            mysqli_stmt_close ($stmt);
-            mysqli_stmt_close ($stmt2);
+            mysqli_stmt_close($stmt);
+            mysqli_stmt_close($stmt2);
             mysqli_close($link);
             mysqli_close($link2);
             mysqli_close($link3);
-            header("Location:../login.php");
         } //fim do while da query7
     } //fim do if da query7
 

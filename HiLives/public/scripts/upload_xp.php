@@ -9,7 +9,6 @@ $stmt = mysqli_stmt_init($link);
 //ID DO USER DA SESSÂO
 $id_navegar = $_SESSION["idUser"];
 
-
 if (isset($_GET["xp"]) && !empty($_POST["nomeVideo"]) && $_FILES["fileToUpload"]['size'] != 0) {
     //ID DO USER A FAZER UPLOAD
     $idUser = $_GET["xp"];
@@ -123,7 +122,6 @@ if (isset($_GET["xp"]) && !empty($_POST["nomeVideo"]) && $_FILES["fileToUpload"]
     }
 } else {
     //ERRO
-   /*  header("Location: ../upload_xp.php");
-    $_SESSION["xp_jovem"] = 3; */
-    print_r( $_FILES["fileToUpload"]);
+    header("Location: ../upload_xp.php");
+    $_SESSION["xp_jovem"] = 3;
 }

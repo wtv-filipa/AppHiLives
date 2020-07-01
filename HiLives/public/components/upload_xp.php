@@ -117,5 +117,7 @@ if (isset($_SESSION["idUser"])) {
         </div>
     </div>
 <?php
+} else {
+    include("404.php");
 }
 ?>

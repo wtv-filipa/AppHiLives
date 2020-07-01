@@ -64,14 +64,14 @@ if (isset($_SESSION["type"])) {
                                         <?php
                                     } else {
                                         ?>
-                                        <img class="imagem" src="img/def_uni.png" alt="sem imagem de perfil"/>
+                                        <img class="imagem" src="img/def_uni.jpg" alt="sem imagem de perfil"/>
                                         <?php
                                     }
                                     ?>
                                 </div>
                                 <div class="card-info">
                                     <h4 class="card-intro description_title">
-                                        <i class="fas fa-book" style="color: #2f2f2f;"></i>Estudar
+                                        <i class="fas fa-book" style="color: #2f2f2f;"></i> Estudar
                                     </h4>
                                     <h2 class="card-title sub_title"><?= $name_interested_area ?></h2>
                                     <p class="card-intro description_title2"><?= $name_user ?></p>
@@ -108,14 +108,14 @@ if (isset($_SESSION["type"])) {
                                             <?php
                                         } else {
                                             ?>
-                                            <img class="imagem" src="img/def_uni.png" alt="sem imagem de perfil"/>
+                                            <img class="imagem" src="img/def_uni.jpg" alt="sem imagem de perfil"/>
                                             <?php
                                         }
                                         ?>
                                     </div>
                                     <div class="card-info">
                                         <h4 class="card-intro description_title">
-                                            <i class="fas fa-book" style="color: #2f2f2f;"></i>Estudar
+                                            <i class="fas fa-book" style="color: #2f2f2f;"></i> Estudar
                                         </h4>
                                         <h2 class="card-title sub_title"><?= $name_interested_area ?></h2>
                                         <p class="card-intro description_title2"><?= $name_user ?></p>
@@ -135,4 +135,6 @@ if (isset($_SESSION["type"])) {
     <?php
 
 
+} else{
+    include("404.php");
 }

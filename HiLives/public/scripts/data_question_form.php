@@ -1,24 +1,22 @@
 <?php
+session_start();
+if (isset($_POST['btn_enviar'])) {
 
-    if(isset($_POST['btn_enviar'])){
+    $nome_user = $_POST['nome_user'];
+    $mail_user = $_POST['mail_user'];
+    $assunto = $_POST['assunto'];
+    $sugestao = $_POST['sugestao'];
 
-        $nome_user = $_POST['nome_user'];
-        $mail_user = $_POST['mail_user'];
-        $assunto = $_POST['assunto'];
-        $sugestao = $_POST['sugestao'];
+    if (empty($nome_user) || empty($mail_user) || empty($assunto) || empty($sugestao)) {
 
-        if(empty($nome_user) || empty($mail_user) || empty($assunto) || empty($sugestao)){
+        header('location:../question_form.php?error');
+    } else {
 
-            header('location:../question_form.php?error');
-        }
-        else{
+        $para = "eduardosoeiro@ua.pt";
 
-            $para = "eduardosoeiro@ua.pt";
+        if (mail($para, $assunto, $sugestao, $mail_user)) {
 
-            if(mail($para,$assunto,$sugestao,$mail_user)){
-
-                header('location:../question_form.php?success');
-            }
+            header('location:../question_form.php?success');
         }
     }
-?>
+}

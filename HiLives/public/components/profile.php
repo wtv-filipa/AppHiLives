@@ -364,7 +364,22 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                             switch ($_SESSION["xp_jovem"]) {
                                 case 1:
                                     $message = "Experiência carregada com sucesso.";
-                                    $class = "alert-success";;
+                                    $class = "alert-success";
+                                    $_SESSION["xp_jovem"] = 0;
+                                    break;
+                                case 2:
+                                    $message = "Experiência editada com sucesso.";
+                                    $class = "alert-success";
+                                    $_SESSION["xp_jovem"] = 0;
+                                    break;
+                                case 3:
+                                    $message = "Experiência eliminada com sucesso.";
+                                    $class = "alert-success";
+                                    $_SESSION["xp_jovem"] = 0;
+                                    break;
+                                case 4:
+                                    $message = "Ocorreu um erro a processar o teu pedido, por favor tenta novamente mais tarde.";
+                                    $class = "alert-warning";
                                     $_SESSION["xp_jovem"] = 0;
                                     break;
                                 case 0:
@@ -563,7 +578,39 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                         </div>
                     </div>
 
-                    <div class="mt-5 mb-5 centrar_cont">
+                    <div id="xp_vac" class="mt-5 mb-5 centrar_cont">
+                        <?php
+                        if (isset($_SESSION["xp_vac"])) {
+                            $msg_show = true;
+                            switch ($_SESSION["xp_vac"]) {
+                                case 1:
+                                    $message = "Vídeo eliminado com sucesso.";
+                                    $class = "alert-success";
+                                    $_SESSION["xp_vac"] = 0;
+                                    break;
+                                case 2:
+                                    $message = "Ocorreu um erro a processar o seu pedido, por favor tente novamente mais tarde.";
+                                    $class = "alert-warning";
+                                    $_SESSION["xp_vac"] = 0;
+                                    break;
+                                case 0:
+                                    $msg_show = false;
+                                    break;
+                                default:
+                                    $msg_show = false;
+                                    $_SESSION["xp_vac"] = 0;
+                            }
+
+                            if ($msg_show == true) {
+                                echo "<div class=\"alert $class alert-dismissible fade show mt-5\" role=\"alert\">" . $message . "
+                                <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+                                <span aria-hidden=\"true\">&times;</span>
+                                </button>
+                                </div>";
+                                echo '<script>window.onload=function (){$(\'.alert\').alert();}</script>';
+                            }
+                        }
+                        ?>
                         <h3 class="mb-4 titulo_videos">Vídeos</h3>
                         <div class="card mt-4">
                             <div class="row m-3 centrar_cont">

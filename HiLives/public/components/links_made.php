@@ -32,16 +32,11 @@ if ($_SESSION["idUser"]) {
                     $_SESSION["doneCU"] = 0;
                     break;
                 case 3:
-                    $message = "É necessária preencher todos os campos obrigatórios.";
-                    $class = "alert-warning";
-                    $_SESSION["doneCU"] = 0;
-                    break;
-                case 4:
                     $message = "Unidade Curricular editada com sucesso!";
                     $class = "alert-success";
                     $_SESSION["doneCU"] = 0;
                     break;
-                case 5:
+                case 4:
                     $message = "Unidade Curricular eliminada com sucesso!";
                     $class = "alert-success";
                     $_SESSION["doneCU"] = 0;
@@ -128,5 +123,7 @@ if ($_SESSION["idUser"]) {
         </div>
     <?php
 
+} else {
+    include("404.php");
 }
     ?>

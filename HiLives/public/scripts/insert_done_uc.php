@@ -27,16 +27,16 @@ if (isset($_SESSION["idUser"]) && !empty($_POST["nomeuc"]) && !empty($_POST["uni
         } else {
             //ERRO
             ///isto é do isset
-            header("Location: ../links_made.php");
+            header("Location: ../done_uc.php");
             $_SESSION["doneCU"] = 1;
         }
     } else {
         //ERRO
-        header("Location: ../links_made.php");
+        header("Location: ../done_uc.php");
         $_SESSION["doneCU"] = 1;
     }
 } else {
     //ERRO
-    header("Location: ../links_made.php");
-    $_SESSION["doneCU"] = 3;
+    header("Location: ../done_uc.php");
+    $_SESSION["doneCU"] = 2;
 }

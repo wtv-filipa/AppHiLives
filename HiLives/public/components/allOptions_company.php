@@ -124,4 +124,6 @@ if (isset($_SESSION["type"])) {
                 <!--fim do que engloba os cards-->
             </div> <!-- div da w-75-->
             <?php
+} else{
+    include("404.php");
 }

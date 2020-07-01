@@ -6,7 +6,58 @@ $idUser = $_SESSION["idUser"];
 
 ?>
 <div class="events w-75 mx-auto">
+    <?php
+    if (isset($_SESSION["vac"])) {
+        $msg_show = true;
+        switch ($_SESSION["vac"]) {
+            case 1:
+                $message = "É necessário preencher todos os campos obrigatórios.";
+                $class = "alert-warning";
+                $_SESSION["vac"] = 0;
+                break;
+            case 2:
+                $message = "Ocorreu um erro a processar o seu pedido, por favor tente novamente mais tarde.";
+                $class = "alert-warning";
+                $_SESSION["vac"] = 0;
+                break;
+            case 3:
+                $message = "O ficheiro que tentou carregar não é um vídeo.";
+                $class = "alert-warning";
+                $_SESSION["vac"] = 0;
+                break;
+            case 4:
+                $message = "O vídeo que tentou carregar já existe nos seus ficheiros.";
+                $class = "alert-warning";
+                $_SESSION["vac"] = 0;
+                break;
+            case 5:
+                $message = "O ficheiro que tentou carregar tem um tamanho superior ao suportado.";
+                $class = "alert-warning";
+                $_SESSION["vac"] = 0;
+                break;
+            case 6:
+                $message = "O ficheiro que tentou carregar tem um formato que não é suportado pela aplicação.";
+                $class = "alert-warning";
+                $_SESSION["vac"] = 0;
+                break;
+            case 0:
+                $msg_show = false;
+                break;
+            default:
+                $msg_show = false;
+                $_SESSION["vac"] = 0;
+        }
 
+        if ($msg_show == true) {
+            echo "<div class=\"alert $class alert-dismissible fade show mt-5\" role=\"alert\">" . $message . "
+                                <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+                                <span aria-hidden=\"true\">&times;</span>
+                                </button>
+                                </div>";
+            echo '<script>window.onload=function (){$(\'.alert\').alert();}</script>';
+        }
+    }
+    ?>
     <!--Card-->
     <div class="card mdb-color lighten-4 text-center z-depth-2 light-version py-4 px-5">
 
@@ -45,7 +96,7 @@ $idUser = $_SESSION["idUser"];
             <div class="form-group text-left">
                 <label class="label-margin" for="area">Áreas: <span style="color:  #00A5CF!important; font-weight: bold; font-size: 20px">*</span></label>
                 <select class="form-control" id="area" name="area" required="required">
-                    <option value ="" selected disabled>Selecionar uma opção</option>
+                    <option value="" selected disabled>Selecionar uma opção</option>
                     <?php
                     $query = "SELECT idAreas, name_interested_area FROM areas";
 
@@ -69,7 +120,7 @@ $idUser = $_SESSION["idUser"];
             <div class="form-group text-left">
                 <label class="label-margin" for="jornada">Jornada de trabalho: <span style="color:  #00A5CF!important; font-weight: bold; font-size: 20px">*</span></label>
                 <select class="form-control" id="jornada" name="jornada" required="required">
-                    <option value ="" selected disabled>Selecionar uma opção</option>
+                    <option value="" selected disabled>Selecionar uma opção</option>
                     <?php
                     $query2 = "SELECT idWorkday, Workday_name FROM workday";
 
@@ -128,7 +179,7 @@ $idUser = $_SESSION["idUser"];
             <div class="form-group text-left">
                 <label class="label-margin" for="educ">Nível de educação: <span style="color:  #00A5CF!important; font-weight: bold; font-size: 20px">*</span></label>
                 <select class="form-control" id="educ" name="educ" required="required">
-                    <option value ="" selected disabled>Selecionar uma opção</option>
+                    <option value="" selected disabled>Selecionar uma opção</option>
                     <?php
                     $query2 = "SELECT idEduc_lvl, name_education FROM educ_lvl";
 
@@ -158,7 +209,7 @@ $idUser = $_SESSION["idUser"];
                         <span style="color:  #00A5CF!important; font-weight: bold; font-size: 20px">*</span>
                     </label>
                     <select class="form-control" id="regiao_pt" name="regiao" required="required">
-                        <option value ="" selected disabled>Seleciona uma opção</option>
+                        <option value="" selected disabled>Seleciona uma opção</option>
                         <?php
                         $query2 = "SELECT Region_idRegion, idRegion, name_region FROM user_has_region
                                     INNER JOIN region ON user_has_region.Region_idRegion = region.idRegion
