@@ -34,7 +34,6 @@ padding-bottom: 0 !important;
 ul#notebook_ul {
     margin: 0 auto;
     padding: 0 !important;
-    max-height: 390px;
     overflow-y: auto;
     padding: 5px 5px 0 5px;
     border-left: none;
