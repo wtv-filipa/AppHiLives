@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 if (isset($_GET["apaga"])) {
     $idUser = $_GET["apaga"];
     require_once "../connections/connection.php";
@@ -75,15 +75,18 @@ if (isset($_GET["apaga"])) {
                     mysqli_stmt_bind_param($stmt2, 'i', $idUser);
                     // VALIDAÇÃO DO RESULTADO DO EXECUTE
                     if (!mysqli_stmt_execute($stmt2)) {
-                        //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-                        echo "Error: " . mysqli_stmt_error($stmt2);
+                        //ERRO
+                        header("Location: ../settings.php");
+                        $_SESSION["delete"] = 2;
+                        //echo "Error: " . mysqli_stmt_error($stmt2);
                     } else {
-                        echo "sucesso a apagar as regiões <br>";
-                        //mysqli_stmt_close($stmt2);
+                        //echo "sucesso a apagar as regiões <br>";
                     }
                 } else {
-                    echo "erro nas regiões <br>";
-                    //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                    //echo "erro nas regiões <br>";
+                    //ERRO
+                    header("Location: ../settings.php");
+                    $_SESSION["delete"] = 2;
                 }
                 /**********************************************************/
                 //APAGAR AS AREAS
@@ -91,15 +94,19 @@ if (isset($_GET["apaga"])) {
                     mysqli_stmt_bind_param($stmt2, 'i', $idUser);
                     // VALIDAÇÃO DO RESULTADO DO EXECUTE
                     if (!mysqli_stmt_execute($stmt2)) {
-                        //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                        //ERRO
+                        header("Location: ../settings.php");
+                        $_SESSION["delete"] = 2;
                         echo "Error: " . mysqli_stmt_error($stmt2);
                     } else {
-                        echo "sucesso a apagar as areas <br>";
-                        //mysqli_stmt_close($stmt2);
+                        //echo "sucesso a apagar as areas <br>";
+
                     }
                 } else {
                     echo "erro nas areas <br>";
-                    //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                    //ERRO
+                    header("Location: ../settings.php");
+                    $_SESSION["delete"] = 2;
                 }
                 /**********************************************************/
                 //apagar conteúdos da pasta e tabela
@@ -112,7 +119,10 @@ if (isset($_GET["apaga"])) {
                         $xp = "../uploads/xp/" . $content_name;
                         echo "Experiência diretório: $xp <br>";
                         if (!unlink($xp)) {
-                            echo "erro a apagar o ficheiro da pasta <br>";
+                            //echo "erro a apagar o ficheiro da pasta <br>";
+                            //ERRO
+                            header("Location: ../settings.php");
+                            $_SESSION["delete"] = 2;
                         } else {
                             echo "sucesso a apagar o ficheiro da pasta <br>";
                             //apagar da tabela
@@ -120,15 +130,17 @@ if (isset($_GET["apaga"])) {
                                 mysqli_stmt_bind_param($stmt3, 'i', $idUser);
                                 // VALIDAÇÃO DO RESULTADO DO EXECUTE
                                 if (!mysqli_stmt_execute($stmt3)) {
-                                    //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-                                    echo "Error: " . mysqli_stmt_error($stmt3);
+                                    //ERRO
+                                    header("Location: ../settings.php");
+                                    $_SESSION["delete"] = 2;
+                                    //echo "Error: " . mysqli_stmt_error($stmt3);
                                 } else {
-                                    echo "sucesso a apagar os conteudos <br>";
-                                    //mysqli_stmt_close($stmt2);
+                                    //echo "sucesso a apagar os conteudos <br>";                                   
                                 }
                             } else {
-                                echo "erro nos conteudos <br>";
-                                //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                                //ERRO
+                                header("Location: ../settings.php");
+                                $_SESSION["delete"] = 2;
                             }
                         }
                     }
@@ -145,9 +157,11 @@ if (isset($_GET["apaga"])) {
                             $img = "../uploads/img_perfil/" . $profile_img;
                             echo "diretorio img perfil: $img <br>";
                             if (!unlink($img)) {
-                                echo "erro a apagar a img da pasta <br>";
+                                //ERRO
+                                header("Location: ../settings.php");
+                                $_SESSION["delete"] = 2;
                             } else {
-                                echo "sucesso a apagar a img da pasta <br>";
+                                //echo "sucesso a apagar a img da pasta <br>";
                             }
                         }
                     }
@@ -158,15 +172,17 @@ if (isset($_GET["apaga"])) {
                     mysqli_stmt_bind_param($stmt2, 'i', $idUser);
                     // VALIDAÇÃO DO RESULTADO DO EXECUTE
                     if (!mysqli_stmt_execute($stmt2)) {
-                        //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-                        echo "Error: " . mysqli_stmt_error($stmt2);
+                        //ERRO
+                        header("Location: ../settings.php");
+                        $_SESSION["delete"] = 2;
+                        //echo "Error: " . mysqli_stmt_error($stmt2);
                     } else {
-                        echo "sucesso a apagar as capacidades <br>";
-                        //mysqli_stmt_close($stmt2);
+                        //echo "sucesso a apagar as capacidades <br>";
                     }
                 } else {
-                    echo "erro nas capacidades <br>";
-                    //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                    //ERRO
+                    header("Location: ../settings.php");
+                    $_SESSION["delete"] = 2;
                 }
                 /**********************************************************/
                 //apagar UC's feitas
@@ -174,15 +190,17 @@ if (isset($_GET["apaga"])) {
                     mysqli_stmt_bind_param($stmt2, 'i', $idUser);
                     // VALIDAÇÃO DO RESULTADO DO EXECUTE
                     if (!mysqli_stmt_execute($stmt2)) {
-                        //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-                        echo "Error: " . mysqli_stmt_error($stmt2);
+                        //ERRO
+                        header("Location: ../settings.php");
+                        $_SESSION["delete"] = 2;
+                        //echo "Error: " . mysqli_stmt_error($stmt2);
                     } else {
-                        echo "sucesso a apagar as UC's feitas <br>";
-                        //mysqli_stmt_close($stmt2);
+                        //echo "sucesso a apagar as UC's feitas <br>";
                     }
                 } else {
-                    echo "erro nas UC's feitas <br>";
-                    //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                    //ERRO
+                    header("Location: ../settings.php");
+                    $_SESSION["delete"] = 2;
                 }
                 /**********************************************************/
                 //apagar experiências
@@ -190,15 +208,17 @@ if (isset($_GET["apaga"])) {
                     mysqli_stmt_bind_param($stmt2, 'i', $idUser);
                     // VALIDAÇÃO DO RESULTADO DO EXECUTE
                     if (!mysqli_stmt_execute($stmt2)) {
-                        //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-                        echo "Error: " . mysqli_stmt_error($stmt2);
+                        //ERRO
+                        header("Location: ../settings.php");
+                        $_SESSION["delete"] = 2;
+                        //echo "Error: " . mysqli_stmt_error($stmt2);
                     } else {
-                        echo "sucesso a apagar as experiências <br>";
-                        //mysqli_stmt_close($stmt2);
+                        //echo "sucesso a apagar as experiências <br>";
                     }
                 } else {
-                    echo "erro nas experiências <br>";
-                    //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                    //ERRO
+                    header("Location: ../settings.php");
+                    $_SESSION["delete"] = 2;
                 }
                 /**********************************************************/
                 //ver as vagas associadas para obter o id e apagar o percurso
@@ -213,15 +233,17 @@ if (isset($_GET["apaga"])) {
                             mysqli_stmt_bind_param($stmt3, 'i', $id_match_vac);
                             // VALIDAÇÃO DO RESULTADO DO EXECUTE
                             if (!mysqli_stmt_execute($stmt3)) {
-                                //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-                                echo "Error: " . mysqli_stmt_error($stmt3);
+                                //ERRO
+                                header("Location: ../settings.php");
+                                $_SESSION["delete"] = 2;
+                                //echo "Error: " . mysqli_stmt_error($stmt3);
                             } else {
-                                echo "sucesso a apagar os percursos macth <br>";
-                                //mysqli_stmt_close($stmt2);
+                                //echo "sucesso a apagar os percursos macth <br>";
                             }
                         } else {
-                            echo "erro nos percursos match <br>";
-                            //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                            //ERRO
+                            header("Location: ../settings.php");
+                            $_SESSION["delete"] = 2;
                         }
                         /**********************************************************/
                         //apagar VAGAS associadas por match
@@ -229,15 +251,17 @@ if (isset($_GET["apaga"])) {
                             mysqli_stmt_bind_param($stmt3, 'i', $idUser);
                             // VALIDAÇÃO DO RESULTADO DO EXECUTE
                             if (!mysqli_stmt_execute($stmt3)) {
-                                //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-                                echo "Error: " . mysqli_stmt_error($stmt3);
+                                //ERRO
+                                header("Location: ../settings.php");
+                                $_SESSION["delete"] = 2;
+                                //echo "Error: " . mysqli_stmt_error($stmt3);
                             } else {
-                                echo "sucesso a apagar as vagas macth <br>";
-                                //mysqli_stmt_close($stmt2);
+                                //echo "sucesso a apagar as vagas macth <br>";
                             }
                         } else {
-                            echo "erro nas vagas match <br>";
-                            //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                            //ERRO
+                            header("Location: ../settings.php");
+                            $_SESSION["delete"] = 2;
                         }
                         /**********************************************************/
                     }
@@ -248,15 +272,17 @@ if (isset($_GET["apaga"])) {
                     mysqli_stmt_bind_param($stmt2, 'i', $idUser);
                     // VALIDAÇÃO DO RESULTADO DO EXECUTE
                     if (!mysqli_stmt_execute($stmt2)) {
-                        //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-                        echo "Error: " . mysqli_stmt_error($stmt2);
+                        //ERRO
+                        header("Location: ../settings.php");
+                        $_SESSION["delete"] = 2;
+                        //echo "Error: " . mysqli_stmt_error($stmt2);
                     } else {
-                        echo "sucesso a apagar os ambientes <br>";
-                        //mysqli_stmt_close($stmt2);
+                        //echo "sucesso a apagar os ambientes <br>";
                     }
                 } else {
-                    echo "erro nos ambientes <br>";
-                    //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                    //ERRO
+                    header("Location: ../settings.php");
+                    $_SESSION["delete"] = 2;
                 }
                 /**********************************************************/
                 //apagar macth com as UNIVERSIDADES
@@ -264,15 +290,17 @@ if (isset($_GET["apaga"])) {
                     mysqli_stmt_bind_param($stmt2, 'i', $idUser);
                     // VALIDAÇÃO DO RESULTADO DO EXECUTE
                     if (!mysqli_stmt_execute($stmt2)) {
-                        //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-                        echo "Error: " . mysqli_stmt_error($stmt2);
+                        //ERRO
+                        header("Location: ../settings.php");
+                        $_SESSION["delete"] = 2;
+                        //echo "Error: " . mysqli_stmt_error($stmt2);
                     } else {
-                        echo "sucesso a apagar os matchs areas <br>";
-                        //mysqli_stmt_close($stmt2);
+                        //echo "sucesso a apagar os matchs areas <br>";
                     }
                 } else {
-                    echo "erro nos match areas <br>";
-                    //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                    //ERRO
+                    header("Location: ../settings.php");
+                    $_SESSION["delete"] = 2;
                 }
                 /**********************************************************/
                 //apagar da tabela dos users
@@ -280,17 +308,19 @@ if (isset($_GET["apaga"])) {
                     mysqli_stmt_bind_param($stmt2, 'i', $idUser);
                     // VALIDAÇÃO DO RESULTADO DO EXECUTE
                     if (!mysqli_stmt_execute($stmt2)) {
-                        //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-                        echo "Error: " . mysqli_stmt_error($stmt2);
+                        //ERRO
+                        header("Location: ../settings.php");
+                        $_SESSION["delete"] = 2;
+                        //echo "Error: " . mysqli_stmt_error($stmt2);
                     } else {
-                        echo "sucesso a apagar o utilizador <br>";
-                        //mysqli_stmt_close($stmt2);
+                        //echo "sucesso a apagar o utilizador <br>";
                     }
                 } else {
-                    echo "erro no apagar utilizador <br>";
-                    //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                    //ERRO
+                    header("Location: ../settings.php");
+                    $_SESSION["delete"] = 2;
                 }
-                header("Location:../login.php");
+                header("Location: ../../index.php");
                 /**********************************************************/
             } else if ($type_user == "Empresa") {
                 /*EMPRESA*/
@@ -300,15 +330,17 @@ if (isset($_GET["apaga"])) {
                     mysqli_stmt_bind_param($stmt2, 'i', $idUser);
                     // VALIDAÇÃO DO RESULTADO DO EXECUTE
                     if (!mysqli_stmt_execute($stmt2)) {
-                        //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-                        echo "Error: " . mysqli_stmt_error($stmt2);
+                        //ERRO
+                        header("Location: ../settings.php");
+                        $_SESSION["delete"] = 1;
+                        //echo "Error: " . mysqli_stmt_error($stmt2);
                     } else {
-                        echo "sucesso a apagar as regiões <br>";
-                        //mysqli_stmt_close($stmt2);
+                        // echo "sucesso a apagar as regiões <br>";
                     }
                 } else {
-                    echo "erro nas regiões <br>";
-                    //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                    //ERRO
+                    header("Location: ../settings.php");
+                    $_SESSION["delete"] = 1;
                 }
                 /**********************************************************/
                 //apagar img de perfil da pasta
@@ -322,9 +354,11 @@ if (isset($_GET["apaga"])) {
                             $img = "../uploads/img_perfil/" . $profile_img;
                             echo "diretorio img perfil: $img <br>";
                             if (!unlink($img)) {
-                                echo "erro a apagar a img da pasta <br>";
+                                //ERRO
+                                header("Location: ../settings.php");
+                                $_SESSION["delete"] = 1;
                             } else {
-                                echo "sucesso a apagar a img da pasta <br>";
+                                //echo "sucesso a apagar a img da pasta <br>";
                             }
                         }
                     }
@@ -342,15 +376,17 @@ if (isset($_GET["apaga"])) {
                             mysqli_stmt_bind_param($stmt3, 'i', $idVacancies);
                             // VALIDAÇÃO DO RESULTADO DO EXECUTE
                             if (!mysqli_stmt_execute($stmt3)) {
-                                //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-                                echo "Error capacidades: " . mysqli_stmt_error($stmt3);
+                                //ERRO
+                                header("Location: ../settings.php");
+                                $_SESSION["delete"] = 1;
+                                //echo "Error capacidades: " . mysqli_stmt_error($stmt3);
                             } else {
-                                echo "sucesso a apagar as capacidades da vaga <br>";
-                                //mysqli_stmt_close($stmt2);
+                                // echo "sucesso a apagar as capacidades da vaga <br>";
                             }
                         } else {
-                            echo "erro nas regiões capacidades da vaga<br>";
-                            //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                            //ERRO
+                            header("Location: ../settings.php");
+                            $_SESSION["delete"] = 1;
                         }
                         /*****/
                         //selecionar o matchs
@@ -365,15 +401,17 @@ if (isset($_GET["apaga"])) {
                                     mysqli_stmt_bind_param($stmt4, 'i', $id_match_vac);
                                     // VALIDAÇÃO DO RESULTADO DO EXECUTE
                                     if (!mysqli_stmt_execute($stmt4)) {
-                                        //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-                                        echo "Error: " . mysqli_stmt_error($stmt4);
+                                        //ERRO
+                                        header("Location: ../settings.php");
+                                        $_SESSION["delete"] = 1;
+                                        //echo "Error: " . mysqli_stmt_error($stmt4);
                                     } else {
-                                        echo "sucesso a apagar os percursos matchs <br>";
-                                        //mysqli_stmt_close($stmt2);
+                                        //echo "sucesso a apagar os percursos matchs <br>";
                                     }
                                 } else {
-                                    echo "erro nos percursos matchs <br>";
-                                    //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                                    //ERRO
+                                    header("Location: ../settings.php");
+                                    $_SESSION["delete"] = 1;
                                 }
                                 /*****/
                                 //APAGAR matchs com as vagas
@@ -381,15 +419,17 @@ if (isset($_GET["apaga"])) {
                                     mysqli_stmt_bind_param($stmt4, 'i', $idVacancies);
                                     // VALIDAÇÃO DO RESULTADO DO EXECUTE
                                     if (!mysqli_stmt_execute($stmt4)) {
-                                        //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-                                        echo "Error: " . mysqli_stmt_error($stmt4);
+                                        //ERRO
+                                        header("Location: ../settings.php");
+                                        $_SESSION["delete"] = 1;
+                                        // echo "Error: " . mysqli_stmt_error($stmt4);
                                     } else {
-                                        echo "sucesso a apagar os matchs <br>";
-                                        //mysqli_stmt_close($stmt2);
+                                        //echo "sucesso a apagar os matchs <br>";
                                     }
                                 } else {
-                                    echo "erro nos matchs <br>";
-                                    //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                                    //ERRO
+                                    header("Location: ../settings.php");
+                                    $_SESSION["delete"] = 1;
                                 }
                                 /*****/
                             }
@@ -407,23 +447,27 @@ if (isset($_GET["apaga"])) {
                         $xp = "../uploads/vid_vac/" . $content_name;
                         echo "Experiência diretório: $xp <br>";
                         if (!unlink($xp)) {
-                            echo "erro a apagar o ficheiro da pasta <br>";
+                            //ERRO
+                            header("Location: ../settings.php");
+                            $_SESSION["delete"] = 1;
                         } else {
-                            echo "sucesso a apagar o ficheiro da pasta <br>";
+                            //echo "sucesso a apagar o ficheiro da pasta <br>";
                             //apagar da tabela
                             if (mysqli_stmt_prepare($stmt3, $query3)) {
                                 mysqli_stmt_bind_param($stmt3, 'i', $idUser);
                                 // VALIDAÇÃO DO RESULTADO DO EXECUTE
                                 if (!mysqli_stmt_execute($stmt3)) {
-                                    //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-                                    echo "Error content: " . mysqli_stmt_error($stmt3);
+                                    //ERRO
+                                    header("Location: ../settings.php");
+                                    $_SESSION["delete"] = 1;
+                                    //echo "Error content: " . mysqli_stmt_error($stmt3);
                                 } else {
-                                    echo "sucesso a apagar os conteudos <br>";
-                                    //mysqli_stmt_close($stmt2);
+                                    //echo "sucesso a apagar os conteudos <br>";
                                 }
                             } else {
-                                echo "erro nos conteudos <br>";
-                                //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                                //ERRO
+                                header("Location: ../settings.php");
+                                $_SESSION["delete"] = 1;
                             }
                         }
                     }
@@ -435,15 +479,17 @@ if (isset($_GET["apaga"])) {
                     mysqli_stmt_bind_param($stmt3, 'i', $idUser);
                     // VALIDAÇÃO DO RESULTADO DO EXECUTE
                     if (!mysqli_stmt_execute($stmt3)) {
-                        //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-                        echo "Error: " . mysqli_stmt_error($stmt2);
+                        //ERRO
+                        header("Location: ../settings.php");
+                        $_SESSION["delete"] = 1;
+                        //echo "Error: " . mysqli_stmt_error($stmt2);
                     } else {
-                        echo "sucesso a apagar as vagas <br>";
-                        //mysqli_stmt_close($stmt2);
+                        //echo "sucesso a apagar as vagas <br>";
                     }
                 } else {
-                    echo "erro nas vagas <br>";
-                    //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                    //ERRO
+                    header("Location: ../settings.php");
+                    $_SESSION["delete"] = 1;
                 }
                 /**********************************************************/
                 //apagar da tabela dos users
@@ -451,17 +497,19 @@ if (isset($_GET["apaga"])) {
                     mysqli_stmt_bind_param($stmt2, 'i', $idUser);
                     // VALIDAÇÃO DO RESULTADO DO EXECUTE
                     if (!mysqli_stmt_execute($stmt2)) {
-                        //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-                        echo "Error: " . mysqli_stmt_error($stmt2);
+                        //ERRO
+                        header("Location: ../settings.php");
+                        $_SESSION["delete"] = 1;
+                        //echo "Error: " . mysqli_stmt_error($stmt2);
                     } else {
-                        echo "sucesso a apagar o utilizador <br>";
-                        //mysqli_stmt_close($stmt2);
+                        //echo "sucesso a apagar o utilizador <br>";
                     }
                 } else {
-                    echo "erro no apagar utilizador <br>";
-                    //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                    //ERRO
+                    header("Location: ../settings.php");
+                    $_SESSION["delete"] = 1;
                 }
-                header("Location:../login.php");
+                header("Location: ../../index.php");
                 /**********************************************************/
             } else if ($type_user == "Universidade") {
                 /*UNIVERSIDADE*/
@@ -471,15 +519,17 @@ if (isset($_GET["apaga"])) {
                     mysqli_stmt_bind_param($stmt2, 'i', $idUser);
                     // VALIDAÇÃO DO RESULTADO DO EXECUTE
                     if (!mysqli_stmt_execute($stmt2)) {
-                        //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-                        echo "Error: " . mysqli_stmt_error($stmt2);
+                        //ERRO
+                        header("Location: ../settings.php");
+                        $_SESSION["delete"] = 1;
+                        //echo "Error: " . mysqli_stmt_error($stmt2);
                     } else {
-                        echo "sucesso a apagar as regiões <br>";
-                        //mysqli_stmt_close($stmt2);
+                        //echo "sucesso a apagar as regiões <br>";
                     }
                 } else {
-                    echo "erro nas regiões <br>";
-                    //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                    //ERRO
+                    header("Location: ../settings.php");
+                    $_SESSION["delete"] = 1;
                 }
                 /**********************************************************/
                 //APAGAR AS AREAS
@@ -487,15 +537,17 @@ if (isset($_GET["apaga"])) {
                     mysqli_stmt_bind_param($stmt2, 'i', $idUser);
                     // VALIDAÇÃO DO RESULTADO DO EXECUTE
                     if (!mysqli_stmt_execute($stmt2)) {
-                        //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-                        echo "Error: " . mysqli_stmt_error($stmt2);
+                        //ERRO
+                        header("Location: ../settings.php");
+                        $_SESSION["delete"] = 1;
+                        //echo "Error: " . mysqli_stmt_error($stmt2);
                     } else {
-                        echo "sucesso a apagar as areas <br>";
-                        //mysqli_stmt_close($stmt2);
+                        //echo "sucesso a apagar as areas <br>";
                     }
                 } else {
-                    echo "erro nas areas <br>";
-                    //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                    //ERRO
+                    header("Location: ../settings.php");
+                    $_SESSION["delete"] = 1;
                 }
                 /**********************************************************/
                 //apagar img de perfil da pasta
@@ -509,9 +561,11 @@ if (isset($_GET["apaga"])) {
                             $img = "../uploads/img_perfil/" . $profile_img;
                             echo "diretorio img perfil: $img <br>";
                             if (!unlink($img)) {
-                                echo "erro a apagar a img da pasta <br>";
+                                //ERRO
+                                header("Location: ../settings.php");
+                                $_SESSION["delete"] = 1;
                             } else {
-                                echo "sucesso a apagar a img da pasta <br>";
+                                //echo "sucesso a apagar a img da pasta <br>";
                             }
                         }
                     }
@@ -522,15 +576,17 @@ if (isset($_GET["apaga"])) {
                     mysqli_stmt_bind_param($stmt2, 'i', $idUser);
                     // VALIDAÇÃO DO RESULTADO DO EXECUTE
                     if (!mysqli_stmt_execute($stmt2)) {
-                        //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-                        echo "Error: " . mysqli_stmt_error($stmt2);
+                        //ERRO
+                        header("Location: ../settings.php");
+                        $_SESSION["delete"] = 1;
+                        //echo "Error: " . mysqli_stmt_error($stmt2);
                     } else {
-                        echo "sucesso a apagar os matchs areas com os jovens <br>";
-                        //mysqli_stmt_close($stmt2);
+                        //echo "sucesso a apagar os matchs areas com os jovens <br>";
                     }
                 } else {
-                    echo "erro nos match areas com os jovens <br>";
-                    //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                    //ERRO
+                    header("Location: ../settings.php");
+                    $_SESSION["delete"] = 1;
                 }
                 /**********************************************************/
                 //apagar da tabela dos users
@@ -538,18 +594,24 @@ if (isset($_GET["apaga"])) {
                     mysqli_stmt_bind_param($stmt2, 'i', $idUser);
                     // VALIDAÇÃO DO RESULTADO DO EXECUTE
                     if (!mysqli_stmt_execute($stmt2)) {
-                        //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-                        echo "Error: " . mysqli_stmt_error($stmt2);
+                        //ERRO
+                        header("Location: ../settings.php");
+                        $_SESSION["delete"] = 1;
+                        //echo "Error: " . mysqli_stmt_error($stmt2);
                     } else {
-                        echo "sucesso a apagar o utilizador <br>";
-                        //mysqli_stmt_close($stmt2);
+                        //echo "sucesso a apagar o utilizador <br>";
                     }
                 } else {
-                    echo "erro no apagar utilizador <br>";
-                    //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+                    //ERRO
+                    header("Location: ../settings.php");
+                    $_SESSION["delete"] = 1;
                 }
-                header("Location:../login.php");
+                header("Location: ../../index.php");
                 /**********************************************************/
+            } else {
+                //ERRO
+                header("Location: ../settings.php");
+                $_SESSION["delete"] = 1;
             }
             mysqli_stmt_close($stmt);
             mysqli_stmt_close($stmt2);
@@ -560,5 +622,16 @@ if (isset($_GET["apaga"])) {
     } //fim do if da query7
 
 } else {
-    echo "localização errada";
+    if (isset($_SESSION["type"])) {
+        $user_type = $_SESSION["type"];
+        if ($user_type == 7) {
+            //ERRO
+            header("Location: ../settings.php");
+            $_SESSION["delete"] = 1;
+        } else if ($user_type == 10) {
+            //ERRO
+            header("Location: ../settings.php");
+            $_SESSION["delete"] = 2;
+        }
+    }
 }
