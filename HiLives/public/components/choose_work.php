@@ -12,7 +12,7 @@ if ($_SESSION["idUser"]) {
     $query0 = "SELECT type_user FROM users
             INNER JOIN user_type ON users.User_type_idUser_type = user_type.idUser_type
             WHERE idUser = ?";
-
+//query para mostrar os match dos jovens com as vagas
     $query = "SELECT id_match_vac, User_young, Vacancies_idVacancies, match_perc, favorite, profile_img, vacancie_name
             FROM user_has_vacancies
             INNER JOIN users ON user_has_vacancies.User_young = users.idUser
