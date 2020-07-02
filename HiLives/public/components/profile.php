@@ -548,27 +548,37 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                                 <li class="lista">
                                                     <i class="fas fa-phone-alt mr-2"></i><b class="mr-2">Telefone:</b><?= $contact_user ?>
                                                 </li>
-                                                <?php
+
+                                            <?php
                                                 if ($website_ue != NULL) {
-                                                ?>
-                                                    <li class="lista">
-                                                        <i class="fas fa-globe mr-2"></i><b class="mr-2">Website:</b><?= $website_ue ?>
-                                                    </li>
-                                                <?php
+                                                    ?>
+                                                    <a href="<?= $website_ue ?>" target="_blank">
+                                                        <li class="lista">
+                                                            <i class="fas fa-globe mr-2"></i><b
+                                                                    class="mr-2">Website:</b><?= $website_ue ?>
+                                                        </li>
+                                                    </a>
+                                                    <?php
                                                 }
                                                 if ($facebook_ue != NULL) {
-                                                ?>
-                                                    <li class="lista">
-                                                        <i class="fab fa-facebook mr-2"></i><b class="mr-2">Facebook:</b><?= $facebook_ue ?>
-                                                    </li>
-                                                <?php
+                                                    ?>
+                                                    <a href="<?= $facebook_ue ?>" target="_blank">
+                                                        <li class="lista">
+                                                            <i class="fab fa-facebook mr-2"></i><b class="mr-2">Facebook:</b><?= $facebook_ue ?>
+                                                        </li>
+                                                    </a>
+
+                                                    <?php
                                                 }
                                                 if ($instagram_ue != NULL) {
-                                                ?>
-                                                    <li class="lista">
-                                                        <i class="fab fa-instagram mr-2"></i><b class="mr-2">Instagram:</b> <?= $instagram_ue ?>
-                                                    </li>
-                                        <?php
+                                                    ?>
+                                                    <a href="<?= $instagram_ue ?>" target="_blank">
+                                                        <li class="lista">
+                                                            <i class="fab fa-instagram mr-2"></i><b
+                                                                    class="mr-2">Instagram:</b> <?= $instagram_ue ?>
+                                                        </li>
+                                                    </a>
+                                                    <?php
                                                 }
                                             }
                                         }
@@ -717,27 +727,38 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                                 <li class="lista">
                                                     <i class="fas fa-phone-alt mr-2"></i><b class="mr-2">Telefone:</b><?= $contact_user ?>
                                                 </li>
+
                                                 <?php
                                                 if ($website_ue != NULL) {
-                                                ?>
-                                                    <li class="lista">
-                                                        <i class="fas fa-globe mr-2"></i><b class="mr-2">Website:</b><?= $website_ue ?>
-                                                    </li>
-                                                <?php
+                                                    ?>
+
+                                                    <a href="<?= $website_ue ?>" target="_blank">
+                                                        <li class="lista">
+                                                            <i class="fas fa-globe mr-2"></i><b
+                                                                    class="mr-2">Website:</b><?= $website_ue ?>
+                                                        </li>
+                                                    </a>
+                                                    <?php
                                                 }
                                                 if ($facebook_ue != NULL) {
-                                                ?>
-                                                    <li class="lista">
-                                                        <i class="fab fa-facebook mr-2"></i><b class="mr-2">Facebook:</b><?= $facebook_ue ?>
-                                                    </li>
-                                                <?php
+                                                    ?>
+                                                    <a href="<?= $facebook_ue ?>" target="_blank">
+                                                        <li class="lista">
+                                                            <i class="fab fa-facebook mr-2"></i><b class="mr-2">Facebook:</b><?= $facebook_ue ?>
+                                                        </li>
+                                                    </a>
+
+                                                    <?php
                                                 }
                                                 if ($instagram_ue != NULL) {
-                                                ?>
-                                                    <li class="lista">
-                                                        <i class="fab fa-instagram mr-2"></i><b class="mr-2">Instagram:</b> <?= $instagram_ue ?>
-                                                    </li>
-                                        <?php
+                                                    ?>
+                                                    <a href="<?= $instagram_ue ?>" target="_blank">
+                                                        <li class="lista">
+                                                            <i class="fab fa-instagram mr-2"></i><b
+                                                                    class="mr-2">Instagram:</b> <?= $instagram_ue ?>
+                                                        </li>
+                                                    </a>
+                                                    <?php
                                                 }
                                             }
                                         }

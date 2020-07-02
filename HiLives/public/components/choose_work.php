@@ -15,8 +15,8 @@ if ($_SESSION["idUser"]) {
 //query para mostrar os match dos jovens com as vagas
     $query = "SELECT id_match_vac, User_young, Vacancies_idVacancies, match_perc, favorite, profile_img, vacancie_name
             FROM user_has_vacancies
-            INNER JOIN users ON user_has_vacancies.User_young = users.idUser
-            INNER JOIN vacancies ON user_has_vacancies.Vacancies_idVacancies = vacancies.idVacancies
+            INNER JOIN vacancies ON user_has_vacancies.Vacancies_idVacancies = vacancies.idVacancies 
+            INNER JOIN users ON  vacancies.User_publicou = users.idUser
             WHERE User_young LIKE ?";
 
     $query2 = "SELECT id_match_vac, User_young, Vacancies_idVacancies, match_perc, profile_img, vacancie_name, name_user
@@ -202,7 +202,6 @@ if ($_SESSION["idUser"]) {
                                     ?>
                                     <div class="col-lg-12">
                                         <div class="card w-100">
-                                            <a href="vacancie_learn.php">
                                                 <?php
                                                 if ($favorite == 0) {
                                                     echo "";
@@ -240,11 +239,11 @@ if ($_SESSION["idUser"]) {
                                                     <h4 class="card-intro description_title">
                                                         <i class="fas fa-suitcase"></i>Trabalhar</h4>
                                                     <h2 class="card-title sub_title"><?= $vacancie_name ?></h2>
-                                                    <a href="">
+                                                    <a href="vacancie_learn.php?vac=<?= $Vacancies_idVacancies ?>">
                                                         <p class="btn_cards card-intro description_title2">Ver o que me falta</p>
                                                     </a>
                                                 </div>
-                                            </a>
+
                                         </div>
                                     </div>
                                     <?php
