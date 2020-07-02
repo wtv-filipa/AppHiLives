@@ -52,7 +52,7 @@ $query2 = "SELECT id_match_vac, User_young, Vacancies_idVacancies, match_perc, f
                         <i class="fas fa-book" style="color: #2f2f2f;"></i> Estudar
                     </h4>
                     <h2 class="card-title sub_title"><?= $name_user ?></h2>
-                    <a href="profile.php?user=<?= $User_university ?>" class="btn_cards">Ver áreas disponíveis</a>
+                    <a href="profile.php?user=<?= $User_university ?>" class="btn_cards">Ver informação</a>
                 </div>
             </div>
         </div>
@@ -103,7 +103,7 @@ $query2 = "SELECT id_match_vac, User_young, Vacancies_idVacancies, match_perc, f
                                 <i class="fas fa-book" style="color: #2f2f2f;"></i> Estudar
                             </h4>
                             <h2 class="card-title sub_title"><?= $vacancie_name ?></h2>
-                            <a href="vacancie.php?vac=<?= $Vacancies_idVacancies ?>" class="btn_cards">Ver áreas disponíveis</a>
+                            <a href="vacancie.php?vac=<?= $Vacancies_idVacancies ?>" class="btn_cards">Ver informação</a>
                         </div>
                     </div>
                 </div>

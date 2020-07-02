@@ -109,8 +109,7 @@ if ($_SESSION["idUser"]) {
                                                     Trabalhar</h4>
                                                 <h2 class="card-title sub_title"><?= $vacancie_name ?></h2>
                                                 <a href="vacancie.php?vac=<?= $Vacancies_idVacancies ?>">
-                                                    <p class="btn_cards card-intro description_title2">Ver descrição da
-                                                        vaga</p>
+                                                    <p class="btn_cards card-intro description_title2">Ver informação</p>
                                                 </a>
                                             </div>
                                         </div>
