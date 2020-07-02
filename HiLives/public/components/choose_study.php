@@ -122,7 +122,6 @@ if ($_SESSION["idUser"]) {
                             <div class="card-container col-lg-4">
                                 <div class="card">
                                     <?php
-
                                     if (isset($profile_img)) {
                                         ?>
                                         <a href="profile.php?user=<?= $User_young ?>">
@@ -132,7 +131,7 @@ if ($_SESSION["idUser"]) {
                                     } else {
                                         ?>
                                         <a href="profile.php?user=<?= $User_young ?>">
-                                            <div class="image mt-4" style="background-image: url('img/index_2.jpg')"></div>
+                                            <div class="image mt-4" style="background-image: url('img/def_jovem.png')"></div>
                                         </a>
                                         <?php
                                     }
@@ -140,8 +139,7 @@ if ($_SESSION["idUser"]) {
                                     <a href="profile.php?user=<?= $User_young ?>">
                                         <div class="card-info">
                                             <h4 class="card-intro description_title">
-                                                <i class="fas fa-book" aria-hidden="true"></i>
-                                                Estudar</h4>
+                                                <i class="fas fa-book" aria-hidden="true"></i> Estudar</h4>
                                             <h2 class="card-title sub_title"><?= $name_user ?></h2>
                                             <p class="card-intro description_title2"><?= $Area ?></p>
                                         </div>

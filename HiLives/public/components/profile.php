@@ -72,6 +72,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                     ?>
                         <div class="col-xs-3 col-lg-9 ">
                             <h3 class="mt-2 nome_user"><?= $name_user ?></h3>
+                            <h6 class="mt-3 subtitulo"> Email: <?= $email_user ?></h6>
                             <h6 class="mt-3 subtitulo"> <?= $age ?> anos</h6>
                             <h6 class="mt-3 subtitulo"> Regiões de interesse:
                                 <?php

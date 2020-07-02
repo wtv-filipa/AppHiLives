@@ -15,7 +15,10 @@ if (isset($_SESSION["idUser"])) {
             $link = new_db_connection();
             $stmt = mysqli_stmt_init($link);
 
-            $query = "SELECT idExperiences, title_exp, description, date, content_name, name_user, profile_img FROM experiences INNER JOIN content ON experiences.Content_idContent=content.idContent INNER JOIN users ON experiences.User_idUser=users.idUser";
+            $query = "SELECT idExperiences, title_exp, description, date, content_name, name_user, profile_img 
+                        FROM experiences 
+                        INNER JOIN content ON experiences.Content_idContent=content.idContent 
+                        INNER JOIN users ON experiences.User_idUser=users.idUser";
             $array_val = mysqli_query($link, $query);
 
             if (mysqli_stmt_prepare($stmt, $query)) {
@@ -31,7 +34,17 @@ if (isset($_SESSION["idUser"])) {
                             </video>
 
                             <div class="row mt-2 p-0">
-                                <img class="avatar col-3" src="../admin/uploads/img_perfil/<?= $row_vid['profile_img'] ?>">
+                                <?php
+                                if (isset( $row_vid['profile_img'])) {
+                                    ?>
+                                    <img alt="Imagem de perfil <?=  $row_vid['name_user'];?>" class="avatar col-3" src="../admin/uploads/img_perfil/<?= $row_vid['profile_img'] ?>">
+                                    <?php
+                                } else {
+                                    ?>
+                                    <img alt="Imagem de perfil padrão" class="avatar col-3" src="img/no_profile_img.png">
+                                    <?php
+                                }
+                                ?>
                                 <div class="col-9">
                                     <p class="xp_titulo m-0"><?= $row_vid['title_exp'] ?></p>
                                     <p class="username"><?= $row_vid['name_user'] ?></p>

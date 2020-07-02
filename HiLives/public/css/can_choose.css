@@ -226,11 +226,28 @@ p {
     border: none;
     width: 225px;
 }
-
-.card:hover {
-    transform: scale(1.05);
+.card:hover{
+    transform: scale(1.03);
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     z-index: 10;
+}
+
+.btn_cards {
+    color: #2F2F2F;
+    padding: 0.3rem;
+    font-size: 14px;
+    font-family: "Quicksand", sans-serif;
+    border-bottom: 0.1em solid #00A5CF;
+    font-weight: 800;
+    display: block;
+    margin: auto;
+    width: 80%;
+    cursor: pointer;
+    background: #fff;
+}
+
+.btn_cards:hover {
+    color: #00A5CF !important;
 }
 
 .card .image {

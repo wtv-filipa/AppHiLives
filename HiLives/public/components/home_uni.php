@@ -54,8 +54,7 @@ $query3 = "SELECT idVacancies, vacancie_name, name_user, profile_img, name_inter
                                         ?>
                                         <p class="mb-0 link_title mt-4"><?= $name_user ?></p>
                                         <p class="mb-0 link_subtitle">
-                                            <p class="mb-0 link_subtitle"><a href="profile.php?user=<?= $idUser ?>"> Ver
-                                                    perfil</a></p>
+                                            <p class="mb-0 link_subtitle"><a href="profile.php?user=<?= $idUser ?>"> Ver perfil</a></p>
                                     </li>
                             <?php
                                 }
@@ -68,7 +67,7 @@ $query3 = "SELECT idVacancies, vacancie_name, name_user, profile_img, name_inter
             </div>
         </div>
         <div id='footer'>
-            <a href="">
+            <a href="allOptions_uni.php">
                 <button class="btn_cards mx-auto">Ver mais</button>
             </a>
         </div>

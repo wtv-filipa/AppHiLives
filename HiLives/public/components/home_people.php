@@ -1,17 +1,14 @@
 <?php
 include "navbar_2.php";
 
-
 if ($_SESSION["idUser"]) {
-
     $idUser = $_SESSION["idUser"];
 
     require_once("connections/connection.php");
-
     $link = new_db_connection();
     $stmt = mysqli_stmt_init($link);
 
-    $query = "SELECT Area, name_user, profile_img, id_match, favorite
+    $query = "SELECT Area, name_user, profile_img, id_match, user_university, favorite
             FROM young_university 
             INNER JOIN users ON young_university.User_university = users.idUser
             WHERE User_young LIKE ? LIMIT 6";
@@ -20,9 +17,13 @@ if ($_SESSION["idUser"]) {
             WHERE User_type_idUser_type = 13
             LIMIT 2";
 
+    $query3 = "SELECT id_match_vac, User_young, Vacancies_idVacancies, match_perc, favorite, profile_img, vacancie_name, name_user
+            FROM user_has_vacancies
+            INNER JOIN vacancies ON user_has_vacancies.Vacancies_idVacancies = vacancies.idVacancies 
+            INNER JOIN users ON users.idUser = vacancies.User_publicou
+            WHERE User_young LIKE ?";
+
 ?>
-
-
     <div class="w-75 mx-auto list_links">
         <div id='wrapper_title'>
             <div class='tagpost-top section' id='tagpost-top'>
@@ -47,7 +48,7 @@ if ($_SESSION["idUser"]) {
 
                                     mysqli_stmt_bind_param($stmt, 'i', $idUser);
                                     mysqli_stmt_execute($stmt);
-                                    mysqli_stmt_bind_result($stmt, $Area, $name_user, $profile_img, $id_match, $favorite);
+                                    mysqli_stmt_bind_result($stmt, $Area, $name_user, $profile_img, $id_match, $user_university, $favorite);
 
                                     while (mysqli_stmt_fetch($stmt)) {
                                 ?>
@@ -56,11 +57,15 @@ if ($_SESSION["idUser"]) {
                                                 <?php
                                                 if (isset($profile_img)) {
                                                 ?>
+                                                <a href="profile.php?user=<?= $user_university ?>">
                                                     <img alt="<?= $profile_img ?>" title="" class="tagpost_thumb" src="../uploads/img_perfil/<?= $profile_img ?>">
+                                                </a>
                                                 <?php
                                                 } else {
                                                 ?>
+                                                <a href="profile.php?user=<?= $user_university ?>">
                                                     <img alt="imagem de perfil default da universidade" title="" class="tagpost_thumb" src="img/index_2.jpg">
+                                                </a>
                                                 <?php
                                                 }
                                                 ?>
@@ -83,12 +88,17 @@ if ($_SESSION["idUser"]) {
 
                                                 <p class="mb-0 link_info"><i class="fa fa-book mr-1" aria-hidden="true"></i>Estudar
                                                 </p>
-                                                <h4 class="mb-0 link_title"><?= $name_user ?></h4>
-                                                <h5 class="mb-0 link_subtitle"><?= $Area ?></h5>
+                                                <a href="profile.php?user=<?= $user_university ?>">
+                                                    <h4 class="mb-0 link_title"><?= $name_user ?></h4>
+                                                    <h5 class="mb-0 link_subtitle"><?= $Area ?></h5>
+                                                </a>
+
                                             </a>
                                         </li>
                                     <?php
                                     }
+                                }
+                                }
                                     ?>
                             </ul>
 
@@ -105,10 +115,6 @@ if ($_SESSION["idUser"]) {
             </div>
         </div>
     </div>
-<?php
-                                }
-                            }
-?>
 
 <!--CARDS-->
 <div class="w-75 mx-auto">
@@ -125,7 +131,7 @@ if ($_SESSION["idUser"]) {
         <?php
         if (mysqli_stmt_prepare($stmt, $query2)) {
             mysqli_stmt_execute($stmt);
-            mysqli_stmt_bind_result($stmt, $idUser, $name_user, $profile_img, $history_ue);
+            mysqli_stmt_bind_result($stmt, $id_uni, $name_user, $profile_img, $history_ue);
             while (mysqli_stmt_fetch($stmt)) {
         ?>
                 <div class="cards col-xs-12 col-md-6">
@@ -147,7 +153,7 @@ if ($_SESSION["idUser"]) {
                         <div class="card-info">
                             <h2 class="card-title sub_title"><?= $name_user ?></h2>
                             <p class="card-intro description_title"><?= substr($history_ue, 0, 168)?>...</p>
-                            <a href="about_university.php?u=<?= $idUser ?>">
+                            <a href="about_university.php?u=<?= $id_uni ?>">
                                 <button class="btn_destaques">Ver mais</button>
                             </a>
                         </div>
@@ -179,49 +185,63 @@ if ($_SESSION["idUser"]) {
                 <div class='widget HTML' id='HTML5'>
                     <div class='widget-content'>
                         <ul class='taglabel'>
+                            <?php
+                            if (mysqli_stmt_prepare($stmt, $query3)) {
 
+                            mysqli_stmt_bind_param($stmt, 'i', $idUser);
+                            mysqli_stmt_execute($stmt);
+                            mysqli_stmt_bind_result($stmt, $id_match_vac, $User_young, $Vacancies_idVacancies, $match_perc, $favorite, $profile_img, $vacancie_name, $name_user);
+
+                            while (mysqli_stmt_fetch($stmt)) {
+                            if ($match_perc == 1) {
+                            ?>
                             <li class='clearfix_companies'>
-                                <a href=""><img alt="Imagem da FNAC2" title="" class="tagpost_thumb" src="img/fnac.jpg"></a>
+                                <?php
+                                    if ($favorite == 0) {
+                                        echo "";
+                                        ?>
+                                <a href="scripts/update_fav.php?m=<?= $id_match_vac ?>&f=<?= $favorite ?>">
+                                    <button class="btn rounded-circle btn_fav">
+                                        <i class="fa fa-heart-o" aria-hidden="true" style="color: #2F2F2F"></i>
+                                    </button>
+                                </a>
+                                <?php
+                                } else {
+                                ?>
+                                <a href="scripts/update_fav.php?m=<?= $id_match_vac ?>&f=<?= $favorite ?>">
+                                    <button class="btn rounded-circle btn_fav">
+                                        <i class="fa fa-heart" aria-hidden="true" style="color: #A31621"></i>
+                                    </button>
+                                </a>
+                                <?php
+                                }
+                                if (isset($profile_img)) {
+                                ?>
+                                <a href="vacancie.php?vac=<?= $Vacancies_idVacancies ?>">
+                                    <img alt="Imagem da <?= $name_user ?>" title="" class="tagpost_thumb" src="../admin/uploads/img_perfil/<?= $profile_img ?>">
+                                </a>
+                                <?php
+                                } else {
+                                ?>
+                                <a href="vacancie.php?vac=<?= $Vacancies_idVacancies ?>">
+                                    <img alt="Imagem da <?= $name_user ?>" title="" class="tagpost_thumb" src="img/index_3.jpg">
+                                </a>
+                                <?php
+                                }
+                                ?>
                                 <p class="mb-0 link_info"><i class="fa fa-briefcase mr-1" aria-hidden="true"></i>Trabalhar
                                 </p>
-                                <h4 class="mb-0 link_title">FNAC</h4>
-                                <h5 class="mb-0 link_subtitle">Recursos Humanos</h5>
+                                <a href="vacancie.php?vac=<?= $Vacancies_idVacancies ?>">
+                                    <h4 class="mb-0 link_title"><?= $vacancie_name ?></h4>
+                                    <h5 class="mb-0 link_subtitle"><?= $name_user ?></h5>
+                                </a>
+
                             </li>
-                            <li class='clearfix_companies'>
-                                <a href=""><img alt="Imagem da FNAC2" title="" class="tagpost_thumb" src="img/fnac.jpg"></a>
-                                <p class="mb-0 link_info"><i class="fa fa-briefcase mr-1" aria-hidden="true"></i>Trabalhar
-                                </p>
-                                <h4 class="mb-0 link_title">FNAC</h4>
-                                <h5 class="mb-0 link_subtitle">Recursos Humanos</h5>
-                            </li>
-                            <li class='clearfix_companies'>
-                                <a href=""><img alt="Imagem da FNAC2" title="" class="tagpost_thumb" src="img/fnac.jpg"></a>
-                                <p class="mb-0 link_info"><i class="fa fa-briefcase mr-1" aria-hidden="true"></i>Trabalhar
-                                </p>
-                                <h4 class="mb-0 link_title">FNAC</h4>
-                                <h5 class="mb-0 link_subtitle">Recursos Humanos</h5>
-                            </li>
-                            <li class='clearfix_companies'>
-                                <a href=""><img alt="Imagem da FNAC2" title="" class="tagpost_thumb" src="img/fnac.jpg"></a>
-                                <p class="mb-0 link_info"><i class="fa fa-briefcase mr-1" aria-hidden="true"></i>Trabalhar
-                                </p>
-                                <h4 class="mb-0 link_title">FNAC</h4>
-                                <h5 class="mb-0 link_subtitle">Recursos Humanos</h5>
-                            </li>
-                            <li class='clearfix_companies'>
-                                <a href=""><img alt="Imagem da FNAC2" title="" class="tagpost_thumb" src="img/fnac.jpg"></a>
-                                <p class="mb-0 link_info"><i class="fa fa-briefcase mr-1" aria-hidden="true"></i>Trabalhar
-                                </p>
-                                <h4 class="mb-0 link_title">FNAC</h4>
-                                <h5 class="mb-0 link_subtitle">Recursos Humanos</h5>
-                            </li>
-                            <li class='clearfix_companies'>
-                                <a href=""><img alt="Imagem da FNAC2" title="" class="tagpost_thumb" src="img/fnac.jpg"></a>
-                                <p class="mb-0 link_info"><i class="fa fa-briefcase mr-1" aria-hidden="true"></i>Trabalhar
-                                </p>
-                                <h4 class="mb-0 link_title">FNAC</h4>
-                                <h5 class="mb-0 link_subtitle">Recursos Humanos</h5>
-                            </li>
+                            <?php
+                            }
+                            }
+                            }
+                            ?>
                         </ul>
                     </div>
                     <div class='clear'></div>
