@@ -5,6 +5,38 @@ if (isset($_SESSION["idUser"])) {
     $id_navegar = $_SESSION["idUser"];
 ?>
     <div class="w-75 mx-auto">
+        <?php
+        if (isset($_SESSION["delete"])) {
+            $msg_show = true;
+            switch ($_SESSION["delete"]) {
+                case 1:
+                    $message = "Não foi possível apagar a sua conta, por favor tente mais tarde.";
+                    $class = "alert-warning";
+                    $_SESSION["delete"] = 0;
+                    break;
+                case 2:
+                    $message = "Não foi possível apagar a tua conta, por favor tenta mais tarde.";
+                    $class = "alert-warning";
+                    $_SESSION["delete"] = 0;
+                    break;
+                case 0:
+                    $msg_show = false;
+                    break;
+                default:
+                    $msg_show = false;
+                    $_SESSION["delete"] = 0;
+            }
+
+            if ($msg_show == true) {
+                echo "<div class=\"alert $class alert-dismissible fade show mt-5\" role=\"alert\">" . $message . "
+                                <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+                                <span aria-hidden=\"true\">&times;</span>
+                                </button>
+                                </div>";
+                echo '<script>window.onload=function (){$(\'.alert\').alert();}</script>';
+            }
+        }
+        ?>
         <!--primeiro título-->
         <div id='wrapper_title'>
             <div class='tagpost-top' id='tagpost-top'>
@@ -69,8 +101,8 @@ if (isset($_SESSION["idUser"])) {
         </div>
 
     <?php
-   //Modal de apagar user
-   include('components/delete_modal.php');
+    //Modal de apagar user
+    include('components/delete_modal.php');
 } else {
     include("404.php");
 }

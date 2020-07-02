@@ -8,17 +8,15 @@ if (isset($_SESSION["type"])) {
     $link = new_db_connection();
     $stmt = mysqli_stmt_init($link);
 
-    $query = "SELECT name_user, name_interested_area, profile_img
+    $query = "SELECT idUser, name_user, name_interested_area, profile_img
             FROM users
             INNER JOIN user_has_areas ON users.idUser = user_has_areas.User_idUser
             INNER JOIN areas ON user_has_areas.Areas_idAreas = areas.idAreas
             INNER JOIN user_type ON users.User_type_idUser_type = user_type.idUser_type
             WHERE type_user = 'Universidade'";
 
-    $query2 = "SELECT name_user, name_interested_area, profile_img
+    $query2 = "SELECT idUser, name_user, profile_img
             FROM users
-            INNER JOIN user_has_areas ON users.idUser = user_has_areas.User_idUser
-            INNER JOIN areas ON user_has_areas.Areas_idAreas = areas.idAreas
             INNER JOIN user_type ON users.User_type_idUser_type = user_type.idUser_type
             WHERE type_user = 'Jovem'";
     ?>
@@ -49,7 +47,7 @@ if (isset($_SESSION["type"])) {
                 if (mysqli_stmt_prepare($stmt, $query)) {
 
                     mysqli_stmt_execute($stmt);
-                    mysqli_stmt_bind_result($stmt, $name_user, $name_interested_area, $profile_img);
+                    mysqli_stmt_bind_result($stmt, $id_uni, $name_user, $name_interested_area, $profile_img);
 
                     while (mysqli_stmt_fetch($stmt)) {
                         ?>
@@ -75,7 +73,7 @@ if (isset($_SESSION["type"])) {
                                     </h4>
                                     <h2 class="card-title sub_title"><?= $name_interested_area ?></h2>
                                     <p class="card-intro description_title2"><?= $name_user ?></p>
-                                    <a href="" class="btn_cards">Ver áreas disponíveis</a>
+                                    <a href="profile.php?user=<?= $id_uni ?>" class="btn_cards">Ver áreas disponíveis</a>
                                 </div>
                             </div>
                         </div>
@@ -93,7 +91,7 @@ if (isset($_SESSION["type"])) {
                     if (mysqli_stmt_prepare($stmt, $query2)) {
 
                         mysqli_stmt_execute($stmt);
-                        mysqli_stmt_bind_result($stmt, $name_user, $name_interested_area, $profile_img);
+                        mysqli_stmt_bind_result($stmt, $id_jovem, $name_user, $profile_img);
 
                         while (mysqli_stmt_fetch($stmt)) {
                             ?>
@@ -108,7 +106,7 @@ if (isset($_SESSION["type"])) {
                                             <?php
                                         } else {
                                             ?>
-                                            <img class="imagem" src="img/def_uni.jpg" alt="sem imagem de perfil"/>
+                                            <img class="imagem" src="img/def_jovem_grande.jpg" alt="sem imagem de perfil"/>
                                             <?php
                                         }
                                         ?>
@@ -117,9 +115,8 @@ if (isset($_SESSION["type"])) {
                                         <h4 class="card-intro description_title">
                                             <i class="fas fa-book" style="color: #2f2f2f;"></i> Estudar
                                         </h4>
-                                        <h2 class="card-title sub_title"><?= $name_interested_area ?></h2>
-                                        <p class="card-intro description_title2"><?= $name_user ?></p>
-                                        <a href="" class="btn_cards">Ver áreas disponíveis</a>
+                                        <h2 class="card-title sub_title"><?= $name_user ?></h2>
+                                        <a href="profile.php?user=<?= $id_jovem ?>" class="btn_cards">Ver áreas disponíveis</a>
                                     </div>
                                 </div>
                             </div>
