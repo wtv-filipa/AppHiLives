@@ -1,5 +1,7 @@
     /**********TEXTO***************/
-    
+    .centro {
+        text-align: center;
+    }
     #wrapper_title {
         padding-top: 3% !important;
         width: 750px;
@@ -198,8 +200,7 @@
         transform: translateX(-50%);
         position: relative;
         background: white;
-        padding: 50px;
-        padding-bottom: 80px;
+        padding: 40px 50px 80px 50px;
         height: 100%;
         box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
         border-radius: 5px;
@@ -238,7 +239,7 @@
         box-sizing: border-box;
         -webkit-box-flex: 1;
         flex: 1;
-        width: 60%;
+        width: 80%;
         text-align: left;
     }
     

@@ -94,7 +94,7 @@ $idUser = $_SESSION["idUser"];
             <!-------------------------------------------->
             <!--quinto campo-->
             <div class="form-group text-left">
-                <label class="label-margin" for="area">Áreas: <span style="color:  #00A5CF!important; font-weight: bold; font-size: 20px">*</span></label>
+                <label class="label-margin" for="area">Área: <span style="color:  #00A5CF!important; font-weight: bold; font-size: 20px">*</span></label>
                 <select class="form-control" id="area" name="area" required="required">
                     <option value="" selected disabled>Selecionar uma opção</option>
                     <?php
