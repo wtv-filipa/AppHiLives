@@ -64,6 +64,10 @@
     padding: 20px;
 }
 
+.dropdown-menu {
+    position: absolute !important;
+}
+
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 
@@ -116,6 +120,10 @@ button:focus {
     color: #2F2F2F;
 }
 
+.paddings {
+    /*padding-right: 10px;*/
+}
+
 .menunav {
     vertical-align: middle;
 }
@@ -125,10 +133,28 @@ button:focus {
 }
 
 
+.alinhar_user {
+    min-width: 200px !important;
+}
+
 /*media queries*/
 
 
 /* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 352px) {
+    .dropdown-menu1 {
+        min-width: 200px !important;
+    }
+}
+
+@media only screen and (max-width: 476px) {
+    .dropdown-menu1 {
+        min-width: 250px !important;
+    }
+    .notif_ind  {
+        padding: 0.25rem 0.25rem !important;
+    }
+}
 
 @media only screen and (max-width: 600px) {
     .nome {
@@ -139,23 +165,18 @@ button:focus {
         position: relative;
         display: inline-block;
     }
-    /* Dropdown Content (Hidden by Default) */
+     /*Dropdown Content (Hidden by Default) */
     .dropdown-menu {
         margin-top: 5% !important;
-        display: none;
-        position: absolute;
         background-color: #ffffff;
-        min-width: 300px;
         box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
         z-index: 1;
-        margin-left: -555% !important;
         border: none;
         font-family: "Quicksand", sans-serif !important;
+        min-width: 400px;
+        position: absolute;
     }
-    .alinhar_user {
-        min-width: 200px !important;
-        margin-left: -587% !important;
-    }
+
     /* Links inside the dropdown */
     .dropdown-menu a {
         color: #2f2f2f;
@@ -205,8 +226,9 @@ button:focus {
 
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
-
 @media only screen and (min-width: 600px) {
+
+
     .nome {
         display: none;
     }
@@ -215,22 +237,17 @@ button:focus {
         position: relative;
         display: inline-block;
     }
-    /* Dropdown Content (Hidden by Default) */
+     /*Dropdown Content (Hidden by Default) */
     .dropdown-menu {
         margin-top: 5% !important;
-        display: none;
-        position: absolute;
         background-color: #ffffff;
-        min-width: 400px;
         box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
         z-index: 1;
-        margin-left: -808% !important;
         border: none;
         font-family: "Quicksand", sans-serif !important;
-    }
-    .alinhar_user {
-        min-width: 200px !important;
-        margin-left: -587% !important;
+        min-width: 400px;
+        position: absolute;
+
     }
     /* Links inside the dropdown */
     .dropdown-menu a {
@@ -312,20 +329,15 @@ button:focus {
     /* Dropdown Content (Hidden by Default) */
     .dropdown-menu {
         margin-top: 5% !important;
-        display: none;
-        position: absolute;
         background-color: #ffffff;
-        min-width: 400px;
         box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
         z-index: 1;
-        margin-left: -808% !important;
         border: none;
         font-family: "Quicksand", sans-serif !important;
+        min-width: 400px;
+        position: absolute;
     }
-    .alinhar_user {
-        min-width: 200px !important;
-        margin-left: -587% !important;
-    }
+
     /* Links inside the dropdown */
     .dropdown-menu a {
         color: #2f2f2f;
@@ -392,19 +404,13 @@ button:focus {
     /* Dropdown Content (Hidden by Default) */
     .dropdown-menu {
         margin-top: 5% !important;
-        display: none;
         position: absolute;
         background-color: #ffffff;
-        min-width: 400px;
         box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
         z-index: 1;
-        margin-left: -57% !important;
         border: none;
         font-family: "Quicksand", sans-serif !important;
-    }
-    .alinhar_user {
-        min-width: 200px;
-        margin-left: -164% !important;
+        min-width: 400px;
     }
     /* Links inside the dropdown */
     .dropdown-menu a {
@@ -461,20 +467,14 @@ button:focus {
     }
     /* Dropdown Content (Hidden by Default) */
     .dropdown-menu {
-        margin-top: 1% !important;
-        display: none;
-        position: absolute;
+        margin-top: 5% !important;
         background-color: #ffffff;
-        min-width: 400px;
         box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
         z-index: 1;
-        margin-left: -57% !important;
         border: none;
         font-family: "Quicksand", sans-serif !important;
-    }
-    .alinhar_user {
-        min-width: 200px;
-        margin-left: -164% !important;
+        min-width: 400px;
+        position: absolute;
     }
     /* Links inside the dropdown */
     .dropdown-menu a {

@@ -291,7 +291,7 @@ $stmt = mysqli_stmt_init($link);
                             <button class="btn pl-0" type="button" role="button" data-toggle="dropdown">
                                 <img src="img/notif.png" alt="Símbolo de notificações" style="position:relative; max-width:25px"><span class="nome ml-2">O que está a acontecer</span>
                             </button>
-                            <ul class="dropdown-menu dropdown-menu1 mx-auto" style="overflow-y: scroll">
+                            <ul class="dropdown-menu dropdown-menu-right dropdown-menu1 mx-auto" style="overflow-y: scroll">
                                 <a href="">
                                     <button class="notif_ind mb-2"> Já não tens uma ligação há algum tempo...
                                         <span class="font-weight-bold">Edita o teu perfil</span> para conseguires ter novas
@@ -341,7 +341,7 @@ $stmt = mysqli_stmt_init($link);
                     }
                     ?>
                     <!--dropdown do perfil-->
-                    <div class="dropdown">
+                    <div class="dropdown " >
                         <?php
                         $query = "SELECT idUser, name_user, profile_img
             FROM users
@@ -358,23 +358,23 @@ $stmt = mysqli_stmt_init($link);
                                 if (isset($profile_img)) {
 
                         ?>
-                                    <button class="btn pl-0 pr-0" type="button" role="button" data-toggle="dropdown">
+                                    <button class="btn pl-0 pr-0 " type="button" role="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <img class="nav__avatar--image" style="max-width:25px" alt="Imagem de perfil" src="../admin/uploads/img_perfil/<?= $profile_img ?>" />
-                                        <span class="nome ml-2" style="color: black"><?= $nome ?></span>
+                                        <span class="nome paddings ml-1" style="color: black"><?= $nome ?></span>
                                     </button>
                                 <?php
                                 } else {
                                 ?>
                                     <button class="btn pl-0 pr-0" type="button" role="button" data-toggle="dropdown">
                                         <img src="img/no_profile_img.png" class="nav__avatar--image " style="max-width:25px" alt="Imagem de perfil padrão">
-                                        <span class="nome ml-2" style="color: black"><?= $nome ?></span>
+                                        <span class="nome paddings ml-1" style="color: black"><?= $nome ?></span>
                                     </button>
                         <?php
                                 }
                             }
                         }
                         ?>
-                        <ul class="dropdown-menu dropdown-menu2 alinhar_user mx-auto">
+                        <div class="dropdown-menu dropdown-menu-right alinhar_user mx-auto " aria-labelledby="dropdownMenuButton">
                             <?php
                             if (isset($User_type) && $User_type == 4) {
                             ?>
@@ -394,19 +394,17 @@ $stmt = mysqli_stmt_init($link);
                                 <button class="nav__btn2">
                                     <!--<i class="fa fa-star-o mr-2"></i>-->Favoritos</button>
                             </a>
-                            <a href="settings.php">
-                                <button class="nav__btn2">
+                            <a href="settings.php" >
+                                <button class="nav__btn2" >
                                     <!--<i class="fa fa-sliders mr-2"></i>-->Definições</button>
                             </a>
                             <a href="scripts/logout.php">
                                 <button class="nav__btn2 nav__btn3" style="background: #FDE74C;"><i class="fa fa-sign-out mr-2"></i>Sair
                                 </button>
                             </a>
-                        </ul>
+                        </div>
                     </div>
-                    <div>
-                        <!---------------------------------->
-                    </div>
+
                 </div>
                 <!--fim da div container-->
     </nav>
