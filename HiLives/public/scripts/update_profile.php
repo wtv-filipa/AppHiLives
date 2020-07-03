@@ -600,8 +600,8 @@ WHERE Areas_idAreas = ? AND match_perc = 0)";
         //match com a uni
         include "match_uni_login.php";
         //SUCESSO
-        /*   header("Location: ../edit_profile.php?edit=$id_navegar");
-        $_SESSION["edit_jovem"] = 1; */
+         header("Location: ../edit_profile.php?edit=$id_navegar");
+        $_SESSION["edit_jovem"] = 1; 
     } else {
         //ERRO
         header("Location: ../edit_profile.php?edit=$id_navegar");
