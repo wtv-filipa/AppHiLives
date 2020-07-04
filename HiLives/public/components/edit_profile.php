@@ -79,7 +79,7 @@ if (isset($_GET["edit"])) {
                                                 <div class="modal-footer">
                                                     <div class="row">
                                                         <div class="col-md-4">
-                                                            <button class="buttonCustomise btn btn-primary crop_image" value="Upload Image" name="Submit"> Editar</button>
+                                                            <button class="buttonCustomise btn btn-primary crop_image" value="Upload Image" name="Submit"> Guardar </button>
                                                         </div>
                                                         <div class="col-md-4">
                                                             <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
@@ -535,7 +535,9 @@ if (isset($_GET["edit"])) {
                                         <div class="col-md-8">
                                             <input type="submit" class="btn guardar_btn" value="Guardar">
                                             <span></span>
-                                            <input type="reset" class="btn cancel_btn" value="Cancelar">
+                                            <a href="profile.php?user=<?= $idUser ?>">
+                                            <input type="text" class="btn cancel_btn" value="Cancelar">
+                                            </a>
                                         </div>
                                     </div>
 
@@ -598,7 +600,7 @@ if (isset($_GET["edit"])) {
                                                 <div class="modal-footer">
                                                     <div class="row">
                                                         <div class="col-md-4">
-                                                            <button class="buttonCustomise btn btn-primary crop_image" value="Upload Image" name="Submit"> Editar</button>
+                                                            <button class="buttonCustomise btn btn-primary crop_image" value="Upload Image" name="Submit"> Guardar</button>
                                                         </div>
                                                         <div class="col-md-4">
                                                             <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
@@ -956,7 +958,9 @@ if (isset($_GET["edit"])) {
                                         <div class="col-md-8">
                                             <input type="submit" class="btn guardar_btn" value="Guardar">
                                             <span></span>
-                                            <input type="reset" class="btn cancel_btn" value="Cancelar">
+                                            <a href="profile.php?user=<?= $idUser ?>">
+                                            <input type="text" class="btn cancel_btn" value="Cancelar">
+                                            </a>
                                         </div>
                                     </div>
 

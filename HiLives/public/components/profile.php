@@ -71,10 +71,10 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                         //informações dos jovens
                     ?>
                         <div class="col-xs-3 col-lg-9 ">
-                            <h3 class="mt-2 nome_user"><?= $name_user ?> <span class="subtitulo" style="font-weight: lighter; font-size: 16px;">  | <?= $age ?> anos</span></h3> 
-            
+                            <h3 class="mt-2 nome_user"><?= $name_user ?> <span class="subtitulo" style="font-weight: lighter; font-size: 16px;"> | <?= $age ?> anos</span></h3>
+
                             <h6 class="mt-3 subtitulo"> Email: <?= $email_user ?></h6>
-                            
+
                             <h6 class="mt-3 subtitulo"> Regiões de interesse:
                                 <?php
                                 $first = true;
@@ -259,8 +259,12 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                 <?php
                                 if ($idUser == $id_navegar) {
                                 ?>
-                                    <div class="text-center">
-                                        <a href="done_uc.php">
+                                    <div class="text-center row">
+                                        <a class="col-md-6 col-xs-12" href="links_made.php">
+                                            <button class="btn add_btn"> Ver todas as que eu já fiz
+                                            </button>
+                                        </a>
+                                        <a class="col-md-6 col-xs-12" href="done_uc.php">
                                             <button class="btn add_btn"><i class="faw_hover fas fa-plus-circle mr-1">
                                                 </i>Adicionar novas unidades curriculares
                                             </button>
@@ -549,36 +553,34 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                                     <i class="fas fa-phone-alt mr-2"></i><b class="mr-2">Telefone:</b><?= $contact_user ?>
                                                 </li>
 
-                                            <?php
+                                                <?php
                                                 if ($website_ue != NULL) {
-                                                    ?>
+                                                ?>
                                                     <a href="<?= $website_ue ?>" target="_blank">
                                                         <li class="lista">
-                                                            <i class="fas fa-globe mr-2"></i><b
-                                                                    class="mr-2">Website:</b><?= $website_ue ?>
+                                                            <i class="fas fa-globe mr-2"></i><b class="mr-2">Website:</b><?= $website_ue ?>
                                                         </li>
                                                     </a>
-                                                    <?php
+                                                <?php
                                                 }
                                                 if ($facebook_ue != NULL) {
-                                                    ?>
+                                                ?>
                                                     <a href="<?= $facebook_ue ?>" target="_blank">
                                                         <li class="lista">
                                                             <i class="fab fa-facebook mr-2"></i><b class="mr-2">Facebook:</b><?= $facebook_ue ?>
                                                         </li>
                                                     </a>
 
-                                                    <?php
+                                                <?php
                                                 }
                                                 if ($instagram_ue != NULL) {
-                                                    ?>
+                                                ?>
                                                     <a href="<?= $instagram_ue ?>" target="_blank">
                                                         <li class="lista">
-                                                            <i class="fab fa-instagram mr-2"></i><b
-                                                                    class="mr-2">Instagram:</b> <?= $instagram_ue ?>
+                                                            <i class="fab fa-instagram mr-2"></i><b class="mr-2">Instagram:</b> <?= $instagram_ue ?>
                                                         </li>
                                                     </a>
-                                                    <?php
+                                        <?php
                                                 }
                                             }
                                         }
@@ -730,35 +732,33 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
 
                                                 <?php
                                                 if ($website_ue != NULL) {
-                                                    ?>
+                                                ?>
 
                                                     <a href="<?= $website_ue ?>" target="_blank">
                                                         <li class="lista">
-                                                            <i class="fas fa-globe mr-2"></i><b
-                                                                    class="mr-2">Website:</b><?= $website_ue ?>
+                                                            <i class="fas fa-globe mr-2"></i><b class="mr-2">Website:</b><?= $website_ue ?>
                                                         </li>
                                                     </a>
-                                                    <?php
+                                                <?php
                                                 }
                                                 if ($facebook_ue != NULL) {
-                                                    ?>
+                                                ?>
                                                     <a href="<?= $facebook_ue ?>" target="_blank">
                                                         <li class="lista">
                                                             <i class="fab fa-facebook mr-2"></i><b class="mr-2">Facebook:</b><?= $facebook_ue ?>
                                                         </li>
                                                     </a>
 
-                                                    <?php
+                                                <?php
                                                 }
                                                 if ($instagram_ue != NULL) {
-                                                    ?>
+                                                ?>
                                                     <a href="<?= $instagram_ue ?>" target="_blank">
                                                         <li class="lista">
-                                                            <i class="fab fa-instagram mr-2"></i><b
-                                                                    class="mr-2">Instagram:</b> <?= $instagram_ue ?>
+                                                            <i class="fab fa-instagram mr-2"></i><b class="mr-2">Instagram:</b> <?= $instagram_ue ?>
                                                         </li>
                                                     </a>
-                                                    <?php
+                                        <?php
                                                 }
                                             }
                                         }

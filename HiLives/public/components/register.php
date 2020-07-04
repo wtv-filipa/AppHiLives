@@ -104,9 +104,9 @@
                                         </div>
                                         <!------------TELEFONE------------>
                                         <div class="form-group">
-                                            <label class="negrito mt-3" for="phone">Telemóvel</label>
+                                            <label class="negrito mt-3" for="phone">Telemóvel <span class="asterisco">*</span></label>
                                             <div class="p-0 m-0">
-                                                <input type="tel" class="form-control cinza" id="phone" name="phone" placeholder="Escreve aqui o teu telemóvel">
+                                                <input type="tel" class="form-control cinza" id="phone" name="phone" placeholder="Escreve aqui o teu telemóvel" required="required">
                                             </div>
                                         </div>
                                         <!------------ESCOLARIDADE------------>

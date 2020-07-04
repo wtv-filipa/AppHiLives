@@ -8,7 +8,7 @@ if (isset($_GET['apaga'])) {
     $link = new_db_connection();
     $stmt = mysqli_stmt_init($link);
 
-    $query = "DELETE FROM done_CU WHERE idDone_CU = ?";
+    $query = "DELETE FROM done_cu WHERE idDone_CU = ?";
 
     //PRIMEIRA QUERY
     if (mysqli_stmt_prepare($stmt, $query)) {

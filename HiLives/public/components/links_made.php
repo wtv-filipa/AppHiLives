@@ -66,7 +66,7 @@ if ($_SESSION["idUser"]) {
             <div class='tagpost-top section' id='tagpost-top'>
                 <div class='widget HTML' id='HTML5'>
                     <div data-aos="fade-up">
-                        <h3 class="mb-4 main_title adjustment_top">Todas as disciplinas que fiz</h3>
+                        <h3 class="mb-4 main_title adjustment_top">Todas as Unidades Curriculares que fiz</h3>
                     </div>
                 </div>
             </div>
