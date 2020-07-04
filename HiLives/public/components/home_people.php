@@ -58,7 +58,7 @@ if ($_SESSION["idUser"]) {
                                                 if (isset($profile_img)) {
                                                 ?>
                                                 <a href="profile.php?user=<?= $user_university ?>">
-                                                    <img alt="<?= $profile_img ?>" title="" class="tagpost_thumb" src="../uploads/img_perfil/<?= $profile_img ?>">
+                                                    <img alt="<?= $profile_img ?>" title="" class="tagpost_thumb" src="../admin/uploads/img_perfil/<?= $profile_img ?>">
                                                 </a>
                                                 <?php
                                                 } else {

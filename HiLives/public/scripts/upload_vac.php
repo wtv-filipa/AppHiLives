@@ -218,7 +218,7 @@ if ($_FILES['fileToUpload']['size'] != 0) {
                 } else {
                     //ERRO
                     header("Location: ../upload_vac.php");
-                    $_SESSION["vac"] = 2;
+                    $_SESSION["vac"] = 2; 
                 }
                 //SUCESSO
                 header("Location: ../all_vacancies_comp.php");
@@ -227,7 +227,8 @@ if ($_FILES['fileToUpload']['size'] != 0) {
                 //ERRO
                 header("Location: ../upload_vac.php");
                 $_SESSION["vac"] = 2;
-                //echo "Error: " . mysqli_stmt_error($stmt);
+                
+                //echo "Error execute vaga: " . mysqli_stmt_error($stmt);
             }
         }
     } else {
