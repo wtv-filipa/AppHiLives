@@ -9,14 +9,13 @@ if ($_GET["vac"]) {
     require_once("connections/connection.php");
     $link = new_db_connection();
     $stmt = mysqli_stmt_init($link);
-    $query = "SELECT vacancie_name, description_vac, number_free_vanc, requirements, date_vacancies, Region_idRegion, User_publicou,Content_idContent, Workday_idWorkday, vacancies.Educ_lvl_idEduc_lvl, Areas_idAreas, name_region, Workday_name, name_interested_area, name_education, name_user, content_name
+    $query = "SELECT vacancie_name, description_vac, number_free_vanc, requirements, date_vacancies, Region_idRegion, User_publicou,Content_idContent, Workday_idWorkday, vacancies.Educ_lvl_idEduc_lvl, Areas_idAreas, name_region, Workday_name, name_interested_area, name_education, name_user
             FROM vacancies
             INNER JOIN region ON vacancies.Region_idRegion = region.idRegion
             INNER JOIN workday ON vacancies.Workday_idWorkday = workday.idWorkday
             INNER JOIN areas ON vacancies.Areas_idAreas = areas.idAreas
             INNER JOIN educ_lvl ON vacancies.Educ_lvl_idEduc_lvl = educ_lvl.idEduc_lvl
             INNER JOIN users ON vacancies.User_publicou = users.idUser
-            INNER JOIN content ON vacancies.User_publicou = content.users_idUser
             WHERE idVacancies = ?";
 
 
@@ -30,7 +29,7 @@ if ($_GET["vac"]) {
     if (mysqli_stmt_prepare($stmt, $query)) {
         mysqli_stmt_bind_param($stmt, 'i', $idVac);
         mysqli_stmt_execute($stmt);
-        mysqli_stmt_bind_result($stmt, $vacancie_name, $description_vac, $number_free_vanc, $requirements, $date_vacancies, $Region_idRegion, $User_publicou, $Content_idContent, $Workday_idWorkday, $Educ_lvl_idEduc_lvl, $Areas_idAreas, $name_region, $Workday_name, $name_interested_area, $name_education, $name_user, $content_name);
+        mysqli_stmt_bind_result($stmt, $vacancie_name, $description_vac, $number_free_vanc, $requirements, $date_vacancies, $Region_idRegion, $User_publicou, $Content_idContent, $Workday_idWorkday, $Educ_lvl_idEduc_lvl, $Areas_idAreas, $name_region, $Workday_name, $name_interested_area, $name_education, $name_user);
 
         if (mysqli_stmt_fetch($stmt)) {
 
@@ -246,10 +245,11 @@ if ($_GET["vac"]) {
                     <h2>Experiências</h2>
                     <div class="card-body">
                         <blockquote class="blockquote mb-0 text-center">
-                            <video width="640" height="480" controls>
-                                <source src="../admin/uploads/vid_vac/<?= $content_name ?>" type="video/mp4">
+                            <!-- <video width="640" height="480" controls>
+                                <source src="../admin/uploads/vid_vac/ $content_name " type="video/mp4">
                                 Your browser does not support the video tag.
-                            </video>
+                            </video> -->
+                            <p> Esta vaga não tem nenhum vídeo associado.</p>
                         </blockquote>
                     </div>
                 </section>
