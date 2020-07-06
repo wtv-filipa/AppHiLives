@@ -1,4 +1,8 @@
 <?php
+require_once("connections/connection.php");
+
+$link = new_db_connection();
+$stmt = mysqli_stmt_init($link);
 
 if (isset($_GET["edit_xp"]) && isset($_SESSION["idUser"])) {
     $id_navegar = $_SESSION["idUser"];
@@ -40,9 +44,6 @@ if (isset($_GET["edit_xp"]) && isset($_SESSION["idUser"])) {
         <!--Card-->
         <div class="card mdb-color lighten-4 text-center z-depth-2 light-version py-4 px-5">
             <?php
-            require_once("connections/connection.php");
-            $link = new_db_connection();
-            $stmt = mysqli_stmt_init($link);
 
             $query = "SELECT idExperiences, title_exp, description FROM experiences WHERE idExperiences=?";
             if (mysqli_stmt_prepare($stmt, $query)) {
@@ -78,12 +79,16 @@ if (isset($_GET["edit_xp"]) && isset($_SESSION["idUser"])) {
                     </form>
             <?php
                 }
+                /* close statement */
+                mysqli_stmt_close($stmt);
             }
+            /* close connection */
+            mysqli_close($link);
             ?>
         </div>
     </div>
 <?php
-} else{
+} else {
     include("404.php");
 }
 ?>

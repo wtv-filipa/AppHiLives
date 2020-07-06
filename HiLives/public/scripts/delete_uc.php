@@ -32,6 +32,8 @@ if (isset($_GET['apaga'])) {
         header("Location: ../links_made.php");
         $_SESSION["doneCU"] = 1;
     }
+    /* close connection */
+    mysqli_close($link);
 } else {
     //ERRO
     header("Location: ../links_made.php");

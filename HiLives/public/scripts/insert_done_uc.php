@@ -5,7 +5,6 @@ require_once "../connections/connection.php";
 if (isset($_SESSION["idUser"]) && !empty($_POST["nomeuc"]) && !empty($_POST["uniuc"]) && !empty($_POST["data"])) {
 
     $link = new_db_connection();
-
     $stmt = mysqli_stmt_init($link);
 
     $query = "INSERT INTO done_cu (User_idUser, Cu_name, University_name, date_cu) VALUES (?,?,?,?)";

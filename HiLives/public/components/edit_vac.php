@@ -1,17 +1,20 @@
 <?php
 require_once("connections/connection.php");
 
+$link = new_db_connection();
+$stmt = mysqli_stmt_init($link);
+
+$link2 = new_db_connection();
+$stmt2 = mysqli_stmt_init($link2);
+
 if (isset($_GET["idvac"]) and isset($_SESSION["idUser"])) {
 
-    $link = new_db_connection();
-    $stmt = mysqli_stmt_init($link);
     $idVacancies = $_GET["idvac"];
     $idUser = $_SESSION["idUser"];
     $query = "SELECT vacancie_name, description_vac, number_free_vanc, requirements, Region_idRegion, User_publicou, Workday_idWorkday, Educ_lvl_idEduc_lvl, Areas_idAreas FROM vacancies WHERE idVacancies LIKE ?";
 
     if (mysqli_stmt_prepare($stmt, $query)) {
         mysqli_stmt_bind_param($stmt, 'i', $idVacancies);
-
         /* execute the prepared statement */
         if (mysqli_stmt_execute($stmt)) {
             /* bind result variables */
@@ -97,15 +100,15 @@ if (isset($_GET["idvac"]) and isset($_SESSION["idUser"])) {
                                     $query2 = "SELECT idAreas, name_interested_area 
                                 FROM areas";
 
-                                    if (mysqli_stmt_prepare($stmt, $query2)) {
+                                    if (mysqli_stmt_prepare($stmt2, $query2)) {
 
                                         /* execute the prepared statement */
-                                        if (mysqli_stmt_execute($stmt)) {
+                                        if (mysqli_stmt_execute($stmt2)) {
                                             /* bind result variables */
-                                            mysqli_stmt_bind_result($stmt, $idAreas, $name_interested_area);
+                                            mysqli_stmt_bind_result($stmt2, $idAreas, $name_interested_area);
 
                                             /* fetch values */
-                                            while (mysqli_stmt_fetch($stmt)) {
+                                            while (mysqli_stmt_fetch($stmt2)) {
                                                 if ($Areas_idAreas == $idAreas) {
                                                     $selected = "selected";
                                                 } else {
@@ -113,14 +116,9 @@ if (isset($_GET["idvac"]) and isset($_SESSION["idUser"])) {
                                                 }
                                                 echo "\n\t\t<option value=\"$idAreas\" $selected>$name_interested_area</option>";
                                             }
-                                        } else {
-                                            echo "Error: " . mysqli_stmt_error($stmt);
+                                            /* close statement */
+                                            mysqli_stmt_close($stmt2);
                                         }
-
-                                        /* close statement */
-                                        //mysqli_stmt_close($stmt);
-                                    } else {
-                                        echo "Error: " . mysqli_error($link);
                                     }
                                     ?>
                                 </select>
@@ -133,16 +131,14 @@ if (isset($_GET["idvac"]) and isset($_SESSION["idUser"])) {
                                     <option value="" selected disabled>Selecionar uma opção</option>
                                     <?php
                                     $query3 = "SELECT idWorkday, Workday_name FROM workday";
-
-                                    if (mysqli_stmt_prepare($stmt, $query3)) {
-
+                                    $stmt2 = mysqli_stmt_init($link2);
+                                    if (mysqli_stmt_prepare($stmt2, $query3)) {
                                         /* execute the prepared statement */
-                                        if (mysqli_stmt_execute($stmt)) {
+                                        if (mysqli_stmt_execute($stmt2)) {
                                             /* bind result variables */
-                                            mysqli_stmt_bind_result($stmt, $id_Workday, $name_workday);
-
+                                            mysqli_stmt_bind_result($stmt2, $id_Workday, $name_workday);
                                             /* fetch values */
-                                            while (mysqli_stmt_fetch($stmt)) {
+                                            while (mysqli_stmt_fetch($stmt2)) {
                                                 if ($Workday_idWorkday == $id_Workday) {
                                                     $selected = "selected";
                                                 } else {
@@ -150,14 +146,9 @@ if (isset($_GET["idvac"]) and isset($_SESSION["idUser"])) {
                                                 }
                                                 echo "\n\t\t<option value=\"$id_Workday\" $selected>$name_workday</option>";
                                             }
-                                        } else {
-                                            echo "Error: " . mysqli_stmt_error($stmt);
+                                            /* close statement */
+                                            mysqli_stmt_close($stmt2);
                                         }
-
-                                        /* close statement */
-                                        //mysqli_stmt_close($stmt);
-                                    } else {
-                                        echo "Error: " . mysqli_error($link);
                                     }
                                     ?>
                                 </select>
@@ -171,17 +162,17 @@ if (isset($_GET["idvac"]) and isset($_SESSION["idUser"])) {
                                     $query4 = "SELECT idcapacities, capacity_comp, vacancies_idVacancies FROM capacities
                                                 LEFT JOIN vacancies_has_capacities
                                                 ON  capacities.idcapacities= vacancies_has_capacities.capacities_idcapacities AND vacancies_has_capacities.vacancies_idVacancies= ?";
-
-                                    if (mysqli_stmt_prepare($stmt, $query4)) {
+                                    $stmt2 = mysqli_stmt_init($link2);
+                                    if (mysqli_stmt_prepare($stmt2, $query4)) {
                                         // Bind variables by type to each parameter
-                                        mysqli_stmt_bind_param($stmt, 'i', $idVacancies);
+                                        mysqli_stmt_bind_param($stmt2, 'i', $idVacancies);
                                         /* execute the prepared statement */
-                                        if (mysqli_stmt_execute($stmt)) {
+                                        if (mysqli_stmt_execute($stmt2)) {
                                             /* bind result variables */
-                                            mysqli_stmt_bind_result($stmt, $idcapacities, $capacity_comp, $vacancies_idVacancies);
+                                            mysqli_stmt_bind_result($stmt2, $idcapacities, $capacity_comp, $vacancies_idVacancies);
 
                                             /* fetch values */
-                                            while (mysqli_stmt_fetch($stmt)) {
+                                            while (mysqli_stmt_fetch($stmt2)) {
                                                 $checked = "";
                                                 if ($vacancies_idVacancies != null) {
                                                     $checked = "checked";
@@ -193,13 +184,9 @@ if (isset($_GET["idvac"]) and isset($_SESSION["idUser"])) {
                                                     echo "</label>";
                                                 }
                                             }
-                                        } else {
-                                            echo "Error: " . mysqli_stmt_error($stmt);
+                                            /* close statement */
+                                            mysqli_stmt_close($stmt2);
                                         }
-                                        /* close statement */
-                                        //mysqli_stmt_close($stmt);
-                                    } else {
-                                        echo "Error: " . mysqli_error($link);
                                     }
                                     ?>
                                 </div>
@@ -213,16 +200,14 @@ if (isset($_GET["idvac"]) and isset($_SESSION["idUser"])) {
                                     <?php
                                     $query5 = "SELECT idEduc_lvl, name_education 
                                 FROM educ_lvl";
-
-                                    if (mysqli_stmt_prepare($stmt, $query5)) {
-
+                                    $stmt2 = mysqli_stmt_init($link2);
+                                    if (mysqli_stmt_prepare($stmt2, $query5)) {
                                         /* execute the prepared statement */
-                                        if (mysqli_stmt_execute($stmt)) {
+                                        if (mysqli_stmt_execute($stmt2)) {
                                             /* bind result variables */
-                                            mysqli_stmt_bind_result($stmt, $idEduc_lvl, $name_education);
-
+                                            mysqli_stmt_bind_result($stmt2, $idEduc_lvl, $name_education);
                                             /* fetch values */
-                                            while (mysqli_stmt_fetch($stmt)) {
+                                            while (mysqli_stmt_fetch($stmt2)) {
                                                 if ($Educ_lvl_idEduc_lvl == $idEduc_lvl) {
                                                     $selected = "selected";
                                                 } else {
@@ -230,14 +215,9 @@ if (isset($_GET["idvac"]) and isset($_SESSION["idUser"])) {
                                                 }
                                                 echo "\n\t\t<option value=\"$idEduc_lvl\" $selected>$name_education</option>";
                                             }
-                                        } else {
-                                            echo "Error: " . mysqli_stmt_error($stmt);
+                                            /* close statement */
+                                            mysqli_stmt_close($stmt2);
                                         }
-
-                                        /* close statement */
-                                        //mysqli_stmt_close($stmt);
-                                    } else {
-                                        echo "Error: " . mysqli_error($link);
                                     }
                                     ?>
                                 </select>
@@ -253,18 +233,18 @@ if (isset($_GET["idvac"]) and isset($_SESSION["idUser"])) {
                                         <option value="" selected disabled>Seleciona uma opção</option>
                                         <?php
                                         $query6 = "SELECT Region_idRegion, idRegion, name_region FROM user_has_region
-                                        INNER JOIN region ON user_has_region.Region_idRegion = region.idRegion
-                                       WHERE User_idUser_region = ?";
-
-                                        if (mysqli_stmt_prepare($stmt, $query6)) {
-                                            mysqli_stmt_bind_param($stmt, 'i', $idUser);
+                                                INNER JOIN region ON user_has_region.Region_idRegion = region.idRegion
+                                                WHERE User_idUser_region = ?";
+                                        $stmt2 = mysqli_stmt_init($link2);
+                                        if (mysqli_stmt_prepare($stmt2, $query6)) {
+                                            mysqli_stmt_bind_param($stmt2, 'i', $idUser);
                                             /* execute the prepared statement */
-                                            if (mysqli_stmt_execute($stmt)) {
+                                            if (mysqli_stmt_execute($stmt2)) {
                                                 /* bind result variables */
-                                                mysqli_stmt_bind_result($stmt, $Region_idRegion, $idRegion, $name_region);
+                                                mysqli_stmt_bind_result($stmt2, $Region_idRegion, $idRegion, $name_region);
 
                                                 /* fetch values */
-                                                while (mysqli_stmt_fetch($stmt)) {
+                                                while (mysqli_stmt_fetch($stmt2)) {
                                                     if ($Region_idRegion == $idRegion) {
                                                         $selected = "selected";
                                                     } else {
@@ -272,14 +252,9 @@ if (isset($_GET["idvac"]) and isset($_SESSION["idUser"])) {
                                                     }
                                                     echo "\n\t\t<option value=\"$Region_idRegion\" $selected>$name_region</option>";
                                                 }
-                                            } else {
-                                                echo "Error: " . mysqli_stmt_error($stmt);
+                                                /* close statement */
+                                                mysqli_stmt_close($stmt2);
                                             }
-
-                                            /* close statement */
-                                            //mysqli_stmt_close($stmt);
-                                        } else {
-                                            echo "Error: " . mysqli_error($link);
                                         }
                                         ?>
                                     </select>
@@ -296,9 +271,14 @@ if (isset($_GET["idvac"]) and isset($_SESSION["idUser"])) {
                 </div>
 <?php
             }
+            /* close statement */
+            mysqli_stmt_close($stmt);
         }
     }
-} else{
+    /* close connection */
+    mysqli_close($link);
+    mysqli_close($link2);
+} else {
     include("404.php");
 }
 ?>

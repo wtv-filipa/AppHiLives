@@ -1,5 +1,7 @@
 <?php
-
+ require_once("connections/connection.php");
+ $link = new_db_connection();
+ $stmt = mysqli_stmt_init($link);
 if (isset($_SESSION["idUser"])) {
     $id_navegar = $_SESSION["idUser"];
 ?>
@@ -70,20 +72,7 @@ if (isset($_SESSION["idUser"])) {
                     Carregar vídeo de experiência</h3>
             </div>
             <!----------->
-            <?php
-            require_once("connections/connection.php");
-            $link = new_db_connection();
-            $stmt = mysqli_stmt_init($link);
-
-            $query = "SELECT idUser FROM users WHERE idUser=?";
-            if (mysqli_stmt_prepare($stmt, $query)) {
-
-                mysqli_stmt_bind_param($stmt, 'i', $id_navegar);
-                mysqli_stmt_execute($stmt);
-                mysqli_stmt_bind_result($stmt, $idUser);
-                while (mysqli_stmt_fetch($stmt)) {
-            ?>
-                    <form class="md-form inserir_dados" class="mb-3" action="scripts/upload_xp.php?xp=<?= $idUser ?>" enctype="multipart/form-data" method="post">
+                    <form class="md-form inserir_dados" class="mb-3" action="scripts/upload_xp.php?xp=<?= $id_navegar ?>" enctype="multipart/form-data" method="post">
                         <!--input de upload-->
                         <div class="alert alert-warning mb-3" role="alert">
                             Insere um vídeo até 50MB.
@@ -110,10 +99,6 @@ if (isset($_SESSION["idUser"])) {
                         </div>
 
                     </form>
-            <?php
-                }
-            }
-            ?>
         </div>
     </div>
 <?php

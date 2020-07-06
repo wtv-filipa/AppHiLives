@@ -32,6 +32,8 @@ if (isset($_GET["update_xp"]) && isset($_SESSION["idUser"]) && !empty($_POST["no
             //SUCESSO
             header("Location: ../profile.php?user=$id_navegar#xp_jovem");
             $_SESSION["xp_jovem"] = 2;
+            /* close statement */
+            mysqli_stmt_close($stmt);
         }
     } else {
         //ERRO
@@ -39,6 +41,8 @@ if (isset($_GET["update_xp"]) && isset($_SESSION["idUser"]) && !empty($_POST["no
         $_SESSION["xp_jovem"] = 1;
         //echo "Error: " . mysqli_stmt_error($stmt);
     }
+    /* close connection */
+    mysqli_close($link);
 } else {
     //ERRO
     header("Location: ../edit_xp.php?edit_xp=$id_xp");

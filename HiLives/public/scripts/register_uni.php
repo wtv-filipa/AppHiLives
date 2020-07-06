@@ -115,6 +115,8 @@ if (!empty($_POST["nome"]) && !empty($_POST["email"]) && !empty($_POST["data_fun
         $_SESSION["register"] = 1;
         mysqli_close($link);
     }
+    mysqli_stmt_close($stmt);
+    mysqli_close($link);
 } else {
     //ERRO
     header("Location: ../register_uni.php");

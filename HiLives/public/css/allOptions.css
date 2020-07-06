@@ -150,6 +150,9 @@ a:hover {
     height: 100%;
 }
 
+.imagem_db {
+    height: 133%;
+}
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
@@ -171,17 +174,17 @@ a:hover {
     .cards {
         padding-top: 0rem;
     }
-    .imagem {
+    /* .imagem {
         height: 100%;
         min-width: 238px;
-    }
+    } */
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
-    .imagem {
+    /* .imagem {
         width: 185.5px;
-    }
+    } */
     .main_title {
         font-size: 18px;
         text-align: left;
@@ -205,28 +208,28 @@ a:hover {
         font-size: 14px;
         margin-bottom: 0;
     }
-    .imagem {
+    /* .imagem {
         min-width: 253px;
-    }
+    } */
 }
 
 @media only screen and (max-width: 992px) {
-    .imagem {
+    /* .imagem {
         min-width: 253px;
-    }
+    } */
 }
 
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
-    .imagem {
+  /*   .imagem {
         min-width: 217.99px;
-    }
+    } */
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
-    .imagem {
+  /*   .imagem {
         min-width: 263px;
-    }
+    } */
 }

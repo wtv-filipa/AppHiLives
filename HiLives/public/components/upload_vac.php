@@ -101,15 +101,13 @@ $idUser = $_SESSION["idUser"];
                     $query = "SELECT idAreas, name_interested_area FROM areas";
 
                     if (mysqli_stmt_prepare($stmt, $query)) {
-
                         if (mysqli_stmt_execute($stmt)) {
-                            /* bind result variables */
                             mysqli_stmt_bind_result($stmt, $idAreas, $name_interested_area);
-
-                            /* fetch values */
                             while (mysqli_stmt_fetch($stmt)) {
                                 echo "\n\t\t<option value=\"$idAreas\">$name_interested_area</option>";
                             }
+                            /* close statement */
+                            mysqli_stmt_close($stmt);
                         }
                     }
                     ?>
@@ -123,17 +121,15 @@ $idUser = $_SESSION["idUser"];
                     <option value="" selected disabled>Selecionar uma opção</option>
                     <?php
                     $query2 = "SELECT idWorkday, Workday_name FROM workday";
-
+                    $stmt = mysqli_stmt_init($link);
                     if (mysqli_stmt_prepare($stmt, $query2)) {
-
                         if (mysqli_stmt_execute($stmt)) {
-                            /* bind result variables */
                             mysqli_stmt_bind_result($stmt, $id_Workday, $name_workday);
-
-                            /* fetch values */
                             while (mysqli_stmt_fetch($stmt)) {
                                 echo "\n\t\t<option value=\"$id_Workday\">$name_workday</option>";
                             }
+                            /* close statement */
+                            mysqli_stmt_close($stmt);
                         }
                     }
                     ?>
@@ -146,15 +142,10 @@ $idUser = $_SESSION["idUser"];
                 <div class="form-check">
                     <?php
                     $query = "SELECT idcapacities, capacity_comp FROM capacities";
-
+                    $stmt = mysqli_stmt_init($link);
                     if (mysqli_stmt_prepare($stmt, $query)) {
-
-                        /* execute the prepared statement */
                         if (mysqli_stmt_execute($stmt)) {
-                            /* bind result variables */
                             mysqli_stmt_bind_result($stmt, $idcapacities, $capacity_comp);
-
-                            /* fetch values */
                             while (mysqli_stmt_fetch($stmt)) {
                                 if (isset($capacity_comp)) {
                                     echo "\n\t\t";
@@ -163,13 +154,9 @@ $idUser = $_SESSION["idUser"];
                                     echo "</label>";
                                 }
                             }
-                        } else {
-                            echo "Error: " . mysqli_stmt_error($stmt);
+                            /* close statement */
+                            mysqli_stmt_close($stmt);
                         }
-                        /* close statement */
-                        //mysqli_stmt_close($stmt);
-                    } else {
-                        echo "Error: " . mysqli_error($link);
                     }
                     ?>
                 </div>
@@ -182,17 +169,15 @@ $idUser = $_SESSION["idUser"];
                     <option value="" selected disabled>Selecionar uma opção</option>
                     <?php
                     $query2 = "SELECT idEduc_lvl, name_education FROM educ_lvl";
-
+                    $stmt = mysqli_stmt_init($link);
                     if (mysqli_stmt_prepare($stmt, $query2)) {
-
                         if (mysqli_stmt_execute($stmt)) {
-                            /* bind result variables */
                             mysqli_stmt_bind_result($stmt,  $idEduc_lvl, $name_education);
-
-                            /* fetch values */
                             while (mysqli_stmt_fetch($stmt)) {
                                 echo "\n\t\t<option value=\"$idEduc_lvl\">$name_education</option>";
                             }
+                            /* close statement */
+                            mysqli_stmt_close($stmt);
                         }
                     }
                     ?>
@@ -214,15 +199,11 @@ $idUser = $_SESSION["idUser"];
                         $query2 = "SELECT Region_idRegion, idRegion, name_region FROM user_has_region
                                     INNER JOIN region ON user_has_region.Region_idRegion = region.idRegion
                                    WHERE User_idUser_region = ?";
-
+                        $stmt = mysqli_stmt_init($link);
                         if (mysqli_stmt_prepare($stmt, $query2)) {
                             mysqli_stmt_bind_param($stmt, 'i', $idUser);
-                            /* execute the prepared statement */
                             if (mysqli_stmt_execute($stmt)) {
-                                /* bind result variables */
                                 mysqli_stmt_bind_result($stmt, $Region_idRegion, $idRegion, $name_region);
-
-                                /* fetch values */
                                 while (mysqli_stmt_fetch($stmt)) {
                                     if ($Region_idRegion == $idRegion) {
                                         $selected = "selected";
@@ -231,13 +212,9 @@ $idUser = $_SESSION["idUser"];
                                     }
                                     echo "\n\t\t<option value=\"$Region_idRegion\" $selected>$name_region</option>";
                                 }
-                            } else {
-                                echo "Error: " . mysqli_stmt_error($stmt);
+                                /* close statement */
+                                mysqli_stmt_close($stmt);
                             }
-                            /* close statement */
-                            //mysqli_stmt_close($stmt);
-                        } else {
-                            echo "Error: " . mysqli_error($link);
                         }
                         ?>
                     </select>

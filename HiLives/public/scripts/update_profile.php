@@ -204,7 +204,7 @@ WHERE Region_idRegion = ? AND match_perc = 0)";
     }
     /************************************************************/
     //area
-    //ver as àreas do user
+    //ver as areas do user
     $query30 = "SELECT Areas_idAreas
 FROM user_has_areas 
 WHERE User_idUser = ?";

@@ -1,5 +1,11 @@
 <?php
 include "navbar_2.php";
+
+require_once("connections/connection.php");
+
+$link = new_db_connection();
+$stmt = mysqli_stmt_init($link);
+
 if (isset($_SESSION["idUser"])) {
     $id_navegar = $_SESSION["idUser"];
 ?>
@@ -11,10 +17,6 @@ if (isset($_SESSION["idUser"])) {
 
         <div class="row mt-5">
             <?php
-            require_once("connections/connection.php");
-            $link = new_db_connection();
-            $stmt = mysqli_stmt_init($link);
-
             $query = "SELECT idExperiences, title_exp, description, date, content_name, name_user, profile_img 
                         FROM experiences 
                         INNER JOIN content ON experiences.Content_idContent=content.idContent 
@@ -24,37 +26,51 @@ if (isset($_SESSION["idUser"])) {
             if (mysqli_stmt_prepare($stmt, $query)) {
                 mysqli_stmt_execute($stmt);
                 mysqli_stmt_bind_result($stmt, $idExperiences, $title_exp, $description, $date, $content_name, $name_user, $profile_img);
-                while ($row_vid = mysqli_fetch_assoc($array_val)) {
+                mysqli_stmt_store_result($stmt); // Store the result into memory
+                if (mysqli_stmt_num_rows($stmt) > 0) { // Check the number of rows returned
+                    while ($row_vid = mysqli_fetch_assoc($array_val)) {
             ?>
-                    <div class="col-md-6 col-lg-4 mb-4 pb-2">
-                        <a href="#" data-toggle="modal" data-target="#modalvid<?= $row_vid['idExperiences'] ?>">
-                            <video class="img-fluid z-depth-1 p-0 m-0 vid_tamanho" alt="vídeo da experiência <?= $row_vid['title_exp'] ?>" type="video" data-toggle="modal" data-target="#modal1">
-                                <source src="../admin/uploads/xp/<?= $row_vid['content_name']; ?>">
-                                Your browser does not support the video tag.
-                            </video>
+                        <div class="col-md-6 col-lg-4 mb-4 pb-2">
+                            <a href="#" data-toggle="modal" data-target="#modalvid<?= $row_vid['idExperiences'] ?>">
+                                <video class="img-fluid z-depth-1 p-0 m-0 vid_tamanho" alt="vídeo da experiência <?= $row_vid['title_exp'] ?>" type="video" data-toggle="modal" data-target="#modal1">
+                                    <source src="../admin/uploads/xp/<?= $row_vid['content_name']; ?>">
+                                    Your browser does not support the video tag.
+                                </video>
 
-                            <div class="row mt-2 p-0">
-                                <?php
-                                if (isset( $row_vid['profile_img'])) {
-                                    ?>
-                                    <img alt="Imagem de perfil <?=  $row_vid['name_user'];?>" class="avatar col-3" src="../admin/uploads/img_perfil/<?= $row_vid['profile_img'] ?>">
+                                <div class="row mt-2 p-0">
                                     <?php
-                                } else {
+                                    if (isset($row_vid['profile_img'])) {
                                     ?>
-                                    <img alt="Imagem de perfil padrão" class="avatar col-3" src="img/no_profile_img.png">
+                                        <img alt="Imagem de perfil <?= $row_vid['name_user']; ?>" class="avatar col-3" src="../admin/uploads/img_perfil/<?= $row_vid['profile_img'] ?>">
                                     <?php
-                                }
-                                ?>
-                                <div class="col-9">
-                                    <p class="xp_titulo m-0"><?= $row_vid['title_exp'] ?></p>
-                                    <p class="username"><?= $row_vid['name_user'] ?></p>
+                                    } else {
+                                    ?>
+                                        <img alt="Imagem de perfil padrão" class="avatar col-3" src="img/no_profile_img.png">
+                                    <?php
+                                    }
+                                    ?>
+                                    <div class="col-9">
+                                        <p class="xp_titulo m-0"><?= $row_vid['title_exp'] ?></p>
+                                        <p class="username"><?= $row_vid['name_user'] ?></p>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
-                    </div>
+                            </a>
+                        </div>
+                    <?php
+                        //Modal de apagar user
+                        include('components/modal_vid.php');
+                    }
+                    /* close statement */
+                    mysqli_stmt_close($stmt);
+                } else {
+                    ?>
+                    <p class="mx-auto mt-5 mb-5" style="font-size: 1rem; padding-bottom: 10%;">
+                        <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
+                            <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
+                        </svg>
+                        Ainda não existe nenhuma experiência publicada.
+                    </p>
             <?php
-                    //Modal de apagar user
-                    include('components/modal_vid.php');
                 }
             }
             ?>
@@ -66,4 +82,6 @@ if (isset($_SESSION["idUser"])) {
 } else {
     include("404.php");
 }
+/* close connection */
+mysqli_close($link);
 ?>

@@ -9,7 +9,7 @@ $stmt5 = mysqli_stmt_init($link5);
 //MATCH
 
 $query8 = "INSERT INTO young_university (User_young, User_university, Area) VALUES (?, ?, ?)";
-//Esta query vai fazr um select dos users que são universidades e ao mesmo tempo já os relaciona com os jovens que têm a mesma àrea
+//Esta query vai fazr um select dos users que são universidades e ao mesmo tempo já os relaciona com os jovens que têm a mesma area
 $query9 = "SELECT User_idUser, Areas_idAreas, User_type_idUser_type, name_interested_area, name_region FROM user_has_areas 
 INNER JOIN users ON user_has_areas.User_idUser = users.idUser 
 INNER JOIN areas ON user_has_areas.Areas_idAreas = areas.idAreas 
