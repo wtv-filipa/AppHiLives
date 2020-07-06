@@ -1,304 +1,347 @@
 <?php
 include "navbar_2.php";
+require_once("connections/connection.php");
 
-if ($_SESSION["idUser"]) {
+$link = new_db_connection();
+$stmt = mysqli_stmt_init($link);
+
+if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
 
     $idUser = $_SESSION["idUser"];
+    $type = $_SESSION["type"];
 
-    require_once("connections/connection.php");
-    $link = new_db_connection();
-    $stmt = mysqli_stmt_init($link);
-//query para mostrar os match dependendo do perfil
-    $query0 = "SELECT type_user FROM users
-            INNER JOIN user_type ON users.User_type_idUser_type = user_type.idUser_type
-            WHERE idUser = ?";
-//query para mostrar os match dos jovens com as vagas
-    $query = "SELECT id_match_vac, User_young, Vacancies_idVacancies, match_perc, favorite, profile_img, vacancie_name
+    //query para mostrar os match dos jovens com as vagas
+    $query = "SELECT id_match_vac, User_young, Vacancies_idVacancies, match_perc, favorite, name_user, profile_img, vacancie_name
             FROM user_has_vacancies
             INNER JOIN vacancies ON user_has_vacancies.Vacancies_idVacancies = vacancies.idVacancies 
             INNER JOIN users ON  vacancies.User_publicou = users.idUser
-            WHERE User_young LIKE ?";
+            WHERE User_young = ? AND match_perc = 1";
 
     $query2 = "SELECT id_match_vac, User_young, Vacancies_idVacancies, match_perc, profile_img, vacancie_name, name_user
             FROM user_has_vacancies
             INNER JOIN vacancies ON user_has_vacancies.Vacancies_idVacancies = vacancies.idVacancies 
             INNER JOIN users ON users.idUser = user_has_vacancies.User_young
-            WHERE User_publicou LIKE ?";
+            WHERE User_publicou = ? AND match_perc = 1";
 
-    if (mysqli_stmt_prepare($stmt, $query0)) {
-        mysqli_stmt_bind_param($stmt, 'i', $idUser);
-        mysqli_stmt_execute($stmt);
-        mysqli_stmt_bind_result($stmt, $type_user);
+    $query3 = "SELECT id_match_vac, User_young, Vacancies_idVacancies, match_perc, favorite, name_user, profile_img, vacancie_name
+            FROM user_has_vacancies
+            INNER JOIN vacancies ON user_has_vacancies.Vacancies_idVacancies = vacancies.idVacancies 
+            INNER JOIN users ON  vacancies.User_publicou = users.idUser
+            WHERE User_young = ? AND match_perc = 0";
 
-        while (mysqli_stmt_fetch($stmt)) {
-            ?>
-            <!------------------------MATCH--------------------->
-            <div class="w-75 mx-auto">
-                <div id='wrapper_title'>
-                    <div class='tagpost-top section' id='tagpost-top'>
-                        <div class='widget HTML' id='HTML5'>
-                            <div data-aos="fade-up">
-                                <?php
-                                if ($type_user == "Jovem") {
-                                    ?>
-                                    <h3 class="mb-1 main_title">Vagas de trabalho que posso escolher</h3>
-                                    <p>Aqui encontras as vagas onde cumpres todos os requisitos</p>
-                                    <?php
-                                } else
-                                    if ($type_user == "Empresa") {
-                                        ?>
-                                        <h3 class="mb-1 main_title">Os meus candidatos</h3>
-                                        <p>Aqui encontra todos os candidatos para as suas vagas</p>
-                                        <?php
-                                    }
-                                ?>
-                            </div>
-                        </div>
+    $query4 = "SELECT id_match_vac, User_young, Vacancies_idVacancies, match_perc, profile_img, vacancie_name, name_user
+            FROM user_has_vacancies
+            INNER JOIN vacancies ON user_has_vacancies.Vacancies_idVacancies = vacancies.idVacancies 
+            INNER JOIN users ON users.idUser = user_has_vacancies.User_young
+            WHERE User_publicou = ? AND match_perc = 0";
+
+?>
+    <!------------------------MATCH--------------------->
+    <div class="w-75 mx-auto">
+        <div id='wrapper_title'>
+            <div class='tagpost-top section' id='tagpost-top'>
+                <div class='widget HTML' id='HTML5'>
+                    <div data-aos="fade-up">
+                        <?php
+                        if ($type == 10) {
+                        ?>
+                            <h3 class="mb-1 main_title">Vagas de trabalho que posso escolher</h3>
+                            <p>Aqui encontras as vagas onde cumpres todos os requisitos</p>
+                        <?php
+                        } else if ($type == 7) {
+                        ?>
+                            <h3 class="mb-1 main_title">Os meus candidatos</h3>
+                            <p>Aqui encontra todos os candidatos para as suas vagas</p>
+                        <?php
+                        }
+                        ?>
                     </div>
                 </div>
+            </div>
+        </div>
 
-                <div class="card-slider mt-5">
-                    <?php
-                    if ($type_user == "Jovem") {
-                        if (mysqli_stmt_prepare($stmt, $query)) {
+        <div class="card-slider mt-5">
+            <?php
+            if ($type == 10) {
+                if (mysqli_stmt_prepare($stmt, $query)) {
 
-                            mysqli_stmt_bind_param($stmt, 'i', $idUser);
-                            mysqli_stmt_execute($stmt);
-                            mysqli_stmt_bind_result($stmt, $id_match_vac, $User_young, $Vacancies_idVacancies, $match_perc, $favorite, $profile_img, $vacancie_name);
-
-                            while (mysqli_stmt_fetch($stmt)) {
-                                if ($match_perc == 1) {
+                    mysqli_stmt_bind_param($stmt, 'i', $idUser);
+                    mysqli_stmt_execute($stmt);
+                    mysqli_stmt_bind_result($stmt, $id_match_vac, $User_young, $Vacancies_idVacancies, $match_perc, $favorite, $name_user, $profile_img, $vacancie_name);
+                    mysqli_stmt_store_result($stmt); // Store the result into memory
+                    if (mysqli_stmt_num_rows($stmt) > 0) { // Check the number of rows returned
+                        while (mysqli_stmt_fetch($stmt)) {
+            ?>
+                            <div class="col-lg-12">
+                                <div class="card w-100">
+                                    <?php
+                                    if ($favorite == 0) {
+                                        echo "";
                                     ?>
-                                    <div class="col-lg-12">
-                                        <div class="card w-100">
+                                        <a href="scripts/update_fav.php?m=<?= $id_match_vac ?>&f=<?= $favorite ?>">
+                                            <button class="btn rounded-circle btn_fav">
+                                                <i class="fa fa-heart-o" aria-hidden="true" style="color: #2F2F2F"></i>
+                                            </button>
+                                        </a>
+                                    <?php
+                                    } else {
+                                    ?>
+                                        <a href="scripts/update_fav.php?m=<?= $id_match_vac ?>&f=<?= $favorite ?>">
+                                            <button class="btn rounded-circle btn_fav">
+                                                <i class="fa fa-heart" aria-hidden="true" style="color: #A31621"></i>
+                                            </button>
+                                        </a>
+                                    <?php
+                                    }
+                                    if (isset($profile_img)) {
+                                    ?>
+                                        <div class="image" style="background-image: url('../admin/uploads/img_perfil/<?= $profile_img ?>')"></div>
+                                    <?php
+                                    } else {
+                                    ?>
+                                        <div class="image" style="background-image: url('img/index_3.jpg')"></div>
+                                    <?php
+                                    }
+                                    ?>
+                                    <div class="card-info">
+                                        <h4 class="card-intro description_title"><i class="fas fa-suitcase"></i>
+                                            Trabalhar</h4>
+                                        <h2 class="card-title sub_title"><?= $vacancie_name ?></h2>
+                                        <p class="card-intro description_title2"><?= $name_user ?></p>
+                                        <a href="vacancie.php?vac=<?= $Vacancies_idVacancies ?>">
+                                            <p class="btn_cards card-intro description_title2">Ver informação</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php
+                        }
+                        /* close statement */
+                        mysqli_stmt_close($stmt);
+                    } else {
+                        ?>
+                        <p class="mx-auto mt-5 mb-5" style="font-size: 1rem; padding-bottom: 10%;">
+                            <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
+                                <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
+                            </svg>
+                            Ainda não existem ligações com vagas.
+                        </p>
+                        <?php
+                    }
+                }
+            } else {
+                if ($type == 7) {
+                    $stmt = mysqli_stmt_init($link);
+                    if (mysqli_stmt_prepare($stmt, $query2)) {
+                        mysqli_stmt_bind_param($stmt, 'i', $idUser);
+                        mysqli_stmt_execute($stmt);
+                        mysqli_stmt_bind_result($stmt, $id_match_vac, $User_young, $Vacancies_idVacancies, $match_perc, $profile_img, $vacancie_name, $name_user);
+                        mysqli_stmt_store_result($stmt); // Store the result into memory
+                        if (mysqli_stmt_num_rows($stmt) > 0) { // Check the number of rows returned
+                            while (mysqli_stmt_fetch($stmt)) {
+                        ?>
+                                <div class="col-lg-12">
+                                    <div class="card w-100">
+                                        <?php
+                                        if (isset($profile_img)) {
+                                        ?>
+                                            <div class="image" style="background-image: url('../admin/uploads/img_perfil/<?= $profile_img ?>')"></div>
+                                        <?php
+                                        } else {
+                                        ?>
+                                            <div class="image" style="background-image: url('img/def_jovem.png')"></div>
+                                        <?php
+                                        }
+                                        ?>
+                                        <div class="card-info">
+                                            <h4 class="card-intro description_title">
+                                                <i class="fas fa-suitcase"></i> Trabalhar
+                                            </h4>
+                                            <h2 class="card-title sub_title"><?= $name_user ?></h2>
+                                            <p class="card-intro description_title2"><?= $vacancie_name ?></p>
+                                            <a href="profile.php?user=<?= $User_young ?>">
+                                                <p class="btn_cards card-intro description_title2">Ver perfil</p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php
+                            }
+                            /* close statement */
+                            mysqli_stmt_close($stmt);
+                        } else {
+                            ?>
+                            <p class="mx-auto mt-5 mb-5" style="font-size: 1rem; padding-bottom: 10%;">
+                                <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
+                                    <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
+                                </svg>
+                                Ainda não existem ligações com jovens. Crie novas vagas e comece a criar ligações!
+                            </p>
+            <?php
+                        }
+                    }
+                }
+            }
+            ?>
+        </div>
+    </div>
+
+    <!------------------------PERCURSO DE APRENDIZAGEM--------------------->
+    <div class="w-75 mx-auto">
+        <div id='wrapper_title'>
+            <div class='tagpost-top section' id='tagpost-top'>
+                <div class='widget HTML' id='HTML5'>
+                    <div data-aos="fade-up">
+                        <?php
+                        if ($type == 10) {
+                        ?>
+                            <h3 class="mb-1 main_title">Ainda não foi desta...</h3>
+                            <p> Vê o que precisas de fazer para cumprires os requisitos destas vagas</p>
+                        <?php
+                        } else if ($type == 7) {
+                        ?>
+                            <h3 class="mb-1 main_title">Candidatos para percurso de aprendizagem</h3>
+                            <p>Aqui encontra todos os candidatos que dão quase ligação com as suas vagas</p>
+                        <?php
+                        }
+                        ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-slider mt-5">
+            <?php
+            if ($type == 10) {
+                $stmt = mysqli_stmt_init($link);
+                if (mysqli_stmt_prepare($stmt, $query3)) {
+                    mysqli_stmt_bind_param($stmt, 'i', $idUser);
+                    mysqli_stmt_execute($stmt);
+                    mysqli_stmt_bind_result($stmt, $id_match_vac, $User_young, $Vacancies_idVacancies, $match_perc, $favorite, $name_user, $profile_img, $vacancie_name);
+                    mysqli_stmt_store_result($stmt); // Store the result into memory
+                    if (mysqli_stmt_num_rows($stmt) > 0) { // Check the number of rows returned
+                        while (mysqli_stmt_fetch($stmt)) {
+            ?>
+                            <div class="col-lg-12">
+                                <div class="card w-100">
+                                    <?php
+                                    if ($favorite == 0) {
+                                        echo "";
+                                    ?>
+                                        <a href="scripts/update_fav.php?m=<?= $id_match_vac ?>&f=<?= $favorite ?>">
+                                            <button class="btn rounded-circle btn_fav">
+                                                <i class="fa fa-heart-o" aria-hidden="true" style="color: #2F2F2F"></i>
+                                            </button>
+                                        </a>
+                                    <?php
+                                    } else {
+                                    ?>
+                                        <a href="scripts/update_fav.php?m=<?= $id_match_vac ?>&f=<?= $favorite ?>">
+                                            <button class="btn rounded-circle btn_fav">
+                                                <i class="fa fa-heart" aria-hidden="true" style="color: #A31621"></i>
+                                            </button>
+                                        </a>
+                                    <?php
+                                    }
+                                    if (isset($profile_img)) {
+                                    ?>
+                                        <div class="image" style="background-image: url('../admin/uploads/img_perfil/<?= $profile_img ?>')"></div>
+                                    <?php
+                                    } else {
+                                    ?>
+                                        <div class="image" style="background-image: url('img/index_3.jpg')"></div>
+                                    <?php
+                                    }
+                                    ?>
+                                    <div class="card-info">
+                                        <h4 class="card-intro description_title">
+                                            <i class="fas fa-suitcase"></i>Trabalhar</h4>
+                                        <h2 class="card-title sub_title"><?= $vacancie_name ?></h2>
+                                        <p class="card-intro description_title2"><?= $name_user ?></p>
+                                        <a href="vacancie_learn.php?vac=<?= $Vacancies_idVacancies ?>">
+                                            <p class="btn_cards card-intro description_title2">Ver o que me falta</p>
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        <?php
+                        }
+                        /* close statement */
+                        mysqli_stmt_close($stmt);
+                    } else {
+                        ?>
+                        <p class="mx-auto mt-5 mb-5" style="font-size: 1rem; padding-bottom: 10%;">
+                            <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
+                                <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
+                            </svg>
+                            Ainda não foi criado nenhum percurso de aprendizagem.
+                        </p>
+                        <?php
+                    }
+                }
+            } else if ($type == 7) {
+                    $stmt = mysqli_stmt_init($link);
+                    if (mysqli_stmt_prepare($stmt, $query4)) {
+                        mysqli_stmt_bind_param($stmt, 'i', $idUser);
+                        mysqli_stmt_execute($stmt);
+                        mysqli_stmt_bind_result($stmt, $id_match_vac, $User_young, $Vacancies_idVacancies, $match_perc, $profile_img, $vacancie_name, $name_user);
+                        mysqli_stmt_store_result($stmt); // Store the result into memory
+                        if (mysqli_stmt_num_rows($stmt) > 0) { // Check the number of rows returned
+                            while (mysqli_stmt_fetch($stmt)) {
+                        ?>
+                                <div class="col-lg-12">
+                                    <div class="card w-100">
+                                        <a href="vacancie_learn.php">
                                             <?php
-                                            if ($favorite == 0) {
-                                                echo "";
-                                                ?>
-                                                <a href="scripts/update_fav.php?m=<?= $id_match_vac ?>&f=<?= $favorite ?>">
-                                                    <button class="btn rounded-circle btn_fav">
-                                                        <i class="fa fa-heart-o" aria-hidden="true"
-                                                           style="color: #2F2F2F"></i>
-                                                    </button>
-                                                </a>
-                                                <?php
-                                            } else {
-                                                ?>
-                                                <a href="scripts/update_fav.php?m=<?= $id_match_vac ?>&f=<?= $favorite ?>">
-                                                    <button class="btn rounded-circle btn_fav">
-                                                        <i class="fa fa-heart" aria-hidden="true"
-                                                           style="color: #A31621"></i>
-                                                    </button>
-                                                </a>
-                                                <?php
-                                            }
                                             if (isset($profile_img)) {
-                                                ?>
-                                                <div class="image"
-                                                     style="background-image: url('../admin/uploads/img_perfil/<?= $profile_img ?>')"></div>
-                                                <?php
+                                            ?>
+                                                <div class="image" style="background-image: url('../admin/uploads/img_perfil/<?= $profile_img ?>')"></div>
+                                            <?php
                                             } else {
-                                                ?>
-                                                <div class="image"
-                                                     style="background-image: url('img/index_3.jpg')"></div>
-                                                <?php
+                                            ?>
+                                                <div class="image" style="background-image: url('img/def_jovem.png')"></div>
+                                            <?php
                                             }
                                             ?>
                                             <div class="card-info">
-                                                <h4 class="card-intro description_title"><i class="fas fa-suitcase"></i>
-                                                    Trabalhar</h4>
-                                                <h2 class="card-title sub_title"><?= $vacancie_name ?></h2>
-                                                <a href="vacancie.php?vac=<?= $Vacancies_idVacancies ?>">
-                                                    <p class="btn_cards card-intro description_title2">Ver informação</p>
+                                                <h4 class="card-intro description_title">
+                                                    <i class="fas fa-suitcase"></i> Trabalhar
+                                                </h4>
+                                                <h2 class="card-title sub_title"><?= $name_user ?></h2>
+                                                <p class="card-intro description_title2"><?= $vacancie_name ?></p>
+                                                <a href="profile.php?user=<?= $User_young ?>">
+                                                    <p class="btn_cards card-intro description_title2">Ver perfil</p>
                                                 </a>
                                             </div>
-                                        </div>
+                                        </a>
                                     </div>
-                                    <?php
-                                }
+                                </div>
+                            <?php
                             }
-                        }
-                    } else {
-                        if ($type_user == "Empresa") {
-                            if (mysqli_stmt_prepare($stmt, $query2)) {
-
-                                mysqli_stmt_bind_param($stmt, 'i', $idUser);
-                                mysqli_stmt_execute($stmt);
-                                mysqli_stmt_bind_result($stmt, $id_match_vac, $User_young, $Vacancies_idVacancies, $match_perc, $profile_img, $vacancie_name, $name_user);
-
-                                while (mysqli_stmt_fetch($stmt)) {
-                                    if ($match_perc == 1) {
-                                        ?>
-                                        <div class="col-lg-12">
-                                            <div class="card w-100">
-                                                <?php
-                                                if (isset($profile_img)) {
-                                                    ?>
-                                                    <div class="image" style="background-image: url('../admin/uploads/img_perfil/<?= $profile_img ?>')"></div>
-                                                    <?php
-                                                } else {
-                                                    ?>
-                                                    <div class="image" style="background-image: url('img/def_jovem.png')"></div>
-                                                    <?php
-                                                }
-                                                ?>
-                                                <div class="card-info">
-                                                    <h4 class="card-intro description_title">
-                                                        <i class="fas fa-suitcase"></i> <?= $vacancie_name ?>
-                                                    </h4>
-                                                    <h2 class="card-title sub_title"><?= $name_user ?></h2>
-                                                    <a href="profile.php?user=<?= $User_young ?>">
-                                                        <p class="btn_cards card-intro description_title2">Ver perfil</p>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <?php
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    ?>
-                </div>
-            </div>
-
-            <!------------------------PERCURSO DE APRENDIZAGEM--------------------->
-            <div class="w-75 mx-auto">
-                <div id='wrapper_title'>
-                    <div class='tagpost-top section' id='tagpost-top'>
-                        <div class='widget HTML' id='HTML5'>
-                            <div data-aos="fade-up">
-                                <?php
-                                if ($type_user == "Jovem") {
-                                    ?>
-                                    <h3 class="mb-1 main_title">Ainda não foi desta...</h3>
-                                    <p> Vê o que precisas de fazer para cumprires os requisitos destas vagas</p>
-                                    <?php
-                                } else
-                                    if ($type_user == "Empresa") {
-                                        ?>
-                                        <h3 class="mb-1 main_title">Candidatos para percurso de aprendizagem</h3>
-                                        <p>Aqui encontra todos os candidatos que dão quase ligação com as suas vagas</p>
-                                        <?php
-                                    }
-                                ?>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card-slider mt-5">
-                    <?php
-                    if ($type_user == "Jovem") {
-
-                        if (mysqli_stmt_prepare($stmt, $query)) {
-                            mysqli_stmt_bind_param($stmt, 'i', $idUser);
-                            mysqli_stmt_execute($stmt);
-                            mysqli_stmt_bind_result($stmt, $id_match_vac, $User_young, $Vacancies_idVacancies, $match_perc, $favorite, $profile_img, $vacancie_name);
-
-                            while (mysqli_stmt_fetch($stmt)) {
-                                if ($match_perc == 0) {
-                                    ?>
-                                    <div class="col-lg-12">
-                                        <div class="card w-100">
-                                                <?php
-                                                if ($favorite == 0) {
-                                                    echo "";
-                                                    ?>
-                                                    <a href="scripts/update_fav.php?m=<?= $id_match_vac ?>&f=<?= $favorite ?>">
-                                                        <button class="btn rounded-circle btn_fav">
-                                                            <i class="fa fa-heart-o" aria-hidden="true"
-                                                               style="color: #2F2F2F"></i>
-                                                        </button>
-                                                    </a>
-                                                    <?php
-                                                } else {
-                                                    ?>
-                                                    <a href="scripts/update_fav.php?m=<?= $id_match_vac ?>&f=<?= $favorite ?>">
-                                                        <button class="btn rounded-circle btn_fav">
-                                                            <i class="fa fa-heart" aria-hidden="true"
-                                                               style="color: #A31621"></i>
-                                                        </button>
-                                                    </a>
-                                                    <?php
-                                                }
-                                                if (isset($profile_img)) {
-                                                    ?>
-                                                    <div class="image"
-                                                         style="background-image: url('../admin/uploads/img_perfil/<?= $profile_img ?>')"></div>
-                                                    <?php
-                                                } else {
-                                                    ?>
-                                                    <div class="image"
-                                                         style="background-image: url('img/index_3.jpg')"></div>
-                                                    <?php
-                                                }
-                                                ?>
-                                                <div class="card-info">
-                                                    <h4 class="card-intro description_title">
-                                                        <i class="fas fa-suitcase"></i>Trabalhar</h4>
-                                                    <h2 class="card-title sub_title"><?= $vacancie_name ?></h2>
-                                                    <a href="vacancie_learn.php?vac=<?= $Vacancies_idVacancies ?>">
-                                                        <p class="btn_cards card-intro description_title2">Ver o que me falta</p>
-                                                    </a>
-                                                </div>
-
-                                        </div>
-                                    </div>
-                                    <?php
-                                }
-                            }
-                        }
-                    } else {
-                        if ($type_user == "Empresa") {
-                            if (mysqli_stmt_prepare($stmt, $query2)) {
-                                mysqli_stmt_bind_param($stmt, 'i', $idUser);
-                                mysqli_stmt_execute($stmt);
-                                mysqli_stmt_bind_result($stmt, $id_match_vac, $User_young, $Vacancies_idVacancies, $match_perc, $profile_img, $vacancie_name, $name_user);
-
-                                while (mysqli_stmt_fetch($stmt)) {
-                                    if ($match_perc == 0) {
-                                        ?>
-                                        <div class="col-lg-12">
-                                            <div class="card w-100">
-                                                <a href="vacancie_learn.php">
-                                                    <?php
-                                                    if (isset($profile_img)) {
-                                                        ?>
-                                                        <div class="image"
-                                                             style="background-image: url('../admin/uploads/img_perfil/<?= $profile_img ?>')"></div>
-                                                        <?php
-                                                    } else {
-                                                        ?>
-                                                        <div class="image" style="background-image: url('img/def_jovem.png')"></div>
-                                                        <?php
-                                                    }
-                                                    ?>
-                                                    <div class="card-info">
-                                                        <h4 class="card-intro description_title">
-                                                            <i class="fas fa-suitcase"></i> <?= $vacancie_name ?>
-                                                        </h4>
-                                                        <h2 class="card-title sub_title"><?= $name_user ?></h2>
-                                                        <a href="profile.php?user=<?= $User_young ?>">
-                                                            <p class="btn_cards card-intro description_title2">Ver perfil</p>
-                                                        </a>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <?php
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    ?>
-                </div>
-            </div>
-
-
+                            /* close statement */
+                            mysqli_stmt_close($stmt);
+                        } else {
+                            ?>
+                            <p class="mx-auto mt-5 mb-5" style="font-size: 1rem; padding-bottom: 10%;">
+                                <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
+                                    <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
+                                </svg>
+                                Ainda não existe nenhum percurso de aprendizagem.
+                            </p>
             <?php
-        }
-    }
+                        }
+                    }
+                }
+            
+            ?>
+        </div>
+    </div>
+
+
+<?php
+} else {
+    include("404.php");
 }
+/* close connection */
+mysqli_close($link);

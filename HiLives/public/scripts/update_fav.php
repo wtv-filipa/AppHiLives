@@ -30,6 +30,7 @@ if (isset($_GET["match"]) && isset($_GET["fav"])) {
         //header("Location: ../administradores.php?msg=1");
     }
     /* close connection */
+    mysqli_close($link);
     header("location:" . $_SERVER['HTTP_REFERER']);
 } else {
     if (isset($_GET["m"]) && isset($_GET["f"])) {
@@ -62,6 +63,7 @@ if (isset($_GET["match"]) && isset($_GET["fav"])) {
             //header("Location: ../administradores.php?msg=1");
         }
         /* close connection */
+        mysqli_close($link);
         header("location:" . $_SERVER['HTTP_REFERER']);
     }
 }

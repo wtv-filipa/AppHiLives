@@ -147,6 +147,9 @@ if ($_FILES['fileToUpload']['size'] != 0) {
                         }
                     }
                 }
+                /* close connection */
+                mysqli_stmt_close($stmt);
+                mysqli_close($link);
             } else {
                 //ERRO
                 header("Location: ../upload_vac.php");
@@ -218,7 +221,7 @@ if ($_FILES['fileToUpload']['size'] != 0) {
                 } else {
                     //ERRO
                     header("Location: ../upload_vac.php");
-                    $_SESSION["vac"] = 2; 
+                    $_SESSION["vac"] = 2;
                 }
                 //SUCESSO
                 header("Location: ../all_vacancies_comp.php");
@@ -227,10 +230,12 @@ if ($_FILES['fileToUpload']['size'] != 0) {
                 //ERRO
                 header("Location: ../upload_vac.php");
                 $_SESSION["vac"] = 2;
-                
+
                 //echo "Error execute vaga: " . mysqli_stmt_error($stmt);
             }
         }
+        mysqli_stmt_close($stmt);
+        mysqli_close($link);
     } else {
         //ERRO
         header("Location: ../upload_vac.php");

@@ -107,28 +107,19 @@
                                                 <option value="" selected disabled>Seleciona uma opção</option>
                                                 <?php
                                                 $query2 = "SELECT idRegion, name_region FROM region 
-                                                                    INNER JOIN country ON region.country_idcountry = country.idcountry
-                                                                    WHERE name_country = 'Portugal'";
+                                                         INNER JOIN country ON region.country_idcountry = country.idcountry
+                                                         WHERE name_country = 'Portugal'";
 
                                                 if (mysqli_stmt_prepare($stmt, $query2)) {
-
-                                                    /* execute the prepared statement */
                                                     if (mysqli_stmt_execute($stmt)) {
-                                                        /* bind result variables */
                                                         mysqli_stmt_bind_result($stmt, $idRegion, $name_region);
-
-                                                        /* fetch values */
                                                         while (mysqli_stmt_fetch($stmt)) {
 
                                                             echo "\n\t\t<option value=\"$idRegion\">$name_region</option>";
                                                         }
-                                                    } else {
-                                                        echo "Error: " . mysqli_stmt_error($stmt);
+                                                        /* close statement */
+                                                        mysqli_stmt_close($stmt);
                                                     }
-                                                    /* close statement */
-                                                    //mysqli_stmt_close($stmt);
-                                                } else {
-                                                    echo "Error: " . mysqli_error($link);
                                                 }
                                                 ?>
                                             </select>
@@ -144,28 +135,19 @@
                                                 <option selected disabled>Seleciona uma opção</option>
                                                 <?php
                                                 $query2 = "SELECT idRegion, name_region FROM region 
-                                                                    INNER JOIN country ON region.country_idcountry = country.idcountry
-                                                                    WHERE name_country = 'Espanha'";
-
+                                                           INNER JOIN country ON region.country_idcountry = country.idcountry
+                                                            WHERE name_country = 'Espanha'";
+                                                $stmt = mysqli_stmt_init($link);
                                                 if (mysqli_stmt_prepare($stmt, $query2)) {
-
-                                                    /* execute the prepared statement */
                                                     if (mysqli_stmt_execute($stmt)) {
-                                                        /* bind result variables */
                                                         mysqli_stmt_bind_result($stmt, $idRegion, $name_region);
-
-                                                        /* fetch values */
                                                         while (mysqli_stmt_fetch($stmt)) {
 
                                                             echo "\n\t\t<option value=\"$idRegion\">$name_region</option>";
                                                         }
-                                                    } else {
-                                                        echo "Error: " . mysqli_stmt_error($stmt);
+                                                        /* close statement */
+                                                        mysqli_stmt_close($stmt);
                                                     }
-                                                    /* close statement */
-                                                    //mysqli_stmt_close($stmt);
-                                                } else {
-                                                    echo "Error: " . mysqli_error($link);
                                                 }
                                                 ?>
                                             </select>
@@ -181,28 +163,19 @@
                                                 <option selected disabled>Seleciona uma opção</option>
                                                 <?php
                                                 $query2 = "SELECT idRegion, name_region FROM region 
-                                                                    INNER JOIN country ON region.country_idcountry = country.idcountry
-                                                                    WHERE name_country = 'Bélgica'";
-
+                                                           INNER JOIN country ON region.country_idcountry = country.idcountry
+                                                           WHERE name_country = 'Bélgica'";
+                                                $stmt = mysqli_stmt_init($link);
                                                 if (mysqli_stmt_prepare($stmt, $query2)) {
-
-                                                    /* execute the prepared statement */
                                                     if (mysqli_stmt_execute($stmt)) {
-                                                        /* bind result variables */
                                                         mysqli_stmt_bind_result($stmt, $idRegion, $name_region);
-
-                                                        /* fetch values */
                                                         while (mysqli_stmt_fetch($stmt)) {
 
                                                             echo "\n\t\t<option value=\"$idRegion\">$name_region</option>";
                                                         }
-                                                    } else {
-                                                        echo "Error: " . mysqli_stmt_error($stmt);
+                                                        /* close statement */
+                                                        mysqli_stmt_close($stmt);
                                                     }
-                                                    /* close statement */
-                                                    //mysqli_stmt_close($stmt);
-                                                } else {
-                                                    echo "Error: " . mysqli_error($link);
                                                 }
                                                 ?>
                                             </select>
@@ -218,29 +191,22 @@
                                                 <option selected disabled>Seleciona uma opção</option>
                                                 <?php
                                                 $query2 = "SELECT idRegion, name_region FROM region 
-                                                                    INNER JOIN country ON region.country_idcountry = country.idcountry
-                                                                    WHERE name_country = 'Islândia'";
-
+                                                           INNER JOIN country ON region.country_idcountry = country.idcountry
+                                                           WHERE name_country = 'Islândia'";
+                                                $stmt = mysqli_stmt_init($link);
                                                 if (mysqli_stmt_prepare($stmt, $query2)) {
-
-                                                    /* execute the prepared statement */
                                                     if (mysqli_stmt_execute($stmt)) {
-                                                        /* bind result variables */
                                                         mysqli_stmt_bind_result($stmt, $idRegion, $name_region);
-
-                                                        /* fetch values */
                                                         while (mysqli_stmt_fetch($stmt)) {
 
                                                             echo "\n\t\t<option value=\"$idRegion\">$name_region</option>";
                                                         }
-                                                    } else {
-                                                        echo "Error: " . mysqli_stmt_error($stmt);
+                                                        /* close statement */
+                                                        mysqli_stmt_close($stmt);
                                                     }
-                                                    /* close statement */
-                                                    //mysqli_stmt_close($stmt);
-                                                } else {
-                                                    echo "Error: " . mysqli_error($link);
                                                 }
+                                                /* close connection */
+                                                mysqli_close($link);
                                                 ?>
                                             </select>
                                         </div>

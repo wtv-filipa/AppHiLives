@@ -1,6 +1,12 @@
 <?php
 session_start();
+
 if (isset($_SESSION["idUser"]) and $_SESSION["type"] != 4) {
+    $id_navegar = $_SESSION["idUser"];
+    $outro = $_GET["user"];
+    $query20 = "SELECT idUser
+            FROM users 
+            WHERE idUser = ?";
 ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -8,7 +14,26 @@ if (isset($_SESSION["idUser"]) and $_SESSION["type"] != 4) {
     <head>
         <!-- metadados -->
         <?php include "helpers/meta.php"; ?>
-        <title>Sobre mim</title>
+        <?php
+        require_once("connections/connection.php");
+
+        $link7 = new_db_connection();
+        $stmt7 = mysqli_stmt_init($link7);
+        if (mysqli_stmt_prepare($stmt7, $query20)) {
+
+            mysqli_stmt_bind_param($stmt7, 'i', $id_navegar);
+            mysqli_stmt_execute($stmt7);
+            mysqli_stmt_bind_result($stmt7, $idUser);
+            while (mysqli_stmt_fetch($stmt7)) {
+                if ($outro == $id_navegar) {
+                    echo "<title>Sobre mim</title>";
+                }else{
+                    echo "<title>Perfil</title>";
+                } 
+            }
+            mysqli_stmt_close($stmt7);
+        }
+        ?>
         <!-- Custom fonts for this template-->
         <?php include "helpers/fonts.php"; ?>
         <!-- Custom styles for this template-->

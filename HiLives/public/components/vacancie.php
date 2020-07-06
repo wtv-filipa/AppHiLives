@@ -4,23 +4,33 @@ require_once("connections/connection.php");
 $link = new_db_connection();
 $stmt = mysqli_stmt_init($link);
 
+$link2 = new_db_connection();
+$stmt2 = mysqli_stmt_init($link2);
+
 if (isset($_GET["vac"])) {
     $idVac = $_GET["vac"];
 
-    $query = "SELECT vacancie_name, description_vac, number_free_vanc, requirements, date_vacancies, Region_idRegion, User_publicou,Content_idContent, Workday_idWorkday, vacancies.Educ_lvl_idEduc_lvl, Areas_idAreas, name_region, Workday_name, name_interested_area, name_education, name_user
+    $query = "SELECT vacancie_name, description_vac, number_free_vanc, requirements, date_vacancies, Region_idRegion, User_publicou, Workday_idWorkday, vacancies.Educ_lvl_idEduc_lvl, Areas_idAreas, name_region, Workday_name, name_interested_area, name_education, name_user
             FROM vacancies
             INNER JOIN region ON vacancies.Region_idRegion = region.idRegion
             INNER JOIN workday ON vacancies.Workday_idWorkday = workday.idWorkday
             INNER JOIN areas ON vacancies.Areas_idAreas = areas.idAreas
             INNER JOIN educ_lvl ON vacancies.Educ_lvl_idEduc_lvl = educ_lvl.idEduc_lvl
             INNER JOIN users ON vacancies.User_publicou = users.idUser
+            INNER JOIN vacancies_has_capacities ON vacancies.idVacancies = vacancies_has_capacities.vacancies_idVacancies
+            INNER JOIN capacities ON vacancies_has_capacities.capacities_idcapacities = capacities.idcapacities
             WHERE idVacancies = ?";
-
+    $query3 = "SELECT Content_idContent, content_name FROM vacancies INNER JOIN content ON vacancies.Content_idContent = content.idContent WHERE idVacancies = ?";
+    $query4 = "SELECT capacity_comp
+            FROM vacancies
+            INNER JOIN vacancies_has_capacities ON vacancies.idVacancies = vacancies_has_capacities.vacancies_idVacancies
+            INNER JOIN capacities ON vacancies_has_capacities.capacities_idcapacities = capacities.idcapacities
+            WHERE idVacancies = ?";
 
     if (mysqli_stmt_prepare($stmt, $query)) {
         mysqli_stmt_bind_param($stmt, 'i', $idVac);
         mysqli_stmt_execute($stmt);
-        mysqli_stmt_bind_result($stmt, $vacancie_name, $description_vac, $number_free_vanc, $requirements, $date_vacancies, $Region_idRegion, $User_publicou, $Content_idContent, $Workday_idWorkday, $Educ_lvl_idEduc_lvl, $Areas_idAreas, $name_region, $Workday_name, $name_interested_area, $name_education, $name_user);
+        mysqli_stmt_bind_result($stmt, $vacancie_name, $description_vac, $number_free_vanc, $requirements, $date_vacancies, $Region_idRegion, $User_publicou, $Workday_idWorkday, $Educ_lvl_idEduc_lvl, $Areas_idAreas, $name_region, $Workday_name, $name_interested_area, $name_education, $name_user);
 
         if (mysqli_stmt_fetch($stmt)) {
 ?>
@@ -58,8 +68,9 @@ if (isset($_GET["vac"])) {
                                 </svg>
                                 <br><span>Contactos</span></label></li>
                         <li title="Experiências"><label for="tab4" role="button">
-                                <svg viewBox="0 2 18 18">
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-camera-video-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M2.667 3h6.666C10.253 3 11 3.746 11 4.667v6.666c0 .92-.746 1.667-1.667 1.667H2.667C1.747 13 1 12.254 1 11.333V4.667C1 3.747 1.746 3 2.667 3z" />
+                                    <path d="M7.404 8.697l6.363 3.692c.54.313 1.233-.066 1.233-.697V4.308c0-.63-.693-1.01-1.233-.696L7.404 7.304a.802.802 0 0 0 0 1.393z" />
                                 </svg>
                                 <br><span>Experiências</span></label></li>
                     </ul>
@@ -97,9 +108,27 @@ if (isset($_GET["vac"])) {
                         </section>
                         <section>
                             <h2>Requisitos</h2>
+                            <span class="info_title">Requisitos</span>
                             <p><?= $requirements ?></p>
+                            <span class="info_title"">Capacidades necessárias</span>
+                            <ul id="notebook_ul">
+                                <?php
+                                if (mysqli_stmt_prepare($stmt2, $query4)) {
+                                    mysqli_stmt_bind_param($stmt2, 'i', $idVac);
+                                    mysqli_stmt_execute($stmt2);
+                                    mysqli_stmt_bind_result($stmt2, $capacity_comp);
 
-
+                                    while (mysqli_stmt_fetch($stmt2)) {
+                                ?>
+                                        <li class="lista" style="margin-bottom: 2% !important;">
+                                            <?= $capacity_comp ?>
+                                        </li>
+                                <?php
+                                    }
+                                    mysqli_stmt_close($stmt2);
+                                }
+                                ?>
+                            </ul>
                         </section>
                         <section>
                             <h2>Contactos</h2>
@@ -107,24 +136,19 @@ if (isset($_GET["vac"])) {
                             $query2 = "SELECT name_user, email_user, contact_user, website_ue, facebook_ue, instagram_ue
                     FROM users
                     WHERE idUser LIKE ?";
-
-                            if (mysqli_stmt_prepare($stmt, $query2)) {
-                                mysqli_stmt_bind_param($stmt, 'i', $User_publicou);
-
-                                /* execute the prepared statement */
-                                if (mysqli_stmt_execute($stmt)) {
-                                    /* bind result variables */
-                                    mysqli_stmt_bind_result($stmt, $user_name, $email_user, $contact_user, $website_ue, $facebook_ue, $instagram_ue);
-
-                                    /* fetch values */
-                                    while (mysqli_stmt_fetch($stmt)) {
+                            $stmt2 = mysqli_stmt_init($link2);
+                            if (mysqli_stmt_prepare($stmt2, $query2)) {
+                                mysqli_stmt_bind_param($stmt2, 'i', $User_publicou);
+                                if (mysqli_stmt_execute($stmt2)) {
+                                    mysqli_stmt_bind_result($stmt2, $user_name, $email_user, $contact_user, $website_ue, $facebook_ue, $instagram_ue);
+                                    while (mysqli_stmt_fetch($stmt2)) {
                             ?>
                                         <!--TERCEIRO CARD-->
                                         <div class="card-body altura" style="padding-top: 0 !important;">
                                             <blockquote class="blockquote mb-0 mt-4 ">
                                                 <ul id="notebook_ul">
                                                     <li class="lista">
-                                                        <i class="fas fa-at mr-2"></i><b class="mr-2">Email:</b><?= $email_user ?>
+                                                        <i class="fas fa-at mr-2"></i><b class="mr-2">Email:</b><a href="mailto:<?= $email_user ?>"><?= $email_user ?></a>
                                                     </li>
                                                     <li class="lista">
                                                         <i class="fas fa-phone-alt mr-2"></i><b class="mr-2">Telefone:</b><?= $contact_user ?>
@@ -166,6 +190,8 @@ if (isset($_GET["vac"])) {
                                         <!------------------------------------------>
                             <?php
                                     }
+                                    /* close statement */
+                                    mysqli_stmt_close($stmt2);
                                 }
                             }
                             ?>
@@ -177,11 +203,34 @@ if (isset($_GET["vac"])) {
 
                             <div class="card-body">
                                 <blockquote class="blockquote mb-0 text-center">
-                                    <!--  <video width="640" height="480" controls>
-                                    <source src="../admin/uploads/vid_vac/" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video> -->
-                                    <p> Esta vaga não tem nenhum vídeo associado.</p>
+                                    <?php
+                                    $stmt2 = mysqli_stmt_init($link2);
+                                    if (mysqli_stmt_prepare($stmt2, $query3)) {
+                                        mysqli_stmt_bind_param($stmt2, 'i', $idVac);
+                                        mysqli_stmt_execute($stmt2);
+                                        mysqli_stmt_bind_result($stmt2, $Content_idContent, $content_name);
+
+                                        if (mysqli_stmt_fetch($stmt2)) {
+                                    ?>
+                                            <video width="640" height="480" controls>
+                                                <source src="../admin/uploads   /vid_vac/<?= $content_name ?>" type="video/mp4">
+                                                O teu browser não suporta a tag de video.
+                                            </video>
+                                        <?php
+                                        } else {
+                                        ?>
+                                            <p class="mx-auto mt-5 mb-5" style="font-size: 1rem;">
+                                                <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
+                                                    <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
+                                                </svg>
+                                                Esta vaga não tem nenhum vídeo adicionado, se quiseres perceber melhor a experiência dentro desta empresa contacta o empregador.
+                                            </p>
+                                    <?php
+                                        }
+                                        /* close statement */
+                                        mysqli_stmt_close($stmt2);
+                                    }
+                                    ?>
                                 </blockquote>
                             </div>
                         </section>
@@ -189,8 +238,13 @@ if (isset($_GET["vac"])) {
                 </div>
     <?php
         }
+        /* close statement */
+        mysqli_stmt_close($stmt);
     }
 } else {
     include("404.php");
 }
+/* close connection */
+mysqli_close($link);
+mysqli_close($link2);
     ?>

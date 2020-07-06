@@ -37,12 +37,14 @@ if (!empty($_POST["nomeuc"]) && !empty($_POST["uniuc"]) && !empty($_POST["data"]
             // SUCCESS ACTION
             header("Location: ../links_made.php");
             $_SESSION["doneCU"] = 3;
+            mysqli_stmt_close($stmt);
         }
     } else {
         //ERRO
         header("Location: ../edit_done_uc.php?uc=$idDone_CU");
         $_SESSION["doneCU"] = 1;
     }
+    mysqli_close($link);
 } else {
     //ERRO
     header("Location: ../edit_done_uc.php?uc=$idDone_CU");

@@ -1,17 +1,12 @@
 <?php
+require_once("connections/connection.php");
 
-if ($_SESSION["idUser"] && isset($_GET["uc"])) {
+$link = new_db_connection();
+$stmt = mysqli_stmt_init($link);
+
+if (isset($_SESSION["idUser"]) && isset($_GET["uc"])) {
     $idUser = $_SESSION["idUser"];
     $iduc = $_GET["uc"];
-
-    // We need the function!
-    require_once("connections/connection.php");
-
-    // Create a new DB connection
-    $link = new_db_connection();
-
-    /* create a prepared statement */
-    $stmt = mysqli_stmt_init($link);
 
     //ir buscar os dados
     $query = "SELECT Cu_name, University_name, date_CU
@@ -99,8 +94,12 @@ if ($_SESSION["idUser"] && isset($_GET["uc"])) {
             </div>
 <?php
         }
+        /* close statement */
+        mysqli_stmt_close($stmt);
     }
-} else{
+    /* close connection */
+    mysqli_close($link);
+} else {
     include("404.php");
 }
 

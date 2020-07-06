@@ -1,21 +1,22 @@
 <?php
 
+require_once("connections/connection.php");
+
+$link = new_db_connection();
+$stmt = mysqli_stmt_init($link);
+
+$link2 = new_db_connection();
+$stmt2 = mysqli_stmt_init($link2);
 if (isset($_GET["user"]) && $_SESSION["idUser"]) {
     $idUser = $_GET["user"];
     $id_navegar = $_SESSION["idUser"];
 
-    // We need the function!
-    require_once("connections/connection.php");
-    // Create a new DB connection
-    $link = new_db_connection();
-    /* create a prepared statement */
-    $stmt = mysqli_stmt_init($link);
     //query que vai selecionar informações do user
     $query = "SELECT idUser, name_user, email_user, contact_user, birth_date, info_young, profile_img, website_ue, facebook_ue, instagram_ue, description_ue, type_user
     FROM users 
     INNER JOIN user_type ON users.User_type_idUser_type = user_type.idUser_type
     WHERE idUser = ?";
-    //query que vai selecionar as àreas de interesse do utilizador ou as àreas disponíveis na universidade 
+    //query que vai selecionar as areas de interesse do utilizador ou as areas disponíveis na universidade 
     $query2 = "SELECT User_idUser, Areas_idAreas, name_interested_area
     FROM user_has_areas INNER JOIN areas ON user_has_areas.Areas_idAreas= areas.idAreas
     WHERE User_idUser LIKE ?";
@@ -73,22 +74,24 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                         <div class="col-xs-3 col-lg-9 ">
                             <h3 class="mt-2 nome_user"><?= $name_user ?> <span class="subtitulo" style="font-weight: lighter; font-size: 16px;"> | <?= $age ?> anos</span></h3>
 
-                            <h6 class="mt-3 subtitulo"> Email: <?= $email_user ?></h6>
+                            <h6 class="mt-3 subtitulo"> Email:<a href="mailto:<?= $email_user ?>"> <?= $email_user ?> </a></h6>
 
                             <h6 class="mt-3 subtitulo"> Regiões de interesse:
                                 <?php
                                 $first = true;
-                                if (mysqli_stmt_prepare($stmt, $query5)) {
-                                    mysqli_stmt_bind_param($stmt, 'i', $idUser);
-                                    mysqli_stmt_execute($stmt);
-                                    mysqli_stmt_bind_result($stmt, $name_region);
-                                    while (mysqli_stmt_fetch($stmt)) {
+                                if (mysqli_stmt_prepare($stmt2, $query5)) {
+                                    mysqli_stmt_bind_param($stmt2, 'i', $idUser);
+                                    mysqli_stmt_execute($stmt2);
+                                    mysqli_stmt_bind_result($stmt2, $name_region);
+                                    while (mysqli_stmt_fetch($stmt2)) {
                                         if (!$first) {
                                             echo ",";
                                         }
                                         $first = false;
                                         echo " $name_region";
                                     }
+                                    /* close statement */
+                                    mysqli_stmt_close($stmt2);
                                 }
                                 ?>
                             </h6>
@@ -119,13 +122,16 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                             <h3 class="mt-2 nome_user"><?= $name_user ?></h3>
                             <h6 class="mt-3 subtitulo"> Região:
                                 <?php
-                                if (mysqli_stmt_prepare($stmt, $query5)) {
-                                    mysqli_stmt_bind_param($stmt, 'i', $idUser);
-                                    mysqli_stmt_execute($stmt);
-                                    mysqli_stmt_bind_result($stmt, $name_region);
-                                    while (mysqli_stmt_fetch($stmt)) {
+                                $stmt2 = mysqli_stmt_init($link2);
+                                if (mysqli_stmt_prepare($stmt2, $query5)) {
+                                    mysqli_stmt_bind_param($stmt2, 'i', $idUser);
+                                    mysqli_stmt_execute($stmt2);
+                                    mysqli_stmt_bind_result($stmt2, $name_region);
+                                    while (mysqli_stmt_fetch($stmt2)) {
                                         echo " $name_region";
                                     }
+                                    /* close statement */
+                                    mysqli_stmt_close($stmt2);
                                 }
                                 ?>
                             </h6>
@@ -213,44 +219,70 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                         <div class="content">
                             <!--DISCIPLINAS FEITAS-->
                             <section>
-                                <h2>Últimas disciplinas que fiz</h2>
+                                <h2>Últimas unidades curriculares que fiz</h2>
                                 <h5 class="mb-3">Últimas unidades curriculares que fiz</h5>
                                 <ul id="notebook_ul">
                                     <?php
-                                    if (mysqli_stmt_prepare($stmt, $query3)) {
+                                    $stmt2 = mysqli_stmt_init($link2);
+                                    if (mysqli_stmt_prepare($stmt2, $query3)) {
 
-                                        mysqli_stmt_bind_param($stmt, 'i', $idUser);
-                                        mysqli_stmt_execute($stmt);
-                                        mysqli_stmt_bind_result($stmt, $idDone_CU, $Cu_name, $University_name, $date_CU);
-                                        while (mysqli_stmt_fetch($stmt)) {
+                                        mysqli_stmt_bind_param($stmt2, 'i', $idUser);
+                                        mysqli_stmt_execute($stmt2);
+                                        mysqli_stmt_bind_result($stmt2, $idDone_CU, $Cu_name, $University_name, $date_CU);
+                                        mysqli_stmt_store_result($stmt2); // Store the result into memory
+                                        if (mysqli_stmt_num_rows($stmt2) > 0) { // Check the number of rows returned
+                                            while (mysqli_stmt_fetch($stmt2)) {
                                     ?>
 
-                                            <li class="lista">
-                                                <?= $Cu_name ?>
-                                                <p class="instituicao"><?= $University_name ?></p>
-                                                <!--Se não for igual vai esconder determinados elementos que pessoas que não são o próprio user não podem ver-->
-                                                <?php
-                                                if ($idUser == $id_navegar) {
-                                                ?>
-                                                    <div class="text-right">
-                                                        <a href="edit_done_uc.php?uc=<?= $idDone_CU ?>">
-                                                            <i class="fas fa-edit mr-1" style="color:#00A5CF!important"></i>
-                                                        </a>
+                                                <li class="lista">
+                                                    <?= $Cu_name ?>
+                                                    <p class="instituicao"><?= $University_name ?></p>
+                                                    <!--Se não for igual vai esconder determinados elementos que pessoas que não são o próprio user não podem ver-->
+                                                    <?php
+                                                    if ($idUser == $id_navegar) {
+                                                    ?>
+                                                        <div class="text-right">
+                                                            <a href="edit_done_uc.php?uc=<?= $idDone_CU ?>">
+                                                                <i class="fas fa-edit mr-1" style="color:#00A5CF!important"></i>
+                                                            </a>
 
-                                                        <a href="#" data-toggle="modal" data-target="#deleteuc<?= $idDone_CU ?>">
-                                                            <i class="fas fa-trash mr-1" style="color:#2F2F2F!important"></i>
-                                                        </a>
-                                                    </div>
-                                                <?php
+                                                            <a href="#" data-toggle="modal" data-target="#deleteuc<?= $idDone_CU ?>">
+                                                                <i class="fas fa-trash mr-1" style="color:#2F2F2F!important"></i>
+                                                            </a>
+                                                        </div>
+                                                    <?php
 
-                                                }
-                                                ?>
-                                            </li>
+                                                    }
+                                                    ?>
+                                                </li>
 
 
+                                            <?php
+                                                //modal de apagar a UC
+                                                include('components/delete_modal.php');
+                                            }
+                                            /* close statement */
+                                            mysqli_stmt_close($stmt2);
+                                        } else {
+                                            if ($idUser == $id_navegar) {
+                                            ?>
+                                                <p class="mx-auto mt-5 mb-5" style="font-size: 1rem;">
+                                                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
+                                                        <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
+                                                    </svg>
+                                                    Ainda não adicionaste nenhuma Unidade Curricular. Carrega no botão de adicionar e começa a personalizar o teu perfil!
+                                                </p>
+                                            <?php
+                                            } else {
+                                            ?>
+                                                <p class="mx-auto mt-5 mb-5" style="font-size: 1rem;">
+                                                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
+                                                        <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
+                                                    </svg>
+                                                    O jovem ainda não adicionou nenhuma Unidade Curricular.
+                                                </p>
                                     <?php
-                                            //modal de apagar a UC
-                                            include('components/delete_modal.php');
+                                            }
                                         }
                                     }
                                     ?>
@@ -282,19 +314,45 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                 <h5 class="mb-3">As minhas áreas de interesse</h5>
                                 <blockquote class="blockquote mb-0">
                                     <?php
-                                    if (mysqli_stmt_prepare($stmt, $query2)) {
+                                    $stmt2 = mysqli_stmt_init($link2);
+                                    if (mysqli_stmt_prepare($stmt2, $query2)) {
 
-                                        mysqli_stmt_bind_param($stmt, 'i', $idUser);
-                                        mysqli_stmt_execute($stmt);
-                                        mysqli_stmt_bind_result($stmt, $User_idUser, $Areas_idAreas, $name_interested_area);
-                                        while (mysqli_stmt_fetch($stmt)) {
+                                        mysqli_stmt_bind_param($stmt2, 'i', $idUser);
+                                        mysqli_stmt_execute($stmt2);
+                                        mysqli_stmt_bind_result($stmt2, $User_idUser, $Areas_idAreas, $name_interested_area);
+                                        mysqli_stmt_store_result($stmt2); // Store the result into memory
+                                        if (mysqli_stmt_num_rows($stmt2) > 0) { // Check the number of rows returned
+                                            while (mysqli_stmt_fetch($stmt2)) {
                                     ?>
-                                            <ul id="notebook_ul">
-                                                <li class="lista">
-                                                    <?= $name_interested_area ?>
-                                                </li>
-                                            </ul>
+                                                <ul id="notebook_ul">
+                                                    <li class="lista">
+                                                        <?= $name_interested_area ?>
+                                                    </li>
+                                                </ul>
+                                            <?php
+                                            }
+                                            /* close statement */
+                                            mysqli_stmt_close($stmt2);
+                                        } else {
+                                            if ($idUser == $id_navegar) {
+                                            ?>
+                                                <p class="mx-auto mt-5 mb-5" style="font-size: 1rem;">
+                                                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
+                                                        <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
+                                                    </svg>
+                                                    Parece que ainda não adicionaste nenhuma área de interesse, edita o teu perfil e começa a criar ligações!
+                                                </p>
+                                            <?php
+                                            } else {
+                                            ?>
+                                                <p class="mx-auto mt-5 mb-5" style="font-size: 1rem;">
+                                                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
+                                                        <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
+                                                    </svg>
+                                                    O jovem ainda não adicionou nenhuma área de interesse.
+                                                </p>
                                     <?php
+                                            }
                                         }
                                     }
                                     ?>
@@ -307,19 +365,45 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                 <h5 class="mb-3">As minhas competências</h5>
                                 <blockquote class="blockquote mb-0">
                                     <?php
-                                    if (mysqli_stmt_prepare($stmt, $query6)) {
+                                    $stmt2 = mysqli_stmt_init($link2);
+                                    if (mysqli_stmt_prepare($stmt2, $query6)) {
 
-                                        mysqli_stmt_bind_param($stmt, 'i', $idUser);
-                                        mysqli_stmt_execute($stmt);
-                                        mysqli_stmt_bind_result($stmt, $capacities, $users_idUser, $capacity);
-                                        while (mysqli_stmt_fetch($stmt)) {
+                                        mysqli_stmt_bind_param($stmt2, 'i', $idUser);
+                                        mysqli_stmt_execute($stmt2);
+                                        mysqli_stmt_bind_result($stmt2, $capacities, $users_idUser, $capacity);
+                                        mysqli_stmt_store_result($stmt2); // Store the result into memory
+                                        if (mysqli_stmt_num_rows($stmt2) > 0) { // Check the number of rows returned
+                                            while (mysqli_stmt_fetch($stmt2)) {
                                     ?>
-                                            <ul id="notebook_ul">
-                                                <li class="lista">
-                                                    <?= $capacity ?>
-                                                </li>
-                                            </ul>
+                                                <ul id="notebook_ul">
+                                                    <li class="lista">
+                                                        <?= $capacity ?>
+                                                    </li>
+                                                </ul>
+                                            <?php
+                                            }
+                                            /* close statement */
+                                            mysqli_stmt_close($stmt2);
+                                        } else {
+                                            if ($idUser == $id_navegar) {
+                                            ?>
+                                                <p class="mx-auto mt-5 mb-5" style="font-size: 1rem;">
+                                                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
+                                                        <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
+                                                    </svg>
+                                                    Parece que ainda não adicionaste nenhuma competência, edita o teu perfil e começa a criar ligações!
+                                                </p>
+                                            <?php
+                                            } else {
+                                            ?>
+                                                <p class="mx-auto mt-5 mb-5" style="font-size: 1rem;">
+                                                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
+                                                        <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
+                                                    </svg>
+                                                    O jovem ainda não adicionou nenhuma competência.
+                                                </p>
                                     <?php
+                                            }
                                         }
                                     }
                                     ?>
@@ -332,19 +416,45 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                 <h2>Os meus ambientes de trabalho favoritos</h2>
                                 <blockquote class="blockquote mb-0">
                                     <?php
-                                    if (mysqli_stmt_prepare($stmt, $query9)) {
+                                    $stmt2 = mysqli_stmt_init($link2);
+                                    if (mysqli_stmt_prepare($stmt2, $query9)) {
 
-                                        mysqli_stmt_bind_param($stmt, 'i', $idUser);
-                                        mysqli_stmt_execute($stmt);
-                                        mysqli_stmt_bind_result($stmt, $favorite_environment, $users_idUser, $name_environment);
-                                        while (mysqli_stmt_fetch($stmt)) {
+                                        mysqli_stmt_bind_param($stmt2, 'i', $idUser);
+                                        mysqli_stmt_execute($stmt2);
+                                        mysqli_stmt_bind_result($stmt2, $favorite_environment, $users_idUser, $name_environment);
+                                        mysqli_stmt_store_result($stmt2); // Store the result into memory
+                                        if (mysqli_stmt_num_rows($stmt2) > 0) { // Check the number of rows returned
+                                            while (mysqli_stmt_fetch($stmt2)) {
                                     ?>
-                                            <ul id="notebook_ul">
-                                                <li class="lista">
-                                                    <?= $name_environment ?>
-                                                </li>
-                                            </ul>
+                                                <ul id="notebook_ul">
+                                                    <li class="lista">
+                                                        <?= $name_environment ?>
+                                                    </li>
+                                                </ul>
+                                            <?php
+                                            }
+                                            /* close statement */
+                                            mysqli_stmt_close($stmt2);
+                                        } else {
+                                            if ($idUser == $id_navegar) {
+                                            ?>
+                                                <p class="mx-auto mt-5 mb-5" style="font-size: 1rem;">
+                                                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
+                                                        <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
+                                                    </svg>
+                                                    Parece que ainda não adicionaste nenhum ambiente de trabalho favorito.
+                                                </p>
+                                            <?php
+                                            } else {
+                                            ?>
+                                                <p class="mx-auto mt-5 mb-5" style="font-size: 1rem;">
+                                                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
+                                                        <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
+                                                    </svg>
+                                                    O jovem ainda não adicionou nenhum ambiente de trabalho favorito.
+                                                </p>
                                     <?php
+                                            }
                                         }
                                     }
                                     ?>
@@ -410,24 +520,49 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                         <div class="card mt-4" style="border: none">
                             <div class="row m-3">
                                 <?php
+                                $stmt2 = mysqli_stmt_init($link2);
+                                if (mysqli_stmt_prepare($stmt2, $query7)) {
 
-                                if (mysqli_stmt_prepare($stmt, $query7)) {
-
-                                    mysqli_stmt_bind_param($stmt, 'i', $idUser);
-                                    mysqli_stmt_execute($stmt);
-                                    mysqli_stmt_bind_result($stmt, $idExperiences, $title_exp, $description, $date, $idContent, $content_name);
-                                    while (mysqli_stmt_fetch($stmt)) {
+                                    mysqli_stmt_bind_param($stmt2, 'i', $idUser);
+                                    mysqli_stmt_execute($stmt2);
+                                    mysqli_stmt_bind_result($stmt2, $idExperiences, $title_exp, $description, $date, $idContent, $content_name);
+                                    mysqli_stmt_store_result($stmt2); // Store the result into memory
+                                    if (mysqli_stmt_num_rows($stmt2) > 0) { // Check the number of rows returned
+                                        while (mysqli_stmt_fetch($stmt2)) {
                                 ?>
 
-                                        <div class="col-md-3 mt-3 div_videos">
-                                            <a href="#" data-toggle="modal" data-target="#modalvideo<?= $idExperiences ?>">
-                                                <video class="img-fluid z-depth-1 p-0 m-0 tam_video" src="../admin/uploads/xp/<?= $content_name ?>" alt="video" data-toggle="modal" data-target="#modal1" style="background-color: #2f2f2f;">
-                                            </a>
-                                        </div>
+                                            <div class="col-md-3 mt-3 div_videos">
+                                                <a href="#" data-toggle="modal" data-target="#modalvideo<?= $idExperiences ?>">
+                                                    <video class="img-fluid z-depth-1 p-0 m-0 tam_video" src="../admin/uploads/xp/<?= $content_name ?>" alt="video" data-toggle="modal" data-target="#modal1" style="background-color: #2f2f2f;">
+                                                </a>
+                                            </div>
 
-                                        <!--Se não for igual vai esconder determinados elementos que pessoas que não são o próprio user não podem ver-->
+                                            <!--Se não for igual vai esconder determinados elementos que pessoas que não são o próprio user não podem ver-->
+                                        <?php
+                                            include "modal_vid.php";
+                                        }
+                                        /* close statement */
+                                        mysqli_stmt_close($stmt2);
+                                    } else {
+                                        if ($idUser == $id_navegar) {
+                                        ?>
+                                            <p class=" col-md-9 mt-3" style="font-size: 1rem;">
+                                                <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
+                                                    <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
+                                                </svg>
+                                                Parece que ainda não adicionaste nenhuma experiência, se tens alguma experiência numa universidade ou empresa, grava um vídeo e partilha-o com os outros utilizadores!
+                                            </p>
+                                        <?php
+                                        } else {
+                                        ?>
+                                            <p class=" col-md-12 mt-3" style="font-size: 1rem;">
+                                                <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
+                                                    <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
+                                                </svg>
+                                                Parece que o jovem ainda não adicionou nenhuma experiência.
+                                            </p>
                                     <?php
-                                        include "modal_vid.php";
+                                        }
                                     }
                                 }
                                 if ($idUser == $id_navegar) {
@@ -485,36 +620,62 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                 <h5 class="mb-3">Vagas disponíveis</h5>
                                 <ul id="notebook_ul">
                                     <?php
-                                    if (mysqli_stmt_prepare($stmt, $query4)) {
+                                    $stmt2 = mysqli_stmt_init($link2);
+                                    if (mysqli_stmt_prepare($stmt2, $query4)) {
 
-                                        mysqli_stmt_bind_param($stmt, 'i', $idUser);
-                                        mysqli_stmt_execute($stmt);
-                                        mysqli_stmt_bind_result($stmt, $idVacancies, $vacancie_name, $Areas_idAreas, $name_interested_area);
-                                        while (mysqli_stmt_fetch($stmt)) {
+                                        mysqli_stmt_bind_param($stmt2, 'i', $idUser);
+                                        mysqli_stmt_execute($stmt2);
+                                        mysqli_stmt_bind_result($stmt2, $idVacancies, $vacancie_name, $Areas_idAreas, $name_interested_area);
+                                        mysqli_stmt_store_result($stmt2); // Store the result into memory
+                                        if (mysqli_stmt_num_rows($stmt2) > 0) { // Check the number of rows returned
+                                            while (mysqli_stmt_fetch($stmt2)) {
                                     ?>
 
-                                            <li class="lista">
-                                                <?= $vacancie_name ?>
-                                                <!--Se não for igual vai esconder determinados elementos que pessoas que não são o próprio user não podem ver-->
-                                                <?php
-                                                if ($idUser == $id_navegar) {
-                                                ?>
-                                                    <div class="text-right">
-                                                        <a href="edit_vac.php?idvac=<?= $idVacancies ?>">
-                                                            <i class="fas fa-edit mr-1" style="color:#00A5CF!important"></i>
-                                                        </a>
-                                                        <a href="#" data-toggle="modal" data-target="#deletevac<?= $idVacancies ?>">
-                                                            <i class="fas fa-trash mr-1" style="color:#2F2F2F!important"></i>
-                                                        </a>
-                                                    </div>
-                                                <?php
-                                                }
-                                                ?>
-                                            </li>
+                                                <li class="lista">
+                                                    <?= $vacancie_name ?>
+                                                    <!--Se não for igual vai esconder determinados elementos que pessoas que não são o próprio user não podem ver-->
+                                                    <?php
+                                                    if ($idUser == $id_navegar) {
+                                                    ?>
+                                                        <div class="text-right">
+                                                            <a href="edit_vac.php?idvac=<?= $idVacancies ?>">
+                                                                <i class="fas fa-edit mr-1" style="color:#00A5CF!important"></i>
+                                                            </a>
+                                                            <a href="#" data-toggle="modal" data-target="#deletevac<?= $idVacancies ?>">
+                                                                <i class="fas fa-trash mr-1" style="color:#2F2F2F!important"></i>
+                                                            </a>
+                                                        </div>
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                </li>
 
+                                            <?php
+                                                //modal de apagar a UC
+                                                include('components/delete_modal.php');
+                                            }
+                                            /* close statement */
+                                            mysqli_stmt_close($stmt2);
+                                        } else {
+                                            if ($idUser == $id_navegar) {
+                                            ?>
+                                                <p class="mx-auto mt-5 mb-5" style="font-size: 1rem;">
+                                                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
+                                                        <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
+                                                    </svg>
+                                                    Parece que ainda não adicionou nenhuma vaga, carregue em adicionar e comece a criar ligações.
+                                                </p>
+                                            <?php
+                                            } else {
+                                            ?>
+                                                <p class="mx-auto mt-5 mb-5" style="font-size: 1rem;">
+                                                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
+                                                        <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
+                                                    </svg>
+                                                    A empresa ainda não criou nenhuma vaga.
+                                                </p>
                                     <?php
-                                            //modal de apagar a UC
-                                            include('components/delete_modal.php');
+                                            }
                                         }
                                     }
                                     ?>
@@ -537,55 +698,46 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                             <section>
                                 <h2>Contactos</h2>
                                 <blockquote class="blockquote mb-0 mt-4 ">
-                                    <?php
-                                    if (mysqli_stmt_prepare($stmt, $query)) {
+                                    <ul id="notebook_ul">
+                                        <li class="lista">
+                                            <i class="fas fa-at mr-2"></i><b class="mr-2">Email:</b> <a href="mailto:<?= $email_user ?>"><?= $email_user ?></a>
+                                        </li>
+                                        <li class="lista">
+                                            <i class="fas fa-phone-alt mr-2"></i><b class="mr-2">Telefone:</b><?= $contact_user ?>
+                                        </li>
 
-                                        mysqli_stmt_bind_param($stmt, 'i', $idUser);
-                                        mysqli_stmt_execute($stmt);
-                                        mysqli_stmt_bind_result($stmt, $idUser, $name_user, $email_user, $contact_user, $birth_date, $info_young, $profile_img, $website_ue, $facebook_ue, $instagram_ue, $description_ue, $type_user);
-                                        while (mysqli_stmt_fetch($stmt)) {
-                                    ?>
-                                            <ul id="notebook_ul">
-                                                <li class="lista">
-                                                    <i class="fas fa-at mr-2"></i><b class="mr-2">Email:</b><?= $email_user ?>
-                                                </li>
-                                                <li class="lista">
-                                                    <i class="fas fa-phone-alt mr-2"></i><b class="mr-2">Telefone:</b><?= $contact_user ?>
-                                                </li>
-
-                                                <?php
-                                                if ($website_ue != NULL) {
-                                                ?>
-                                                    <a href="<?= $website_ue ?>" target="_blank">
-                                                        <li class="lista">
-                                                            <i class="fas fa-globe mr-2"></i><b class="mr-2">Website:</b><?= $website_ue ?>
-                                                        </li>
-                                                    </a>
-                                                <?php
-                                                }
-                                                if ($facebook_ue != NULL) {
-                                                ?>
-                                                    <a href="<?= $facebook_ue ?>" target="_blank">
-                                                        <li class="lista">
-                                                            <i class="fab fa-facebook mr-2"></i><b class="mr-2">Facebook:</b><?= $facebook_ue ?>
-                                                        </li>
-                                                    </a>
-
-                                                <?php
-                                                }
-                                                if ($instagram_ue != NULL) {
-                                                ?>
-                                                    <a href="<?= $instagram_ue ?>" target="_blank">
-                                                        <li class="lista">
-                                                            <i class="fab fa-instagram mr-2"></i><b class="mr-2">Instagram:</b> <?= $instagram_ue ?>
-                                                        </li>
-                                                    </a>
                                         <?php
-                                                }
-                                            }
-                                        }
+                                        if ($website_ue != NULL) {
                                         ?>
-                                            </ul>
+                                            <a href="<?= $website_ue ?>" target="_blank">
+                                                <li class="lista">
+                                                    <i class="fas fa-globe mr-2"></i><b class="mr-2">Website:</b><?= $website_ue ?>
+                                                </li>
+                                            </a>
+                                        <?php
+                                        }
+                                        if ($facebook_ue != NULL) {
+                                        ?>
+                                            <a href="<?= $facebook_ue ?>" target="_blank">
+                                                <li class="lista">
+                                                    <i class="fab fa-facebook mr-2"></i><b class="mr-2">Facebook:</b><?= $facebook_ue ?>
+                                                </li>
+                                            </a>
+
+                                        <?php
+                                        }
+                                        if ($instagram_ue != NULL) {
+                                        ?>
+                                            <a href="<?= $instagram_ue ?>" target="_blank">
+                                                <li class="lista">
+                                                    <i class="fab fa-instagram mr-2"></i><b class="mr-2">Instagram:</b> <?= $instagram_ue ?>
+                                                </li>
+                                            </a>
+                                        <?php
+                                        }
+
+                                        ?>
+                                    </ul>
                                 </blockquote>
                             </section>
 
@@ -629,23 +781,48 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                         <div class="card mt-4">
                             <div class="row m-3 centrar_cont">
                                 <?php
+                                $stmt2 = mysqli_stmt_init($link2);
+                                if (mysqli_stmt_prepare($stmt2, $query8)) {
 
-                                if (mysqli_stmt_prepare($stmt, $query8)) {
-
-                                    mysqli_stmt_bind_param($stmt, 'i', $idUser);
-                                    mysqli_stmt_execute($stmt);
-                                    mysqli_stmt_bind_result($stmt, $idVacancies, $vacancie_name, $Content_idContent, $content_name);
-                                    while (mysqli_stmt_fetch($stmt)) {
+                                    mysqli_stmt_bind_param($stmt2, 'i', $idUser);
+                                    mysqli_stmt_execute($stmt2);
+                                    mysqli_stmt_bind_result($stmt2, $idVacancies, $vacancie_name, $Content_idContent, $content_name);
+                                    mysqli_stmt_store_result($stmt2); // Store the result into memory
+                                    if (mysqli_stmt_num_rows($stmt2) > 0) { // Check the number of rows returned
+                                        while (mysqli_stmt_fetch($stmt2)) {
                                 ?>
-                                        <div class="col-md-3 mt-3 div_videos">
-                                            <a href="#" data-toggle="modal" data-target="#modalvideo<?= $idVacancies ?>">
-                                                <video class="img-fluid z-depth-1 p-0 m-0 tam_video" src="../admin/uploads/vid_vac/<?= $content_name ?>" alt="video" data-toggle="modal" data-target="#modal1" style="background-color: #2f2f2f;">
-                                            </a>
-                                        </div>
+                                            <div class="col-md-3 mt-3 div_videos">
+                                                <a href="#" data-toggle="modal" data-target="#modalvideo<?= $idVacancies ?>">
+                                                    <video class="img-fluid z-depth-1 p-0 m-0 tam_video" src="../admin/uploads/vid_vac/<?= $content_name ?>" alt="video" data-toggle="modal" data-target="#modal1" style="background-color: #2f2f2f;">
+                                                </a>
+                                            </div>
 
-                                        <!--Se não for igual vai esconder determinados elementos que pessoas que não são o próprio user não podem ver-->
+                                            <!--Se não for igual vai esconder determinados elementos que pessoas que não são o próprio user não podem ver-->
+                                        <?php
+                                            include "modal_vid.php";
+                                        }
+                                        /* close statement */
+                                        mysqli_stmt_close($stmt2);
+                                    } else {
+                                        if ($idUser == $id_navegar) {
+                                        ?>
+                                            <p class="mx-auto mt-5 mb-5" style="font-size: 1rem;">
+                                                <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
+                                                    <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
+                                                </svg>
+                                                Parece que ainda não tem nenhum vídeo disponível. 
+                                            </p>
+                                        <?php
+                                        } else {
+                                        ?>
+                                            <p class="mx-auto mt-5 mb-5" style="font-size: 1rem;">
+                                                <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
+                                                    <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
+                                                </svg>
+                                                A empresa ainda não tem nenhum vídeo disponível.
+                                            </p>
                                 <?php
-                                        include "modal_vid.php";
+                                        }
                                     }
                                 }
                                 ?>
@@ -693,12 +870,15 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                 <h5 class="mb-3">Áreas disponíveis</h5>
                                 <ul id="notebook_ul">
                                     <?php
-                                    if (mysqli_stmt_prepare($stmt, $query2)) {
+                                      $stmt2 = mysqli_stmt_init($link2);
+                                    if (mysqli_stmt_prepare($stmt2, $query2)) {
 
-                                        mysqli_stmt_bind_param($stmt, 'i', $idUser);
-                                        mysqli_stmt_execute($stmt);
-                                        mysqli_stmt_bind_result($stmt, $User_idUser, $Areas_idAreas, $name_interested_area);
-                                        while (mysqli_stmt_fetch($stmt)) {
+                                        mysqli_stmt_bind_param($stmt2, 'i', $idUser);
+                                        mysqli_stmt_execute($stmt2);
+                                        mysqli_stmt_bind_result($stmt2, $User_idUser, $Areas_idAreas, $name_interested_area);
+                                        mysqli_stmt_store_result($stmt2); // Store the result into memory
+                                        if (mysqli_stmt_num_rows($stmt2) > 0) { // Check the number of rows returned
+                                        while (mysqli_stmt_fetch($stmt2)) {
                                     ?>
 
                                             <li class="lista">
@@ -706,6 +886,29 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                             </li>
                                     <?php
                                         }
+                                        /* close statement */
+                                        mysqli_stmt_close($stmt2);
+                                    } else {
+                                        if ($idUser == $id_navegar) {
+                                        ?>
+                                            <p class="mx-auto mt-5 mb-5" style="font-size: 1rem;">
+                                                <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
+                                                    <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
+                                                </svg>
+                                                Parece que ainda não tem nenhuma área disponível, edite o seu perfil e comece a criar ligações!
+                                            </p>
+                                        <?php
+                                        } else {
+                                        ?>
+                                            <p class="mx-auto mt-5 mb-5" style="font-size: 1rem;">
+                                                <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
+                                                    <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
+                                                </svg>
+                                                Ainda não existem áreas disponíveis na universidade.
+                                            </p>
+                                <?php
+                                        }
+                                    }
                                     }
                                     ?>
                                 </ul>
@@ -714,17 +917,9 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                             <section>
                                 <h2>Contactos</h2>
                                 <blockquote class="blockquote mb-0 mt-4 ">
-                                    <?php
-                                    if (mysqli_stmt_prepare($stmt, $query)) {
-
-                                        mysqli_stmt_bind_param($stmt, 'i', $idUser);
-                                        mysqli_stmt_execute($stmt);
-                                        mysqli_stmt_bind_result($stmt, $idUser, $name_user, $email_user, $contact_user, $birth_date, $info_young, $profile_img, $website_ue, $facebook_ue, $instagram_ue, $description_ue, $type_user);
-                                        while (mysqli_stmt_fetch($stmt)) {
-                                    ?>
                                             <ul id="notebook_ul">
                                                 <li class="lista">
-                                                    <i class="fas fa-at mr-2"></i><b class="mr-2">Email:</b><?= $email_user ?>
+                                                    <i class="fas fa-at mr-2"></i><b class="mr-2">Email:</b><a href="mailto:<?= $email_user ?>"><?= $email_user ?></a>
                                                 </li>
                                                 <li class="lista">
                                                     <i class="fas fa-phone-alt mr-2"></i><b class="mr-2">Telefone:</b><?= $contact_user ?>
@@ -760,8 +955,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                                     </a>
                                         <?php
                                                 }
-                                            }
-                                        }
+                                          
                                         ?>
                                             </ul>
                                 </blockquote>
@@ -778,9 +972,14 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
             <!--fim da div com w-75-->
 <?php
             //fim do prepare da query que seleciona o informações do user
-        }
+        } //fim do primeiro while
+        /* close statement */
+        mysqli_stmt_close($stmt);
     }
     /****************************/
+    /* close connection */
+    mysqli_close($link);
+    mysqli_close($link2);
 } else {
     include("404.php");
 } //fim do else se não existir o GET

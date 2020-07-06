@@ -52,6 +52,8 @@ if (isset($_GET["apaga"])) {
     //SUCESSO
     header("Location: ../all_vacancies_comp.php");
     $_SESSION["vac"] = 4;
+    /* close connection */
+    mysqli_close($link);
 } else {
     //ERRO
     header("Location: ../all_vacancies_comp.php");

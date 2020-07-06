@@ -12,8 +12,8 @@ if ($_SESSION["idUser"]) {
             FROM user_has_vacancies
             INNER JOIN vacancies ON user_has_vacancies.Vacancies_idVacancies = vacancies.idVacancies 
             INNER JOIN users ON users.idUser = user_has_vacancies.User_young
-            WHERE User_publicou LIKE ?";
-    ?>
+            WHERE User_publicou = ? AND match_perc = 1";
+?>
     <div class="w-75 mx-auto list_links">
         <div id='wrapper_title'>
 
@@ -32,40 +32,55 @@ if ($_SESSION["idUser"]) {
                     <div class='widget HTML' id='HTML5'>
                         <div class='widget-content'>
                             <ul class='taglabel'>
-                            <?php
-                            if (mysqli_stmt_prepare($stmt, $query)) {
+                                <?php
+                                if (mysqli_stmt_prepare($stmt, $query)) {
 
-                                mysqli_stmt_bind_param($stmt, 'i', $idUser);
-                                mysqli_stmt_execute($stmt);
-                                mysqli_stmt_bind_result($stmt, $id_match_vac, $User_young, $Vacancies_idVacancies, $match_perc, $profile_img, $vacancie_name, $name_user);
+                                    mysqli_stmt_bind_param($stmt, 'i', $idUser);
+                                    mysqli_stmt_execute($stmt);
+                                    mysqli_stmt_bind_result($stmt, $id_match_vac, $User_young, $Vacancies_idVacancies, $match_perc, $profile_img, $vacancie_name, $name_user);
+                                    mysqli_stmt_store_result($stmt); // Store the result into memory
+                                    if (mysqli_stmt_num_rows($stmt) > 0) { // Check the number of rows returned
+                                        while (mysqli_stmt_fetch($stmt)) {
+                                ?>
+                                            <li class='clearfix_companies'>
+                                                <?php
+                                                if (isset($profile_img)) {
+                                                ?>
+                                                    <a href="profile.php?user=<?= $User_young ?>">
+                                                        <img alt="Imagem de perfil do jovem" title="" class="tagpost_thumb" src="../admin/uploads/img_perfil/<?= $profile_img ?>">
+                                                    </a>
+                                                <?php
+                                                } else {
+                                                ?>
+                                                    <a href="profile.php?user=<?= $User_young ?>">
+                                                        <img alt="Imagem default do jovem" title="" class="tagpost_thumb" src="img/def_jovem.png">
+                                                    </a>
+                                                <?php
+                                                }
+                                                ?>
+                                                <p class="mb-0 link_info"><i class="fa fa-briefcase mr-1" aria-hidden="true"></i><?= $vacancie_name ?></p>
+                                                <a href="profile.php?user=<?= $User_young ?>">
+                                                    <p class="mb-0 link_title"><?= $name_user ?></p>
+                                                </a>
+                                            </li>
+                                        <?php
 
-                                while (mysqli_stmt_fetch($stmt)) {
-                                    if ($match_perc == 1) {
-                                        ?>
-                                <li class='clearfix_companies'>
-                                        <?php
-                                        if (isset($profile_img)) {
-                                        ?>
-                                        <a href="profile.php?user=<?= $User_young?>">
-                                            <img alt="Imagem da FNAC2" title="" class="tagpost_thumb" src="../admin/uploads/img_perfil/<?= $profile_img ?>">
-                                        </a>
-                                        <?php
+
+                                        }
+                                        /* close statement */
+                                        mysqli_stmt_close($stmt);
                                     } else {
                                         ?>
-                                        <a href="profile.php?user=<?= $User_young?>">
-                                            <img alt="Imagem da FNAC2" title="" class="tagpost_thumb" src="img/def_jovem.png">
-                                        </a>
-                                        <?php
-                                    }
-                                    ?>
-                                    <p class="mb-0 link_info"><i class="fa fa-briefcase mr-1" aria-hidden="true"></i><?= $vacancie_name ?></p>
-                                    <p class="mb-0 link_title"><?= $name_user ?></p>
-                                </li>
-                                        <?php
+                                        <p class="mx-auto mt-3 mb-5" style="font-size: 1rem;">
+                                            <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
+                                                <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
+                                            </svg>
+                                            Ainda não tem nenhuma ligação com jovens.
+                                        </p>
+                                <?php
                                     }
                                 }
-                            }
-                                        ?>
+                                ?>
                             </ul>
                         </div>
                         <div class='clear'></div>
@@ -73,11 +88,31 @@ if ($_SESSION["idUser"]) {
                 </div>
             </div>
             <div id='footer'>
-                <a href="">
-                    <button class="btn_cards mx-auto">Ver mais</button>
-                </a>
+                <?php
+                $stmt = mysqli_stmt_init($link);
+                if (mysqli_stmt_prepare($stmt, $query)) {
+
+                    mysqli_stmt_bind_param($stmt, 'i', $idUser);
+                    mysqli_stmt_execute($stmt);
+                    mysqli_stmt_bind_result($stmt, $id_match_vac, $User_young, $Vacancies_idVacancies, $match_perc, $profile_img, $vacancie_name, $name_user);
+                    mysqli_stmt_store_result($stmt); // Store the result into memory
+                    if (mysqli_stmt_num_rows($stmt) > 0) { // Check the number of rows returned
+                        if (mysqli_stmt_fetch($stmt)) {
+                ?>
+                            <a href="can_choose_work.php">
+                                <button class="btn_cards mx-auto">Ver todas</button>
+                            </a>
+                <?php
+                        }
+                        /* close statement */
+                        mysqli_stmt_close($stmt);
+                    }
+                }
+                ?>
             </div>
         </div>
     </div>
-    <?php
+<?php
+    /* close connection */
+    mysqli_close($link);
 }

@@ -1,14 +1,14 @@
 <?php
 require_once("connections/connection.php");
+
+$link = new_db_connection();
+$stmt = mysqli_stmt_init($link);
+
 if (isset($_SESSION["idUser"])) {
 
     $User_type = $_SESSION["type"];
     $idUser = $_SESSION["idUser"];
 
-    // Create a new DB connection
-    $link = new_db_connection();
-    /* create a prepared statement */
-    $stmt = mysqli_stmt_init($link);
     $query = "SELECT User_type_idUser_type, type_user FROM users INNER JOIN user_type ON users.User_type_idUser_type= user_type.idUser_type WHERE idUser=?";
     if (mysqli_stmt_prepare($stmt, $query)) {
         mysqli_stmt_bind_param($stmt, 'i', $idUser);
@@ -20,9 +20,9 @@ if (isset($_SESSION["idUser"])) {
             <div class="home_menu mx-auto w-75 mt-0 pt-0">
                 <ul class="row p-0" style="list-style-type: none;">
                     <!---PRIMEIRA-->
-                        <?php
-                        if ($type_user == "Jovem") {
-                        ?>
+                    <?php
+                    if ($type_user == "Jovem") {
+                    ?>
                         <li class="col-lg-3 col-sm-12 p-0">
                             <div class="menu">
                                 <div class="menu-title mb-0">
@@ -34,9 +34,9 @@ if (isset($_SESSION["idUser"])) {
                                 </ul>
                             </div>
                         </li>
-                        <?php
-                        } else if ($type_user == "Empresa") {
-                        ?>
+                    <?php
+                    } else if ($type_user == "Empresa") {
+                    ?>
                         <li class="col-lg-4 col-sm-12 p-0">
                             <div class="menu">
                                 <div class="menu-title mb-0">
@@ -48,27 +48,27 @@ if (isset($_SESSION["idUser"])) {
                                 </ul>
                             </div>
                         </li>
-                         <?php
-                        } else if ($type_user == "Universidade") {
-                        ?>
-                            <li class="col-lg-4 col-sm-12 p-0">
-                                <div class="menu">
-                                    <div class="menu-title mb-0">
-                                        <h5 class='mx-auto titulo'>Candidatos</h5>
-                                    </div>
-                                    <ul class="menu-dropdown">
-                                        <li> <a class="btn" style="width:100%; font-size: 0.8rem;" href="can_choose_study.php">As minhas ligações</a></li>
-                                        <li> <a class="btn" style="width:100%; font-size: 0.8rem;" href="allOptions_uni.php">Todos os jovens</a></li>
-                                    </ul>
+                    <?php
+                    } else if ($type_user == "Universidade") {
+                    ?>
+                        <li class="col-lg-4 col-sm-12 p-0">
+                            <div class="menu">
+                                <div class="menu-title mb-0">
+                                    <h5 class='mx-auto titulo'>Candidatos</h5>
                                 </div>
-                            </li>
-                            <!---*******************************-->
+                                <ul class="menu-dropdown">
+                                    <li> <a class="btn" style="width:100%; font-size: 0.8rem;" href="can_choose_study.php">As minhas ligações</a></li>
+                                    <li> <a class="btn" style="width:100%; font-size: 0.8rem;" href="allOptions_uni.php">Todos os jovens</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <!---*******************************-->
 
-                            <?php
-                        }
+                    <?php
+                    }
 
                     if ($type_user == "Jovem") {
-                        ?>
+                    ?>
                         <!---SEGUNDA-->
                         <li class="col-lg-3 col-sm-12 p-0">
                             <div class="menu">
@@ -81,9 +81,9 @@ if (isset($_SESSION["idUser"])) {
                                 </ul>
                             </div>
                         </li>
-                        <?php
+                    <?php
                     } else if ($type_user == "Empresa") {
-                        ?>
+                    ?>
                         <li class="col-lg-4 col-sm-12 p-0">
                             <div class="menu">
                                 <div class="menu-title mb-0">
@@ -95,9 +95,9 @@ if (isset($_SESSION["idUser"])) {
                                 </ul>
                             </div>
                         </li>
-                        <?php
+                    <?php
                     } else if ($type_user == "Universidade") {
-                        ?>
+                    ?>
                         <li class="col-lg-4 col-sm-12 p-0">
                             <div class="menu">
                                 <div class="menu-title mb-0">
@@ -109,10 +109,10 @@ if (isset($_SESSION["idUser"])) {
                             </div>
                         </li>
                         <!---*******************************-->
-                        <?php
+                    <?php
                     }
                     if ($type_user == "Jovem") {
-                        ?>
+                    ?>
                         <!---TERCEIRA-->
                         <li class="col-lg-3 col-sm-12 p-0">
                             <div class="menu">
@@ -125,9 +125,9 @@ if (isset($_SESSION["idUser"])) {
                                 </ul>
                             </div>
                         </li>
-                        <?php
+                    <?php
                     } else if ($type_user == "Empresa") {
-                        ?>
+                    ?>
                         <li class="col-lg-4 col-sm-12 p-0">
                             <div class="menu">
                                 <div class="menu-title mb-0">
@@ -138,9 +138,9 @@ if (isset($_SESSION["idUser"])) {
                                 </ul>
                             </div>
                         </li>
-                        <?php
+                    <?php
                     } else if ($type_user == "Universidade") {
-                        ?>
+                    ?>
                         <li class="col-lg-4 col-sm-12 p-0">
                             <div class="menu">
                                 <div class="menu-title mb-0">
@@ -152,10 +152,10 @@ if (isset($_SESSION["idUser"])) {
                             </div>
                         </li>
                         <!---*******************************-->
-                        <?php
+                    <?php
                     }
-                        if ($type_user == "Jovem") {
-                        ?>
+                    if ($type_user == "Jovem") {
+                    ?>
                         <!---QUARTA-->
                         <li class="col-lg-3 col-sm-12 p-0">
                             <div class="menu">
@@ -168,17 +168,21 @@ if (isset($_SESSION["idUser"])) {
                                 </ul>
                             </div>
                         </li>
-                        <?php
-                        }
-                                ?>
-                            </ul>
-                        </div>
-                    </li>
+                    <?php
+                    }
+                    ?>
                 </ul>
+            </div>
+            </li>
+            </ul>
 
             </div>
 <?php
         }
+        /* close statement */
+        mysqli_stmt_close($stmt);
     }
+    /* close connection */
+    mysqli_close($link);
 }
 ?>

@@ -80,7 +80,7 @@ if (isset($_SESSION["idUser"])) {
 
             <h6 class="mb-3"><a href="#">Quem pode ver as tuas últimas disciplinas feitas?</a></h6>
 
-            <h6 class="mb-3"><a href="#">Quem pode ver as tuas àreas de interesse?</a></h6>
+            <h6 class="mb-3"><a href="#">Quem pode ver as tuas áreas de interesse?</a></h6>
         </div>
         <!--segundo título-->
         <div id='wrapper_title'>

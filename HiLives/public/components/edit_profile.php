@@ -1,14 +1,15 @@
 <?php
+
+require_once("connections/connection.php");
+
+$link = new_db_connection();
+$stmt = mysqli_stmt_init($link);
+
+$link2 = new_db_connection();
+$stmt2 = mysqli_stmt_init($link2);
+
 if (isset($_GET["edit"])) {
     $idUser = $_GET["edit"];
-    // We need the function!
-    require_once("connections/connection.php");
-
-    // Create a new DB connection
-    $link = new_db_connection();
-
-    /* create a prepared statement */
-    $stmt = mysqli_stmt_init($link);
 
     //ir buscar os dados
     $query = "SELECT idUser, name_user, email_user, contact_user, birth_date, info_young, work_xp, profile_img, website_ue, facebook_ue, instagram_ue, description_ue, history_ue, Educ_lvl_idEduc_lvl, type_user
@@ -167,17 +168,17 @@ if (isset($_GET["edit"])) {
                                             <option selected disabled>Seleciona uma opção</option>
                                             <?php
                                             $query3 = "SELECT idEduc_lvl, name_education 
-                                FROM educ_lvl";
+                                                    FROM educ_lvl";
 
-                                            if (mysqli_stmt_prepare($stmt, $query3)) {
+                                            if (mysqli_stmt_prepare($stmt2, $query3)) {
 
                                                 /* execute the prepared statement */
-                                                if (mysqli_stmt_execute($stmt)) {
+                                                if (mysqli_stmt_execute($stmt2)) {
                                                     /* bind result variables */
-                                                    mysqli_stmt_bind_result($stmt, $idEduc_lvl, $name_education);
+                                                    mysqli_stmt_bind_result($stmt2, $idEduc_lvl, $name_education);
 
                                                     /* fetch values */
-                                                    while (mysqli_stmt_fetch($stmt)) {
+                                                    while (mysqli_stmt_fetch($stmt2)) {
                                                         if ($Educ_lvl_idEduc_lvl == $idEduc_lvl) {
                                                             $selected = "selected";
                                                         } else {
@@ -185,14 +186,9 @@ if (isset($_GET["edit"])) {
                                                         }
                                                         echo "\n\t\t<option value=\"$idEduc_lvl\" $selected>$name_education</option>";
                                                     }
-                                                } else {
-                                                    echo "Error: " . mysqli_stmt_error($stmt);
+                                                    /* close statement */
+                                                    mysqli_stmt_close($stmt2);
                                                 }
-
-                                                /* close statement */
-                                                //mysqli_stmt_close($stmt);
-                                            } else {
-                                                echo "Error: " . mysqli_error($link);
                                             }
                                             ?>
                                         </select>
@@ -204,20 +200,20 @@ if (isset($_GET["edit"])) {
                                         <div class="form-check">
                                             <?php
                                             $query2 = "SELECT idAreas, name_interested_area, Areas_idAreas
-                                FROM areas
-                                LEFT JOIN user_has_areas
-                                ON  areas.idAreas= user_has_areas.Areas_idAreas AND user_has_areas.User_idUser= ?";
-
-                                            if (mysqli_stmt_prepare($stmt, $query2)) {
+                                                    FROM areas
+                                                    LEFT JOIN user_has_areas
+                                                    ON  areas.idAreas= user_has_areas.Areas_idAreas AND user_has_areas.User_idUser= ?";
+                                            $stmt2 = mysqli_stmt_init($link2);
+                                            if (mysqli_stmt_prepare($stmt2, $query2)) {
                                                 // Bind variables by type to each parameter
-                                                mysqli_stmt_bind_param($stmt, 'i', $idUser);
+                                                mysqli_stmt_bind_param($stmt2, 'i', $idUser);
                                                 /* execute the prepared statement */
-                                                if (mysqli_stmt_execute($stmt)) {
+                                                if (mysqli_stmt_execute($stmt2)) {
                                                     /* bind result variables */
-                                                    mysqli_stmt_bind_result($stmt, $idAreas, $name_interested_area, $Areas_idAreas);
+                                                    mysqli_stmt_bind_result($stmt2, $idAreas, $name_interested_area, $Areas_idAreas);
 
                                                     /* fetch values */
-                                                    while (mysqli_stmt_fetch($stmt)) {
+                                                    while (mysqli_stmt_fetch($stmt2)) {
                                                         $checked = "";
                                                         if ($Areas_idAreas != null) {
                                                             $checked = "checked";
@@ -228,13 +224,9 @@ if (isset($_GET["edit"])) {
                                                         echo "<input type='checkbox' class='form-check-input' name='area[]' value='$idAreas' $checked>$name_interested_area<br>";
                                                         echo "</label>";
                                                     }
-                                                } else {
-                                                    echo "Error: " . mysqli_stmt_error($stmt);
+                                                    /* close statement */
+                                                    mysqli_stmt_close($stmt2);
                                                 }
-                                                /* close statement */
-                                                //mysqli_stmt_close($stmt);
-                                            } else {
-                                                echo "Error: " . mysqli_error($link);
                                             }
                                             ?>
                                         </div>
@@ -256,24 +248,23 @@ if (isset($_GET["edit"])) {
                                         <label class="negrito mt-3" for="regiao">Região que procuras estudar ou trabalhar <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
                                         <div class="form-check">
                                             <?php
-
                                             $query3 = "SELECT idRegion, name_region, Region_idRegion
-                                FROM region
-                                LEFT JOIN user_has_region
-                                ON  region.idRegion= user_has_region.Region_idRegion AND user_has_region.User_idUser_region= ?
-                                INNER JOIN country ON region.country_idcountry = country.idcountry
-                                WHERE name_country = 'Portugal'";
-
-                                            if (mysqli_stmt_prepare($stmt, $query3)) {
+                                                    FROM region
+                                                    LEFT JOIN user_has_region
+                                                    ON  region.idRegion= user_has_region.Region_idRegion AND user_has_region.User_idUser_region= ?
+                                                    INNER JOIN country ON region.country_idcountry = country.idcountry
+                                                    WHERE name_country = 'Portugal'";
+                                            $stmt2 = mysqli_stmt_init($link2);
+                                            if (mysqli_stmt_prepare($stmt2, $query3)) {
                                                 // Bind variables by type to each parameter
-                                                mysqli_stmt_bind_param($stmt, 'i', $idUser);
+                                                mysqli_stmt_bind_param($stmt2, 'i', $idUser);
                                                 /* execute the prepared statement */
-                                                if (mysqli_stmt_execute($stmt)) {
+                                                if (mysqli_stmt_execute($stmt2)) {
                                                     /* bind result variables */
-                                                    mysqli_stmt_bind_result($stmt, $idRegion, $name_region, $Region_idRegion);
+                                                    mysqli_stmt_bind_result($stmt2, $idRegion, $name_region, $Region_idRegion);
 
                                                     /* fetch values */
-                                                    while (mysqli_stmt_fetch($stmt)) {
+                                                    while (mysqli_stmt_fetch($stmt2)) {
                                                         $checked = "";
                                                         if ($Region_idRegion != null) {
                                                             $checked = "checked";
@@ -283,13 +274,9 @@ if (isset($_GET["edit"])) {
                                                         echo "<input type='checkbox' class='form-check-input' name='regiao[]' value='$idRegion' $checked>$name_region<br>";
                                                         echo "</label>";
                                                     }
-                                                } else {
-                                                    echo "Error: " . mysqli_stmt_error($stmt);
+                                                    /* close statement */
+                                                    mysqli_stmt_close($stmt2);
                                                 }
-                                                /* close statement */
-                                                //mysqli_stmt_close($stmt);
-                                            } else {
-                                                echo "Error: " . mysqli_error($link);
                                             }
                                             ?>
                                         </div>
@@ -299,24 +286,23 @@ if (isset($_GET["edit"])) {
                                         <label class="negrito mt-3" for="regiao">Região que procuras estudar ou trabalhar <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
                                         <div class="form-check">
                                             <?php
-
                                             $query3 = "SELECT idRegion, name_region, Region_idRegion
-                                FROM region
-                                LEFT JOIN user_has_region
-                                ON  region.idRegion= user_has_region.Region_idRegion AND user_has_region.User_idUser_region= ?
-                                INNER JOIN country ON region.country_idcountry = country.idcountry
-                                WHERE name_country = 'Espanha'";
-
-                                            if (mysqli_stmt_prepare($stmt, $query3)) {
+                                                    FROM region
+                                                    LEFT JOIN user_has_region
+                                                    ON  region.idRegion= user_has_region.Region_idRegion AND user_has_region.User_idUser_region= ?
+                                                    INNER JOIN country ON region.country_idcountry = country.idcountry
+                                                    WHERE name_country = 'Espanha'";
+                                            $stmt2 = mysqli_stmt_init($link2);
+                                            if (mysqli_stmt_prepare($stmt2, $query3)) {
                                                 // Bind variables by type to each parameter
-                                                mysqli_stmt_bind_param($stmt, 'i', $idUser);
+                                                mysqli_stmt_bind_param($stmt2, 'i', $idUser);
                                                 /* execute the prepared statement */
-                                                if (mysqli_stmt_execute($stmt)) {
+                                                if (mysqli_stmt_execute($stmt2)) {
                                                     /* bind result variables */
-                                                    mysqli_stmt_bind_result($stmt, $idRegion, $name_region, $Region_idRegion);
+                                                    mysqli_stmt_bind_result($stmt2, $idRegion, $name_region, $Region_idRegion);
 
                                                     /* fetch values */
-                                                    while (mysqli_stmt_fetch($stmt)) {
+                                                    while (mysqli_stmt_fetch($stmt2)) {
                                                         $checked = "";
                                                         if ($Region_idRegion != null) {
                                                             $checked = "checked";
@@ -326,13 +312,9 @@ if (isset($_GET["edit"])) {
                                                         echo "<input type='checkbox' class='form-check-input' name='regiao[]' value='$idRegion' $checked>$name_region<br>";
                                                         echo "</label>";
                                                     }
-                                                } else {
-                                                    echo "Error: " . mysqli_stmt_error($stmt);
+                                                    /* close statement */
+                                                    mysqli_stmt_close($stmt2);
                                                 }
-                                                /* close statement */
-                                                //mysqli_stmt_close($stmt);
-                                            } else {
-                                                echo "Error: " . mysqli_error($link);
                                             }
                                             ?>
                                         </div>
@@ -344,22 +326,22 @@ if (isset($_GET["edit"])) {
                                             <?php
 
                                             $query3 = "SELECT idRegion, name_region, Region_idRegion
-                                FROM region
-                                LEFT JOIN user_has_region
-                                ON  region.idRegion= user_has_region.Region_idRegion AND user_has_region.User_idUser_region= ?
-                                INNER JOIN country ON region.country_idcountry = country.idcountry
-                                WHERE name_country = 'Bélgica'";
-
-                                            if (mysqli_stmt_prepare($stmt, $query3)) {
+                                                    FROM region
+                                                    LEFT JOIN user_has_region
+                                                    ON  region.idRegion= user_has_region.Region_idRegion AND user_has_region.User_idUser_region= ?
+                                                    INNER JOIN country ON region.country_idcountry = country.idcountry
+                                                    WHERE name_country = 'Bélgica'";
+                                            $stmt2 = mysqli_stmt_init($link2);
+                                            if (mysqli_stmt_prepare($stmt2, $query3)) {
                                                 // Bind variables by type to each parameter
-                                                mysqli_stmt_bind_param($stmt, 'i', $idUser);
+                                                mysqli_stmt_bind_param($stmt2, 'i', $idUser);
                                                 /* execute the prepared statement */
-                                                if (mysqli_stmt_execute($stmt)) {
+                                                if (mysqli_stmt_execute($stmt2)) {
                                                     /* bind result variables */
-                                                    mysqli_stmt_bind_result($stmt, $idRegion, $name_region, $Region_idRegion);
+                                                    mysqli_stmt_bind_result($stmt2, $idRegion, $name_region, $Region_idRegion);
 
                                                     /* fetch values */
-                                                    while (mysqli_stmt_fetch($stmt)) {
+                                                    while (mysqli_stmt_fetch($stmt2)) {
                                                         $checked = "";
                                                         if ($Region_idRegion != null) {
                                                             $checked = "checked";
@@ -369,13 +351,9 @@ if (isset($_GET["edit"])) {
                                                         echo "<input type='checkbox' class='form-check-input' name='regiao[]' value='$idRegion' $checked>$name_region<br>";
                                                         echo "</label>";
                                                     }
-                                                } else {
-                                                    echo "Error: " . mysqli_stmt_error($stmt);
+                                                    /* close statement */
+                                                    mysqli_stmt_close($stmt2);
                                                 }
-                                                /* close statement */
-                                                //mysqli_stmt_close($stmt);
-                                            } else {
-                                                echo "Error: " . mysqli_error($link);
                                             }
                                             ?>
                                         </div>
@@ -387,22 +365,22 @@ if (isset($_GET["edit"])) {
                                             <?php
 
                                             $query3 = "SELECT idRegion, name_region, Region_idRegion
-                                FROM region
-                                LEFT JOIN user_has_region
-                                ON  region.idRegion= user_has_region.Region_idRegion AND user_has_region.User_idUser_region= ?
-                                INNER JOIN country ON region.country_idcountry = country.idcountry
-                                WHERE name_country = 'Islândia'";
-
-                                            if (mysqli_stmt_prepare($stmt, $query3)) {
+                                                    FROM region
+                                                    LEFT JOIN user_has_region
+                                                    ON  region.idRegion= user_has_region.Region_idRegion AND user_has_region.User_idUser_region= ?
+                                                    INNER JOIN country ON region.country_idcountry = country.idcountry
+                                                    WHERE name_country = 'Islândia'";
+                                            $stmt2 = mysqli_stmt_init($link2);
+                                            if (mysqli_stmt_prepare($stmt2, $query3)) {
                                                 // Bind variables by type to each parameter
-                                                mysqli_stmt_bind_param($stmt, 'i', $idUser);
+                                                mysqli_stmt_bind_param($stmt2, 'i', $idUser);
                                                 /* execute the prepared statement */
-                                                if (mysqli_stmt_execute($stmt)) {
+                                                if (mysqli_stmt_execute($stmt2)) {
                                                     /* bind result variables */
-                                                    mysqli_stmt_bind_result($stmt, $idRegion, $name_region, $Region_idRegion);
+                                                    mysqli_stmt_bind_result($stmt2, $idRegion, $name_region, $Region_idRegion);
 
                                                     /* fetch values */
-                                                    while (mysqli_stmt_fetch($stmt)) {
+                                                    while (mysqli_stmt_fetch($stmt2)) {
                                                         $checked = "";
                                                         if ($Region_idRegion != null) {
                                                             $checked = "checked";
@@ -412,13 +390,9 @@ if (isset($_GET["edit"])) {
                                                         echo "<input type='checkbox' class='form-check-input' name='regiao[]' value='$idRegion' $checked>$name_region<br>";
                                                         echo "</label>";
                                                     }
-                                                } else {
-                                                    echo "Error: " . mysqli_stmt_error($stmt);
+                                                    /* close statement */
+                                                    mysqli_stmt_close($stmt2);
                                                 }
-                                                /* close statement */
-                                                //mysqli_stmt_close($stmt);
-                                            } else {
-                                                echo "Error: " . mysqli_error($link);
                                             }
                                             ?>
                                         </div>
@@ -442,20 +416,20 @@ if (isset($_GET["edit"])) {
                                         <div class="form-check">
                                             <?php
                                             $query4 = "SELECT idCapacities, capacity, capacities
-                                FROM capacities
-                                LEFT JOIN capacities_has_users
-                                ON  capacities.idCapacities = capacities_has_users.capacities AND capacities_has_users.users_idUser = ?";
-
-                                            if (mysqli_stmt_prepare($stmt, $query4)) {
+                                                    FROM capacities
+                                                    LEFT JOIN capacities_has_users
+                                                    ON  capacities.idCapacities = capacities_has_users.capacities AND capacities_has_users.users_idUser = ?";
+                                            $stmt2 = mysqli_stmt_init($link2);
+                                            if (mysqli_stmt_prepare($stmt2, $query4)) {
                                                 // Bind variables by type to each parameter
-                                                mysqli_stmt_bind_param($stmt, 'i', $idUser);
+                                                mysqli_stmt_bind_param($stmt2, 'i', $idUser);
                                                 /* execute the prepared statement */
-                                                if (mysqli_stmt_execute($stmt)) {
+                                                if (mysqli_stmt_execute($stmt2)) {
                                                     /* bind result variables */
-                                                    mysqli_stmt_bind_result($stmt, $idCapacities, $capacity, $capacities);
+                                                    mysqli_stmt_bind_result($stmt2, $idCapacities, $capacity, $capacities);
 
                                                     /* fetch values */
-                                                    while (mysqli_stmt_fetch($stmt)) {
+                                                    while (mysqli_stmt_fetch($stmt2)) {
                                                         $checked = "";
                                                         if ($capacities != null) {
                                                             $checked = "checked";
@@ -466,13 +440,9 @@ if (isset($_GET["edit"])) {
                                                         echo "<input type='checkbox' class='form-check-input' name='capacity[]' value='$idCapacities' $checked>$capacity<br>";
                                                         echo "</label>";
                                                     }
-                                                } else {
-                                                    echo "Error: " . mysqli_stmt_error($stmt);
+                                                    /* close statement */
+                                                    mysqli_stmt_close($stmt2);
                                                 }
-                                                /* close statement */
-                                                //mysqli_stmt_close($stmt);
-                                            } else {
-                                                echo "Error: " . mysqli_error($link);
                                             }
                                             ?>
                                         </div>
@@ -486,17 +456,17 @@ if (isset($_GET["edit"])) {
                                                        FROM work_environment
                                                        LEFT JOIN work_environment_has_users
                                                        ON work_environment.idwork_environment = work_environment_has_users.favorite_environment AND  work_environment_has_users.users_idUser = ?";
-
-                                            if (mysqli_stmt_prepare($stmt, $query5)) {
+                                            $stmt2 = mysqli_stmt_init($link2);
+                                            if (mysqli_stmt_prepare($stmt2, $query5)) {
                                                 // Bind variables by type to each parameter
-                                                mysqli_stmt_bind_param($stmt, 'i', $idUser);
+                                                mysqli_stmt_bind_param($stmt2, 'i', $idUser);
                                                 /* execute the prepared statement */
-                                                if (mysqli_stmt_execute($stmt)) {
+                                                if (mysqli_stmt_execute($stmt2)) {
                                                     /* bind result variables */
-                                                    mysqli_stmt_bind_result($stmt, $idwork_environment, $name_environment, $favorite_environment);
+                                                    mysqli_stmt_bind_result($stmt2, $idwork_environment, $name_environment, $favorite_environment);
 
                                                     /* fetch values */
-                                                    while (mysqli_stmt_fetch($stmt)) {
+                                                    while (mysqli_stmt_fetch($stmt2)) {
                                                         $checked = "";
                                                         if ($favorite_environment != null) {
                                                             $checked = "checked";
@@ -507,13 +477,9 @@ if (isset($_GET["edit"])) {
                                                         echo "<input type='checkbox' class='form-check-input' name='spot[]' value='$idwork_environment' $checked>$name_environment<br>";
                                                         echo "</label>";
                                                     }
-                                                } else {
-                                                    echo "Error: " . mysqli_stmt_error($stmt);
+                                                    /* close statement */
+                                                    mysqli_stmt_close($stmt2);
                                                 }
-                                                /* close statement */
-                                                //mysqli_stmt_close($stmt);
-                                            } else {
-                                                echo "Error: " . mysqli_error($link);
                                             }
                                             ?>
                                         </div>
@@ -536,7 +502,7 @@ if (isset($_GET["edit"])) {
                                             <input type="submit" class="btn guardar_btn" value="Guardar">
                                             <span></span>
                                             <a href="profile.php?user=<?= $idUser ?>">
-                                            <input type="text" class="btn cancel_btn" value="Cancelar">
+                                                <input type="text" class="btn cancel_btn" value="Cancelar">
                                             </a>
                                         </div>
                                     </div>
@@ -689,20 +655,20 @@ if (isset($_GET["edit"])) {
                                             <div class="form-check">
                                                 <?php
                                                 $query2 = "SELECT idAreas, name_interested_area, Areas_idAreas
-                                FROM areas
-                                LEFT JOIN user_has_areas
-                                ON  areas.idAreas= user_has_areas.Areas_idAreas AND user_has_areas.User_idUser= ?";
-
-                                                if (mysqli_stmt_prepare($stmt, $query2)) {
+                                                        FROM areas
+                                                        LEFT JOIN user_has_areas
+                                                        ON  areas.idAreas= user_has_areas.Areas_idAreas AND user_has_areas.User_idUser= ?";
+                                                $stmt2 = mysqli_stmt_init($link2);
+                                                if (mysqli_stmt_prepare($stmt2, $query2)) {
                                                     // Bind variables by type to each parameter
-                                                    mysqli_stmt_bind_param($stmt, 'i', $idUser);
+                                                    mysqli_stmt_bind_param($stmt2, 'i', $idUser);
                                                     /* execute the prepared statement */
-                                                    if (mysqli_stmt_execute($stmt)) {
+                                                    if (mysqli_stmt_execute($stmt2)) {
                                                         /* bind result variables */
-                                                        mysqli_stmt_bind_result($stmt, $idAreas, $name_interested_area, $Areas_idAreas);
+                                                        mysqli_stmt_bind_result($stmt2, $idAreas, $name_interested_area, $Areas_idAreas);
 
                                                         /* fetch values */
-                                                        while (mysqli_stmt_fetch($stmt)) {
+                                                        while (mysqli_stmt_fetch($stmt2)) {
                                                             $checked = "";
                                                             if ($Areas_idAreas != null) {
                                                                 $checked = "checked";
@@ -713,13 +679,9 @@ if (isset($_GET["edit"])) {
                                                             echo "<input type='checkbox' class='form-check-input' name='area[]' value='$idAreas' $checked>$name_interested_area<br>";
                                                             echo "</label>";
                                                         }
-                                                    } else {
-                                                        echo "Error: " . mysqli_stmt_error($stmt);
+                                                        /* close statement */
+                                                        mysqli_stmt_close($stmt2);
                                                     }
-                                                    /* close statement */
-                                                    //mysqli_stmt_close($stmt);
-                                                } else {
-                                                    echo "Error: " . mysqli_error($link);
                                                 }
                                                 ?>
                                             </div>
@@ -755,17 +717,17 @@ if (isset($_GET["edit"])) {
                                                                     INNER JOIN country ON region.country_idcountry = country.idcountry
                                                                     LEFT JOIN user_has_region ON  region.idRegion= user_has_region.Region_idRegion AND user_has_region.User_idUser_region= ?
                                                                     WHERE name_country = 'Portugal'";
-
-                                                    if (mysqli_stmt_prepare($stmt, $query2)) {
+                                                    $stmt2 = mysqli_stmt_init($link2);
+                                                    if (mysqli_stmt_prepare($stmt2, $query2)) {
                                                         // Bind variables by type to each parameter
-                                                        mysqli_stmt_bind_param($stmt, 'i', $idUser);
+                                                        mysqli_stmt_bind_param($stmt2, 'i', $idUser);
                                                         /* execute the prepared statement */
-                                                        if (mysqli_stmt_execute($stmt)) {
+                                                        if (mysqli_stmt_execute($stmt2)) {
                                                             /* bind result variables */
-                                                            mysqli_stmt_bind_result($stmt, $idRegion, $name_region, $Region_idRegion);
+                                                            mysqli_stmt_bind_result($stmt2, $idRegion, $name_region, $Region_idRegion);
 
                                                             /* fetch values */
-                                                            while (mysqli_stmt_fetch($stmt)) {
+                                                            while (mysqli_stmt_fetch($stmt2)) {
                                                                 if ($Region_idRegion == $idRegion) {
                                                                     $selected = "selected";
                                                                 } else {
@@ -773,13 +735,9 @@ if (isset($_GET["edit"])) {
                                                                 }
                                                                 echo "\n\t\t<option value=\"$idRegion\" $selected>$name_region</option>";
                                                             }
-                                                        } else {
-                                                            echo "Error: " . mysqli_stmt_error($stmt);
+                                                            /* close statement */
+                                                            mysqli_stmt_close($stmt2);
                                                         }
-                                                        /* close statement */
-                                                        //mysqli_stmt_close($stmt);
-                                                    } else {
-                                                        echo "Error: " . mysqli_error($link);
                                                     }
                                                     ?>
                                                 </select>
@@ -795,19 +753,19 @@ if (isset($_GET["edit"])) {
                                                     <option selected disabled>Seleciona uma opção</option>
                                                     <?php
                                                     $query2 = "SELECT idRegion, name_region, Region_idRegion FROM region 
-                                                INNER JOIN country ON region.country_idcountry = country.idcountry
-                                                LEFT JOIN user_has_region ON  region.idRegion= user_has_region.Region_idRegion AND user_has_region.User_idUser_region= ?
-                                                                    WHERE name_country = 'Espanha'";
-
-                                                    if (mysqli_stmt_prepare($stmt, $query2)) {
+                                                            INNER JOIN country ON region.country_idcountry = country.idcountry
+                                                            LEFT JOIN user_has_region ON  region.idRegion= user_has_region.Region_idRegion AND user_has_region.User_idUser_region= ?
+                                                            WHERE name_country = 'Espanha'";
+                                                    $stmt2 = mysqli_stmt_init($link2);
+                                                    if (mysqli_stmt_prepare($stmt2, $query2)) {
 
                                                         /* execute the prepared statement */
-                                                        if (mysqli_stmt_execute($stmt)) {
+                                                        if (mysqli_stmt_execute($stmt2)) {
                                                             /* bind result variables */
-                                                            mysqli_stmt_bind_result($stmt, $idRegion, $name_region, $Region_idRegion);
+                                                            mysqli_stmt_bind_result($stmt2, $idRegion, $name_region, $Region_idRegion);
 
                                                             /* fetch values */
-                                                            while (mysqli_stmt_fetch($stmt)) {
+                                                            while (mysqli_stmt_fetch($stmt2)) {
                                                                 if ($Region_idRegion == $idRegion) {
                                                                     $selected = "selected";
                                                                 } else {
@@ -816,13 +774,9 @@ if (isset($_GET["edit"])) {
 
                                                                 echo "\n\t\t<option value=\"$idRegion\" $selected>$name_region</option>";
                                                             }
-                                                        } else {
-                                                            echo "Error: " . mysqli_stmt_error($stmt);
+                                                            /* close statement */
+                                                            mysqli_stmt_close($stmt2);
                                                         }
-                                                        /* close statement */
-                                                        //mysqli_stmt_close($stmt);
-                                                    } else {
-                                                        echo "Error: " . mysqli_error($link);
                                                     }
                                                     ?>
                                                 </select>
@@ -838,19 +792,19 @@ if (isset($_GET["edit"])) {
                                                     <option selected disabled>Seleciona uma opção</option>
                                                     <?php
                                                     $query2 = "SELECT idRegion, name_region, Region_idRegion FROM region 
-                                                INNER JOIN country ON region.country_idcountry = country.idcountry
-                                                LEFT JOIN user_has_region ON  region.idRegion= user_has_region.Region_idRegion AND user_has_region.User_idUser_region= ?
-                                                                    WHERE name_country = 'Bélgica'";
-
-                                                    if (mysqli_stmt_prepare($stmt, $query2)) {
+                                                            INNER JOIN country ON region.country_idcountry = country.idcountry
+                                                            LEFT JOIN user_has_region ON  region.idRegion= user_has_region.Region_idRegion AND user_has_region.User_idUser_region= ?
+                                                            WHERE name_country = 'Bélgica'";
+                                                    $stmt2 = mysqli_stmt_init($link2);
+                                                    if (mysqli_stmt_prepare($stmt2, $query2)) {
 
                                                         /* execute the prepared statement */
-                                                        if (mysqli_stmt_execute($stmt)) {
+                                                        if (mysqli_stmt_execute($stmt2)) {
                                                             /* bind result variables */
-                                                            mysqli_stmt_bind_result($stmt, $idRegion, $name_region, $Region_idRegion);
+                                                            mysqli_stmt_bind_result($stmt2, $idRegion, $name_region, $Region_idRegion);
 
                                                             /* fetch values */
-                                                            while (mysqli_stmt_fetch($stmt)) {
+                                                            while (mysqli_stmt_fetch($stmt2)) {
                                                                 if ($Region_idRegion == $idRegion) {
                                                                     $selected = "selected";
                                                                 } else {
@@ -858,13 +812,9 @@ if (isset($_GET["edit"])) {
                                                                 }
                                                                 echo "\n\t\t<option value=\"$idRegion\" $selected>$name_region</option>";
                                                             }
-                                                        } else {
-                                                            echo "Error: " . mysqli_stmt_error($stmt);
+                                                            /* close statement */
+                                                            mysqli_stmt_close($stmt2);
                                                         }
-                                                        /* close statement */
-                                                        //mysqli_stmt_close($stmt);
-                                                    } else {
-                                                        echo "Error: " . mysqli_error($link);
                                                     }
                                                     ?>
                                                 </select>
@@ -883,16 +833,16 @@ if (isset($_GET["edit"])) {
                                                 INNER JOIN country ON region.country_idcountry = country.idcountry
                                                 LEFT JOIN user_has_region ON  region.idRegion= user_has_region.Region_idRegion AND user_has_region.User_idUser_region= ?
                                                                     WHERE name_country = 'Islândia'";
-
-                                                    if (mysqli_stmt_prepare($stmt, $query2)) {
+                                                    $stmt2 = mysqli_stmt_init($link2);
+                                                    if (mysqli_stmt_prepare($stmt2, $query2)) {
 
                                                         /* execute the prepared statement */
-                                                        if (mysqli_stmt_execute($stmt)) {
+                                                        if (mysqli_stmt_execute($stmt2)) {
                                                             /* bind result variables */
-                                                            mysqli_stmt_bind_result($stmt, $idRegion, $name_region, $Region_idRegion);
+                                                            mysqli_stmt_bind_result($stmt2, $idRegion, $name_region, $Region_idRegion);
 
                                                             /* fetch values */
-                                                            while (mysqli_stmt_fetch($stmt)) {
+                                                            while (mysqli_stmt_fetch($stmt2)) {
                                                                 if ($Region_idRegion == $idRegion) {
                                                                     $selected = "selected";
                                                                 } else {
@@ -900,13 +850,9 @@ if (isset($_GET["edit"])) {
                                                                 }
                                                                 echo "\n\t\t<option value=\"$idRegion\" $selected>$name_region</option>";
                                                             }
-                                                        } else {
-                                                            echo "Error: " . mysqli_stmt_error($stmt);
+                                                            /* close statement */
+                                                            mysqli_stmt_close($stmt2);
                                                         }
-                                                        /* close statement */
-                                                        //mysqli_stmt_close($stmt);
-                                                    } else {
-                                                        echo "Error: " . mysqli_error($link);
                                                     }
                                                     ?>
                                                 </select>
@@ -959,7 +905,7 @@ if (isset($_GET["edit"])) {
                                             <input type="submit" class="btn guardar_btn" value="Guardar">
                                             <span></span>
                                             <a href="profile.php?user=<?= $idUser ?>">
-                                            <input type="text" class="btn cancel_btn" value="Cancelar">
+                                                <input type="text" class="btn cancel_btn" value="Cancelar">
                                             </a>
                                         </div>
                                     </div>
@@ -973,13 +919,17 @@ if (isset($_GET["edit"])) {
             <?php
                     }
                 }
+                /* close statement */
+                mysqli_stmt_close($stmt);
             }
             ?>
             </div>
         </div>
 
     <?php
-
+    /* close connection */
+    mysqli_close($link);
+    mysqli_close($link2);
 } else {
     include("404.php");
 } //fim do else se não existir o GET

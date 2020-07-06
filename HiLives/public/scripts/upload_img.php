@@ -49,7 +49,8 @@ if (isset($_POST["image"])) {
         } else {
             echo "Error: " . mysqli_error($link);
         }
-
+        /* close connection */
+        mysqli_close($link);
         // mysql_query("update SQL statement ");
         echo "Image Uploaded Successfully!";
     }
