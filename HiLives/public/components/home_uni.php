@@ -4,6 +4,8 @@ include "navbar_2.php";
 $link = new_db_connection();
 $stmt = mysqli_stmt_init($link);
 
+$link2 = new_db_connection();
+
 $query = "SELECT idUser, name_user, profile_img FROM users 
             WHERE User_type_idUser_type = 10 
             ORDER BY idUser DESC 
@@ -106,71 +108,109 @@ $query3 = "SELECT idVacancies, vacancie_name, name_user, profile_img, name_inter
 </div>
 
 
-<!--CARDS-->
-<div class="w-75 mx-auto">
-    <div id='wrapper_title'>
-        <div class='tagpost-top section' id='tagpost-top'>
-            <div class='widget HTML' id='HTML5'>
-                <div data-aos="fade-up">
-                    <h3 class="mb-4 main_title">Destaques</h3>
+    <!--CARDS DESTAQUES-->
+    <div class="w-75 mx-auto">
+        <div id='wrapper_title'>
+            <div class='tagpost-top section' id='tagpost-top'>
+                <div class='widget HTML' id='HTML5'>
+                    <div data-aos="fade-up">
+                        <h3 class="mb-4 main_title">Destaques</h3>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row container_highlights ">
-        <?php
-        $stmt = mysqli_stmt_init($link);
-        if (mysqli_stmt_prepare($stmt, $query2)) {
-            mysqli_stmt_execute($stmt);
-            mysqli_stmt_bind_result($stmt, $idUser, $name_user, $profile_img, $history_ue);
-            mysqli_stmt_store_result($stmt); // Store the result into memory
-            if (mysqli_stmt_num_rows($stmt) >= 2) { // Check the number of rows returned
-                while (mysqli_stmt_fetch($stmt)) {
-        ?>
-                    <div class="cards col-xs-12 col-md-6">
-                        <div class="card-item">
+        <div class="row container_highlights ">
+            <?php
 
-                            <div class="card-image">
-                                <?php
-                                if (isset($profile_img)) {
-                                ?>
-                                    <img alt="<?= $profile_img ?>" title="" class="imagem" src="../admin/uploads/img_perfil/<?= $profile_img ?>">
-                                <?php
-                                } else {
-                                ?>
-                                    <img alt="" title="" class="imagem" src="img/destaque.jpg">
-                                <?php
+            $query4 = "SELECT COUNT(idUser) FROM users WHERE User_type_idUser_type = 13";
+            $stmt = mysqli_stmt_init($link);
+            if (mysqli_stmt_prepare($stmt, $query4)) {
+
+                mysqli_stmt_execute($stmt);
+                mysqli_stmt_bind_result($stmt, $nr_total);
+
+                if (mysqli_stmt_fetch($stmt)) {
+
+                    $array_destaques = array();
+                    $registos_mostra = 2;
+
+                    if ($nr_total >= $registos_mostra) {
+
+                        for ($i = 1; $i <= $registos_mostra; $i++) {
+
+                            $n_ale = rand(1, $nr_total);
+                            $registo_ja_existe = in_array($n_ale, $array_destaques);
+
+                            if ($registo_ja_existe == "") {
+                                array_push($array_destaques, $n_ale);
+
+                                $offset = $n_ale - 1;
+                                $query2 = "SELECT idUser, name_user, profile_img, history_ue FROM users 
+                            WHERE User_type_idUser_type = 13
+                            LIMIT 1 OFFSET $offset";
+                                $stmt2 = mysqli_stmt_init($link2);
+                                if (mysqli_stmt_prepare($stmt2, $query2)) {
+
+                                    mysqli_stmt_execute($stmt2);
+                                    mysqli_stmt_bind_result($stmt2, $id_uni, $name_user, $profile_img, $history_ue);
+
+                                    mysqli_stmt_fetch($stmt2)
+                                    ?>
+
+                                    <div class="cards col-xs-12 col-md-6">
+                                        <div class="card-item">
+
+                                            <div class="card-image">
+                                                <?php
+                                                if (isset($profile_img)) {
+                                                    ?>
+                                                    <img alt="<?= $profile_img ?>" title="" class="imagem" src="../admin/uploads/img_perfil/<?= $profile_img ?>">
+                                                    <?php
+                                                } else {
+                                                    ?>
+                                                    <img alt="" title="" class="imagem" src="img/destaque.jpg">
+                                                    <?php
+                                                }
+                                                ?>
+                                            </div>
+                                            <div class="card-info">
+                                                <h2 class="card-title sub_title"><?= $name_user ?></h2>
+                                                <p class="card-intro description_title"><?= substr($history_ue, 0, 168) ?>...</p>
+                                                <a href="about_university.php?u=<?= $id_uni ?>">
+                                                    <button class="btn_destaques">Ver mais</button>
+                                                </a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+
+                                    <?php
                                 }
-                                ?>
-                            </div>
-                            <div class="card-info">
-                                <h2 class="card-title sub_title"><?= $name_user ?></h2>
-                                <p class="card-intro description_title"><?= substr($history_ue, 0, 168) ?>...</p>
-                                <a href="about_university.php?u=<?= $idUser ?>">
-                                    <button class="btn_destaques">Ver mais</button>
-                                </a>
-                            </div>
-
-                        </div>
-                    </div>
-                <?php
+                                /* close statement */
+                                mysqli_stmt_close($stmt2);
+                            } else {
+                                $i--;
+                            }
+                        }
+                    } else {
+                        ?>
+                        <p class="mx-auto mt-3 mb-5" style="font-size: 1rem;">
+                            <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
+                                <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
+                            </svg>
+                            Ainda não existe nenhum destaque para te mostrar.
+                        </p>
+                        <?php
+                    }
                 }
                 /* close statement */
                 mysqli_stmt_close($stmt);
-            } else {
-                ?>
-                <p class="mx-auto mt-3 mb-5" style="font-size: 1rem;">
-                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
-                        <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
-                    </svg>
-                    Ainda não existe nenhum destaque para mostrar.
-                </p>
-        <?php
             }
-        }
-        ?>
+
+            ?>
+        </div>
     </div>
-</div>
 
 
 <div class="w-75 mx-auto list_links">
@@ -215,7 +255,17 @@ $query3 = "SELECT idVacancies, vacancie_name, name_user, profile_img, name_inter
                                                 <p class="mb-0 link_info">
                                                     <i class="fa fa-briefcase mr-1" aria-hidden="true"></i><?= $name_user ?>
                                                 </p>
-                                                <p class="mb-0 link_title"><?= $vacancie_name ?></p>
+                                                <?php
+                                                if (strlen($vacancie_name) > 36) {
+                                                    ?>
+                                                    <p class="mb-0 link_title"><?= substr($vacancie_name, 0, 36) ?>...</p>
+                                                    <?php
+                                                } else {
+                                                    ?>
+                                                    <p class="mb-0 link_title"><?= substr($vacancie_name, 0, 36) ?></p>
+                                                    <?php
+                                                }
+                                                ?>
                                                 <p class="mb-0 link_subtitle"><?= $name_interested_area ?></p>
                                             </li>
                                         </a>
