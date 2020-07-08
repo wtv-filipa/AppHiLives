@@ -288,7 +288,7 @@
                                         <h5 class="titulo_cinza" role="heading">Sobre mim</h5>
                                         <!------------COMPETÊNCIAS------------>
                                         <div class="form-group">
-                                            <h6 class="negrito mt-4" for="capacity" role="heading">As minhas competências (assinalar apenas as que melhor se adequam)<span class="asterisco">*</span></h6>
+                                            <h6 class="negrito mt-4" for="capacity" role="heading">As frases que melhor me descrevem (selecionar cinco ou mais frases)<span class="asterisco">*</span></h6>
                                             <div class="form-check">
                                                 <?php
                                                 $query = "SELECT idcapacities, capacity FROM capacities";

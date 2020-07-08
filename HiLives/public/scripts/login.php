@@ -5,10 +5,11 @@ if (!empty($_POST["email"]) && !empty($_POST["password"])) {
     require_once("../connections/connection.php");
 
     $link = new_db_connection();
-    $link2 = new_db_connection();
-
     $stmt = mysqli_stmt_init($link);
+    
+    $link2 = new_db_connection();
     $stmt2 = mysqli_stmt_init($link2);
+
     $query = "SELECT idUser, email_user, password, User_type_idUser_type, active, type_user
                 FROM users 
                 INNER JOIN user_type ON users.User_type_idUser_type = user_type.idUser_type
@@ -39,7 +40,21 @@ if (!empty($_POST["email"]) && !empty($_POST["password"])) {
                         include "match_uni_login.php";
                         header("Location: ../home_people.php");
                     } else if ($type_user == "Empresa") {
-                        header("Location: ../home_companies.php");
+                        $query2 = "SELECT idVacancies FROM vacancies WHERE User_publicou = ?";
+                        if (mysqli_stmt_prepare($stmt2, $query2)) {
+                            mysqli_stmt_bind_param($stmt2, 'i', $idUser);
+                            mysqli_stmt_execute($stmt2);
+                            mysqli_stmt_bind_result($stmt2, $idVacancies);
+                            while (mysqli_stmt_fetch($stmt2)) {
+                                //echo "$idVacancies <br>";
+                                include "match_comp.php";
+                                header("Location: ../home_companies.php");
+                            }
+                            
+                            mysqli_stmt_close($stmt2);
+                            mysqli_close($link2);
+                        }
+                        
                     } else if ($type_user == "Universidade") {
                         include "match_young_login.php";
                         header("Location: ../home_uni.php");

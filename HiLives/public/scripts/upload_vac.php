@@ -99,8 +99,8 @@ if ($_FILES['fileToUpload']['size'] != 0) {
 
                         // VALIDAÇÃO DO RESULTADO DO EXECUTE
                         if (mysqli_stmt_execute($stmt1)) {
-                            $last_vac = mysqli_insert_id($link1);
-                            /* echo "num vaga: $last_vac";
+                            $idVacancies = mysqli_insert_id($link1);
+                            /* echo "num vaga: $idVacancies";
                             // SUCCESS ACTION
                             echo "ESTÁ NA BD <br>";
  */
@@ -114,7 +114,7 @@ if ($_FILES['fileToUpload']['size'] != 0) {
                                 //parte do insert
                                 if (mysqli_stmt_prepare($stmt, $query2)) {
 
-                                    mysqli_stmt_bind_param($stmt, 'ii', $last_vac, $capacities_idcapacities);
+                                    mysqli_stmt_bind_param($stmt, 'ii', $idVacancies, $capacities_idcapacities);
 
                                     // PARA TODAS AS CAPACIDADES ESCOLHIDAS
                                     foreach ($_POST["capacity"] as $capacities_idcapacities) {
@@ -136,6 +136,8 @@ if ($_FILES['fileToUpload']['size'] != 0) {
                                 header("Location: ../upload_vac.php");
                                 $_SESSION["vac"] = 1;
                             }
+                            //match
+                            include "match_comp.php";
                             //SUCESSO
                             header("Location: ../all_vacancies_comp.php");
                             $_SESSION["vac"] = 1;
@@ -188,8 +190,8 @@ if ($_FILES['fileToUpload']['size'] != 0) {
 
             // VALIDAÇÃO DO RESULTADO DO EXECUTE
             if (mysqli_stmt_execute($stmt)) {
-                $last_vac = mysqli_insert_id($link);
-                /*  echo "num vaga: $last_vac";
+                $idVacancies = mysqli_insert_id($link);
+                /*  echo "num vaga: $idVacancies";
                 // SUCCESS ACTION
                 echo "ESTÁ NA BD <br>"; */
 
@@ -201,7 +203,7 @@ if ($_FILES['fileToUpload']['size'] != 0) {
                     //parte do insert
                     if (mysqli_stmt_prepare($stmt, $query2)) {
 
-                        mysqli_stmt_bind_param($stmt, 'ii', $last_vac, $capacities_idcapacities);
+                        mysqli_stmt_bind_param($stmt, 'ii', $idVacancies, $capacities_idcapacities);
 
                         // PARA TODAS AS CAPACIDADES ESCOLHIDAS
                         foreach ($_POST["capacity"] as $capacities_idcapacities) {
@@ -223,6 +225,8 @@ if ($_FILES['fileToUpload']['size'] != 0) {
                     header("Location: ../upload_vac.php");
                     $_SESSION["vac"] = 2;
                 }
+                //match
+                include "match_comp.php";
                 //SUCESSO
                 header("Location: ../all_vacancies_comp.php");
                 $_SESSION["vac"] = 1;

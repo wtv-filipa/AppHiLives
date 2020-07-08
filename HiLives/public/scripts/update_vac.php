@@ -338,6 +338,8 @@ if (isset($_GET["idvac"]) && !empty($_POST["nomevaga"]) && !empty($_POST["descri
 
             /* close connection */
             mysqli_close($link);
+            //match
+            include "match_comp.php";
             //sucess
              header("Location: ../all_vacancies_comp.php");
             $_SESSION["vac"] = 3; 

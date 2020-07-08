@@ -123,12 +123,6 @@ if (mysqli_stmt_prepare($stmt2, $query20)) {
                             array_push($capacidades_match[$idVacancies], $capacities_idcapacities);
                         }
                     } //fim do segundo while
-
-                    /* echo " array capacidades_match <br>";
-                    echo "<pre>" . print_r($capacidades_match, true) . "</pre>";  */
-                    //VERIFICAR CONDIÇÕES PARA REALIZAR O MATCH
-                    //fim do primeiro foreach
-                    //var_dump($capacidades_jovem);
                 } //fecho do if da query22
             } //fecho do primeiro while
         }

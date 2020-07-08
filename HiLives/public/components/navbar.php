@@ -223,13 +223,13 @@ $stmt = mysqli_stmt_init($link);
 
                 <?php
                 if (isset($_SESSION["idUser"])) {
-
+                    $idUser = $_SESSION["idUser"];
                 ?>
                     <div class="col-4 text-center p-0">
                         <?php
                         if ($User_type == 10) {
                         ?>
-                            <a class="navbar-brand mx-auto" href="home_people.php">
+                            <a class="navbar-brand mx-auto" href="scripts/match_logo.php?jovem=<?= $idUser?>">
                                 <img src="img/logo.svg" class="img-responsive logo" alt="Logótipo do HiLives">
                             </a>
                         <?php
@@ -239,7 +239,7 @@ $stmt = mysqli_stmt_init($link);
                         <?php
                         if ($User_type == 7) {
                         ?>
-                            <a class="navbar-brand mx-auto" href="home_companies.php">
+                            <a class="navbar-brand mx-auto" href="scripts/match_logo.php?emp=<?= $idUser?>">
                                 <img src="img/logo.svg" class="img-responsive logo" alt="Logótipo do HiLives">
                             </a>
                         <?php
@@ -249,7 +249,7 @@ $stmt = mysqli_stmt_init($link);
                         <?php
                         if ($User_type == 13) {
                         ?>
-                            <a class="navbar-brand mx-auto" href="home_uni.php">
+                            <a class="navbar-brand mx-auto" href="scripts/match_logo.php?uni=<?= $idUser?>">
                                 <img src="img/logo.svg" class="img-responsive logo" alt="Logótipo do HiLives">
                             </a>
                         <?php
