@@ -60,7 +60,7 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
             </div>
         </div>
 
-        <div class="card-slider mt-5">
+        <div class="card-slider mt-4">
             <?php
             if ($type == 10) {
                 if (mysqli_stmt_prepare($stmt, $query)) {
@@ -210,7 +210,7 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
             </div>
         </div>
 
-        <div class="card-slider mt-5">
+        <div class="card-slider mt-4">
             <?php
             if ($type == 10) {
                 $stmt = mysqli_stmt_init($link);
