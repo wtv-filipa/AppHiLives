@@ -7,6 +7,12 @@ include "navbar_2.php";
         <h1 class="titulo1">Mapa da Aplicação</h1>
     </div>
 
+<!--    <div>-->
+<!--        <h6 class="ml-5"> - <a href="#jovem">Jovens</a></h6>-->
+<!--        <h6 class="ml-5"> - <a href="#universidade">Universidades</a></h6>-->
+<!--        <h6 class="ml-5"> - <a href="#empresa">Empresas</a></h6>-->
+<!--    </div>-->
+
     <!--INDEX-->
     <div class="mt-5">
         <h3>
@@ -31,7 +37,7 @@ include "navbar_2.php";
     </div>
 
     <!--PÁGINA INICIAL - JOVEM-->
-    <div class="mt-5">
+    <div class="mt-5" id="jovem">
         <h3>
             <a href="home_people.php" target="_blank">Página inicial - Jovem</a>
         </h3>
@@ -156,49 +162,38 @@ include "navbar_2.php";
     </div>
 
     <!--PÁGINA INICIAL - UNIVERSIDADE-->
-    <div class="mt-5">
+    <div class="mt-5" id="universidade">
         <h3>Página inicial - Universidades</h3>
 
         <span class="mt-3">Menu principal "Eu quero":</span>
         <ol>
             <li>
-                <span>OUTRO TITULO</span>
+                <span>Candidatos</span>
             </li>
             <li>
-                <a href="can_choose_study.php" target="_blank">OUTRO TITULO</a>
+                <a href="can_choose_study.php" target="_blank">Vagas das Empresas</a>
             </li>
             <li>
-                <a href="all_options_uni.php" target="_blank">OUTRO TITULO</a>
-            </li>
-        </ol>
-
-
-        <span>OUTRO TITULO</span>
-        <ol>
-            <li>
-                <a href="can_choose_work.php" target="_blank">As minhas ligações</a>
-            </li>
-            <ol type="a">
-                <li>
-                    <a href="#">Vagas de trabalho que posso escolher</a>
-                </li>
-                <li>
-                    <a href="#">Percursos de aprendizagem</a>
-                </li>
-            </ol>
-            <li>
-                <a href="allOptions_company.php" target="_blank">Todas as opções disponíveis</a>
+                <a href="all_options_uni.php" target="_blank">Experiências dos Jovens</a>
             </li>
         </ol>
 
 
-        <span>OUTRO TITULO</span>
+        <span>Candidatos</span>
         <ol>
             <li>
-                <a href="can_choose_ws.php" target="_blank">As minhas ligações</a>
+                <a href="choose_study.php" target="_blank">As minhas ligações</a>
             </li>
             <li>
-                <a href="allOptions.php" target="_blank">Todas as opções disponíveis</a>
+                <a href="allOptions.php" target="_blank">Todos os jovens</a>
+            </li>
+        </ol>
+
+
+        <span>Vagas das Empresas</span>
+        <ol>
+            <li>
+                <a href="allOptions_company.php" target="_blank">Todas as vagas</a>
             </li>
         </ol>
 
@@ -206,7 +201,7 @@ include "navbar_2.php";
         <span>Experiências:</span>
         <ol>
             <li>
-                <a href="links_made.php" target="_blank">Experiências dos jovens</a>
+                <a href="experiences.php" target="_blank">Todas as experiências</a>
             </li>
         </ol>
 
@@ -253,57 +248,49 @@ include "navbar_2.php";
     </div>
 
     <!--PÁGINA INICIAL - EMPRESAS-->
-    <div class="mt-5">
+    <div class="mt-5" id="empresa">
         <h3>Página inicial - Empresas</h3>
 
         <span class="mt-3">Menu principal "Eu quero":</span>
         <ol>
             <li>
-                <span>OUTRO TITULO</span>
+                <span>Candidatos</span>
             </li>
             <li>
-                <a href="can_choose_study.php" target="_blank">OUTRO TITULO</a>
+                <a href="can_choose_study.php" target="_blank">Vagas</a>
             </li>
             <li>
-                <a href="all_options_uni.php" target="_blank">OUTRO TITULO</a>
-            </li>
-        </ol>
-
-
-        <span>OUTRO TITULO</span>
-        <ol>
-            <li>
-                <a href="can_choose_work.php" target="_blank">As minhas ligações</a>
-            </li>
-            <ol type="a">
-                <li>
-                    <a href="#">Vagas de trabalho que posso escolher</a>
-                </li>
-                <li>
-                    <a href="#">Percursos de aprendizagem</a>
-                </li>
-            </ol>
-            <li>
-                <a href="allOptions_company.php" target="_blank">Todas as opções disponíveis</a>
+                <a href="all_options_uni.php" target="_blank">Experiências dos Jovens</a>
             </li>
         </ol>
 
 
-        <span>OUTRO TITULO</span>
+        <span>Candidatos</span>
         <ol>
             <li>
-                <a href="can_choose_ws.php" target="_blank">As minhas ligações</a>
+                <a href="can_choose_work.php" target="_blank">Os meus candidatos</a>
             </li>
             <li>
-                <a href="allOptions.php" target="_blank">Todas as opções disponíveis</a>
+                <a href="allOptions_company.php" target="_blank">Todos os jovens</a>
             </li>
         </ol>
 
 
-        <span>Experiências:</span>
+        <span>Vagas</span>
         <ol>
             <li>
-                <a href="links_made.php" target="_blank">Experiências dos jovens</a>
+                <a href="all_vacancies_comp.php" target="_blank">As minhas vagas</a>
+            </li>
+            <li>
+                <a href="upload_vac.php" target="_blank">Criar vaga</a>
+            </li>
+        </ol>
+
+
+        <span>Experiência dos jovens:</span>
+        <ol>
+            <li>
+                <a href="experiences.php" target="_blank">Todas as experiências</a>
             </li>
         </ol>
 
