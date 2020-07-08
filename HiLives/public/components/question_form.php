@@ -16,29 +16,33 @@
                 responder!</p>
         </div>
         <!----------->
-        <form class="md-form inserir_nome mb-2" action="scripts/data_question_form.php" enctype="multipart/form-data"
-              method="post">
+        <form class="md-form inserir_nome mb-2"  action="https://formspree.io/xoqkkprl"
+              method="POST" enctype="multipart/form-data">
             <!--Nome do utilizador-->
             <div class="form-group text-left">
                 <label class="label-margin" for="nome_user">Nome:</label>
-                <input type="text" id="nome_user" name="nome_user" class="form-control"
-                       placeholder="Escreve aqui o teu nome...">
+                <input type="text" id="nome_user" name="name" class="form-control"
+                       placeholder="Escreve aqui o teu nome..."
+                       required="required"
+                       name="name">
             </div>
             <!-------------------------------------------->
             <!--E-Mail do utilizador-->
             <div class="form-group text-left">
                 <label class="label-margin" for="mail_user">E-mail:</label>
-                <input type="text" id="mail_user" name="mail_user" class="form-control"
-                       placeholder="Escreve aqui o teu e-mail...">
+                <input type="text" id="mail_user" name="mail" class="form-control"
+                       placeholder="Escreve aqui o teu e-mail..."
+                       required="required"
+                       name="email">
             </div>
             <!-------------------------------------------->
             <!--Assunto do e-mail e sugestão/dúvida-->
             <div class="form-group text-left">
                 <label class="label-margin" for="sugestao">Dúvida/Sugestão:</label>
-                <input type="text" name="assunto" class="form-control mb-1"
-                       placeholder="Escreve aqui o assunto do teu e-mail...">
                 <textarea rows="7" type="text" id="sugestao" name="sugestao" class="form-control" maxlength="500"
-                          placeholder="Escreve aqui a tua dúvida ou sugestão..."></textarea>
+                          placeholder="Escreve aqui a tua dúvida ou sugestão..."
+                          required="required"
+                          name="message"></textarea>
             </div>
             <!-------------------------------------------->
 
