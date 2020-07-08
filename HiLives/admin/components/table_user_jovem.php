@@ -20,7 +20,48 @@ if (isset($_SESSION["idUser"])) {
   <!-- Page Heading -->
   <h1 class="h3 mb-2">Jovens</h1>
   <p class="mb-4">Aqui é possível visualizar e gerir todos os jovens inscritos na aplicação até ao momento.</p>
+  <?php
+  if (isset($_SESSION["jovem"])) {
+    $msg_show = true;
+    switch ($_SESSION["jovem"]) {
+      case 1:
+        $message = "Utilizador bloqueado com sucesso!";
+        $class = "alert-success";
+        $_SESSION["jovem"] = 0;
+        break;
+      case 2:
+        $message = "Ocorreu um erro a processar o seu pedido, por favor tente novamente mais tarde.";
+        $class = "alert-warning";
+        $_SESSION["jovem"] = 0;
+        break;
+      case 3:
+        $message = "Utilizador desbloqueado com sucesso!";
+        $class = "alert-success";
+        $_SESSION["jovem"] = 0;
+        break;
+      case 4:
+        $message = "Utilizador eliminado com sucesso!";
+        $class = "alert-success";
+        $_SESSION["jovem"] = 0;
+        break;
+      case 0:
+        $msg_show = false;
+        break;
+      default:
+        $msg_show = false;
+        $_SESSION["jovem"] = 0;
+    }
 
+    if ($msg_show == true) {
+      echo "<div class=\"alert $class alert-dismissible fade show mt-5\" role=\"alert\">" . $message . "
+                                <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+                                <span aria-hidden=\"true\">&times;</span>
+                                </button>
+                                </div>";
+      echo '<script>window.onload=function (){$(\'.alert\').alert();}</script>';
+    }
+  }
+  ?>
   <!-- DataTales Example -->
   <div class="card shadow mb-4">
     <div class="card-body">
@@ -78,7 +119,7 @@ if (isset($_SESSION["idUser"])) {
                 </tr>
 
             <?php
-              //Modal de ativar e desativar
+                //Modal de ativar e desativar
                 include('components/active_modal.php');
                 //Modal de eliminar o utilizador
                 include('components/delete_modal.php');

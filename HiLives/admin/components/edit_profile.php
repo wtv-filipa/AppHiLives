@@ -34,67 +34,99 @@ if (isset($_GET["edit"])) {
 
                         <div class="col-xs-12 col-md-4">
 
-                        <div class="text-center">
-                                        <div class="avatar-upload">
-                                            <div class="avatar-edit">
-                                                <input style="display: none" type="file" id="fileToUpload" name="fileToUpload image" accept=".png, .jpg, .jpeg" />
-                                                <label class="label" for="fileToUpload"><i class="fas fa-edit mx-auto my-auto  text-align-center"></i></label>
-                                                <input id="userIDhidden" value="<?=$idUser?>" style="display: none;"></input>
+                            <div class="text-center">
+                                <div class="avatar-upload">
+                                    <div class="avatar-edit">
+                                        <input style="display: none" type="file" id="fileToUpload" name="fileToUpload image" accept=".png, .jpg, .jpeg" />
+                                        <label class="label" for="fileToUpload"><i class="fas fa-edit mx-auto my-auto  text-align-center"></i></label>
+                                        <input id="userIDhidden" value="<?= $idUser ?>" style="display: none;"></input>
+                                    </div>
+                                    <?php
+                                    //var_dump($img_perfil);
+                                    if (isset($profile_img)) {
+                                    ?>
+                                        <img id="img_perf" class="image_profile" src="../admin/uploads/img_perfil/<?= $profile_img ?>" alt="<?= $profile_img ?>" />
+                                    <?php
+                                    } else {
+                                    ?>
+                                        <img id="img_perf" class="image_profile" src="img/no_profile_img.png" alt="sem imagem de perfil" />
+
+                                    <?php
+                                    }
+                                    ?>
+                                </div>
+                                <div class="alert alert-warning mt-3" role="alert">
+                                    <span>Carrega no botão que está em cima da imagem para alterar a tua imagem.</span>
+                                </div>
+                                <!----------------------MODAL DE CROP--------------->
+                                <div id="uploadimageModal" class="modal" role="dialog">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">Importar e cortar a imagem de perfil</h4>
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
                                             </div>
-                                            <?php
-                                            //var_dump($img_perfil);
-                                            if (isset($profile_img)) {
-                                            ?>
-                                                <img id="img_perf" class="image_profile" src="../admin/uploads/img_perfil/<?= $profile_img ?>" alt="<?= $profile_img ?>" />
-                                            <?php
-                                            } else {
-                                            ?>
-                                                <img id="img_perf" class="image_profile" src="img/no_profile_img.png" alt="sem imagem de perfil" />
-
-                                            <?php
-                                            }
-                                            ?>
-                                        </div>
-                                        <div class="alert alert-warning mt-3" role="alert">
-                                            <span>Carrega no botão que está em cima da imagem para alterar a tua imagem.</span>
-                                        </div>
-                                        <!----------------------MODAL DE CROP--------------->
-                                        <div id="uploadimageModal" class="modal" role="dialog">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h4 class="modal-title">Importar e cortar a imagem de perfil</h4>
-                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <div class="row mx-auto">
-                                                        <div class="col-12 text-center">
-                                                            <div id="image_demo" style="display:block; margin:auto;"></div>
-                                                        </div>
-
+                                            <div class="modal-body">
+                                                <div class="row mx-auto">
+                                                    <div class="col-12 text-center">
+                                                        <div id="image_demo" style="display:block; margin:auto;"></div>
                                                     </div>
+
                                                 </div>
-                                                <div class="modal-footer">
-                                                    <div class="row">
-                                                        <div class="col-md-4">
-                                                            <button class="buttonCustomise btn btn-primary crop_image" value="Upload Image" name="Submit"> Editar</button>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-                                                        </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <button class="buttonCustomise btn btn-primary crop_image" value="Upload Image" name="Submit"> Editar</button>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                        <!------------------->
                                 </div>
+                                <!------------------->
+                            </div>
                         </div>
 
 
                         <!-- edit form column -->
                         <div class="col-xs-12 col-md-8">
                             <form class="form-horizontal" role="form" method="post" action="scripts/update_profile.php?id=<?= $idUser ?>">
+                                <?php
+                                if (isset($_SESSION["erro"])) {
+                                    $msg_show = true;
+                                    switch ($_SESSION["erro"]) {
+                                        case 1:
+                                            $message = "Ocorreu um erro a processar o seu pedido, por favor tente novamente mais tarde.";
+                                            $class = "alert-warning";
+                                            $_SESSION["erro"] = 0;
+                                            break;
+                                        case 2:
+                                            $message = "É necessário ter todos os campos obrigatórios preenchidos.";
+                                            $class = "alert-warning";
+                                            $_SESSION["erro"] = 0;
+                                            break;
+                                        case 0:
+                                            $msg_show = false;
+                                            break;
+                                        default:
+                                            $msg_show = false;
+                                            $_SESSION["erro"] = 0;
+                                    }
+
+                                    if ($msg_show == true) {
+                                        echo "<div class=\"alert $class alert-dismissible fade show mt-5\" role=\"alert\">" . $message . "
+                                <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+                                <span aria-hidden=\"true\">&times;</span>
+                                </button>
+                                </div>";
+                                        echo '<script>window.onload=function (){$(\'.alert\').alert();}</script>';
+                                    }
+                                }
+                                ?>
                                 <!------------****------------>
                                 <p style="font-size: 12px; color: #00A5CF !important;">* Campos de preenchimento obrigatório.</p>
                                 <!--primeiro input-NOME-->

@@ -1,4 +1,5 @@
 <?php
+session_start();
 if (isset($_GET["id"]) && !empty($_POST["nome"]) && !empty($_POST["email"]) && !empty($_POST["data_nasc"])) {
     echo "estou a editar o administrador";
     $idUser = $_GET["id"];
@@ -25,15 +26,10 @@ if (isset($_GET["id"]) && !empty($_POST["nome"]) && !empty($_POST["email"]) && !
     if (mysqli_stmt_prepare($stmt, $query)) {
 
         mysqli_stmt_bind_param($stmt, 'ssssi', $nome, $email, $tlm, $data_nasc, $idUser);
-
-        /* execute the prepared statement */
         if (!mysqli_stmt_execute($stmt)) {
-            /*header("Location: ../editar_conta.php?edit=" . $nickname . "&msg=1");
-            */
-            echo "erro da stmt execute <br/>";
-            echo "Error: " . mysqli_stmt_error($stmt);
+            header("Location: ../edit_profile.php?edit=$idUser");
+            $_SESSION["erro"] = 1;
         } else {
-            echo "we did it";
             //REGIÃO
             if (!empty($_POST["regiao"])) {
                 // APAGAR TODOS AS REGIÕES ASSOCIADAS AO USER
@@ -43,18 +39,18 @@ WHERE User_idUser_region = ?";
                 if (mysqli_stmt_prepare($stmt, $query2)) {
 
                     mysqli_stmt_bind_param($stmt, 'i', $idUser);
-
-                    /* execute the prepared statement */
                     if (!mysqli_stmt_execute($stmt)) {
-                        echo "Error: " . mysqli_stmt_error($stmt);
+                        header("Location: ../edit_profile.php?edit=$idUser");
+                        $_SESSION["erro"] = 1;
                     }
-
                     /* close statement */
                     mysqli_stmt_close($stmt);
+                } else {
+                    header("Location: ../edit_profile.php?edit=$idUser");
+                    $_SESSION["erro"] = 1;
                 }
-                /* create a prepared statement */
-                $stmt = mysqli_stmt_init($link);
 
+                $stmt = mysqli_stmt_init($link);
                 // INSERIR AS NOVAS REGIÕES ESCOLHIDAS
                 $query3 = "INSERT INTO user_has_region (User_idUser_region, Region_idRegion)
               VALUES (?, ?)";
@@ -64,31 +60,28 @@ WHERE User_idUser_region = ?";
                     mysqli_stmt_bind_param($stmt, 'ii', $idUser, $idRegion);
 
                     $idRegion = $_POST["regiao"];
-                    /* execute the prepared statement */
                     if (!mysqli_stmt_execute($stmt)) {
-                        echo "Error: " . mysqli_stmt_error($stmt);
-                    } else {
-                        echo "inseriu a região";
+                        header("Location: ../edit_profile.php?edit=$idUser");
+                        $_SESSION["erro"] = 1;
                     }
                     /* close statement */
                     mysqli_stmt_close($stmt);
+                } else {
+                    header("Location: ../edit_profile.php?edit=$idUser");
+                    $_SESSION["erro"] = 1;
                 }
                 /* close connection */
                 mysqli_close($link);
             } //FIM DO ISSET DA REGIÃO
         }
-        /* close statement */
-        //mysqli_stmt_close($stmt);
-        echo $idUser;
-        //header("Location: ../edit_profile.php?edit=$idUser");
-        echo "sucesso";
+        //SUCCESS
+        header("Location: ../index.php");
+        $_SESSION["erro"] = 2;
     } else {
-        //header("Location: ../editar_conta.php?edit=" . $nickname . "&msg=1");*/
-        echo " erro do stmt prepare <br/>";
-        echo "Error: " . mysqli_stmt_error($stmt);
+        header("Location: ../edit_profile.php?edit=$idUser");
+        $_SESSION["erro"] = 1;
     }
-    /* close connection */
-    //mysqli_close($link);
-}else {
-    echo "faltam campos obrigatórios";
+} else {
+    header("Location: ../edit_profile.php?edit=$idUser");
+    $_SESSION["erro"] = 2;
 }

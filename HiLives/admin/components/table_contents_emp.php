@@ -20,7 +20,38 @@ if (isset($_SESSION["idUser"])) {
   <!-- Page Heading -->
   <h1 class="h3 mb-2 text-gray-800">Vídeos publicados pelas empresas</h1>
   <p class="mb-4">Aqui é possível visualizar e gerir todos os vídeos publicados pelas empresas, juntamente com as suas vagas, até ao momento.</p>
+  <?php
+  if (isset($_SESSION["cont_emp"])) {
+    $msg_show = true;
+    switch ($_SESSION["cont_emp"]) {
+      case 1:
+        $message = "Vídeo eliminado com sucesso!";
+        $class = "alert-success";
+        $_SESSION["cont_emp"] = 0;
+        break;
+      case 2:
+        $message = "Ocorreu um erro a processar o seu pedido, por favor tente novamente mais tarde.";
+        $class = "alert-warning";
+        $_SESSION["cont_emp"] = 0;
+        break;
+      case 0:
+        $msg_show = false;
+        break;
+      default:
+        $msg_show = false;
+        $_SESSION["cont_emp"] = 0;
+    }
 
+    if ($msg_show == true) {
+      echo "<div class=\"alert $class alert-dismissible fade show mt-5\" role=\"alert\">" . $message . "
+                                <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+                                <span aria-hidden=\"true\">&times;</span>
+                                </button>
+                                </div>";
+      echo '<script>window.onload=function (){$(\'.alert\').alert();}</script>';
+    }
+  }
+  ?>
   <!-- DataTales Example -->
   <div class="card shadow mb-4">
     <div class="card-body">

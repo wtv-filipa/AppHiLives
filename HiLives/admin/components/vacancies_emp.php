@@ -20,7 +20,38 @@ if (isset($_SESSION["idUser"])) {
   <!-- Page Heading -->
   <h1 class="h3 mb-2 text-gray-800">Vagas publicadas por empresas</h1>
   <p class="mb-4">Aqui é possível visualizar e gerir todas as vagas publicadas por empresas na aplicação até ao momento.</p>
+  <?php
+  if (isset($_SESSION["vac"])) {
+    $msg_show = true;
+    switch ($_SESSION["vac"]) {
+      case 1:
+        $message = "Vaga eliminada com sucesso!";
+        $class = "alert-success";
+        $_SESSION["vac"] = 0;
+        break;
+      case 2:
+        $message = "Ocorreu um erro a processar o seu pedido, por favor tente novamente mais tarde.";
+        $class = "alert-warning";
+        $_SESSION["vac"] = 0;
+        break;
+      case 0:
+        $msg_show = false;
+        break;
+      default:
+        $msg_show = false;
+        $_SESSION["vac"] = 0;
+    }
 
+    if ($msg_show == true) {
+      echo "<div class=\"alert $class alert-dismissible fade show mt-5\" role=\"alert\">" . $message . "
+                                <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+                                <span aria-hidden=\"true\">&times;</span>
+                                </button>
+                                </div>";
+      echo '<script>window.onload=function (){$(\'.alert\').alert();}</script>';
+    }
+  }
+  ?>
   <!-- DataTales Example -->
   <div class="card shadow mb-4">
     <div class="card-body">
@@ -61,7 +92,7 @@ if (isset($_SESSION["idUser"])) {
                       <i class="fas fa-info-circle"></i>
                     </a>
                     <a href="#" data-toggle="modal" data-target="#deletevac<?= $row_vac['idVacancies'] ?>">
-                    <i class="fas fa-trash"></i>
+                      <i class="fas fa-trash"></i>
                     </a>
                   </td>
                 </tr>
