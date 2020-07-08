@@ -95,10 +95,9 @@ include "navbar_2.php";
 
         <p>A <b>segunda</b> contém os menus:</p>
         <ol>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li>Experiências</li>
+            <li>Candidatos</li>
+            <li>Vagas de Empresas</li>
+            <li>Experiências de Jovens</li>
         </ol>
 
         <p><b>NOTA:</b> O menu <b>"Eu quero"</b> possui as <b>mesmas opções</b> que estão presentes na segunda barra de
@@ -106,9 +105,9 @@ include "navbar_2.php";
 
         <p>Ainda na página inicial, as universidades terão acesso a informações sobre:</p>
         <ol>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li>Últimas entradas de jovens</li>
+            <li>Destaques</li>
+            <li>Últimas vagas publicadas por empresas</li>
         </ol>
 
         <p><b>DICA:</b> Em qualquer página, ao clicar no logótipo da HiLives, o utilizador será automaticamente
@@ -131,10 +130,9 @@ include "navbar_2.php";
 
         <p>A <b>segunda</b> contém os menus:</p>
         <ol>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li>Experiências</li>
+            <li>Candidatos</li>
+            <li>Vagas</li>
+            <li>Experiências de jovens</li>
         </ol>
 
         <p><b>NOTA:</b> O menu <b>"Eu quero"</b> possui as <b>mesmas opções</b> que estão presentes na segunda barra de
@@ -142,9 +140,7 @@ include "navbar_2.php";
 
         <p>Ainda na página inicial, as universidades terão acesso a informações sobre:</p>
         <ol>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li>Ligações recentes</li>
         </ol>
 
         <p><b>DICA:</b> Em qualquer página, ao clicar no logótipo da HiLives, o utilizador será automaticamente
