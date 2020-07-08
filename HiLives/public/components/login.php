@@ -80,7 +80,7 @@
                                 </form>
                                 <hr>
                                 <div class="text-center">
-                                    <a class="small" href="forgot-password.php">Esqueceste-te da tua palavra-passe?</a>
+                                    <a class="small" href="forgot_password.php">Esqueceste-te da tua palavra-passe?</a>
                                 </div>
                                 <div class="text-center">
                                     <a class="small" href="../index.php">Ainda não estás inscrito? Faz o teu registo!</a>

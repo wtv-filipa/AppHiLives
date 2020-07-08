@@ -9,6 +9,7 @@ $stmt5 = mysqli_stmt_init($link5);
 //MATCH
 
 $query8 = "INSERT INTO young_university (User_young, User_university, Area) VALUES (?, ?, ?)";
+
 //Esta query vai fazr um select dos users que são universidades e ao mesmo tempo já os relaciona com os jovens que têm a mesma area
 $query9 = "SELECT User_idUser, Areas_idAreas, User_type_idUser_type, name_interested_area, name_region FROM user_has_areas 
 INNER JOIN users ON user_has_areas.User_idUser = users.idUser 
@@ -19,7 +20,11 @@ WHERE User_type_idUser_type = 13
 AND Areas_idAreas IN (SELECT Areas_idAreas FROM user_has_areas WHERE user_has_areas.User_idUser = ? ) 
 AND Region_idRegion IN (SELECT Region_idRegion FROM user_has_region WHERE user_has_region.User_idUser_region= ?)";
 //verificar o que existe na tabela do match
-$query10 = "SELECT User_young, User_university, Area FROM young_university WHERE User_young = ? AND User_university = ? AND Area = ?";
+$query10 = "SELECT User_young, User_university, Area, login_young FROM young_university WHERE User_young = ? AND User_university = ? AND Area = ?";
+
+$query20 ="SELECT name_user FROM users
+            WHERE idUser = ?";
+$query12 ="INSERT INTO notifications(text_noti, User_idUser)";
 
 //prepare da query que seleciona o que está em comum
 if (mysqli_stmt_prepare($stmt3, $query9)) {
@@ -33,7 +38,7 @@ if (mysqli_stmt_prepare($stmt3, $query9)) {
             mysqli_stmt_bind_param($stmt5, 'iis', $idUser, $User_idUser, $name_interested_area);
 
             mysqli_stmt_execute($stmt5);
-            mysqli_stmt_bind_result($stmt5, $User_young, $User_university, $Area);
+            mysqli_stmt_bind_result($stmt5, $User_young, $User_university, $Area, $login_young);
             if (mysqli_stmt_fetch($stmt5)) {
                 //echo "areas já inseridas <br>";
             } else {
@@ -48,6 +53,43 @@ if (mysqli_stmt_prepare($stmt3, $query9)) {
                         //echo "match feito <br>";
                         // SUCCESS ACTION
                         //header("Location: ../grupo_indv.php?id_g=".$id_g."&msg=1");
+                        if (mysqli_stmt_prepare($stmt3, $query20)) {
+                            mysqli_stmt_bind_param($stmt3, 'i', $User_idUser);
+                            mysqli_stmt_execute($stmt3);
+                            mysqli_stmt_bind_result($stmt3, $name_user_uni);
+                            while (mysqli_stmt_fetch($stmt3)) {
+
+                                if ($login_young == 0) {
+                                    $text = "<br>Tens uma nova ligação com a área " . $name_interested_area . " na " . $name_user_uni . "!";
+                                    echo $text;
+
+                                    if (mysqli_stmt_prepare($stmt3, $query12)) {
+                                        mysqli_stmt_bind_param($stmt3, 'si', $text, $idUser);
+                                        mysqli_stmt_execute($stmt3);
+                                        mysqli_stmt_bind_result($stmt3, $name_user_uni);
+                                        if (mysqli_stmt_execute($stmt3)) {
+                                            echo "inseriu";
+                                        }
+                                    }
+
+
+                                    $query11 = "UPDATE young_university
+                                SET login_young = 1
+                                WHERE User_young = ? AND User_university = ? AND Area = ?";
+
+                                    if (mysqli_stmt_prepare($stmt, $query11)) {
+                                        mysqli_stmt_bind_param($stmt, 'iis', $idUser, $User_idUser, $name_interested_area);
+                                        /* execute the prepared statement */
+                                        if (!mysqli_stmt_execute($stmt)) {
+
+                                        }
+                                        /* close statement */
+                                        mysqli_stmt_close($stmt);
+                                    }
+                                }
+
+                            }
+                        }
                     }
                 } else {
                     // ERROR ACTION

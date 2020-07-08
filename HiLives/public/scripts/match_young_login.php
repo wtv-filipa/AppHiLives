@@ -49,6 +49,9 @@ if (mysqli_stmt_prepare($stmt3, $query18)) {
                         echo "match feito <br>";
                         // SUCCESS ACTION
                         //header("Location: ../grupo_indv.php?id_g=".$id_g."&msg=1");
+
+
+
                     }
                 } else {
                     // ERROR ACTION
