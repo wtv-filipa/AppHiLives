@@ -38,12 +38,6 @@
             max-width: 100%;
         }
         
-        #wrapper_title {
-            padding-top: 3% !important;
-            width: 750px;
-            max-width: 100%;
-        }
-        
         .main_title {
             font-family: "Quicksand";
             font-weight: bold;
@@ -102,7 +96,7 @@
             width: 180px;
             height: 180px;
             border-radius: 50%;
-            margin: 30px auto 10px;
+            margin: 5px auto 10px;
             background-color: #fed;
             backgroun-position: center;
             background-size: cover;
@@ -187,7 +181,7 @@
         }
         .card-title {
             line-height: 1.1em;
-            color: black;
+            color: #2F2F2F;
             margin-bottom: 0.2em;
         }
 
