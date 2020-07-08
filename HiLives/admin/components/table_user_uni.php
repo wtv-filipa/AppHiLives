@@ -16,7 +16,48 @@ if (isset($_SESSION["idUser"])) {
   <!-- Page Heading -->
   <h1 class="h3 mb-2 text-gray-800">Universidades</h1>
   <p class="mb-4">Aqui é possível visualizar e gerir todas as Universidades inscritas na aplicação até ao momento.</p>
+  <?php
+  if (isset($_SESSION["uni"])) {
+    $msg_show = true;
+    switch ($_SESSION["uni"]) {
+      case 1:
+        $message = "Utilizador bloqueado com sucesso!";
+        $class = "alert-success";
+        $_SESSION["uni"] = 0;
+        break;
+      case 2:
+        $message = "Ocorreu um erro a processar o seu pedido, por favor tente novamente mais tarde.";
+        $class = "alert-warning";
+        $_SESSION["uni"] = 0;
+        break;
+      case 3:
+        $message = "Utilizador desbloqueado com sucesso!";
+        $class = "alert-success";
+        $_SESSION["uni"] = 0;
+        break;
+      case 4:
+        $message = "Utilizador eliminado com sucesso!";
+        $class = "alert-success";
+        $_SESSION["uni"] = 0;
+        break;
+      case 0:
+        $msg_show = false;
+        break;
+      default:
+        $msg_show = false;
+        $_SESSION["uni"] = 0;
+    }
 
+    if ($msg_show == true) {
+      echo "<div class=\"alert $class alert-dismissible fade show mt-5\" role=\"alert\">" . $message . "
+                                <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+                                <span aria-hidden=\"true\">&times;</span>
+                                </button>
+                                </div>";
+      echo '<script>window.onload=function (){$(\'.alert\').alert();}</script>';
+    }
+  }
+  ?>
   <!-- DataTales Example -->
   <div class="card shadow mb-4">
     <div class="card-body">
@@ -72,10 +113,10 @@ if (isset($_SESSION["idUser"])) {
                   </td>
                 </tr>
             <?php
-            //Modal de ativar e desativar
-            include('components/active_modal.php');
-            //Modal de ativar e desativar
-            include('components/delete_modal.php');
+                //Modal de ativar e desativar
+                include('components/active_modal.php');
+                //Modal de ativar e desativar
+                include('components/delete_modal.php');
               }
             }
             ?>

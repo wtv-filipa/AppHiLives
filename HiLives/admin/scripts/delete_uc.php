@@ -1,6 +1,6 @@
 <?php
-
-if (isset($_GET['apaga'])){
+session_start();
+if (isset($_GET['apaga'])) {
     echo "estou a apagar uma UC";
     $idUC = $_GET["apaga"];
     require_once "../connections/connection.php";
@@ -12,20 +12,20 @@ if (isset($_GET['apaga'])){
     //PRIMEIRA QUERY
     if (mysqli_stmt_prepare($stmt, $query)) {
         mysqli_stmt_bind_param($stmt, 'i', $idUC);
-
-
-        // VALIDAÇÃO DO RESULTADO DO EXECUTE
         if (!mysqli_stmt_execute($stmt)) {
-
-            //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
-            echo "Error: " . mysqli_stmt_error($stmt);
+            header("Location: ../UC_jovem.php");
+            $_SESSION["uc"] = 2;
+        } else {
+            //sucesso
+            header("Location: ../UC_jovem.php");
+            $_SESSION["uc"] = 1;
         }
         mysqli_stmt_close($stmt);
-        header("Location:../UC_jovem.php");
-        echo "sucesso";
-     
     } else {
-        echo "erro";
-        //header("Location: ../comentarios.php?id_g=$id_f&msg=0");
+        header("Location: ../UC_jovem.php");
+        $_SESSION["uc"] = 2;
     }
+} else {
+    header("Location: ../UC_jovem.php");
+    $_SESSION["uc"] = 2;
 }
