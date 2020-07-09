@@ -34,7 +34,7 @@ if (!empty($_POST["email"]) && !empty($_POST["password"])) {
                     /***********************************************/
                     //Aqui era onde tínhamos o script do match
                     // feedback de sucesso
-                    echo "$type_user";
+                    //echo "$type_user";
                     if ($type_user == "Jovem") {
                         //sendo jovem faz o match com as universidades (automaticamente ele já fica feito para as universidades, mas ele foi construído a pensar primeiro no jovem, por isso ao fazer login só pode ser feito quando é jovem)
                         include "match_uni_login.php";
@@ -61,7 +61,7 @@ if (!empty($_POST["email"]) && !empty($_POST["password"])) {
                     } else if ($type_user == "Admin") {
                         header("Location: ../../admin/index.php");
                     }
-                    echo "LOGIN DEU";
+//                    echo "LOGIN DEU";
                 } else {
                     session_start();
                     //ERRO
