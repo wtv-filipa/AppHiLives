@@ -14,7 +14,9 @@ if ($_SESSION["idUser"]) {
     $query = "SELECT Area, name_user, profile_img, id_match, user_university, favorite
             FROM young_university 
             INNER JOIN users ON young_university.User_university = users.idUser
-            WHERE User_young = ? LIMIT 6";
+            WHERE User_young = ? 
+            ORDER BY id_match DESC 
+            LIMIT 6";
 
     $query3 = "SELECT id_match_vac, User_young, Vacancies_idVacancies, match_perc, favorite, profile_img, vacancie_name, name_user
             FROM user_has_vacancies
