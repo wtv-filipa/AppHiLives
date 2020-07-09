@@ -65,7 +65,7 @@ if (isset($_SESSION["type"])) {
                                         <?php
                                         } else {
                                         ?>
-                                            <img class="imagem" src="img/def_comp.png" alt="sem imagem de perfil">
+                                            <img class="imagem" src="img/def_comp.jpg" alt="sem imagem de perfil">
                                         <?php
                                         }
                                         ?>
@@ -121,7 +121,7 @@ if (isset($_SESSION["type"])) {
                                     <?php
                                     } else {
                                     ?>
-                                        <img class="imagem" src="img/def_comp.png" alt="sem imagem de perfil">
+                                        <img class="imagem" src="img/def_comp.jpg" alt="sem imagem de perfil">
                                     <?php
                                     }
                                     ?>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (isset($_SESSION["idUser"]) and $_SESSION["type"] != 4) {
+if (isset($_SESSION["idUser"]) and $_SESSION["type"] == 7) {
 ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -40,6 +40,10 @@ if (isset($_SESSION["idUser"]) and $_SESSION["type"] != 4) {
 <?php
 } else if (isset($_SESSION["idUser"]) and $_SESSION["type"] == 4) {
     header("Location: ../admin/index.php");
+} else if (isset($_SESSION["idUser"]) and $_SESSION["type"] == 10) {
+    header("Location: home_people.php");
+} else if (isset($_SESSION["idUser"]) and $_SESSION["type"] == 13) {
+    header("Location: home_uni.php");
 } else {
     header("Location: ../public/login.php");
 }
