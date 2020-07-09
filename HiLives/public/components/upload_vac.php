@@ -67,7 +67,7 @@ $idUser = $_SESSION["idUser"];
                 Criar nova vaga</h3>
         </div>
         <!----------->
-        <form class="md-form inserir_dados" class="mb-3" action="scripts/upload_vac.php?vac=<?= $idUser ?>" enctype="multipart/form-data" method="post">
+        <form id="sectionForm" class="md-form inserir_dados" class="mb-3" action="scripts/upload_vac.php?vac=<?=$idUser?>" enctype="multipart/form-data" method="post">
             <!--primeiro campo-->
             <div class="form-group text-left">
                 <label class="label-margin" for="nomevaga">Cargo na empresa: <span style="color:  #00A5CF!important; font-weight: bold; font-size: 20px">*</span></label>
