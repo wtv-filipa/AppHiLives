@@ -533,3 +533,29 @@ button:focus {
 ul {
     list-style: none;
 }
+
+
+
+/*LANGUAGE*/
+.ui {
+
+    font-family: Quicksand, sans-serif;
+
+    font-weight: 700;
+    width: 50%;
+    cursor: pointer;
+    background: #fff;
+    padding: 0.3rem;
+}
+
+.ui2 {
+
+    font-family: Quicksand, sans-serif;
+border: none !important;
+    font-weight: 700;
+    width: 80%;
+    cursor: pointer;
+    background: #fff;
+    outline: none;
+}
+

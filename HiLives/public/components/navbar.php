@@ -259,7 +259,23 @@ $stmt = mysqli_stmt_init($link);
                 <?php
                 } else {
                 ?>
-                    <div class="col-4"></div>
+                   <div class="col-4 my-auto">
+                       <div class="db-dropdown ui"> <i class=" ml-1 fas fa-globe-europe"></i>
+                           <select class="ui2 search dropdown " style="border:none">
+                               <option class="notif_ind" value="">Português</option>
+                               <option style="" value="A">English</option>
+                               <option value="A" disabled></option>
+                               <option value="A" disabled>*Funcionalidade em desenvolvimento</option>
+
+
+                           </select>
+
+                       </div>
+                    </div>
+
+
+
+
                     <div class="col-4 text-center ">
                         <a class="navbar-brand mx-auto" href="index.php">
                             <img src="img/logo.svg" class="img-responsive logo" alt="Logótipo do HiLives">
@@ -270,6 +286,7 @@ $stmt = mysqli_stmt_init($link);
                             <button class="btn inicia_nav m-0">Inicia Sessão</button>
                         </a>
                     </div>
+
 
 
                 <?php
@@ -421,5 +438,11 @@ $stmt = mysqli_stmt_init($link);
     function closeNav() {
         document.getElementById("mySidenav").style.width = "0";
     }
+
+    $('.ui.dropdown')
+        .dropdown()
+    ;
 </script>
+
+
 <?php
