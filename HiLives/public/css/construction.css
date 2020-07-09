@@ -1,0 +1,445 @@
+/*botão*/
+.back_btn {
+    color: #00A5CF;
+    padding: 0.3rem;
+    font-size: 14px;
+    font-family: "Quicksand", sans-serif;
+    border: 0.1em solid #00A5CF;
+    border-radius: 5px;
+    font-weight: 800;
+    display: block;
+    width: 20%;
+    cursor: pointer;
+    background: #fff;
+}
+
+.back_btn:hover {
+    background-color: #00A5CF;
+    color: #fff;
+}
+
+@media only screen and (max-width: 600px) {
+    .back_btn {
+        width: 75%!important;
+    }
+    .back_btn:hover {
+        width: 75%!important;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .back_btn {
+        width: 30%!important;
+    }
+    .back_btn:hover {
+        width: 30%!important;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .back_btn {
+        width: 20%!important;
+    }
+    .back_btn:hover {
+        width: 20%!important;
+    }
+}
+
+/******************/
+.svgrelative {
+    position: relative;
+  }
+  .mainimagewrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    /* height: 98vh; */
+  }
+  
+  #XMLID_8953_ {
+    transform-origin: 224px 139px;
+    animation: 1s womanHlebalo infinite alternate ease-in-out;
+  }
+  
+  #XMLID_8566_ {
+    transform-origin: 211px 155px;
+    animation: 1.5s womanMapHand infinite alternate ease-in-out;
+  }
+  
+  #XMLID_9961_ {
+    transform-origin: 226.30294799804688px 157.3000030517578px;
+    animation: 1s womanPointHand infinite alternate ease-in-out;
+  }
+  
+  #XMLID_1691_ {
+    transform-origin: 483.5px 127.30000305175781px;
+    animation: 1s painterTool infinite alternate ease-in-out;
+  }
+  
+  #XMLID_1510_ {
+    transform-origin: 424.3625183105469px 270.3000183105469px;
+    animation: 1s painterTorso infinite alternate ease-in-out;
+  }
+  
+  #XMLID_327_,
+  #XMLID_1737_,
+  #XMLID_1678_ {
+    transform-origin: 155.88100677490235px 134.64999771118164px;
+    animation: 1s painterRhand infinite alternate ease-in-out;
+  }
+  
+  #XMLID_3327_ {
+    transform-origin: 594.368225px 149.800003px;
+    animation: 2s hammerWorkerleft infinite alternate ease-in-out;
+  }
+  
+  #XMLID_1819_ {
+    transform-origin: 560.059998px 153.600006px;
+    animation: 2s hammerWorkerHandAndHammer infinite alternate ease-in-out;
+  }
+  
+  #XMLID_2191_ {
+    transform-origin: 614.362548828125px 201.1999969482422px;
+    animation: 2s hammerWorkerTorso infinite alternate ease-in-out;
+  }
+  
+  #worker2_level {
+    transform-origin: 333px 143px;
+    animation: 1s levelMove infinite alternate ease-in-out;
+  }
+  
+  #worker4_hammer {
+    transform-origin: 608.4356079101562px 173.29998779296875px;
+    animation: 2s hammerHit infinite alternate ease-in-out;
+  }
+  
+  @keyframes womanHlebalo {
+    0% {
+      transform: scale(1, 1);
+    }
+    20% {
+      transform: scale(0.9, 0.2);
+    }
+    40% {
+      transform: scale(1.05, 1);
+    }
+    80% {
+      transform: scale(0.95, 0.2);
+    }
+    100% {
+      transform: scale(1.05, 1);
+    }
+  }
+  
+  @keyframes womanMapHand {
+    0% {
+      transform: scale(1, 1) rotateZ(-28deg);
+    }
+    20% {
+      transform: scale(0.99, 1) rotateZ(0deg);
+    }
+    40% {
+      transform: scale(1.01, 1) rotateZ(-48deg);
+    }
+    80% {
+      transform: scale(0.98, 1) rotateZ(0deg);
+    }
+    100% {
+      transform: scale(1.01, 1) rotateZ(-28deg);
+    }
+  }
+  
+  @keyframes womanPointHand {
+    0% {
+      transform: scale(1, 1);
+    }
+    20% {
+      transform: scale(0.9, 1);
+    }
+    40% {
+      transform: scale(1.05, 1);
+    }
+    80% {
+      transform: scale(0.95, 1);
+    }
+    100% {
+      transform: scale(1.05, 1);
+    }
+  }
+  
+  @keyframes painterTorso {
+    0% {
+      transform: scaleY(1);
+    }
+    20% {
+      transform: scaleY(0.98);
+    }
+    40% {
+      transform: scaleY(0.99);
+    }
+    80% {
+      transform: scaleY(1.01);
+    }
+    100% {
+      transform: scaleY(1);
+    }
+  }
+  
+  @keyframes painterTool {
+    0% {
+      transform: translateY(0);
+    }
+    20% {
+      transform: translateY(4px);
+    }
+    40% {
+      transform: translateY(2px);
+    }
+    80% {
+      transform: translateY(-2px);
+    }
+    100% {
+      transform: translateY(1px);
+    }
+  }
+  
+  @keyframes painterRhand {
+    0% {
+      transform: translateY(0);
+    }
+    20% {
+      transform: translateY(4px);
+    }
+    40% {
+      transform: translateY(2px);
+    }
+    80% {
+      transform: translateY(-2px);
+    }
+    100% {
+      transform: translateY(1px);
+    }
+  }
+  
+  @keyframes hammerWorkerleft {
+    0% {
+      transform: translate(-7px, -2px) rotateZ(-29deg) scaleX(0.99);
+    }
+    20% {
+      transform: translate(-7px, -2px) rotateZ(-29deg) scaleX(0.98);
+    }
+    40% {
+      transform: translate(-7px, -2px) rotateZ(-29deg) scaleX(0.99);
+    }
+    80% {
+      transform: translate(-7px, -2px) rotateZ(-29deg) scaleX(0.98);
+    }
+    100% {
+      transform: translate(-7px, -2px) rotateZ(-29deg) scaleX(0.99);
+    }
+  }
+  
+  @keyframes hammerWorkerHandAndHammer {
+    0% {
+      transform: rotateZ(0deg);
+    }
+    25% {
+      transform: rotateZ(0deg);
+    }
+    50% {
+      transform: rotateZ(0deg);
+    }
+    80% {
+      transform: rotateZ(-30deg);
+    }
+    100% {
+      transform: rotateZ(0deg);
+    }
+  }
+  
+  @keyframes levelMove {
+    0% {
+      transform: rotateZ(-2deg);
+    }
+    50% {
+      transform: rotateZ(0deg);
+    }
+    100% {
+      transform: rotateZ(2deg);
+    }
+  }
+  
+  @keyframes hammerWorkerTorso {
+    0% {
+      transform: translateY(0px) translateX(0px) rotateZ(2deg);
+    }
+    25% {
+      transform: translateY(0px) translateX(0px) rotateZ(0deg);
+    }
+    50% {
+      transform: translateY(0px) translateX(0px) rotateZ(1deg);
+    }
+    80% {
+      transform: translateY(0px) translateX(0px) rotateZ(-7deg);
+    }
+    100% {
+      transform: translateY(0px) translateX(0px) rotateZ(1deg);
+    }
+  }
+  
+  @keyframes hammerHit {
+    0% {
+      transform: translateY(1px) translateX(3px) rotateZ(0deg);
+    }
+    25% {
+      transform: translateY(1px) translateX(1px) rotateZ(20deg);
+    }
+    50% {
+      transform: translateY(1px) translateX(-1px) rotateZ(6deg);
+    }
+    80% {
+      transform: translateY(1px) translateX(-1px) rotateZ(-20deg);
+    }
+    100% {
+      transform: translateY(1px) translateX(-1px) rotateZ(10deg);
+    }
+  }
+   .mtssectionproblems {
+    height: 100vh;
+    display: flex;
+  }
+  
+  .mtssectionproblems .container {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+  
+  .mtssectionproblems .mtslogowrapper {
+    width: 100%;
+    text-align: center;
+    display: block;
+    margin-bottom: 9%;
+  }
+  
+  .mtssectionproblems .problemheading {
+    font-family: "Futura New";
+    font-size: 44px;
+    font-weight: bold;
+    line-height: 48px;
+    letter-spacing: 0px;
+    text-align: left;
+    color: #000;
+    margin-top: 2%;
+    margin-bottom: 25px;
+  }
+  
+  .problemphone {
+    margin-bottom: 15%;
+  }
+  
+  .probwrapper {
+    width: 100%;
+  }
+  
+  .mainimagewrapper svg {
+    max-width: 490px;
+    width: 100%;
+  }
+  
+  .mtssectionproblems .problemphone a {
+    font-family: "Futura New";
+    font-size: 30px;
+    letter-spacing: -1px;
+    text-align: left;
+    color: #000;
+    text-decoration: none;
+  }
+  
+  .mtssectionproblems .problemphone p {
+    font-size: 16px;
+    color: #aaa;
+  }
+  
+  .mtssectionproblems .mts2-footer__soc-icons {
+    margin-right: 30px;
+  }
+  
+  .mtssectionproblems .vk,
+  .mtssectionproblems .tw,
+  .mtssectionproblems .fb,
+  .mtssectionproblems .insta,
+  .mtssectionproblems .ok {
+    fill: #ea212e;
+    transition: 300ms all ease;
+  }
+  
+  .mtssectionproblems .vk:hover,
+  .mtssectionproblems .tw:hover,
+  .mtssectionproblems .fb:hover,
+  .mtssectionproblems .insta:hover,
+  .mtssectionproblems .ok:hover {
+    fill: #c30d14;
+  }
+  
+  @media (min-width: 1200px) {
+    .mtssectionproblems .container {
+      max-width: 1290px;
+    }
+  }
+  
+  @media (max-width: 1200px) {
+    .problemphone {
+      margin-bottom: 4%;
+    }
+  }
+  
+  @media (max-width: 900px) {
+    .probwrapper {
+      padding: 0 6px;
+      text-align: center;
+    }
+    .mtssectionproblems .problemphone a {
+      font-size: 28px;
+    }
+  
+    .mts2-footer__soc-block.d-flex.align-items-center {
+      justify-content: center;
+    }
+    .mtssectionproblems .mtslogowrapper {
+      width: 100%;
+      text-align: center;
+      display: block;
+      margin-bottom: 0%;
+    }
+    .problemphone {
+      margin-bottom: 3%;
+    }
+    .mtssectionproblems .mtslogowrapper svg {
+      width: 70%;
+    }
+    .mainimagewrapper svg {
+      max-width: 490px;
+      width: 86%;
+      margin: auto;
+      display: block;
+      max-height: 260px;
+    }
+    .mtssectionproblems .mts2-footer__soc-icons {
+      margin-right: 10px;
+    }
+    .mtssectionproblems .problemheading {
+      font-family: "Futura New";
+      font-size: 23px;
+      font-weight: bold;
+      line-height: 27px;
+      letter-spacing: 0px;
+      text-align: center;
+      color: #000;
+      margin-top: 2%;
+      margin-bottom: 25px;
+    }
+  }
+  

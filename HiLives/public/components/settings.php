@@ -51,15 +51,15 @@ if (isset($_SESSION["idUser"])) {
 
         <!--texto das definições-->
         <div class="mt-3 mb-3 ml-5">
-            <h6 class="mb-3"><a href="#">Notificações</a></h6>
+            <h6 class="mb-3"><a href="construction.php">Notificações</a></h6>
 
             <h6 class="mb-3"><a href="edit_profile.php?edit=<?= $id_navegar ?>">Editar as minhas informações</a></h6>
 
-            <h6 class="mb-3"><a href="#">Privacidade e segurança</a></h6>
+            <h6 class="mb-3"><a href="construction.php">Privacidade e segurança</a></h6>
 
             <h6 class="mb-3"><a href="question_form.php">Comunicar dúvidas ou sugestões</a></h6>
 
-            <h6 class="mb-3"><a href="">Ajuda</a></h6>
+            <h6 class="mb-3"><a href="help.php">Ajuda</a></h6>
 
 
         </div>
@@ -76,11 +76,11 @@ if (isset($_SESSION["idUser"])) {
         </div>
         <!--texto das definições-->
         <div class="mt-3 mb-3 ml-5">
-            <h6 class="mb-3"><a href="#">Quem pode ver as tuas informações pessoais?</a></h6>
+            <h6 class="mb-3"><a href="construction.php">Quem pode ver as tuas informações pessoais?</a></h6>
 
-            <h6 class="mb-3"><a href="#">Quem pode ver as tuas últimas disciplinas feitas?</a></h6>
+            <h6 class="mb-3"><a href="construction.php">Quem pode ver as tuas últimas disciplinas feitas?</a></h6>
 
-            <h6 class="mb-3"><a href="#">Quem pode ver as tuas áreas de interesse?</a></h6>
+            <h6 class="mb-3"><a href="construction.php">Quem pode ver as tuas áreas de interesse?</a></h6>
         </div>
         <!--segundo título-->
         <div id='wrapper_title'>
@@ -95,7 +95,7 @@ if (isset($_SESSION["idUser"])) {
         </div>
         <!--texto das definições-->
         <div class="mt-3 mb-5 ml-5">
-            <h6 class="mb-3"><a href="#">Indioma</a></h6>
+            <h6 class="mb-3"><a href="construction.php">Indioma</a></h6>
 
             <h6 class="mb-3"><a href="#" data-toggle="modal" data-target="#deleteModal<?= $idUser ?>">Eliminar a conta no HiLives</a></h6>
         </div>
