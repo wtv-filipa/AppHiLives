@@ -36,8 +36,7 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
                             <h3 class="mb-4 main_title">As minhas ligações | Estudar</h3>
                             <p style="opacity:0.8; font-size: 14px;">Nesta página encontras todas as tuas ligações com universidades e as áreas com as quais tens uma ligação.</p>
                         <?php
-                        } else
-                                if ($type == 13) {
+                        } else if ($type == 13) {
                         ?>
                             <h3 class=\"mb-4 main_title\">As minhas ligações</h3>
                             <p style="opacity:0.8; font-size: 14px;">Nesta página encontra todas as suas ligações com jovens e as áreas com as quais tem uma ligação.</p>
@@ -69,7 +68,7 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
                                         ?>
                                             <a href="scripts/update_fav.php?match=<?= $id_match ?>&fav=<?= $favorite ?>">
                                                 <button class="btn rounded-circle btn_fav">
-                                                    <i class="fa fa-heart-o" aria-hidden="true" style="color: #2F2F2F"></i>
+                                                    <i class="fa fa-heart-o" aria-hidden="true" style="color: #2F2F2F"></i><span class="sr-only">(Marcar como favorito)</span>
                                                 </button>
                                             </a>
                                         <?php
@@ -77,7 +76,7 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
                                         ?>
                                             <a href="scripts/update_fav.php?match=<?= $id_match ?>&fav=<?= $favorite ?>">
                                                 <button class="btn rounded-circle btn_fav">
-                                                    <i class="fa fa-heart" aria-hidden="true" style="color: #A31621"></i>
+                                                    <i class="fa fa-heart" aria-hidden="true" style="color: #A31621"></i><span class="sr-only">(Remover favorito)</span>
                                                 </button>
                                             </a>
                                         <?php
@@ -85,13 +84,13 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
                                         if (isset($profile_img)) {
                                         ?>
                                             <a href="profile.php?user=<?= $User_university ?>">
-                                                <div class="image" style="background-image: url('../admin/uploads/img_perfil/<?= $profile_img ?>')"></div>
+                                                <div role="img" alt="imagem da universidade <?=$name_user?>" aria-label="imagem da universidade <?=$name_user?>" class="image" style="background-image: url('../admin/uploads/img_perfil/<?= $profile_img ?>')"></div>
                                             </a>
                                         <?php
                                         } else {
                                         ?>
                                             <a href="profile.php?user=<?= $User_university ?>">
-                                                <div class="image" style="background-image: url('img/index_2.jpg')"></div>
+                                                <div role="img" alt="imagem padrão" aria-label="imagem padrão" class="image" style="background-image: url('img/index_2.jpg')"></div>
                                             </a>
                                         <?php
                                         }
@@ -140,13 +139,13 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
                                         if (isset($profile_img)) {
                                         ?>
                                             <a href="profile.php?user=<?= $User_young ?>">
-                                                <div class="image mt-4" style="background-image: url('../admin/uploads/img_perfil/<?= $profile_img ?>')"></div>
+                                                <div role="img" alt="imagem do jovem <?=$name_user?>" aria-label="imagem do jovem <?=$name_user?>" class="image mt-4" style="background-image: url('../admin/uploads/img_perfil/<?= $profile_img ?>')"></div>
                                             </a>
                                         <?php
                                         } else {
                                         ?>
                                             <a href="profile.php?user=<?= $User_young ?>">
-                                                <div class="image mt-4" style="background-image: url('img/def_jovem.png')"></div>
+                                                <div role="img" alt="imagem padrão" aria-label="imagem padrão" class="image mt-4" style="background-image: url('img/def_jovem.png')"></div>
                                             </a>
                                         <?php
                                         }

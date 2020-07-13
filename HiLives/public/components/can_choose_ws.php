@@ -54,7 +54,7 @@ if (isset($_SESSION["idUser"])) {
                                     ?>
                                         <a href="scripts/update_fav.php?match=<?= $id_match ?>&fav=<?= $favorite ?>">
                                             <button class="btn rounded-circle btn_fav">
-                                                <i class="fa fa-heart-o" aria-hidden="true" style="color: #2F2F2F"></i>
+                                                <i class="fa fa-heart-o" aria-hidden="true" style="color: #2F2F2F"></i><span class="sr-only">(Marcar como favorito)</span>
                                             </button>
                                         </a>
                                     <?php
@@ -62,7 +62,7 @@ if (isset($_SESSION["idUser"])) {
                                     ?>
                                         <a href="scripts/update_fav.php?match=<?= $id_match ?>&fav=<?= $favorite ?>">
                                             <button class="btn rounded-circle btn_fav">
-                                                <i class="fa fa-heart" aria-hidden="true" style="color: #A31621"></i>
+                                                <i class="fa fa-heart" aria-hidden="true" style="color: #A31621"></i><span class="sr-only">(Remover favorito)</span>
                                             </button>
                                         </a>
                                     <?php
@@ -70,13 +70,13 @@ if (isset($_SESSION["idUser"])) {
                                     if (isset($profile_img)) {
                                     ?>
                                         <a href="profile.php?user=<?= $User_university ?>">
-                                            <div class="image" style="background-image: url('../admin/uploads/img_perfil/<?= $profile_img ?>')"></div>
+                                            <div role="img" alt="imagem da universidade <?=$name_user?>" aria-label="imagem da universidade <?=$name_user?>" class="image" style="background-image: url('../admin/uploads/img_perfil/<?= $profile_img ?>')"></div>
                                         </a>
                                     <?php
                                     } else {
                                     ?>
                                         <a href="profile.php?user=<?= $User_university ?>">
-                                            <div class="image" style="background-image: url('img/index_2.jpg')"></div>
+                                            <div role="img" alt="imagem padrão" aria-label="imagem padrão" class="image" style="background-image: url('img/index_2.jpg')"></div>
                                         </a>
                                     <?php
                                     }
@@ -145,7 +145,7 @@ if (isset($_SESSION["idUser"])) {
                                     ?>
                                         <a href="scripts/update_fav.php?m=<?= $id_match ?>&f=<?= $favorite ?>">
                                             <button class="btn rounded-circle btn_fav">
-                                                <i class="fa fa-heart-o" aria-hidden="true" style="color: #2F2F2F"></i>
+                                                <i class="fa fa-heart-o" aria-hidden="true" style="color: #2F2F2F"></i><span class="sr-only">(Marcar como favorito)</span>
                                             </button>
                                         </a>
                                     <?php
@@ -153,7 +153,7 @@ if (isset($_SESSION["idUser"])) {
                                     ?>
                                         <a href="scripts/update_fav.php?match=<?= $id_match ?>&fav=<?= $favorite ?>">
                                             <button class="btn rounded-circle btn_fav">
-                                                <i class="fa fa-heart" aria-hidden="true" style="color: #A31621"></i>
+                                                <i class="fa fa-heart" aria-hidden="true" style="color: #A31621"></i><span class="sr-only">(Remover favorito)</span>
                                             </button>
                                         </a>
                                     <?php
@@ -161,13 +161,13 @@ if (isset($_SESSION["idUser"])) {
                                     if (isset($profile_img)) {
                                     ?>
                                         <a href="vacancie.php?vac=<?= $Vacancies_idVacancies ?>">
-                                            <div class="image" style="background-image: url('../admin/uploads/img_perfil/<?= $profile_img2 ?>')"></div>
+                                            <div role="img" alt="imagem da empresa <?=$name_user?>" aria-label="imagem da empresa <?=$name_user?>" class="image" style="background-image: url('../admin/uploads/img_perfil/<?= $profile_img2 ?>')"></div>
                                         </a>
                                     <?php
                                     } else {
                                     ?>
                                         <a href="vacancie.php?vac=<?= $Vacancies_idVacancies ?>">
-                                            <div class="image" style="background-image: url('img/index_3.jpg')"></div>
+                                            <div role="img" alt="imagem padrão" aria-label="imagem padrão" class="image" style="background-image: url('img/index_3.jpg')"></div>
                                         </a>
                                     <?php
                                     }

@@ -99,10 +99,10 @@ if ($_SESSION["idUser"]) {
 
                                                         <div class="text-right">
                                                             <a href="edit_vac.php?idvac=<?= $idVacancies ?>">
-                                                                <i class="fas fa-edit mr-1" style="color:#00A5CF!important"></i>
+                                                                <i class="fas fa-edit mr-1" style="color:#00A5CF!important"></i><span class="sr-only">(Editar vaga)</span>
                                                             </a>
                                                             <a href="#" data-toggle="modal" data-target="#deletevac<?= $idVacancies ?>">
-                                                                <i class="fas fa-trash mr-1" style="color:#2F2F2F!important"></i>
+                                                                <i class="fas fa-trash mr-1" style="color:#2F2F2F!important"></i><span class="sr-only">(Eliminar vaga)</span>
                                                             </a>
                                                         </div>
                                                     </li>

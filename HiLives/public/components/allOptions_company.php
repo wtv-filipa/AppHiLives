@@ -70,11 +70,11 @@ if (isset($_SESSION["type"])) {
                                         <?php
                                         if (isset($profile_img)) {
                                         ?>
-                                            <img class="imagem_db" src="../admin/uploads/img_perfil/<?= $profile_img ?>">
+                                            <img class="imagem_db" src="../admin/uploads/img_perfil/<?= $profile_img ?>" alt="imagem da empresa <?= $name_user ?>" title="<?= $name_user ?>">
                                         <?php
                                         } else {
                                         ?>
-                                            <img class="imagem" src="img/def_comp.jpg" alt="sem imagem de perfil">
+                                            <img class="imagem" src="img/def_comp.jpg" alt="imagem padrão" title="imagem padrão">
                                         <?php
                                         }
                                         ?>
@@ -136,11 +136,11 @@ if (isset($_SESSION["type"])) {
                                         <?php
                                         if (isset($profile_img)) {
                                         ?>
-                                            <img class="imagem_db" src="../admin/uploads/img_perfil/<?= $profile_img ?>">
+                                            <img class="imagem_db" src="../admin/uploads/img_perfil/<?= $profile_img ?>" alt="imagem da empresa <?= $name_user ?>" title="<?= $name_user ?>">
                                         <?php
                                         } else {
                                         ?>
-                                            <img class="imagem" src="img/def_comp.jpg" alt="sem imagem de perfil">
+                                            <img class="imagem" src="img/def_comp.jpg" alt="imagem padrão" title="imagem padrão">
                                         <?php
                                         }
                                         ?>
@@ -203,11 +203,11 @@ if (isset($_SESSION["type"])) {
                                         <?php
                                         if (isset($profile_img)) {
                                         ?>
-                                            <img class="imagem_db" src="../admin/uploads/img_perfil/<?= $profile_img ?>">
+                                            <img class="imagem_db" src="../admin/uploads/img_perfil/<?= $profile_img ?>" alt="imagem do jovem <?= $name_user ?>" title="<?= $name_user ?>"> 
                                         <?php
                                         } else {
                                         ?>
-                                            <img class="imagem" src="img/def_jovem_grande.jpg" alt="sem imagem de perfil">
+                                            <img class="imagem" src="img/def_jovem_grande.jpg" alt="imagem padrão" title="imagem padrão">
                                         <?php
                                         }
                                         ?>

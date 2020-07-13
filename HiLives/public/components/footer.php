@@ -45,7 +45,7 @@ if (isset($_SESSION["idUser"])) {
                 </ul>
             </div>
             <div class="col-xs-12 col-sm-6  col-lg-2 mt-4 pl-0 esconder">
-                <h6></h6>
+                
                 <ul class="footer-links">
                     <li><a href="https://assol.pt/" target="_blank">ASSOL</a></li>
                     <li><a href="https://www.formem.org.pt/" target="_blank">FORMEM</a></li>

@@ -44,19 +44,19 @@
             <!--primeiro campo-->
             <div class="form-group text-left">
                 <label class="label-margin" for="nomeuc">Nome da Unidade Curricular: <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
-                <input type="text" id="nomeuc" name="nomeuc" class="form-control" required="required">
+                <input type="text" id="nomeuc" name="nomeuc" class="form-control" aria-required="required" required="required"><span class=sr-only>(Insere o nome da unidade curricular que complestaste)</span>
             </div>
             <!-------------------------------------------->
             <!--segundo campo-->
             <div class="form-group text-left">
                 <label class="label-margin" for="uniuc">Universidade onde foi feita: <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
-                <input type="text" id="uniuc" name="uniuc" class="form-control" required="required">
+                <input type="text" id="uniuc" name="uniuc" class="form-control" aria-required="required" required="required"><span class=sr-only>(Insere o nome da universidade onde complestaste a unidade curricular)</span>
             </div>
             <!-------------------------------------------->
             <!--terceiro campo-->
             <div class="form-group text-left">
                 <label class="label-margin" for="data">Data de conclusão: <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
-                <input type="date" id="data" name="data" class="form-control" required="required">
+                <input type="date" id="data" name="data" class="form-control" aria-required="required" required="required"><span class=sr-only>(Insere a data da conclusão da unidade curricular)</span>
             </div>
             <!-------------------------------------------->
             <div>
