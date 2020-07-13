@@ -96,7 +96,33 @@ if (mysqli_stmt_prepare($stmt3, $query9)) {
         }
     }
 }
-
+//noti
+foreach ($nome_uni as $id => $areas) {
+    if (mysqli_stmt_prepare($stmt5, $query13)) {
+        mysqli_stmt_bind_param($stmt5, 'i', $id);
+        mysqli_stmt_execute($stmt5);
+        mysqli_stmt_bind_result($stmt5, $name_comp);
+        if (mysqli_stmt_fetch($stmt5)) {
+            foreach ($areas as $area) {
+                //echo "$login_young";
+                if ($login_young == 0) {
+                    $text = "Tens uma nova ligação na área " . $area . " com a " . $name_comp . ".";
+                    echo "$text";
+                    //Insere a notificação
+                    if (mysqli_stmt_prepare($stmt5, $query12)) {
+                        mysqli_stmt_bind_param($stmt5, 'si', $text, $idUser);
+                        mysqli_stmt_execute($stmt5);
+                        if (!mysqli_stmt_execute($stmt5)) {
+                            echo "Error: " . mysqli_stmt_error($stmt5);
+                        } else {
+                            //echo "inseriu";
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
 
 
 /***********************************************/
