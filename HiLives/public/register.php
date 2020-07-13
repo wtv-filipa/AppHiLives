@@ -32,7 +32,7 @@ if (!isset($_SESSION["idUser"])) {
 
         <!-- JavaScript-->
         <script>
-            (function() {
+            /* (function() {
                 console.log("ENTRO AQUI NA FUNCAO");
                 function addValidation(checkboxes) {
                     const firstCheckbox = getFirstCheckbox(checkboxes);
@@ -63,7 +63,6 @@ if (!isset($_SESSION["idUser"])) {
                 function checkValidity(checkboxes, firstCheckbox) {
                     const errorMessage = !isChecked(checkboxes) ? 'É necessário ter pelo menos uma opção selecionada.' : '';
                     firstCheckbox.setCustomValidity(errorMessage);
-                    console.log("MENSAGEM DE ERRO");
                 }
 
                 const form = document.querySelector('#register-form');
@@ -77,11 +76,11 @@ if (!isset($_SESSION["idUser"])) {
                 addValidation(subCheckboxes);
 
                 // another group of checkboxes
-                const subCheckboxes3 = form.querySelectorAll('input[name="spot[]"]');
+                const subCheckboxes3 = form.querySelectorAll('input[name="environment[]"]');
                 addValidation(subCheckboxes3);
-            })();
+            })(); */
             /***********************/
-            (function() {
+            /* (function() {
                 const form = document.querySelector('#register-form');
                 const checkboxes = form.querySelectorAll('input[name="capacity[]"]');
                 const checkboxLength = checkboxes.length;
@@ -109,7 +108,7 @@ if (!isset($_SESSION["idUser"])) {
                 }
 
                 init();
-            })();
+            })(); */
             /******/
             var select = document.getElementById("pais");
             var formularios = document.querySelectorAll('.formulario');

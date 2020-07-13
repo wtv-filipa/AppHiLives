@@ -52,8 +52,8 @@
                                 }
                                 ?>
 
-                                <!-- action="scripts/register.php"-->
-                                <form id="register-form" method="post" role="form">
+                                <!---->
+                                <form id="register-form" method="post" role="form" action="scripts/register.php">
 
                                     <?php
                                     require_once("connections/connection.php");
