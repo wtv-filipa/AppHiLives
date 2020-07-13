@@ -11,7 +11,7 @@ if (isset($_SESSION["idUser"])) {
             <!-- metadados -->
             <?php include "helpers/meta.php"; ?>
 
-            <title>Sobre universidade</title>
+            <title>História da universidade</title>
 
             <!-- Custom fonts for this template-->
             <?php include "helpers/fonts.php"; ?>
@@ -21,7 +21,7 @@ if (isset($_SESSION["idUser"])) {
 
         </head>
 
-        <body>
+        <body id="fundo">
             <header class="sticky-top">
                 <!--navbar-->
                 <?php include "components/navbar.php"; ?>

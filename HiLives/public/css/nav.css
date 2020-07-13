@@ -22,7 +22,6 @@
     /* 0.5 second transition effect to slide in the sidenav */
 }
 
-
 /* The navigation menu links */
 
 .sidenav a {
@@ -45,7 +44,6 @@
     font-family: "Quicksand", sans-serif !important;
 }
 
-
 /* Position and style the close button (top right corner) */
 
 .sidenav .closebtn {
@@ -55,7 +53,6 @@
     font-size: 36px;
     margin-left: 50px;
 }
-
 
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 
@@ -68,7 +65,6 @@
     position: absolute !important;
 }
 
-
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 
 @media screen and (max-height: 450px) {
@@ -79,7 +75,6 @@
         font-size: 18px;
     }
 }
-
 
 /* Dropdown Button */
 
@@ -98,7 +93,6 @@ button:focus {
     text-align: center;
 }
 
-
 /*imagem*/
 
 .nav__avatar--image {
@@ -111,17 +105,12 @@ button:focus {
     justify-self: center;
 }
 
-
 /*texto*/
 
 .nome {
     font-family: "Quicksand", sans-serif;
     font-size: 14px;
     color: #2F2F2F;
-}
-
-.paddings {
-    /*padding-right: 10px;*/
 }
 
 .menunav {
@@ -132,15 +121,14 @@ button:focus {
     cursor: pointer;
 }
 
-
 .alinhar_user {
     min-width: 200px !important;
 }
 
 /*media queries*/
 
-
 /* Extra small devices (phones, 600px and down) */
+
 @media only screen and (max-width: 352px) {
     .dropdown-menu1 {
         min-width: 200px !important;
@@ -151,7 +139,7 @@ button:focus {
     .dropdown-menu1 {
         min-width: 250px !important;
     }
-    .notif_ind  {
+    .notif_ind {
         padding: 0.25rem 0.25rem !important;
     }
 }
@@ -165,8 +153,8 @@ button:focus {
         position: relative;
         display: inline-block;
     }
-     /*Dropdown Content (Hidden by Default) */
-    .dropdown-menu {
+    /*Dropdown Content (Hidden by Default) */
+    .dropdown-menu.tamanho {
         margin-top: 5% !important;
         background-color: #ffffff;
         box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
@@ -175,8 +163,8 @@ button:focus {
         font-family: "Quicksand", sans-serif !important;
         min-width: 400px;
         position: absolute;
+        height: 500px;
     }
-
     /* Links inside the dropdown */
     .dropdown-menu a {
         color: #2f2f2f;
@@ -224,11 +212,9 @@ button:focus {
     }
 }
 
-
 /* Small devices (portrait tablets and large phones, 600px and up) */
+
 @media only screen and (min-width: 600px) {
-
-
     .nome {
         display: none;
     }
@@ -237,8 +223,8 @@ button:focus {
         position: relative;
         display: inline-block;
     }
-     /*Dropdown Content (Hidden by Default) */
-    .dropdown-menu {
+    /*Dropdown Content (Hidden by Default) */
+    .dropdown-menu.tamanho {
         margin-top: 5% !important;
         background-color: #ffffff;
         box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
@@ -247,7 +233,7 @@ button:focus {
         font-family: "Quicksand", sans-serif !important;
         min-width: 400px;
         position: absolute;
-
+        height: 500px;
     }
     /* Links inside the dropdown */
     .dropdown-menu a {
@@ -311,9 +297,7 @@ button:focus {
         color: #fff;
         border: 0.1em solid #2F2F2F;
     }
-
 }
-
 
 /* Medium devices (landscape tablets, 768px and up) */
 
@@ -327,7 +311,7 @@ button:focus {
         display: inline-block;
     }
     /* Dropdown Content (Hidden by Default) */
-    .dropdown-menu {
+    .dropdown-menu.tamanho {
         margin-top: 5% !important;
         background-color: #ffffff;
         box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
@@ -336,8 +320,8 @@ button:focus {
         font-family: "Quicksand", sans-serif !important;
         min-width: 400px;
         position: absolute;
+        height: 500px;
     }
-
     /* Links inside the dropdown */
     .dropdown-menu a {
         color: #2f2f2f;
@@ -389,7 +373,6 @@ button:focus {
     }
 }
 
-
 /* Large devices (laptops/desktops, 992px and up) */
 
 @media only screen and (min-width: 992px) {
@@ -402,7 +385,7 @@ button:focus {
         display: inline-block;
     }
     /* Dropdown Content (Hidden by Default) */
-    .dropdown-menu {
+    .dropdown-menu.tamanho  {
         margin-top: 5% !important;
         position: absolute;
         background-color: #ffffff;
@@ -411,6 +394,7 @@ button:focus {
         border: none;
         font-family: "Quicksand", sans-serif !important;
         min-width: 400px;
+        height: 500px;
     }
     /* Links inside the dropdown */
     .dropdown-menu a {
@@ -450,9 +434,7 @@ button:focus {
     .logo {
         width: 85px;
     }
-
 }
-
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 
@@ -466,7 +448,7 @@ button:focus {
         display: inline-block;
     }
     /* Dropdown Content (Hidden by Default) */
-    .dropdown-menu {
+    .dropdown-menu.tamanho {
         margin-top: 5% !important;
         background-color: #ffffff;
         box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
@@ -475,6 +457,7 @@ button:focus {
         font-family: "Quicksand", sans-serif !important;
         min-width: 400px;
         position: absolute;
+        height: 500px;
     }
     /* Links inside the dropdown */
     .dropdown-menu a {
@@ -516,7 +499,6 @@ button:focus {
     }
 }
 
-
 /*********************************************************/
 
 .top {
@@ -534,13 +516,10 @@ ul {
     list-style: none;
 }
 
-
-
 /*LANGUAGE*/
+
 .ui {
-
     font-family: Quicksand, sans-serif;
-
     font-weight: 700;
     width: 50%;
     cursor: pointer;
@@ -549,13 +528,11 @@ ul {
 }
 
 .ui2 {
-
     font-family: Quicksand, sans-serif;
-border: none !important;
+    border: none !important;
     font-weight: 700;
     width: 80%;
     cursor: pointer;
     background: #fff;
     outline: none;
 }
-

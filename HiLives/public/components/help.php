@@ -11,11 +11,7 @@ include "navbar_2.php";
     <!--PÁGINA INICIAL - SEM INICIO DE SESSÃO-->
     <div class="mt-5">
         <h2 class="subtitulo">O que é a HiLives?</h2>
-        <p>A HiLives é uma plataforma que permite a jovens com dificuldades intelectuais e desenvolvimentais
-            poderem frequentar áreas do seu interesse em várias universidades da União Europeia. Para além disto, a
-            HiLives permite também que estes jovens possam encontrar empregadores que correspondam às suas necessidades
-            e,
-            assim, incluí-los numa empresa.</p>
+        <p>A HiLives é uma plataforma que permite a jovens com Dificuldades Intelectuais e Desenvolvimentais frequentar áreas do seu interesse em várias universidades da União Europeia. Para além disto, a HiLives permite também que estes possam encontrar empregadores que correspondam às suas necessidades e, assim, incluí-los numa empresa.</p>
 
         <p>Se tens dúvidas acerca de como navegares pela aplicação, visita o <b><a href="sitemap.php" target="_blank">Mapa
                     da Aplicação</a></b>, e descobre como tudo está ordenado.</p>
@@ -33,9 +29,7 @@ include "navbar_2.php";
             <p>Além disto será possível, dentro da mesma página, obter mais informações sobre o conteúdo da
                 aplicação.</p>
 
-            <p>Se o jovem, universidade ou empresa já se tiver registado anteriormente, poderá <u><a href="login.php"
-                                                                                                     target="_blank">iniciar
-                        a sua sessão</a></u>
+            <p>Se o jovem, universidade ou empresa já se tiver registado anteriormente, poderá <u><a href="login.php" target="_blank">iniciar a sua sessão</a></u>
         </div>
     </div>
 
@@ -65,14 +59,14 @@ include "navbar_2.php";
 
         <p>Ainda na página inicial, o jovem poderá ver:</p>
         <ol>
-            <li>As minhas ligações recentes</li>
+            <li>Ligações recentes com universidades</li>
             <li>Destaques</li>
-            <li>Ligações com universidades</li>
+            <li>Ligações recentes com empresas</li>
         </ol>
 
         <h3 class="mt-4">O que são as <b>Ligações</b>?</h3>
         <p>As "Ligações" simbolizam o encontro de interesses entre o jovem e as universidades, ou entre os jovens
-            e as empresas. Se o jovem tiver caracteristicas que se adequam a uma determinada empresa, e que esta procura
+            e as vagas pulicadas por empresas. Se o jovem tiver caracteristicas que se adequam a uma determinada vaga, e o que esta procura
             num jovem, por exemplo, irá estabelecer-se uma "Ligação". Funciona de igual modo para as universidades.</p>
 
         <p><b>DICA:</b> Em qualquer página, ao clicar no logótipo da HiLives, o utilizador será automaticamente
@@ -174,10 +168,9 @@ include "navbar_2.php";
     </div>
 
     <!--TENS DÚVIDAS OU SUGESTÕES?-->
-    <div class="mt-5">
+    <div class="mt-5 mb-5">
         <h3 class="subtitulo">Tens dúvidas ou sugestões?</h3>
 
-        <p>Se tiveres alguma dúvida sobre a HiLives, ou uma sugestão para a tornar melhor, <b><a href="question_form.php" target="_blank">envia-nos
-                    um e-mail</a></b>. Teremos todo o gosto em ajudar-te e ler o que tens para nos dizer!</p>
+        <p>Se tiveres alguma dúvida sobre a HiLives, ou uma sugestão para a tornar melhor, <b><a href="question_form.php" target="_blank">envia-nos um e-mail</a></b>. Teremos todo o gosto em ajudar-te e ler o que tens para nos dizer!</p>
     </div>
 </div>

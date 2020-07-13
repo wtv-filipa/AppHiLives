@@ -16,7 +16,7 @@ if (isset($_SESSION["idUser"]) and $_SESSION["type"] == 10) {
 
     </head>
 
-    <body>
+    <body id="fundo">
         <header class="sticky-top">
             <!--navbar-->
             <?php include "components/navbar.php"; ?>

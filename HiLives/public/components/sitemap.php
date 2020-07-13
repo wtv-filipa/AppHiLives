@@ -7,12 +7,6 @@ include "navbar_2.php";
         <h1 class="titulo1">Mapa da Aplicação</h1>
     </div>
 
-<!--    <div>-->
-<!--        <h6 class="ml-5"> - <a href="#jovem">Jovens</a></h6>-->
-<!--        <h6 class="ml-5"> - <a href="#universidade">Universidades</a></h6>-->
-<!--        <h6 class="ml-5"> - <a href="#empresa">Empresas</a></h6>-->
-<!--    </div>-->
-
     <!--INDEX-->
     <div class="mt-5">
         <h3>
@@ -21,19 +15,13 @@ include "navbar_2.php";
 
         <span>Registo:</span>
         <ol>
-            <li class="ml-4">
-                <a href="register.php" target="_blank">Jovens</a>
-                <!--AQUI FALTA O TÍTULO NA PÁGINA "REGISTO JOVENS" - COERENCIA COM AS OUTRAS PÁGINAS-->
-            </li>
-            <li class="ml-4">
-                <a href="register_uni.php" target="_blank">Universidades</a>
-            </li>
-            <li class="ml-4">
-                <a href="register_comp.php" target="_blank">Empresas</a>
-            </li>
+            <li class="ml-4">Jovens</li>
+            <li class="ml-4">Universidades</li>
+            <li class="ml-4">Empresas </li>
         </ol>
 
-        <a href="login.php" target="_blank"> Inicia sessão</a>
+        <p> Inicia sessão</p>
+        <p> Informação sobre a aplicação</p>
     </div>
 
     <!--PÁGINA INICIAL - JOVEM-->
@@ -42,25 +30,17 @@ include "navbar_2.php";
             <a href="home_people.php" target="_blank">Página inicial - Jovem</a>
         </h3>
 
-        <span>Conteúdo:</span>
+        <h6>Conteúdo:</h6>
         <ol>
-            <li>
-                <a href="#">Ligações recentes</a>
-            </li>
-            <li>
-                <a href="#">Destaques</a>
-            </li>
-            <li>
-                <a href="#">Ligações com universidades</a>
-            </li>
+            <li>Ligações recentes com universidades</li>
+            <li>Destaques</li>
+            <li>Ligações recentes com empresas</li>
         </ol>
 
 
-        <span class="mt-3">Menu principal "Eu quero":</span>
+        <h6 class="mt-3">Menu principal "Eu quero":</h6>
+        <span>Quero estudar</span>
         <ol>
-            <li>
-                <span>Quero estudar</span>
-            </li>
             <li>
                 <a href="can_choose_study.php" target="_blank">As minhas ligações</a>
             </li>
@@ -69,19 +49,14 @@ include "navbar_2.php";
             </li>
         </ol>
 
-
         <span>Quero trabalhar:</span>
         <ol>
             <li>
                 <a href="can_choose_work.php" target="_blank">As minhas ligações</a>
             </li>
-            <ol>
-                <li>
-                    <a href="#">Vagas de trabalho que posso escolher</a>
-                </li>
-                <li>
-                    <a href="#">Percursos de aprendizagem</a>
-                </li>
+            <ol type="a">
+                <li>Vagas de trabalho que posso escolher</li>
+                <li>Percursos de aprendizagem</li>
             </ol>
             <li>
                 <a href="allOptions_company.php" target="_blank">Todas as opções disponíveis</a>
@@ -110,14 +85,10 @@ include "navbar_2.php";
             </li>
         </ol>
 
-
         <!--NOTIFICAÇÕES-->
-        <span>Notificações "O que está a acontecer"</span>
-
-        <br>
-
+        <h6>Notificações "O que está a acontecer"</h6>
         <!--MENU PERFIL-->
-        <div class="menu_espaco">Menu perfil:</div>
+        <h6 class="menu_espaco">Menu perfil:</h6>
         <ol>
             <li>
                 <a href="profile.php?user=<?= $idUser ?>" target="_blank">Sobre mim</a>
@@ -127,20 +98,21 @@ include "navbar_2.php";
                     <a href="edit_profile.php?user=<?= $idUser ?>" target="_blank">Editar as minhas informações</a>
                 </li>
                 <li>
-                    <span>Últimas disciplinas que fiz:</span>
+                    <span>Últimas unidades curriculares que fiz:</span>
                 </li>
                 <ol type="i">
+                    <li>
+                        <a href="links_made.php" target="_blank">Ver todas as que eu já fiz</a>
+                    </li>
                     <li>
                         <a href="done_uc.php" target="_blank">Adicionar novas disciplinas</a>
                     </li>
                 </ol>
-                <li>
-                    <a href="#">Áreas de interesse</a>
-                </li>
+                <li>As minhas áreas de interesse</li>
+                <li>As minhas competências</li>
+                <li>Os meus ambientes de trabalho favoritos</li>
 
-                <li>
-                    <span>As minhas experiências:</span>
-                </li>
+                <li>As minhas experiências:</li>
                 <ol type="i">
                     <li>
                         <a href="upload_xp.php" target="_blank">Adicionar uma nova experiência</a>
@@ -150,10 +122,10 @@ include "navbar_2.php";
             </ol>
 
             <li>
-                <a href="#" target="_blank">Favoritos</a>
+                <a href="favorites.php" target="_blank">Favoritos</a>
             </li>
             <li>
-                <a href="#">Definições</a>
+                <a href="settings.php">Definições</a>
             </li>
             <li>
                 <a href="scripts/logout.php">Sair da HiLives</a>
@@ -164,41 +136,31 @@ include "navbar_2.php";
     <!--PÁGINA INICIAL - UNIVERSIDADE-->
     <div class="mt-5" id="universidade">
         <h3>Página inicial - Universidades</h3>
-
-        <span class="mt-3">Menu principal "Eu quero":</span>
+        <h6>Conteúdo:</h6>
         <ol>
-            <li>
-                <span>Candidatos</span>
-            </li>
-            <li>
-                <a href="can_choose_study.php" target="_blank">Vagas das Empresas</a>
-            </li>
-            <li>
-                <a href="all_options_uni.php" target="_blank">Experiências dos Jovens</a>
-            </li>
+            <li>Últmas entradas de jovens</li>
+            <li>Destaques</li>
+            <li>Últimas vagas publicadas por empresas</li>
         </ol>
-
-
+        <h6 class="mt-3">Menu principal "Eu quero":</h6>
         <span>Candidatos</span>
         <ol>
             <li>
-                <a href="choose_study.php" target="_blank">As minhas ligações</a>
+                <a href="can_choose_study.php" target="_blank">As minhas ligações</a>
             </li>
             <li>
-                <a href="allOptions.php" target="_blank">Todos os jovens</a>
+                <a href="all_options_uni.php" target="_blank">Todos os jovens</a>
             </li>
-        </ol>
+        </ol>   
 
-
-        <span>Vagas das Empresas</span>
+        <span>Vagas de Empresas</span>
         <ol>
             <li>
                 <a href="allOptions_company.php" target="_blank">Todas as vagas</a>
             </li>
         </ol>
 
-
-        <span>Experiências:</span>
+        <span>Experiências dos Jovens</span>
         <ol>
             <li>
                 <a href="experiences.php" target="_blank">Todas as experiências</a>
@@ -207,12 +169,10 @@ include "navbar_2.php";
 
 
         <!--NOTIFICAÇÕES-->
-        <span>Notificações "O que está a acontecer"</span>
-
-        <br>
+        <h6>Notificações "O que está a acontecer"</h6>
 
         <!--MENU PERFIL-->
-        <div class="menu_espaco">Menu perfil:</div>
+        <h6 class="menu_espaco">Menu perfil:</h6>
         <ol>
             <li>
                 <a href="profile.php?user=<?= $idUser ?>" target="_blank">Sobre mim</a>
@@ -221,25 +181,11 @@ include "navbar_2.php";
                 <li>
                     <a href="edit_profile.php?user=<?= $idUser ?>" target="_blank">Editar as minhas informações</a>
                 </li>
-                <li>
-                    <span>Áreas disponíveis:</span>
-                </li>
-                <ol type="i">
-
-                    <li>
-                        <a href="done_uc.php" target="_blank">Adicionar novas áreas</a>
-                    </li>
-                </ol>
-                <li>
-                    <a href="#">Contactos</a>
-                </li>
+                <li>Áreas disponíveis</li>
+                <li>Contactos</li>
             </ol>
-
             <li>
-                <a href="#" target="_blank">Favoritos</a>
-            </li>
-            <li>
-                <a href="#">Definições</a>
+                <a href="settings.php">Definições</a>
             </li>
             <li>
                 <a href="scripts/logout.php">Sair da HiLives</a>
@@ -248,33 +194,26 @@ include "navbar_2.php";
     </div>
 
     <!--PÁGINA INICIAL - EMPRESAS-->
-    <div class="mt-5" id="empresa">
+    <div class="mt-5 mb-5" id="empresa">
         <h3>Página inicial - Empresas</h3>
-
-        <span class="mt-3">Menu principal "Eu quero":</span>
+        <h6>Conteúdo:</h6>
         <ol>
-            <li>
-                <span>Candidatos</span>
-            </li>
-            <li>
-                <a href="can_choose_study.php" target="_blank">Vagas</a>
-            </li>
-            <li>
-                <a href="all_options_uni.php" target="_blank">Experiências dos Jovens</a>
-            </li>
+            <li>Ligações recentes</li>
         </ol>
-
-
+        <h6 class="mt-3">Menu principal "Eu quero":</h6>
         <span>Candidatos</span>
         <ol>
             <li>
                 <a href="can_choose_work.php" target="_blank">Os meus candidatos</a>
             </li>
+            <ol type="a">
+                <li>Os meus candidatos</li>
+                <li>Candidatos para percurso de aprendizagem</li>
+            </ol>
             <li>
-                <a href="allOptions_company.php" target="_blank">Todos os jovens</a>
+                <a href="allOptions_company.php" target="_blank">Todas os jovens</a>
             </li>
         </ol>
-
 
         <span>Vagas</span>
         <ol>
@@ -285,9 +224,7 @@ include "navbar_2.php";
                 <a href="upload_vac.php" target="_blank">Criar vaga</a>
             </li>
         </ol>
-
-
-        <span>Experiência dos jovens:</span>
+        <span>Experiência dos jovens</span>
         <ol>
             <li>
                 <a href="experiences.php" target="_blank">Todas as experiências</a>
@@ -296,12 +233,9 @@ include "navbar_2.php";
 
 
         <!--NOTIFICAÇÕES-->
-        <span>Notificações "O que está a acontecer"</span>
-
-        <br>
-
+        <h6>Notificações "O que está a acontecer"</h6>
         <!--MENU PERFIL-->
-        <div class="menu_espaco">Menu perfil:</div>
+        <h6 class="menu_espaco">Menu perfil:</h6>
         <ol>
             <li>
                 <a href="profile.php?user=<?= $idUser ?>" target="_blank">Sobre mim</a>
@@ -310,28 +244,14 @@ include "navbar_2.php";
                 <li>
                     <a href="edit_profile.php?user=<?= $idUser ?>" target="_blank">Editar as minhas informações</a>
                 </li>
-                <li>
-                    <span>Vagas:</span>
-                </li>
-                <ol type="i">
-
-                    <li>
-                        <a href="done_uc.php" target="_blank">Adicionar nova vaga</a>
-                    </li>
-                </ol>
-                <li>
-                    <a href="#">Contactos</a>
-                </li>
+                <li>Vagas disponíveis</li>
+                <li>Contactos</li>
             </ol>
-
             <li>
-                <a href="#" target="_blank">Favoritos</a>
+                <a href="settings.php">Definições</a>
             </li>
             <li>
-                <a href="#">Definições</a>
-            </li>
-            <li>
-                <a href="scripts/logout.php">Logout</a>
+                <a href="scripts/logout.php">Sair da HiLives</a>
             </li>
         </ol>
     </div>

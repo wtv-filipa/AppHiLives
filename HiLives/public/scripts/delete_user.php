@@ -116,7 +116,7 @@ if (isset($_GET["apaga"])) {
                     mysqli_stmt_execute($stmt2);
                     mysqli_stmt_bind_result($stmt2, $content_name);
                     while (mysqli_stmt_fetch($stmt2)) {
-                        $xp = "../uploads/xp/" . $content_name;
+                        $xp = "../../admin/uploads/xp/" . $content_name;
                         echo "Experiência diretório: $xp <br>";
                         if (!unlink($xp)) {
                             //echo "erro a apagar o ficheiro da pasta <br>";
@@ -157,7 +157,7 @@ if (isset($_GET["apaga"])) {
                     mysqli_stmt_bind_result($stmt2, $profile_img);
                     while (mysqli_stmt_fetch($stmt2)) {
                         if (isset($profile_img)) {
-                            $img = "../uploads/img_perfil/" . $profile_img;
+                            $img = "../../admin/uploads/img_perfil/" . $profile_img;
                             echo "diretorio img perfil: $img <br>";
                             if (!unlink($img)) {
                                 //ERRO
@@ -361,7 +361,7 @@ if (isset($_GET["apaga"])) {
                     mysqli_stmt_bind_result($stmt2, $profile_img);
                     while (mysqli_stmt_fetch($stmt2)) {
                         if (isset($profile_img)) {
-                            $img = "../uploads/img_perfil/" . $profile_img;
+                            $img = "../../admin/uploads/img_perfil/" . $profile_img;
                             echo "diretorio img perfil: $img <br>";
                             if (!unlink($img)) {
                                 //ERRO
@@ -462,7 +462,7 @@ if (isset($_GET["apaga"])) {
                     mysqli_stmt_execute($stmt2);
                     mysqli_stmt_bind_result($stmt2, $content_name);
                     while (mysqli_stmt_fetch($stmt2)) {
-                        $xp = "../uploads/vid_vac/" . $content_name;
+                        $xp = "../../admin/uploads/vid_vac/" . $content_name;
                         echo "Experiência diretório: $xp <br>";
                         if (!unlink($xp)) {
                             //ERRO
@@ -580,7 +580,7 @@ if (isset($_GET["apaga"])) {
                     mysqli_stmt_bind_result($stmt2, $profile_img);
                     while (mysqli_stmt_fetch($stmt2)) {
                         if (isset($profile_img)) {
-                            $img = "../uploads/img_perfil/" . $profile_img;
+                            $img = "../../admin/uploads/img_perfil/" . $profile_img;
                             echo "diretorio img perfil: $img <br>";
                             if (!unlink($img)) {
                                 //ERRO

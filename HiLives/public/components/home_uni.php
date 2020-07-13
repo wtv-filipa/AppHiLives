@@ -68,7 +68,7 @@ $query3 = "SELECT idVacancies, vacancie_name, name_user, profile_img, name_inter
                                 } else {
                                     ?>
                                     <p class="mx-auto mt-3 mb-5" style="font-size: 1rem;">
-                                        <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
+                                        <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill mr-2 mb-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
                                             <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
                                         </svg>
                                         Ainda não tem nenhuma ligação com jovens.
@@ -196,10 +196,10 @@ $query3 = "SELECT idVacancies, vacancie_name, name_user, profile_img, name_inter
                     } else {
                         ?>
                         <p class="mx-auto mt-3 mb-5" style="font-size: 1rem;">
-                            <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
+                            <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill mr-2 mb-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
                                 <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
                             </svg>
-                            Ainda não existe nenhum destaque para te mostrar.
+                            Ainda não existe nenhum destaque para lhe mostrar.
                         </p>
                         <?php
                     }
@@ -256,13 +256,13 @@ $query3 = "SELECT idVacancies, vacancie_name, name_user, profile_img, name_inter
                                                     <i class="fa fa-briefcase mr-1" aria-hidden="true"></i><?= $name_user ?>
                                                 </p>
                                                 <?php
-                                                if (strlen($vacancie_name) > 36) {
+                                                if (strlen($vacancie_name) > 32) {
                                                     ?>
-                                                    <p class="mb-0 link_title"><?= substr($vacancie_name, 0, 36) ?>...</p>
+                                                    <h4 class="mb-0 link_title"><?= substr($vacancie_name, 0, 32) ?>...</h4>
                                                     <?php
                                                 } else {
                                                     ?>
-                                                    <p class="mb-0 link_title"><?= substr($vacancie_name, 0, 36) ?></p>
+                                                    <h4 class="mb-0 link_title"><?= $vacancie_name ?></h4>
                                                     <?php
                                                 }
                                                 ?>
@@ -276,7 +276,7 @@ $query3 = "SELECT idVacancies, vacancie_name, name_user, profile_img, name_inter
                                 } else {
                                     ?>
                                     <p class="mx-auto mt-3 mb-5" style="font-size: 1rem;">
-                                        <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
+                                        <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill mr-2 mb-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
                                             <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
                                         </svg>
                                         Ainda não existe nenhuma vaga para mostrar.

@@ -2,6 +2,7 @@
 session_start();
 if (isset($_SESSION["idUser"])) {
     if ($_SESSION["type"] == 10 || $_SESSION["type"] == 13) {
+        $tipo = $_SESSION["type"];
 ?>
         <!DOCTYPE html>
         <html lang="en">
@@ -9,7 +10,17 @@ if (isset($_SESSION["idUser"])) {
         <head>
             <!-- metadados -->
             <?php include "helpers/meta.php"; ?>
-            <title>Todas as opções - Universidade</title>
+            <?php
+            if ($tipo == 10) {
+            ?>
+                <title>Todas as universidades</title>
+            <?php
+            } else {
+            ?>
+                <title>Todos os Jovens</title>
+            <?php
+            }
+            ?>
             <!-- Custom fonts for this template-->
             <?php include "helpers/fonts.php"; ?>
             <!-- Custom styles for this template-->
@@ -17,7 +28,7 @@ if (isset($_SESSION["idUser"])) {
 
         </head>
 
-        <body>
+        <body id="fundo">
             <header class="sticky-top">
                 <!--navbar-->
                 <?php include "components/navbar.php"; ?>
