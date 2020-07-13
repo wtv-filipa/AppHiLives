@@ -6,13 +6,26 @@ require_once("connections/connection.php");
 $link = new_db_connection();
 $stmt = mysqli_stmt_init($link);
 
-if (isset($_SESSION["idUser"])) {
+if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
     $id_navegar = $_SESSION["idUser"];
+    $User_type = $_SESSION["type"];
 ?>
     <!--Vídeos-->
     <div class="mx-auto w-75">
         <div class="mt-5">
-            <h3>Experiências</h3>
+            <?php
+            if ($User_type == 10) {
+            ?>
+                <h3>Experiências</h3>
+                <p style="opacity:0.8; font-size: 14px;">Aqui, vais encontrar vídeos que demonstram como foram as experiências académicas e profissionais de outros utilizadores da HiLives. Podes também encontrar vídeos que mostram os ambientes das empresas ou universidades.Qualquer jovem consegue publicar uma experiência.<a href="upload_xp" target="_blank"> Adiciona a tua aqui.<a></p>
+            <?php
+            } else if ($User_type == 7 || $User_type == 13){
+            ?>
+                <h3>Experiências</h3>
+                <p style="opacity:0.8; font-size: 14px;">Aqui, vai encontrar vídeos que demonstram como foram as experiências académicas e profissionais de outros utilizadores da HiLives. Pode também encontrar vídeos que mostrar os ambientes das empresas ou universidades. Estas experiências apenas são publicadas por jovens.</p>
+            <?php
+            }
+            ?>
         </div>
 
         <div class="row mt-5">
@@ -65,7 +78,7 @@ if (isset($_SESSION["idUser"])) {
                 } else {
                     ?>
                     <p class="mx-auto mt-5 mb-5" style="font-size: 1rem; padding-bottom: 10%;">
-                        <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
+                        <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill mr-2 mb-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
                             <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
                         </svg>
                         Ainda não existe nenhuma experiência publicada.

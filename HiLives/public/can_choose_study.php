@@ -9,7 +9,7 @@ if (isset($_SESSION["idUser"])) {
         <head>
             <!-- metadados -->
             <?php include "helpers/meta.php"; ?>
-            <title>Posso escolher- Estudar</title>
+            <title>As minhas ligações</title>
             <!-- Custom fonts for this template-->
             <?php include "helpers/fonts.php"; ?>
             <!-- Custom styles for this template-->

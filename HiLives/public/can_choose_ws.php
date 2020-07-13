@@ -8,7 +8,7 @@ if (isset($_SESSION["idUser"]) and $_SESSION["type"] == 10) {
     <head>
         <!-- metadados -->
         <?php include "helpers/meta.php"; ?>
-        <title>As minhas ligações</title>
+        <title>As minhas ligações- Estudar e trabalhar</title>
         <!-- Custom fonts for this template-->
         <?php include "helpers/fonts.php"; ?>
         <!-- Custom styles for this template-->

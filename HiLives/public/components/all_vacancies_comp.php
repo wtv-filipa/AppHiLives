@@ -68,6 +68,7 @@ if ($_SESSION["idUser"]) {
                 <div class='widget HTML' id='HTML5'>
                     <div data-aos="fade-up">
                         <h3 class="mb-4 main_title adjustment_top">As minhas vagas</h3>
+                        <p style="opacity:0.8; font-size: 14px;">Aqui pode gerir todas as suas vagas publicadas até ao momento.</p>
                     </div>
                 </div>
             </div>
@@ -114,7 +115,7 @@ if ($_SESSION["idUser"]) {
                                         } else {
                                             ?>
                                             <p class="mx-auto mt-3 mb-5" style="font-size: 1rem;">
-                                                <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
+                                                <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill mr-2 mb-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
                                                     <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
                                                 </svg>
                                                 Ainda não tem nenhuma vaga adicionada. Crie uma nova vaga e comece a criar ligações com os jovens!

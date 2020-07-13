@@ -10,7 +10,7 @@ if (isset($_SESSION["idUser"]) and $_SESSION["type"] == 10) {
         <!-- metadados -->
         <?php include "helpers/meta.php"; ?>
 
-        <title>HiLives</title>
+        <title>UC's feitas</title>
 
         <!-- Custom fonts for this template-->
         <?php include "helpers/fonts.php"; ?>
@@ -20,7 +20,7 @@ if (isset($_SESSION["idUser"]) and $_SESSION["type"] == 10) {
 
     </head>
 
-    <body>
+    <body id="fundo">
         <header class="sticky-top">
             <!--navbar-->
             <?php include "components/navbar.php"; ?>

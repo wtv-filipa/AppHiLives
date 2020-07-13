@@ -8,7 +8,7 @@ if (isset($_SESSION["idUser"]) and $_SESSION["type"] != 4) {
     <head>
         <!-- metadados -->
         <?php include "helpers/meta.php"; ?>
-        <title>Detalhes da vaga</title>
+        <title>Detalhes da vaga - Percurso</title>
         <!-- Custom fonts for this template-->
         <?php include "helpers/fonts.php"; ?>
         <!-- Custom styles for this template-->
@@ -16,7 +16,7 @@ if (isset($_SESSION["idUser"]) and $_SESSION["type"] != 4) {
 
     </head>
 
-    <body>
+    <body id="fundo">
         <header class="sticky-top">
             <!--navbar-->
             <?php include "components/navbar.php"; ?>

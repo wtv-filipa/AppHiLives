@@ -16,7 +16,7 @@ if (!isset($_SESSION["idUser"])) {
 
 </head>
 
-<body>
+<body id="fundo">
     <header class="sticky-top">
         <!--navbar-->
         <?php include "public/components/navbar.php"; ?>
@@ -25,7 +25,7 @@ if (!isset($_SESSION["idUser"])) {
         <!--componente da home sem login-->
         <?php include "public/components/index.php"; ?>
     </main>
-    <?php include "public/components/footer.php"; ?>
+    <?php include "public/components/footer_index.php"; ?>
     <!-- JavaScript-->
     <?php include "public/helpers/js.php"; ?>
     <?php include "public/helpers/fontawesome.php"; ?>

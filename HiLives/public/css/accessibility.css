@@ -27,3 +27,7 @@ ol li {
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
 }
+
+#fundo {
+    background-color:rgba(242,242,242,0.7);
+}

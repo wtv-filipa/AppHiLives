@@ -1,4 +1,8 @@
-  .modal-footer {
+#fundo {
+    background-color:rgba(242,242,242,0.7);
+}
+
+ .modal-footer {
       justify-content: left;
   }
   
