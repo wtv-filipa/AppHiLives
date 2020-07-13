@@ -27,15 +27,35 @@ if (isset($_SESSION["idUser"]) and $_SESSION["type"] == 7) {
         </main>
         <!--javascript-->
         <script>
-            var select = document.getElementById("pais");
-            var formularios = document.querySelectorAll('.formulario');
+            (function() {
+                const form = document.querySelector('#sectionForm');
+                const checkboxes = form.querySelectorAll('input[type=checkbox]');
+                const checkboxLength = checkboxes.length;
+                const firstCheckbox = checkboxLength > 0 ? checkboxes[0] : null;
 
-            select.onchange = function() {
-                for (var i = 0; i < formularios.length; i++) formularios[i].style.display = 'none';
-                var divID = select.options[select.selectedIndex].value;
-                var div = document.getElementById(divID);
-                div.style.display = 'block';
-            };
+                function init() {
+                    if (firstCheckbox) {
+                        for (let i = 0; i < checkboxLength; i++) {
+                            checkboxes[i].addEventListener('change', checkValidity);
+                        }
+
+                        checkValidity();
+                    }
+                }
+
+                function isChecked() {
+                    const checkedCheckboxes = form.querySelectorAll('input[type="checkbox"]:checked');
+
+                    return checkedCheckboxes.length == 5;
+                }
+
+                function checkValidity() {
+                    const errorMessage = !isChecked() ? 'Deve selecionar cinco capacidades.' : '';
+                    firstCheckbox.setCustomValidity(errorMessage);
+                }
+
+                init();
+            })();
         </script>
         <?php include "helpers/js.php"; ?>
         <?php include "helpers/js_upload.php"; ?>

@@ -66,7 +66,7 @@ if (isset($_GET["idvac"]) and isset($_SESSION["idUser"])) {
                             <h3 class="mx-auto letter2"><?= $vacancie_name ?></h3>
                         </div>
                         <!----------->
-                        <form class="md-form inserir_dados" class="mb-3" action="scripts/update_vac.php?idvac=<?= $idVacancies ?>" method="post">
+                        <form id="sectionForm" class="md-form inserir_dados" class="mb-3" action="scripts/update_vac.php?idvac=<?= $idVacancies ?>" method="post">
                             <!--primeiro campo-->
                             <div class="form-group text-left">
                                 <label class="label-margin" for="nomevaga">Cargo na empresa: <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>

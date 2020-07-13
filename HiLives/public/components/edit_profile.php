@@ -95,9 +95,9 @@ if (isset($_GET["edit"])) {
                             </div>
 
 
-                            <!-- edit form column -->
+                            <!-- edit form column-->
                             <div class="col-xs-12 col-md-8">
-                                <form class="form-horizontal" role="form" method="post" action="scripts/update_profile.php?id=<?= $idUser ?>">
+                                <form id="sectionForm" class="form-horizontal" role="form" method="post" action="scripts/update_profile.php?id=<?= $idUser ?>">
                                     <!------------****------------>
                                     <?php
                                     if (isset($_SESSION["edit_jovem"])) {
@@ -196,7 +196,7 @@ if (isset($_GET["edit"])) {
                                     <!----------------------->
                                     <!--oitavo input-AREAS-->
                                     <div class="form-group text-left">
-                                        <label class="negrito mt-3" for="area">Áreas de interesse <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
+                                        <label class="negrito mt-3" for="area">As minhas áreas de interesse (para estudar ou trabalhar) <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
                                         <div class="form-check">
                                             <?php
                                             $query2 = "SELECT idAreas, name_interested_area, Areas_idAreas
@@ -408,9 +408,9 @@ if (isset($_GET["edit"])) {
                                     <!--EDITEI A PARTIR DAQUI-->
 
                                     <hr>
-
+                                    <h5 class="text-left titulo_cinza" role="heading">Sobre mim</h5>
                                     <div class="form-group text-left">
-                                        <label class="negrito mt-3" role="heading" for="capacity">Sobre mim <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
+                                        <label class="negrito mt-3" role="heading" for="capacity">As frases que melhor me descrevem (selecionar cinco ou mais frases) <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
                                         <!------------COMPETÊNCIAS------------>
 
                                         <div class="form-check">
@@ -489,7 +489,7 @@ if (isset($_GET["edit"])) {
 
                                     <!--quinto input-DID-->
                                     <div class="form-group text-left">
-                                        <label for="def">O que mais posso dizer sobre mim <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
+                                        <label for="def" class="negrito">O que mais posso dizer sobre mim <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
                                         <textarea class="form-control cinza" id="def" rows="7" name="def" placeholder="Por exemplo: Se tiveres alguma necessidade indica aqui (como necessidade de elevador e/ou rampas de acesso)." required="required"><?= $info_young ?></textarea>
                                     </div>
                                     <!----------------------->
@@ -583,7 +583,7 @@ if (isset($_GET["edit"])) {
 
                             <!-- edit form column -->
                             <div class="col-xs-12 col-md-8">
-                                <form class="form-horizontal" role="form" method="post" action="scripts/update_profile.php?id_uni_emp=<?= $idUser ?>">
+                                <form id="sectionForm" class="form-horizontal" role="form" method="post" action="scripts/update_profile.php?id_uni_emp=<?= $idUser ?>">
                                     <?php
                                     if (isset($_SESSION["edit"])) {
                                         $msg_show = true;
