@@ -8,8 +8,10 @@ if (!empty($_POST["nome"]) && !empty($_POST["email"]) && !empty($_POST["data_fun
     $type = 13;
 
     $link = new_db_connection();
-
     $stmt = mysqli_stmt_init($link);
+
+    $link2 = new_db_connection();
+    $stmt2 = mysqli_stmt_init($link2);
 
     $query = "INSERT INTO users (name_user, email_user, contact_user, birth_date, password, website_ue, facebook_ue, instagram_ue, description_ue, history_ue, User_type_idUser_type) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
 
@@ -43,20 +45,20 @@ if (!empty($_POST["nome"]) && !empty($_POST["email"]) && !empty($_POST["data_fun
 
                 $query2 = "INSERT INTO user_has_region (User_idUser_region, Region_idRegion) VALUES (?, ?)";
                 //parte do insert
-                if (mysqli_stmt_prepare($stmt, $query2)) {
+                if (mysqli_stmt_prepare($stmt2, $query2)) {
                     //echo "id do user: $idUser <br>";
 
-                    mysqli_stmt_bind_param($stmt, 'ii', $last_id, $idRegion);
+                    mysqli_stmt_bind_param($stmt2, 'ii', $last_id, $idRegion);
                     //echo"id da região: $idRegion<br>";
 
-                    if (!mysqli_stmt_execute($stmt)) {
+                    if (!mysqli_stmt_execute($stmt2)) {
                         //ERRO
                         header("Location: ../register_uni.php");
                         $_SESSION["register"] = 1;
                         //echo "Error: " . mysqli_stmt_error($stmt);
                     }
                     /* close statement */
-                    //mysqli_stmt_close($stmt);
+                    mysqli_stmt_close($stmt2);
                 }
                 //fim da cena do insert
 
@@ -69,20 +71,20 @@ if (!empty($_POST["nome"]) && !empty($_POST["email"]) && !empty($_POST["data_fun
 
             //INSERIR AREA
             if (!empty($_POST["area"])) {
-
+                $stmt2 = mysqli_stmt_init($link2);
 
                 $query2 = "INSERT INTO user_has_areas (User_idUser, Areas_idAreas) VALUES (?, ?)";
                 //parte do insert
-                if (mysqli_stmt_prepare($stmt, $query2)) {
+                if (mysqli_stmt_prepare($stmt2, $query2)) {
                     //echo "id do user: $idUser <br>";
 
-                    mysqli_stmt_bind_param($stmt, 'ii', $last_id, $idAreas);
+                    mysqli_stmt_bind_param($stmt2, 'ii', $last_id, $idAreas);
                     //echo"id das áreas: $idAreas<br>";
                     // PARA TODAS AS ÁREAS QUE FORAM ESCOLHIDAS
                     foreach ($_POST["area"] as $idAreas) {
                         //echo "id das áreas: $idAreas<br>";
                         /* execute the prepared statement */
-                        if (!mysqli_stmt_execute($stmt)) {
+                        if (!mysqli_stmt_execute($stmt2)) {
                             //ERRO
                             header("Location: ../register_uni.php");
                             $_SESSION["register"] = 1;
@@ -90,7 +92,7 @@ if (!empty($_POST["nome"]) && !empty($_POST["email"]) && !empty($_POST["data_fun
                         }
                     }
                     /* close statement */
-                    mysqli_stmt_close($stmt);
+                    mysqli_stmt_close($stmt2);
                 }
                 //fim da cena do insert
 
@@ -102,7 +104,7 @@ if (!empty($_POST["nome"]) && !empty($_POST["email"]) && !empty($_POST["data_fun
             //FIM INSERT ÁREA
             //SUCESSO
             header("Location: ../login.php");
-            $_SESSION["login"] = 4;
+            $_SESSION["login"] = 4; 
         } else {
             //ERRO
             header("Location: ../register_uni.php");
@@ -117,6 +119,7 @@ if (!empty($_POST["nome"]) && !empty($_POST["email"]) && !empty($_POST["data_fun
     }
     mysqli_stmt_close($stmt);
     mysqli_close($link);
+    mysqli_close($link2);
 } else {
     //ERRO
     header("Location: ../register_uni.php");

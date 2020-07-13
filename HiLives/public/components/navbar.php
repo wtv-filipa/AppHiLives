@@ -4,13 +4,13 @@
         /* Animation */
         margin: 0 auto;
     }
-
+ 
     .zoom:hover {
         transform: scale(1.1);
         /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
     }
 </style>
-
+ 
 <?php
 require_once("connections/connection.php");
 if (isset($_SESSION["type"]) && isset($_SESSION["idUser"])) {
@@ -19,7 +19,7 @@ if (isset($_SESSION["type"]) && isset($_SESSION["idUser"])) {
 }
 $link = new_db_connection();
 $stmt = mysqli_stmt_init($link);
-
+ 
 ?>
 <header class="top">
     <nav id="topNav" class="navbar fixed-top navbar-toggleable-sm">
@@ -62,7 +62,7 @@ $stmt = mysqli_stmt_init($link);
                                 <li>
                                     <a href="can_choose_work.php" class="nav__link mr-2 mb-1 zoom">
                                         <span class="nav__link--text">As minhas ligações</span>
-
+ 
                                     </a>
                                 </li>
                                 <li>
@@ -133,10 +133,10 @@ $stmt = mysqli_stmt_init($link);
                                     <li>
                                         <a href="allOptions_company.php" class="nav__link mr-2 mb-1 zoom">
                                             <span class="nav__link--text">Todas as vagas</span>
-
+ 
                                         </a>
                                     </li>
-
+ 
                                     <!-- EXPERIÊNCIAS DOS JOVENS -->
                                     <li>
                                         <a class="nav__link mr-2 mb-1 mt-4">
@@ -186,7 +186,7 @@ $stmt = mysqli_stmt_init($link);
                                                 <span class="nav__link--text">Criar uma vaga</span>
                                             </a>
                                         </li>
-
+ 
                                         <!-- EXPERIÊNCIAS DOS JOVENS -->
                                         <li>
                                             <a class="nav__link mr-2 mb-1 mt-4">
@@ -199,12 +199,12 @@ $stmt = mysqli_stmt_init($link);
                                             </a>
                                         </li>
                                     </ul>
-
+ 
                                     <?php
                                 }
                         ?>
                     </div>
-
+ 
                     <!-- Use any element to open the sidenav -->
                     <div class="col-4 text-left p-0 my-auto">
                         <span onclick="openNav()" class="menu_lado">
@@ -217,7 +217,7 @@ $stmt = mysqli_stmt_init($link);
                 ?>
                 <!--fim do menu do lado esquerdo-->
                 <!--logo no centro-->
-
+ 
                 <?php
                 if (isset($_SESSION["idUser"])) {
                     $idUser = $_SESSION["idUser"];
@@ -232,7 +232,7 @@ $stmt = mysqli_stmt_init($link);
                             <?php
                         }
                         ?>
-
+ 
                         <?php
                         if ($User_type == 7) {
                             ?>
@@ -242,7 +242,7 @@ $stmt = mysqli_stmt_init($link);
                             <?php
                         }
                         ?>
-
+ 
                         <?php
                         if ($User_type == 13) {
                             ?>
@@ -263,14 +263,14 @@ $stmt = mysqli_stmt_init($link);
                                 <option style="" value="A">English</option>
                                 <option value="A" disabled></option>
                                 <option value="A" disabled>*Funcionalidade em desenvolvimento</option>
-
-
+ 
+ 
                             </select>
-
+ 
                         </div>
                     </div>
-
-
+ 
+ 
                     <div class="col-4 text-center ">
                         <a class="navbar-brand mx-auto" href="index.php">
                             <img src="img/logo.svg" class="img-responsive logo" alt="Logótipo do HiLives">
@@ -286,7 +286,7 @@ $stmt = mysqli_stmt_init($link);
                 ?>
                 <!---------------------------------->
                 <!--botão de iniciar sessão se ainda não tive sessão-->
-
+ 
                 <!--notificações e perfil dropdown-->
                 <!--dropdowns das notificações-->
                 <div class="col-4 p-0 text-right my-auto">
@@ -302,7 +302,7 @@ $stmt = mysqli_stmt_init($link);
                                 style="overflow-y: scroll">
                                 <?php
                                 $query12 = "SELECT text_noti, date, User_idUser FROM notifications WHERE User_idUser = ?";
-
+ 
                                 if (mysqli_stmt_prepare($stmt, $query12)) {
                                     mysqli_stmt_bind_param($stmt, 'i', $idUser);
                                     mysqli_stmt_execute($stmt);
@@ -331,7 +331,7 @@ $stmt = mysqli_stmt_init($link);
                         $query = "SELECT idUser, name_user, profile_img
             FROM users
             WHERE idUser LIKE ?";
-
+ 
                         if (mysqli_stmt_prepare($stmt, $query)) {
                             mysqli_stmt_bind_param($stmt, 'i', $idUser);
                             mysqli_stmt_execute($stmt);
@@ -341,7 +341,7 @@ $stmt = mysqli_stmt_init($link);
                                 $nomes = explode(' ', $nome_todo); // separamos por espaços e fica: por exemplo Array ( [0] => Eduardo [1] => da [2] => Silva [3] => Fernandes )
                                 $nome = $nomes[0]; // primeiro nome
                                 if (isset($profile_img)) {
-
+ 
                                     ?>
                                     <button class="btn pl-0 pr-0 " type="button" role="button" id="dropdownMenuButton"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -401,27 +401,27 @@ $stmt = mysqli_stmt_init($link);
                             </a>
                         </div>
                     </div>
-
+ 
                 </div>
                 <!--fim da div container-->
     </nav>
 </header>
-
+ 
 <script>
     /* Set the width of the side navigation to 250px */
     function openNav() {
         document.getElementById("mySidenav").style.width = "340px";
     }
-
+ 
     /* Set the width of the side navigation to 0 */
     function closeNav() {
         document.getElementById("mySidenav").style.width = "0";
     }
-
+ 
     $('.ui.dropdown')
         .dropdown()
     ;
 </script>
-
-
+ 
+ 
 <?php

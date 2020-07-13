@@ -50,7 +50,7 @@
                                 ?>
 
 
-                                <form method="post" role="form" id="register-form" action="scripts/register_uni.php">
+                                <form method="post" role="form" id="register-form" action="scripts/register_uni.php" onsubmit="return handleData()">
                                     <?php
                                     require_once("connections/connection.php");
                                     $link = new_db_connection();
@@ -215,6 +215,13 @@
                                     <!------------ÁREAS------------>
                                     <div class="form-group">
                                         <label class="negrito mt-3" for="area">Áreas disponíveis para receber jovens com DID <span style="color: #00A5CF!important; font-weight: bold; font-size: 20px">*</span></label>
+                                        <!--mensagem erro-->
+                                        <div id="chk_option_error" class="alert alert-warning alert-dismissible fade show" role="alert" style="visibility:hidden;">
+                                            É obrigatório selecionar pelo menos uma área.
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
                                         <div class="form-check">
                                             <?php
                                             $query = "SELECT idAreas, name_interested_area FROM areas";
