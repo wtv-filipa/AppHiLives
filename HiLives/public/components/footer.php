@@ -32,6 +32,7 @@ if (isset($_SESSION["idUser"])) {
                     <li><a href="accessibility.php">Acessibilidade</a></li>
                     <li><a href="help.php">Ajuda</a></li>
                     <li><a href="sitemap.php">Mapa da aplicação</a></li>
+                    <li><a href="question_form.php">Contacto</a></li>
                 </ul>
             </div>
             <!------------****------------>

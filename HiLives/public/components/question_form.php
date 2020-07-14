@@ -16,7 +16,7 @@
                 responder!</p>
         </div>
         <!----------->
-        <form class="md-form inserir_nome mb-2"  action="https://formspree.io/xoqkkprl"
+        <form class="md-form inserir_nome mb-2"  action="https://formspree.io/xayplogr"
               method="POST" enctype="multipart/form-data">
             <!--Nome do utilizador-->
             <div class="form-group text-left">

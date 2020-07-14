@@ -30,8 +30,7 @@ if (isset($_SESSION["idUser"])) {
             <!--javascript-->
             <?php include "helpers/fontawesome.php"; ?>
             <?php include "helpers/js.php"; ?>
-
-
+            <script src="js/fav.js"></script>
         </body>
 
         </html>

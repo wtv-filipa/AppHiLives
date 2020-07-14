@@ -5,9 +5,10 @@ $link = new_db_connection();
 $stmt = mysqli_stmt_init($link);
 $link2 = new_db_connection();
 $stmt2 = mysqli_stmt_init($link2);
+
 $id_match = $_POST['id'];
 
-$query = "SELECT favorite FROM young_university WHERE id_match = ?";
+$query = "SELECT favorite FROM user_has_vacancies WHERE id_match_vac = ?";
 
 if (mysqli_stmt_prepare($stmt, $query)) {
 
@@ -17,9 +18,9 @@ if (mysqli_stmt_prepare($stmt, $query)) {
     mysqli_stmt_store_result($stmt);
     while (mysqli_stmt_fetch($stmt)) {
         if ($favorite == 0) {
-            $query2 = "UPDATE young_university
+            $query2 = "UPDATE user_has_vacancies
               SET favorite = 1
-              WHERE id_match = ?";
+              WHERE id_match_vac = ?";
 
             if (mysqli_stmt_prepare($stmt2, $query2)) {
                 mysqli_stmt_bind_param($stmt2, 'i', $id_match);
@@ -36,9 +37,9 @@ if (mysqli_stmt_prepare($stmt, $query)) {
                 //header("Location: ../administradores.php?msg=1");
             }
         } else {
-            $query3 = "UPDATE young_university
+            $query3 = "UPDATE user_has_vacancies
             SET favorite = 0
-            WHERE id_match = ?";
+            WHERE id_match_vac = ?";
             $stmt2 = mysqli_stmt_init($link2);
             if (mysqli_stmt_prepare($stmt2, $query3)) {
                 mysqli_stmt_bind_param($stmt2, 'i', $id_match);
@@ -59,4 +60,3 @@ if (mysqli_stmt_prepare($stmt, $query)) {
 }
 
 echo json_encode($dados);
-

@@ -26,13 +26,13 @@
 
 #wrapper_title {
     padding-top: 3% !important;
-    width: 750px;
+    max-width: 100%;
     max-width: 100%;
 }
 
 #wrapper_title {
     padding-top: 3% !important;
-    width: 750px;
+    max-width: 100%;
     max-width: 100%;
 }
 
@@ -257,7 +257,7 @@ p {
     border-radius: 50%;
     margin: 30px auto 10px;
     background-color: #fed;
-    backgroun-position: center;
+    background-position: center;
     background-size: cover;
 }
 
