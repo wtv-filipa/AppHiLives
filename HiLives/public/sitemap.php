@@ -34,6 +34,7 @@ session_start();
         <!-- JavaScript-->
         <?php include "helpers/js.php"; ?>
         <?php include "helpers/fontawesome.php"; ?>
+        <script type="text/javascript" src="js/notifications.js"></script>
     </body>
 
     </html>

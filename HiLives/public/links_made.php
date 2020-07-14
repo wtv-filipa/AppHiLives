@@ -34,6 +34,7 @@ if (isset($_SESSION["idUser"]) and $_SESSION["type"] == 10) {
 
         <?php include "helpers/fontawesome.php"; ?>
         <?php include "helpers/js.php"; ?>
+        <script type="text/javascript" src="js/notifications.js"></script>
     </body>
 
     </html>

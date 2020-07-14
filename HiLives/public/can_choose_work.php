@@ -36,6 +36,7 @@ if (isset($_SESSION["idUser"])) {
             <!--javascript-->
             <?php include "helpers/js.php"; ?>
             <script src="js/fav.js"></script>
+            <script type="text/javascript" src="js/notifications.js"></script>
             
             <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
             <script>

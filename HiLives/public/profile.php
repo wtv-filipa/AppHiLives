@@ -52,6 +52,7 @@ if (isset($_SESSION["idUser"]) and $_SESSION["type"] != 4) {
         <!-- JavaScript-->
         <?php include "helpers/js.php"; ?>
         <?php include "helpers/fontawesome.php"; ?>
+        <script type="text/javascript" src="js/notifications.js"></script>
         <script>
             $('.modal_problem').appendTo("body");
         </script>
