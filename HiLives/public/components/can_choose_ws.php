@@ -50,21 +50,16 @@ if (isset($_SESSION["idUser"])) {
                                 <div class="card">
                                     <?php
                                     if ($favorite == 0) {
-                                        echo "";
                                     ?>
-                                        <a href="scripts/update_fav.php?match=<?= $id_match ?>&fav=<?= $favorite ?>">
-                                            <button class="btn rounded-circle btn_fav">
+                                            <button class="btn rounded-circle btn_fav fav" id="<?= $id_match ?>">
                                                 <i class="fa fa-heart-o" aria-hidden="true" style="color: #2F2F2F"></i><span class="sr-only">(Marcar como favorito)</span>
                                             </button>
-                                        </a>
                                     <?php
                                     } else {
                                     ?>
-                                        <a href="scripts/update_fav.php?match=<?= $id_match ?>&fav=<?= $favorite ?>">
-                                            <button class="btn rounded-circle btn_fav">
+                                            <button class="btn rounded-circle btn_fav fav" id="<?= $id_match ?>">
                                                 <i class="fa fa-heart" aria-hidden="true" style="color: #A31621"></i><span class="sr-only">(Remover favorito)</span>
                                             </button>
-                                        </a>
                                     <?php
                                     }
                                     if (isset($profile_img)) {
@@ -141,21 +136,16 @@ if (isset($_SESSION["idUser"])) {
                                 <div class="card">
                                     <?php
                                     if ($favorite == 0) {
-                                        echo "";
                                     ?>
-                                        <a href="scripts/update_fav.php?m=<?= $id_match ?>&f=<?= $favorite ?>">
-                                            <button class="btn rounded-circle btn_fav">
+                                            <button class="btn rounded-circle btn_fav fav_emp" id="<?= $id_match_vac ?>">
                                                 <i class="fa fa-heart-o" aria-hidden="true" style="color: #2F2F2F"></i><span class="sr-only">(Marcar como favorito)</span>
                                             </button>
-                                        </a>
                                     <?php
                                     } else {
                                     ?>
-                                        <a href="scripts/update_fav.php?match=<?= $id_match ?>&fav=<?= $favorite ?>">
-                                            <button class="btn rounded-circle btn_fav">
+                                            <button class="btn rounded-circle btn_fav fav_emp" id="<?= $id_match_vac ?>">
                                                 <i class="fa fa-heart"  aria-hidden="true" style="color: #A31621"></i><span class="sr-only">(Remover favorito)</span>
                                             </button>
-                                        </a>
                                     <?php
                                     }
                                     if (isset($profile_img)) {

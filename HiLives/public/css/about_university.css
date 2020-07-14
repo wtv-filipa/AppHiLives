@@ -14,3 +14,7 @@
 #fundo {
     background-color:rgba(242,242,242,0.7);
 }
+
+.altura {
+    min-height: 450px;
+}
