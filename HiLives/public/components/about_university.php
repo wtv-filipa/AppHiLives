@@ -28,11 +28,11 @@ if (isset($_GET["u"])) {
                     <?php
                     if (isset($profile_img)) {
                     ?>
-                        <img class="img-fluid imagem mr-3 mb-2" src="../admin/uploads/img_perfil/<?= $profile_img ?>" alt="<?= $profile_img ?>" align=left width="350px" />
+                        <img class="img-fluid imagem mr-3 mb-2" src="../admin/uploads/img_perfil/<?= $profile_img ?>" alt="imagem da universidade <?=$name_user?>" title="<?=$name_user?>" align=left width="350px" title="<?=$name_user?>" />
                     <?php
                     } else {
                     ?>
-                        <img class="img-fluid imagem mr-3 mb-2" src="img/uni_icon.png" alt="sem imagem de perfil" align=left width="350px" />
+                        <img class="img-fluid imagem mr-3 mb-2" src="img/uni_icon.png" alt="imagem padrão" title="Imagem padrão" align=left width="350px" title="imagem padrão"/>
                     <?php
                     }
                     ?>

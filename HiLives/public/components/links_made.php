@@ -49,7 +49,7 @@ if (isset($_SESSION["idUser"])) {
             if ($msg_show == true) {
                 echo "<div class=\"alert $class alert-dismissible fade show mt-5\" role=\"alert\">" . $message . "
                 <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
-                <span aria-hidden=\"true\">&times;</span>
+                <span title=\"Fechar\" aria-hidden=\"true\">&times;</span>
                 </button>
                 </div>";
                 echo '<script>window.onload=function (){$(\'.alert\').alert();}</script>';
@@ -91,11 +91,11 @@ if (isset($_SESSION["idUser"])) {
                                                     <p class="instituicao"><?= $date_CU ?></p>
                                                     <div class="text-right">
                                                         <a href="edit_done_uc.php?uc=<?= $idDone_CU ?>">
-                                                            <i class="fas fa-edit mr-1" style="color:#00A5CF!important"></i>
+                                                            <i class="fas fa-edit mr-1" title="Editar Unidade Curricular" style="color:#00A5CF!important"></i>
                                                         </a>
 
                                                         <a href="#" data-toggle="modal" data-target="#deleteuc<?= $idDone_CU ?>">
-                                                            <i class="fas fa-trash mr-1" style="color:#2F2F2F!important"></i>
+                                                            <i class="fas fa-trash mr-1" title="Eliminar Unidade Curricular" style="color:#2F2F2F!important"></i>
                                                         </a>
                                                     </div>
                                                 </li>
@@ -108,7 +108,7 @@ if (isset($_SESSION["idUser"])) {
                                         } else {
                                             ?>
                                             <p class="mx-auto mt-5 mb-5" style="font-size: 1rem;">
-                                                <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
+                                                <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill mr-2 mb-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
                                                     <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
                                                 </svg>
                                                 Ainda não adicionaste nenhuma Unidade Curricular. Carrega no botão em baixo e começa a personalizar o teu perfil!

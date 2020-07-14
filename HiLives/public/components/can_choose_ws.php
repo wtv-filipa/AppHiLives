@@ -54,7 +54,7 @@ if (isset($_SESSION["idUser"])) {
                                     ?>
                                         <a href="scripts/update_fav.php?match=<?= $id_match ?>&fav=<?= $favorite ?>">
                                             <button class="btn rounded-circle btn_fav">
-                                                <i class="fa fa-heart-o" aria-hidden="true" style="color: #2F2F2F"></i>
+                                                <i class="fa fa-heart-o" aria-hidden="true" style="color: #2F2F2F"></i><span class="sr-only">(Marcar como favorito)</span>
                                             </button>
                                         </a>
                                     <?php
@@ -62,7 +62,7 @@ if (isset($_SESSION["idUser"])) {
                                     ?>
                                         <a href="scripts/update_fav.php?match=<?= $id_match ?>&fav=<?= $favorite ?>">
                                             <button class="btn rounded-circle btn_fav">
-                                                <i class="fa fa-heart" aria-hidden="true" style="color: #A31621"></i>
+                                                <i class="fa fa-heart" aria-hidden="true" style="color: #A31621"></i><span class="sr-only">(Remover favorito)</span>
                                             </button>
                                         </a>
                                     <?php
@@ -70,25 +70,26 @@ if (isset($_SESSION["idUser"])) {
                                     if (isset($profile_img)) {
                                     ?>
                                         <a href="profile.php?user=<?= $User_university ?>">
-                                            <div class="image" style="background-image: url('../admin/uploads/img_perfil/<?= $profile_img ?>')"></div>
+                                            <div role="img" alt="imagem da universidade <?=$name_user?>" aria-label="imagem da universidade <?=$name_user?>" class="image" style="background-image: url('../admin/uploads/img_perfil/<?= $profile_img ?>')"></div>
                                         </a>
                                     <?php
                                     } else {
                                     ?>
                                         <a href="profile.php?user=<?= $User_university ?>">
-                                            <div class="image" style="background-image: url('img/index_2.jpg')"></div>
+                                            <div role="img" alt="imagem padrão" aria-label="imagem padrão" class="image" style="background-image: url('img/index_2.jpg')"></div>
                                         </a>
                                     <?php
                                     }
                                     ?>
-                                    <a href="profile.php?user=<?= $User_university ?>">
-                                        <div class="card-info">
-                                            <h4 class="card-intro description_title">
-                                                <i class="fas fa-book" aria-hidden="true"></i> Estudar</h4>
-                                            <h2 class="card-title sub_title"><?= $name_user ?></h2>
-                                            <p class="card-intro description_title2"><?= $Area ?></p>
-                                        </div>
-                                    </a>
+                                    <div class="card-info">
+                                        <h4 class="card-intro description_title">
+                                            <i class="fas fa-book" aria-hidden="true"></i> Estudar</h4>
+                                        <h2 class="card-title sub_title"><?= $name_user ?></h2>
+                                        <p class="card-intro description_title2"><?= $Area ?></p>
+                                        <a href="profile.php?user=<?= $User_university ?>">
+                                            <p class="btn_cards card-intro description_title2">Ver perfil</p>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         <?php
@@ -99,10 +100,10 @@ if (isset($_SESSION["idUser"])) {
                     } else {
                         ?>
                         <p class="mx-auto mt-3 mb-5" style="font-size: 1rem;">
-                            <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
+                            <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill mr-2 mb-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
                                 <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
                             </svg>
-                            Ainda não existem ligações com áreas.
+                            Ainda não existem ligações com universidades.
                         </p>
                 <?php
                     }
@@ -133,62 +134,73 @@ if (isset($_SESSION["idUser"])) {
                     mysqli_stmt_bind_result($stmt, $id_match_vac, $User_young, $Vacancies_idVacancies, $match_perc, $favorite, $profile_img2, $vacancie_name, $name_user);
                     mysqli_stmt_store_result($stmt); // Store the result into memory
                     if (mysqli_stmt_num_rows($stmt) > 0) { // Check the number of rows returned
-                    while (mysqli_stmt_fetch($stmt)) {
+                        while (mysqli_stmt_fetch($stmt)) {
                 ?>
 
-                        <div class="card-container col-lg-4">
-                            <div class="card">
-                                <?php
-                                if ($favorite == 0) {
-                                    echo "";
-                                ?>
-                                    <a href="scripts/update_fav.php?m=<?= $id_match ?>&f=<?= $favorite ?>">
-                                        <button class="btn rounded-circle btn_fav">
-                                            <i class="fa fa-heart-o" aria-hidden="true" style="color: #2F2F2F"></i>
-                                        </button>
-                                    </a>
-                                <?php
-                                } else {
-                                ?>
-                                    <a href="scripts/update_fav.php?match=<?= $id_match ?>&fav=<?= $favorite ?>">
-                                        <button class="btn rounded-circle btn_fav">
-                                            <i class="fa fa-heart" aria-hidden="true" style="color: #A31621"></i>
-                                        </button>
-                                    </a>
-                                <?php
-                                }
-                                if (isset($profile_img)) {
-                                ?>
-                                    <a href="vacancie.php?vac=<?= $Vacancies_idVacancies ?>">
-                                        <div class="image" style="background-image: url('../admin/uploads/img_perfil/<?= $profile_img2 ?>')"></div>
-                                    </a>
-                                <?php
-                                } else {
-                                ?>
-                                    <a href="vacancie.php?vac=<?= $Vacancies_idVacancies ?>">
-                                        <div class="image" style="background-image: url('img/index_3.jpg')"></div>
-                                    </a>
-                                <?php
-                                }
-                                ?>
-                                <a href="vacancie.php?vac=<?= $Vacancies_idVacancies ?>">
+                            <div class="card-container col-lg-4">
+                                <div class="card">
+                                    <?php
+                                    if ($favorite == 0) {
+                                        echo "";
+                                    ?>
+                                        <a href="scripts/update_fav.php?m=<?= $id_match ?>&f=<?= $favorite ?>">
+                                            <button class="btn rounded-circle btn_fav">
+                                                <i class="fa fa-heart-o" aria-hidden="true" style="color: #2F2F2F"></i><span class="sr-only">(Marcar como favorito)</span>
+                                            </button>
+                                        </a>
+                                    <?php
+                                    } else {
+                                    ?>
+                                        <a href="scripts/update_fav.php?match=<?= $id_match ?>&fav=<?= $favorite ?>">
+                                            <button class="btn rounded-circle btn_fav">
+                                                <i class="fa fa-heart"  aria-hidden="true" style="color: #A31621"></i><span class="sr-only">(Remover favorito)</span>
+                                            </button>
+                                        </a>
+                                    <?php
+                                    }
+                                    if (isset($profile_img)) {
+                                    ?>
+                                        <a href="vacancie.php?vac=<?= $Vacancies_idVacancies ?>">
+                                            <div role="img" alt="imagem da empresa <?=$name_user?>" aria-label="imagem da empresa <?=$name_user?>" class="image" style="background-image: url('../admin/uploads/img_perfil/<?= $profile_img2 ?>')"></div>
+                                        </a>
+                                    <?php
+                                    } else {
+                                    ?>
+                                        <a href="vacancie.php?vac=<?= $Vacancies_idVacancies ?>">
+                                            <div role="img" alt="imagem padrão" aria-label="imagem padrão" class="image" style="background-image: url('img/index_3.jpg')"></div>
+                                        </a>
+                                    <?php
+                                    }
+                                    ?>
                                     <div class="card-info">
                                         <h4 class="card-intro description_title"><i class="fa fa-briefcase" style="color: #2f2f2f;"></i>
                                             Trabalhar</h4>
-                                        <h2 class="card-title sub_title"><?= $vacancie_name ?></h2>
+                                        <?php
+                                        if (strlen($vacancie_name) > 48) {
+                                        ?>
+                                            <h2 class="card-title sub_title"><?= substr($vacancie_name, 0, 48) ?>...</h2>
+                                        <?php
+                                        } else {
+                                        ?>
+                                            <h2 class="card-title sub_title"><?= $vacancie_name ?></h2>
+                                        <?php
+                                        }
+                                        ?>
                                         <p class="card-intro description_title2"><?= $name_user ?></p>
+                                        <a href="vacancie.php?vac=<?= $Vacancies_idVacancies ?>">
+                                            <p class="btn_cards card-intro description_title2">Ver informação</p>
+                                        </a>
                                     </div>
-                                </a>
+                                </div>
                             </div>
-                        </div>
-                <?php
-                    }
-                     /* close statement */
-                     mysqli_stmt_close($stmt);
+                        <?php
+                        }
+                        /* close statement */
+                        mysqli_stmt_close($stmt);
                     } else {
                         ?>
                         <p class="mx-auto mt-3 mb-5" style="font-size: 1rem;">
-                            <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
+                            <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill mr-2 mb-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
                                 <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
                             </svg>
                             Ainda não existem ligações com vagas.
@@ -201,6 +213,8 @@ if (isset($_SESSION["idUser"])) {
         </div>
     </div>
 <?php
-/* close connection */
-mysqli_close($link);
+    /* close connection */
+    mysqli_close($link);
+} else{
+    include("404.php");
 }

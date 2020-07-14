@@ -3,7 +3,6 @@ session_start();
 
 if (isset($_SESSION["idUser"]) and $_SESSION["type"] != 4) {
     $id_navegar = $_SESSION["idUser"];
-    $outro = $_GET["user"];
     $query20 = "SELECT idUser
             FROM users 
             WHERE idUser = ?";
@@ -25,7 +24,7 @@ if (isset($_SESSION["idUser"]) and $_SESSION["type"] != 4) {
             mysqli_stmt_execute($stmt7);
             mysqli_stmt_bind_result($stmt7, $idUser);
             while (mysqli_stmt_fetch($stmt7)) {
-                if ($outro == $id_navegar) {
+                if (isset($_GET["user"]) && $_GET["user"] == $id_navegar) {
                     echo "<title>Sobre mim</title>";
                 }else{
                     echo "<title>Perfil</title>";
@@ -41,7 +40,7 @@ if (isset($_SESSION["idUser"]) and $_SESSION["type"] != 4) {
 
     </head>
 
-    <body>
+    <body id="fundo">
         <header class="sticky-top">
             <!--navbar-->
             <?php include "components/navbar.php"; ?>

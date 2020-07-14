@@ -1,6 +1,5 @@
 <?php
 session_start();
-if (isset($_SESSION["idUser"]) and $_SESSION["type"] != 4) {
 ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -20,7 +19,7 @@ if (isset($_SESSION["idUser"]) and $_SESSION["type"] != 4) {
 
     </head>
 
-    <body>
+    <body id="fundo">
 
         <header class="sticky-top">
             <!--navbar-->
@@ -38,10 +37,3 @@ if (isset($_SESSION["idUser"]) and $_SESSION["type"] != 4) {
     </body>
 
     </html>
-<?php
-} else if (isset($_SESSION["idUser"]) and $_SESSION["type"] == 4) {
-    header("Location: ../admin/index.php");
-} else {
-    header("Location: ../public/login.php");
-}
-?>

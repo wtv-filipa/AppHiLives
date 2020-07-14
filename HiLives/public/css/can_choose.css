@@ -225,6 +225,7 @@ p {
     transform: scale(1);
     border: none;
     width: 225px;
+    height: 450px;
 }
 .card:hover{
     transform: scale(1.03);
@@ -378,5 +379,5 @@ p {
     overflow: hidden;
     margin: 0;
     padding: 0;
-    height: 480px;
+    height: 490px;
 }

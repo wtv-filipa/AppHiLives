@@ -6,7 +6,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                    <span title="Fechar" aria-hidden="true">&times;</span>
                 </button>
             </div>
             <!--Corpo-->
@@ -22,11 +22,11 @@
                 <?php
                 if (isset($profile_img)) {
                 ?>
-                    <img class="avatar_modal" src="../admin/uploads/img_perfil/<?= $profile_img ?>" alt="<?= $profile_img ?>" />
+                    <img class="avatar_modal" src="../admin/uploads/img_perfil/<?= $profile_img ?>" alt="<?= $profile_img ?>" title=""/>
                 <?php
                 } else {
                 ?>
-                    <img class="avatar_modal" src="img/no_profile_img.png" alt="sem imagem de perfil" />
+                    <img class="avatar_modal" src="img/no_profile_img.png" alt="sem imagem de perfil" title="Imagem padrão"/>
                 <?php
                 }
                 ?>
@@ -49,7 +49,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                    <span title="Fechar" aria-hidden="true">&times;</span>
                 </button>
             </div>
             <!--Corpo-->
@@ -98,7 +98,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                    <span title="Fechar" aria-hidden="true">&times;</span>
                 </button>
             </div>
             <!--Corpo-->

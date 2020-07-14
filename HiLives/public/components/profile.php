@@ -57,11 +57,11 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                         <?php
                         if (isset($profile_img)) {
                         ?>
-                            <img class="image_profile" src="../admin/uploads/img_perfil/<?= $profile_img ?>" alt="<?= $profile_img ?>" />
+                            <img class="image_profile" title="<?=$name_user?>" src="../admin/uploads/img_perfil/<?= $profile_img ?>" alt="<?= $profile_img ?>" />
                         <?php
                         } else {
                         ?>
-                            <img class="image_profile" src="img/no_profile_img.png" alt="sem imagem de perfil" />
+                            <img class="image_profile" src="img/no_profile_img.png" alt="sem imagem de perfil" title="Imagem padrão"/>
                         <?php
                         }
                         ?>
@@ -74,7 +74,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                         <div class="col-xs-3 col-lg-9 ">
                             <h3 class="mt-2 nome_user"><?= $name_user ?> <span class="subtitulo" style="font-weight: lighter; font-size: 16px;"> | <?= $age ?> anos</span></h3>
 
-                            <h6 class="mt-3 subtitulo"> Email:<a href="mailto:<?= $email_user ?>"> <?= $email_user ?> </a></h6>
+                            <h6 class="mt-3 subtitulo"> E-mail:<a title="Clicar para enviar e-mail para <?=$email_user?>" href="mailto:<?= $email_user ?>"> <?= $email_user ?> </a></h6>
 
                             <h6 class="mt-3 subtitulo"> Regiões de interesse:
                                 <?php
@@ -142,7 +142,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                 <div class="p-0 mt-3">
                                     <a href="edit_profile.php?edit=<?= $idUser ?>">
                                         <button class="btn edit_btn">
-                                            <i class="faw_hover fas fa-edit"></i>
+                                            <i class="faw_hover fas fa-edit" ></i>
                                             Editar as minhas informações
                                         </button>
                                     </a>
@@ -243,11 +243,11 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                                     ?>
                                                         <div class="text-right">
                                                             <a href="edit_done_uc.php?uc=<?= $idDone_CU ?>">
-                                                                <i class="fas fa-edit mr-1" style="color:#00A5CF!important"></i>
+                                                                <i class="fas fa-edit mr-1" title="Editar Unidade Curricular" style="color:#00A5CF!important"></i>
                                                             </a>
 
                                                             <a href="#" data-toggle="modal" data-target="#deleteuc<?= $idDone_CU ?>">
-                                                                <i class="fas fa-trash mr-1" style="color:#2F2F2F!important"></i>
+                                                                <i class="fas fa-trash mr-1" title="Eliminar Unidade Curricular" style="color:#2F2F2F!important"></i>
                                                             </a>
                                                         </div>
                                                     <?php
@@ -267,7 +267,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                             if ($idUser == $id_navegar) {
                                             ?>
                                                 <p class="mx-auto mt-5 mb-5" style="font-size: 1rem;">
-                                                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
+                                                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill mr-2 mb-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
                                                         <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
                                                     </svg>
                                                     Ainda não adicionaste nenhuma Unidade Curricular. Carrega no botão de adicionar e começa a personalizar o teu perfil!
@@ -276,10 +276,10 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                             } else {
                                             ?>
                                                 <p class="mx-auto mt-5 mb-5" style="font-size: 1rem;">
-                                                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
+                                                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill mr-2 mb-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
                                                         <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
                                                     </svg>
-                                                    O jovem ainda não adicionou nenhuma Unidade Curricular.
+                                                    O utilizador ainda não adicionou nenhuma Unidade Curricular.
                                                 </p>
                                     <?php
                                             }
@@ -337,7 +337,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                             if ($idUser == $id_navegar) {
                                             ?>
                                                 <p class="mx-auto mt-5 mb-5" style="font-size: 1rem;">
-                                                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
+                                                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill mr-2 mb-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
                                                         <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
                                                     </svg>
                                                     Parece que ainda não adicionaste nenhuma área de interesse, edita o teu perfil e começa a criar ligações!
@@ -346,10 +346,10 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                             } else {
                                             ?>
                                                 <p class="mx-auto mt-5 mb-5" style="font-size: 1rem;">
-                                                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
+                                                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill mr-2 mb-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
                                                         <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
                                                     </svg>
-                                                    O jovem ainda não adicionou nenhuma área de interesse.
+                                                    O utilizador ainda não adicionou nenhuma área de interesse.
                                                 </p>
                                     <?php
                                             }
@@ -388,7 +388,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                             if ($idUser == $id_navegar) {
                                             ?>
                                                 <p class="mx-auto mt-5 mb-5" style="font-size: 1rem;">
-                                                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
+                                                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill mr-2 mb-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
                                                         <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
                                                     </svg>
                                                     Parece que ainda não adicionaste nenhuma competência, edita o teu perfil e começa a criar ligações!
@@ -397,10 +397,10 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                             } else {
                                             ?>
                                                 <p class="mx-auto mt-5 mb-5" style="font-size: 1rem;">
-                                                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
+                                                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill mr-2 mb-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
                                                         <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
                                                     </svg>
-                                                    O jovem ainda não adicionou nenhuma competência.
+                                                    O utilizador ainda não adicionou nenhuma competência.
                                                 </p>
                                     <?php
                                             }
@@ -439,7 +439,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                             if ($idUser == $id_navegar) {
                                             ?>
                                                 <p class="mx-auto mt-5 mb-5" style="font-size: 1rem;">
-                                                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
+                                                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill mr-2 mb-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
                                                         <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
                                                     </svg>
                                                     Parece que ainda não adicionaste nenhum ambiente de trabalho favorito.
@@ -448,10 +448,10 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                             } else {
                                             ?>
                                                 <p class="mx-auto mt-5 mb-5" style="font-size: 1rem;">
-                                                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
+                                                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill mr-2 mb-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
                                                         <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
                                                     </svg>
-                                                    O jovem ainda não adicionou nenhum ambiente de trabalho favorito.
+                                                    O utilizador ainda não adicionou nenhum ambiente de trabalho favorito.
                                                 </p>
                                     <?php
                                             }
@@ -509,7 +509,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                             if ($msg_show == true) {
                                 echo "<div class=\"alert $class alert-dismissible fade show mt-5\" role=\"alert\">" . $message . "
                                 <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
-                                <span aria-hidden=\"true\">&times;</span>
+                                <span title=\"Fechar\" aria-hidden=\"true\">&times;</span>
                                 </button>
                                 </div>";
                                 echo '<script>window.onload=function (){$(\'.alert\').alert();}</script>';
@@ -547,19 +547,19 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                         if ($idUser == $id_navegar) {
                                         ?>
                                             <p class=" col-md-9 mt-3" style="font-size: 1rem;">
-                                                <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
+                                                <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill mr-2 mb-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
                                                     <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
                                                 </svg>
-                                                Parece que ainda não adicionaste nenhuma experiência, se tens alguma experiência numa universidade ou empresa, grava um vídeo e partilha-o com os outros utilizadores!
+                                                Parece que ainda não adicionaste nenhuma experiência. Se tens alguma experiência numa universidade ou empresa, grava um vídeo e partilha-o com os outros utilizadores!
                                             </p>
                                         <?php
                                         } else {
                                         ?>
                                             <p class=" col-md-12 mt-3" style="font-size: 1rem;">
-                                                <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
+                                                <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill mr-2 mb-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
                                                     <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
                                                 </svg>
-                                                Parece que o jovem ainda não adicionou nenhuma experiência.
+                                                Parece que o utilizador ainda não adicionou nenhuma experiência.
                                             </p>
                                     <?php
                                         }
@@ -568,7 +568,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                 if ($idUser == $id_navegar) {
                                     ?>
                                     <div class="col-md-3 mt-3 ">
-                                        <a href="upload_xp.php">
+                                        <a title="Clica para adicionares uma experiência" href="upload_xp.php">
                                             <button type="" class="btn bt_add" style="background-color: #D2D2D2;">
                                                 Adicionar uma nova
                                                 experiência
@@ -660,7 +660,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                             if ($idUser == $id_navegar) {
                                             ?>
                                                 <p class="mx-auto mt-5 mb-5" style="font-size: 1rem;">
-                                                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
+                                                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill mr-2 mb-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
                                                         <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
                                                     </svg>
                                                     Parece que ainda não adicionou nenhuma vaga, carregue em adicionar e comece a criar ligações.
@@ -669,7 +669,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                             } else {
                                             ?>
                                                 <p class="mx-auto mt-5 mb-5" style="font-size: 1rem;">
-                                                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
+                                                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill mr-2 mb-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
                                                         <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
                                                     </svg>
                                                     A empresa ainda não criou nenhuma vaga.
@@ -700,7 +700,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                 <blockquote class="blockquote mb-0 mt-4 ">
                                     <ul id="notebook_ul">
                                         <li class="lista">
-                                            <i class="fas fa-at mr-2"></i><b class="mr-2">Email:</b> <a href="mailto:<?= $email_user ?>"><?= $email_user ?></a>
+                                            <i class="fas fa-at mr-2"></i><b class="mr-2">E-mail:</b> <a title="Clicar para enviar e-mail para <?=$email_user?>" href="mailto:<?= $email_user ?>"><?= $email_user ?></a>
                                         </li>
                                         <li class="lista">
                                             <i class="fas fa-phone-alt mr-2"></i><b class="mr-2">Telefone:</b><?= $contact_user ?>
@@ -770,7 +770,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                             if ($msg_show == true) {
                                 echo "<div class=\"alert $class alert-dismissible fade show mt-5\" role=\"alert\">" . $message . "
                                 <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
-                                <span aria-hidden=\"true\">&times;</span>
+                                <span title=\"Fechar\" aria-hidden=\"true\">&times;</span>
                                 </button>
                                 </div>";
                                 echo '<script>window.onload=function (){$(\'.alert\').alert();}</script>';
@@ -807,7 +807,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                         if ($idUser == $id_navegar) {
                                         ?>
                                             <p class="mx-auto mt-5 mb-5" style="font-size: 1rem;">
-                                                <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
+                                                <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill mr-2 mb-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
                                                     <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
                                                 </svg>
                                                 Parece que ainda não tem nenhum vídeo disponível. 
@@ -816,7 +816,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                         } else {
                                         ?>
                                             <p class="mx-auto mt-5 mb-5" style="font-size: 1rem;">
-                                                <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
+                                                <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill mr-2 mb-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
                                                     <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
                                                 </svg>
                                                 A empresa ainda não tem nenhum vídeo disponível.
@@ -892,7 +892,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                         if ($idUser == $id_navegar) {
                                         ?>
                                             <p class="mx-auto mt-5 mb-5" style="font-size: 1rem;">
-                                                <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
+                                                <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill mr-2 mb-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
                                                     <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
                                                 </svg>
                                                 Parece que ainda não tem nenhuma área disponível, edite o seu perfil e comece a criar ligações!
@@ -901,7 +901,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                         } else {
                                         ?>
                                             <p class="mx-auto mt-5 mb-5" style="font-size: 1rem;">
-                                                <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
+                                                <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill mr-2 mb-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
                                                     <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
                                                 </svg>
                                                 Ainda não existem áreas disponíveis na universidade.
@@ -919,7 +919,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                 <blockquote class="blockquote mb-0 mt-4 ">
                                             <ul id="notebook_ul">
                                                 <li class="lista">
-                                                    <i class="fas fa-at mr-2"></i><b class="mr-2">Email:</b><a href="mailto:<?= $email_user ?>"><?= $email_user ?></a>
+                                                    <i class="fas fa-at mr-2"></i><b class="mr-2">E-mail:</b><a title="Clicar para enviar e-mail para <?=$email_user?>" href="mailto:<?= $email_user ?>"><?= $email_user ?></a>
                                                 </li>
                                                 <li class="lista">
                                                     <i class="fas fa-phone-alt mr-2"></i><b class="mr-2">Telefone:</b><?= $contact_user ?>

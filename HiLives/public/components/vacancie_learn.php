@@ -59,11 +59,11 @@ if ($_GET["vac"]) {
                         <!--first step-->
                         <div class="col-12 col-md-4">
                             <div class="imagem">
-                                <img class="img_percurso rounded-circle img-fluid" src="img/img_vaga.png" />
+                                <img class="img_percurso rounded-circle img-fluid" src="img/img_vaga.png" title="Vaga para <?=$vacancie_name?>"/>
                             </div>
                             <div class="content">
                                 <h5 class="centro">1º: Vaga para: <?= $vacancie_name ?></h5>
-                                <p>Abaixo encontras todas as informações sobre a vaga.</p>
+                                <p>Em baixo encontras todas as informações sobre a vaga.</p>
                             </div>
                         </div>
                         <!---------------------->
@@ -71,7 +71,7 @@ if ($_GET["vac"]) {
 
                         <div class="col-12 col-md-4">
                             <div class="imagem">
-                                <img class="img_percurso rounded-circle img-fluid" src="img/img_estudo.png" />
+                                <img class="img_percurso rounded-circle img-fluid" src="img/img_estudo.png" title="O que te falta?"/>
                             </div>
                             <div class="content">
                                 <h5 class="centro">2º: O que te falta</h5>
@@ -84,7 +84,7 @@ if ($_GET["vac"]) {
                                         mysqli_stmt_bind_result($stmt2, $capacity);
                                         while (mysqli_stmt_fetch($stmt2)) {
                                     ?>
-                                            <li><?= $capacity ?></li>
+                                            <li class="negro"><?= $capacity ?></li>
                                     <?php
                                         }
                                         /* close statement */
@@ -99,7 +99,7 @@ if ($_GET["vac"]) {
                         <!--Third step-->
                         <div class="col-12 col-md-4">
                             <div class="imagem">
-                                <img class="img_percurso rounded-circle img-fluid" src="img/img_contacto.png" />
+                                <img class="img_percurso rounded-circle img-fluid" src="img/img_contacto.png" title="Contacta a empresa"/>
                             </div>
                             <div class="content">
                                 <h5 class="centro">3º: Contactar <?= $name_user ?></h5>
@@ -291,7 +291,7 @@ if ($_GET["vac"]) {
                                         } else {
                                         ?>
                                             <p class="mx-auto mt-5 mb-5" style="font-size: 1rem;">
-                                                <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
+                                                <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill mr-2 mb-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
                                                     <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
                                                 </svg>
                                                 Esta vaga não tem nenhum vídeo adicionado, se quiseres perceber melhor a experiência dentro desta empresa contacta o empregador.

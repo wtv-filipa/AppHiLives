@@ -13,7 +13,7 @@
             <div class="cards text-center">
                 <div class="card-item">
                     <div class="card-image">
-                        <img class="card-img-top img-fluid" src="public/img/jovem_icon.png"></div>
+                        <img class="card-img-top img-fluid" alt="Registo Jovem" title="Registo Jovem" src="public/img/jovem_icon.png"></div>
                     <div class="card-info">
                         <h4 class="card-title">Jovem</h4>
                     </div>
@@ -27,7 +27,7 @@
             <div class="cards text-center">
                 <div class="card-item">
                     <div class="card-image">
-                        <img class="card-img-top img-fluid" src="public/img/uni_icon.png"></div>
+                        <img class="card-img-top img-fluid" alt="Registo Universidade" title="Registo Universidade" src="public/img/uni_icon.png"></div>
                     <div class="card-info">
                         <h4 class="card-title">Universidade</h4>
                     </div>
@@ -41,7 +41,7 @@
             <div class="cards text-center">
                 <div class="card-item">
                     <div class="card-image">
-                        <img class="card-img-top img-fluid" src="public/img/empresa_icon.jpg"></div>
+                        <img class="card-img-top img-fluid" alt="Registo Empresa" title="Registo Empresa" src="public/img/empresa_icon.jpg"></div>
                     <div class="card-info">
                         <h4 class="card-title">Empresa</h4>
                     </div>
@@ -65,7 +65,7 @@
 <div class="mt-5 row">
     <div class="col-md-3 col-xs-12 ">
         <img class="rounded-circle centrado sombra" src="public/img/index_1.jpg"
-             alt="imagem sobre o que é o HiLives"/>
+             alt="imagem sobre o que é o HiLives" title="O que é a HiLives?"/>
     </div>
     <div class="col-md-8 col-xs-12 texto_centrado">
         <h3 class="titulo_centrado">O que é a HiLives?</h3>
@@ -82,7 +82,7 @@
 <div class="mt-5 row">
     <div class="col-md-3 col-xs-12">
         <img class="rounded-circle centrado sombra" src="public/img/index_2.jpg"
-             alt="imagem sobre o que é o HiLives"/>
+             alt="imagem com um livro que simboliza estudar" title="Procuras estudar?"/>
     </div>
     <div class="col-md-8 col-xs-12 texto_centrado">
         <h3 class="titulo_centrado">Procuras estudar?</h3>
@@ -94,7 +94,7 @@
 <div class="mt-5 row">
     <div class="col-md-3 col-xs-12">
         <img class="rounded-circle centrado sombra" src="public/img/index_3.jpg"
-             alt="imagem sobre o que é o HiLives"/>
+             alt="imagem com uma pasta que simboliza trabalhar" title="Procuras trabalhar?"/>
     </div>
     <div class="col-md-8 col-xs-12 texto_centrado">
         <h3 class="titulo_centrado">Procuras trabalhar?</h3>

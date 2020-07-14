@@ -106,7 +106,7 @@ if (isset($_SESSION["idUser"])) {
                     <?php
                     if ($row_users['active'] == 1) {
                     ?>
-                      <a href="#" data-toggle="modal" data-target="#activeModal<?= $row_users['idUser'] ?>"><i class="fas fa-ban"></i></a>
+                      <a class="hover" href="#" data-toggle="modal" data-target="#activeModal<?= $row_users['idUser'] ?>"><i class="fas fa-ban"></i></a>
                     <?php
                     } else {
                     ?>

@@ -10,7 +10,7 @@ if (isset($_SESSION["idUser"]) and $_SESSION["type"] != 4) {
         <!-- metadados -->
         <?php include "helpers/meta.php"; ?>
 
-        <title>Deixa-nos uma sugestão!</title>
+        <title>Contacto</title>
         <!-- Custom fonts for this template-->
         <?php include "helpers/fonts.php"; ?>
         <!-- Custom styles for this template-->

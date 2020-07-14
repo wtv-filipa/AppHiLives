@@ -1,3 +1,6 @@
+#fundo {
+    background-color:rgba(242,242,242,0.7);
+}
     /**********TEXTO***************/
     .centro {
         text-align: center;
@@ -540,3 +543,7 @@
             margin-bottom: 7%;
         }
     }
+
+.negro{
+    font-weight: bold;
+}

@@ -5,7 +5,8 @@ include "navbar_2.php";
 
     <div class="mt-5">
         <h1 class="titulo1 ">Acessibilidade</h1>
-        <p>TEXTO DE ACESSILBILIDADE.</p>
+        <p>Esta página apresenta um conjunto de indicações sobre a melhor forma de navegar na aplicação HiLives. Esta foi desenvolvida para oferecer o máximo de acessibilidade aos utilizadores, seguindo as Diretrizes para Acessibilidade de Conteúdos Web – WCAG 2.1, desenvolvidas pelo W3C – World Wide Web Consortium.</p>
+        <p>As várias etapas de validação, que decorreram ao longo do processo de desenvolvimento, permitiram oferecer uma plataforma cujo acesso pode ser feito pelo teclado e leitor de ecrã com sintetizador de voz. Todas a acessibilidade da aplicação pode ser ativa através do icon de acessibilidade localizado no canto inferior direito.</p>
     </div>
 
     <div class="mt-5">
@@ -34,11 +35,21 @@ include "navbar_2.php";
 
         <div class="mt-2">
             <h3>Área de conteúdos</h3>
+            <p>Na homepage dos jovens é possível encontrar:</p>
             <ol>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
+                <li>Ligações recentes com universidades</li>
+                <li>Destaques</li>
+                <li>Ligações recentes com empresas</li>
+            </ol>
+            <p>Na homepage das universidades é possível encontrar:</p>
+            <ol>
+                <li>Últimas entradas de jovens</li>
+                <li>Destaques</li>
+                <li>Últimas vagas publicadas por empresas</li>
+            </ol>
+            <p>Na homepage das empresas é possível encontrar:</p>
+            <ol>
+                <li>Ligações recentes</li>
             </ol>
         </div>
 
@@ -51,64 +62,4 @@ include "navbar_2.php";
             </ol>
         </div>
     </div>
-<!--    <div class="mt-5">-->
-<!--        <h1>apphilives.web.ua.pt Accessibility Statement</h1>-->
-<!--        <p>Updated: December 2019.</p>-->
-<!--    </div>-->
-<!--    ********************* -->
-<!--    <div class="mt-5">-->
-<!--        <h2>General</h2>-->
-<!--        <p>apphilives.web.ua.pt strives to ensure that its services are accessible to people with disabilities.-->
-<!--            apphilives.web.ua.pt has invested a significant amount of resources to help ensure that its website is made-->
-<!--            easier to use and more accessible for people with disabilities, with the strong belief that every person has-->
-<!--            the right to live with dignity, equality, comfort and independence.</p>-->
-<!--    </div>-->
-<!---->
-<!--   ********************* -->
-<!--    <div class="mt-3">-->
-<!--        <h2>Accessibility on apphilives.web.ua.pt</h2>-->
-<!--        <p>apphilives.web.ua.pt makes available the-->
-<!--            <a href="https://UserWay.org" alt="Free Website Accessibility Widget"-->
-<!--               title="Free Website Accessibility Widget">UserWay Website Accessibility Widget</a>-->
-<!--            that is powered by a dedicated accessibility server. The software allows apphilives.web.ua.pt to improve its-->
-<!--            compliance with the Web Content Accessibility Guidelines (WCAG 2.1).</p>-->
-<!--    </div>-->
-<!---->
-<!--   ********************* -->
-<!--    <div class="mt-3">-->
-<!--        <h2>Enabling the Accessibility Menu</h2>-->
-<!--        <p>The apphilives.web.ua.pt accessibility menu can be enabled by clicking the accessibility menu icon that-->
-<!--            appears on the corner of the page. After triggering the accessibility menu, please wait a moment for the-->
-<!--            accessibility menu to load in its entirety.</p>-->
-<!--    </div>-->
-<!---->
-<!--   ********************* -->
-<!--    <div class="mt-3">-->
-<!--        <h2>Disclaimer</h2>-->
-<!--        <p>apphilives.web.ua.pt continues its efforts to constantly improve the accessibility of its site and services-->
-<!--            in the belief that it is our collective moral obligation to allow seamless, accessible and unhindered use-->
-<!--            also for those of us with disabilities.</p>-->
-<!--        <p>Despite our efforts to make all pages and content on apphilives.web.ua.pt fully accessible, some content may-->
-<!--            not have yet been fully adapted to the strictest accessibility standards. This may be a result of not having-->
-<!--            found or identified the most appropriate technological solution.</p>-->
-<!--    </div>-->
-<!---->
-<!--    ********************* -->
-<!--    <div class="mt-3">-->
-<!--        <h2>Here For You</h2>-->
-<!--        <p>If you are experiencing difficulty with any content on apphilives.web.ua.pt or require assistance with any-->
-<!--            part of our site, please contact us during normal business hours as detailed below and we will be happy to-->
-<!--            assist.</p>-->
-<!--    </div>-->
-<!---->
-<!--    ********************* -->
-<!--    <div class="mt-3">-->
-<!--        <h2>Contact Us</h2>-->
-<!--        <p>If you wish to report an accessibility issue, have any questions or need assistance, please contact-->
-<!--            apphilives.web.ua.pt Customer Support as follows:</p>-->
-<!--    </div>-->
-<!--    ********************* -->
-<!--    <div class="mt-3">-->
-<!--        <p>Email: <a href="mailto:anafilipa.ferreira99@ua.pt">anafilipa.ferreira99@ua.pt</a></p>-->
-<!--    </div>-->
 </div>

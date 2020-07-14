@@ -8,7 +8,7 @@ if (!isset($_SESSION["idUser"])) {
     <head>
         <!-- metadados -->
         <?php include "helpers/meta.php"; ?>
-        <title>Registo</title>
+        <title>Registo Jovens</title>
         <!-- Custom fonts for this template-->
         <?php include "helpers/fonts.php"; ?>
         <!-- Custom styles for this template-->

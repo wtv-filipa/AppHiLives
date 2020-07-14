@@ -26,8 +26,8 @@
  
  #wrapper_title {
      padding-top: 3% !important;
-     width: 750px;
      max-width: 100%;
+     margin-right: 0 !important;
  }
  
  .main_title {
@@ -83,7 +83,7 @@
      transition: box-shadow 0.3s, transform 0.3s;
      transform: scale(1);
      border: none;
-     height: 376px !important;
+     height: 450px !important;
  }
 
  .card:hover{
@@ -101,6 +101,24 @@
      backgroun-position: center;
      background-size: cover;
  }
+
+ .btn_cards {
+    color: #2F2F2F;
+    padding: 0.3rem;
+    font-size: 14px;
+    font-family: "Quicksand", sans-serif;
+    border-bottom: 0.1em solid #00A5CF;
+    font-weight: 800;
+    display: block;
+    margin: auto;
+    width: 80%;
+    cursor: pointer;
+    background: #fff;
+}
+
+.btn_cards:hover {
+    color: #00A5CF !important;
+}
 
 
  @media only screen and (min-width: 600px) {
@@ -186,18 +204,8 @@
  }
 
  #fundo {
-     /*background-image: linear-gradient(to top, #8DDCFA , white);*/
-     /*background-color:rgba(141,220,250,0.6);*/
-     /*background-color:rgba(255,238,134,0.2);*/
      background-color:rgba(242,242,242,0.7);
  }
-
-
-
-
-
-
-
 
  /* Extra small devices (phones, 320px and down) */
  

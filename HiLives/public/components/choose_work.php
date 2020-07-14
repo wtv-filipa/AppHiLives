@@ -46,12 +46,12 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
                         if ($type == 10) {
                         ?>
                             <h3 class="mb-1 main_title">Vagas de trabalho que posso escolher</h3>
-                            <p>Aqui encontras as vagas onde cumpres todos os requisitos</p>
+                            <p style="opacity:0.8; font-size: 14px;">Aqui encontras todas as ligações com vagas de emprego que estão completas, ou seja, cumpres todos os requisitos e capacidades necessários para te candidatares. Lembra-te que tens de contactar a empresa caso estejas interessado na sua vaga.</p>
                         <?php
                         } else if ($type == 7) {
                         ?>
                             <h3 class="mb-1 main_title">Os meus candidatos</h3>
-                            <p>Aqui encontra todos os candidatos para as suas vagas</p>
+                            <p style="opacity:0.8; font-size: 14px;">Aqui encontra todas as ligações com candidatos a vagas de emprego, onde estes cumprem todos os requisitos e capacidades necessários para se candidatarem.</p>
                         <?php
                         }
                         ?>
@@ -80,7 +80,7 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
                                     ?>
                                         <a href="scripts/update_fav.php?m=<?= $id_match_vac ?>&f=<?= $favorite ?>">
                                             <button class="btn rounded-circle btn_fav">
-                                                <i class="fa fa-heart-o" aria-hidden="true" style="color: #2F2F2F"></i>
+                                                <i class="fa fa-heart-o" aria-hidden="true" style="color: #2F2F2F"></i><span class="sr-only">(Marcar como favorito)</span>
                                             </button>
                                         </a>
                                     <?php
@@ -88,25 +88,35 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
                                     ?>
                                         <a href="scripts/update_fav.php?m=<?= $id_match_vac ?>&f=<?= $favorite ?>">
                                             <button class="btn rounded-circle btn_fav">
-                                                <i class="fa fa-heart" aria-hidden="true" style="color: #A31621"></i>
+                                                <i class="fa fa-heart" aria-hidden="true" style="color: #A31621"></i><span class="sr-only">(Remover favorito)</span>
                                             </button>
                                         </a>
                                     <?php
                                     }
                                     if (isset($profile_img)) {
                                     ?>
-                                        <div class="image" style="background-image: url('../admin/uploads/img_perfil/<?= $profile_img ?>')"></div>
+                                        <div role="img" alt="imagem da empresa <?=$name_user?>" aria-label="imagem da empresa <?=$name_user?>" class="image" style="background-image: url('../admin/uploads/img_perfil/<?= $profile_img ?>')"></div>
                                     <?php
                                     } else {
                                     ?>
-                                        <div class="image" style="background-image: url('img/index_3.jpg')"></div>
+                                        <div role="img" alt="imagem padrão" aria-label="imagem padrão" class="image" style="background-image: url('img/index_3.jpg')"></div>
                                     <?php
                                     }
                                     ?>
                                     <div class="card-info">
                                         <h4 class="card-intro description_title"><i class="fas fa-suitcase"></i>
                                             Trabalhar</h4>
-                                        <h2 class="card-title sub_title"><?= $vacancie_name ?></h2>
+                                        <?php
+                                        if (strlen($vacancie_name) > 48) {
+                                        ?>
+                                            <h2 class="card-title sub_title"><?= substr($vacancie_name, 0, 48) ?>...</h2>
+                                        <?php
+                                        } else {
+                                        ?>
+                                            <h2 class="card-title sub_title"><?= $vacancie_name ?></h2>
+                                        <?php
+                                        }
+                                        ?>
                                         <p class="card-intro description_title2"><?= $name_user ?></p>
                                         <a href="vacancie.php?vac=<?= $Vacancies_idVacancies ?>">
                                             <p class="btn_cards card-intro description_title2">Ver informação</p>
@@ -121,7 +131,7 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
                     } else {
                         ?>
                         <p class="mx-auto mt-5 mb-5" style="font-size: 1rem; padding-bottom: 10%;">
-                            <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
+                            <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill mr-2 mb-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
                                 <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
                             </svg>
                             Ainda não existem ligações com vagas.
@@ -145,11 +155,11 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
                                         <?php
                                         if (isset($profile_img)) {
                                         ?>
-                                            <div class="image" style="background-image: url('../admin/uploads/img_perfil/<?= $profile_img ?>')"></div>
+                                            <div role="img" alt="imagem do jovem <?=$name_user?>" aria-label="imagem do jovem <?=$name_user?>" class="image" style="background-image: url('../admin/uploads/img_perfil/<?= $profile_img ?>')"></div>
                                         <?php
                                         } else {
                                         ?>
-                                            <div class="image" style="background-image: url('img/def_jovem.png')"></div>
+                                            <div role="img" alt="imagem padrão" aria-label="imagem padrão" class="image" style="background-image: url('img/def_jovem.png')"></div>
                                         <?php
                                         }
                                         ?>
@@ -158,7 +168,17 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
                                                 <i class="fas fa-suitcase"></i> Trabalhar
                                             </h4>
                                             <h2 class="card-title sub_title"><?= $name_user ?></h2>
-                                            <p class="card-intro description_title2"><?= $vacancie_name ?></p>
+                                            <?php
+                                            if (strlen($vacancie_name) > 48) {
+                                            ?>
+                                                <p class="card-intro description_title2"><?= substr($vacancie_name, 0, 48) ?>...</p>
+                                            <?php
+                                            } else {
+                                            ?>
+                                                <p class="card-intro description_title2"><?= $vacancie_name ?></p>
+                                            <?php
+                                            }
+                                            ?>
                                             <a href="profile.php?user=<?= $User_young ?>">
                                                 <p class="btn_cards card-intro description_title2">Ver perfil</p>
                                             </a>
@@ -172,7 +192,7 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
                         } else {
                             ?>
                             <p class="mx-auto mt-5 mb-5" style="font-size: 1rem; padding-bottom: 10%;">
-                                <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
+                                <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill mr-2 mb-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
                                     <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
                                 </svg>
                                 Ainda não existem ligações com jovens. Crie novas vagas e comece a criar ligações!
@@ -195,13 +215,13 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
                         <?php
                         if ($type == 10) {
                         ?>
-                            <h3 class="mb-1 main_title">Ainda não foi desta...</h3>
-                            <p> Vê o que precisas de fazer para cumprires os requisitos destas vagas</p>
+                            <h3 class="mb-1 main_title"> Estás quase lá, vê o que tens em falta!</h3>
+                            <p style="opacity:0.8;"> Aqui encontras todas as ligações com vagas de empresas onde te falta cumprir apenas duas ou três capacidades. Podes abrir cada uma para descobrires o que tens em falta para preencheres. Lembra-te que tens de contactar a empresa caso estejas interessado na sua vaga.</p>
                         <?php
                         } else if ($type == 7) {
                         ?>
                             <h3 class="mb-1 main_title">Candidatos para percurso de aprendizagem</h3>
-                            <p>Aqui encontra todos os candidatos que dão quase ligação com as suas vagas</p>
+                            <p style="opacity:0.8;">Aqui encontra todas as ligações com candidatos a vagas onde apenas falta cumprir duas ou três capacidades.</p>
                         <?php
                         }
                         ?>
@@ -230,7 +250,7 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
                                     ?>
                                         <a href="scripts/update_fav.php?m=<?= $id_match_vac ?>&f=<?= $favorite ?>">
                                             <button class="btn rounded-circle btn_fav">
-                                                <i class="fa fa-heart-o" aria-hidden="true" style="color: #2F2F2F"></i>
+                                                <i class="fa fa-heart-o" aria-hidden="true" style="color: #2F2F2F"></i><span class="sr-only">(Marcar como favorito)</span>
                                             </button>
                                         </a>
                                     <?php
@@ -238,25 +258,35 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
                                     ?>
                                         <a href="scripts/update_fav.php?m=<?= $id_match_vac ?>&f=<?= $favorite ?>">
                                             <button class="btn rounded-circle btn_fav">
-                                                <i class="fa fa-heart" aria-hidden="true" style="color: #A31621"></i>
+                                                <i class="fa fa-heart" aria-hidden="true" style="color: #A31621"></i><span class="sr-only">(Remover favorito)</span>
                                             </button>
                                         </a>
                                     <?php
                                     }
                                     if (isset($profile_img)) {
                                     ?>
-                                        <div class="image" style="background-image: url('../admin/uploads/img_perfil/<?= $profile_img ?>')"></div>
+                                        <div role="img" alt="imagem da empresa <?=$name_user?>" aria-label="imagem da empresa <?=$name_user?>" class="image" style="background-image: url('../admin/uploads/img_perfil/<?= $profile_img ?>')"></div>
                                     <?php
                                     } else {
                                     ?>
-                                        <div class="image" style="background-image: url('img/index_3.jpg')"></div>
+                                        <div role="img" alt="imagem padrão" aria-label="imagem padrão" class="image" style="background-image: url('img/index_3.jpg')"></div>
                                     <?php
                                     }
                                     ?>
                                     <div class="card-info">
                                         <h4 class="card-intro description_title">
                                             <i class="fas fa-suitcase"></i>Trabalhar</h4>
-                                        <h2 class="card-title sub_title"><?= $vacancie_name ?></h2>
+                                        <?php
+                                        if (strlen($vacancie_name) > 48) {
+                                        ?>
+                                            <h2 class="card-title sub_title"><?= substr($vacancie_name, 0, 48) ?>...</h2>
+                                        <?php
+                                        } else {
+                                        ?>
+                                            <h2 class="card-title sub_title"><?= $vacancie_name ?></h2>
+                                        <?php
+                                        }
+                                        ?>
                                         <p class="card-intro description_title2"><?= $name_user ?></p>
                                         <a href="vacancie_learn.php?vac=<?= $Vacancies_idVacancies ?>">
                                             <p class="btn_cards card-intro description_title2">Ver o que me falta</p>
@@ -272,7 +302,7 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
                     } else {
                         ?>
                         <p class="mx-auto mt-5 mb-5" style="font-size: 1rem; padding-bottom: 10%;">
-                            <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
+                            <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill mr-2 mb-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
                                 <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
                             </svg>
                             Ainda não foi criado nenhum percurso de aprendizagem.
@@ -281,59 +311,69 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
                     }
                 }
             } else if ($type == 7) {
-                    $stmt = mysqli_stmt_init($link);
-                    if (mysqli_stmt_prepare($stmt, $query4)) {
-                        mysqli_stmt_bind_param($stmt, 'i', $idUser);
-                        mysqli_stmt_execute($stmt);
-                        mysqli_stmt_bind_result($stmt, $id_match_vac, $User_young, $Vacancies_idVacancies, $match_perc, $profile_img, $vacancie_name, $name_user);
-                        mysqli_stmt_store_result($stmt); // Store the result into memory
-                        if (mysqli_stmt_num_rows($stmt) > 0) { // Check the number of rows returned
-                            while (mysqli_stmt_fetch($stmt)) {
+                $stmt = mysqli_stmt_init($link);
+                if (mysqli_stmt_prepare($stmt, $query4)) {
+                    mysqli_stmt_bind_param($stmt, 'i', $idUser);
+                    mysqli_stmt_execute($stmt);
+                    mysqli_stmt_bind_result($stmt, $id_match_vac, $User_young, $Vacancies_idVacancies, $match_perc, $profile_img, $vacancie_name, $name_user);
+                    mysqli_stmt_store_result($stmt); // Store the result into memory
+                    if (mysqli_stmt_num_rows($stmt) > 0) { // Check the number of rows returned
+                        while (mysqli_stmt_fetch($stmt)) {
                         ?>
-                                <div class="col-lg-12">
-                                    <div class="card w-100">
-                                        <a href="vacancie_learn.php">
+                            <div class="col-lg-12">
+                                <div class="card w-100">
+                                    <a href="vacancie_learn.php">
+                                        <?php
+                                        if (isset($profile_img)) {
+                                        ?>
+                                            <div role="img" alt="imagem do jovem <?=$name_user?>" aria-label="imagem do jovem <?=$name_user?>" class="image" style="background-image: url('../admin/uploads/img_perfil/<?= $profile_img ?>')"></div>
+                                        <?php
+                                        } else {
+                                        ?>
+                                            <div role="img" alt="imagem padrão" aria-label="imagem padrão" class="image" style="background-image: url('img/def_jovem.png')"></div>
+                                        <?php
+                                        }
+                                        ?>
+                                        <div class="card-info">
+                                            <h4 class="card-intro description_title">
+                                                <i class="fas fa-suitcase"></i> Trabalhar
+                                            </h4>
+                                            <h2 class="card-title sub_title"><?= $name_user ?></h2>
                                             <?php
-                                            if (isset($profile_img)) {
+                                            if (strlen($vacancie_name) > 48) {
                                             ?>
-                                                <div class="image" style="background-image: url('../admin/uploads/img_perfil/<?= $profile_img ?>')"></div>
+                                                <p class="card-intro description_title2"><?= substr($vacancie_name, 0, 48) ?>...</p>
                                             <?php
                                             } else {
                                             ?>
-                                                <div class="image" style="background-image: url('img/def_jovem.png')"></div>
+                                                <p class="card-intro description_title2"><?= $vacancie_name ?></p>
                                             <?php
                                             }
                                             ?>
-                                            <div class="card-info">
-                                                <h4 class="card-intro description_title">
-                                                    <i class="fas fa-suitcase"></i> Trabalhar
-                                                </h4>
-                                                <h2 class="card-title sub_title"><?= $name_user ?></h2>
-                                                <p class="card-intro description_title2"><?= $vacancie_name ?></p>
-                                                <a href="profile.php?user=<?= $User_young ?>">
-                                                    <p class="btn_cards card-intro description_title2">Ver perfil</p>
-                                                </a>
-                                            </div>
-                                        </a>
-                                    </div>
+                                            <a href="profile.php?user=<?= $User_young ?>">
+                                                <p class="btn_cards card-intro description_title2">Ver perfil</p>
+                                            </a>
+                                        </div>
+                                    </a>
                                 </div>
-                            <?php
-                            }
-                            /* close statement */
-                            mysqli_stmt_close($stmt);
-                        } else {
-                            ?>
-                            <p class="mx-auto mt-5 mb-5" style="font-size: 1rem; padding-bottom: 10%;">
-                                <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
-                                    <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
-                                </svg>
-                                Ainda não existe nenhum percurso de aprendizagem.
-                            </p>
-            <?php
+                            </div>
+                        <?php
                         }
+                        /* close statement */
+                        mysqli_stmt_close($stmt);
+                    } else {
+                        ?>
+                        <p class="mx-auto mt-5 mb-5" style="font-size: 1rem; padding-bottom: 10%;">
+                            <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill mr-2 mb-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
+                                <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
+                            </svg>
+                            Ainda não existe nenhum percurso de aprendizagem.
+                        </p>
+            <?php
                     }
                 }
-            
+            }
+
             ?>
         </div>
     </div>
