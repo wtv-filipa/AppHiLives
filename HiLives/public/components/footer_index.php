@@ -60,7 +60,7 @@ if (isset($_SESSION["idUser"])) {
                 <p class="copyright-text">Copyright &copy; HiLives 2020. Todos os direitos reservados.
                 </p>
             </div>
-            <<div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="col-md-4 col-sm-6 col-xs-12">
                 <ul class="social-icons">
                     <li><a class="dribbble" title="Website HiLives" href="http://hilives.web.ua.pt/" target="_blank"><i class="fa fa-dribbble" style="color: white;"></i><span class="sr-only">(Website HiLives)</span></a></li>
                     <li><a class="facebook" title="Facebook HiLives" href="https://www.facebook.com/HiLives_Erasmus-111765073655672/" target="_blank"><i class="fa fa-facebook" style="color: white;"></i><span class="sr-only">(Facebook HiLives)</span></a></li>
