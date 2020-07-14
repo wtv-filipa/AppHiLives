@@ -30,7 +30,7 @@ if (isset($_SESSION["idUser"])) {
             if ($msg_show == true) {
                 echo "<div class=\"alert $class alert-dismissible fade show mt-5\" role=\"alert\">" . $message . "
                                 <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
-                                <span aria-hidden=\"true\">&times;</span>
+                                <span title=\"Fechar\" aria-hidden=\"true\">&times;</span>
                                 </button>
                                 </div>";
                 echo '<script>window.onload=function (){$(\'.alert\').alert();}</script>';

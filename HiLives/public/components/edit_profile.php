@@ -48,11 +48,11 @@ if (isset($_GET["edit"])) {
                                         //var_dump($img_perfil);
                                         if (isset($profile_img)) {
                                         ?>
-                                            <img id="img_perf" class="image_profile" src="../admin/uploads/img_perfil/<?= $profile_img ?>" alt="<?= $profile_img ?>" />
+                                            <img id="img_perf" class="image_profile" src="../admin/uploads/img_perfil/<?= $profile_img ?>" alt="imagem de perfil" title="imagem de perfil"/>
                                         <?php
                                         } else {
                                         ?>
-                                            <img id="img_perf" class="image_profile" src="img/no_profile_img.png" alt="sem imagem de perfil" />
+                                            <img id="img_perf" class="image_profile" src="img/no_profile_img.png" alt="sem imagem de perfil" title="sem imagem de perfil"/>
 
                                         <?php
                                         }
@@ -67,7 +67,7 @@ if (isset($_GET["edit"])) {
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h4 class="modal-title">Importar e cortar a imagem de perfil</h4>
-                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    <button type="button" class="close" aria-label="Fechar" aria-hidden=true data-dismiss="modal">&times;</button>
                                                 </div>
                                                 <div class="modal-body">
                                                     <div class="row mx-auto">
@@ -128,7 +128,7 @@ if (isset($_GET["edit"])) {
 
                                         if ($msg_show == true) {
                                             echo "<div class=\"alert $class alert-dismissible fade show\" role=\"alert\">" . $message . "
-                                <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+                                <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Fechar\">
                                 <span aria-hidden=\"true\">&times;</span>
                                 </button>
                                 </div>";
@@ -140,32 +140,32 @@ if (isset($_GET["edit"])) {
                                     <!--primeiro input-NOME-->
                                     <div class="form-group text-left">
                                         <label class="negrito mt-3" for="nome">Nome <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
-                                        <input type="text" id="nome" name="nome" placeholder="Escreve aqui o teu nome" required="required" class="form-control" value="<?= $name_user ?>">
+                                        <input type="text" id="nome" name="nome" placeholder="Escreve aqui o teu nome" aria-required="true" required="required" class="form-control" value="<?= $name_user ?>"><span class="sr-only">(Escreve aqui o teu nome)</span>
                                     </div>
                                     <!----------------------->
                                     <!--segundo input-EMAIL-->
                                     <div class="form-group text-left">
                                         <label class="negrito mt-3" for="email">Email <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
-                                        <input type="text" id="email" name="email" placeholder="Escreve aqui o teu email" required="required" class="form-control" value="<?= $email_user ?>">
+                                        <input type="text" id="email" name="email" placeholder="Escrevie aqui o teu email" aria-required="true" required="required" class="form-control" value="<?= $email_user ?>"><span class="sr-only">(Escreve aqui o teu e-mail)</span>
                                     </div>
                                     <!----------------------->
                                     <!--terceiro input-DATA DE NASCIMENTO-->
                                     <div class="form-group text-left">
                                         <label class="negrito mt-3" for="born">Data de nascimento <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
-                                        <input type="date" id="born" name="data_nasc" placeholder="data de nascimento" required="required" class="form-control" value="<?= $birth_date ?>">
+                                        <input type="date" id="born" name="data_nasc" placeholder="data de nascimento" aria-required="true" required="required" class="form-control" value="<?= $birth_date ?>"><span class="sr-only">(Escreve aqui a tua data de nascimento)</span>
                                     </div>
                                     <!----------------------->
                                     <!--quarto input- TELEMÓVEL-->
                                     <div class="form-group text-left">
                                         <label class="negrito mt-3" for="tlm">Telemóvel</label>
-                                        <input type="text" id="tlm" name="phone" placeholder="Escreve aqui o teu telemóvel" class="form-control" value="<?= $contact_user ?>">
+                                        <input type="text" id="tlm" name="phone" placeholder="Escreve aqui o teu telemóvel" class="form-control" value="<?= $contact_user ?>"><span class="sr-only">(Escreve aqui o teu numero de telemóvel)</span>
                                     </div>
                                     <!----------------------->
                                     <!--sexto input- ESCOLARIDADE-->
                                     <div class="form-group text-left">
                                         <label class="negrito mt-3" for="esc">Escolaridade</label>
                                         <select class="form-control" id="esc" name="esc">
-                                            <option selected disabled>Seleciona uma opção</option>
+                                            <option selected disabled aria-disabled>Seleciona uma opção</option><span class="sr-only">(Seleciona uma opção)</span>
                                             <?php
                                             $query3 = "SELECT idEduc_lvl, name_education 
                                                     FROM educ_lvl";
@@ -196,7 +196,7 @@ if (isset($_GET["edit"])) {
                                     <!----------------------->
                                     <!--oitavo input-AREAS-->
                                     <div class="form-group text-left">
-                                        <label class="negrito mt-3" for="area">As minhas áreas de interesse (para estudar ou trabalhar) <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
+                                        <label class="negrito mt-3" for="area">As minhas áreas de interesse (para estudar ou trabalhar) <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label><span class="sr-only">(As minhas áreas de interesse (para estudar ou trabalhar))</span>
                                         <div class="form-check">
                                             <?php
                                             $query2 = "SELECT idAreas, name_interested_area, Areas_idAreas
@@ -234,7 +234,7 @@ if (isset($_GET["edit"])) {
                                     <!----------------------->
                                     <!--nono input-PAÍS-->
                                     <div class="form-group text-left">
-                                        <label class="negrito mt-3" for="pais">Seleciona o país onde queres estudar: <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
+                                        <label class="negrito mt-3" for="pais">Seleciona o país onde queres estudar: <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label><span class="sr-only">(Seleciona o país onde queres estudar)</span>
                                         <select class="form-control" id="pais">
                                             <option value="pt">Portugal</option>
                                             <option value="es">Espanha</option>
@@ -245,7 +245,7 @@ if (isset($_GET["edit"])) {
                                     <!----------------------->
                                     <!--nono input-REGIÃO PT-->
                                     <div class="form-group formulario text-left" id="pt">
-                                        <label class="negrito mt-3" for="regiao">Região que procuras estudar ou trabalhar <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
+                                        <label class="negrito mt-3" for="regiao">Região que procuras estudar ou trabalhar <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label><span class="sr-only">(Região que procuras estudar ou trabalhar)</span>
                                         <div class="form-check">
                                             <?php
                                             $query3 = "SELECT idRegion, name_region, Region_idRegion
@@ -283,7 +283,7 @@ if (isset($_GET["edit"])) {
                                     </div>
                                     <!--nono input-REGIÃO ES-->
                                     <div class="form-group formulario text-left" style="display:none;" id="es">
-                                        <label class="negrito mt-3" for="regiao">Região que procuras estudar ou trabalhar <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
+                                        <label class="negrito mt-3" for="regiao">Região que procuras estudar ou trabalhar <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label><span class="sr-only">(Região que procuras estudar ou trabalhar)</span>
                                         <div class="form-check">
                                             <?php
                                             $query3 = "SELECT idRegion, name_region, Region_idRegion
@@ -321,7 +321,7 @@ if (isset($_GET["edit"])) {
                                     </div>
                                     <!--nono input-REGIÃO BE-->
                                     <div class="form-group formulario text-left" style="display:none;" id="be">
-                                        <label class="negrito mt-3" for="regiao">Região que procuras estudar ou trabalhar <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
+                                        <label class="negrito mt-3" for="regiao">Região que procuras estudar ou trabalhar <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label><span class="sr-only">(Região que procuras estudar ou trabalhar)</span>
                                         <div class="form-check">
                                             <?php
 
@@ -360,7 +360,7 @@ if (isset($_GET["edit"])) {
                                     </div>
                                     <!--nono input-REGIÃO IC-->
                                     <div class="form-group formulario text-left" style="display:none;" id="ic">
-                                        <label class="negrito mt-3" for="regiao">Região que procuras estudar ou trabalhar <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
+                                        <label class="negrito mt-3" for="regiao">Região que procuras estudar ou trabalhar <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label><span class="sr-only">(Região que procuras estudar ou trabalhar)</span>
                                         <div class="form-check">
                                             <?php
 
@@ -400,7 +400,7 @@ if (isset($_GET["edit"])) {
 
                                     <!------------EXPERIÊNCIA DE TRABALHO------------>
                                     <div class="form-group text-left">
-                                        <label class="negrito mt-3" for="exp_t">Experiência de trabalho</label>
+                                        <label class="negrito mt-3" for="exp_t">Experiência de trabalho</label><span class="sr-only">(Descreve a tua experiência de trabalho)</span>
                                         <textarea class="form-control " id="exp_t" rows="5" name="work" placeholder="Escreve aqui a tua experiência de trabalho"><?= $work_xp ?></textarea>
                                     </div>
                                     <!----------------------->
@@ -410,7 +410,7 @@ if (isset($_GET["edit"])) {
                                     <hr>
                                     <h5 class="text-left titulo_cinza" role="heading">Sobre mim</h5>
                                     <div class="form-group text-left">
-                                        <label class="negrito mt-3" role="heading" for="capacity">As frases que melhor me descrevem (selecionar cinco ou mais frases) <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
+                                        <label class="negrito mt-3" role="heading" for="capacity">As frases que melhor me descrevem (selecionar cinco ou mais frases) <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label><span class="sr-only">(Seleciona as cino ou mais frases que melhor te descrevem)</span>
                                         <!------------COMPETÊNCIAS------------>
 
                                         <div class="form-check">
@@ -534,11 +534,11 @@ if (isset($_GET["edit"])) {
                                         //var_dump($img_perfil);
                                         if (isset($profile_img)) {
                                         ?>
-                                            <img id="img_perf" class="image_profile" src="../admin/uploads/img_perfil/<?= $profile_img ?>" alt="<?= $profile_img ?>" />
+                                            <img id="img_perf" class="image_profile" src="../admin/uploads/img_perfil/<?= $profile_img ?>" alt="imagem de perfil" title="imagem de perfil" />
                                         <?php
                                         } else {
                                         ?>
-                                            <img id="img_perf" class="image_profile" src="img/no_profile_img.png" alt="sem imagem de perfil" />
+                                            <img id="img_perf" class="image_profile" src="img/no_profile_img.png" alt="sem imagem de perfil" title="sem imagem de perfil" />
 
                                         <?php
                                         }
@@ -553,7 +553,7 @@ if (isset($_GET["edit"])) {
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h4 class="modal-title">Importar e cortar a imagem de perfil</h4>
-                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    <button type="button" class="close" aria-label="Fechar" aria-hidden=true data-dismiss="modal">&times;</button>
                                                 </div>
                                                 <div class="modal-body">
                                                     <div class="row mx-auto">
@@ -613,7 +613,7 @@ if (isset($_GET["edit"])) {
 
                                         if ($msg_show == true) {
                                             echo "<div class=\"alert $class alert-dismissible fade show\" role=\"alert\">" . $message . "
-                                <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+                                <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Fechar\">
                                 <span aria-hidden=\"true\">&times;</span>
                                 </button>
                                 </div>";
@@ -625,25 +625,25 @@ if (isset($_GET["edit"])) {
                                     <!--primeiro input-NOME-->
                                     <div class="form-group text-left">
                                         <label class="negrito mt-3" for="nome">Nome <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
-                                        <input type="text" id="nome" name="nome" placeholder="Escreva aqui o seu nome" class="form-control" required="required" value="<?= $name_user ?>">
+                                        <input type="text" id="nome" name="nome" placeholder="Escreva aqui o seu nome" class="form-control" aria-required="true" required="required" value="<?= $name_user ?>"><span class=sr-only>(Escreva aqui o seu nome)</span>
                                     </div>
                                     <!----------------------->
                                     <!--segundo input-EMAIL-->
                                     <div class="form-group text-left">
                                         <label class="negrito mt-3" for="email">Email <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
-                                        <input type="text" id="email" name="email" placeholder="Escreva aqui o seu email" class="form-control" required="required" value="<?= $email_user ?>">
+                                        <input type="text" id="email" name="email" placeholder="Escreva aqui o seu e-mail" class="form-control" required="required" value="<?= $email_user ?>"><span class=sr-only>(Escreva aqui o seu e-mail)</span>
                                     </div>
                                     <!----------------------->
                                     <!--terceiro input-DATA DE NASCIMENTO-->
                                     <div class="form-group text-left">
                                         <label class="negrito mt-3" for="born">Data de fundação <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
-                                        <input type="date" id="born" name="data_fund" placeholder="data de nascimento" class="form-control" required="required" value="<?= $birth_date ?>">
+                                        <input type="date" id="born" name="data_fund" placeholder="data de nascimento" class="form-control" required="required" value="<?= $birth_date ?>"><span class=sr-only>(Escreva aqui a data de fundação)</span>
                                     </div>
                                     <!----------------------->
                                     <!--quarto input- TELEMÓVEL-->
                                     <div class="form-group text-left">
                                         <label class="negrito mt-3" for="tlm">Contacto <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
-                                        <input type="text" id="tlm" name="phone" placeholder="Escreva aqui o seu contacto" class="form-control" required="required" value="<?= $contact_user ?>">
+                                        <input type="text" id="tlm" name="phone" placeholder="Escreva aqui o seu contacto" class="form-control" required="required" value="<?= $contact_user ?>"><span class=sr-only>(Escreva aqui o contacto)</span>
                                     </div>
                                     <!----------------------->
                                     <?php
@@ -651,7 +651,7 @@ if (isset($_GET["edit"])) {
                                     ?>
                                         <!--oitavo input-AREAS-->
                                         <div class="form-group text-left">
-                                            <label class="negrito mt-3" for="area">Áreas de disponíveis <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
+                                            <label class="negrito mt-3" for="area">Áreas de disponíveis <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label><span class=sr-only>(Áreas disponíveis na universidade)</span>
                                             <div class="form-check">
                                                 <?php
                                                 $query2 = "SELECT idAreas, name_interested_area, Areas_idAreas
@@ -696,7 +696,7 @@ if (isset($_GET["edit"])) {
                                     ?>
                                         <div class="form-group text-left">
                                             <label class="negrito mt-3" for="pais">Seleciona o país da empresa:
-                                                <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
+                                                <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label><span class=sr-only>(Selecione o país da empresa)</span>
                                             <select class="form-control" id="pais" required="required">
                                                 <option value="pt">Portugal</option>
                                                 <option value="es">Espanha</option>
@@ -864,26 +864,26 @@ if (isset($_GET["edit"])) {
                                     <!------------WEBSITE------------>
                                     <div class="form-group text-left">
                                         <label class="negrito mt-3" for="site">Website <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
-                                        <input type="text" class="form-control cinza" id="site" name="site" placeholder="Insira aqui o website" required="required" value="<?= $website_ue ?>">
+                                        <input type="text" class="form-control cinza" id="site" name="site" aria-required="true" placeholder="Insira aqui o website" required="required" value="<?= $website_ue ?>"><span class=sr-only>(Website)</span>
                                     </div>
                                     <!------------FACEBOOK------------>
                                     <div class="form-group text-left">
                                         <label class="negrito mt-3" for="face">Facebook</label>
                                         <div class="p-0 m-0">
-                                            <input type="text" class="form-control cinza" id="face" name="face" placeholder="Insira aqui o facebook" value="<?= $facebook_ue ?>">
+                                            <input type="text" class="form-control cinza" id="face" name="face" placeholder="Insira aqui o facebook" value="<?= $facebook_ue ?>"><span class=sr-only>(Facebook)</span>
                                         </div>
                                     </div>
                                     <!------------INSTAGRAM------------>
                                     <div class="form-group text-left">
                                         <label class="negrito mt-3" for="insta">Instagram</label>
                                         <div class="p-0 m-0">
-                                            <input type="text" class="form-control cinza" id="insta" name="insta" placeholder="Insira aqui o instagram" value="<?= $instagram_ue ?>">
+                                            <input type="text" class="form-control cinza" id="insta" name="insta" placeholder="Insira aqui o instagram" value="<?= $instagram_ue ?>"><span class=sr-only>(Instagram)</span>
                                         </div>
                                     </div>
                                     <!------------DESCRIÇÃO------------>
                                     <div class="form-group text-left">
                                         <label class="negrito mt-3" for="desc">Descrição <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
-                                        <textarea class="form-control " id="desc" rows="7" name="desc" placeholder="Escreva aqui uma descrição" required="required"> <?= $description_ue ?></textarea>
+                                        <textarea class="form-control " id="desc" rows="7" name="desc" placeholder="Escreva aqui uma descrição" aria-required="true" required="required"> <?= $description_ue ?></textarea><span class=sr-only>(Descrição)</span>
                                     </div>
                                     <?php
                                     if ($type_user == "Universidade") {
@@ -891,7 +891,7 @@ if (isset($_GET["edit"])) {
                                         <!------------HISTÓRIA------------>
                                         <div class="form-group text-left">
                                             <label class="negrito mt-3" for="hist">História <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
-                                            <textarea class="form-control " id="hist" rows="9" name="hist" placeholder="Escreva aqui a história da Universidade" required="required"> <?= $history_ue ?></textarea>
+                                            <textarea class="form-control " id="hist" rows="9" name="hist" placeholder="Escreva aqui a história da Universidade" aria-required="true" required="required"> <?= $history_ue ?></textarea><span class=sr-only>(História da universidade)</span>
                                         </div>
                                     <?php
                                     }

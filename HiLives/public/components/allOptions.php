@@ -47,11 +47,11 @@ $query2 = "SELECT idVacancies, vacancie_name, name_user, profile_img
                                 <?php
                                 if (isset($profile_img)) {
                                 ?>
-                                    <img class="imagem_db" src="../admin/uploads/img_perfil/<?= $profile_img ?>" alt="<?= $profile_img ?>" />
+                                    <img class="imagem_db" src="../admin/uploads/img_perfil/<?= $profile_img ?>" alt=" imagem da universidade <?= $name_user ?>" title="<?= $name_user ?>"/>
                                 <?php
                                 } else {
                                 ?>
-                                    <img class="imagem" src="img/def_uni.jpg" alt="sem imagem de perfil" />
+                                    <img class="imagem" src="img/def_uni.jpg" alt="imagem padrão" title="imagem padrão"/>
                                 <?php
                                 }
                                 ?>
@@ -113,11 +113,11 @@ $query2 = "SELECT idVacancies, vacancie_name, name_user, profile_img
                                 <?php
                                 if (isset($profile_img)) {
                                 ?>
-                                    <img class="imagem_db" src="../admin/uploads/img_perfil/<?= $profile_img ?>" alt="<?= $profile_img ?>" />
+                                    <img class="imagem_db" src="../admin/uploads/img_perfil/<?= $profile_img ?>" alt="imagem da empresa <?= $name_user ?>" title="<?= $name_user ?>"/>
                                 <?php
                                 } else {
                                 ?>
-                                    <img class="imagem" src="img/def_comp.jpg" alt="sem imagem de perfil" />
+                                    <img class="imagem" src="img/def_comp.jpg" alt="imagem padrão" title="imagem padrão"/>
                                 <?php
                                 }
                                 ?>

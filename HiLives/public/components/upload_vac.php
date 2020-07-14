@@ -51,7 +51,7 @@ $idUser = $_SESSION["idUser"];
         if ($msg_show == true) {
             echo "<div class=\"alert $class alert-dismissible fade show mt-5\" role=\"alert\">" . $message . "
                                 <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
-                                <span aria-hidden=\"true\">&times;</span>
+                                <span title=\"Fechar\" aria-hidden=\"true\">&times;</span>
                                 </button>
                                 </div>";
             echo '<script>window.onload=function (){$(\'.alert\').alert();}</script>';
@@ -71,32 +71,32 @@ $idUser = $_SESSION["idUser"];
             <!--primeiro campo-->
             <div class="form-group text-left">
                 <label class="label-margin" for="nomevaga">Cargo na empresa: <span style="color:  #00A5CF!important; font-weight: bold; font-size: 20px">*</span></label>
-                <input type="text" id="nomevaga" name="nomevaga" class="form-control" placeholder="Insira o nome do cargo disponível." required="required">
+                <input type="text" id="nomevaga" name="nomevaga" class="form-control" placeholder="Insira o nome do cargo disponível." aria-required="true" required="required">
             </div>
             <!-------------------------------------------->
             <!--segundo campo-->
             <div class="form-group text-left mt-4">
                 <label class="label-margin" for="descricao">Descrição da vaga: <span style="color:  #00A5CF!important; font-weight: bold; font-size: 20px">*</span></label>
-                <textarea type="text" id="descricao" rows="10" name="descricao" class="form-control" placeholder="Insira um texto que descreva a vaga que está a anunciar." required="required"></textarea>
+                <textarea type="text" id="descricao" rows="10" name="descricao" class="form-control" placeholder="Insira um texto que descreva a vaga que está a anunciar." aria-required="true" required="required"></textarea>
             </div>
             <!-------------------------------------------->
             <!--terceiro campo-->
             <div class="form-group text-left">
                 <label class="label-margin" for="numvagas">Número de vagas disponíveis: <span style="color:  #00A5CF!important; font-weight: bold; font-size: 20px">*</span></label>
-                <input type="text" id="numvagas" name="numvagas" class="form-control" placeholder="Insira o número de vagas disponíveis para o cargo." required="required">
+                <input type="text" id="numvagas" name="numvagas" class="form-control" placeholder="Insira o número de vagas disponíveis para o cargo." aria-required="true" required="required">
             </div>
             <!-------------------------------------------->
             <!--quarto campo-->
             <div class="form-group text-left mt-4">
                 <label class="label-margin" for="requisitos">Requisitos: <span style="color:  #00A5CF!important; font-weight: bold; font-size: 20px">*</span></label>
-                <textarea type="text" id="requisitos" rows="7" name="requisitos" class="form-control" placeholder="Insira todos os requisitos que o jovem deve cumprir para que se possa candidatar à vaga." required="required"></textarea>
+                <textarea type="text" id="requisitos" rows="7" name="requisitos" class="form-control" placeholder="Insira todos os requisitos que o jovem deve cumprir para que se possa candidatar à vaga." aria-required="true" required="required"></textarea>
             </div>
             <!-------------------------------------------->
             <!--quinto campo-->
             <div class="form-group text-left">
                 <label class="label-margin" for="area">Área: <span style="color:  #00A5CF!important; font-weight: bold; font-size: 20px">*</span></label>
-                <select class="form-control" id="area" name="area" required="required">
-                    <option value="" selected disabled>Selecionar uma opção</option>
+                <select class="form-control" id="area" name="area" aria-required="true" required="required">
+                    <option value="" selected disabled aria-disabled="true">Selecionar uma opção</option>
                     <?php
                     $query = "SELECT idAreas, name_interested_area FROM areas";
 
@@ -117,8 +117,8 @@ $idUser = $_SESSION["idUser"];
             <!--sexto campo-->
             <div class="form-group text-left">
                 <label class="label-margin" for="jornada">Jornada de trabalho: <span style="color:  #00A5CF!important; font-weight: bold; font-size: 20px">*</span></label>
-                <select class="form-control" id="jornada" name="jornada" required="required">
-                    <option value="" selected disabled>Selecionar uma opção</option>
+                <select class="form-control" id="jornada" name="jornada" aria-required="true" required="required">
+                    <option value="" selected disabled aria-disabled="true">Selecionar uma opção</option>
                     <?php
                     $query2 = "SELECT idWorkday, Workday_name FROM workday";
                     $stmt = mysqli_stmt_init($link);
@@ -165,8 +165,8 @@ $idUser = $_SESSION["idUser"];
             <!--oitavo campo-->
             <div class="form-group text-left">
                 <label class="label-margin" for="educ">Nível de educação: <span style="color:  #00A5CF!important; font-weight: bold; font-size: 20px">*</span></label>
-                <select class="form-control" id="educ" name="educ" required="required">
-                    <option value="" selected disabled>Selecionar uma opção</option>
+                <select class="form-control" id="educ" name="educ" aria-required="true" required="required">
+                    <option value="" selected disabled aria-disabled="true">Selecionar uma opção</option>
                     <?php
                     $query2 = "SELECT idEduc_lvl, name_education FROM educ_lvl";
                     $stmt = mysqli_stmt_init($link);
@@ -194,7 +194,7 @@ $idUser = $_SESSION["idUser"];
                         <span style="color:  #00A5CF!important; font-weight: bold; font-size: 20px">*</span>
                     </label>
                     <select class="form-control" id="regiao_pt" name="regiao" required="required">
-                        <option value="" selected disabled>Seleciona uma opção</option>
+                        <option value="" selected disabled aria-disabled="true">Seleciona uma opção</option>
                         <?php
                         $query2 = "SELECT Region_idRegion, idRegion, name_region FROM user_has_region
                                     INNER JOIN region ON user_has_region.Region_idRegion = region.idRegion

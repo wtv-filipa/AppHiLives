@@ -11,7 +11,7 @@
                         <div class="col-lg-12">
                             <div class="p-5">
                                 <div class="text-center">
-                                    <img class="pb-4 img-fluid re_size" src="img/logo.svg" alt="Logótipo do HiLives">
+                                    <a href="../index.php"><img class="pb-4 img-fluid re_size" src="img/logo.svg" alt="Logótipo do HiLives" title="Bem-vindo à HiLives!"></a>
                                     <h4 class="text-gray-900 mb-4">Bem-vindo!</h4>
                                 </div>
                                 <?php
@@ -49,7 +49,7 @@
                                     if ($msg_show == true) {
                                         echo "<div class=\"alert $class alert-dismissible fade show mt-5\" role=\"alert\">" . $message . "
                                 <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
-                                <span aria-hidden=\"true\">&times;</span>
+                                <span title=\"Fechar\" aria-hidden=\"true\">&times;</span>
                                 </button>
                                 </div>";
                                         echo '<script>window.onload=function (){$(\'.alert\').alert();}</script>';
@@ -61,14 +61,14 @@
                                     <div class="form-group">
                                         <label class="negrito mt-3" for="input2UserForm">Email</label>
                                         <div class="p-0 m-0">
-                                            <input type="email" class="form-control cinza" id="input2UserForm" name="email" placeholder="Escreve aqui o email da tua conta no HiLives" required="required">
+                                            <input type="email" class="form-control cinza" id="input2UserForm" name="email" placeholder="Escreve aqui o email da tua conta no HiLives" aria-required="true" required="required">
                                         </div>
                                     </div>
                                     <!--PASSWORD-->
                                     <div class="form-group">
                                         <label class="negrito mt-3" for="password">Palavra-passe</label>
                                         <div class="p-0 m-0">
-                                            <input type="password" class="form-control" id="password" name="password" placeholder="Escreve aqui a tua palavra-passe do HiLives" required="required" onkeyup="checkPass(); return false;">
+                                            <input type="password" class="form-control" id="password" name="password" placeholder="Escreve aqui a tua palavra-passe do HiLives" aria-required="true" required="required" onkeyup="checkPass(); return false;">
                                         </div>
                                     </div>
                                     <!--BOTÃO DE SUBMIT-->
@@ -80,10 +80,10 @@
                                 </form>
                                 <hr>
                                 <div class="text-center">
-                                    <a class="small" href="forgot_password.php">Esqueceste-te da tua palavra-passe?</a>
+                                    <a class="small" title="Clica para recuperares a tua palavra-passe" href="forgot_password.php">Esqueceste-te da tua palavra-passe?</a>
                                 </div>
                                 <div class="text-center">
-                                    <a class="small" href="../index.php">Ainda não estás inscrito? Faz o teu registo!</a>
+                                    <a class="small" title="Clica para te registares" href="../index.php">Ainda não estás inscrito? Faz o teu registo!</a>
                                 </div>
                             </div>
                         </div>

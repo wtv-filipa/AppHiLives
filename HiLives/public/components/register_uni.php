@@ -41,7 +41,7 @@
                                     if ($msg_show == true) {
                                         echo "<div class=\"alert $class alert-dismissible fade show mt-5\" role=\"alert\">" . $message . "
                                 <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
-                                <span aria-hidden=\"true\">&times;</span>
+                                <span title=\"Fechar\" aria-hidden=\"true\">&times;</span>
                                 </button>
                                 </div>";
                                         echo '<script>window.onload=function (){$(\'.alert\').alert();}</script>';
@@ -64,35 +64,35 @@
                                     <div class="form-group">
                                         <label class="negrito" for="username">Nome <span style="color: #00A5CF!important; font-weight: bold; font-size: 20px">*</span></label>
                                         <div class=" p-0 m-0">
-                                            <input type="text" class="form-control cinza" id="username" name="nome" placeholder="Escreva aqui o nome da universidade" required="required">
+                                            <input type="text" class="form-control cinza" id="username" name="nome" placeholder="Escreva aqui o nome da universidade" aria-required="true" required="required">
                                         </div>
                                     </div>
                                     <!------------EMAIL------------>
                                     <div class="form-group">
                                         <label class="negrito mt-3" for="email">Email <span style="color: #00A5CF!important; font-weight: bold; font-size: 20px">*</span></label>
                                         <div class="p-0 m-0">
-                                            <input type="email" class="form-control cinza" id="email" name="email" placeholder="Escreva aqui o email da universidade" required="required" onchange="email_validate(this.value);">
+                                            <input type="email" class="form-control cinza" id="email" name="email" placeholder="Escreva aqui o email da universidade" aria-required="true" required="required" onchange="email_validate(this.value);">
                                         </div>
                                     </div>
                                     <!------------DATA DE FUNDAÇÃO------------>
                                     <div class="form-group">
                                         <label class="negrito mt-3" for="data_fund">Data de fundação <span style="color: #00A5CF!important; font-weight: bold; font-size: 20px">*</span></label>
                                         <div class="p-0 m-0">
-                                            <input type="date" class="form-control cinza" id="data_fund" name="data_fund" placeholder="Data de fundação da universidade" required="required">
+                                            <input type="date" class="form-control cinza" id="data_fund" name="data_fund" placeholder="Data de fundação da universidade" aria-required="true" required="required">
                                         </div>
                                     </div>
                                     <!------------TELEFONE------------>
                                     <div class="form-group">
                                         <label class="negrito mt-3" for="phone">Contacto telefónico <span style="color: #00A5CF!important; font-weight: bold; font-size: 20px">*</span></label>
                                         <div class="p-0 m-0">
-                                            <input type="tel" class="form-control cinza" id="phone" name="phone" placeholder="Escreva aqui o contacto telefónico da universidade" required="required">
+                                            <input type="tel" class="form-control cinza" id="phone" name="phone" placeholder="Escreva aqui o contacto telefónico da universidade" aria-required="true" required="required">
                                         </div>
                                     </div>
                                     <!------------PAÍS------------>
                                     <div class="form-group">
                                         <label class="negrito mt-3" for="pais">Seleciona o país da universidade:
                                             <span style="color: #00A5CF!important; font-weight: bold; font-size: 20px">*</span></label>
-                                        <select class="form-control" id="pais" required="required">
+                                        <select class="form-control" id="pais" aria-required="true" required="required">
                                             <option value="pt">Portugal</option>
                                             <option value="es">Espanha</option>
                                             <option value="be">Bélgica</option>
@@ -105,7 +105,7 @@
                                             <label class="negrito mt-3" for="regiao_pt">Região da Universidade
                                                 <span style="color: #00A5CF!important; font-weight: bold; font-size: 20px">*</span>
                                             </label>
-                                            <select class="form-control" id="regiao_pt" name="regiao" required>
+                                            <select class="form-control" id="regiao_pt" name="regiao" aria-required="true" required>
                                                 <option value="" selected disabled>Seleciona uma opção</option>
                                                 <?php
                                                 $query2 = "SELECT idRegion, name_region FROM region 
@@ -219,7 +219,7 @@
                                         <div id="chk_option_error" class="alert alert-warning alert-dismissible fade show" role="alert" style="visibility:hidden;">
                                             É obrigatório selecionar pelo menos uma área.
                                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
+                                                <span title="Fechar" aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
                                         <div class="form-check">
@@ -248,7 +248,7 @@
                                     <div class="form-group">
                                         <label class="negrito mt-3" for="site">Website <span style="color: #00A5CF!important; font-weight: bold; font-size: 20px">*</span></label>
                                         <div class="p-0 m-0">
-                                            <input type="text" class="form-control cinza" id="site" name="site" placeholder="Insira aqui o website da universidade" required="required">
+                                            <input type="text" class="form-control cinza" id="site" name="site" placeholder="Insira aqui o website da universidade" aria-required="true" required="required">
                                         </div>
                                     </div>
                                     <!------------FACEBOOK------------>
@@ -269,12 +269,12 @@
                                     <!------------DESCRIÇÃO------------>
                                     <div class="form-group">
                                         <label class="negrito mt-3" for="desc">Descrição <span style="color: #00A5CF!important; font-weight: bold; font-size: 20px">*</span></label>
-                                        <textarea class="form-control " id="exp_t" rows="5" name="desc" placeholder="Escreva aqui uma descrição" required="required"></textarea>
+                                        <textarea class="form-control " id="exp_t" rows="5" name="desc" placeholder="Escreva aqui uma descrição" aria-required="true" required="required"></textarea>
                                     </div>
                                     <!------------HISTÓRIA------------>
                                     <div class="form-group">
                                         <label class="negrito mt-3" for="hist">História <span style="color: #00A5CF!important; font-weight: bold; font-size: 20px">*</span></label>
-                                        <textarea class="form-control " id="exp_t" rows="7" name="hist" placeholder="Escreva aqui a história da universidade" required="required"></textarea>
+                                        <textarea class="form-control " id="exp_t" rows="7" name="hist" placeholder="Escreva aqui a história da universidade" aria-required="true" required="required"></textarea>
                                     </div>
 
 
@@ -282,13 +282,13 @@
                                     <div class="form-group">
                                         <label class="negrito mt-3" for="pass">Palavra-passe <span style="color: #00A5CF!important; font-weight: bold; font-size: 20px">*</span></label>
                                         <div class="p-0 m-0">
-                                            <input type="password" class="form-control" id="password" name="password" placeholder="Crie a palavra-passe para o HiLives" required="required" onkeyup="checkPass(); return false;">
+                                            <input type="password" class="form-control" id="password" name="password" placeholder="Crie a palavra-passe para o HiLives" aria-required="true" required="required" onkeyup="checkPass(); return false;">
                                         </div>
                                     </div>
                                     <div class="form-group mb-3">
                                         <label class="negrito mt-3" for="vpass">Verificar palavra-passe <span style="color: #00A5CF!important; font-weight: bold; font-size: 20px">*</span></label>
                                         <div class="p-0 m-0">
-                                            <input type="password" class="form-control" id="password_confirm" placeholder="Repita a palavra-passe" required="required" onkeyup="checkPass(); return false;">
+                                            <input type="password" class="form-control" id="password_confirm" placeholder="Repita a palavra-passe" aria-required="true" required="required" onkeyup="checkPass(); return false;">
                                             <span id="confirmMessage" class="confirmMessage"></span>
                                         </div>
                                     </div>

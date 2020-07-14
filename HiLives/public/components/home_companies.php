@@ -47,13 +47,13 @@ if ($_SESSION["idUser"]) {
                                                 if (isset($profile_img)) {
                                                 ?>
                                                     <a href="profile.php?user=<?= $User_young ?>">
-                                                        <img alt="Imagem de perfil do jovem" title="" class="tagpost_thumb" src="../admin/uploads/img_perfil/<?= $profile_img ?>">
+                                                        <img alt="Imagem de perfil do jovem" title="<?= $name_user ?>" class="tagpost_thumb" src="../admin/uploads/img_perfil/<?= $profile_img ?>">
                                                     </a>
                                                 <?php
                                                 } else {
                                                 ?>
                                                     <a href="profile.php?user=<?= $User_young ?>">
-                                                        <img alt="Imagem default do jovem" title="" class="tagpost_thumb" src="img/def_jovem.png">
+                                                        <img alt="Imagem default do jovem" title="Imagem default" class="tagpost_thumb" src="img/def_jovem.png">
                                                     </a>
                                                 <?php
                                                 }

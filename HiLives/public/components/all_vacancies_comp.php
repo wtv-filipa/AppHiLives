@@ -56,7 +56,7 @@ if ($_SESSION["idUser"]) {
             if ($msg_show == true) {
                 echo "<div class=\"alert $class alert-dismissible fade show mt-5\" role=\"alert\">" . $message . "
                                 <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
-                                <span aria-hidden=\"true\">&times;</span>
+                                <span title='Fechar' aria-hidden=\"true\">&times;</span>
                                 </button>
                                 </div>";
                 echo '<script>window.onload=function (){$(\'.alert\').alert();}</script>';
@@ -99,10 +99,10 @@ if ($_SESSION["idUser"]) {
 
                                                         <div class="text-right">
                                                             <a href="edit_vac.php?idvac=<?= $idVacancies ?>">
-                                                                <i class="fas fa-edit mr-1" style="color:#00A5CF!important"></i>
+                                                                <i class="fas fa-edit mr-1" style="color:#00A5CF!important"></i><span class="sr-only">(Editar vaga)</span>
                                                             </a>
                                                             <a href="#" data-toggle="modal" data-target="#deletevac<?= $idVacancies ?>">
-                                                                <i class="fas fa-trash mr-1" style="color:#2F2F2F!important"></i>
+                                                                <i class="fas fa-trash mr-1" style="color:#2F2F2F!important"></i><span class="sr-only">(Eliminar vaga)</span>
                                                             </a>
                                                         </div>
                                                     </li>

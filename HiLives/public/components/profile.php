@@ -57,11 +57,11 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                         <?php
                         if (isset($profile_img)) {
                         ?>
-                            <img class="image_profile" src="../admin/uploads/img_perfil/<?= $profile_img ?>" alt="<?= $profile_img ?>" />
+                            <img class="image_profile" title="<?=$name_user?>" src="../admin/uploads/img_perfil/<?= $profile_img ?>" alt="<?= $profile_img ?>" />
                         <?php
                         } else {
                         ?>
-                            <img class="image_profile" src="img/no_profile_img.png" alt="sem imagem de perfil" />
+                            <img class="image_profile" src="img/no_profile_img.png" alt="sem imagem de perfil" title="Imagem padrão"/>
                         <?php
                         }
                         ?>
@@ -74,7 +74,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                         <div class="col-xs-3 col-lg-9 ">
                             <h3 class="mt-2 nome_user"><?= $name_user ?> <span class="subtitulo" style="font-weight: lighter; font-size: 16px;"> | <?= $age ?> anos</span></h3>
 
-                            <h6 class="mt-3 subtitulo"> Email:<a href="mailto:<?= $email_user ?>"> <?= $email_user ?> </a></h6>
+                            <h6 class="mt-3 subtitulo"> E-mail:<a title="Clicar para enviar e-mail para <?=$email_user?>" href="mailto:<?= $email_user ?>"> <?= $email_user ?> </a></h6>
 
                             <h6 class="mt-3 subtitulo"> Regiões de interesse:
                                 <?php
@@ -142,7 +142,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                 <div class="p-0 mt-3">
                                     <a href="edit_profile.php?edit=<?= $idUser ?>">
                                         <button class="btn edit_btn">
-                                            <i class="faw_hover fas fa-edit"></i>
+                                            <i class="faw_hover fas fa-edit" ></i>
                                             Editar as minhas informações
                                         </button>
                                     </a>
@@ -243,11 +243,11 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                                     ?>
                                                         <div class="text-right">
                                                             <a href="edit_done_uc.php?uc=<?= $idDone_CU ?>">
-                                                                <i class="fas fa-edit mr-1" style="color:#00A5CF!important"></i>
+                                                                <i class="fas fa-edit mr-1" title="Editar Unidade Curricular" style="color:#00A5CF!important"></i>
                                                             </a>
 
                                                             <a href="#" data-toggle="modal" data-target="#deleteuc<?= $idDone_CU ?>">
-                                                                <i class="fas fa-trash mr-1" style="color:#2F2F2F!important"></i>
+                                                                <i class="fas fa-trash mr-1" title="Eliminar Unidade Curricular" style="color:#2F2F2F!important"></i>
                                                             </a>
                                                         </div>
                                                     <?php
@@ -509,7 +509,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                             if ($msg_show == true) {
                                 echo "<div class=\"alert $class alert-dismissible fade show mt-5\" role=\"alert\">" . $message . "
                                 <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
-                                <span aria-hidden=\"true\">&times;</span>
+                                <span title=\"Fechar\" aria-hidden=\"true\">&times;</span>
                                 </button>
                                 </div>";
                                 echo '<script>window.onload=function (){$(\'.alert\').alert();}</script>';
@@ -568,7 +568,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                 if ($idUser == $id_navegar) {
                                     ?>
                                     <div class="col-md-3 mt-3 ">
-                                        <a href="upload_xp.php">
+                                        <a title="Clica para adicionares uma experiência" href="upload_xp.php">
                                             <button type="" class="btn bt_add" style="background-color: #D2D2D2;">
                                                 Adicionar uma nova
                                                 experiência
@@ -700,7 +700,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                 <blockquote class="blockquote mb-0 mt-4 ">
                                     <ul id="notebook_ul">
                                         <li class="lista">
-                                            <i class="fas fa-at mr-2"></i><b class="mr-2">Email:</b> <a href="mailto:<?= $email_user ?>"><?= $email_user ?></a>
+                                            <i class="fas fa-at mr-2"></i><b class="mr-2">E-mail:</b> <a title="Clicar para enviar e-mail para <?=$email_user?>" href="mailto:<?= $email_user ?>"><?= $email_user ?></a>
                                         </li>
                                         <li class="lista">
                                             <i class="fas fa-phone-alt mr-2"></i><b class="mr-2">Telefone:</b><?= $contact_user ?>
@@ -770,7 +770,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                             if ($msg_show == true) {
                                 echo "<div class=\"alert $class alert-dismissible fade show mt-5\" role=\"alert\">" . $message . "
                                 <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
-                                <span aria-hidden=\"true\">&times;</span>
+                                <span title=\"Fechar\" aria-hidden=\"true\">&times;</span>
                                 </button>
                                 </div>";
                                 echo '<script>window.onload=function (){$(\'.alert\').alert();}</script>';
@@ -919,7 +919,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                 <blockquote class="blockquote mb-0 mt-4 ">
                                             <ul id="notebook_ul">
                                                 <li class="lista">
-                                                    <i class="fas fa-at mr-2"></i><b class="mr-2">Email:</b><a href="mailto:<?= $email_user ?>"><?= $email_user ?></a>
+                                                    <i class="fas fa-at mr-2"></i><b class="mr-2">E-mail:</b><a title="Clicar para enviar e-mail para <?=$email_user?>" href="mailto:<?= $email_user ?>"><?= $email_user ?></a>
                                                 </li>
                                                 <li class="lista">
                                                     <i class="fas fa-phone-alt mr-2"></i><b class="mr-2">Telefone:</b><?= $contact_user ?>

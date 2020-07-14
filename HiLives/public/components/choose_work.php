@@ -80,7 +80,7 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
                                     ?>
                                         <a href="scripts/update_fav.php?m=<?= $id_match_vac ?>&f=<?= $favorite ?>">
                                             <button class="btn rounded-circle btn_fav">
-                                                <i class="fa fa-heart-o" aria-hidden="true" style="color: #2F2F2F"></i>
+                                                <i class="fa fa-heart-o" aria-hidden="true" style="color: #2F2F2F"></i><span class="sr-only">(Marcar como favorito)</span>
                                             </button>
                                         </a>
                                     <?php
@@ -88,18 +88,18 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
                                     ?>
                                         <a href="scripts/update_fav.php?m=<?= $id_match_vac ?>&f=<?= $favorite ?>">
                                             <button class="btn rounded-circle btn_fav">
-                                                <i class="fa fa-heart" aria-hidden="true" style="color: #A31621"></i>
+                                                <i class="fa fa-heart" aria-hidden="true" style="color: #A31621"></i><span class="sr-only">(Remover favorito)</span>
                                             </button>
                                         </a>
                                     <?php
                                     }
                                     if (isset($profile_img)) {
                                     ?>
-                                        <div class="image" style="background-image: url('../admin/uploads/img_perfil/<?= $profile_img ?>')"></div>
+                                        <div role="img" alt="imagem da empresa <?=$name_user?>" aria-label="imagem da empresa <?=$name_user?>" class="image" style="background-image: url('../admin/uploads/img_perfil/<?= $profile_img ?>')"></div>
                                     <?php
                                     } else {
                                     ?>
-                                        <div class="image" style="background-image: url('img/index_3.jpg')"></div>
+                                        <div role="img" alt="imagem padrão" aria-label="imagem padrão" class="image" style="background-image: url('img/index_3.jpg')"></div>
                                     <?php
                                     }
                                     ?>
@@ -155,11 +155,11 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
                                         <?php
                                         if (isset($profile_img)) {
                                         ?>
-                                            <div class="image" style="background-image: url('../admin/uploads/img_perfil/<?= $profile_img ?>')"></div>
+                                            <div role="img" alt="imagem do jovem <?=$name_user?>" aria-label="imagem do jovem <?=$name_user?>" class="image" style="background-image: url('../admin/uploads/img_perfil/<?= $profile_img ?>')"></div>
                                         <?php
                                         } else {
                                         ?>
-                                            <div class="image" style="background-image: url('img/def_jovem.png')"></div>
+                                            <div role="img" alt="imagem padrão" aria-label="imagem padrão" class="image" style="background-image: url('img/def_jovem.png')"></div>
                                         <?php
                                         }
                                         ?>
@@ -216,7 +216,7 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
                         if ($type == 10) {
                         ?>
                             <h3 class="mb-1 main_title"> Estás quase lá, vê o que tens em falta!</h3>
-                            <p style="opacity:0.8;"> Aqui econtras todas as ligações com vagas de empresas onde te falta cumprir apenas duas ou três capacidades. Podes abrir cada uma para descobrires o que tens em falta para preencheres. Lembra-te que tens de contactar a empresa caso estejas interessado na sua vaga.</p>
+                            <p style="opacity:0.8;"> Aqui encontras todas as ligações com vagas de empresas onde te falta cumprir apenas duas ou três capacidades. Podes abrir cada uma para descobrires o que tens em falta para preencheres. Lembra-te que tens de contactar a empresa caso estejas interessado na sua vaga.</p>
                         <?php
                         } else if ($type == 7) {
                         ?>
@@ -250,7 +250,7 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
                                     ?>
                                         <a href="scripts/update_fav.php?m=<?= $id_match_vac ?>&f=<?= $favorite ?>">
                                             <button class="btn rounded-circle btn_fav">
-                                                <i class="fa fa-heart-o" aria-hidden="true" style="color: #2F2F2F"></i>
+                                                <i class="fa fa-heart-o" aria-hidden="true" style="color: #2F2F2F"></i><span class="sr-only">(Marcar como favorito)</span>
                                             </button>
                                         </a>
                                     <?php
@@ -258,18 +258,18 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
                                     ?>
                                         <a href="scripts/update_fav.php?m=<?= $id_match_vac ?>&f=<?= $favorite ?>">
                                             <button class="btn rounded-circle btn_fav">
-                                                <i class="fa fa-heart" aria-hidden="true" style="color: #A31621"></i>
+                                                <i class="fa fa-heart" aria-hidden="true" style="color: #A31621"></i><span class="sr-only">(Remover favorito)</span>
                                             </button>
                                         </a>
                                     <?php
                                     }
                                     if (isset($profile_img)) {
                                     ?>
-                                        <div class="image" style="background-image: url('../admin/uploads/img_perfil/<?= $profile_img ?>')"></div>
+                                        <div role="img" alt="imagem da empresa <?=$name_user?>" aria-label="imagem da empresa <?=$name_user?>" class="image" style="background-image: url('../admin/uploads/img_perfil/<?= $profile_img ?>')"></div>
                                     <?php
                                     } else {
                                     ?>
-                                        <div class="image" style="background-image: url('img/index_3.jpg')"></div>
+                                        <div role="img" alt="imagem padrão" aria-label="imagem padrão" class="image" style="background-image: url('img/index_3.jpg')"></div>
                                     <?php
                                     }
                                     ?>
@@ -326,11 +326,11 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
                                         <?php
                                         if (isset($profile_img)) {
                                         ?>
-                                            <div class="image" style="background-image: url('../admin/uploads/img_perfil/<?= $profile_img ?>')"></div>
+                                            <div role="img" alt="imagem do jovem <?=$name_user?>" aria-label="imagem do jovem <?=$name_user?>" class="image" style="background-image: url('../admin/uploads/img_perfil/<?= $profile_img ?>')"></div>
                                         <?php
                                         } else {
                                         ?>
-                                            <div class="image" style="background-image: url('img/def_jovem.png')"></div>
+                                            <div role="img" alt="imagem padrão" aria-label="imagem padrão" class="image" style="background-image: url('img/def_jovem.png')"></div>
                                         <?php
                                         }
                                         ?>

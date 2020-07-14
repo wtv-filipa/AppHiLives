@@ -29,7 +29,7 @@ include "navbar_2.php";
             <p>Além disto será possível, dentro da mesma página, obter mais informações sobre o conteúdo da
                 aplicação.</p>
 
-            <p>Se o jovem, universidade ou empresa já se tiver registado anteriormente, poderá <u><a href="login.php" target="_blank">iniciar a sua sessão</a></u>
+            <p>Se o jovem, universidade ou empresa já se tiver registado anteriormente, poderá <u><a href="login.php" title="Clica para iniciares sessão" target="_blank">iniciar a sua sessão</a></u>
         </div>
     </div>
 
@@ -171,6 +171,6 @@ include "navbar_2.php";
     <div class="mt-5 mb-5">
         <h3 class="subtitulo">Tens dúvidas ou sugestões?</h3>
 
-        <p>Se tiveres alguma dúvida sobre a HiLives, ou uma sugestão para a tornar melhor, <b><a href="question_form.php" target="_blank">envia-nos um e-mail</a></b>. Teremos todo o gosto em ajudar-te e ler o que tens para nos dizer!</p>
+        <p>Se tiveres alguma dúvida sobre a HiLives, ou uma sugestão para a tornar melhor, <b><a href="question_form.php" title="Clica para enviar um e-mail" target="_blank">envia-nos um e-mail</a></b>. Teremos todo o gosto em ajudar-te e ler o que tens para nos dizer!</p>
     </div>
 </div>
