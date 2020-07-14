@@ -24,6 +24,7 @@
                 <input type="text" id="nome_user" name="name" class="form-control"
                        placeholder="Escreve aqui o teu nome..."
                        required="required"
+                       aria-required="true"
                        name="name">
             </div>
             <!-------------------------------------------->
@@ -33,6 +34,7 @@
                 <input type="text" id="mail_user" name="mail" class="form-control"
                        placeholder="Escreve aqui o teu e-mail..."
                        required="required"
+                       aria-required="true"
                        name="email">
             </div>
             <!-------------------------------------------->
@@ -42,6 +44,7 @@
                 <textarea rows="7" type="text" id="sugestao" name="sugestao" class="form-control" maxlength="500"
                           placeholder="Escreve aqui a tua dúvida ou sugestão..."
                           required="required"
+                          aria-required="true"
                           name="message"></textarea>
             </div>
             <!-------------------------------------------->

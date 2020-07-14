@@ -14,7 +14,7 @@
                             <div class="p-5">
                                 <div class="text-center">
                                     <a href="../index.php">
-                                        <img class="pb-4 img-fluid re_size" src="img/logo.svg" alt="Logótipo do HiLives">
+                                        <img class="pb-4 img-fluid re_size" src="img/logo.svg" alt="Logótipo do HiLives" title="Junta-te à HiLives!">
                                     </a>
                                     <h4 class="negrito mb-4" role="heading">Junta-te a nós!</h4>
                                     <p class="mb-4 descricao">Plataforma de apoio à qualificação e emprego de jovens com dificuldades intelectuais e desenvolvimentais.</p>
@@ -44,7 +44,7 @@
                                     if ($msg_show == true) {
                                         echo "<div class=\"alert $class alert-dismissible fade show mt-5\" role=\"alert\">" . $message . "
                                 <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
-                                <span aria-hidden=\"true\">&times;</span>
+                                <span title=\"Fechar\" aria-hidden=\"true\">&times;</span>
                                 </button>
                                 </div>";
                                         echo '<script>window.onload=function (){$(\'.alert\').alert();}</script>';
@@ -70,14 +70,14 @@
                                         <div class="form-group">
                                             <label class="negrito" for="username">Nome <span class="asterisco">*</span></label>
                                             <div class=" p-0 m-0">
-                                                <input type="text" class="form-control cinza" id="username" name="nome" placeholder="Escreve aqui o teu nome" required="required">
+                                                <input type="text" class="form-control cinza" id="username" name="nome" placeholder="Escreve aqui o teu nome" aria-required="true" required="required">
                                             </div>
                                         </div>
                                         <!------------EMAIL------------>
                                         <div class="form-group">
                                             <label class="negrito mt-3" for="email">Email <span class="asterisco">*</span></label>
                                             <div class="p-0 m-0">
-                                                <input type="email" class="form-control cinza" id="email" name="email" placeholder="Escreve aqui o teu email" required="required" onchange="email_validate(this.value);">
+                                                <input type="email" class="form-control cinza" id="email" name="email" placeholder="Escreve aqui o teu email" aria-required="true" required="required" onchange="email_validate(this.value);">
                                             </div>
                                         </div>
 
@@ -85,13 +85,13 @@
                                         <div class="form-group">
                                             <label class="negrito mt-3" for="password">Palavra-passe <span class="asterisco">*</span></label>
                                             <div class="p-0 m-0">
-                                                <input type="password" class="form-control" id="password" name="password" placeholder="Cria a tua palavra-passe para o HiLives" required="required" onkeyup="checkPass(); return false;">
+                                                <input type="password" class="form-control" id="password" name="password" placeholder="Cria a tua palavra-passe para o HiLives" aria-required="true" required="required" onkeyup="checkPass(); return false;">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="negrito mt-3" for="password_confirm">Verificar palavra-passe <span class="asterisco">*</span></label>
                                             <div class="p-0 m-0">
-                                                <input type="password" class="form-control" id="password_confirm" placeholder="Repete a tua palavra-passe" required="required" onkeyup="checkPass(); return false;">
+                                                <input type="password" class="form-control" id="password_confirm" placeholder="Repete a tua palavra-passe" aria-required="true" required="required" onkeyup="checkPass(); return false;">
                                                 <span id="confirmMessage" class="confirmMessage"></span>
                                             </div>
                                         </div>
@@ -99,20 +99,20 @@
                                         <div class="form-group">
                                             <label class="negrito mt-3" for="data_nasc">Data de nascimento <span class="asterisco">*</span></label>
                                             <div class="p-0 m-0">
-                                                <input type="date" class="form-control cinza" id="data_nasc" name="data_nasc" placeholder="data de nascimento" required="required">
+                                                <input type="date" class="form-control cinza" id="data_nasc" name="data_nasc" placeholder="data de nascimento" aria-required="true" required="required">
                                             </div>
                                         </div>
                                         <!------------TELEFONE------------>
                                         <div class="form-group">
                                             <label class="negrito mt-3" for="phone">Telemóvel <span class="asterisco">*</span></label>
                                             <div class="p-0 m-0">
-                                                <input type="tel" class="form-control cinza" id="phone" name="phone" placeholder="Escreve aqui o teu telemóvel" required="required">
+                                                <input type="tel" class="form-control cinza" id="phone" name="phone" placeholder="Escreve aqui o teu telemóvel" aria-required="true" required="required">
                                             </div>
                                         </div>
                                         <!------------ESCOLARIDADE------------>
                                         <div class="form-group text-left">
                                             <label class="label-margin negrito mt-3" for="esc">Escolaridade <span class="asterisco">*</span></label>
-                                            <select class="form-control" id="esc" name="esc" required>
+                                            <select class="form-control" id="esc" name="esc" aria-required="true" required>
                                                 <option value="" selected disabled>Selecionar uma opção</option>
                                                 <?php
                                                 $query = "SELECT idEduc_lvl, name_education FROM educ_lvl";

@@ -49,11 +49,11 @@ $query3 = "SELECT idVacancies, vacancie_name, name_user, profile_img, name_inter
                                             <?php
                                             if (isset($profile_img)) {
                                             ?>
-                                                <img alt="<?= $profile_img ?>" title="" class="tagpost_thumb" src="../admin/uploads/img_perfil/<?= $profile_img ?>">
+                                                <img alt="<?= $profile_img ?>" title="<?= $name_user ?>" class="tagpost_thumb" src="../admin/uploads/img_perfil/<?= $profile_img ?>">
                                             <?php
                                             } else {
                                             ?>
-                                                <img alt="" title="" class="tagpost_thumb" src="img/def_jovem.png">
+                                                <img alt="Imagem default" title="Imagem padrão" class="tagpost_thumb" src="img/def_jovem.png">
                                             <?php
                                             }
                                             ?>
@@ -164,11 +164,11 @@ $query3 = "SELECT idVacancies, vacancie_name, name_user, profile_img, name_inter
                                                 <?php
                                                 if (isset($profile_img)) {
                                                     ?>
-                                                    <img alt="<?= $profile_img ?>" title="" class="imagem" src="../admin/uploads/img_perfil/<?= $profile_img ?>">
+                                                    <img alt="<?= $profile_img ?>" title="<?=$name_user?>" class="imagem" src="../admin/uploads/img_perfil/<?= $profile_img ?>">
                                                     <?php
                                                 } else {
                                                     ?>
-                                                    <img alt="" title="" class="imagem" src="img/destaque.jpg">
+                                                    <img alt="Imagem default" title="Imagem padrão" class="imagem" src="img/destaque.jpg">
                                                     <?php
                                                 }
                                                 ?>
@@ -244,11 +244,11 @@ $query3 = "SELECT idVacancies, vacancie_name, name_user, profile_img, name_inter
                                                 <?php
                                                 if (isset($profile_img)) {
                                                 ?>
-                                                    <img alt="<?= $profile_img ?>" title="" class="tagpost_thumb" src="../admin/uploads/img_perfil/<?= $profile_img ?>">
+                                                    <img alt="<?= $profile_img ?>" title="<?=$name_user?>" class="tagpost_thumb" src="../admin/uploads/img_perfil/<?= $profile_img ?>">
                                                 <?php
                                                 } else {
                                                 ?>
-                                                    <img alt="" title="" class="tagpost_thumb" src="img/index_3.jpg">
+                                                    <img alt="Imagem default" title="Imagem padrão" class="tagpost_thumb" src="img/index_3.jpg">
                                                 <?php
                                                 }
                                                 ?>

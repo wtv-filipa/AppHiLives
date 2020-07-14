@@ -84,13 +84,13 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
                                         if (isset($profile_img)) {
                                         ?>
                                             <a href="profile.php?user=<?= $User_university ?>">
-                                                <div role="img" alt="imagem da universidade <?=$name_user?>" aria-label="imagem da universidade <?=$name_user?>" class="image" style="background-image: url('../admin/uploads/img_perfil/<?= $profile_img ?>')"></div>
+                                                <div role="img" alt="imagem da universidade <?=$name_user?>" title="<?=$name_user?>" aria-label="imagem da universidade <?=$name_user?>" class="image" style="background-image: url('../admin/uploads/img_perfil/<?= $profile_img ?>')"></div>
                                             </a>
                                         <?php
                                         } else {
                                         ?>
                                             <a href="profile.php?user=<?= $User_university ?>">
-                                                <div role="img" alt="imagem padrão" aria-label="imagem padrão" class="image" style="background-image: url('img/index_2.jpg')"></div>
+                                                <div role="img" alt="imagem padrão" aria-label="imagem padrão" title="Imagem padrão" class="image" style="background-image: url('img/index_2.jpg')"></div>
                                             </a>
                                         <?php
                                         }

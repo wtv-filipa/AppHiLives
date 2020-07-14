@@ -124,9 +124,9 @@ if (isset($_SESSION["idUser"])) {
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <ul class="social-icons">
-                    <li><a class="dribbble" href="http://hilives.web.ua.pt/" target="_blank"><i class="fa fa-dribbble" style="color: white;"></i></a></li>
-                    <li><a class="facebook" href="https://www.facebook.com/HiLives_Erasmus-111765073655672/" target="_blank"><i class="fa fa-facebook" style="color: white;"></i></a></li>
-                    <li><a class="twitter" href="https://twitter.com/HiLives_Erasmus" target="_blank"><i class="fa fa-twitter" style="color: white;"></i></a></li>
+                    <li><a class="dribbble" title="Website HiLives" href="http://hilives.web.ua.pt/" target="_blank"><i class="fa fa-dribbble" style="color: white;"></i><span class="sr-only">(Website HiLives)</span></a></li>
+                    <li><a class="facebook" title="Facebook HiLives" href="https://www.facebook.com/HiLives_Erasmus-111765073655672/" target="_blank"><i class="fa fa-facebook" style="color: white;"></i><span class="sr-only">(Facebook HiLives)</span></a></li>
+                    <li><a class="twitter" title="Twitter HiLives" href="https://twitter.com/HiLives_Erasmus" target="_blank"><i class="fa fa-twitter" style="color: white;"></i><span class="sr-only">(Twitter HiLives)</span></a></li>
                 </ul>
             </div>
         </div>

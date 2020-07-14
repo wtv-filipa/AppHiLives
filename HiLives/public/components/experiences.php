@@ -17,7 +17,7 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
             if ($User_type == 10) {
             ?>
                 <h3>Experiências</h3>
-                <p style="opacity:0.8; font-size: 14px;">Aqui, vais encontrar vídeos que demonstram como foram as experiências académicas e profissionais de outros utilizadores da HiLives. Podes também encontrar vídeos que mostram os ambientes das empresas ou universidades.Qualquer jovem consegue publicar uma experiência.<a href="upload_xp" target="_blank"> Adiciona a tua aqui.<a></p>
+                <p style="opacity:0.8; font-size: 14px;">Aqui, vais encontrar vídeos que demonstram como foram as experiências académicas e profissionais de outros utilizadores da HiLives. Podes também encontrar vídeos que mostram os ambientes das empresas ou universidades.Qualquer jovem consegue publicar uma experiência.<a href="upload_xp" title="Clica para adicionar" target="_blank"> Adiciona a tua aqui.<a></p>
             <?php
             } else if ($User_type == 7 || $User_type == 13){
             ?>

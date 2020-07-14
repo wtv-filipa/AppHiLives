@@ -32,7 +32,7 @@ $stmt = mysqli_stmt_init($link);
                 ?>
                     <!--menu do lado esquerdo-->
                     <div id="mySidenav" class="sidenav">
-                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                        <a href="javascript:void(0)" class="closebtn"  aria-label="Fechar" onclick="closeNav()">&times;</a>
                         <?php
                         if ($User_type == 10) {
                         ?>
@@ -208,7 +208,7 @@ $stmt = mysqli_stmt_init($link);
                     <!-- Use any element to open the sidenav -->
                     <div class="col-4 text-left p-0 my-auto">
                         <span onclick="openNav()" class="menu_lado">
-                            <i class="fas fa-ellipsis-v" style="color: #2f2f2f; font-size: 25px !important; ">
+                            <i class="fas fa-ellipsis-v" title="Eu quero" style="color: #2f2f2f; font-size: 25px !important; ">
                                 <span class="menunav nome ml-1" style="font-weight: normal">Eu quero</span> </i>
                         </span>
                     </div>
@@ -227,7 +227,7 @@ $stmt = mysqli_stmt_init($link);
                         if ($User_type == 10) {
                         ?>
                             <a class="navbar-brand mx-auto" href="scripts/match_logo.php?jovem=<?= $idUser ?>">
-                                <img src="img/logo.svg" class="img-responsive logo" alt="Logótipo do HiLives">
+                                <img src="img/logo.svg" class="img-responsive logo" alt="Logótipo do HiLives" title="HiLives">
                             </a>
                         <?php
                         }
@@ -237,7 +237,7 @@ $stmt = mysqli_stmt_init($link);
                         if ($User_type == 7) {
                         ?>
                             <a class="navbar-brand mx-auto" href="scripts/match_logo.php?emp=<?= $idUser ?>">
-                                <img src="img/logo.svg" class="img-responsive logo" alt="Logótipo do HiLives">
+                                <img src="img/logo.svg" class="img-responsive logo" alt="Logótipo do HiLives" title="HiLives">
                             </a>
                         <?php
                         }
@@ -247,7 +247,7 @@ $stmt = mysqli_stmt_init($link);
                         if ($User_type == 13) {
                         ?>
                             <a class="navbar-brand mx-auto" href="scripts/match_logo.php?uni=<?= $idUser ?>">
-                                <img src="img/logo.svg" class="img-responsive logo" alt="Logótipo do HiLives">
+                                <img src="img/logo.svg" class="img-responsive logo" alt="Logótipo do HiLives" title="HiLives">
                             </a>
                         <?php
                         }
@@ -273,7 +273,7 @@ $stmt = mysqli_stmt_init($link);
 
                     <div class="col-4 text-center ">
                         <a class="navbar-brand mx-auto" href="../index.php">
-                            <img src="img/logo.svg" class="img-responsive logo" alt="Logótipo do HiLives">
+                            <img src="img/logo.svg" class="img-responsive logo" alt="Logótipo do HiLives" title="HiLives">
                         </a>
                     </div>
                     <div class=" col-4 text-right my-auto pr-0">
@@ -295,7 +295,7 @@ $stmt = mysqli_stmt_init($link);
                     ?>
                         <div class="dropdown">
                             <button class="btn pl-0" type="button" role="button" data-toggle="dropdown">
-                                <img src="img/notif.png" alt="Símbolo de notificações" style="position:relative; max-width:25px"><span class="nome ml-2">O que está a acontecer</span>
+                                <img src="img/notif.png" alt="Símbolo de notificações" title="Notificações" style="position:relative; max-width:25px"><span class="nome ml-2">O que está a acontecer</span>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-right dropdown-menu1 mx-auto tamanho" style="overflow-y: scroll">
                                 <?php
@@ -342,7 +342,7 @@ $stmt = mysqli_stmt_init($link);
 
                         ?>
                                     <button class="btn pl-0 pr-0 " type="button" role="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <img class="nav__avatar--image" style="max-width:25px" alt="Imagem de perfil" src="../admin/uploads/img_perfil/<?= $profile_img ?>" />
+                                        <img class="nav__avatar--image" style="max-width:25px" alt="Imagem de perfil" title="<?=$name_user?>" src="../admin/uploads/img_perfil/<?= $profile_img ?>" />
                                         <span class="nome paddings ml-1" style="color: black"><?= $nome ?></span>
                                     </button>
                                 <?php

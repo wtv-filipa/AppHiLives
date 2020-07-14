@@ -216,7 +216,7 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
                         if ($type == 10) {
                         ?>
                             <h3 class="mb-1 main_title"> Estás quase lá, vê o que tens em falta!</h3>
-                            <p style="opacity:0.8;"> Aqui econtras todas as ligações com vagas de empresas onde te falta cumprir apenas duas ou três capacidades. Podes abrir cada uma para descobrires o que tens em falta para preencheres. Lembra-te que tens de contactar a empresa caso estejas interessado na sua vaga.</p>
+                            <p style="opacity:0.8;"> Aqui encontras todas as ligações com vagas de empresas onde te falta cumprir apenas duas ou três capacidades. Podes abrir cada uma para descobrires o que tens em falta para preencheres. Lembra-te que tens de contactar a empresa caso estejas interessado na sua vaga.</p>
                         <?php
                         } else if ($type == 7) {
                         ?>

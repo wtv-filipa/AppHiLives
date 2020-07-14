@@ -59,7 +59,7 @@ if ($_GET["vac"]) {
                         <!--first step-->
                         <div class="col-12 col-md-4">
                             <div class="imagem">
-                                <img class="img_percurso rounded-circle img-fluid" src="img/img_vaga.png" />
+                                <img class="img_percurso rounded-circle img-fluid" src="img/img_vaga.png" title="Vaga para <?=$vacancie_name?>"/>
                             </div>
                             <div class="content">
                                 <h5 class="centro">1º: Vaga para: <?= $vacancie_name ?></h5>
@@ -71,7 +71,7 @@ if ($_GET["vac"]) {
 
                         <div class="col-12 col-md-4">
                             <div class="imagem">
-                                <img class="img_percurso rounded-circle img-fluid" src="img/img_estudo.png" />
+                                <img class="img_percurso rounded-circle img-fluid" src="img/img_estudo.png" title="O que te falta?"/>
                             </div>
                             <div class="content">
                                 <h5 class="centro">2º: O que te falta</h5>
@@ -99,7 +99,7 @@ if ($_GET["vac"]) {
                         <!--Third step-->
                         <div class="col-12 col-md-4">
                             <div class="imagem">
-                                <img class="img_percurso rounded-circle img-fluid" src="img/img_contacto.png" />
+                                <img class="img_percurso rounded-circle img-fluid" src="img/img_contacto.png" title="Contacta a empresa"/>
                             </div>
                             <div class="content">
                                 <h5 class="centro">3º: Contactar <?= $name_user ?></h5>

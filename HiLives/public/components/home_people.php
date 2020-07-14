@@ -60,13 +60,13 @@ if ($_SESSION["idUser"]) {
                                                     if (isset($profile_img)) {
                                                     ?>
                                                         <a href="profile.php?user=<?= $user_university ?>">
-                                                            <img alt="<?= $profile_img ?>" title="" class="tagpost_thumb" src="../admin/uploads/img_perfil/<?= $profile_img ?>">
+                                                            <img alt="<?= $profile_img ?>" title="<?= $name_user ?>" class="tagpost_thumb" src="../admin/uploads/img_perfil/<?= $profile_img ?>">
                                                         </a>
                                                     <?php
                                                     } else {
                                                     ?>
                                                         <a href="profile.php?user=<?= $user_university ?>">
-                                                            <img alt="imagem de perfil default da universidade" title="" class="tagpost_thumb" src="img/index_2.jpg">
+                                                            <img alt="imagem de perfil default da universidade" title="Imagem padrão" class="tagpost_thumb" src="img/index_2.jpg">
                                                         </a>
                                                     <?php
                                                     }
@@ -76,20 +76,19 @@ if ($_SESSION["idUser"]) {
                                                     if ($favorite == 0) {
                                                     ?>
                                                         <a href="scripts/update_fav.php?match=<?= $id_match ?>&fav=<?= $favorite ?>">
-                                                            <button class="btn rounded-circle btn_fav"><i class="fa fa-heart-o" aria-hidden="true" style="color: #2F2F2F"></i></button>
+                                                            <button class="btn rounded-circle btn_fav"><i class="fa fa-heart-o" aria-hidden="true" style="color: #2F2F2F"></i><span class="sr-only">(Marcar como favorito)</span></button>
                                                         </a>
                                                     <?php
                                                     } else {
                                                     ?>
                                                         <a href="scripts/update_fav.php?match=<?= $id_match ?>&fav=<?= $favorite ?>">
-                                                            <button class="btn rounded-circle btn_fav"><i class="fa fa-heart" aria-hidden="true" style="color: #A31621"></i></button>
+                                                            <button class="btn rounded-circle btn_fav"><i class="fa fa-heart" aria-hidden="true" style="color: #A31621"></i><span class="sr-only">(Remover favorito)</span></button>
                                                         </a>
                                                     <?php
                                                     }
                                                     ?>
 
-                                                    <p class="mb-0 link_info"><i class="fa fa-book mr-1" aria-hidden="true"></i>Estudar
-                                                    </p>
+                                                    <p class="mb-0 link_info"><i class="fa fa-book mr-1" aria-hidden="true"></i>Estudar</p>
                                                     <a href="profile.php?user=<?= $user_university ?>">
                                                         <h4 class="mb-0 link_title"><?= $name_user ?></h4>
                                                         <h5 class="mb-0 link_subtitle"><?= $Area ?></h5>
@@ -203,11 +202,11 @@ if ($_SESSION["idUser"]) {
                                                 <?php
                                                 if (isset($profile_img)) {
                                                 ?>
-                                                    <img alt="<?= $profile_img ?>" title="" class="imagem" src="../admin/uploads/img_perfil/<?= $profile_img ?>">
+                                                    <img alt="<?= $profile_img ?>" title="<?= $name_user ?>" class="imagem" src="../admin/uploads/img_perfil/<?= $profile_img ?>">
                                                 <?php
                                                 } else {
                                                 ?>
-                                                    <img alt="" title="" class="imagem" src="img/destaque.jpg">
+                                                    <img alt="imagem de perfil default da universidade" title="Imagem padrão" class="imagem" src="img/destaque.jpg">
                                                 <?php
                                                 }
                                                 ?>
@@ -287,7 +286,7 @@ if ($_SESSION["idUser"]) {
                                                 ?>
                                                     <a href="scripts/update_fav.php?m=<?= $id_match_vac ?>&f=<?= $favorite ?>">
                                                         <button class="btn rounded-circle btn_fav">
-                                                            <i class="fa fa-heart-o" aria-hidden="true" style="color: #2F2F2F"></i>
+                                                            <i class="fa fa-heart-o" aria-hidden="true" style="color: #2F2F2F"></i><span class="sr-only">(Marcar como favorito)
                                                         </button>
                                                     </a>
                                                 <?php
@@ -295,7 +294,7 @@ if ($_SESSION["idUser"]) {
                                                 ?>
                                                     <a href="scripts/update_fav.php?m=<?= $id_match_vac ?>&f=<?= $favorite ?>">
                                                         <button class="btn rounded-circle btn_fav">
-                                                            <i class="fa fa-heart" aria-hidden="true" style="color: #A31621"></i>
+                                                            <i class="fa fa-heart" aria-hidden="true" style="color: #A31621"></i><span class="sr-only">(Remover favorito)
                                                         </button>
                                                     </a>
                                                 <?php
@@ -303,13 +302,13 @@ if ($_SESSION["idUser"]) {
                                                 if (isset($profile_img)) {
                                                 ?>
                                                     <a href="vacancie.php?vac=<?= $Vacancies_idVacancies ?>">
-                                                        <img alt="Imagem da <?= $name_user ?>" title="" class="tagpost_thumb" src="../admin/uploads/img_perfil/<?= $profile_img ?>">
+                                                        <img alt="Imagem da <?= $name_user ?>" title="<?= $name_user ?>" class="tagpost_thumb" src="../admin/uploads/img_perfil/<?= $profile_img ?>">
                                                     </a>
                                                 <?php
                                                 } else {
                                                 ?>
                                                     <a href="vacancie.php?vac=<?= $Vacancies_idVacancies ?>">
-                                                        <img alt="Imagem da <?= $name_user ?>" title="" class="tagpost_thumb" src="img/index_3.jpg">
+                                                        <img alt="Imagem da <?= $name_user ?>" title="<?= $name_user ?>" class="tagpost_thumb" src="img/index_3.jpg">
                                                     </a>
                                                 <?php
                                                 }

@@ -153,7 +153,7 @@ if (isset($_SESSION["idUser"])) {
                                     ?>
                                         <a href="scripts/update_fav.php?match=<?= $id_match ?>&fav=<?= $favorite ?>">
                                             <button class="btn rounded-circle btn_fav">
-                                                <i class="fa fa-heart" aria-hidden="true" style="color: #A31621"></i><span class="sr-only">(Remover favorito)</span>
+                                                <i class="fa fa-heart"  aria-hidden="true" style="color: #A31621"></i><span class="sr-only">(Remover favorito)</span>
                                             </button>
                                         </a>
                                     <?php
