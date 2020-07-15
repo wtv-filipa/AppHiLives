@@ -30,10 +30,16 @@ if (isset($_SESSION["idUser"]) and $_SESSION["type"] == 7) {
             <?php include "components/home_companies.php"; ?>
         </main>
         <?php include "components/footer.php"; ?>
+        <?php include "components/loading_screen.php"; ?>
         <!-- JavaScript-->
         <?php include "helpers/fontawesome.php"; ?>
         <?php include "helpers/js.php"; ?>
         <script type="text/javascript" src="js/notifications.js"></script>
+        <script>
+            $(window).on("load", function() {
+                $(".loader-wrapper").fadeOut("slow");
+            });
+        </script>
     </body>
 
     </html>

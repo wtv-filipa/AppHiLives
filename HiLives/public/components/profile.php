@@ -12,7 +12,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
     $id_navegar = $_SESSION["idUser"];
 
     //query que vai selecionar informações do user
-    $query = "SELECT idUser, name_user, email_user, contact_user, birth_date, info_young, profile_img, website_ue, facebook_ue, instagram_ue, description_ue, type_user
+    $query = "SELECT idUser, name_user, email_user, contact_user, birth_date, info_young, work_xp, profile_img, website_ue, facebook_ue, instagram_ue, description_ue, type_user
     FROM users 
     INNER JOIN user_type ON users.User_type_idUser_type = user_type.idUser_type
     WHERE idUser = ?";
@@ -46,7 +46,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
 
         mysqli_stmt_bind_param($stmt, 'i', $idUser);
         mysqli_stmt_execute($stmt);
-        mysqli_stmt_bind_result($stmt, $idUser, $name_user, $email_user, $contact_user, $birth_date, $info_young, $profile_img, $website_ue, $facebook_ue, $instagram_ue, $description_ue, $type_user);
+        mysqli_stmt_bind_result($stmt, $idUser, $name_user, $email_user, $contact_user, $birth_date, $info_young, $work_xp, $profile_img, $website_ue, $facebook_ue, $instagram_ue, $description_ue, $type_user);
         while (mysqli_stmt_fetch($stmt)) {
             $dob = $birth_date;
             $age = (date('Y') - date('Y', strtotime($dob)));
@@ -57,11 +57,11 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                         <?php
                         if (isset($profile_img)) {
                         ?>
-                            <img class="image_profile" title="<?=$name_user?>" src="../admin/uploads/img_perfil/<?= $profile_img ?>" alt="<?= $profile_img ?>" />
+                            <img class="image_profile" title="<?= $name_user ?>" src="../admin/uploads/img_perfil/<?= $profile_img ?>" alt="<?= $profile_img ?>" />
                         <?php
                         } else {
                         ?>
-                            <img class="image_profile" src="img/no_profile_img.png" alt="sem imagem de perfil" title="Imagem padrão"/>
+                            <img class="image_profile" src="img/no_profile_img.png" alt="sem imagem de perfil" title="Imagem padrão" />
                         <?php
                         }
                         ?>
@@ -74,7 +74,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                         <div class="col-xs-3 col-lg-9 ">
                             <h3 class="mt-2 nome_user"><?= $name_user ?> <span class="subtitulo" style="font-weight: lighter; font-size: 16px;"> | <?= $age ?> anos</span></h3>
 
-                            <h6 class="mt-3 subtitulo"> E-mail:<a title="Clicar para enviar e-mail para <?=$email_user?>" href="mailto:<?= $email_user ?>"> <?= $email_user ?> </a></h6>
+                            <h6 class="mt-3 subtitulo"> E-mail:<a title="Clicar para enviar e-mail para <?= $email_user ?>" href="mailto:<?= $email_user ?>"> <?= $email_user ?> </a></h6>
 
                             <h6 class="mt-3 subtitulo"> Regiões de interesse:
                                 <?php
@@ -102,7 +102,6 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                 <div class="p-0 mt-3 edit_align">
                                     <a href="edit_profile.php?edit=<?= $idUser ?>">
                                         <button class="btn edit_btn">
-                                            <i class="faw_hover fas fa-edit"></i>
                                             Editar as minhas informações
                                         </button>
                                     </a>
@@ -142,7 +141,6 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                 <div class="p-0 mt-3">
                                     <a href="edit_profile.php?edit=<?= $idUser ?>">
                                         <button class="btn edit_btn">
-                                            <i class="faw_hover fas fa-edit" ></i>
                                             Editar as minhas informações
                                         </button>
                                     </a>
@@ -297,8 +295,8 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                             </button>
                                         </a>
                                         <a class="col-md-6 col-xs-12" href="done_uc.php">
-                                            <button class="btn add_btn"><i class="faw_hover fas fa-plus-circle mr-1">
-                                                </i>Adicionar novas unidades curriculares
+                                            <button class="btn add_btn">
+                                                Adicionar novas unidades curriculares
                                             </button>
                                         </a>
                                     </div>
@@ -362,6 +360,15 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                             <!--COMPETÊNCIAS-->
                             <section>
                                 <h2>As minhas competências</h2>
+                                <?php
+                                if ($work_xp != NULL) {
+                                ?>
+                                    <h5 class="mb-3">A minha experiência de trabalho</h5>
+                                    <p class="mb-4"><?= $work_xp ?></p>
+                                <?php
+                                }
+                                ?>
+
                                 <h5 class="mb-3">As minhas competências</h5>
                                 <blockquote class="blockquote mb-0">
                                     <?php
@@ -700,7 +707,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                 <blockquote class="blockquote mb-0 mt-4 ">
                                     <ul id="notebook_ul">
                                         <li class="lista">
-                                            <i class="fas fa-at mr-2"></i><b class="mr-2">E-mail:</b> <a title="Clicar para enviar e-mail para <?=$email_user?>" href="mailto:<?= $email_user ?>"><?= $email_user ?></a>
+                                            <i class="fas fa-at mr-2"></i><b class="mr-2">E-mail:</b> <a title="Clicar para enviar e-mail para <?= $email_user ?>" href="mailto:<?= $email_user ?>"><?= $email_user ?></a>
                                         </li>
                                         <li class="lista">
                                             <i class="fas fa-phone-alt mr-2"></i><b class="mr-2">Telefone:</b><?= $contact_user ?>
@@ -810,7 +817,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                                 <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill mr-2 mb-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
                                                     <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
                                                 </svg>
-                                                Parece que ainda não tem nenhum vídeo disponível. 
+                                                Parece que ainda não tem nenhum vídeo disponível.
                                             </p>
                                         <?php
                                         } else {
@@ -870,7 +877,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                 <h5 class="mb-3">Áreas disponíveis</h5>
                                 <ul id="notebook_ul">
                                     <?php
-                                      $stmt2 = mysqli_stmt_init($link2);
+                                    $stmt2 = mysqli_stmt_init($link2);
                                     if (mysqli_stmt_prepare($stmt2, $query2)) {
 
                                         mysqli_stmt_bind_param($stmt2, 'i', $idUser);
@@ -878,37 +885,37 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                         mysqli_stmt_bind_result($stmt2, $User_idUser, $Areas_idAreas, $name_interested_area);
                                         mysqli_stmt_store_result($stmt2); // Store the result into memory
                                         if (mysqli_stmt_num_rows($stmt2) > 0) { // Check the number of rows returned
-                                        while (mysqli_stmt_fetch($stmt2)) {
+                                            while (mysqli_stmt_fetch($stmt2)) {
                                     ?>
 
-                                            <li class="lista">
-                                                <?= $name_interested_area ?>
-                                            </li>
-                                    <?php
-                                        }
-                                        /* close statement */
-                                        mysqli_stmt_close($stmt2);
-                                    } else {
-                                        if ($idUser == $id_navegar) {
-                                        ?>
-                                            <p class="mx-auto mt-5 mb-5" style="font-size: 1rem;">
-                                                <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill mr-2 mb-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
-                                                    <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
-                                                </svg>
-                                                Parece que ainda não tem nenhuma área disponível, edite o seu perfil e comece a criar ligações!
-                                            </p>
-                                        <?php
+                                                <li class="lista">
+                                                    <?= $name_interested_area ?>
+                                                </li>
+                                            <?php
+                                            }
+                                            /* close statement */
+                                            mysqli_stmt_close($stmt2);
                                         } else {
-                                        ?>
-                                            <p class="mx-auto mt-5 mb-5" style="font-size: 1rem;">
-                                                <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill mr-2 mb-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
-                                                    <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
-                                                </svg>
-                                                Ainda não existem áreas disponíveis na universidade.
-                                            </p>
-                                <?php
+                                            if ($idUser == $id_navegar) {
+                                            ?>
+                                                <p class="mx-auto mt-5 mb-5" style="font-size: 1rem;">
+                                                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill mr-2 mb-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
+                                                        <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
+                                                    </svg>
+                                                    Parece que ainda não tem nenhuma área disponível, edite o seu perfil e comece a criar ligações!
+                                                </p>
+                                            <?php
+                                            } else {
+                                            ?>
+                                                <p class="mx-auto mt-5 mb-5" style="font-size: 1rem;">
+                                                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill mr-2 mb-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
+                                                        <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
+                                                    </svg>
+                                                    Ainda não existem áreas disponíveis na universidade.
+                                                </p>
+                                    <?php
+                                            }
                                         }
-                                    }
                                     }
                                     ?>
                                 </ul>
@@ -917,47 +924,47 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                             <section>
                                 <h2>Contactos</h2>
                                 <blockquote class="blockquote mb-0 mt-4 ">
-                                            <ul id="notebook_ul">
-                                                <li class="lista">
-                                                    <i class="fas fa-at mr-2"></i><b class="mr-2">E-mail:</b><a title="Clicar para enviar e-mail para <?=$email_user?>" href="mailto:<?= $email_user ?>"><?= $email_user ?></a>
-                                                </li>
-                                                <li class="lista">
-                                                    <i class="fas fa-phone-alt mr-2"></i><b class="mr-2">Telefone:</b><?= $contact_user ?>
-                                                </li>
+                                    <ul id="notebook_ul">
+                                        <li class="lista">
+                                            <i class="fas fa-at mr-2"></i><b class="mr-2">E-mail:</b><a title="Clicar para enviar e-mail para <?= $email_user ?>" href="mailto:<?= $email_user ?>"><?= $email_user ?></a>
+                                        </li>
+                                        <li class="lista">
+                                            <i class="fas fa-phone-alt mr-2"></i><b class="mr-2">Telefone:</b><?= $contact_user ?>
+                                        </li>
 
-                                                <?php
-                                                if ($website_ue != NULL) {
-                                                ?>
-
-                                                    <a href="<?= $website_ue ?>" target="_blank">
-                                                        <li class="lista">
-                                                            <i class="fas fa-globe mr-2"></i><b class="mr-2">Website:</b><?= $website_ue ?>
-                                                        </li>
-                                                    </a>
-                                                <?php
-                                                }
-                                                if ($facebook_ue != NULL) {
-                                                ?>
-                                                    <a href="<?= $facebook_ue ?>" target="_blank">
-                                                        <li class="lista">
-                                                            <i class="fab fa-facebook mr-2"></i><b class="mr-2">Facebook:</b><?= $facebook_ue ?>
-                                                        </li>
-                                                    </a>
-
-                                                <?php
-                                                }
-                                                if ($instagram_ue != NULL) {
-                                                ?>
-                                                    <a href="<?= $instagram_ue ?>" target="_blank">
-                                                        <li class="lista">
-                                                            <i class="fab fa-instagram mr-2"></i><b class="mr-2">Instagram:</b> <?= $instagram_ue ?>
-                                                        </li>
-                                                    </a>
                                         <?php
-                                                }
-                                          
+                                        if ($website_ue != NULL) {
                                         ?>
-                                            </ul>
+
+                                            <a href="<?= $website_ue ?>" target="_blank">
+                                                <li class="lista">
+                                                    <i class="fas fa-globe mr-2"></i><b class="mr-2">Website:</b><?= $website_ue ?>
+                                                </li>
+                                            </a>
+                                        <?php
+                                        }
+                                        if ($facebook_ue != NULL) {
+                                        ?>
+                                            <a href="<?= $facebook_ue ?>" target="_blank">
+                                                <li class="lista">
+                                                    <i class="fab fa-facebook mr-2"></i><b class="mr-2">Facebook:</b><?= $facebook_ue ?>
+                                                </li>
+                                            </a>
+
+                                        <?php
+                                        }
+                                        if ($instagram_ue != NULL) {
+                                        ?>
+                                            <a href="<?= $instagram_ue ?>" target="_blank">
+                                                <li class="lista">
+                                                    <i class="fab fa-instagram mr-2"></i><b class="mr-2">Instagram:</b> <?= $instagram_ue ?>
+                                                </li>
+                                            </a>
+                                        <?php
+                                        }
+
+                                        ?>
+                                    </ul>
                                 </blockquote>
                             </section>
 

@@ -25,11 +25,17 @@ if (isset($_SESSION["idUser"]) and $_SESSION["type"] != 4) {
             <!--componente da home sem login-->
             <?php include "components/experiences.php"; ?>
         </main>
+        <?php include "components/loading_screen.php"; ?>
         <?php include "components/footer.php"; ?>
         <!-- JavaScript-->
         <?php include "helpers/js.php"; ?>
         <?php include "helpers/fontawesome.php"; ?>
         <script type="text/javascript" src="js/notifications.js"></script>
+        <script>
+            $(window).on("load", function() {
+                $(".loader-wrapper").fadeOut("slow");
+            });
+        </script>
     </body>
 
     </html>
