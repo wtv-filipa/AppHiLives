@@ -236,6 +236,7 @@ foreach ($capacidades_vaga as $vaga => $capacidades) {
                                 //echo "capacidades inseridas do percurso <br>";
                                 // SUCCESS ACTION
 
+
                             }
                         }
                     } else {
