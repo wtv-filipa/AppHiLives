@@ -32,14 +32,18 @@ if (isset($_SESSION["idUser"])) {
             <?php include "components/footer.php"; ?>
 
             <?php include "helpers/fontawesome.php"; ?>
-
+            <?php include "components/loading_screen.php"; ?>
             <!--javascript-->
             <?php include "helpers/js.php"; ?>
             <script src="js/fav.js"></script>
             <script type="text/javascript" src="js/notifications.js"></script>
-            
+
             <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
             <script>
+                $(window).on("load", function() {
+                    $(".loader-wrapper").fadeOut("slow");
+                });
+
                 $(document).ready(function($) {
                     $('.card-slider').slick({
                         dots: true,

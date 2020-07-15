@@ -26,9 +26,27 @@ if (!isset($_SESSION["idUser"])) {
         <?php include "public/components/index.php"; ?>
     </main>
     <?php include "public/components/footer_index.php"; ?>
+    <div class="loader-wrapper">
+            <div class="body loading">
+                <div id="loading-msg">
+                    <div class="msg">
+                        <img src="public/img/loading.png" title="HiLives logo" class="logo_loader mb-5">
+                        <p style="color:white !important;">Bem vindo(a)!</p>
+                        <div class="spin">
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     <!-- JavaScript-->
     <?php include "public/helpers/js.php"; ?>
     <?php include "public/helpers/fontawesome.php"; ?>
+    <script>
+            $(window).on("load", function() {
+                $(".loader-wrapper").fadeOut("slow");
+            });
+        </script>
 </body>
 
 </html>

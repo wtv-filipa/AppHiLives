@@ -43,20 +43,18 @@ if (mysqli_stmt_prepare($stmt3, $query18)) {
             if (mysqli_stmt_fetch($stmt5)) {
                 //echo "areas já inseridas <br>";
 
-                if($login_uni == 0) {
+                if ($login_uni == 0) {
                     $query23 = "UPDATE young_university
                                     SET login_uni = 1
                                     WHERE User_young = ? AND User_university = ? AND Area = ?";
                     if (mysqli_stmt_prepare($stmt4, $query23)) {
-                        mysqli_stmt_bind_param($stmt4, 'iis',$User_idUser, $idUser, $name_interested_area);
+                        mysqli_stmt_bind_param($stmt4, 'iis', $User_idUser, $idUser, $name_interested_area);
                         /* execute the prepared statement */
                         if (!mysqli_stmt_execute($stmt4)) {
                             echo "Error: " . mysqli_stmt_error($stmt4);
                         }
                     }
                 }
-
-
             } else {
                 //Faz o prepare da query2 que é a que vai inserir os dados
                 if (mysqli_stmt_prepare($stmt4, $query17)) {
@@ -66,16 +64,16 @@ if (mysqli_stmt_prepare($stmt3, $query18)) {
                     if (!mysqli_stmt_execute($stmt4)) {
                         echo "Error: " . mysqli_stmt_error($stmt4);
                     } else {
-//                        echo "match feito <br>";
-//                        echo "JOVEM: $User_idUser";
-//                        echo "UNI: $idUser";
+                        //                        echo "match feito <br>";
+                        //                        echo "JOVEM: $User_idUser";
+                        //                        echo "UNI: $idUser";
                         // SUCCESS ACTION
                         //header("Location: ../grupo_indv.php?id_g=".$id_g."&msg=1");
                         $query23 = "UPDATE young_university
                                     SET login_uni = 1
                                     WHERE User_young = ? AND User_university = ? AND Area = ?";
                         if (mysqli_stmt_prepare($stmt4, $query23)) {
-                            mysqli_stmt_bind_param($stmt4, 'iis',$User_idUser, $idUser, $name_interested_area);
+                            mysqli_stmt_bind_param($stmt4, 'iis', $User_idUser, $idUser, $name_interested_area);
                             /* execute the prepared statement */
                             if (!mysqli_stmt_execute($stmt4)) {
                                 echo "Error: " . mysqli_stmt_error($stmt4);
@@ -108,20 +106,26 @@ foreach ($nome_jovem as $id => $areas) {
         mysqli_stmt_execute($stmt5);
         mysqli_stmt_bind_result($stmt5, $name_user_jovem);
         if (mysqli_stmt_fetch($stmt5)) {
-
-            foreach ($areas as $area) {
-                if ($login_uni == 0) {
-                    $text = "Tens uma nova ligação com " . $name_user_jovem . " na área " . $area . ".";
-                    echo "$text<br>";
-//                    echo "$login_young";
-                    //Insere a notificação
-                    if (mysqli_stmt_prepare($stmt5, $query20)) {
-                        mysqli_stmt_bind_param($stmt5, 'si', $text, $idUser);
-                        mysqli_stmt_execute($stmt5);
-                        if (!mysqli_stmt_execute($stmt5)) {
-                            //echo "Error: " . mysqli_stmt_error($stmt5);
-                        } else {
-                            echo "inseriu";
+            if (mysqli_stmt_prepare($stmt5, $query21)) {
+                mysqli_stmt_bind_param($stmt5, 'i', $idUser);
+                mysqli_stmt_execute($stmt5);
+                mysqli_stmt_bind_result($stmt5, $name_uni);
+                if (mysqli_stmt_fetch($stmt5)) {
+                    foreach ($areas as $area) {
+                        if ($login_uni == 0) {
+                            $text = "Parabéns " . $name_uni . ", tem uma nova ligação com o " . $name_user_jovem . " na área " . $area . ".";
+                            echo "$text<br>";
+                            //                    echo "$login_young";
+                            //Insere a notificação
+                            if (mysqli_stmt_prepare($stmt5, $query20)) {
+                                mysqli_stmt_bind_param($stmt5, 'si', $text, $idUser);
+                                mysqli_stmt_execute($stmt5);
+                                if (!mysqli_stmt_execute($stmt5)) {
+                                    //echo "Error: " . mysqli_stmt_error($stmt5);
+                                } else {
+                                    echo "inseriu";
+                                }
+                            }
                         }
                     }
                 }

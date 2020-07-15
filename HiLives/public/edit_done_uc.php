@@ -25,10 +25,17 @@ if (isset($_SESSION["idUser"]) and $_SESSION["type"] == 10) {
             <!--componente da home sem login-->
             <?php include "components/edit_done_uc.php"; ?>
         </main>
+        <?php include "components/loading_screen.php"; ?>
+
         <!--javascript-->
         <?php include "helpers/fontawesome.php"; ?>
         <?php include "helpers/js.php"; ?>
         <script type="text/javascript" src="js/notifications.js"></script>
+        <script>
+            $(window).on("load", function() {
+                $(".loader-wrapper").fadeOut("slow");
+            });
+        </script>
     </body>
 
     </html>

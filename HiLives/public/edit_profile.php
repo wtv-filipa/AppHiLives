@@ -25,7 +25,7 @@ if (isset($_SESSION["idUser"]) and $_SESSION["type"] != 4) {
             <!--componente da home sem login-->
             <?php include "components/edit_profile.php"; ?>
         </main>
-
+        <?php include "components/loading_screen.php"; ?>
         <!-- JavaScript-->
         <?php include "helpers/js.php"; ?>
         <?php include "helpers/fontawesome.php"; ?>
@@ -33,6 +33,10 @@ if (isset($_SESSION["idUser"]) and $_SESSION["type"] != 4) {
         <!--upload img-->
         <?php include "helpers/js_crop.php"; ?>
         <script>
+             $(window).on("load", function() {
+                $(".loader-wrapper").fadeOut("slow");
+            }); 
+            /****/
             (function() {
                 function addValidation(checkboxes) {
                     const firstCheckbox = getFirstCheckbox(checkboxes);

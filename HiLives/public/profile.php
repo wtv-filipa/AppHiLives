@@ -49,12 +49,17 @@ if (isset($_SESSION["idUser"]) and $_SESSION["type"] != 4) {
             <?php include "components/profile.php"; ?>
         </main>
         <?php include "components/footer.php"; ?>
+        <?php include "components/loading_screen.php"; ?>
         <!-- JavaScript-->
         <?php include "helpers/js.php"; ?>
         <?php include "helpers/fontawesome.php"; ?>
         <script type="text/javascript" src="js/notifications.js"></script>
         <script>
             $('.modal_problem').appendTo("body");
+        
+            $(window).on("load", function() {
+                $(".loader-wrapper").fadeOut("slow");
+            });
         </script>
     </body>
 

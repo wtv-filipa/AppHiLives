@@ -154,7 +154,7 @@ button:focus {
         display: inline-block;
     }
     /*Dropdown Content (Hidden by Default) */
-    .dropdown-menu.tamanho {
+    .dropdown-menu {
         margin-top: 5% !important;
         background-color: #ffffff;
         box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
@@ -163,6 +163,8 @@ button:focus {
         font-family: "Quicksand", sans-serif !important;
         min-width: 400px;
         position: absolute;
+    }
+    .dropdown-menu.tamanho {
         height: 500px;
     }
     /* Links inside the dropdown */
@@ -224,7 +226,7 @@ button:focus {
         display: inline-block;
     }
     /*Dropdown Content (Hidden by Default) */
-    .dropdown-menu.tamanho {
+    .dropdown-menu {
         margin-top: 5% !important;
         background-color: #ffffff;
         box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
@@ -233,6 +235,8 @@ button:focus {
         font-family: "Quicksand", sans-serif !important;
         min-width: 400px;
         position: absolute;
+    }
+    .dropdown-menu.tamanho {
         height: 500px;
     }
     /* Links inside the dropdown */
@@ -311,7 +315,7 @@ button:focus {
         display: inline-block;
     }
     /* Dropdown Content (Hidden by Default) */
-    .dropdown-menu.tamanho {
+    .dropdown-menu {
         margin-top: 5% !important;
         background-color: #ffffff;
         box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
@@ -320,6 +324,8 @@ button:focus {
         font-family: "Quicksand", sans-serif !important;
         min-width: 400px;
         position: absolute;
+    }
+    .dropdown-menu.tamanho {
         height: 500px;
     }
     /* Links inside the dropdown */
@@ -385,7 +391,7 @@ button:focus {
         display: inline-block;
     }
     /* Dropdown Content (Hidden by Default) */
-    .dropdown-menu.tamanho  {
+    .dropdown-menu {
         margin-top: 5% !important;
         position: absolute;
         background-color: #ffffff;
@@ -394,6 +400,8 @@ button:focus {
         border: none;
         font-family: "Quicksand", sans-serif !important;
         min-width: 400px;
+    }
+    .dropdown-menu.tamanho  {
         height: 500px;
     }
     /* Links inside the dropdown */
@@ -448,7 +456,7 @@ button:focus {
         display: inline-block;
     }
     /* Dropdown Content (Hidden by Default) */
-    .dropdown-menu.tamanho {
+    .dropdown-menu{
         margin-top: 5% !important;
         background-color: #ffffff;
         box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
@@ -457,6 +465,8 @@ button:focus {
         font-family: "Quicksand", sans-serif !important;
         min-width: 400px;
         position: absolute;
+    }
+    .dropdown-menu.tamanho {
         height: 500px;
     }
     /* Links inside the dropdown */

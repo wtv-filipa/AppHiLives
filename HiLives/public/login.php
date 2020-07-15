@@ -6,7 +6,6 @@ if (!isset($_SESSION["idUser"])) {
     <html lang="en">
 
     <head>
-
         <!-- metadados -->
         <?php include "helpers/meta.php"; ?>
 
@@ -35,11 +34,17 @@ if (!isset($_SESSION["idUser"])) {
 
         </div>
         <!-- End of Main Content -->
-
+        
+        <?php include "components/loading_screen.php"; ?>
         <!-- JavaScript-->
 
         <?php include "helpers/js.php"; ?>
         <?php include "helpers/fontawesome.php"; ?>
+        <script>
+            $(window).on("load", function() {
+                $(".loader-wrapper").fadeOut("slow");
+            });
+        </script>
     </body>
 
     </html>

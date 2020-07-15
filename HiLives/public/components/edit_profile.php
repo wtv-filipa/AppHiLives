@@ -8,9 +8,11 @@ $stmt = mysqli_stmt_init($link);
 $link2 = new_db_connection();
 $stmt2 = mysqli_stmt_init($link2);
 
-if (isset($_GET["edit"])) {
+if (isset($_GET["edit"]) && isset($_SESSION["idUser"])) {
     $idUser = $_GET["edit"];
-
+    $id_navegar = $_SESSION["idUser"];
+    if ($idUser == $id_navegar) {
+        
     //ir buscar os dados
     $query = "SELECT idUser, name_user, email_user, contact_user, birth_date, info_young, work_xp, profile_img, website_ue, facebook_ue, instagram_ue, description_ue, history_ue, Educ_lvl_idEduc_lvl, type_user
     FROM users
@@ -48,11 +50,11 @@ if (isset($_GET["edit"])) {
                                         //var_dump($img_perfil);
                                         if (isset($profile_img)) {
                                         ?>
-                                            <img id="img_perf" class="image_profile" src="../admin/uploads/img_perfil/<?= $profile_img ?>" alt="imagem de perfil" title="imagem de perfil"/>
+                                            <img id="img_perf" class="image_profile" src="../admin/uploads/img_perfil/<?= $profile_img ?>" alt="imagem de perfil" title="imagem de perfil" />
                                         <?php
                                         } else {
                                         ?>
-                                            <img id="img_perf" class="image_profile" src="img/no_profile_img.png" alt="sem imagem de perfil" title="sem imagem de perfil"/>
+                                            <img id="img_perf" class="image_profile" src="img/no_profile_img.png" alt="sem imagem de perfil" title="sem imagem de perfil" />
 
                                         <?php
                                         }
@@ -930,6 +932,9 @@ if (isset($_GET["edit"])) {
     /* close connection */
     mysqli_close($link);
     mysqli_close($link2);
+        } else{
+            include("404.php");
+        }
 } else {
     include("404.php");
 } //fim do else se não existir o GET
