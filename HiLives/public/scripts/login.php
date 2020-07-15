@@ -48,7 +48,7 @@ if (!empty($_POST["email"]) && !empty($_POST["password"])) {
                             while (mysqli_stmt_fetch($stmt2)) {
                                 //echo "$idVacancies <br>";
                                 include "match_comp.php";
-                                header("Location: ../home_companies.php");
+                                //header("Location: ../home_companies.php");
                             }
                             
                             mysqli_stmt_close($stmt2);

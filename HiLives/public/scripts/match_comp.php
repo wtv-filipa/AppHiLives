@@ -8,6 +8,9 @@ $stmt4 = mysqli_stmt_init($link4);
 $link5 = new_db_connection();
 $stmt5 = mysqli_stmt_init($link5);
 
+$link6 = new_db_connection();
+$stmt6 = mysqli_stmt_init($link6);
+
 $idComp = $_SESSION["idUser"];
 
 //MATCH COM REGIAO, CAPACIDADES, ESCOLARIDADE, AREA
@@ -131,33 +134,34 @@ foreach ($capacidades_vaga as $vaga => $capacidades) {
                             echo "Error: " . mysqli_stmt_error($stmt4);
                         } else {
                             //echo "match feito <br>";
-                            //noti
-                            if (mysqli_stmt_prepare($stmt5, $query31)) {
-                                mysqli_stmt_bind_param($stmt5, 'i', $idComp);
-                                mysqli_stmt_execute($stmt5);
-                                mysqli_stmt_bind_result($stmt5, $name_comp);
-                                if (mysqli_stmt_fetch($stmt5)) {
-                                    if ($login_comp == 0) {
-                                        $text = "Parabéns " . $name_comp . ", tem uma nova ligação com o " . $name_user . " na vaga " . $vacancie_name . ".";
-                                        //echo "$text";
-                                        //Insere a notificação
-                                        if (mysqli_stmt_prepare($stmt4, $query32)) {
-                                            mysqli_stmt_bind_param($stmt4, 'si', $text, $idComp);
-                                            mysqli_stmt_execute($stmt4);
-                                            if (!mysqli_stmt_execute($stmt4)) {
-                                                echo "Error: " . mysqli_stmt_error($stmt4);
-                                            } else {
-                                                //echo "inseriu";
-                                            }
-                                        }
-                                    }
-                                }
-                            }
+
                             //mysqli_stmt_close($stmt4);
                         }
                     } else {
                         // ERROR ACTION
                         echo "Error: " . mysqli_stmt_error($stmt4);
+                    }
+                }
+                //noti
+                if (mysqli_stmt_prepare($stmt6, $query31)) {
+                    mysqli_stmt_bind_param($stmt6, 'i', $idComp);
+                    mysqli_stmt_execute($stmt6);
+                    mysqli_stmt_bind_result($stmt6, $name_comp);
+                    if (mysqli_stmt_fetch($stmt6)) {
+                        if ($login_comp == 0) {
+                            $text = "Parabéns " . $name_comp . ", tem uma nova ligação com o " . $name_user . " na vaga " . $vacancie_name . ".";
+                            //echo "$text";
+                            //Insere a notificação
+                            if (mysqli_stmt_prepare($stmt6, $query32)) {
+                                mysqli_stmt_bind_param($stmt6, 'si', $text, $idComp);
+                                mysqli_stmt_execute($stmt6);
+                                if (!mysqli_stmt_execute($stmt6)) {
+                                    echo "Error: " . mysqli_stmt_error($stmt6);
+                                } else {
+                                    //echo "inseriu";
+                                }
+                            }
+                        }
                     }
                 }
 
@@ -172,10 +176,13 @@ foreach ($capacidades_vaga as $vaga => $capacidades) {
                     }
                 }
 
-
                 /* close statement */
-                mysqli_stmt_close($stmt5);
+               // mysqli_stmt_close($stmt5);
             }
+
+
+
+
             /******************/
         } else if (count($vagas[$jovem]) == 2 || count($vagas[$jovem]) == 3) {
             //            echo "percurso";
@@ -205,28 +212,7 @@ foreach ($capacidades_vaga as $vaga => $capacidades) {
                         } else {
                             //echo "percurso feito <br>";
                             $id_percurso = mysqli_insert_id($link4);
-                            if (mysqli_stmt_prepare($stmt5, $query31)) {
-                                mysqli_stmt_bind_param($stmt5, 'i', $idComp);
-                                mysqli_stmt_execute($stmt5);
-                                mysqli_stmt_bind_result($stmt5, $name_comp);
-                                if (mysqli_stmt_fetch($stmt5)) {
-                                    //noti
-                                    if ($login_comp == 0) {
-                                        $text = "Parabéns". $name_comp.", foi criado um novo percurso com o " . $name_user . " na vaga " . $vacancie_name . ".";
-                                        //echo "$text";
-                                        //Insere a notificação
-                                        if (mysqli_stmt_prepare($stmt4, $query32)) {
-                                            mysqli_stmt_bind_param($stmt4, 'si', $text, $idComp);
-                                            mysqli_stmt_execute($stmt4);
-                                            if (!mysqli_stmt_execute($stmt4)) {
-                                                echo "Error: " . mysqli_stmt_error($stmt4);
-                                            } else {
-                                                //echo "inseriu";
-                                            }
-                                        }
-                                    }
-                                }
-                            }
+
                             //echo "ID depois de inserir o percurso: " . "$id_percurso <br>";
                             // SUCCESS ACTION
                             //mysqli_stmt_close($stmt4);
@@ -257,18 +243,40 @@ foreach ($capacidades_vaga as $vaga => $capacidades) {
                         echo "Error: " . mysqli_stmt_error($stmt);
                     }
                 }
-            }
-
-            $query32 = "UPDATE user_has_vacancies
+                if (mysqli_stmt_prepare($stmt6, $query31)) {
+                    mysqli_stmt_bind_param($stmt6, 'i', $idComp);
+                    mysqli_stmt_execute($stmt6);
+                    mysqli_stmt_bind_result($stmt6, $name_comp);
+                    if (mysqli_stmt_fetch($stmt6)) {
+                        //noti
+                        if ($login_comp == 0) {
+                            $text = "Parabéns ". $name_comp.", foi criado um novo percurso com o " . $name_user . " na vaga " . $vacancie_name . ".";
+                            //echo "$text";
+                            //Insere a notificação
+                            if (mysqli_stmt_prepare($stmt6, $query32)) {
+                                mysqli_stmt_bind_param($stmt6, 'si', $text, $idComp);
+                                mysqli_stmt_execute($stmt6);
+                                if (!mysqli_stmt_execute($stmt6)) {
+                                    echo "Error: " . mysqli_stmt_error($stmt6);
+                                } else {
+                                    //echo "inseriu";
+                                }
+                            }
+                        }
+                    }
+                }
+                $query32 = "UPDATE user_has_vacancies
                                             SET login_comp = 1
                                             WHERE User_young = ? AND Vacancies_idVacancies = ?";
-            if (mysqli_stmt_prepare($stmt5, $query32)) {
-                mysqli_stmt_bind_param($stmt5, 'ii', $jovem, $vacancies_idVacancies);
-                /* execute the prepared statement */
-                if (!mysqli_stmt_execute($stmt5)) {
-                    echo "Error: " . mysqli_stmt_error($stmt5);
+                if (mysqli_stmt_prepare($stmt5, $query32)) {
+                    mysqli_stmt_bind_param($stmt5, 'ii', $jovem, $vacancies_idVacancies);
+                    /* execute the prepared statement */
+                    if (!mysqli_stmt_execute($stmt5)) {
+                        echo "Error: " . mysqli_stmt_error($stmt5);
+                    }
                 }
             }
+
 
             /******************/
         } else if (count($vagas[$jovem]) >= 4) {
