@@ -9,14 +9,12 @@ if (isset($_GET['apaga'])) {
 
     $query = "DELETE FROM done_cu WHERE idDone_CU = ?";
 
-    //PRIMEIRA QUERY
     if (mysqli_stmt_prepare($stmt, $query)) {
         mysqli_stmt_bind_param($stmt, 'i', $idUC);
         if (!mysqli_stmt_execute($stmt)) {
             header("Location: ../UC_jovem.php");
             $_SESSION["uc"] = 2;
         } else {
-            //sucesso
             header("Location: ../UC_jovem.php");
             $_SESSION["uc"] = 1;
         }

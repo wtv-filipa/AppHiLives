@@ -6,27 +6,24 @@ if (isset($_SESSION["idUser"]) and $_SESSION["type"] != 4) {
     <html lang="en">
 
     <head>
-        <!-- metadados -->
         <?php include "helpers/meta.php"; ?>
         <title>Editar perfil</title>
-        <!-- Custom fonts for this template-->
         <?php include "helpers/fonts.php"; ?>
-        <!-- Custom styles for this template-->
         <?php include "helpers/css_edit_profile.php"; ?>
 
     </head>
 
     <body class="fundo_login">
+
+        <?php include "components/loading_screen.php"; ?>
+        
         <header class="sticky-top">
-            <!--navbar-->
             <?php include "components/navbar.php"; ?>
         </header>
         <main class="container p-0 mb-5 mx-auto">
-            <!--componente da home sem login-->
             <?php include "components/edit_profile.php"; ?>
         </main>
-        <?php include "components/loading_screen.php"; ?>
-        <!-- JavaScript-->
+      
         <?php include "helpers/js.php"; ?>
         <?php include "helpers/fontawesome.php"; ?>
         <script type="text/javascript" src="js/notifications.js"></script>

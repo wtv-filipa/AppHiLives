@@ -16,26 +16,24 @@ if (isset($_SESSION["idUser"]) && !empty($_POST["nomeuc"]) && !empty($_POST["uni
         $University_name = $_POST['uniuc'];
         $date_cu = $_POST['data'];
 
-        // VALIDAÇÃO DO RESULTADO DO EXECUTE
         if (mysqli_stmt_execute($stmt)) {
             mysqli_stmt_close($stmt);
             mysqli_close($link);
-            // SUCCESS ACTION
+           
             header("Location: ../links_made.php");
             $_SESSION["doneCU"] = 2;
         } else {
-            //ERRO
-            ///isto é do isset
+            
             header("Location: ../done_uc.php");
             $_SESSION["doneCU"] = 1;
         }
     } else {
-        //ERRO
+        
         header("Location: ../done_uc.php");
         $_SESSION["doneCU"] = 1;
     }
 } else {
-    //ERRO
+   
     header("Location: ../done_uc.php");
     $_SESSION["doneCU"] = 2;
 }

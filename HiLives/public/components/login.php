@@ -1,6 +1,5 @@
 <div class="container">
 
-    <!-- Outer Row -->
     <div class="row justify-content-center">
 
         <div class="col-xl-6 col-lg-6 col-md-6">
@@ -57,21 +56,21 @@
                                 }
                                 ?>
                                 <form method="post" role="form" id="register-form" action="scripts/login.php">
-                                    <!---EMAIL-->
+                                  
                                     <div class="form-group">
                                         <label class="negrito mt-3" for="input2UserForm">Email</label>
                                         <div class="p-0 m-0">
                                             <input type="email" class="form-control cinza" id="input2UserForm" name="email" placeholder="Escreve aqui o email da tua conta no HiLives" aria-required="true" required="required">
                                         </div>
                                     </div>
-                                    <!--PASSWORD-->
+                                
                                     <div class="form-group">
                                         <label class="negrito mt-3" for="password">Palavra-passe</label>
                                         <div class="p-0 m-0">
                                             <input type="password" class="form-control" id="password" name="password" placeholder="Escreve aqui a tua palavra-passe do HiLives" aria-required="true" required="required" onkeyup="checkPass(); return false;">
                                         </div>
                                     </div>
-                                    <!--BOTÃO DE SUBMIT-->
+                                    
                                     <div class="form-group text-center mt-2">
                                         <div class="mx-auto col-sm-10 pb-3 pt-2">
                                             <button type="submit" class="btn publicar_btn">Entrar</button>
@@ -80,7 +79,7 @@
                                 </form>
                                 <hr>
                                 <div class="text-center">
-                                    <a class="small" title="Clica para recuperares a tua palavra-passe" href="forgot_password.php">Esqueceste-te da tua palavra-passe?</a>
+                                    <a class="small" title="Clica para recuperares a tua palavra-passe" href="construction.php">Esqueceste-te da tua palavra-passe?</a>
                                 </div>
                                 <div class="text-center">
                                     <a class="small" title="Clica para te registares" href="../index.php">Ainda não estás inscrito? Faz o teu registo!</a>

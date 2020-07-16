@@ -6,22 +6,6 @@ p {
     font-family: 'Roboto', sans-serif;
 }
 
-/*Não está a fazer nada, acho eu...*/
-
-/*div.alert.alert-warning {*/
-/*    font-family: "Quicksand" !important;*/
-/*    font-weight: bold;*/
-/*}*/
-
-/*input.file-upload.mb-3 {*/
-/*    font-family: "Quicksand" !important;*/
-/*}*/
-
-/*label {*/
-/*    font-family: "Quicksand" !important;*/
-/*    font-weight: bold;*/
-/*}*/
-
 .events {
     margin-top: 5%;
 }
@@ -64,7 +48,6 @@ input:focus, textarea:focus{
     outline: none;
 }
 
-/*imagem de fundo*/
 .fundo_login {
     background-image: url("../img/fundo_cinza_g.png");
     width: 100%;

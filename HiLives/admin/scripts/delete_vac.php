@@ -21,10 +21,10 @@ if (isset($_GET["apaga"])) {
         mysqli_stmt_execute($stmt);
         mysqli_stmt_bind_result($stmt, $id_match_vac);
         while (mysqli_stmt_fetch($stmt)) {
-            //apaga percurso
+          
             if (mysqli_stmt_prepare($stmt2, $query4)) {
                 mysqli_stmt_bind_param($stmt2, 'i', $id_match_vac);
-                // VALIDAÇÃO DO RESULTADO DO EXECUTE
+               
                 if (!mysqli_stmt_execute($stmt2)) {
                     header("Location: ../vacancies_emp.php");
                     $_SESSION["vac"] = 2;
@@ -33,7 +33,7 @@ if (isset($_GET["apaga"])) {
                 header("Location: ../vacancies_emp.php");
                 $_SESSION["vac"] = 2;
             }
-            //apaga match
+           
             if (mysqli_stmt_prepare($stmt2, $query5)) {
                 mysqli_stmt_bind_param($stmt2, 'i', $idVacancies);
                 if (!mysqli_stmt_execute($stmt2)) {
@@ -46,7 +46,7 @@ if (isset($_GET["apaga"])) {
             }
         }
     }
-    //SEGUNDA QUERY- apagar as cpacidades
+   
     $stmt = mysqli_stmt_init($link);
     if (mysqli_stmt_prepare($stmt, $query2)) {
         mysqli_stmt_bind_param($stmt, 'i', $idVacancies);
@@ -60,7 +60,6 @@ if (isset($_GET["apaga"])) {
         $_SESSION["vac"] = 2;
     }
 
-    //PRIMEIRA QUERY- apagar a vaga
     $stmt = mysqli_stmt_init($link);
     if (mysqli_stmt_prepare($stmt, $query)) {
         mysqli_stmt_bind_param($stmt, 'i', $idVacancies);
@@ -74,7 +73,7 @@ if (isset($_GET["apaga"])) {
         $_SESSION["vac"] = 2;
     }
     mysqli_close($link);
-    //SUCCESS
+   
     header("Location: ../vacancies_emp.php");
     $_SESSION["vac"] = 1;
 } else {

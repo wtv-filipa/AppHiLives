@@ -41,8 +41,8 @@ $query3 = "SELECT idVacancies, vacancie_name, name_user, profile_img, name_inter
                             if (mysqli_stmt_prepare($stmt, $query)) {
                                 mysqli_stmt_execute($stmt);
                                 mysqli_stmt_bind_result($stmt, $idUser, $name_user, $profile_img);
-                                mysqli_stmt_store_result($stmt); // Store the result into memory
-                                if (mysqli_stmt_num_rows($stmt) > 0) { // Check the number of rows returned
+                                mysqli_stmt_store_result($stmt); 
+                                if (mysqli_stmt_num_rows($stmt) > 0) { 
                                     while (mysqli_stmt_fetch($stmt)) {
                             ?>
                                         <li class='clearfix_uni'>
@@ -63,11 +63,11 @@ $query3 = "SELECT idVacancies, vacancie_name, name_user, profile_img, name_inter
                                         </li>
                                     <?php
                                     }
-                                    /* close statement */
+                                    
                                     mysqli_stmt_close($stmt);
                                 } else {
                                     ?>
-                                    <p class="mx-auto mt-3 mb-5" style="font-size: 1rem;">
+                                    <p class="mx-auto mt-3 mb-5" style="font-size: 1rem; padding-bottom: 10%;">
                                         <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill mr-2 mb-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
                                             <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
                                         </svg>
@@ -89,8 +89,8 @@ $query3 = "SELECT idVacancies, vacancie_name, name_user, profile_img, name_inter
             if (mysqli_stmt_prepare($stmt, $query)) {
                 mysqli_stmt_execute($stmt);
                 mysqli_stmt_bind_result($stmt, $idUser, $name_user, $profile_img);
-                mysqli_stmt_store_result($stmt); // Store the result into memory
-                if (mysqli_stmt_num_rows($stmt) > 0) { // Check the number of rows returned
+                mysqli_stmt_store_result($stmt); 
+                if (mysqli_stmt_num_rows($stmt) > 0) { 
                     if (mysqli_stmt_fetch($stmt)) {
             ?>
                         <a href="allOptions_uni.php">
@@ -98,7 +98,6 @@ $query3 = "SELECT idVacancies, vacancie_name, name_user, profile_img, name_inter
                         </a>
             <?php
                     }
-                    /* close statement */
                     mysqli_stmt_close($stmt);
                 }
             }
@@ -108,7 +107,6 @@ $query3 = "SELECT idVacancies, vacancie_name, name_user, profile_img, name_inter
 </div>
 
 
-    <!--CARDS DESTAQUES-->
     <div class="w-75 mx-auto">
         <div id='wrapper_title'>
             <div class='tagpost-top section' id='tagpost-top'>
@@ -187,7 +185,7 @@ $query3 = "SELECT idVacancies, vacancie_name, name_user, profile_img, name_inter
 
                                     <?php
                                 }
-                                /* close statement */
+                              
                                 mysqli_stmt_close($stmt2);
                             } else {
                                 $i--;
@@ -195,7 +193,7 @@ $query3 = "SELECT idVacancies, vacancie_name, name_user, profile_img, name_inter
                         }
                     } else {
                         ?>
-                        <p class="mx-auto mt-3 mb-5" style="font-size: 1rem;">
+                        <p class="mx-auto mt-3 mb-5" style="font-size: 1rem; padding-bottom: 10%;">
                             <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill mr-2 mb-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
                                 <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
                             </svg>
@@ -204,7 +202,7 @@ $query3 = "SELECT idVacancies, vacancie_name, name_user, profile_img, name_inter
                         <?php
                     }
                 }
-                /* close statement */
+               
                 mysqli_stmt_close($stmt);
             }
 
@@ -235,8 +233,8 @@ $query3 = "SELECT idVacancies, vacancie_name, name_user, profile_img, name_inter
                             if (mysqli_stmt_prepare($stmt, $query3)) {
                                 mysqli_stmt_execute($stmt);
                                 mysqli_stmt_bind_result($stmt, $idVacancies, $vacancie_name, $name_user, $profile_img, $name_interested_area);
-                                mysqli_stmt_store_result($stmt); // Store the result into memory
-                                if (mysqli_stmt_num_rows($stmt) > 0) { // Check the number of rows returned
+                                mysqli_stmt_store_result($stmt); 
+                                if (mysqli_stmt_num_rows($stmt) > 0) { 
                                     while (mysqli_stmt_fetch($stmt)) {
                             ?>
                                         <a href="vacancie.php?vac=<?= $idVacancies ?>">
@@ -271,11 +269,11 @@ $query3 = "SELECT idVacancies, vacancie_name, name_user, profile_img, name_inter
                                         </a>
                                     <?php
                                     }
-                                    /* close statement */
+                                    
                                     mysqli_stmt_close($stmt);
                                 } else {
                                     ?>
-                                    <p class="mx-auto mt-3 mb-5" style="font-size: 1rem;">
+                                    <p class="mx-auto mt-3 mb-5" style="font-size: 1rem; padding-bottom: 10%;">
                                         <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill mr-2 mb-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
                                             <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
                                         </svg>
@@ -297,8 +295,8 @@ $query3 = "SELECT idVacancies, vacancie_name, name_user, profile_img, name_inter
             if (mysqli_stmt_prepare($stmt, $query3)) {
                 mysqli_stmt_execute($stmt);
                 mysqli_stmt_bind_result($stmt, $idVacancies, $vacancie_name, $name_user, $profile_img, $name_interested_area);
-                mysqli_stmt_store_result($stmt); // Store the result into memory
-                if (mysqli_stmt_num_rows($stmt) > 0) { // Check the number of rows returned
+                mysqli_stmt_store_result($stmt); 
+                if (mysqli_stmt_num_rows($stmt) > 0) { 
                     if (mysqli_stmt_fetch($stmt)) {
             ?>
                         <a href="">
@@ -306,7 +304,6 @@ $query3 = "SELECT idVacancies, vacancie_name, name_user, profile_img, name_inter
                         </a>
             <?php
                     }
-                    /* close statement */
                     mysqli_stmt_close($stmt);
                 }
             }
@@ -315,5 +312,4 @@ $query3 = "SELECT idVacancies, vacancie_name, name_user, profile_img, name_inter
     </div>
 </div>
 <?php
-/* close connection */
 mysqli_close($link);

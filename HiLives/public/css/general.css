@@ -1,4 +1,3 @@
-/*loading screen*/
 @-webkit-keyframes loading {
     0% {
         -webkit-transform: rotateZ(0);
@@ -75,14 +74,12 @@
 .logo_loader{
     width: 200px;
 }
-/********************/
 .div_geral {
     width: 75%;
 }
 .div_geral2 {
     width: 75%;
 }
-
 
 @media only screen and (max-width: 1200px) {
     .div_geral {
@@ -110,8 +107,6 @@
 
 }
 
-
-
 h1 h2 h3 h4 h5 h6 {
     font-family: "Quicksand" !important;
     color: #2F2F2F !important;
@@ -129,9 +124,6 @@ p {
     font-weight: bold;
 }
 
-
-/*SCROLL BAR*/
-
 ::-webkit-scrollbar {
     width: 8px !important;
     background-color: #f2f2f2;
@@ -144,6 +136,7 @@ p {
 }
 
  ::-webkit-scrollbar-track {
+     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
 }
@@ -159,9 +152,6 @@ p {
 button:focus {
     outline: none;
 }
-
-
-/*PAGINA 404*/
 
 .home_btn {
     width: 30%!important;
@@ -291,9 +281,6 @@ button:focus {
     }
 }
 
-
-/* demo stuff */
-
 .letra {
     font-family: "Quicksand";
     font-weight: bold;
@@ -315,9 +302,6 @@ button:focus {
 a.more-link {
     text-decoration: none;
 }
-
-
-/*FOOTER*/
 
 .site-footer {
     background-color: #c2c2c2;
@@ -465,15 +449,6 @@ a.more-link {
 .social-icons a.dribbble:hover {
     background-color: #ea4c89
 }
-
-
-/*HOME MENU*/
-/*.sticky-top {*/
-/*    position: sticky !important;*/
-/*    top: 50% !important;*/
-/*    z-index: 1020 !important;*/
-/*}*/
-
 
 .home_menu {
     text-decoration: none !important;
@@ -718,11 +693,6 @@ a {
 }
 
 
-
-
-
-
-
 @media only screen and (max-width: 600px) {
     .social-icons li.title {
         display: block;
@@ -812,9 +782,6 @@ a {
     }
 }
 
-
-/* Medium devices (landscape tablets, 768px and up) */
-
 @media only screen and (min-width: 768px) {
     .esconder {
         display: block !important;
@@ -824,8 +791,6 @@ a {
     }
 }
 
-
-/* Large devices (laptops/desktops, 992px and up) */
 
 @media only screen and (max-width: 992px) {
     .site-footer [class^=col-] {
@@ -837,8 +802,6 @@ a {
         display: block;
     }
 }
-
-/* Extra large devices (large laptops and desktops, 1200px and up) */
 
 @media only screen and (min-width: 1200px) {
 

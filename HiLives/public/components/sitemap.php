@@ -6,8 +6,6 @@ include "navbar_2.php";
     <div class="mt-5">
         <h1 class="titulo1">Mapa da Aplicação</h1>
     </div>
-
-    <!--INDEX-->
     <div class="mt-5">
         <h3>
             <a href="index.php" target="_blank">Página inicial</a>
@@ -24,7 +22,6 @@ include "navbar_2.php";
         <p> Informação sobre a aplicação</p>
     </div>
 
-    <!--PÁGINA INICIAL - JOVEM-->
     <div class="mt-5" id="jovem">
         <h3>
             <a href="home_people.php" target="_blank">Página inicial - Jovem</a>
@@ -85,9 +82,8 @@ include "navbar_2.php";
             </li>
         </ol>
 
-        <!--NOTIFICAÇÕES-->
         <h6>Notificações "O que está a acontecer"</h6>
-        <!--MENU PERFIL-->
+
         <h6 class="menu_espaco">Menu perfil:</h6>
         <ol>
             <li>
@@ -133,7 +129,6 @@ include "navbar_2.php";
         </ol>
     </div>
 
-    <!--PÁGINA INICIAL - UNIVERSIDADE-->
     <div class="mt-5" id="universidade">
         <h3>Página inicial - Universidades</h3>
         <h6>Conteúdo:</h6>
@@ -167,11 +162,8 @@ include "navbar_2.php";
             </li>
         </ol>
 
-
-        <!--NOTIFICAÇÕES-->
         <h6>Notificações "O que está a acontecer"</h6>
 
-        <!--MENU PERFIL-->
         <h6 class="menu_espaco">Menu perfil:</h6>
         <ol>
             <li>
@@ -193,7 +185,6 @@ include "navbar_2.php";
         </ol>
     </div>
 
-    <!--PÁGINA INICIAL - EMPRESAS-->
     <div class="mt-5 mb-5" id="empresa">
         <h3>Página inicial - Empresas</h3>
         <h6>Conteúdo:</h6>
@@ -231,10 +222,8 @@ include "navbar_2.php";
             </li>
         </ol>
 
-
-        <!--NOTIFICAÇÕES-->
         <h6>Notificações "O que está a acontecer"</h6>
-        <!--MENU PERFIL-->
+    
         <h6 class="menu_espaco">Menu perfil:</h6>
         <ol>
             <li>

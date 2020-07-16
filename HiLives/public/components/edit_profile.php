@@ -13,7 +13,6 @@ if (isset($_GET["edit"]) && isset($_SESSION["idUser"])) {
     $id_navegar = $_SESSION["idUser"];
     if ($idUser == $id_navegar) {
         
-    //ir buscar os dados
     $query = "SELECT idUser, name_user, email_user, contact_user, birth_date, info_young, work_xp, profile_img, website_ue, facebook_ue, instagram_ue, description_ue, history_ue, Educ_lvl_idEduc_lvl, type_user
     FROM users
     INNER JOIN user_type ON users.User_type_idUser_type = user_type.idUser_type
@@ -24,7 +23,7 @@ if (isset($_GET["edit"]) && isset($_SESSION["idUser"])) {
         mysqli_stmt_execute($stmt);
         mysqli_stmt_bind_result($stmt, $idUser, $name_user, $email_user, $contact_user, $birth_date, $info_young, $work_xp, $profile_img, $website_ue, $facebook_ue, $instagram_ue, $description_ue, $history_ue, $Educ_lvl_idEduc_lvl, $type_user);
 ?>
-        <!--FORMULÁRIO DE EDITAR PARA OS JOVENS-->
+        
         <div class="w-75 mx-auto">
             <div class="card text-center">
                 <h4>Editar Perfil</h4>
@@ -35,8 +34,6 @@ if (isset($_GET["edit"]) && isset($_SESSION["idUser"])) {
                 ?>
 
                         <div class="row">
-                            <!-- left column -->
-
                             <div class="col-xs-12 col-md-4">
 
                                 <div class="text-center">
@@ -47,7 +44,7 @@ if (isset($_GET["edit"]) && isset($_SESSION["idUser"])) {
                                             <input id="userIDhidden" value="<?= $idUser ?>" style="display: none;"></input>
                                         </div>
                                         <?php
-                                        //var_dump($img_perfil);
+                                        
                                         if (isset($profile_img)) {
                                         ?>
                                             <img id="img_perf" class="image_profile" src="../admin/uploads/img_perfil/<?= $profile_img ?>" alt="imagem de perfil" title="imagem de perfil" />
@@ -92,15 +89,12 @@ if (isset($_GET["edit"]) && isset($_SESSION["idUser"])) {
                                             </div>
                                         </div>
                                     </div>
-                                    <!------------------->
+                                  
                                 </div>
                             </div>
 
-
-                            <!-- edit form column-->
                             <div class="col-xs-12 col-md-8">
                                 <form id="sectionForm" class="form-horizontal" role="form" method="post" action="scripts/update_profile.php?id=<?= $idUser ?>">
-                                    <!------------****------------>
                                     <?php
                                     if (isset($_SESSION["edit_jovem"])) {
                                         $msg_show = true;
@@ -139,31 +133,27 @@ if (isset($_GET["edit"]) && isset($_SESSION["idUser"])) {
                                     }
                                     ?>
                                     <p style="font-size: 12px; color: #00A5CF !important;">* Campos de preenchimento obrigatório.</p>
-                                    <!--primeiro input-NOME-->
+                                   
                                     <div class="form-group text-left">
                                         <label class="negrito mt-3" for="nome">Nome <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
                                         <input type="text" id="nome" name="nome" placeholder="Escreve aqui o teu nome" aria-required="true" required="required" class="form-control" value="<?= $name_user ?>"><span class="sr-only">(Escreve aqui o teu nome)</span>
                                     </div>
-                                    <!----------------------->
-                                    <!--segundo input-EMAIL-->
+                                    
                                     <div class="form-group text-left">
                                         <label class="negrito mt-3" for="email">Email <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
                                         <input type="text" id="email" name="email" placeholder="Escrevie aqui o teu email" aria-required="true" required="required" class="form-control" value="<?= $email_user ?>"><span class="sr-only">(Escreve aqui o teu e-mail)</span>
                                     </div>
-                                    <!----------------------->
-                                    <!--terceiro input-DATA DE NASCIMENTO-->
+                                    
                                     <div class="form-group text-left">
                                         <label class="negrito mt-3" for="born">Data de nascimento <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
                                         <input type="date" id="born" name="data_nasc" placeholder="data de nascimento" aria-required="true" required="required" class="form-control" value="<?= $birth_date ?>"><span class="sr-only">(Escreve aqui a tua data de nascimento)</span>
                                     </div>
-                                    <!----------------------->
-                                    <!--quarto input- TELEMÓVEL-->
+                                   
                                     <div class="form-group text-left">
                                         <label class="negrito mt-3" for="tlm">Telemóvel</label>
                                         <input type="text" id="tlm" name="phone" placeholder="Escreve aqui o teu telemóvel" class="form-control" value="<?= $contact_user ?>"><span class="sr-only">(Escreve aqui o teu numero de telemóvel)</span>
                                     </div>
-                                    <!----------------------->
-                                    <!--sexto input- ESCOLARIDADE-->
+                                    
                                     <div class="form-group text-left">
                                         <label class="negrito mt-3" for="esc">Escolaridade</label>
                                         <select class="form-control" id="esc" name="esc">
@@ -173,13 +163,9 @@ if (isset($_GET["edit"]) && isset($_SESSION["idUser"])) {
                                                     FROM educ_lvl";
 
                                             if (mysqli_stmt_prepare($stmt2, $query3)) {
-
-                                                /* execute the prepared statement */
                                                 if (mysqli_stmt_execute($stmt2)) {
-                                                    /* bind result variables */
                                                     mysqli_stmt_bind_result($stmt2, $idEduc_lvl, $name_education);
 
-                                                    /* fetch values */
                                                     while (mysqli_stmt_fetch($stmt2)) {
                                                         if ($Educ_lvl_idEduc_lvl == $idEduc_lvl) {
                                                             $selected = "selected";
@@ -188,15 +174,13 @@ if (isset($_GET["edit"]) && isset($_SESSION["idUser"])) {
                                                         }
                                                         echo "\n\t\t<option value=\"$idEduc_lvl\" $selected>$name_education</option>";
                                                     }
-                                                    /* close statement */
                                                     mysqli_stmt_close($stmt2);
                                                 }
                                             }
                                             ?>
                                         </select>
                                     </div>
-                                    <!----------------------->
-                                    <!--oitavo input-AREAS-->
+                                    
                                     <div class="form-group text-left">
                                         <label class="negrito mt-3" for="area">As minhas áreas de interesse (para estudar ou trabalhar) <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label><span class="sr-only">(As minhas áreas de interesse (para estudar ou trabalhar))</span>
                                         <div class="form-check">
@@ -207,14 +191,10 @@ if (isset($_GET["edit"]) && isset($_SESSION["idUser"])) {
                                                     ON  areas.idAreas= user_has_areas.Areas_idAreas AND user_has_areas.User_idUser= ?";
                                             $stmt2 = mysqli_stmt_init($link2);
                                             if (mysqli_stmt_prepare($stmt2, $query2)) {
-                                                // Bind variables by type to each parameter
                                                 mysqli_stmt_bind_param($stmt2, 'i', $idUser);
-                                                /* execute the prepared statement */
                                                 if (mysqli_stmt_execute($stmt2)) {
-                                                    /* bind result variables */
                                                     mysqli_stmt_bind_result($stmt2, $idAreas, $name_interested_area, $Areas_idAreas);
 
-                                                    /* fetch values */
                                                     while (mysqli_stmt_fetch($stmt2)) {
                                                         $checked = "";
                                                         if ($Areas_idAreas != null) {
@@ -226,15 +206,14 @@ if (isset($_GET["edit"]) && isset($_SESSION["idUser"])) {
                                                         echo "<input type='checkbox' class='form-check-input' name='area[]' value='$idAreas' $checked>$name_interested_area<br>";
                                                         echo "</label>";
                                                     }
-                                                    /* close statement */
+                                                   
                                                     mysqli_stmt_close($stmt2);
                                                 }
                                             }
                                             ?>
                                         </div>
                                     </div>
-                                    <!----------------------->
-                                    <!--nono input-PAÍS-->
+                                    
                                     <div class="form-group text-left">
                                         <label class="negrito mt-3" for="pais">Seleciona o país onde queres estudar: <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label><span class="sr-only">(Seleciona o país onde queres estudar)</span>
                                         <select class="form-control" id="pais">
@@ -244,8 +223,7 @@ if (isset($_GET["edit"]) && isset($_SESSION["idUser"])) {
                                             <option value="ic">Islândia</option>
                                         </select>
                                     </div>
-                                    <!----------------------->
-                                    <!--nono input-REGIÃO PT-->
+                                 
                                     <div class="form-group formulario text-left" id="pt">
                                         <label class="negrito mt-3" for="regiao">Região que procuras estudar ou trabalhar <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label><span class="sr-only">(Região que procuras estudar ou trabalhar)</span>
                                         <div class="form-check">
@@ -258,14 +236,10 @@ if (isset($_GET["edit"]) && isset($_SESSION["idUser"])) {
                                                     WHERE name_country = 'Portugal'";
                                             $stmt2 = mysqli_stmt_init($link2);
                                             if (mysqli_stmt_prepare($stmt2, $query3)) {
-                                                // Bind variables by type to each parameter
                                                 mysqli_stmt_bind_param($stmt2, 'i', $idUser);
-                                                /* execute the prepared statement */
                                                 if (mysqli_stmt_execute($stmt2)) {
-                                                    /* bind result variables */
                                                     mysqli_stmt_bind_result($stmt2, $idRegion, $name_region, $Region_idRegion);
 
-                                                    /* fetch values */
                                                     while (mysqli_stmt_fetch($stmt2)) {
                                                         $checked = "";
                                                         if ($Region_idRegion != null) {
@@ -276,14 +250,13 @@ if (isset($_GET["edit"]) && isset($_SESSION["idUser"])) {
                                                         echo "<input type='checkbox' class='form-check-input' name='regiao[]' value='$idRegion' $checked>$name_region<br>";
                                                         echo "</label>";
                                                     }
-                                                    /* close statement */
                                                     mysqli_stmt_close($stmt2);
                                                 }
                                             }
                                             ?>
                                         </div>
                                     </div>
-                                    <!--nono input-REGIÃO ES-->
+                                    
                                     <div class="form-group formulario text-left" style="display:none;" id="es">
                                         <label class="negrito mt-3" for="regiao">Região que procuras estudar ou trabalhar <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label><span class="sr-only">(Região que procuras estudar ou trabalhar)</span>
                                         <div class="form-check">
@@ -296,14 +269,11 @@ if (isset($_GET["edit"]) && isset($_SESSION["idUser"])) {
                                                     WHERE name_country = 'Espanha'";
                                             $stmt2 = mysqli_stmt_init($link2);
                                             if (mysqli_stmt_prepare($stmt2, $query3)) {
-                                                // Bind variables by type to each parameter
                                                 mysqli_stmt_bind_param($stmt2, 'i', $idUser);
-                                                /* execute the prepared statement */
                                                 if (mysqli_stmt_execute($stmt2)) {
-                                                    /* bind result variables */
+                                                    
                                                     mysqli_stmt_bind_result($stmt2, $idRegion, $name_region, $Region_idRegion);
 
-                                                    /* fetch values */
                                                     while (mysqli_stmt_fetch($stmt2)) {
                                                         $checked = "";
                                                         if ($Region_idRegion != null) {
@@ -314,14 +284,13 @@ if (isset($_GET["edit"]) && isset($_SESSION["idUser"])) {
                                                         echo "<input type='checkbox' class='form-check-input' name='regiao[]' value='$idRegion' $checked>$name_region<br>";
                                                         echo "</label>";
                                                     }
-                                                    /* close statement */
                                                     mysqli_stmt_close($stmt2);
                                                 }
                                             }
                                             ?>
                                         </div>
                                     </div>
-                                    <!--nono input-REGIÃO BE-->
+                                    
                                     <div class="form-group formulario text-left" style="display:none;" id="be">
                                         <label class="negrito mt-3" for="regiao">Região que procuras estudar ou trabalhar <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label><span class="sr-only">(Região que procuras estudar ou trabalhar)</span>
                                         <div class="form-check">
@@ -335,14 +304,10 @@ if (isset($_GET["edit"]) && isset($_SESSION["idUser"])) {
                                                     WHERE name_country = 'Bélgica'";
                                             $stmt2 = mysqli_stmt_init($link2);
                                             if (mysqli_stmt_prepare($stmt2, $query3)) {
-                                                // Bind variables by type to each parameter
                                                 mysqli_stmt_bind_param($stmt2, 'i', $idUser);
-                                                /* execute the prepared statement */
                                                 if (mysqli_stmt_execute($stmt2)) {
-                                                    /* bind result variables */
                                                     mysqli_stmt_bind_result($stmt2, $idRegion, $name_region, $Region_idRegion);
 
-                                                    /* fetch values */
                                                     while (mysqli_stmt_fetch($stmt2)) {
                                                         $checked = "";
                                                         if ($Region_idRegion != null) {
@@ -353,14 +318,13 @@ if (isset($_GET["edit"]) && isset($_SESSION["idUser"])) {
                                                         echo "<input type='checkbox' class='form-check-input' name='regiao[]' value='$idRegion' $checked>$name_region<br>";
                                                         echo "</label>";
                                                     }
-                                                    /* close statement */
                                                     mysqli_stmt_close($stmt2);
                                                 }
                                             }
                                             ?>
                                         </div>
                                     </div>
-                                    <!--nono input-REGIÃO IC-->
+                                    
                                     <div class="form-group formulario text-left" style="display:none;" id="ic">
                                         <label class="negrito mt-3" for="regiao">Região que procuras estudar ou trabalhar <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label><span class="sr-only">(Região que procuras estudar ou trabalhar)</span>
                                         <div class="form-check">
@@ -374,14 +338,10 @@ if (isset($_GET["edit"]) && isset($_SESSION["idUser"])) {
                                                     WHERE name_country = 'Islândia'";
                                             $stmt2 = mysqli_stmt_init($link2);
                                             if (mysqli_stmt_prepare($stmt2, $query3)) {
-                                                // Bind variables by type to each parameter
                                                 mysqli_stmt_bind_param($stmt2, 'i', $idUser);
-                                                /* execute the prepared statement */
                                                 if (mysqli_stmt_execute($stmt2)) {
-                                                    /* bind result variables */
                                                     mysqli_stmt_bind_result($stmt2, $idRegion, $name_region, $Region_idRegion);
 
-                                                    /* fetch values */
                                                     while (mysqli_stmt_fetch($stmt2)) {
                                                         $checked = "";
                                                         if ($Region_idRegion != null) {
@@ -392,7 +352,6 @@ if (isset($_GET["edit"]) && isset($_SESSION["idUser"])) {
                                                         echo "<input type='checkbox' class='form-check-input' name='regiao[]' value='$idRegion' $checked>$name_region<br>";
                                                         echo "</label>";
                                                     }
-                                                    /* close statement */
                                                     mysqli_stmt_close($stmt2);
                                                 }
                                             }
@@ -400,21 +359,16 @@ if (isset($_GET["edit"]) && isset($_SESSION["idUser"])) {
                                         </div>
                                     </div>
 
-                                    <!------------EXPERIÊNCIA DE TRABALHO------------>
                                     <div class="form-group text-left">
                                         <label class="negrito mt-3" for="exp_t">Experiência de trabalho</label><span class="sr-only">(Descreve a tua experiência de trabalho)</span>
                                         <textarea class="form-control " id="exp_t" rows="5" name="work" placeholder="Escreve aqui a tua experiência de trabalho"><?= $work_xp ?></textarea>
                                     </div>
-                                    <!----------------------->
-
-                                    <!--EDITEI A PARTIR DAQUI-->
-
+                          
                                     <hr>
                                     <h5 class="text-left titulo_cinza" role="heading">Sobre mim</h5>
                                     <div class="form-group text-left">
                                         <label class="negrito mt-3" role="heading" for="capacity">As frases que melhor me descrevem (selecionar cinco ou mais frases) <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label><span class="sr-only">(Seleciona as cino ou mais frases que melhor te descrevem)</span>
-                                        <!------------COMPETÊNCIAS------------>
-
+                                    
                                         <div class="form-check">
                                             <?php
                                             $query4 = "SELECT idCapacities, capacity, capacities
@@ -423,14 +377,10 @@ if (isset($_GET["edit"]) && isset($_SESSION["idUser"])) {
                                                     ON  capacities.idCapacities = capacities_has_users.capacities AND capacities_has_users.users_idUser = ?";
                                             $stmt2 = mysqli_stmt_init($link2);
                                             if (mysqli_stmt_prepare($stmt2, $query4)) {
-                                                // Bind variables by type to each parameter
                                                 mysqli_stmt_bind_param($stmt2, 'i', $idUser);
-                                                /* execute the prepared statement */
                                                 if (mysqli_stmt_execute($stmt2)) {
-                                                    /* bind result variables */
                                                     mysqli_stmt_bind_result($stmt2, $idCapacities, $capacity, $capacities);
 
-                                                    /* fetch values */
                                                     while (mysqli_stmt_fetch($stmt2)) {
                                                         $checked = "";
                                                         if ($capacities != null) {
@@ -442,14 +392,12 @@ if (isset($_GET["edit"]) && isset($_SESSION["idUser"])) {
                                                         echo "<input type='checkbox' class='form-check-input' name='capacity[]' value='$idCapacities' $checked>$capacity<br>";
                                                         echo "</label>";
                                                     }
-                                                    /* close statement */
                                                     mysqli_stmt_close($stmt2);
                                                 }
                                             }
                                             ?>
                                         </div>
                                     </div>
-                                    <!--LOCAL ONDE GOSTARIA DE TRABALHAR-->
                                     <div class="form-group text-left">
                                         <h6 class="negrito mt-4" for="environment" role="heading">Os meus ambientes de trabalho favoritos <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></h6>
                                         <div class="form-check">
@@ -460,14 +408,12 @@ if (isset($_GET["edit"]) && isset($_SESSION["idUser"])) {
                                                        ON work_environment.idwork_environment = work_environment_has_users.favorite_environment AND  work_environment_has_users.users_idUser = ?";
                                             $stmt2 = mysqli_stmt_init($link2);
                                             if (mysqli_stmt_prepare($stmt2, $query5)) {
-                                                // Bind variables by type to each parameter
                                                 mysqli_stmt_bind_param($stmt2, 'i', $idUser);
-                                                /* execute the prepared statement */
+                                               
                                                 if (mysqli_stmt_execute($stmt2)) {
-                                                    /* bind result variables */
+                                                    
                                                     mysqli_stmt_bind_result($stmt2, $idwork_environment, $name_environment, $favorite_environment);
 
-                                                    /* fetch values */
                                                     while (mysqli_stmt_fetch($stmt2)) {
                                                         $checked = "";
                                                         if ($favorite_environment != null) {
@@ -479,7 +425,6 @@ if (isset($_GET["edit"]) && isset($_SESSION["idUser"])) {
                                                         echo "<input type='checkbox' class='form-check-input' name='spot[]' value='$idwork_environment' $checked>$name_environment<br>";
                                                         echo "</label>";
                                                     }
-                                                    /* close statement */
                                                     mysqli_stmt_close($stmt2);
                                                 }
                                             }
@@ -487,17 +432,13 @@ if (isset($_GET["edit"]) && isset($_SESSION["idUser"])) {
                                         </div>
                                     </div>
 
-                                    <!--ACABEI DE EDITAR AQUI-->
-
-                                    <!--quinto input-DID-->
                                     <div class="form-group text-left">
                                         <label for="def" class="negrito">O que mais posso dizer sobre mim <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
                                         <textarea class="form-control cinza" id="def" rows="7" name="def" placeholder="Por exemplo: Se tiveres alguma necessidade indica aqui (como necessidade de elevador e/ou rampas de acesso)." required="required"><?= $info_young ?></textarea>
                                     </div>
-                                    <!----------------------->
-                                    <!---div com o valor de edit para poder voltar para aqui-->
+                                    
                                     <input type="hidden" name="edit" value="<?= $idUser ?>">
-                                    <!----------------------->
+                                   
                                     <div class="form-group">
                                         <label class="col-md-3 control-label label-margin"></label>
                                         <div class="col-md-8">
@@ -514,15 +455,14 @@ if (isset($_GET["edit"]) && isset($_SESSION["idUser"])) {
                             </div>
 
                         </div>
-                        <!--fim da div row-->
+                        
                     <?php
-                    } //este fecha o if se é um jovem
-                    else { //se é uma empresa
+                    } 
+                    else { 
                     ?>
-                        <!--FORMULÁRIO DE EDITAR PARA EMPRESAS E UNIVERSIDADES-->
+                        
                         <div class="row">
-                            <!-- left column -->
-
+                           
                             <div class="col-xs-12 col-md-4">
 
                                 <div class="text-center">
@@ -533,7 +473,6 @@ if (isset($_GET["edit"]) && isset($_SESSION["idUser"])) {
                                             <input id="userIDhidden" value="<?= $idUser ?>" style="display: none;"></input>
                                         </div>
                                         <?php
-                                        //var_dump($img_perfil);
                                         if (isset($profile_img)) {
                                         ?>
                                             <img id="img_perf" class="image_profile" src="../admin/uploads/img_perfil/<?= $profile_img ?>" alt="imagem de perfil" title="imagem de perfil" />
@@ -549,7 +488,6 @@ if (isset($_GET["edit"]) && isset($_SESSION["idUser"])) {
                                     <div class="alert alert-warning mt-3" role="alert">
                                         <span>Carrega no botão que está em cima da imagem para alterar a tua imagem.</span>
                                     </div>
-                                    <!----------------------MODAL DE CROP--------------->
                                     <div id="uploadimageModal" class="modal" role="dialog">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
@@ -578,12 +516,10 @@ if (isset($_GET["edit"]) && isset($_SESSION["idUser"])) {
                                             </div>
                                         </div>
                                     </div>
-                                    <!------------------->
+                                 
                                 </div>
                             </div>
 
-
-                            <!-- edit form column -->
                             <div class="col-xs-12 col-md-8">
                                 <form id="sectionForm" class="form-horizontal" role="form" method="post" action="scripts/update_profile.php?id_uni_emp=<?= $idUser ?>">
                                     <?php
@@ -624,34 +560,31 @@ if (isset($_GET["edit"]) && isset($_SESSION["idUser"])) {
                                     }
                                     ?>
                                     <p style="font-size: 12px; color: #00A5CF !important;">* Campos de preenchimento obrigatório.</p>
-                                    <!--primeiro input-NOME-->
+                                   
                                     <div class="form-group text-left">
                                         <label class="negrito mt-3" for="nome">Nome <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
                                         <input type="text" id="nome" name="nome" placeholder="Escreva aqui o seu nome" class="form-control" aria-required="true" required="required" value="<?= $name_user ?>"><span class=sr-only>(Escreva aqui o seu nome)</span>
                                     </div>
-                                    <!----------------------->
-                                    <!--segundo input-EMAIL-->
+                                 
                                     <div class="form-group text-left">
                                         <label class="negrito mt-3" for="email">Email <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
                                         <input type="text" id="email" name="email" placeholder="Escreva aqui o seu e-mail" class="form-control" required="required" value="<?= $email_user ?>"><span class=sr-only>(Escreva aqui o seu e-mail)</span>
                                     </div>
-                                    <!----------------------->
-                                    <!--terceiro input-DATA DE NASCIMENTO-->
+                                   
                                     <div class="form-group text-left">
                                         <label class="negrito mt-3" for="born">Data de fundação <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
                                         <input type="date" id="born" name="data_fund" placeholder="data de nascimento" class="form-control" required="required" value="<?= $birth_date ?>"><span class=sr-only>(Escreva aqui a data de fundação)</span>
                                     </div>
-                                    <!----------------------->
-                                    <!--quarto input- TELEMÓVEL-->
+                                   
                                     <div class="form-group text-left">
                                         <label class="negrito mt-3" for="tlm">Contacto <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
                                         <input type="text" id="tlm" name="phone" placeholder="Escreva aqui o seu contacto" class="form-control" required="required" value="<?= $contact_user ?>"><span class=sr-only>(Escreva aqui o contacto)</span>
                                     </div>
-                                    <!----------------------->
+                                  
                                     <?php
                                     if ($type_user == "Universidade") {
                                     ?>
-                                        <!--oitavo input-AREAS-->
+                                       
                                         <div class="form-group text-left">
                                             <label class="negrito mt-3" for="area">Áreas de disponíveis <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label><span class=sr-only>(Áreas disponíveis na universidade)</span>
                                             <div class="form-check">
@@ -662,14 +595,10 @@ if (isset($_GET["edit"]) && isset($_SESSION["idUser"])) {
                                                         ON  areas.idAreas= user_has_areas.Areas_idAreas AND user_has_areas.User_idUser= ?";
                                                 $stmt2 = mysqli_stmt_init($link2);
                                                 if (mysqli_stmt_prepare($stmt2, $query2)) {
-                                                    // Bind variables by type to each parameter
                                                     mysqli_stmt_bind_param($stmt2, 'i', $idUser);
-                                                    /* execute the prepared statement */
                                                     if (mysqli_stmt_execute($stmt2)) {
-                                                        /* bind result variables */
                                                         mysqli_stmt_bind_result($stmt2, $idAreas, $name_interested_area, $Areas_idAreas);
 
-                                                        /* fetch values */
                                                         while (mysqli_stmt_fetch($stmt2)) {
                                                             $checked = "";
                                                             if ($Areas_idAreas != null) {
@@ -681,18 +610,17 @@ if (isset($_GET["edit"]) && isset($_SESSION["idUser"])) {
                                                             echo "<input type='checkbox' class='form-check-input' name='area[]' value='$idAreas' $checked>$name_interested_area<br>";
                                                             echo "</label>";
                                                         }
-                                                        /* close statement */
                                                         mysqli_stmt_close($stmt2);
                                                     }
                                                 }
                                                 ?>
                                             </div>
                                         </div>
-                                        <!----------------------->
+                                       
                                     <?php
                                     }
                                     ?>
-                                    <!------------PAÍS------------>
+                                   
                                     <?php
                                     if ($type_user == "Empresa") {
                                     ?>
@@ -706,7 +634,7 @@ if (isset($_GET["edit"]) && isset($_SESSION["idUser"])) {
                                                 <option value="ic">Islândia</option>
                                             </select>
                                         </div>
-                                        <!------------REGIÕES DE PORTUGAL------------>
+                                       
                                         <div class="form-group formulario" id="pt">
                                             <div class="form-group text-left">
                                                 <label class="negrito mt-3" for="regiao_pt">Região da Empresa
@@ -721,14 +649,13 @@ if (isset($_GET["edit"]) && isset($_SESSION["idUser"])) {
                                                                     WHERE name_country = 'Portugal'";
                                                     $stmt2 = mysqli_stmt_init($link2);
                                                     if (mysqli_stmt_prepare($stmt2, $query2)) {
-                                                        // Bind variables by type to each parameter
+                                                        
                                                         mysqli_stmt_bind_param($stmt2, 'i', $idUser);
-                                                        /* execute the prepared statement */
+                                                      
                                                         if (mysqli_stmt_execute($stmt2)) {
-                                                            /* bind result variables */
+                                                         
                                                             mysqli_stmt_bind_result($stmt2, $idRegion, $name_region, $Region_idRegion);
 
-                                                            /* fetch values */
                                                             while (mysqli_stmt_fetch($stmt2)) {
                                                                 if ($Region_idRegion == $idRegion) {
                                                                     $selected = "selected";
@@ -737,7 +664,6 @@ if (isset($_GET["edit"]) && isset($_SESSION["idUser"])) {
                                                                 }
                                                                 echo "\n\t\t<option value=\"$idRegion\" $selected>$name_region</option>";
                                                             }
-                                                            /* close statement */
                                                             mysqli_stmt_close($stmt2);
                                                         }
                                                     }
@@ -745,7 +671,6 @@ if (isset($_GET["edit"]) && isset($_SESSION["idUser"])) {
                                                 </select>
                                             </div>
                                         </div>
-                                        <!------------REGIÕES DE ESPANHA------------>
                                         <div class="form-group formulario" style="display:none;" id="es">
                                             <div class="form-group text-left">
                                                 <label class="negrito mt-3" for="regiao_es">Região da Empresa
@@ -761,12 +686,10 @@ if (isset($_GET["edit"]) && isset($_SESSION["idUser"])) {
                                                     $stmt2 = mysqli_stmt_init($link2);
                                                     if (mysqli_stmt_prepare($stmt2, $query2)) {
 
-                                                        /* execute the prepared statement */
                                                         if (mysqli_stmt_execute($stmt2)) {
-                                                            /* bind result variables */
+                                                            
                                                             mysqli_stmt_bind_result($stmt2, $idRegion, $name_region, $Region_idRegion);
 
-                                                            /* fetch values */
                                                             while (mysqli_stmt_fetch($stmt2)) {
                                                                 if ($Region_idRegion == $idRegion) {
                                                                     $selected = "selected";
@@ -776,7 +699,6 @@ if (isset($_GET["edit"]) && isset($_SESSION["idUser"])) {
 
                                                                 echo "\n\t\t<option value=\"$idRegion\" $selected>$name_region</option>";
                                                             }
-                                                            /* close statement */
                                                             mysqli_stmt_close($stmt2);
                                                         }
                                                     }
@@ -784,7 +706,7 @@ if (isset($_GET["edit"]) && isset($_SESSION["idUser"])) {
                                                 </select>
                                             </div>
                                         </div>
-                                        <!------------REGIÕES DE BÉLGICA------------>
+                                        
                                         <div class="form-group formulario" style="display:none;" id="be">
                                             <div class="form-group text-left">
                                                 <label class="negrito mt-3" for="regiao_be">Região da Empresa
@@ -800,12 +722,10 @@ if (isset($_GET["edit"]) && isset($_SESSION["idUser"])) {
                                                     $stmt2 = mysqli_stmt_init($link2);
                                                     if (mysqli_stmt_prepare($stmt2, $query2)) {
 
-                                                        /* execute the prepared statement */
                                                         if (mysqli_stmt_execute($stmt2)) {
-                                                            /* bind result variables */
+                                                            
                                                             mysqli_stmt_bind_result($stmt2, $idRegion, $name_region, $Region_idRegion);
 
-                                                            /* fetch values */
                                                             while (mysqli_stmt_fetch($stmt2)) {
                                                                 if ($Region_idRegion == $idRegion) {
                                                                     $selected = "selected";
@@ -814,7 +734,6 @@ if (isset($_GET["edit"]) && isset($_SESSION["idUser"])) {
                                                                 }
                                                                 echo "\n\t\t<option value=\"$idRegion\" $selected>$name_region</option>";
                                                             }
-                                                            /* close statement */
                                                             mysqli_stmt_close($stmt2);
                                                         }
                                                     }
@@ -822,7 +741,7 @@ if (isset($_GET["edit"]) && isset($_SESSION["idUser"])) {
                                                 </select>
                                             </div>
                                         </div>
-                                        <!------------REGIÕES DE ISLÂNDIA------------>
+                                       
                                         <div class="form-group formulario" style="display:none;" id="ic">
                                             <div class="form-group text-left">
                                                 <label class="negrito mt-3" for="regiao_ic">Região da Empresa
@@ -838,12 +757,9 @@ if (isset($_GET["edit"]) && isset($_SESSION["idUser"])) {
                                                     $stmt2 = mysqli_stmt_init($link2);
                                                     if (mysqli_stmt_prepare($stmt2, $query2)) {
 
-                                                        /* execute the prepared statement */
                                                         if (mysqli_stmt_execute($stmt2)) {
-                                                            /* bind result variables */
                                                             mysqli_stmt_bind_result($stmt2, $idRegion, $name_region, $Region_idRegion);
 
-                                                            /* fetch values */
                                                             while (mysqli_stmt_fetch($stmt2)) {
                                                                 if ($Region_idRegion == $idRegion) {
                                                                     $selected = "selected";
@@ -852,7 +768,6 @@ if (isset($_GET["edit"]) && isset($_SESSION["idUser"])) {
                                                                 }
                                                                 echo "\n\t\t<option value=\"$idRegion\" $selected>$name_region</option>";
                                                             }
-                                                            /* close statement */
                                                             mysqli_stmt_close($stmt2);
                                                         }
                                                     }
@@ -863,26 +778,23 @@ if (isset($_GET["edit"]) && isset($_SESSION["idUser"])) {
                                     <?php
                                     }
                                     ?>
-                                    <!------------WEBSITE------------>
+                                    
                                     <div class="form-group text-left">
                                         <label class="negrito mt-3" for="site">Website <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
                                         <input type="text" class="form-control cinza" id="site" name="site" aria-required="true" placeholder="Insira aqui o website" required="required" value="<?= $website_ue ?>"><span class=sr-only>(Website)</span>
                                     </div>
-                                    <!------------FACEBOOK------------>
                                     <div class="form-group text-left">
                                         <label class="negrito mt-3" for="face">Facebook</label>
                                         <div class="p-0 m-0">
                                             <input type="text" class="form-control cinza" id="face" name="face" placeholder="Insira aqui o facebook" value="<?= $facebook_ue ?>"><span class=sr-only>(Facebook)</span>
                                         </div>
                                     </div>
-                                    <!------------INSTAGRAM------------>
                                     <div class="form-group text-left">
                                         <label class="negrito mt-3" for="insta">Instagram</label>
                                         <div class="p-0 m-0">
                                             <input type="text" class="form-control cinza" id="insta" name="insta" placeholder="Insira aqui o instagram" value="<?= $instagram_ue ?>"><span class=sr-only>(Instagram)</span>
                                         </div>
                                     </div>
-                                    <!------------DESCRIÇÃO------------>
                                     <div class="form-group text-left">
                                         <label class="negrito mt-3" for="desc">Descrição <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
                                         <textarea class="form-control " id="desc" rows="7" name="desc" placeholder="Escreva aqui uma descrição" aria-required="true" required="required"> <?= $description_ue ?></textarea><span class=sr-only>(Descrição)</span>
@@ -890,7 +802,6 @@ if (isset($_GET["edit"]) && isset($_SESSION["idUser"])) {
                                     <?php
                                     if ($type_user == "Universidade") {
                                     ?>
-                                        <!------------HISTÓRIA------------>
                                         <div class="form-group text-left">
                                             <label class="negrito mt-3" for="hist">História <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
                                             <textarea class="form-control " id="hist" rows="9" name="hist" placeholder="Escreva aqui a história da Universidade" aria-required="true" required="required"> <?= $history_ue ?></textarea><span class=sr-only>(História da universidade)</span>
@@ -898,9 +809,8 @@ if (isset($_GET["edit"]) && isset($_SESSION["idUser"])) {
                                     <?php
                                     }
                                     ?>
-                                    <!---div com o valor de edit para poder voltar para aqui-->
                                     <input type="hidden" name="edit" value="<?= $idUser ?>">
-                                    <!----------------------->
+                                   
                                     <div class="form-group">
                                         <label class="col-md-3 control-label label-margin"></label>
                                         <div class="col-md-8">
@@ -917,11 +827,10 @@ if (isset($_GET["edit"]) && isset($_SESSION["idUser"])) {
                             </div>
 
                         </div>
-                        <!--fim da div row-->
             <?php
                     }
                 }
-                /* close statement */
+              
                 mysqli_stmt_close($stmt);
             }
             ?>
@@ -929,7 +838,6 @@ if (isset($_GET["edit"]) && isset($_SESSION["idUser"])) {
         </div>
 
     <?php
-    /* close connection */
     mysqli_close($link);
     mysqli_close($link2);
         } else{
@@ -937,5 +845,5 @@ if (isset($_GET["edit"]) && isset($_SESSION["idUser"])) {
         }
 } else {
     include("404.php");
-} //fim do else se não existir o GET
+}
     ?>

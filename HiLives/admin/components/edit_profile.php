@@ -1,16 +1,12 @@
 <?php
 if (isset($_GET["edit"])) {
     $idUser = $_GET["edit"];
-    // We need the function!
+
     require_once("connections/connection.php");
 
-    // Create a new DB connection
     $link = new_db_connection();
-
-    /* create a prepared statement */
     $stmt = mysqli_stmt_init($link);
 
-    //ir buscar os dados
     $query = "SELECT idUser, name_user, email_user, contact_user, birth_date, profile_img
     FROM users
     WHERE idUser LIKE ?";
@@ -20,7 +16,6 @@ if (isset($_GET["edit"])) {
         mysqli_stmt_execute($stmt);
         mysqli_stmt_bind_result($stmt, $idUser, $name_user, $email_user, $contact_user, $birth_date, $profile_img);
 ?>
-        <!--FORMULÁRIO DE EDITAR PARA OS JOVENS-->
         <div class="w-75 mx-auto">
             <div class="card text-center">
                 <h4>Editar Perfil</h4>
@@ -30,8 +25,6 @@ if (isset($_GET["edit"])) {
                 ?>
 
                     <div class="row">
-                        <!-- left column -->
-
                         <div class="col-xs-12 col-md-4">
 
                             <div class="text-center">
@@ -42,7 +35,6 @@ if (isset($_GET["edit"])) {
                                         <input id="userIDhidden" value="<?= $idUser ?>" style="display: none;"></input>
                                     </div>
                                     <?php
-                                    //var_dump($img_perfil);
                                     if (isset($profile_img)) {
                                     ?>
                                         <img id="img_perf" class="image_profile" src="../admin/uploads/img_perfil/<?= $profile_img ?>" alt="<?= $profile_img ?>" />
@@ -56,7 +48,7 @@ if (isset($_GET["edit"])) {
                                     ?>
                                 </div>
                                 <div class="alert alert-warning mt-3" role="alert">
-                                    <span>Carrega no botão que está em cima da imagem para alterar a tua imagem.</span>
+                                    <span>Carregue no botão que está em cima da imagem para alterar a sua imagem.</span>
                                 </div>
                                 <!----------------------MODAL DE CROP--------------->
                                 <div id="uploadimageModal" class="modal" role="dialog">
@@ -127,33 +119,28 @@ if (isset($_GET["edit"])) {
                                     }
                                 }
                                 ?>
-                                <!------------****------------>
                                 <p style="font-size: 12px; color: #00A5CF !important;">* Campos de preenchimento obrigatório.</p>
-                                <!--primeiro input-NOME-->
+
                                 <div class="form-group text-left">
                                     <label class="negrito mt-3" for="nome">Nome <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
-                                    <input type="text" id="nome" name="nome" placeholder="Escreve aqui o teu nome" required="required" class="form-control" value="<?= $name_user ?>">
+                                    <input type="text" id="nome" name="nome" placeholder="Escreva aqui o seu nome" required="required" class="form-control" value="<?= $name_user ?>">
                                 </div>
-                                <!----------------------->
-                                <!--segundo input-EMAIL-->
+
                                 <div class="form-group text-left">
                                     <label class="negrito mt-3" for="email">Email <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
-                                    <input type="text" id="email" name="email" placeholder="Escreve aqui o teu email" required="required" class="form-control" value="<?= $email_user ?>">
+                                    <input type="text" id="email" name="email" placeholder="Escreva aqui o seu email" required="required" class="form-control" value="<?= $email_user ?>">
                                 </div>
-                                <!----------------------->
-                                <!--terceiro input-DATA DE NASCIMENTO-->
+
                                 <div class="form-group text-left">
                                     <label class="negrito mt-3" for="born">Data de nascimento <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
                                     <input type="date" id="born" name="data_nasc" placeholder="data de nascimento" required="required" class="form-control" value="<?= $birth_date ?>">
                                 </div>
-                                <!----------------------->
-                                <!--quarto input- TELEMÓVEL-->
+
                                 <div class="form-group text-left">
                                     <label class="negrito mt-3" for="tlm">Telemóvel</label>
-                                    <input type="text" id="tlm" name="phone" placeholder="Escreve aqui o teu telemóvel" class="form-control" value="<?= $contact_user ?>">
+                                    <input type="text" id="tlm" name="phone" placeholder="Escreva aqui o seu contacto" class="form-control" value="<?= $contact_user ?>">
                                 </div>
-                                <!----------------------->
-                                <!--PAÍS-->
+
                                 <div class="form-group text-left">
                                     <label class="negrito mt-3" for="pais">Selecione o seu país:
                                         <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
@@ -170,8 +157,8 @@ if (isset($_GET["edit"])) {
                                         <label class="negrito mt-3" for="regiao_pt">Região
                                             <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span>
                                         </label>
-                                        <select class="form-control" id="regiao_pt" name="regiao" required="required">
-                                            <option value="" selected disabled>Seleciona uma opção</option>
+                                        <select class="form-control" id="regiao_pt" name="regiao">
+                                            <option selected disabled>Selecione uma opção</option>
                                             <?php
                                             $query2 = "SELECT idRegion, name_region, Region_idRegion FROM region 
                                                                     INNER JOIN country ON region.country_idcountry = country.idcountry
@@ -179,14 +166,11 @@ if (isset($_GET["edit"])) {
                                                                     WHERE name_country = 'Portugal'";
 
                                             if (mysqli_stmt_prepare($stmt, $query2)) {
-                                                // Bind variables by type to each parameter
                                                 mysqli_stmt_bind_param($stmt, 'i', $idUser);
-                                                /* execute the prepared statement */
+
                                                 if (mysqli_stmt_execute($stmt)) {
-                                                    /* bind result variables */
                                                     mysqli_stmt_bind_result($stmt, $idRegion, $name_region, $Region_idRegion);
 
-                                                    /* fetch values */
                                                     while (mysqli_stmt_fetch($stmt)) {
                                                         if ($Region_idRegion == $idRegion) {
                                                             $selected = "selected";
@@ -195,40 +179,31 @@ if (isset($_GET["edit"])) {
                                                         }
                                                         echo "\n\t\t<option value=\"$idRegion\" $selected>$name_region</option>";
                                                     }
-                                                } else {
-                                                    echo "Error: " . mysqli_stmt_error($stmt);
                                                 }
-                                                /* close statement */
-                                                //mysqli_stmt_close($stmt);
-                                            } else {
-                                                echo "Error: " . mysqli_error($link);
                                             }
                                             ?>
                                         </select>
                                     </div>
                                 </div>
-                                <!------------REGIÕES DE ESPANHA------------>
+
                                 <div class="form-group formulario" style="display:none;" id="es">
                                     <div class="form-group text-left">
                                         <label class="negrito mt-3" for="regiao_es">Região
                                             <span class="asterisco">*</span>
                                         </label>
                                         <select class="form-control" id="regiao_es" name="regiao">
-                                            <option selected disabled>Seleciona uma opção</option>
+                                            <option selected disabled>Selecione uma opção</option>
                                             <?php
                                             $query2 = "SELECT idRegion, name_region, Region_idRegion FROM region 
-                                                INNER JOIN country ON region.country_idcountry = country.idcountry
-                                                LEFT JOIN user_has_region ON  region.idRegion= user_has_region.Region_idRegion AND user_has_region.User_idUser_region= ?
-                                                                    WHERE name_country = 'Espanha'";
+                                                    INNER JOIN country ON region.country_idcountry = country.idcountry
+                                                    LEFT JOIN user_has_region ON  region.idRegion= user_has_region.Region_idRegion AND user_has_region.User_idUser_region= ?
+                                                    WHERE name_country = 'Espanha'";
 
                                             if (mysqli_stmt_prepare($stmt, $query2)) {
 
-                                                /* execute the prepared statement */
                                                 if (mysqli_stmt_execute($stmt)) {
-                                                    /* bind result variables */
                                                     mysqli_stmt_bind_result($stmt, $idRegion, $name_region, $Region_idRegion);
 
-                                                    /* fetch values */
                                                     while (mysqli_stmt_fetch($stmt)) {
                                                         if ($Region_idRegion == $idRegion) {
                                                             $selected = "selected";
@@ -238,26 +213,20 @@ if (isset($_GET["edit"])) {
 
                                                         echo "\n\t\t<option value=\"$idRegion\" $selected>$name_region</option>";
                                                     }
-                                                } else {
-                                                    echo "Error: " . mysqli_stmt_error($stmt);
                                                 }
-                                                /* close statement */
-                                                //mysqli_stmt_close($stmt);
-                                            } else {
-                                                echo "Error: " . mysqli_error($link);
                                             }
                                             ?>
                                         </select>
                                     </div>
                                 </div>
-                                <!------------REGIÕES DE BÉLGICA------------>
+
                                 <div class="form-group formulario" style="display:none;" id="be">
                                     <div class="form-group text-left">
                                         <label class="negrito mt-3" for="regiao_be">Região
                                             <span class="asterisco">*</span>
                                         </label>
                                         <select class="form-control" id="regiao_be" name="regiao">
-                                            <option selected disabled>Seleciona uma opção</option>
+                                            <option selected disabled>Selecione uma opção</option>
                                             <?php
                                             $query2 = "SELECT idRegion, name_region, Region_idRegion FROM region 
                                                 INNER JOIN country ON region.country_idcountry = country.idcountry
@@ -265,13 +234,10 @@ if (isset($_GET["edit"])) {
                                                                     WHERE name_country = 'Bélgica'";
 
                                             if (mysqli_stmt_prepare($stmt, $query2)) {
-
-                                                /* execute the prepared statement */
                                                 if (mysqli_stmt_execute($stmt)) {
-                                                    /* bind result variables */
+
                                                     mysqli_stmt_bind_result($stmt, $idRegion, $name_region, $Region_idRegion);
 
-                                                    /* fetch values */
                                                     while (mysqli_stmt_fetch($stmt)) {
                                                         if ($Region_idRegion == $idRegion) {
                                                             $selected = "selected";
@@ -280,13 +246,7 @@ if (isset($_GET["edit"])) {
                                                         }
                                                         echo "\n\t\t<option value=\"$idRegion\" $selected>$name_region</option>";
                                                     }
-                                                } else {
-                                                    echo "Error: " . mysqli_stmt_error($stmt);
                                                 }
-                                                /* close statement */
-                                                //mysqli_stmt_close($stmt);
-                                            } else {
-                                                echo "Error: " . mysqli_error($link);
                                             }
                                             ?>
                                         </select>
@@ -299,7 +259,7 @@ if (isset($_GET["edit"])) {
                                             <span class="asterisco">*</span>
                                         </label>
                                         <select class="form-control" id="regiao_ic" name="regiao">
-                                            <option selected disabled>Seleciona uma opção</option>
+                                            <option selected disabled>Selecione uma opção</option>
                                             <?php
                                             $query2 = "SELECT idRegion, name_region, Region_idRegion FROM region 
                                                 INNER JOIN country ON region.country_idcountry = country.idcountry
@@ -308,12 +268,10 @@ if (isset($_GET["edit"])) {
 
                                             if (mysqli_stmt_prepare($stmt, $query2)) {
 
-                                                /* execute the prepared statement */
                                                 if (mysqli_stmt_execute($stmt)) {
-                                                    /* bind result variables */
+
                                                     mysqli_stmt_bind_result($stmt, $idRegion, $name_region, $Region_idRegion);
 
-                                                    /* fetch values */
                                                     while (mysqli_stmt_fetch($stmt)) {
                                                         if ($Region_idRegion == $idRegion) {
                                                             $selected = "selected";
@@ -322,13 +280,7 @@ if (isset($_GET["edit"])) {
                                                         }
                                                         echo "\n\t\t<option value=\"$idRegion\" $selected>$name_region</option>";
                                                     }
-                                                } else {
-                                                    echo "Error: " . mysqli_stmt_error($stmt);
                                                 }
-                                                /* close statement */
-                                                //mysqli_stmt_close($stmt);
-                                            } else {
-                                                echo "Error: " . mysqli_error($link);
                                             }
                                             ?>
                                         </select>
@@ -349,13 +301,13 @@ if (isset($_GET["edit"])) {
                         </div>
 
                     </div>
-                    <!--fim da div row-->
-
-
             <?php
 
                 }
             }
+
+            mysqli_stmt_close($stmt);
+            mysqli_close($link);
             ?>
             </div>
         </div>
@@ -364,5 +316,5 @@ if (isset($_GET["edit"])) {
 
 } else {
     include("404.php");
-} //fim do else se não existir o GET
+} 
     ?>

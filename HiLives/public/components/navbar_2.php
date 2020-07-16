@@ -19,7 +19,7 @@ if (isset($_SESSION["idUser"])) {
 
             <div class="home_menu mx-auto w-75 mt-0 pt-0">
                 <ul class="row p-0" style="list-style-type: none;">
-                    <!---PRIMEIRA-->
+               
                     <?php
                     if ($type_user == "Jovem") {
                     ?>
@@ -62,14 +62,12 @@ if (isset($_SESSION["idUser"])) {
                                 </ul>
                             </div>
                         </li>
-                        <!---*******************************-->
 
                     <?php
                     }
 
                     if ($type_user == "Jovem") {
                     ?>
-                        <!---SEGUNDA-->
                         <li class="col-lg-3 col-sm-12 p-0">
                             <div class="menu">
                                 <div class="menu-title mb-0">
@@ -108,12 +106,11 @@ if (isset($_SESSION["idUser"])) {
                                 </ul>
                             </div>
                         </li>
-                        <!---*******************************-->
+                       
                     <?php
                     }
                     if ($type_user == "Jovem") {
                     ?>
-                        <!---TERCEIRA-->
                         <li class="col-lg-3 col-sm-12 p-0">
                             <div class="menu">
                                 <div class="menu-title mb-0">
@@ -151,12 +148,11 @@ if (isset($_SESSION["idUser"])) {
                                 </ul>
                             </div>
                         </li>
-                        <!---*******************************-->
+                        
                     <?php
                     }
                     if ($type_user == "Jovem") {
                     ?>
-                        <!---QUARTA-->
                         <li class="col-lg-3 col-sm-12 p-0">
                             <div class="menu">
                                 <div class="menu-title mb-0">
@@ -179,10 +175,8 @@ if (isset($_SESSION["idUser"])) {
             </div>
 <?php
         }
-        /* close statement */
         mysqli_stmt_close($stmt);
     }
-    /* close connection */
     mysqli_close($link);
 }
 ?>

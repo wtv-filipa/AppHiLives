@@ -3,9 +3,8 @@ require_once("connections/connection.php");
 
 if (isset($_SESSION["idUser"])) {
   $idUser = $_SESSION["idUser"];
-  // Create a new DB connection
+ 
   $link = new_db_connection();
-  /* create a prepared statement */
   $stmt = mysqli_stmt_init($link);
   $query = "SELECT idUser, name_user, email_user, contact_user, birth_date, profile_img, website_ue, facebook_ue, instagram_ue, description_ue, history_ue, active
             FROM users 
@@ -14,7 +13,7 @@ if (isset($_SESSION["idUser"])) {
             ORDER BY idUser DESC";
   $array_val = mysqli_query($link, $query);
 ?>
-  <!-- Page Heading -->
+ 
   <h1 class="h3 mb-2">Empresas</h1>
   <p class="mb-4">Aqui é possível visualizar e gerir todas as Empresas inscritas na aplicação até ao momento.</p>
   <?php
@@ -59,7 +58,6 @@ if (isset($_SESSION["idUser"])) {
     }
   }
   ?>
-  <!-- DataTales Example -->
   <div class="card shadow mb-4">
     <div class="card-body">
       <div class="table-responsive">
@@ -114,12 +112,12 @@ if (isset($_SESSION["idUser"])) {
                   </td>
                 </tr>
             <?php
-                //Modal de ativar e desativar
                 include('components/active_modal.php');
-                //Modal de ativar e desativar
                 include('components/delete_modal.php');
               }
             }
+            mysqli_stmt_close($stmt);
+            mysqli_close($link);
             ?>
 
           </tbody>

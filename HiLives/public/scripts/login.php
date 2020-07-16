@@ -31,12 +31,7 @@ if (!empty($_POST["email"]) && !empty($_POST["password"])) {
                     $_SESSION["idUser"] = $idUser;
                     $link3 = new_db_connection();
 
-                    /***********************************************/
-                    //Aqui era onde tínhamos o script do match
-                    // feedback de sucesso
-                    //echo "$type_user";
                     if ($type_user == "Jovem") {
-                        //sendo jovem faz o match com as universidades (automaticamente ele já fica feito para as universidades, mas ele foi construído a pensar primeiro no jovem, por isso ao fazer login só pode ser feito quando é jovem)
                         include "match_uni_login.php";
                         header("Location: ../home_people.php");
                     } else if ($type_user == "Empresa") {
@@ -46,14 +41,13 @@ if (!empty($_POST["email"]) && !empty($_POST["password"])) {
                             mysqli_stmt_execute($stmt2);
                             mysqli_stmt_bind_result($stmt2, $idVacancies);
                             while (mysqli_stmt_fetch($stmt2)) {
-                                //echo "$idVacancies <br>";
                                 include "match_comp.php";
                                 header("Location: ../home_companies.php");
                             }
-                            
                             mysqli_stmt_close($stmt2);
                             mysqli_close($link2);
                         }
+                        header("Location: ../home_companies.php");
                         
                     } else if ($type_user == "Universidade") {
                         include "match_young_login.php";
@@ -61,24 +55,22 @@ if (!empty($_POST["email"]) && !empty($_POST["password"])) {
                     } else if ($type_user == "Admin") {
                         header("Location: ../../admin/index.php");
                     }
-//                    echo "LOGIN DEU";
+
                 } else {
                     session_start();
-                    //ERRO
+                   
                     header("Location: ../login.php");
                     $_SESSION["login"] = 1;
                 }
             } else {
                 session_start();
-                // feedback de erro geral devido à password estar errada
-                //ERRO
+                
                 header("Location: ../login.php");
                 $_SESSION["login"] = 3;
             }
         } else {
             session_start();
-            // feedback de erro geral devido ao username estar errado
-            //ERRO
+            
             header("Location: ../login.php");
             $_SESSION["login"] = 3;
         }
@@ -86,13 +78,13 @@ if (!empty($_POST["email"]) && !empty($_POST["password"])) {
         mysqli_close($link);
     } else{
         session_start();
-        //ERRO
+        
         header("Location: ../login.php");
         $_SESSION["login"] = 1;
     }
 } else {
     session_start();
-    //ERRO
+    
     header("Location: ../login.php");
     $_SESSION["login"] = 2;
 }

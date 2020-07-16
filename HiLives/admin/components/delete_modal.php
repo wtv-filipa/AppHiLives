@@ -35,8 +35,6 @@
     </div>
   </div>
 </div>
-<!------------------------------------------------------------------------------------------------------------------------------------------->
-
 <!--Modal para apagar a vaga na página das informções-->
 <div class="modal fade" id="deletevac<?= $idVacancies ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -74,9 +72,6 @@
     </div>
   </div>
 </div>
-
-<!------------------------------------------------------------------------------------------------------------------------------------------->
-
 <!--Modal para apagar a experiência na página das informções-->
 <div class="modal fade" id="deletexp<?= $idContent ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -95,7 +90,6 @@
     </div>
   </div>
 </div>
-
 <!--Modal para eliminar a experiência nas tabelas-->
 <div class="modal fade" id="deletexp<?= $row_vid['idContent'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -114,8 +108,6 @@
     </div>
   </div>
 </div>
-<!------------------------------------------------------------------------------------------------------------------------------------------->
-
 <!--Modal para apagar o vídeo da empresa na página das informções-->
 <div class="modal fade" id="delete_emp<?= $idContent ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -134,7 +126,6 @@
     </div>
   </div>
 </div>
-
 <!--Modal para eliminar o video da empresa nas tabelas-->
 <div class="modal fade" id="delete_emp<?= $row_cont['idContent'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -153,11 +144,7 @@
     </div>
   </div>
 </div>
-
-<!------------------------------------------------------------------------------------------------------------------------------------------->
-
 <!--Modal para eliminar a UC nas tabelas-->
-
 <div class="modal fade" id="deleteUC<?= $row_uc['idDone_CU'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">

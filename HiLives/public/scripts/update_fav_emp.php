@@ -25,17 +25,14 @@ if (mysqli_stmt_prepare($stmt, $query)) {
             if (mysqli_stmt_prepare($stmt2, $query2)) {
                 mysqli_stmt_bind_param($stmt2, 'i', $id_match);
 
-                if (!mysqli_stmt_execute($stmt2)) {
-                    //header("Location: ../administradores.php?msg=1");
-                } else {
+                if (mysqli_stmt_execute($stmt2)) {
+                
                     $favorito = "<i class='fa fa-heart' aria-hidden='true' style='color: #A31621'></i>";
                     $dados = array('text' => $favorito);
                 }
 
                 mysqli_stmt_close($stmt2);
-            } else {
-                //header("Location: ../administradores.php?msg=1");
-            }
+            } 
         } else {
             $query3 = "UPDATE user_has_vacancies
             SET favorite = 0
@@ -44,17 +41,14 @@ if (mysqli_stmt_prepare($stmt, $query)) {
             if (mysqli_stmt_prepare($stmt2, $query3)) {
                 mysqli_stmt_bind_param($stmt2, 'i', $id_match);
 
-                if (!mysqli_stmt_execute($stmt2)) {
-                    //header("Location: ../administradores.php?msg=1");
-                } else {
+                if (mysqli_stmt_execute($stmt2)) {
+                    
                     $favorito = "<i class='fa fa-heart-o' aria-hidden='true' style='color: #2F2F2F'></i>";
                     $dados = array('text' => $favorito);
                 }
 
                 mysqli_stmt_close($stmt2);
-            } else {
-                //header("Location: ../administradores.php?msg=1");
-            }
+            } 
         }
     }
 }

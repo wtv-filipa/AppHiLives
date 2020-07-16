@@ -21,7 +21,6 @@ if (isset($_SESSION["type"])) {
             ORDER BY idUser DESC";
 ?>
 
-    <!--UNIVERSIDADES-->
     <div class=" mx-auto div_geral2">
         <div id='wrapper_title' class="mb-4">
             <div class='tagpost-top section' id='tagpost-top'>
@@ -53,8 +52,8 @@ if (isset($_SESSION["type"])) {
                 if (mysqli_stmt_prepare($stmt, $query)) {
                     mysqli_stmt_execute($stmt);
                     mysqli_stmt_bind_result($stmt, $id_uni, $name_user, $profile_img);
-                    mysqli_stmt_store_result($stmt); // Store the result into memory
-                    if (mysqli_stmt_num_rows($stmt) > 0) { // Check the number of rows returned
+                    mysqli_stmt_store_result($stmt); 
+                    if (mysqli_stmt_num_rows($stmt) > 0) { 
                         while (mysqli_stmt_fetch($stmt)) {
                 ?>
                             <div class="cards col-xs-12 col-sm-6 col-lg-4">
@@ -76,15 +75,13 @@ if (isset($_SESSION["type"])) {
                                         <h4 class="card-intro description_title">
                                             <i class="fas fa-book" style="color: #2f2f2f;"></i> Estudar
                                         </h4>
-                                        <h2 class="card-title sub_title"><?= $name_user ?></h2><!-- 
-                                        <p class="card-intro description_title2"><?= $name_user ?></p> -->
+                                        <h2 class="card-title sub_title"><?= $name_user ?></h2>
                                         <a href="profile.php?user=<?= $id_uni ?>" class="btn_cards">Ver áreas disponíveis</a>
                                     </div>
                                 </div>
                             </div>
                         <?php
                         }
-                        /* close statement */
                         mysqli_stmt_close($stmt);
                     } else {
                         ?>
@@ -109,8 +106,8 @@ if (isset($_SESSION["type"])) {
                 if (mysqli_stmt_prepare($stmt, $query2)) {
                     mysqli_stmt_execute($stmt);
                     mysqli_stmt_bind_result($stmt, $id_jovem, $name_user, $birth_date, $profile_img);
-                    mysqli_stmt_store_result($stmt); // Store the result into memory
-                    if (mysqli_stmt_num_rows($stmt) > 0) { // Check the number of rows returned
+                    mysqli_stmt_store_result($stmt);
+                    if (mysqli_stmt_num_rows($stmt) > 0) { 
                         while (mysqli_stmt_fetch($stmt)) {
                             $dob = $birth_date;
                             $age = (date('Y') - date('Y', strtotime($dob)));
@@ -142,7 +139,6 @@ if (isset($_SESSION["type"])) {
                             </div>
                         <?php
                         }
-                        /* close statement */
                         mysqli_stmt_close($stmt);
                     } else {
                         ?>
@@ -162,7 +158,6 @@ if (isset($_SESSION["type"])) {
         ?>
     </div>
 <?php
-/* close connection */
 mysqli_close($link);
 } else {
     include("404.php");

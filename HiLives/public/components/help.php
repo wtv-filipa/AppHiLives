@@ -3,18 +3,23 @@ include "navbar_2.php";
 ?>
 <div class="w-75 mx-auto">
 
-    <!--TÍTULO-->
     <div class="mt-5">
         <h1 class="titulo1 ">Ajuda - HiLives</h1>
     </div>
 
-    <!--PÁGINA INICIAL - SEM INICIO DE SESSÃO-->
     <div class="mt-5">
         <h2 class="subtitulo">O que é a HiLives?</h2>
         <p>A HiLives é uma plataforma que permite a jovens com Dificuldades Intelectuais e Desenvolvimentais frequentar áreas do seu interesse em várias universidades da União Europeia. Para além disto, a HiLives permite também que estes possam encontrar empregadores que correspondam às suas necessidades e, assim, incluí-los numa empresa.</p>
 
-        <p>Se tens dúvidas acerca de como navegares pela aplicação, visita o <b><a href="sitemap.php" target="_blank">Mapa
-                    da Aplicação</a></b>, e descobre como tudo está ordenado.</p>
+        <p>Se tens dúvidas acerca de como navegares pela aplicação, visita o <b><a href="sitemap.php" target="_blank">Mapa da Aplicação</a></b>, e descobre como tudo está ordenado.</p>
+
+        <div class="mt-5 mx-auto">
+            <h3 class="subtitulo mb-3">Como utilizar a HiLives- vídeo explicativo</h3>
+            <video class="video" width="320" height="240" controls>
+                <source src="video/help.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
 
         <div class="mt-5">
             <h3 class="subtitulo">Página Inicial - Sem início de sessão</h3>
@@ -33,7 +38,6 @@ include "navbar_2.php";
         </div>
     </div>
 
-    <!--PÁGINA INICIAL DO JOVEM - COM SESSÃO INICIADA-->
     <div class="mt-5">
         <h3 class="subtitulo">Página Inicial do Jovem - Com sessão iniciada</h3>
 
@@ -57,24 +61,23 @@ include "navbar_2.php";
         <p><b>NOTA:</b> O menu <b>"Eu quero"</b> possui as <b>mesmas opções</b> que estão presentes na segunda barra de
             navegação.
 
-        <p>Ainda na página inicial, o jovem poderá ver:</p>
-        <ol>
-            <li>Ligações recentes com universidades</li>
-            <li>Destaques</li>
-            <li>Ligações recentes com empresas</li>
-        </ol>
+            <p>Ainda na página inicial, o jovem poderá ver:</p>
+            <ol>
+                <li>Ligações recentes com universidades</li>
+                <li>Destaques</li>
+                <li>Ligações recentes com empresas</li>
+            </ol>
 
-        <h3 class="mt-4">O que são as <b>Ligações</b>?</h3>
-        <p>As "Ligações" simbolizam o encontro de interesses entre o jovem e as universidades, ou entre os jovens
-            e as vagas pulicadas por empresas. Se o jovem tiver caracteristicas que se adequam a uma determinada vaga, e o que esta procura
-            num jovem, por exemplo, irá estabelecer-se uma "Ligação". Funciona de igual modo para as universidades.</p>
+            <h3 class="mt-4">O que são as <b>Ligações</b>?</h3>
+            <p>As "Ligações" simbolizam o encontro de interesses entre o jovem e as universidades, ou entre os jovens
+                e as vagas pulicadas por empresas. Se o jovem tiver caracteristicas que se adequam a uma determinada vaga, e o que esta procura
+                num jovem, por exemplo, irá estabelecer-se uma "Ligação". Funciona de igual modo para as universidades.</p>
 
-        <p><b>DICA:</b> Em qualquer página, ao clicar no logótipo da HiLives, o utilizador será automaticamente
-            redirecionado para a
-            página principal.</p>
+            <p><b>DICA:</b> Em qualquer página, ao clicar no logótipo da HiLives, o utilizador será automaticamente
+                redirecionado para a
+                página principal.</p>
     </div>
 
-    <!--PÁGINA INICIAL DAS UNIVERSIDADES - COM SESSÃO INICIADA-->
     <div class="mt-5">
         <h3 class="subtitulo">Página Inicial da Universidade - Com sessão iniciada</h3>
 
@@ -97,19 +100,18 @@ include "navbar_2.php";
         <p><b>NOTA:</b> O menu <b>"Eu quero"</b> possui as <b>mesmas opções</b> que estão presentes na segunda barra de
             navegação.
 
-        <p>Ainda na página inicial, as universidades terão acesso a informações sobre:</p>
-        <ol>
-            <li>Últimas entradas de jovens</li>
-            <li>Destaques</li>
-            <li>Últimas vagas publicadas por empresas</li>
-        </ol>
+            <p>Ainda na página inicial, as universidades terão acesso a informações sobre:</p>
+            <ol>
+                <li>Últimas entradas de jovens</li>
+                <li>Destaques</li>
+                <li>Últimas vagas publicadas por empresas</li>
+            </ol>
 
-        <p><b>DICA:</b> Em qualquer página, ao clicar no logótipo da HiLives, o utilizador será automaticamente
-            redirecionado para a
-            página principal.</p>
+            <p><b>DICA:</b> Em qualquer página, ao clicar no logótipo da HiLives, o utilizador será automaticamente
+                redirecionado para a
+                página principal.</p>
     </div>
 
-    <!--PÁGINA INICIAL DAS EMPRESAS - COM SESSÃO INICIADA-->
     <div class="mt-5">
         <h3 class="subtitulo">Página Inicial da Empresa - Com sessão iniciada</h3>
 
@@ -132,17 +134,16 @@ include "navbar_2.php";
         <p><b>NOTA:</b> O menu <b>"Eu quero"</b> possui as <b>mesmas opções</b> que estão presentes na segunda barra de
             navegação.
 
-        <p>Ainda na página inicial, as universidades terão acesso a informações sobre:</p>
-        <ol>
-            <li>Ligações recentes</li>
-        </ol>
+            <p>Ainda na página inicial, as universidades terão acesso a informações sobre:</p>
+            <ol>
+                <li>Ligações recentes</li>
+            </ol>
 
-        <p><b>DICA:</b> Em qualquer página, ao clicar no logótipo da HiLives, o utilizador será automaticamente
-            redirecionado para a
-            página principal.</p>
+            <p><b>DICA:</b> Em qualquer página, ao clicar no logótipo da HiLives, o utilizador será automaticamente
+                redirecionado para a
+                página principal.</p>
     </div>
 
-    <!--RODAPÉ-->
     <div class="mt-5">
         <h3 class="subtitulo">Rodapé</h3>
 
@@ -157,7 +158,6 @@ include "navbar_2.php";
         </ol>
     </div>
 
-    <!--ÍCONE DE ACESSIBILIDADE (CANTO INFERIOR DIREITO)-->
     <div class="mt-5">
         <h3 class="subtitulo">Ícone de Acessibilidade (canto inferior direito)</h3>
 
@@ -167,7 +167,6 @@ include "navbar_2.php";
             torna a HiLives uma plataforma totalmente inclusiva e de simples navegação.</p>
     </div>
 
-    <!--TENS DÚVIDAS OU SUGESTÕES?-->
     <div class="mt-5 mb-5">
         <h3 class="subtitulo">Tens dúvidas ou sugestões?</h3>
 

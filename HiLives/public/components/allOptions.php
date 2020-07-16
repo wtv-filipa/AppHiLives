@@ -21,7 +21,7 @@ $query2 = "SELECT idVacancies, vacancie_name, name_user, profile_img
 
 
 ?>
-<!--UNIVERSIDADES-->
+
 <div class=" mx-auto div_geral2">
     <div id='wrapper_title' class="mb-4">
         <div class='tagpost-top section' id='tagpost-top'>
@@ -37,8 +37,8 @@ $query2 = "SELECT idVacancies, vacancie_name, name_user, profile_img
         if (mysqli_stmt_prepare($stmt, $query)) {
             mysqli_stmt_execute($stmt);
             mysqli_stmt_bind_result($stmt, $User_university, $name_user, $name_interested_area, $profile_img);
-            mysqli_stmt_store_result($stmt); // Store the result into memory
-            if (mysqli_stmt_num_rows($stmt) > 0) { // Check the number of rows returned
+            mysqli_stmt_store_result($stmt); 
+            if (mysqli_stmt_num_rows($stmt) > 0) { 
                 while (mysqli_stmt_fetch($stmt)) {
         ?>
                     <div class="cards col-xs-12 col-sm-6 col-lg-4">
@@ -68,7 +68,6 @@ $query2 = "SELECT idVacancies, vacancie_name, name_user, profile_img
                     </div>
                 <?php
                 }
-                /* close statement */
                 mysqli_stmt_close($stmt);
             } else {
                 ?>
@@ -103,8 +102,8 @@ $query2 = "SELECT idVacancies, vacancie_name, name_user, profile_img
         if (mysqli_stmt_prepare($stmt, $query2)) {
             mysqli_stmt_execute($stmt);
             mysqli_stmt_bind_result($stmt, $idVacancies, $vacancie_name, $name_user, $profile_img);
-            mysqli_stmt_store_result($stmt); // Store the result into memory
-            if (mysqli_stmt_num_rows($stmt) > 0) { // Check the number of rows returned
+            mysqli_stmt_store_result($stmt); 
+            if (mysqli_stmt_num_rows($stmt) > 0) { 
                 while (mysqli_stmt_fetch($stmt)) {
         ?>
                     <div class="cards col-xs-12 col-sm-6 col-lg-4">
@@ -144,7 +143,6 @@ $query2 = "SELECT idVacancies, vacancie_name, name_user, profile_img
                     </div>
                 <?php
                 }
-                /* close statement */
                 mysqli_stmt_close($stmt);
             } else {
                 ?>
@@ -161,5 +159,4 @@ $query2 = "SELECT idVacancies, vacancie_name, name_user, profile_img
     </div>
 </div>
 <?php
-/* close connection */
 mysqli_close($link);

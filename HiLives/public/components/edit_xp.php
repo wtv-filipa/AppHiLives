@@ -41,7 +41,6 @@ if (isset($_GET["edit_xp"]) && isset($_SESSION["idUser"])) {
             }
         }
         ?>
-        <!--Card-->
         <div class="card mdb-color lighten-4 text-center z-depth-2 light-version py-4 px-5">
             <?php
 
@@ -52,26 +51,22 @@ if (isset($_GET["edit_xp"]) && isset($_SESSION["idUser"])) {
                 mysqli_stmt_bind_result($stmt, $idExperiences, $title_exp, $description);
                 while (mysqli_stmt_fetch($stmt)) {
             ?>
-                    <!--título-->
                     <div class="no-gutters">
                         <h3 class="mx-auto letter">Editar experiência</h3>
                         <h3 class="mx-auto letter2"><?= $title_exp ?></h3>
                     </div>
-                    <!----------->
-
                     <form class="md-form inserir_dados" class="mb-3" action="scripts/update_xp.php?update_xp=<?= $id_xp ?>" method="post">
-                        <!--primeiro campo-->
+                       
                         <div class="form-group text-left">
                             <label class="label-margin" for="nomeVideo">Nome da experiência: <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
                             <input type="text" id="nomeVideo" name="nomeVideo" class="form-control" value="<?= $title_exp ?>" placeholder="Escreve aqui o título que melhor descreve o vídeo da tua experiência" aria-required="true" required="required">
                         </div>
-                        <!-------------------------------------------->
-                        <!--segundo campo-->
+                        
                         <div class="form-group text-left mt-4">
                             <label class="label-margin" for="descricao">Descrição do vídeo:</label>
                             <textarea type="text" id="descricao" name="descricao" rows="7" class="form-control" placeholder="Escreve aqui a descrição que melhor descreve o vídeo da tua experiência"> <?= $description ?></textarea>
                         </div>
-                        <!-------------------------------------------->
+                        
                         <div>
                             <button type="submit" class="btn btn-success publicar_btn">Guardar</button>
                         </div>
@@ -79,10 +74,8 @@ if (isset($_GET["edit_xp"]) && isset($_SESSION["idUser"])) {
                     </form>
             <?php
                 }
-                /* close statement */
                 mysqli_stmt_close($stmt);
             }
-            /* close connection */
             mysqli_close($link);
             ?>
         </div>

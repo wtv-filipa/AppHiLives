@@ -1,7 +1,6 @@
 #fundo {
     background-color:rgba(242,242,242,0.7);
 }
-/* cards style*/
 
 .cards .card-item {
     display: flex;
@@ -42,17 +41,12 @@
     opacity: 0.91;
 }
 
-
-/*********************************/
-
 .sombra {
     box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
 }
 .titulo_centrado {
     font-size: 22px;
 }
-
-/*Botão*/
 
 .inicia_index {
     color: #2F2F2F;
@@ -75,9 +69,6 @@
 .btn {
     font-family: 'Quicksand';
 }
-
-
-/*TEXTO*/
 
 a {
     color: #2F2F2F;
@@ -102,11 +93,6 @@ h4 {
     font-size: 20px;
 }
 
-/*Media Queries*/
-
-
-/* Extra small devices (phones, 600px and down) */
-
 @media only screen and (max-width: 600px) {
 
     .escolhe_opcao {
@@ -115,7 +101,6 @@ h4 {
     div.card-image {
         height: 194px!important;
     }
-    /*Btn Inicia sessão*/
     .inicia_index {
         width: 40%!important;
         height: 10%!important;
@@ -141,9 +126,6 @@ h4 {
         margin-left: 10px!important;
     }
 }
-
-
-/* Small devices (portrait tablets and large phones, 600px and up) */
 
 @media only screen and (min-width: 600px) {
 
@@ -184,8 +166,6 @@ h4 {
 }
 
 
-/* Medium devices (landscape tablets, 768px and up) */
-
 @media only screen and (min-width: 768px) {
     div.card-image {
         height: 128px!important;
@@ -205,9 +185,6 @@ h4 {
     }
 }
 
-
-/* Large devices (laptops/desktops, 992px and up) */
-
 @media only screen and (min-width: 992px) {
     div.card-image {
         height: 182px!important;
@@ -217,10 +194,6 @@ h4 {
         width: 180px;
     }
 }
-
-
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-
 @media only screen and (min-width: 1200px) {
     .escolhe_opcao {
         font-size: 14px!important;

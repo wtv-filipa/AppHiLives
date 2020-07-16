@@ -63,17 +63,15 @@ if (isset($_SESSION["idUser"])) {
             }
         }
         ?>
-        <!--Card-->
+        
         <div class="card mdb-color lighten-4 text-center z-depth-2 light-version py-4 px-5">
 
-            <!--título-->
             <div class="row no-gutters">
                 <h3 class="mx-auto letter">
                     Carregar vídeo de experiência</h3>
             </div>
-            <!----------->
                     <form class="md-form inserir_dados" class="mb-3" action="scripts/upload_xp.php?xp=<?= $id_navegar ?>" enctype="multipart/form-data" method="post">
-                        <!--input de upload-->
+                       
                         <div class="alert alert-warning mb-3" role="alert">
                             Insere um vídeo até 50MB.
                         </div>
@@ -81,19 +79,17 @@ if (isset($_SESSION["idUser"])) {
                             <input type="file" class="custom-file-input file-upload" id="fileToUpload" name="fileToUpload" accept=".avi, .wmv, .mp4" aria-required="true" required="required">
                             <label class="custom-file-label" for="fileToUpload">Escolher ficheiro</label>
                         </div>
-                        <!-------------------------------------------->
-                        <!--primeiro campo-->
+                       
                         <div class="form-group text-left">
                             <label class="label-margin" for="nomeVideo">Título da experiência<span style="color:  #00A5CF!important; font-weight: bold; font-size: 20px">*</span></label>
                             <input type="text" id="nomeVideo" name="nomeVideo" class="form-control" placeholder="Escreve aqui o título da tua experiência" aria-required="true" required="required">
                         </div>
-                        <!-------------------------------------------->
-                        <!--segundo campo-->
+                        
                         <div class="form-group text-left mt-4">
                             <label class="label-margin" for="descricao">Descrição</label>
                             <textarea type="text" id="descricao" name="descricao" rows="7" class="form-control" placeholder="Descreve aqui o vídeo da tua experiência"></textarea>
                         </div>
-                        <!-------------------------------------------->
+                       
                         <div>
                             <button type="submit" name="but_upload" class="btn btn-success publicar_btn">Publicar</button>
                         </div>

@@ -4,26 +4,23 @@
         margin-top: 5%;
         padding: 20px;
     }
-    
+
     * {
         color: #2f2f2f
     }
-    
-    h3,
-    h6,
-    input,
-    label {
+
+    h3, h6, input, label {
         font-family: "Quicksand" !important;
     }
-    
-    h3,
-    label {
+
+    h3, label {
         font-weight: bold;
     }
-    
+
     .label-margin {
         margin-left: -1%;
     }
+
     .guardar_btn {
         color: #00A5CF;
         padding: 0.3rem;
@@ -36,7 +33,7 @@
         cursor: pointer;
         background: #fff;
     }
-    
+
     .guardar_btn:hover {
         background-color: #00A5CF;
         color: #fff;
@@ -61,23 +58,20 @@
         color: #fff;
         border: 0.1em solid #2F2F2F;
     }
-    /*IMAGEM DE PERFIL*/
-    
+
     .image_profile {
         box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
         border-radius: 50%;
         width: 152px;
         height: 152x;
     }
-    /*imagem de fundo*/
-    
+
     .fundo_login {
         background-image: url("../img/fundo_cinza_g.png");
         width: 100%;
         background-size: cover;
     }
-    /*form*/
-    
+
     .avatar_modal {
         vertical-align: middle;
         width: 35px !important;
@@ -85,25 +79,24 @@
         border-radius: 50%;
         margin-top: 4px;
     }
-    /*estilos para o upload da img*/
-    
+
     .avatar-upload {
         position: relative;
         max-width: 205px;
         display: block;
         margin: auto;
     }
-    
+
     .avatar-edit {
         position: absolute;
         z-index: 1;
     }
-    
+
     label.label :hover {
         background: #ffffff;
         border-color: #ffffff;
     }
-    
+
     label.label::before {
         color: #2f2f2f;
         position: relative;
@@ -112,7 +105,7 @@
         display: block;
         margin: auto;
     }
-    
+
     label.label {
         align-content: end;
         width: 34px;
@@ -128,7 +121,7 @@
         margin-left: -85%;
         z-index: 200;
     }
-    
+
     @media only screen and (max-width: 600px) {
         .guardar_btn {
             width: 50%!important;
@@ -148,20 +141,21 @@
             top: 12%;
         }
     }
-    
+
     @media only screen and (min-width: 768px) {
         .avatar-edit {
             top: 7%;
             right: -21%;
         }
     }
-    
+
     @media only screen and (min-width: 992px) {
         .avatar-edit {
             right: -1%;
             top: 7%;
         }
     }
-    .modal-content{
+
+    .modal-content {
         width: 120% !important;
     }
