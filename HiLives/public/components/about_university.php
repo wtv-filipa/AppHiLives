@@ -9,7 +9,6 @@ $stmt = mysqli_stmt_init($link);
 if (isset($_GET["u"])) {
     $idUser = $_GET["u"];
 
-    //query que vai selecionar informações do user
     $query = "SELECT name_user, profile_img, history_ue
                 FROM users
                 WHERE idUser = ?";
@@ -43,10 +42,10 @@ if (isset($_GET["u"])) {
             </div>
 <?php
         }
-        /* close statement */
+       
         mysqli_stmt_close($stmt);
     }
-    /* close connection */
+  
     mysqli_close($link);
 } else {
     include("404.php");

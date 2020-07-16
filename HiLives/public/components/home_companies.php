@@ -38,8 +38,8 @@ if ($_SESSION["idUser"]) {
                                     mysqli_stmt_bind_param($stmt, 'i', $idUser);
                                     mysqli_stmt_execute($stmt);
                                     mysqli_stmt_bind_result($stmt, $id_match_vac, $User_young, $Vacancies_idVacancies, $match_perc, $profile_img, $vacancie_name, $name_user);
-                                    mysqli_stmt_store_result($stmt); // Store the result into memory
-                                    if (mysqli_stmt_num_rows($stmt) > 0) { // Check the number of rows returned
+                                    mysqli_stmt_store_result($stmt); 
+                                    if (mysqli_stmt_num_rows($stmt) > 0) { 
                                         while (mysqli_stmt_fetch($stmt)) {
                                 ?>
                                             <li class='clearfix_companies'>
@@ -77,11 +77,11 @@ if ($_SESSION["idUser"]) {
 
 
                                         }
-                                        /* close statement */
+                                       
                                         mysqli_stmt_close($stmt);
                                     } else {
                                         ?>
-                                        <p class="mx-auto mt-3 mb-5" style="font-size: 1rem;">
+                                        <p class="mx-auto mt-3 mb-5" style="font-size: 1rem; padding-bottom: 10%;">
                                             <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill mr-2 mb-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
                                                 <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
                                             </svg>
@@ -105,8 +105,8 @@ if ($_SESSION["idUser"]) {
                     mysqli_stmt_bind_param($stmt, 'i', $idUser);
                     mysqli_stmt_execute($stmt);
                     mysqli_stmt_bind_result($stmt, $id_match_vac, $User_young, $Vacancies_idVacancies, $match_perc, $profile_img, $vacancie_name, $name_user);
-                    mysqli_stmt_store_result($stmt); // Store the result into memory
-                    if (mysqli_stmt_num_rows($stmt) > 0) { // Check the number of rows returned
+                    mysqli_stmt_store_result($stmt); 
+                    if (mysqli_stmt_num_rows($stmt) > 0) { 
                         if (mysqli_stmt_fetch($stmt)) {
                 ?>
                             <a href="can_choose_work.php">
@@ -114,7 +114,6 @@ if ($_SESSION["idUser"]) {
                             </a>
                 <?php
                         }
-                        /* close statement */
                         mysqli_stmt_close($stmt);
                     }
                 }
@@ -123,7 +122,6 @@ if ($_SESSION["idUser"]) {
         </div>
     </div>
 <?php
-    /* close connection */
     mysqli_close($link);
 } else {
     include("404.php");

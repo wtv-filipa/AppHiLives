@@ -7,19 +7,15 @@ if (isset($_GET["id"]) && !empty($_POST["nome"]) && !empty($_POST["email"]) && !
     $email = $_POST["email"];
     $tlm = $_POST["phone"];
     $data_nasc = $_POST["data_nasc"];
-    // We need the function!
+   
     require_once("../connections/connection.php");
-    // Create a new DB connection
+   
     $link = new_db_connection();
-    /* create a prepared statement */
     $stmt = mysqli_stmt_init($link);
-    // Create a new DB connection
+    
     $link2 = new_db_connection();
-    /* create a prepared statement */
     $stmt2 = mysqli_stmt_init($link2);
 
-
-    /*UPDATE DO PERFIL*/
     $query = "UPDATE users
       SET name_user = ?, email_user=?, contact_user=?, birth_date = ?
       WHERE idUser = ?";
@@ -30,9 +26,8 @@ if (isset($_GET["id"]) && !empty($_POST["nome"]) && !empty($_POST["email"]) && !
             header("Location: ../edit_profile.php?edit=$idUser");
             $_SESSION["erro"] = 1;
         } else {
-            //REGIÃO
+            
             if (!empty($_POST["regiao"])) {
-                // APAGAR TODOS AS REGIÕES ASSOCIADAS AO USER
                 $query2 = "DELETE FROM user_has_region
 WHERE User_idUser_region = ?";
 
@@ -43,7 +38,6 @@ WHERE User_idUser_region = ?";
                         header("Location: ../edit_profile.php?edit=$idUser");
                         $_SESSION["erro"] = 1;
                     }
-                    /* close statement */
                     mysqli_stmt_close($stmt);
                 } else {
                     header("Location: ../edit_profile.php?edit=$idUser");
@@ -51,7 +45,6 @@ WHERE User_idUser_region = ?";
                 }
 
                 $stmt = mysqli_stmt_init($link);
-                // INSERIR AS NOVAS REGIÕES ESCOLHIDAS
                 $query3 = "INSERT INTO user_has_region (User_idUser_region, Region_idRegion)
               VALUES (?, ?)";
 
@@ -64,17 +57,16 @@ WHERE User_idUser_region = ?";
                         header("Location: ../edit_profile.php?edit=$idUser");
                         $_SESSION["erro"] = 1;
                     }
-                    /* close statement */
+                   
                     mysqli_stmt_close($stmt);
                 } else {
                     header("Location: ../edit_profile.php?edit=$idUser");
                     $_SESSION["erro"] = 1;
                 }
-                /* close connection */
                 mysqli_close($link);
-            } //FIM DO ISSET DA REGIÃO
+            }
         }
-        //SUCCESS
+        
         header("Location: ../index.php");
         $_SESSION["erro"] = 2;
     } else {

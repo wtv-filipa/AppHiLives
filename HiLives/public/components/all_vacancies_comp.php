@@ -5,14 +5,11 @@ if ($_SESSION["idUser"]) {
 
     $id_navegar = $_SESSION["idUser"];
 
-    // We need the function!
     require_once("connections/connection.php");
-    // Create a new DB connection
+   
     $link = new_db_connection();
-    /* create a prepared statement */
     $stmt = mysqli_stmt_init($link);
 
-    //query que seleciona as vagas carregadas pela empresa
     $query1 = "SELECT idVacancies, vacancie_name, Areas_idAreas, name_interested_area
                     FROM vacancies
                     INNER JOIN areas ON vacancies.Areas_idAreas = areas.idAreas
@@ -88,8 +85,8 @@ if ($_SESSION["idUser"]) {
                                         mysqli_stmt_bind_param($stmt, 'i', $idUser);
                                         mysqli_stmt_execute($stmt);
                                         mysqli_stmt_bind_result($stmt, $idVacancies, $vacancie_name, $Areas_idAreas, $name_interested_area);
-                                        mysqli_stmt_store_result($stmt); // Store the result into memory
-                                        if (mysqli_stmt_num_rows($stmt) > 0) { // Check the number of rows returned
+                                        mysqli_stmt_store_result($stmt); 
+                                        if (mysqli_stmt_num_rows($stmt) > 0) { 
                                             while (mysqli_stmt_fetch($stmt)) {
                                     ?>
                                                 <a href="vacancie.php?vac=<?= $idVacancies ?>">
@@ -110,7 +107,7 @@ if ($_SESSION["idUser"]) {
                                             <?php
                                                 include('components/delete_modal.php');
                                             }
-                                            /* close statement */
+                                            
                                             mysqli_stmt_close($stmt);
                                         } else {
                                             ?>
@@ -135,7 +132,7 @@ if ($_SESSION["idUser"]) {
 } else {
     include("404.php");
 }
-/* close connection */
+
 mysqli_close($link);
 
     ?>

@@ -56,8 +56,8 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
                         mysqli_stmt_bind_param($stmt, 'i', $idUser);
                         mysqli_stmt_execute($stmt);
                         mysqli_stmt_bind_result($stmt, $id_match, $User_university, $Area, $name_user, $profile_img, $favorite);
-                        mysqli_stmt_store_result($stmt); // Store the result into memory
-                        if (mysqli_stmt_num_rows($stmt) > 0) { // Check the number of rows returned
+                        mysqli_stmt_store_result($stmt); 
+                        if (mysqli_stmt_num_rows($stmt) > 0) { 
                             while (mysqli_stmt_fetch($stmt)) {
                 ?>
                                 <div class="card-container col-lg-4">
@@ -105,7 +105,6 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
                                 </div>
                             <?php
                             }
-                            /* close statement */
                             mysqli_stmt_close($stmt);
                         } else {
                             ?>
@@ -125,8 +124,8 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
                         mysqli_stmt_bind_param($stmt, 'i', $idUser);
                         mysqli_stmt_execute($stmt);
                         mysqli_stmt_bind_result($stmt, $id_match, $User_young, $Area, $name_user, $profile_img);
-                        mysqli_stmt_store_result($stmt); // Store the result into memory
-                        if (mysqli_stmt_num_rows($stmt) > 0) { // Check the number of rows returned
+                        mysqli_stmt_store_result($stmt); 
+                        if (mysqli_stmt_num_rows($stmt) > 0) { 
                             while (mysqli_stmt_fetch($stmt)) {
                             ?>
                                 <div class="card-container col-lg-4">
@@ -159,7 +158,6 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
                                 </div>
                             <?php
                             }
-                            /* close statement */
                             mysqli_stmt_close($stmt);
                         } else {
                             ?>
@@ -181,5 +179,4 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
 } else {
     include("404.php");
 }
-/* close connection */
 mysqli_close($link);

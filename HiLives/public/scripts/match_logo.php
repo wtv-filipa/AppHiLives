@@ -19,7 +19,6 @@ if (isset($_GET["jovem"])) {
         mysqli_stmt_execute($stmt2);
         mysqli_stmt_bind_result($stmt2, $idVacancies);
         while (mysqli_stmt_fetch($stmt2)) {
-            //echo "$idVacancies <br>";
             include "match_comp.php"; 
             header("Location: ../home_companies.php");
         }

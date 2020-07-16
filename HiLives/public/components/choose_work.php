@@ -10,7 +10,6 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
     $idUser = $_SESSION["idUser"];
     $type = $_SESSION["type"];
 
-    //query para mostrar os match dos jovens com as vagas
     $query = "SELECT id_match_vac, User_young, Vacancies_idVacancies, match_perc, favorite, name_user, profile_img, vacancie_name
             FROM user_has_vacancies
             INNER JOIN vacancies ON user_has_vacancies.Vacancies_idVacancies = vacancies.idVacancies 
@@ -36,7 +35,7 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
             WHERE User_publicou = ? AND match_perc = 0";
 
 ?>
-    <!------------------------MATCH--------------------->
+    
     <div class="w-75 mx-auto">
         <div id='wrapper_title'>
             <div class='tagpost-top section' id='tagpost-top'>
@@ -68,8 +67,8 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
                     mysqli_stmt_bind_param($stmt, 'i', $idUser);
                     mysqli_stmt_execute($stmt);
                     mysqli_stmt_bind_result($stmt, $id_match_vac, $User_young, $Vacancies_idVacancies, $match_perc, $favorite, $name_user, $profile_img, $vacancie_name);
-                    mysqli_stmt_store_result($stmt); // Store the result into memory
-                    if (mysqli_stmt_num_rows($stmt) > 0) { // Check the number of rows returned
+                    mysqli_stmt_store_result($stmt); 
+                    if (mysqli_stmt_num_rows($stmt) > 0) {
                         while (mysqli_stmt_fetch($stmt)) {
             ?>
                             <div class="col-lg-12">
@@ -121,7 +120,6 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
                             </div>
                         <?php
                         }
-                        /* close statement */
                         mysqli_stmt_close($stmt);
                     } else {
                         ?>
@@ -141,8 +139,8 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
                         mysqli_stmt_bind_param($stmt, 'i', $idUser);
                         mysqli_stmt_execute($stmt);
                         mysqli_stmt_bind_result($stmt, $id_match_vac, $User_young, $Vacancies_idVacancies, $match_perc, $profile_img, $vacancie_name, $name_user);
-                        mysqli_stmt_store_result($stmt); // Store the result into memory
-                        if (mysqli_stmt_num_rows($stmt) > 0) { // Check the number of rows returned
+                        mysqli_stmt_store_result($stmt); 
+                        if (mysqli_stmt_num_rows($stmt) > 0) {
                             while (mysqli_stmt_fetch($stmt)) {
                         ?>
                                 <div class="col-lg-12">
@@ -182,7 +180,6 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
                                 </div>
                             <?php
                             }
-                            /* close statement */
                             mysqli_stmt_close($stmt);
                         } else {
                             ?>
@@ -201,7 +198,7 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
         </div>
     </div>
 
-    <!------------------------PERCURSO DE APRENDIZAGEM--------------------->
+ 
     <div class="w-75 mx-auto">
         <div id='wrapper_title'>
             <div class='tagpost-top section' id='tagpost-top'>
@@ -233,8 +230,8 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
                     mysqli_stmt_bind_param($stmt, 'i', $idUser);
                     mysqli_stmt_execute($stmt);
                     mysqli_stmt_bind_result($stmt, $id_match_vac, $User_young, $Vacancies_idVacancies, $match_perc, $favorite, $name_user, $profile_img, $vacancie_name);
-                    mysqli_stmt_store_result($stmt); // Store the result into memory
-                    if (mysqli_stmt_num_rows($stmt) > 0) { // Check the number of rows returned
+                    mysqli_stmt_store_result($stmt);
+                    if (mysqli_stmt_num_rows($stmt) > 0) { 
                         while (mysqli_stmt_fetch($stmt)) {
             ?>
                             <div class="col-lg-12">
@@ -287,7 +284,6 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
                             </div>
                         <?php
                         }
-                        /* close statement */
                         mysqli_stmt_close($stmt);
                     } else {
                         ?>
@@ -306,8 +302,8 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
                     mysqli_stmt_bind_param($stmt, 'i', $idUser);
                     mysqli_stmt_execute($stmt);
                     mysqli_stmt_bind_result($stmt, $id_match_vac, $User_young, $Vacancies_idVacancies, $match_perc, $profile_img, $vacancie_name, $name_user);
-                    mysqli_stmt_store_result($stmt); // Store the result into memory
-                    if (mysqli_stmt_num_rows($stmt) > 0) { // Check the number of rows returned
+                    mysqli_stmt_store_result($stmt);
+                    if (mysqli_stmt_num_rows($stmt) > 0) { 
                         while (mysqli_stmt_fetch($stmt)) {
                         ?>
                             <div class="col-lg-12">
@@ -349,7 +345,6 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
                             </div>
                         <?php
                         }
-                        /* close statement */
                         mysqli_stmt_close($stmt);
                     } else {
                         ?>
@@ -373,5 +368,4 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
 } else {
     include("404.php");
 }
-/* close connection */
 mysqli_close($link);

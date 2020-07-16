@@ -10,7 +10,6 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
     $id_navegar = $_SESSION["idUser"];
     $User_type = $_SESSION["type"];
 ?>
-    <!--Vídeos-->
     <div class="mx-auto w-75">
         <div class="mt-5">
             <?php
@@ -39,8 +38,8 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
             if (mysqli_stmt_prepare($stmt, $query)) {
                 mysqli_stmt_execute($stmt);
                 mysqli_stmt_bind_result($stmt, $idExperiences, $title_exp, $description, $date, $content_name, $name_user, $profile_img);
-                mysqli_stmt_store_result($stmt); // Store the result into memory
-                if (mysqli_stmt_num_rows($stmt) > 0) { // Check the number of rows returned
+                mysqli_stmt_store_result($stmt); 
+                if (mysqli_stmt_num_rows($stmt) > 0) { 
                     while ($row_vid = mysqli_fetch_assoc($array_val)) {
             ?>
                         <div class="col-md-6 col-lg-4 mb-4 pb-2">
@@ -54,11 +53,11 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
                                     <?php
                                     if (isset($row_vid['profile_img'])) {
                                     ?>
-                                        <img alt="Imagem de perfil <?= $row_vid['name_user']; ?>" class="avatar col-3" src="../admin/uploads/img_perfil/<?= $row_vid['profile_img'] ?>">
+                                        <img alt="Imagem de perfil <?= $row_vid['name_user']; ?>" class=" rounded-circle avatar col-3" src="../admin/uploads/img_perfil/<?= $row_vid['profile_img'] ?>">
                                     <?php
                                     } else {
                                     ?>
-                                        <img alt="Imagem de perfil padrão" class="avatar col-3" src="img/no_profile_img.png">
+                                        <img alt="Imagem de perfil padrão" class=" rounded-circle avatar col-3" src="img/no_profile_img.png">
                                     <?php
                                     }
                                     ?>
@@ -70,10 +69,10 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
                             </a>
                         </div>
                     <?php
-                        //Modal de apagar user
+                     
                         include('components/modal_vid.php');
                     }
-                    /* close statement */
+                    
                     mysqli_stmt_close($stmt);
                 } else {
                     ?>
@@ -87,7 +86,7 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
                 }
             }
             ?>
-            <!--Fim do "card"-->
+           
         </div>
     </div>
 <?php
@@ -95,6 +94,6 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
 } else {
     include("404.php");
 }
-/* close connection */
+
 mysqli_close($link);
 ?>

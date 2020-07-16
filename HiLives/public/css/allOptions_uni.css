@@ -1,7 +1,7 @@
 #fundo {
     background-color:rgba(242,242,242,0.7);
 }
-/*main titles*/
+
 .main_title {
     font-size: 22px;
     font-family: "Quicksand";
@@ -10,17 +10,14 @@
     margin-top: 5%;
 }
 
-/*links*/
 a:hover {
     text-decoration: none;
 }
 
-/*texto*/
 * {
     color: #2f2f2f;
 }
 
-/*cards highlights*/
 .sub_title {
     font-size: 18px;
     font-family: "Quicksand";
@@ -135,50 +132,3 @@ a:hover {
 .imagem_db {
     height: 133%;
 }
-
-
-/*!* Extra small devices (phones, 600px and down) *!*/
-/*@media only screen and (max-width: 600px) {*/
-/*    .cards {*/
-/*        padding-top: 0rem;*/
-/*    }*/
-/*    .imagem {*/
-/*        height: 100%;*/
-/*        min-width: 238px;*/
-/*    }*/
-/*}*/
-
-/*!* Small devices (portrait tablets and large phones, 600px and up) *!*/
-/*@media only screen and (min-width: 600px) {*/
-/*    .imagem {*/
-/*        width: 185.5px;*/
-/*    }*/
-/*}*/
-
-/*!* Medium devices (landscape tablets, 768px and up) *!*/
-/*@media only screen and (max-width: 768px) {*/
-/*    .imagem {*/
-/*        min-width: 253px;*/
-/*    }*/
-/*}*/
-
-/*@media only screen and (max-width: 992px) {*/
-/*    .imagem {*/
-/*        min-width: 253px;*/
-/*    }*/
-/*}*/
-
-
-/*!* Large devices (laptops/desktops, 992px and up) *!*/
-/*@media only screen and (min-width: 992px) {*/
-/*    .imagem {*/
-/*        min-width: 217.99px;*/
-/*    }*/
-/*}*/
-
-/*!* Extra large devices (large laptops and desktops, 1200px and up) *!*/
-/*@media only screen and (min-width: 1200px) {*/
-/*    .imagem {*/
-/*        min-width: 263px;*/
-/*    }*/
-/*}*/

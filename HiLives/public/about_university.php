@@ -5,33 +5,22 @@ if (isset($_SESSION["idUser"])) {
 ?>
         <!DOCTYPE html>
         <html lang="en">
-
         <head>
-
-            <!-- metadados -->
             <?php include "helpers/meta.php"; ?>
-
             <title>História da universidade</title>
-
-            <!-- Custom fonts for this template-->
             <?php include "helpers/fonts.php"; ?>
-
-            <!-- Custom styles for this template-->
             <?php include "helpers/css_about_university.php"; ?>
-
         </head>
 
         <body id="fundo">
             <header class="sticky-top">
-                <!--navbar-->
                 <?php include "components/navbar.php"; ?>
             </header>
             <main class="container">
-
                 <?php include "components/about_university.php"; ?>
             </main>
             <?php include "components/footer.php"; ?>
-            <!-- JavaScript-->
+            
             <?php include "helpers/fontawesome.php"; ?>
             <?php include "helpers/js.php"; ?>
             <script type="text/javascript" src="js/notifications.js"></script>

@@ -4,9 +4,8 @@ require_once("connections/connection.php");
 
 if (isset($_SESSION["idUser"])) {
   $idUser = $_SESSION["idUser"];
-  // Create a new DB connection
+  
   $link = new_db_connection();
-  /* create a prepared statement */
   $stmt = mysqli_stmt_init($link);
   $query = "SELECT idContent, content_type, date_content, name_user, description, title_exp  FROM content 
   INNER JOIN experiences ON content.idContent = experiences.Content_idContent
@@ -17,7 +16,6 @@ if (isset($_SESSION["idUser"])) {
 
 ?>
 
-  <!-- Page Heading -->
   <h1 class="h3 mb-2 text-gray-800">Vídeos publicados pelos jovens (experiências)</h1>
   <p class="mb-4">Aqui é possível visualizar e gerir todos os vídeos publicados pelos jovens na aplicação até ao momento.</p>
   <?php
@@ -52,7 +50,6 @@ if (isset($_SESSION["idUser"])) {
     }
   }
   ?>
-  <!-- DataTales Example -->
   <div class="card shadow mb-4">
     <div class="card-body">
       <div class="table-responsive">
@@ -97,10 +94,11 @@ if (isset($_SESSION["idUser"])) {
                   </td>
                 </tr>
             <?php
-            //Modal de eliminar a XP
             include('components/delete_modal.php');
               }
             }
+            mysqli_stmt_close($stmt);
+            mysqli_close($link);
             ?>
           </tbody>
         </table>

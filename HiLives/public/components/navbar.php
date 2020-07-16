@@ -1,13 +1,11 @@
 <style>
     .zoom {
         transition: transform .2s;
-        /* Animation */
         margin: 0 auto;
     }
 
     .zoom:hover {
         transform: scale(1.1);
-        /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
     }
 </style>
 
@@ -23,21 +21,19 @@ $stmt = mysqli_stmt_init($link);
 ?>
 <header class="top">
     <nav id="topNav" class="navbar fixed-top navbar-toggleable-sm">
-        <!--div con
-        taine do conteúdo-->
+    
         <div class="container padding">
             <div class="row col-12 m-0 p-0 my-auto">
                 <?php
                 if (isset($_SESSION["idUser"])) {
                 ?>
-                    <!--menu do lado esquerdo-->
                     <div id="mySidenav" class="sidenav">
                         <a href="javascript:void(0)" class="closebtn" aria-label="Fechar" onclick="closeNav()">&times;</a>
                         <?php
                         if ($User_type == 10) {
                         ?>
                             <ul>
-                                <!-- QUERO ESTUDAR -->
+                              
                                 <li>
                                     <a class="nav__link mr-2 mb-1">
                                         <span class="nav__link--text_main font-weight-bold">Quero estudar</span>
@@ -53,7 +49,7 @@ $stmt = mysqli_stmt_init($link);
                                         <span class="nav__link--text">Todas as opções disponíveis</span>
                                     </a>
                                 </li>
-                                <!-- QUERO TRABALHAR -->
+                                
                                 <li>
                                     <a class="nav__link mr-2 mb-1 mt-4">
                                         <span class="nav__link--text_main font-weight-bold">Quero trabalhar</span>
@@ -70,7 +66,7 @@ $stmt = mysqli_stmt_init($link);
                                         <span class="nav__link--text">Todas as opções disponíveis</span>
                                     </a>
                                 </li>
-                                <!-- QUERO ESTUDAR E TRABALHAR -->
+                                
                                 <li>
                                     <a class="nav__link mr-2 mb-1 mt-4">
                                         <span class="nav__link--text_main font-weight-bold">Quero estudar e trabalhar</span>
@@ -86,7 +82,7 @@ $stmt = mysqli_stmt_init($link);
                                         <span class="nav__link--text">Todas as opções disponíveis</span>
                                     </a>
                                 </li>
-                                <!-- EXPERIÊNCIAS -->
+                                
                                 <li>
                                     <a class="nav__link mr-2 mb-1 mt-4">
                                         <span class="nav__link--text_main font-weight-bold">Experiências</span>
@@ -108,7 +104,7 @@ $stmt = mysqli_stmt_init($link);
                             if ($User_type == 13) {
                         ?>
                             <ul>
-                                <!-- CANDIDATOS -->
+                                
                                 <li>
                                     <a class="nav__link mr-2 mb-1">
                                         <span class="nav__link--text_main font-weight-bold">Candidatos</span>
@@ -124,7 +120,7 @@ $stmt = mysqli_stmt_init($link);
                                         <span class="nav__link--text">Todos os jovens</span>
                                     </a>
                                 </li>
-                                <!-- VAGAS DE EMPRESAS -->
+                                
                                 <li>
                                     <a class="nav__link mr-2 mb-1 mt-4">
                                         <span class="nav__link--text_main font-weight-bold">Vagas de Empresas</span>
@@ -137,7 +133,7 @@ $stmt = mysqli_stmt_init($link);
                                     </a>
                                 </li>
 
-                                <!-- EXPERIÊNCIAS DOS JOVENS -->
+                                
                                 <li>
                                     <a class="nav__link mr-2 mb-1 mt-4">
                                         <span class="nav__link--text_main font-weight-bold">Experiências dos Jovens</span>
@@ -154,7 +150,7 @@ $stmt = mysqli_stmt_init($link);
                                 if ($User_type == 7) {
                         ?>
                             <ul>
-                                <!-- CANDIDATOS -->
+                                
                                 <li>
                                     <a class="nav__link mr-2 mb-1">
                                         <span class="nav__link--text_main font-weight-bold">Candidatos</span>
@@ -170,7 +166,7 @@ $stmt = mysqli_stmt_init($link);
                                         <span class="nav__link--text">Todos os jovens</span>
                                     </a>
                                 </li>
-                                <!-- VAGAS DE EMPRESAS -->
+                                
                                 <li>
                                     <a class="nav__link mr-2 mb-1 mt-4">
                                         <span class="nav__link--text_main font-weight-bold">Vagas</span>
@@ -187,7 +183,7 @@ $stmt = mysqli_stmt_init($link);
                                     </a>
                                 </li>
 
-                                <!-- EXPERIÊNCIAS DOS JOVENS -->
+                                
                                 <li>
                                     <a class="nav__link mr-2 mb-1 mt-4">
                                         <span class="nav__link--text_main font-weight-bold">Experiências dos Jovens</span>
@@ -205,7 +201,7 @@ $stmt = mysqli_stmt_init($link);
                         ?>
                     </div>
 
-                    <!-- Use any element to open the sidenav -->
+                    
                     <div class="col-4 text-left p-0 my-auto">
                         <span onclick="openNav()" class="menu_lado">
                             <i class="fas fa-ellipsis-v" title="Eu quero" style="color: #2f2f2f; font-size: 25px !important; ">
@@ -215,8 +211,7 @@ $stmt = mysqli_stmt_init($link);
                 <?php
                 }
                 ?>
-                <!--fim do menu do lado esquerdo-->
-                <!--logo no centro-->
+               
 
                 <?php
                 if (isset($_SESSION["idUser"])) {
@@ -272,25 +267,24 @@ $stmt = mysqli_stmt_init($link);
                 }
                 ?>
                 <!---------------------------------->
-                <!--botão de iniciar sessão se ainda não tive sessão-->
-
-                <!--notificações e perfil dropdown-->
-                <!--dropdowns das notificações-->
+                
                 <div class="col-4 p-0 text-right my-auto">
+                 
+                
                     <?php
                     if (isset($_SESSION["idUser"])) {
                     ?>
                         <div class="dropdown">
 
                             <?php
-                            $query12 = "SELECT text_noti, date, User_idUser, status FROM notifications WHERE User_idUser = ?";
+                            $query12 = "SELECT text_noti, date, User_idUser, status FROM notifications WHERE User_idUser = ? ORDER BY date DESC";
 
                             if (mysqli_stmt_prepare($stmt, $query12)) {
                                 mysqli_stmt_bind_param($stmt, 'i', $idUser);
                                 mysqli_stmt_execute($stmt);
                                 mysqli_stmt_bind_result($stmt, $text_noti, $date, $idUser, $status);
-                                mysqli_stmt_store_result($stmt); // Store the result into memory
-                                if (mysqli_stmt_num_rows($stmt) > 0) { // Check the number of rows returned
+                                mysqli_stmt_store_result($stmt); 
+                                if (mysqli_stmt_num_rows($stmt) > 0) { 
                                     if (mysqli_stmt_fetch($stmt)) {
                                         if ($status == 1) {
                             ?>
@@ -326,10 +320,10 @@ $stmt = mysqli_stmt_init($link);
                                     mysqli_stmt_bind_param($stmt, 'i', $idUser);
                                     mysqli_stmt_execute($stmt);
                                     mysqli_stmt_bind_result($stmt, $text_noti, $date, $User_idUser, $status);
-                                    mysqli_stmt_store_result($stmt); // Store the result into memory
-                                    if (mysqli_stmt_num_rows($stmt) > 0) { // Check the number of rows returned
+                                    mysqli_stmt_store_result($stmt); 
+                                    if (mysqli_stmt_num_rows($stmt) > 0) { 
                                         while (mysqli_stmt_fetch($stmt)) {
-                                            /*criar a data?*/
+                                           
                                 ?>
                                             <button class="notif_ind mb-2"><?= $text_noti ?>
                                                 <span class="m-0 p-0" style="color: grey; font-family: Quicksand !important;"> • Em <?= substr($date, 0, 10) ?> </span>
@@ -351,7 +345,7 @@ $stmt = mysqli_stmt_init($link);
                     <?php
                     }
                     ?>
-                    <!--dropdown do perfil-->
+                    
                     <div class="dropdown ">
                         <?php
                         $query = "SELECT idUser, name_user, profile_img
@@ -364,8 +358,8 @@ $stmt = mysqli_stmt_init($link);
                             mysqli_stmt_bind_result($stmt, $id, $name_user, $profile_img);
                             while (mysqli_stmt_fetch($stmt)) {
                                 $nome_todo = $name_user;
-                                $nomes = explode(' ', $nome_todo); // separamos por espaços e fica: por exemplo Array ( [0] => Eduardo [1] => da [2] => Silva [3] => Fernandes )
-                                $nome = $nomes[0]; // primeiro nome
+                                $nomes = explode(' ', $nome_todo); 
+                                $nome = $nomes[0];
                                 if (isset($profile_img)) {
 
                         ?>
@@ -383,10 +377,8 @@ $stmt = mysqli_stmt_init($link);
                         <?php
                                 }
                             }
-                            /* close statement */
                             mysqli_stmt_close($stmt);
                         }
-                        /* close connection */
                         mysqli_close($link);
                         ?>
                         <div class="dropdown-menu dropdown-menu-right alinhar_user mx-auto " aria-labelledby="dropdownMenuButton">
@@ -403,7 +395,7 @@ $stmt = mysqli_stmt_init($link);
                             ?>
                             <a href="profile.php?user=<?= $idUser ?>">
                                 <button class="nav__btn2">
-                                    <!--<i class="fa fa-star-o mr-2"></i>-->Sobre mim
+                                   Sobre mim
                                 </button>
                             </a>
                             <?php
@@ -411,7 +403,7 @@ $stmt = mysqli_stmt_init($link);
                             ?>
                                 <a href="favorites.php">
                                     <button class="nav__btn2">
-                                        <!--<i class="fa fa-star-o mr-2"></i>-->Favoritos
+                                       Favoritos
                                     </button>
                                 </a>
                             <?php
@@ -419,9 +411,15 @@ $stmt = mysqli_stmt_init($link);
                             ?>
                             <a href="settings.php">
                                 <button class="nav__btn2">
-                                    <!--<i class="fa fa-sliders mr-2"></i>-->Definições
+                                   Definições
                                 </button>
                             </a>
+                             <a href="help.php">
+                                <button class="nav__btn2">
+                                   Ajuda
+                                </button>
+                            </a>
+                            
                             <a href="scripts/logout.php">
                                 <button class="nav__btn2 nav__btn3" style="background: #FDE74C;"><i class="fa fa-sign-out mr-2"></i>Sair
                                 </button>
@@ -430,17 +428,14 @@ $stmt = mysqli_stmt_init($link);
                     </div>
 
                 </div>
-                <!--fim da div container-->
+              
     </nav>
 </header>
 
 <script>
-    /* Set the width of the side navigation to 250px */
     function openNav() {
         document.getElementById("mySidenav").style.width = "340px";
     }
-
-    /* Set the width of the side navigation to 0 */
     function closeNav() {
         document.getElementById("mySidenav").style.width = "0";
     }

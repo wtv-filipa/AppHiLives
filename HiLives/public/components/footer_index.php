@@ -10,7 +10,6 @@ if (isset($_SESSION["idUser"])) {
 <footer class="site-footer ">
     <div class="container">
         <div class="row mx-auto">
-                <!------------****------------>
                 <div class="col-xs-12 col-sm-6  col-lg-2 p-0 esconder">
                     <h6>Parceiros</h6>
                     <ul class="footer-links">

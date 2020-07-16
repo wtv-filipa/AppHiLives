@@ -15,12 +15,11 @@ if (isset($_GET["idvac"]) and isset($_SESSION["idUser"])) {
 
     if (mysqli_stmt_prepare($stmt, $query)) {
         mysqli_stmt_bind_param($stmt, 'i', $idVacancies);
-        /* execute the prepared statement */
+      
         if (mysqli_stmt_execute($stmt)) {
-            /* bind result variables */
+       
             mysqli_stmt_bind_result($stmt, $vacancie_name, $description_vac, $number_free_vanc, $requirements, $Region_idRegion, $User_publicou, $Workday_idWorkday, $Educ_lvl_idEduc_lvl, $Areas_idAreas);
 
-            /* fetch values */
             if (mysqli_stmt_fetch($stmt)) {
 ?>
                 <div class="events w-75 mx-auto">
@@ -56,42 +55,33 @@ if (isset($_GET["idvac"]) and isset($_SESSION["idUser"])) {
                         }
                     }
                     ?>
-
-                    <!--Card-->
                     <div class="card mdb-color lighten-4 text-center z-depth-2 light-version py-4 px-5">
 
-                        <!--título-->
                         <div class="no-gutters">
                             <h3 class="mx-auto letter">Vaga</h3>
                             <h3 class="mx-auto letter2"><?= $vacancie_name ?></h3>
                         </div>
-                        <!----------->
                         <form id="sectionForm" class="md-form inserir_dados" class="mb-3" action="scripts/update_vac.php?idvac=<?= $idVacancies ?>" method="post">
-                            <!--primeiro campo-->
                             <div class="form-group text-left">
                                 <label class="label-margin" for="nomevaga">Cargo na empresa: <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
                                 <input type="text" id="nomevaga" name="nomevaga" class="form-control" placeholder="Insira o nome do cargo disponível." aria-required="true" required="required" value="<?= $vacancie_name ?>">
                             </div>
-                            <!-------------------------------------------->
-                            <!--segundo campo-->
+                           
                             <div class="form-group text-left mt-4">
                                 <label class="label-margin" for="descricao">Descrição da vaga: <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
                                 <textarea type="text" id="descricao" rows="10" name="descricao" class="form-control" placeholder="Insira um texto que descreva a vaga que está a anunciar." aria-required="true" required="required"><?= $description_vac ?></textarea>
                             </div>
-                            <!-------------------------------------------->
-                            <!--terceiro campo-->
+                          
                             <div class="form-group text-left">
                                 <label class="label-margin" for="numvagas">Número de vagas disponíveis: <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
                                 <input type="text" id="numvagas" name="numvagas" class="form-control" placeholder="Insira o número de vagas disponíveis para o cargo." aria-required="true" required="required" value="<?= $number_free_vanc ?>">
                             </div>
-                            <!-------------------------------------------->
-                            <!--quarto campo-->
+                            
                             <div class="form-group text-left mt-4">
                                 <label class="label-margin" for="requisitos">Requisitos: <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
                                 <textarea type="text" id="requisitos" rows="7" name="requisitos" class="form-control" placeholder="Insira todos os requisitos que o jovem deve cumprir para que se possa candidatar à vaga." aria-required="true" required="required"><?= $requirements ?></textarea>
                             </div>
-                            <!-------------------------------------------->
-                            <!--quinto campo-->
+                            
                             <div class="form-group text-left">
                                 <label class="label-margin" for="area">Áreas: <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label><span class="sr-only">(Área)</span>
                                 <select class="form-control" id="area" name="area" aria-required="true" required="required">
@@ -101,13 +91,9 @@ if (isset($_GET["idvac"]) and isset($_SESSION["idUser"])) {
                                 FROM areas";
 
                                     if (mysqli_stmt_prepare($stmt2, $query2)) {
-
-                                        /* execute the prepared statement */
                                         if (mysqli_stmt_execute($stmt2)) {
-                                            /* bind result variables */
                                             mysqli_stmt_bind_result($stmt2, $idAreas, $name_interested_area);
 
-                                            /* fetch values */
                                             while (mysqli_stmt_fetch($stmt2)) {
                                                 if ($Areas_idAreas == $idAreas) {
                                                     $selected = "selected";
@@ -116,15 +102,13 @@ if (isset($_GET["idvac"]) and isset($_SESSION["idUser"])) {
                                                 }
                                                 echo "\n\t\t<option value=\"$idAreas\" $selected>$name_interested_area</option>";
                                             }
-                                            /* close statement */
                                             mysqli_stmt_close($stmt2);
                                         }
                                     }
                                     ?>
                                 </select>
                             </div>
-                            <!-------------------------------------------->
-                            <!--sexto campo-->
+                            
                             <div class="form-group text-left">
                                 <label class="label-margin" for="jornada">Jornada de trabalho: <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
                                 <span class="sr-only">(Jornada de trabalho)</span>
@@ -134,11 +118,9 @@ if (isset($_GET["idvac"]) and isset($_SESSION["idUser"])) {
                                     $query3 = "SELECT idWorkday, Workday_name FROM workday";
                                     $stmt2 = mysqli_stmt_init($link2);
                                     if (mysqli_stmt_prepare($stmt2, $query3)) {
-                                        /* execute the prepared statement */
                                         if (mysqli_stmt_execute($stmt2)) {
-                                            /* bind result variables */
                                             mysqli_stmt_bind_result($stmt2, $id_Workday, $name_workday);
-                                            /* fetch values */
+                                      
                                             while (mysqli_stmt_fetch($stmt2)) {
                                                 if ($Workday_idWorkday == $id_Workday) {
                                                     $selected = "selected";
@@ -147,15 +129,13 @@ if (isset($_GET["idvac"]) and isset($_SESSION["idUser"])) {
                                                 }
                                                 echo "\n\t\t<option value=\"$id_Workday\" $selected>$name_workday</option>";
                                             }
-                                            /* close statement */
                                             mysqli_stmt_close($stmt2);
                                         }
                                     }
                                     ?>
                                 </select>
                             </div>
-                            <!-------------------------------------------->
-                            <!--sétimo campo-->
+                           
                             <div class="form-group text-left">
                                 <label class="label-margin" for="personality">Selecione cinco (5) capacidades necessárias: <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
                                 <span class="sr-only">(Selecione cinco (5) capacidades necessárias)</span>
@@ -166,14 +146,11 @@ if (isset($_GET["idvac"]) and isset($_SESSION["idUser"])) {
                                                 ON  capacities.idcapacities= vacancies_has_capacities.capacities_idcapacities AND vacancies_has_capacities.vacancies_idVacancies= ?";
                                     $stmt2 = mysqli_stmt_init($link2);
                                     if (mysqli_stmt_prepare($stmt2, $query4)) {
-                                        // Bind variables by type to each parameter
                                         mysqli_stmt_bind_param($stmt2, 'i', $idVacancies);
-                                        /* execute the prepared statement */
+                                     
                                         if (mysqli_stmt_execute($stmt2)) {
-                                            /* bind result variables */
                                             mysqli_stmt_bind_result($stmt2, $idcapacities, $capacity_comp, $vacancies_idVacancies);
 
-                                            /* fetch values */
                                             while (mysqli_stmt_fetch($stmt2)) {
                                                 $checked = "";
                                                 if ($vacancies_idVacancies != null) {
@@ -186,15 +163,14 @@ if (isset($_GET["idvac"]) and isset($_SESSION["idUser"])) {
                                                     echo "</label>";
                                                 }
                                             }
-                                            /* close statement */
+                                          
                                             mysqli_stmt_close($stmt2);
                                         }
                                     }
                                     ?>
                                 </div>
                             </div>
-                            <!-------------------------------------------->
-                            <!--oitavo campo-->
+                            
                             <div class="form-group text-left">
                                 <span class="sr-only">(Nível de educação)</span>
                                 <label class="label-margin" for="educ">Nível de educação: <span style="color: #00A5CF; font-weight: bold; font-size: 20px">*</span></label>
@@ -205,11 +181,10 @@ if (isset($_GET["idvac"]) and isset($_SESSION["idUser"])) {
                                 FROM educ_lvl";
                                     $stmt2 = mysqli_stmt_init($link2);
                                     if (mysqli_stmt_prepare($stmt2, $query5)) {
-                                        /* execute the prepared statement */
                                         if (mysqli_stmt_execute($stmt2)) {
-                                            /* bind result variables */
+                                           
                                             mysqli_stmt_bind_result($stmt2, $idEduc_lvl, $name_education);
-                                            /* fetch values */
+                                            
                                             while (mysqli_stmt_fetch($stmt2)) {
                                                 if ($Educ_lvl_idEduc_lvl == $idEduc_lvl) {
                                                     $selected = "selected";
@@ -218,15 +193,13 @@ if (isset($_GET["idvac"]) and isset($_SESSION["idUser"])) {
                                                 }
                                                 echo "\n\t\t<option value=\"$idEduc_lvl\" $selected>$name_education</option>";
                                             }
-                                            /* close statement */
                                             mysqli_stmt_close($stmt2);
                                         }
                                     }
                                     ?>
                                 </select>
                             </div>
-                            <!-------------------------------------------->
-                            <!------------REGIÃo DA VAGA------------>
+                           
                             <div class="form-group formulario" id="pt">
                                 <div class="form-group text-left">
                                     <label class="negrito mt-3" for="regiao_pt">Região da Vaga
@@ -241,12 +214,9 @@ if (isset($_GET["idvac"]) and isset($_SESSION["idUser"])) {
                                         $stmt2 = mysqli_stmt_init($link2);
                                         if (mysqli_stmt_prepare($stmt2, $query6)) {
                                             mysqli_stmt_bind_param($stmt2, 'i', $idUser);
-                                            /* execute the prepared statement */
                                             if (mysqli_stmt_execute($stmt2)) {
-                                                /* bind result variables */
                                                 mysqli_stmt_bind_result($stmt2, $Region_idRegion, $idRegion, $name_region);
 
-                                                /* fetch values */
                                                 while (mysqli_stmt_fetch($stmt2)) {
                                                     if ($Region_idRegion == $idRegion) {
                                                         $selected = "selected";
@@ -255,7 +225,6 @@ if (isset($_GET["idvac"]) and isset($_SESSION["idUser"])) {
                                                     }
                                                     echo "\n\t\t<option value=\"$Region_idRegion\" $selected>$name_region</option>";
                                                 }
-                                                /* close statement */
                                                 mysqli_stmt_close($stmt2);
                                             }
                                         }
@@ -263,8 +232,6 @@ if (isset($_GET["idvac"]) and isset($_SESSION["idUser"])) {
                                     </select>
                                 </div>
                             </div>
-                            <!-------------------------------------------->
-
                             <div>
                                 <button type="submit" class="btn btn-success publicar_btn">Publicar</button>
                             </div>
@@ -274,11 +241,9 @@ if (isset($_GET["idvac"]) and isset($_SESSION["idUser"])) {
                 </div>
 <?php
             }
-            /* close statement */
             mysqli_stmt_close($stmt);
         }
     }
-    /* close connection */
     mysqli_close($link);
     mysqli_close($link2);
 } else {

@@ -18,8 +18,6 @@
     </div>
   </div>
 </div>
-
-
 <!--Modal para eliminar UC-->
 <div class="modal fade modal_problem" id="deleteuc<?= $idDone_CU ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
@@ -39,9 +37,6 @@
     </div>
   </div>
 </div>
-<!------------------------------------------------------------------------------------------------------------------------------------------->
-
-
 <!--Modal para eliminar VAGA-->
 <div class="modal fade modal_problem" id="deletevac<?= $idVacancies ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -61,9 +56,6 @@
         </div>
     </div>
 </div>
-<!------------------------------------------------------------------------------------------------------------------------------------------->
-
-
 <!--Modal para eliminar VIDEO JOVEM-->
 <div class="modal fade modal_problem" id="deleteuc<?= $idExperiences ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -83,4 +75,3 @@
         </div>
     </div>
 </div>
-<!------------------------------------------------------------------------------------------------------------------------------------------->

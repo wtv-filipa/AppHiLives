@@ -6,9 +6,7 @@ if (isset($_SESSION["idUser"])) {
 ?>
         <!DOCTYPE html>
         <html lang="en">
-
         <head>
-            <!-- metadados -->
             <?php include "helpers/meta.php"; ?>
             <?php
             if ($tipo == 10) {
@@ -21,24 +19,19 @@ if (isset($_SESSION["idUser"])) {
             <?php
             }
             ?>
-            <!-- Custom fonts for this template-->
             <?php include "helpers/fonts.php"; ?>
-            <!-- Custom styles for this template-->
             <?php include "helpers/css_allOptions_uni.php"; ?>
-
         </head>
 
         <body id="fundo">
             <header class="sticky-top">
-                <!--navbar-->
                 <?php include "components/navbar.php"; ?>
             </header>
             <main class="container p-0 mb-5 mx-auto">
-                <!--componente da home sem login-->
                 <?php include "components/allOptions_uni.php"; ?>
             </main>
             <?php include "components/footer.php"; ?>
-            <!-- JavaScript-->
+            
             <?php include "helpers/js.php"; ?>
             <?php include "helpers/fontawesome.php"; ?>
             <script type="text/javascript" src="js/notifications.js"></script>

@@ -6,8 +6,7 @@
     <p class="escolhe_opcao">Escolhe uma opção para dares início ao registo</p>
 </div>
 <div class="row">
-    <!--Cards-->
-    <!--Card 1-->
+   
     <form class="col-md-4 col-xs-12 mt-4 text-center" method="post" action="public/register.php">
         <button name="3" type="submit" class="btn">
             <div class="cards text-center">
@@ -21,7 +20,7 @@
             </div>
         </button>
     </form>
-    <!--Card 2-->
+  
     <form class="col-md-4 col-xs-12 mt-4 text-center" method="post" action="public/register_uni.php">
         <button name="4" type="submit" class="btn">
             <div class="cards text-center">
@@ -35,7 +34,7 @@
             </div>
         </button>
     </form>
-    <!--Card 3-->
+   
     <form class="col-md-4 col-xs-12 mt-4 text-center" method="post" action="public/register_comp.php">
         <button name="2" type="submit" class="btn">
             <div class="cards text-center">
@@ -51,7 +50,6 @@
     </form>
 
 </div>
-<!---end of div with class row--->
 
 <div class="text-center">
     <h4 class="mt-5">Já tens conta?</h4>

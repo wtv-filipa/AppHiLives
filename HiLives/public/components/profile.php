@@ -11,34 +11,33 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
     $idUser = $_GET["user"];
     $id_navegar = $_SESSION["idUser"];
 
-    //query que vai selecionar informações do user
     $query = "SELECT idUser, name_user, email_user, contact_user, birth_date, info_young, work_xp, profile_img, website_ue, facebook_ue, instagram_ue, description_ue, type_user
     FROM users 
     INNER JOIN user_type ON users.User_type_idUser_type = user_type.idUser_type
     WHERE idUser = ?";
-    //query que vai selecionar as areas de interesse do utilizador ou as areas disponíveis na universidade 
+   
     $query2 = "SELECT User_idUser, Areas_idAreas, name_interested_area
     FROM user_has_areas INNER JOIN areas ON user_has_areas.Areas_idAreas= areas.idAreas
     WHERE User_idUser LIKE ?";
-    //query que seleciona as UCS feitas adicionada pelo utilizador
+   
     $query3 = "SELECT idDone_CU, Cu_name, University_name, date_CU
     FROM done_cu WHERE User_idUser = ? ORDER BY date_CU DESC LIMIT 3";
-    //query que seleciona as vagas carregadas pela empresa
+    
     $query4 = "SELECT idVacancies, vacancie_name, Areas_idAreas, name_interested_area
     FROM vacancies
     INNER JOIN areas ON vacancies.Areas_idAreas = areas.idAreas
     WHERE User_publicou = ? ORDER BY idVacancies DESC LIMIT 3";
-    //selecionar a região
+ 
     $query5 = "SELECT name_region FROM region INNER JOIN user_has_region ON region.idRegion=user_has_region.Region_idRegion WHERE User_idUser_region = ?";
-    //query que seleciona as competências
+
     $query6 = "SELECT capacities, users_idUser, capacity FROM capacities_has_users 
     INNER JOIN capacities ON capacities_has_users.capacities= capacities.idcapacities
     WHERE users_idUser = ?";
-    //query que seleciona os vídeos do jovem
+ 
     $query7 = "SELECT idExperiences, title_exp, description, date, idContent, content_name FROM experiences INNER JOIN content ON experiences.Content_idContent=content.idContent WHERE User_idUser = ?";
-    //query que seleciona os vídeos da empresa 
+  
     $query8 = "SELECT idVacancies, vacancie_name, Content_idContent, content_name FROM vacancies INNER JOIN content ON vacancies.Content_idContent=content.idContent WHERE User_publicou = ?";
-    //query que seleciona os ambientes
+   
     $query9 = "SELECT favorite_environment, users_idUser,name_environment FROM work_environment_has_users
     INNER JOIN work_environment ON work_environment_has_users.favorite_environment = work_environment.idwork_environment
     WHERE users_idUser = ?";
@@ -66,10 +65,8 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                         }
                         ?>
                     </div>
-                    <!--fim da div que mostra a imagem-->
                     <?php
                     if ($type_user == "Jovem") {
-                        //informações dos jovens
                     ?>
                         <div class="col-xs-3 col-lg-9 ">
                             <h3 class="mt-2 nome_user"><?= $name_user ?> <span class="subtitulo" style="font-weight: lighter; font-size: 16px;"> | <?= $age ?> anos</span></h3>
@@ -90,12 +87,11 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                         $first = false;
                                         echo " $name_region";
                                     }
-                                    /* close statement */
                                     mysqli_stmt_close($stmt2);
                                 }
                                 ?>
                             </h6>
-                            <!--Se não for igual vai esconder determinados elementos que pessoas que não são o próprio user não podem ver-->
+                        
                             <?php
                             if ($idUser == $id_navegar) {
                             ?>
@@ -115,7 +111,6 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                         </div>
                     <?php
                     } else {
-                        //Informações de empresas e universidades
                     ?>
                         <div class="col-xs-3 col-lg-9">
                             <h3 class="mt-2 nome_user"><?= $name_user ?></h3>
@@ -129,12 +124,10 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                     while (mysqli_stmt_fetch($stmt2)) {
                                         echo " $name_region";
                                     }
-                                    /* close statement */
                                     mysqli_stmt_close($stmt2);
                                 }
                                 ?>
                             </h6>
-                            <!--Se não for igual vai esconder determinados elementos que pessoas que não são o próprio user não podem ver-->
                             <?php
                             if ($idUser == $id_navegar) {
                             ?>
@@ -157,9 +150,9 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                     }
                     ?>
                 </div>
-                <!--fim da div da informação do jovem-->
+              
                 <hr class="mt-4">
-                <!--CARD GRANDE DE INFORMAÇÃO-->
+                
                 <?php
                 if ($type_user == "Jovem") {
                 ?>
@@ -169,8 +162,8 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                         <input type="radio" id="tab3" name="tab-control">
                         <input type="radio" id="tab4" name="tab-control">
                         <ul>
-                            <!--1-->
-                            <li title="Disciplinas">
+                            
+                            <li title="Unidades curriculares">
                                 <label for="tab1" role="button">
                                     <svg class="bi bi-award-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M8 0l1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864 8 0z" />
@@ -179,7 +172,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                     <br><span>Unidades curriculares</span>
                                 </label>
                             </li>
-                            <!--2-->
+                            
                             <li title="Áreas de interesse">
                                 <label for="tab2" role="button">
                                     <svg class="bi bi-file-ruled" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -190,7 +183,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                     <br><span>Áreas</span>
                                 </label>
                             </li>
-                            <!--3-->
+                            
                             <li title="Competências">
                                 <label for="tab3" role="button">
                                     <svg class="bi bi-person-check-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -199,7 +192,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                     <br><span>Competências</span>
                                 </label>
                             </li>
-                            <!--4-->
+                            
                             <li title="Ambientes de trabalho">
                                 <label for="tab4" role="button">
                                     <svg class="bi bi-briefcase-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -215,7 +208,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                             <div class="indicator"></div>
                         </div>
                         <div class="content">
-                            <!--DISCIPLINAS FEITAS-->
+                          
                             <section>
                                 <h2>Últimas unidades curriculares que fiz</h2>
                                 <h5 class="mb-3">Últimas unidades curriculares que fiz</h5>
@@ -227,15 +220,15 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                         mysqli_stmt_bind_param($stmt2, 'i', $idUser);
                                         mysqli_stmt_execute($stmt2);
                                         mysqli_stmt_bind_result($stmt2, $idDone_CU, $Cu_name, $University_name, $date_CU);
-                                        mysqli_stmt_store_result($stmt2); // Store the result into memory
-                                        if (mysqli_stmt_num_rows($stmt2) > 0) { // Check the number of rows returned
+                                        mysqli_stmt_store_result($stmt2); 
+                                        if (mysqli_stmt_num_rows($stmt2) > 0) { 
                                             while (mysqli_stmt_fetch($stmt2)) {
                                     ?>
 
                                                 <li class="lista">
                                                     <?= $Cu_name ?>
                                                     <p class="instituicao"><?= $University_name ?></p>
-                                                    <!--Se não for igual vai esconder determinados elementos que pessoas que não são o próprio user não podem ver-->
+                                                    
                                                     <?php
                                                     if ($idUser == $id_navegar) {
                                                     ?>
@@ -256,10 +249,10 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
 
 
                                             <?php
-                                                //modal de apagar a UC
+                                              
                                                 include('components/delete_modal.php');
                                             }
-                                            /* close statement */
+                                            
                                             mysqli_stmt_close($stmt2);
                                         } else {
                                             if ($idUser == $id_navegar) {
@@ -285,7 +278,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                     }
                                     ?>
                                 </ul>
-                                <!--Se não for igual vai esconder determinados elementos que pessoas que não são o próprio user não podem ver-->
+                               
                                 <?php
                                 if ($idUser == $id_navegar) {
                                 ?>
@@ -304,9 +297,8 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                 }
                                 ?>
 
-
                             </section>
-                            <!--AREAS DE INTERESSE-->
+                            
                             <section>
                                 <h2>As minhas áreas de interesse</h2>
                                 <h5 class="mb-3">As minhas áreas de interesse</h5>
@@ -318,8 +310,8 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                         mysqli_stmt_bind_param($stmt2, 'i', $idUser);
                                         mysqli_stmt_execute($stmt2);
                                         mysqli_stmt_bind_result($stmt2, $User_idUser, $Areas_idAreas, $name_interested_area);
-                                        mysqli_stmt_store_result($stmt2); // Store the result into memory
-                                        if (mysqli_stmt_num_rows($stmt2) > 0) { // Check the number of rows returned
+                                        mysqli_stmt_store_result($stmt2); 
+                                        if (mysqli_stmt_num_rows($stmt2) > 0) { 
                                             while (mysqli_stmt_fetch($stmt2)) {
                                     ?>
                                                 <ul id="notebook_ul">
@@ -329,7 +321,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                                 </ul>
                                             <?php
                                             }
-                                            /* close statement */
+                                            
                                             mysqli_stmt_close($stmt2);
                                         } else {
                                             if ($idUser == $id_navegar) {
@@ -357,7 +349,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                 </blockquote>
 
                             </section>
-                            <!--COMPETÊNCIAS-->
+                           
                             <section>
                                 <h2>As minhas competências</h2>
                                 <?php
@@ -378,8 +370,8 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                         mysqli_stmt_bind_param($stmt2, 'i', $idUser);
                                         mysqli_stmt_execute($stmt2);
                                         mysqli_stmt_bind_result($stmt2, $capacities, $users_idUser, $capacity);
-                                        mysqli_stmt_store_result($stmt2); // Store the result into memory
-                                        if (mysqli_stmt_num_rows($stmt2) > 0) { // Check the number of rows returned
+                                        mysqli_stmt_store_result($stmt2); 
+                                        if (mysqli_stmt_num_rows($stmt2) > 0) { 
                                             while (mysqli_stmt_fetch($stmt2)) {
                                     ?>
                                                 <ul id="notebook_ul">
@@ -389,7 +381,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                                 </ul>
                                             <?php
                                             }
-                                            /* close statement */
+                                            
                                             mysqli_stmt_close($stmt2);
                                         } else {
                                             if ($idUser == $id_navegar) {
@@ -417,7 +409,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                 </blockquote>
 
                             </section>
-                            <!--AMBIENTES DE TRABALHO-->
+                           
                             <section>
                                 <h5 class="mb-3">Os meus ambientes de trabalho favoritos</h5>
                                 <h2>Os meus ambientes de trabalho favoritos</h2>
@@ -429,8 +421,8 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                         mysqli_stmt_bind_param($stmt2, 'i', $idUser);
                                         mysqli_stmt_execute($stmt2);
                                         mysqli_stmt_bind_result($stmt2, $favorite_environment, $users_idUser, $name_environment);
-                                        mysqli_stmt_store_result($stmt2); // Store the result into memory
-                                        if (mysqli_stmt_num_rows($stmt2) > 0) { // Check the number of rows returned
+                                        mysqli_stmt_store_result($stmt2); 
+                                        if (mysqli_stmt_num_rows($stmt2) > 0) { 
                                             while (mysqli_stmt_fetch($stmt2)) {
                                     ?>
                                                 <ul id="notebook_ul">
@@ -471,12 +463,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                     </div>
                 <?php
                 }
-                ?>
-                <!------------------------------FIM DAS INFORMAÇÕES DOS JOVENS-------------------->
-
-
-                <!--videos-->
-                <?php
+                
                 if ($type_user == "Jovem") {
 
                 ?>
@@ -533,8 +520,8 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                     mysqli_stmt_bind_param($stmt2, 'i', $idUser);
                                     mysqli_stmt_execute($stmt2);
                                     mysqli_stmt_bind_result($stmt2, $idExperiences, $title_exp, $description, $date, $idContent, $content_name);
-                                    mysqli_stmt_store_result($stmt2); // Store the result into memory
-                                    if (mysqli_stmt_num_rows($stmt2) > 0) { // Check the number of rows returned
+                                    mysqli_stmt_store_result($stmt2);
+                                    if (mysqli_stmt_num_rows($stmt2) > 0) {
                                         while (mysqli_stmt_fetch($stmt2)) {
                                 ?>
 
@@ -544,11 +531,9 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                                 </a>
                                             </div>
 
-                                            <!--Se não for igual vai esconder determinados elementos que pessoas que não são o próprio user não podem ver-->
                                         <?php
                                             include "modal_vid.php";
                                         }
-                                        /* close statement */
                                         mysqli_stmt_close($stmt2);
                                     } else {
                                         if ($idUser == $id_navegar) {
@@ -596,7 +581,6 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                         <input type="radio" id="tab1" name="tab-control" checked>
                         <input type="radio" id="tab2" name="tab-control">
                         <ul>
-                            <!--1-->
                             <li title="Vagas">
                                 <label for="tab1" role="button">
                                     <svg class="bi bi-file-ruled" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -607,7 +591,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                     <br><span>Vagas</span>
                                 </label>
                             </li>
-                            <!--2-->
+                            
                             <li title="Contactos">
                                 <label for="tab2" role="button">
                                     <svg viewBox="0 0 20 20">
@@ -621,7 +605,6 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                             <div class="indicator"></div>
                         </div>
                         <div class="content">
-                            <!--VAGAS DISPONÍVEIS-->
                             <section>
                                 <h2>Vagas disponíveis</h2>
                                 <h5 class="mb-3">Vagas disponíveis</h5>
@@ -633,14 +616,14 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                         mysqli_stmt_bind_param($stmt2, 'i', $idUser);
                                         mysqli_stmt_execute($stmt2);
                                         mysqli_stmt_bind_result($stmt2, $idVacancies, $vacancie_name, $Areas_idAreas, $name_interested_area);
-                                        mysqli_stmt_store_result($stmt2); // Store the result into memory
-                                        if (mysqli_stmt_num_rows($stmt2) > 0) { // Check the number of rows returned
+                                        mysqli_stmt_store_result($stmt2); 
+                                        if (mysqli_stmt_num_rows($stmt2) > 0) { 
                                             while (mysqli_stmt_fetch($stmt2)) {
                                     ?>
 
                                                 <li class="lista">
                                                     <?= $vacancie_name ?>
-                                                    <!--Se não for igual vai esconder determinados elementos que pessoas que não são o próprio user não podem ver-->
+                                                 
                                                     <?php
                                                     if ($idUser == $id_navegar) {
                                                     ?>
@@ -658,10 +641,10 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                                 </li>
 
                                             <?php
-                                                //modal de apagar a UC
+                                                
                                                 include('components/delete_modal.php');
                                             }
-                                            /* close statement */
+                                            
                                             mysqli_stmt_close($stmt2);
                                         } else {
                                             if ($idUser == $id_navegar) {
@@ -701,7 +684,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                 }
                                 ?>
                             </section>
-                            <!--CONTACTOS-->
+                            
                             <section>
                                 <h2>Contactos</h2>
                                 <blockquote class="blockquote mb-0 mt-4 ">
@@ -794,8 +777,8 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                     mysqli_stmt_bind_param($stmt2, 'i', $idUser);
                                     mysqli_stmt_execute($stmt2);
                                     mysqli_stmt_bind_result($stmt2, $idVacancies, $vacancie_name, $Content_idContent, $content_name);
-                                    mysqli_stmt_store_result($stmt2); // Store the result into memory
-                                    if (mysqli_stmt_num_rows($stmt2) > 0) { // Check the number of rows returned
+                                    mysqli_stmt_store_result($stmt2); 
+                                    if (mysqli_stmt_num_rows($stmt2) > 0) { 
                                         while (mysqli_stmt_fetch($stmt2)) {
                                 ?>
                                             <div class="col-md-3 mt-3 div_videos">
@@ -804,11 +787,10 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                                 </a>
                                             </div>
 
-                                            <!--Se não for igual vai esconder determinados elementos que pessoas que não são o próprio user não podem ver-->
                                         <?php
                                             include "modal_vid.php";
                                         }
-                                        /* close statement */
+                                        
                                         mysqli_stmt_close($stmt2);
                                     } else {
                                         if ($idUser == $id_navegar) {
@@ -838,15 +820,12 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                     </div>
                 <?php
                 } else {
-                    //UNIVERSIDADES
+                   
                 ?>
                     <div class="tabs tabs2 mb-5">
                         <input type="radio" id="tab1" name="tab-control" checked>
                         <input type="radio" id="tab2" name="tab-control">
-
-
                         <ul>
-                            <!--1-->
                             <li title="Áreas">
                                 <label for="tab1" role="button">
                                     <svg class="bi bi-file-ruled" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -857,7 +836,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                     <br><span>Áreas</span>
                                 </label>
                             </li>
-                            <!--2-->
+                            
                             <li title="Contactos">
                                 <label for="tab2" role="button">
                                     <svg viewBox="0 0 20 20">
@@ -871,7 +850,6 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                             <div class="indicator"></div>
                         </div>
                         <div class="content">
-                            <!--ÁREAS DISPONÍVEIS-->
                             <section>
                                 <h2>Áreas disponíveis</h2>
                                 <h5 class="mb-3">Áreas disponíveis</h5>
@@ -883,8 +861,8 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                         mysqli_stmt_bind_param($stmt2, 'i', $idUser);
                                         mysqli_stmt_execute($stmt2);
                                         mysqli_stmt_bind_result($stmt2, $User_idUser, $Areas_idAreas, $name_interested_area);
-                                        mysqli_stmt_store_result($stmt2); // Store the result into memory
-                                        if (mysqli_stmt_num_rows($stmt2) > 0) { // Check the number of rows returned
+                                        mysqli_stmt_store_result($stmt2); 
+                                        if (mysqli_stmt_num_rows($stmt2) > 0) { 
                                             while (mysqli_stmt_fetch($stmt2)) {
                                     ?>
 
@@ -893,7 +871,6 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                                 </li>
                                             <?php
                                             }
-                                            /* close statement */
                                             mysqli_stmt_close($stmt2);
                                         } else {
                                             if ($idUser == $id_navegar) {
@@ -920,7 +897,7 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                                     ?>
                                 </ul>
                             </section>
-                            <!--CONTACTOS-->
+                            
                             <section>
                                 <h2>Contactos</h2>
                                 <blockquote class="blockquote mb-0 mt-4 ">
@@ -974,19 +951,15 @@ if (isset($_GET["user"]) && $_SESSION["idUser"]) {
                 }
                 ?>
 
-
             </div>
-            <!--fim da div com w-75-->
 <?php
-            //fim do prepare da query que seleciona o informações do user
-        } //fim do primeiro while
-        /* close statement */
+        } 
+        
         mysqli_stmt_close($stmt);
     }
-    /****************************/
-    /* close connection */
+    
     mysqli_close($link);
     mysqli_close($link2);
 } else {
     include("404.php");
-} //fim do else se não existir o GET
+} 

@@ -1,4 +1,3 @@
-<!--Definições gerais-->
 <?php
 include "navbar_2.php";
 if (isset($_SESSION["idUser"])) {
@@ -37,7 +36,7 @@ if (isset($_SESSION["idUser"])) {
             }
         }
         ?>
-        <!--primeiro título-->
+     
         <div id='wrapper_title'>
             <div class='tagpost-top' id='tagpost-top'>
                 <div class='widget'>
@@ -49,7 +48,6 @@ if (isset($_SESSION["idUser"])) {
             </div>
         </div>
 
-        <!--texto das definições-->
         <div class="mt-3 mb-3 ml-5">
             <h6 class="mb-3"><a href="construction.php">Notificações</a></h6>
 
@@ -63,7 +61,7 @@ if (isset($_SESSION["idUser"])) {
 
 
         </div>
-        <!--segundo título-->
+        
         <div id='wrapper_title'>
             <div class='tagpost-top' id='tagpost-top'>
                 <div class='widget'>
@@ -74,7 +72,7 @@ if (isset($_SESSION["idUser"])) {
                 </div>
             </div>
         </div>
-        <!--texto das definições-->
+     
         <div class="mt-3 mb-3 ml-5">
             <h6 class="mb-3"><a href="construction.php">Quem pode ver as tuas informações pessoais?</a></h6>
 
@@ -82,7 +80,7 @@ if (isset($_SESSION["idUser"])) {
 
             <h6 class="mb-3"><a href="construction.php">Quem pode ver as tuas áreas de interesse?</a></h6>
         </div>
-        <!--segundo título-->
+      
         <div id='wrapper_title'>
             <div class='tagpost-top' id='tagpost-top'>
                 <div class='widget'>
@@ -93,7 +91,7 @@ if (isset($_SESSION["idUser"])) {
                 </div>
             </div>
         </div>
-        <!--texto das definições-->
+       
         <div class="mt-3 mb-5 ml-5">
             <h6 class="mb-3"><a href="construction.php">Indioma</a></h6>
 
@@ -101,7 +99,6 @@ if (isset($_SESSION["idUser"])) {
         </div>
 
     <?php
-    //Modal de apagar user
     include('components/delete_modal.php');
 } else {
     include("404.php");

@@ -6,44 +6,59 @@ if (!isset($_SESSION["idUser"])) {
     <html lang="en">
 
     <head>
-        <!-- metadados -->
         <?php include "helpers/meta.php"; ?>
         <title>Registo Universidade</title>
-        <!-- Custom fonts for this template-->
         <?php include "helpers/fonts.php"; ?>
-        <!-- Custom styles for this template-->
         <?php include "helpers/css_register_login.php"; ?>
     </head>
 
     <body id="page-top" class="fundo_login_reg">
-
-        <!-- Page Wrapper -->
+        <?php include "components/loading_screen.php"; ?>
         <div id="wrapper">
-
-            <!-- Begin Page Content -->
             <div class="container-fluid">
-                <!--cartões com earnings pequenos-->
                 <?php include "components/register_uni.php"; ?>
             </div>
-            <!-- /.container-fluid -->
-
         </div>
-        <!-- End of Main Content -->
-        <?php include "components/loading_screen.php"; ?>
-        <!-- JavaScript-->
-        <script>
-            function handleData() {
-                var form_data = new FormData(document.querySelector("form"));
 
-                if (!form_data.has("area[]")) {
-                    document.getElementById("chk_option_error").style.visibility = "visible";
-                    return false;
-                } else {
-                    document.getElementById("chk_option_error").style.visibility = "hidden";
-                    return true;
+        <script>
+             (function() {
+                function addValidation(checkboxes) {
+                    const firstCheckbox = getFirstCheckbox(checkboxes);
+
+                    if (firstCheckbox) {
+                        for (let i = 0; i < checkboxes.length; i++) {
+                            checkboxes[i].addEventListener('change', function() {
+                                checkValidity(checkboxes, firstCheckbox);
+                            });
+                        }
+
+                        checkValidity(checkboxes, firstCheckbox);
+                    }
                 }
 
-            }
+                function getFirstCheckbox(checkboxes) {
+                    return checkboxes.length > 0 ? checkboxes[0] : null;
+                }
+
+                function isChecked(checkboxes) {
+                    for (let i = 0; i < checkboxes.length; i++) {
+                        if (checkboxes[i].checked) return true;
+                    }
+
+                    return false;
+                }
+
+                function checkValidity(checkboxes, firstCheckbox) {
+                    const errorMessage = !isChecked(checkboxes) ? 'É necessário ter pelo menos uma opção selecionada.' : '';
+                    firstCheckbox.setCustomValidity(errorMessage);
+                }
+
+                const form = document.querySelector('#register-form');
+
+                // Let's add a validation for the first group of checkboxes
+                const checkboxes = form.querySelectorAll('input[name="area[]"]');
+                addValidation(checkboxes);
+            })();
             /*************************/
             var select = document.getElementById("pais");
             var formularios = document.querySelectorAll('.formulario');

@@ -22,7 +22,7 @@ if (isset($_GET['apaga'])) {
                 header("Location: ../contents_emp.php");
                 $_SESSION["cont_emp"] = 2;
             } else {
-                //PRIMEIRA QUERY
+               
                 if (mysqli_stmt_prepare($stmt, $query)) {
                     mysqli_stmt_bind_param($stmt, 'i', $idContent);
                     if (!mysqli_stmt_execute($stmt)) {
@@ -34,7 +34,7 @@ if (isset($_GET['apaga'])) {
                     header("Location: ../contents_emp.php");
                     $_SESSION["cont_emp"] = 2;
                 }
-                //SEGUNDA QUERY
+                
                 $stmt = mysqli_stmt_init($link);
                 if (mysqli_stmt_prepare($stmt, $query2)) {
                     mysqli_stmt_bind_param($stmt, 'i', $idContent);
@@ -47,7 +47,7 @@ if (isset($_GET['apaga'])) {
                     header("Location: ../contents_emp.php");
                     $_SESSION["cont_emp"] = 2;;
                 }
-                //SUCCESS
+               
                 header("Location: ../contents_emp.php");
                 $_SESSION["cont_emp"] = 1;
             }

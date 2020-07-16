@@ -56,7 +56,7 @@ if ($_GET["vac"]) {
 
                 <div id='wrapper' class="col-md-12 mb-3">
                     <div class="row">
-                        <!--first step-->
+                      
                         <div class="col-12 col-md-4">
                             <div class="imagem">
                                 <img class="img_percurso rounded-circle img-fluid" src="img/img_vaga.png" title="Vaga para <?=$vacancie_name?>"/>
@@ -66,8 +66,6 @@ if ($_GET["vac"]) {
                                 <p>Em baixo encontras todas as informações sobre a vaga.</p>
                             </div>
                         </div>
-                        <!---------------------->
-                        <!--Second step-->
 
                         <div class="col-12 col-md-4">
                             <div class="imagem">
@@ -87,7 +85,6 @@ if ($_GET["vac"]) {
                                             <li class="negro"><?= $capacity ?></li>
                                     <?php
                                         }
-                                        /* close statement */
                                         mysqli_stmt_close($stmt2);
                                     }
                                     ?>
@@ -95,8 +92,6 @@ if ($_GET["vac"]) {
                             </div>
                         </div>
 
-                        <!---------------------->
-                        <!--Third step-->
                         <div class="col-12 col-md-4">
                             <div class="imagem">
                                 <img class="img_percurso rounded-circle img-fluid" src="img/img_contacto.png" title="Contacta a empresa"/>
@@ -107,7 +102,7 @@ if ($_GET["vac"]) {
                             </div>
                         </div>
                     </div>
-                    <!---end of class row-->
+                 
                 </div>
                 <div id='wrapper_title'>
                     <div class='tagpost-top section' id='tagpost-top'>
@@ -211,14 +206,13 @@ if ($_GET["vac"]) {
                             $stmt2 = mysqli_stmt_init($link2);
                             if (mysqli_stmt_prepare($stmt2, $query2)) {
                                 mysqli_stmt_bind_param($stmt2, 'i', $User_publicou);
-                                /* execute the prepared statement */
+                              
                                 if (mysqli_stmt_execute($stmt2)) {
-                                    /* bind result variables */
+                                
                                     mysqli_stmt_bind_result($stmt2, $user_name, $email_user, $contact_user, $website_ue, $facebook_ue, $instagram_ue);
-                                    /* fetch values */
+                                  
                                     while (mysqli_stmt_fetch($stmt2)) {
                             ?>
-                                        <!--TERCEIRO CARD-->
                                         <div class="card-body altura" style="padding-top: 0 !important;">
                                             <blockquote class="blockquote mb-0 mt-4 ">
                                                 <ul id="notebook_ul">
@@ -264,7 +258,6 @@ if ($_GET["vac"]) {
                                         </div>
                             <?php
                                     }
-                                    /* close statement */
                                     mysqli_stmt_close($stmt2);
                                 }
                             }
@@ -298,7 +291,6 @@ if ($_GET["vac"]) {
                                             </p>
                                     <?php
                                         }
-                                        /* close statement */
                                         mysqli_stmt_close($stmt2);
                                     }
                                     ?>
@@ -308,11 +300,9 @@ if ($_GET["vac"]) {
                     </div>
         <?php
         }
-        /* close statement */
         mysqli_stmt_close($stmt);
     }
 } else {
     include("404.php");
 }
-/* close connection */
 mysqli_close($link);

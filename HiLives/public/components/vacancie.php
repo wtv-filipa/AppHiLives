@@ -143,7 +143,7 @@ if (isset($_GET["vac"])) {
                                     mysqli_stmt_bind_result($stmt2, $user_name, $email_user, $contact_user, $website_ue, $facebook_ue, $instagram_ue);
                                     while (mysqli_stmt_fetch($stmt2)) {
                             ?>
-                                        <!--TERCEIRO CARD-->
+                                        
                                         <div class="card-body altura" style="padding-top: 0 !important;">
                                             <blockquote class="blockquote mb-0 mt-4 ">
                                                 <ul id="notebook_ul">
@@ -187,10 +187,9 @@ if (isset($_GET["vac"])) {
                                             </blockquote>
                                         </div>
 
-                                        <!------------------------------------------>
+                                      
                             <?php
                                     }
-                                    /* close statement */
                                     mysqli_stmt_close($stmt2);
                                 }
                             }
@@ -219,7 +218,7 @@ if (isset($_GET["vac"])) {
                                         <?php
                                         } else {
                                         ?>
-                                            <p class="mx-auto mt-5 mb-5" style="font-size: 1rem;">
+                                            <p class="mx-auto mt-5 mb-5" style="font-size: 1rem; padding-bottom: 10%;">
                                                 <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle-fill mr-2 mb-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: #2f2f2f;">
                                                     <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z" />
                                                 </svg>
@@ -227,7 +226,6 @@ if (isset($_GET["vac"])) {
                                             </p>
                                     <?php
                                         }
-                                        /* close statement */
                                         mysqli_stmt_close($stmt2);
                                     }
                                     ?>
@@ -238,13 +236,11 @@ if (isset($_GET["vac"])) {
                 </div>
     <?php
         }
-        /* close statement */
         mysqli_stmt_close($stmt);
     }
 } else {
     include("404.php");
 }
-/* close connection */
 mysqli_close($link);
 mysqli_close($link2);
     ?>

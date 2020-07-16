@@ -16,9 +16,6 @@
   }
   
   .xp_titulo {
-      /*margin-top: 12px;
-                margin-right: 120px;
-                float: right;*/
       font-weight: bold;
       font-family: 'Quicksand' !important;
       font-size: 16px;
@@ -31,16 +28,11 @@
   }
   
   .username {
-      /*margin-right: 133px;
-    margin-top: -20px;
-    float: right;*/
       font-size: 14px;
   }
   
   .username_modal {
       margin-top: 12px;
-      /*margin-right: 618px;*/
-      /*float: right;*/
   }
   
   .avatar {
@@ -57,14 +49,10 @@
       border-radius: 50%;
       margin-top: 4px;
   }
-  /*Media Queries*/
-  /*Mobile S*/
   
   @media only screen and (min-width: 320px) {
 
       .username_modal {
-          /*margin-top: -26px!important;
-                margin-left: 40px!important;*/
           font-size: 14px!important;
       }
       .descricao {
@@ -72,7 +60,6 @@
           margin-top: 10px!important;
       }
   }
-  /*Mobile M*/
   
   @media only screen and (min-width: 375px) {
 
@@ -86,7 +73,6 @@
           margin-top: 10px!important;
       }
   }
-  /*Mobile L*/
   
   @media only screen and (min-width: 425px) {
       .username_modal {
@@ -99,7 +85,6 @@
           margin-top: 10px!important;
       }
   }
-  /* Extra small devices (phones, 600px and down) */
   
   @media only screen and (max-width: 600px) {
 
@@ -113,7 +98,6 @@
           margin-top: 10px;
       }
   }
-  /* Small devices (portrait tablets and large phones, 600px and up) */
   
   @media only screen and (min-width: 600px) {
 
@@ -127,7 +111,6 @@
           margin-top: 10px;
       }
   }
-  /* Medium devices (landscape tablets, 768px and up) */
   
   @media only screen and (min-width: 768px) {
 
@@ -141,13 +124,8 @@
           margin-top: 10px;
       }
   }
-  /* Large devices (laptops/desktops, 992px and up) */
   
   @media only screen and (min-width: 992px) {
-      /*.avatar {
-        margin-top: 8px;
-    }*/
-
       .username_modal {
           margin-top: -26px;
           margin-left: 40px;
@@ -158,15 +136,13 @@
           margin-top: 10px;
       }
   }
-  /* Extra large devices (large laptops and desktops, 1200px and up) */
   
   @media only screen and (min-width: 1200px) {
       .avatar {
           vertical-align: middle;
           width: 35px;
-          height: 35px;
+          height: 40px;
           border-radius: 50%;
-          /*margin-top: 8px;*/
       }
 
       .username_modal {

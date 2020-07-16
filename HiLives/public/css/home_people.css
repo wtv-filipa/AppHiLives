@@ -13,8 +13,6 @@
     margin-top: 5%;
 }
 
-/*fav icon*/
-
 .btn_fav {
     float: right;
     background-color: Transparent;
@@ -29,10 +27,6 @@
 padding-bottom: 0 !important;
 
 }
-
-
-/*cards highlights*/
-
 
 ul#notebook_ul {
     margin: 0 auto;
@@ -63,7 +57,6 @@ li.lista {
     box-sizing: border-box;
     margin-top: 0;
 }
-/* Font */
 
 .body2 {
     color: #272727;
@@ -175,9 +168,6 @@ li.lista {
     margin-bottom: 1.25rem;
     font-weight: 400;
 }
-
-
-/*___________________*/
 
 .sub_title {
     font-size: 18px;
@@ -348,7 +338,6 @@ img.tagpost_thumb {
     padding: 0;
     margin: auto;
     border: none;
-    /*text-align: center;*/
 }
 
 ul.taglabel li {
@@ -360,9 +349,6 @@ ul.taglabel li {
     overflow: hidden;
     font-family: "Quicksand", sans-serif;
 }
-
-#tagpost-top .widget ul,
-#tagpost-bottom .widget ul {}
 
 #tagpost-top .widget,
 #tagpost-bottom .widget {
@@ -404,17 +390,12 @@ ul.taglabel li {
     border-bottom: none;
 }
 
-#tagpost-top .widget ul li a,
-#tagpost-bottom .widget ul li a {}
-
 #tagpost-top .widget ul li a:hover,
 #tagpost-bottom .widget ul li a:hover {
     color: #444;
     text-decoration: none;
 }
 
-
-/*my links*/
 
 .circle_links {
     background-color: #aaa;
@@ -423,8 +404,6 @@ ul.taglabel li {
     position: relative;
 }
 
-
-/* Extra small devices (phones, 600px and down) */
 
 @media only screen and (max-width: 600px) {
     .cards {
@@ -437,7 +416,6 @@ ul.taglabel li {
         padding: 0;
         margin: auto;
         border: none;
-        /*text-align: center;*/
     }
     #tagpost-top .widget ul li,
     #tagpost-bottom .widget ul li {
@@ -492,7 +470,7 @@ ul.taglabel li {
     .adjustment_top {
         margin-top: 6% !important;
     }
-    /*botão adicionar UC links made*/
+    
 .add_btn {
     width: 80%!important;
     margin-top: 20px!important;
@@ -502,14 +480,6 @@ ul.taglabel li {
     margin-top: 20px!important;
 }
 }
-
-
-/* Small devices (portrait tablets and large phones, 600px and up) */
-
-
-
-
-/* Medium devices (landscape tablets, 768px and up) */
 
 @media only screen and (max-width: 768px) {
     #tagpost-top .widget ul li,
@@ -535,14 +505,8 @@ ul.taglabel li {
     .btn_cards {
         width: 30%;
     }
-    /* .btn_fav {
-
-
-
-    } */
 }
 @media only screen and (min-width: 768px) {
-    /*botão adicionar UC links made*/
     .add_btn {
         width: 50%!important;
     }
@@ -552,11 +516,6 @@ ul.taglabel li {
 }
 
 @media only screen and (min-width: 992px) {
- /*    .btn_fav {
-
-
-    } */
- /*botão adicionar UC links made*/
  .add_btn {
     width: 45%!important;
     margin-top: 5%!important;
@@ -566,16 +525,8 @@ ul.taglabel li {
     margin-top: 5%!important;
 }
 }
-
-
-/* Extra large devices (large laptops and desktops) */
 
 @media only screen and (min-width: 1200px) {
-    /* .btn_fav {
-
-
-    } */
- /*botão adicionar UC links made*/
  .add_btn {
     font-size: 16px !important;
     width: 50%!important;
@@ -586,8 +537,6 @@ ul.taglabel li {
 }
 }
 
-
-/*botão adicionar UC links made*/
 .add_btn {
     color: #00A5CF;
     padding: 0.3rem;

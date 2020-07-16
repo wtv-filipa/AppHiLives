@@ -58,41 +58,36 @@ $idUser = $_SESSION["idUser"];
         }
     }
     ?>
-    <!--Card-->
+   
     <div class="card mdb-color lighten-4 text-center z-depth-2 light-version py-4 px-5">
 
-        <!--título-->
         <div class="row no-gutters">
             <h3 class="mx-auto letter">
                 Criar nova vaga</h3>
         </div>
-        <!----------->
+
         <form id="sectionForm" class="md-form inserir_dados" class="mb-3" action="scripts/upload_vac.php?vac=<?=$idUser?>" enctype="multipart/form-data" method="post">
-            <!--primeiro campo-->
+         
             <div class="form-group text-left">
                 <label class="label-margin" for="nomevaga">Cargo na empresa: <span style="color:  #00A5CF!important; font-weight: bold; font-size: 20px">*</span></label>
                 <input type="text" id="nomevaga" name="nomevaga" class="form-control" placeholder="Insira o nome do cargo disponível." aria-required="true" required="required">
             </div>
-            <!-------------------------------------------->
-            <!--segundo campo-->
+          
             <div class="form-group text-left mt-4">
                 <label class="label-margin" for="descricao">Descrição da vaga: <span style="color:  #00A5CF!important; font-weight: bold; font-size: 20px">*</span></label>
                 <textarea type="text" id="descricao" rows="10" name="descricao" class="form-control" placeholder="Insira um texto que descreva a vaga que está a anunciar." aria-required="true" required="required"></textarea>
             </div>
-            <!-------------------------------------------->
-            <!--terceiro campo-->
+          
             <div class="form-group text-left">
                 <label class="label-margin" for="numvagas">Número de vagas disponíveis: <span style="color:  #00A5CF!important; font-weight: bold; font-size: 20px">*</span></label>
                 <input type="text" id="numvagas" name="numvagas" class="form-control" placeholder="Insira o número de vagas disponíveis para o cargo." aria-required="true" required="required">
             </div>
-            <!-------------------------------------------->
-            <!--quarto campo-->
+           
             <div class="form-group text-left mt-4">
                 <label class="label-margin" for="requisitos">Requisitos: <span style="color:  #00A5CF!important; font-weight: bold; font-size: 20px">*</span></label>
                 <textarea type="text" id="requisitos" rows="7" name="requisitos" class="form-control" placeholder="Insira todos os requisitos que o jovem deve cumprir para que se possa candidatar à vaga." aria-required="true" required="required"></textarea>
             </div>
-            <!-------------------------------------------->
-            <!--quinto campo-->
+           
             <div class="form-group text-left">
                 <label class="label-margin" for="area">Área: <span style="color:  #00A5CF!important; font-weight: bold; font-size: 20px">*</span></label>
                 <select class="form-control" id="area" name="area" aria-required="true" required="required">
@@ -106,15 +101,13 @@ $idUser = $_SESSION["idUser"];
                             while (mysqli_stmt_fetch($stmt)) {
                                 echo "\n\t\t<option value=\"$idAreas\">$name_interested_area</option>";
                             }
-                            /* close statement */
                             mysqli_stmt_close($stmt);
                         }
                     }
                     ?>
                 </select>
             </div>
-            <!-------------------------------------------->
-            <!--sexto campo-->
+          
             <div class="form-group text-left">
                 <label class="label-margin" for="jornada">Jornada de trabalho: <span style="color:  #00A5CF!important; font-weight: bold; font-size: 20px">*</span></label>
                 <select class="form-control" id="jornada" name="jornada" aria-required="true" required="required">
@@ -128,15 +121,13 @@ $idUser = $_SESSION["idUser"];
                             while (mysqli_stmt_fetch($stmt)) {
                                 echo "\n\t\t<option value=\"$id_Workday\">$name_workday</option>";
                             }
-                            /* close statement */
                             mysqli_stmt_close($stmt);
                         }
                     }
                     ?>
                 </select>
             </div>
-            <!-------------------------------------------->
-            <!--sétimo campo-->
+            
             <div class="form-group text-left">
                 <label class="label-margin" for="personality">Selecione cinco (5) capacidades necessárias: <span style="color:  #00A5CF!important; font-weight: bold; font-size: 20px">*</span></label>
                 <div class="form-check">
@@ -154,15 +145,13 @@ $idUser = $_SESSION["idUser"];
                                     echo "</label>";
                                 }
                             }
-                            /* close statement */
                             mysqli_stmt_close($stmt);
                         }
                     }
                     ?>
                 </div>
             </div>
-            <!-------------------------------------------->
-            <!--oitavo campo-->
+            
             <div class="form-group text-left">
                 <label class="label-margin" for="educ">Nível de educação: <span style="color:  #00A5CF!important; font-weight: bold; font-size: 20px">*</span></label>
                 <select class="form-control" id="educ" name="educ" aria-required="true" required="required">
@@ -176,18 +165,14 @@ $idUser = $_SESSION["idUser"];
                             while (mysqli_stmt_fetch($stmt)) {
                                 echo "\n\t\t<option value=\"$idEduc_lvl\">$name_education</option>";
                             }
-                            /* close statement */
+                            
                             mysqli_stmt_close($stmt);
                         }
                     }
                     ?>
                 </select>
             </div>
-            <!-------------------------------------------->
-
-
-            <!--nono campo-->
-            <!------------REGIÃO DA VAGA------------>
+           
             <div class="form-group formulario" id="pt">
                 <div class="form-group text-left">
                     <label class="negrito mt-3" for="regiao_pt">Região da Vaga
@@ -212,7 +197,6 @@ $idUser = $_SESSION["idUser"];
                                     }
                                     echo "\n\t\t<option value=\"$Region_idRegion\" $selected>$name_region</option>";
                                 }
-                                /* close statement */
                                 mysqli_stmt_close($stmt);
                             }
                         }
@@ -221,8 +205,6 @@ $idUser = $_SESSION["idUser"];
                 </div>
             </div>
 
-            <!-------------------------------------------->
-            <!--input de upload-->
             <div class="alert alert-warning mt-4" role="alert">
                 Insira um vídeo da experiência na empresa até 50MB. (opcional)
             </div>
@@ -230,8 +212,6 @@ $idUser = $_SESSION["idUser"];
                 <input type="file" class="custom-file-input file-upload" id="customFile" name="fileToUpload">
                 <label class="custom-file-label" for="customFile">Choose file</label>
             </div>
-
-            <!-------------------------------------------->
 
             <div>
                 <button type="submit" name="but_upload" class="btn btn-success publicar_btn">Publicar</button>

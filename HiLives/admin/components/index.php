@@ -4,22 +4,18 @@ require_once("connections/connection.php");
 $link = new_db_connection();
 $stmt = mysqli_stmt_init($link);
 
-/*CONTA TODOS*/
 $query = "SELECT COUNT(idUser)
           FROM users 
           WHERE User_type_idUser_type != 4";
 
-/*CONTA EMPRESAS*/
 $query2 = "SELECT COUNT(idUser)
           FROM users 
           WHERE User_type_idUser_type = 7";
 
-/*CONTA JOVENS*/
 $query3 = "SELECT COUNT(idUser)
           FROM users 
           WHERE User_type_idUser_type = 10";
 
-/*CONTA UNIVERSIDADES*/
 $query4 = "SELECT COUNT(idUser)
           FROM users 
           WHERE User_type_idUser_type = 13";
@@ -57,7 +53,6 @@ if (isset($_SESSION["erro"])) {
 ?>
 <div class="row">
     <?php
-    //Todos os utilizadores(menos admin)        
     if (mysqli_stmt_prepare($stmt, $query)) {
 
         mysqli_stmt_execute($stmt);
@@ -66,7 +61,6 @@ if (isset($_SESSION["erro"])) {
         while (mysqli_stmt_fetch($stmt)) {
     ?>
 
-            <!-- Earnings (Monthly) Card Example -->
             <div class="col-xl-3 col-md-6 mb-4">
                 <div class="card border-left-primary shadow h-100 py-2 borderCustom">
                     <div class="card-body">
@@ -87,7 +81,7 @@ if (isset($_SESSION["erro"])) {
         <?php
         }
     }
-    //Todos os users que são empresas        
+
     if (mysqli_stmt_prepare($stmt, $query2)) {
 
         mysqli_stmt_execute($stmt);
@@ -96,7 +90,6 @@ if (isset($_SESSION["erro"])) {
         while (mysqli_stmt_fetch($stmt)) {
         ?>
 
-            <!-- Earnings (Monthly) Card Example -->
             <div class="col-xl-3 col-md-6 mb-4">
                 <div class="card border-left-primary shadow h-100 py-2 borderCustom">
                     <div class="card-body">
@@ -117,7 +110,7 @@ if (isset($_SESSION["erro"])) {
         <?php
         }
     }
-    //Todos os users que são jovens     
+
     if (mysqli_stmt_prepare($stmt, $query3)) {
 
         mysqli_stmt_execute($stmt);
@@ -125,8 +118,6 @@ if (isset($_SESSION["erro"])) {
 
         while (mysqli_stmt_fetch($stmt)) {
         ?>
-
-            <!-- Earnings (Monthly) Card Example -->
             <div class="col-xl-3 col-md-6 mb-4">
                 <div class="card border-left-primary shadow h-100 py-2 borderCustom">
                     <div class="card-body">
@@ -147,7 +138,7 @@ if (isset($_SESSION["erro"])) {
         <?php
         }
     }
-    //Todos os users que são universidades     
+
     if (mysqli_stmt_prepare($stmt, $query4)) {
 
         mysqli_stmt_execute($stmt);
@@ -155,8 +146,6 @@ if (isset($_SESSION["erro"])) {
 
         while (mysqli_stmt_fetch($stmt)) {
         ?>
-
-            <!-- Earnings (Monthly) Card Example -->
             <div class="col-xl-3 col-md-6 mb-4">
                 <div class="card border-left-primary shadow h-100 py-2 borderCustom">
                     <div class="card-body">
@@ -177,5 +166,7 @@ if (isset($_SESSION["erro"])) {
     <?php
         }
     }
+    mysqli_stmt_close($stmt);
+    mysqli_close($link);
     ?>
 </div>

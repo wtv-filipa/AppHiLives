@@ -29,3 +29,40 @@ h3 {
 a:hover{
     color: #00A5CF;
 }
+
+@media only screen and (max-width: 600px) {
+    .video{
+        width: 250px;
+        height: auto;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .video{
+        width: 400px;
+        height: auto;
+    }
+}
+
+
+@media only screen and (min-width: 768px) {
+    .video{
+        width: 550px;
+        height: auto;
+    }
+}
+
+
+@media only screen and (min-width: 992px) {
+    .video{
+        width: 700px;
+        height: auto;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .video{
+        width: 850px;
+        height: auto;
+    }
+}

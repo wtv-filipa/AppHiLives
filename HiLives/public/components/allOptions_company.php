@@ -9,13 +9,11 @@ $stmt = mysqli_stmt_init($link);
 if (isset($_SESSION["type"])) {
     $type = $_SESSION["type"];
 
-    //query que vai mostrar todas as vagas
     $query = "SELECT idVacancies, vacancie_name, name_user, profile_img
                 FROM vacancies
                 INNER JOIN users ON vacancies.User_publicou = users.idUser
                 ORDER BY idVacancies DESC";
 
-    //query que vai mostrar todos os jovens da aplicação
     $query2 = "SELECT idUser, name_user, birth_date, profile_img
                 FROM users
                 INNER JOIN user_type ON users.User_type_idUser_type = user_type.idUser_type
@@ -23,7 +21,7 @@ if (isset($_SESSION["type"])) {
                 ORDER BY idUser DESC";
 
 ?>
-    <!--EMPRESAS-->
+
     <div class=" mx-auto div_geral2">
         <div id='wrapper_title' class="mb-4">
             <div class='tagpost-top section' id='tagpost-top'>
@@ -60,8 +58,8 @@ if (isset($_SESSION["type"])) {
 
                     mysqli_stmt_execute($stmt);
                     mysqli_stmt_bind_result($stmt, $idVacancies, $vacancie_name, $name_user, $profile_img);
-                    mysqli_stmt_store_result($stmt); // Store the result into memory
-                    if (mysqli_stmt_num_rows($stmt) > 0) { // Check the number of rows returned
+                    mysqli_stmt_store_result($stmt);
+                    if (mysqli_stmt_num_rows($stmt) > 0) { 
                         while (mysqli_stmt_fetch($stmt)) {
                 ?>
                             <div class="cards col-xs-12 col-sm-6 col-lg-4">
@@ -100,7 +98,6 @@ if (isset($_SESSION["type"])) {
                             </div>
                         <?php
                         }
-                        /* close statement */
                         mysqli_stmt_close($stmt);
                     } else {
                         ?>
@@ -126,8 +123,8 @@ if (isset($_SESSION["type"])) {
 
                     mysqli_stmt_execute($stmt);
                     mysqli_stmt_bind_result($stmt, $idVacancies, $vacancie_name, $name_user, $profile_img);
-                    mysqli_stmt_store_result($stmt); // Store the result into memory
-                    if (mysqli_stmt_num_rows($stmt) > 0) { // Check the number of rows returned
+                    mysqli_stmt_store_result($stmt); 
+                    if (mysqli_stmt_num_rows($stmt) > 0) { 
                         while (mysqli_stmt_fetch($stmt)) {
                 ?>
                             <div class="cards col-xs-12 col-sm-6 col-lg-4">
@@ -166,7 +163,6 @@ if (isset($_SESSION["type"])) {
                             </div>
                         <?php
                         }
-                        /* close statement */
                         mysqli_stmt_close($stmt);
                     } else {
                         ?>
@@ -191,8 +187,8 @@ if (isset($_SESSION["type"])) {
 
                     mysqli_stmt_execute($stmt);
                     mysqli_stmt_bind_result($stmt, $idUser, $name_user, $birth_date, $profile_img);
-                    mysqli_stmt_store_result($stmt); // Store the result into memory
-                    if (mysqli_stmt_num_rows($stmt) > 0) { // Check the number of rows returned
+                    mysqli_stmt_store_result($stmt); 
+                    if (mysqli_stmt_num_rows($stmt) > 0) {
                         while (mysqli_stmt_fetch($stmt)) {
                             $dob = $birth_date;
                             $age = (date('Y') - date('Y', strtotime($dob)));
@@ -223,7 +219,6 @@ if (isset($_SESSION["type"])) {
                             </div>
                         <?php
                         }
-                        /* close statement */
                         mysqli_stmt_close($stmt);
                     } else {
                         ?>
@@ -241,11 +236,10 @@ if (isset($_SESSION["type"])) {
         <?php
         }
         ?>
-        <!--fim do que engloba os cards-->
-    </div> <!-- div da w-75-->
+    </div> 
 <?php
 } else {
     include("404.php");
 }
-/* close connection */
+
 mysqli_close($link);

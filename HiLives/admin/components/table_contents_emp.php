@@ -4,10 +4,10 @@ require_once("connections/connection.php");
 
 if (isset($_SESSION["idUser"])) {
   $idUser = $_SESSION["idUser"];
-  // Create a new DB connection
+
   $link = new_db_connection();
-  /* create a prepared statement */
   $stmt = mysqli_stmt_init($link);
+
   $query = "SELECT idContent, content_type, date_content, name_user, vacancie_name FROM content 
   INNER JOIN vacancies ON content.idContent = vacancies.Content_idContent
   Inner JOIN users ON vacancies.User_publicou = users.idUser
@@ -17,7 +17,6 @@ if (isset($_SESSION["idUser"])) {
 
 ?>
 
-  <!-- Page Heading -->
   <h1 class="h3 mb-2 text-gray-800">Vídeos publicados pelas empresas</h1>
   <p class="mb-4">Aqui é possível visualizar e gerir todos os vídeos publicados pelas empresas, juntamente com as suas vagas, até ao momento.</p>
   <?php
@@ -52,7 +51,7 @@ if (isset($_SESSION["idUser"])) {
     }
   }
   ?>
-  <!-- DataTales Example -->
+
   <div class="card shadow mb-4">
     <div class="card-body">
       <div class="table-responsive">
@@ -97,10 +96,11 @@ if (isset($_SESSION["idUser"])) {
                   </td>
                 </tr>
             <?php
-                //Modal de eliminar o conteudo
                 include('components/delete_modal.php');
               }
             }
+            mysqli_stmt_close($stmt);
+            mysqli_close($link);
             ?>
           </tbody>
         </table>

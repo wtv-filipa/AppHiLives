@@ -11,7 +11,6 @@ if (isset($_SESSION["idUser"]) and $_SESSION["type"] != 4) {
     <html lang="en">
 
     <head>
-        <!-- metadados -->
         <?php include "helpers/meta.php"; ?>
         <?php
         require_once("connections/connection.php");
@@ -26,37 +25,33 @@ if (isset($_SESSION["idUser"]) and $_SESSION["type"] != 4) {
             while (mysqli_stmt_fetch($stmt7)) {
                 if (isset($_GET["user"]) && $_GET["user"] == $id_navegar) {
                     echo "<title>Sobre mim</title>";
-                }else{
+                } else {
                     echo "<title>Perfil</title>";
-                } 
+                }
             }
             mysqli_stmt_close($stmt7);
         }
         ?>
-        <!-- Custom fonts for this template-->
         <?php include "helpers/fonts.php"; ?>
-        <!-- Custom styles for this template-->
         <?php include "helpers/css_profile.php"; ?>
-
     </head>
 
     <body id="fundo">
+        <?php include "components/loading_screen.php"; ?>
         <header class="sticky-top">
-            <!--navbar-->
             <?php include "components/navbar.php"; ?>
         </header>
         <main class="container">
             <?php include "components/profile.php"; ?>
         </main>
         <?php include "components/footer.php"; ?>
-        <?php include "components/loading_screen.php"; ?>
-        <!-- JavaScript-->
+
         <?php include "helpers/js.php"; ?>
         <?php include "helpers/fontawesome.php"; ?>
         <script type="text/javascript" src="js/notifications.js"></script>
         <script>
             $('.modal_problem').appendTo("body");
-        
+
             $(window).on("load", function() {
                 $(".loader-wrapper").fadeOut("slow");
             });

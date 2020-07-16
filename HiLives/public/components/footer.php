@@ -1,7 +1,7 @@
 <?php
 
 require_once("connections/connection.php");
-$type = $_SESSION["type"];
+
 if (isset($_SESSION["idUser"])) {
     $idUser = $_SESSION["idUser"];
 }
@@ -11,12 +11,10 @@ if (isset($_SESSION["idUser"])) {
 <footer class="site-footer ">
     <div class="container">
         <div class="row mx-auto">
-            <!--            <div class="col-sm-12 col-md-6">-->
-            <!--                <h6>About</h6>-->
-            <!--                <p class="text-justify">Scanfcode.com <i>CODE WANTS TO BE SIMPLE </i> is an initiative  to help the upcoming programmers with the code. Scanfcode focuses on providing the most efficient code or snippets as the code wants to be simple. We will help programmers build up concepts in different programming languages that include C, C++, Java, HTML, CSS, Bootstrap, JavaScript, PHP, Android, SQL and Algorithm.</p>-->
-            <!--            </div>-->
+    
             <?php
             if (isset($_SESSION["idUser"])) {
+                $type = $_SESSION["type"];
             ?>
                 <div class="col-xs-12 col-sm-6 col-lg-4 adjustment">
                     <h6>Atalhos</h6>
@@ -24,18 +22,21 @@ if (isset($_SESSION["idUser"])) {
                         <?php
                         if ($type == 7) {
                         ?>
+                            <li><a href="scripts/match_logo.php?emp=<?= $idUser ?>">Página inicial</a></li>
                             <li><a href="can_choose_work.php">Os meus candidatos</a></li>
                             <li><a href="all_vacancies_comp.php">As minhas vagas</a></li>
                             <li><a href="profile.php?user=<?=$idUser?>">Sobre mim</a></li>
                         <?php
                         } else if ($type == 10) {
                         ?>
+                            <li><a href="scripts/match_logo.php?jovem=<?= $idUser ?>">Página inicial</a></li>
                             <li><a href="can_choose_study.php">Ligações com universidades</a></li>
                             <li><a href="can_choose_work.php">Ligações com empresas</a></li>
                             <li><a href="profile.php?user=<?=$idUser?>">Sobre mim</a></li>
                         <?php
                         } else if ($type == 13) {
                         ?>
+                            <li><a href="scripts/match_logo.php?uni=<?= $idUser ?>">Página inicial</a></li>
                             <li><a href="can_choose_study.php">Os meus candidatos</a></li>
                             <li><a href="allOptions_company.php">Vagas de empresas</a></li>
                             <li><a href="profile.php?user=<?=$idUser?>">Sobre mim</a></li>
