@@ -17,12 +17,12 @@
   
   .xp_titulo {
       font-weight: bold;
-      font-family: 'Quicksand' !important;
+      font-family: 'Quicksand', 'Montserrat', sans-serif !important;
       font-size: 16px;
   }
   
   h3 {
-      font-family: 'Quicksand' !important;
+    font-family: 'Quicksand', 'Montserrat', sans-serif !important;
       font-weight: bold;
       font-size: 22px;
   }

@@ -52,7 +52,7 @@
     color: #2F2F2F;
     padding: 0.3rem;
     font-size: 14px;
-    font-family: "Quicksand", sans-serif;
+    font-family: "Quicksand", 'Montserrat', sans-serif !important;
     border: 0.1em solid #2F2F2F;
     border-radius: 5px;
     font-weight: 800;
@@ -67,7 +67,7 @@
     border: 0.1em solid #2F2F2F;
 }
 .btn {
-    font-family: 'Quicksand';
+    font-family: 'Quicksand', 'Montserrat', sans-serif !important;
 }
 
 a {
@@ -82,7 +82,7 @@ a:hover {
 h2,
 h4,
 h3 {
-    font-family: 'Quicksand';
+    font-family: 'Quicksand', 'Montserrat', sans-serif !important;
     font-weight: bold;
 }
 

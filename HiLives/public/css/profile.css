@@ -2,7 +2,7 @@
     background-color:rgba(242,242,242,0.7);
 }
 .info_title {
-    font-family: Quicksand, sans-serif;
+    font-family: 'Quicksand', 'Montserrat', sans-serif !important;
     font-size: 16px;
     color: #00A5CF;
     font-weight: bold;
@@ -20,7 +20,7 @@ img.tagpost_thumb {
 
 .instituicao {
     font-size: 0.9rem;
-    font-family: Quicksand, sans-serif !important;
+    font-family: 'Quicksand', 'Montserrat', sans-serif !important;
     margin: 0;
 }
 
@@ -49,7 +49,7 @@ ul.taglabel li {
     color: #00A5CF;
     padding: 0.3rem;
     font-size: 14px;
-    font-family: "Quicksand", sans-serif;
+    font-family: "Quicksand", 'Montserrat', sans-serif !important;
     border: 0.1em solid #00A5CF;
     border-radius: 5px;
     font-weight: 800;
@@ -68,7 +68,7 @@ ul.taglabel li {
     color: #00A5CF;
     padding: 0.3rem;
     font-size: 14px;
-    font-family: "Quicksand", sans-serif;
+    font-family: "Quicksand", 'Montserrat', sans-serif !important;
     border: 0.1em solid #00A5CF;
     border-radius: 5px;
     font-weight: 800;
@@ -113,7 +113,7 @@ ul.taglabel li {
 
 .titulo_videos {
     font-size: 22px;
-    font-family: "Quicksand";
+    font-family: "Quicksand", 'Montserrat', sans-serif !important;
     font-weight: bold;
     max-width: 100%;
     margin-top: 5%;
@@ -133,7 +133,7 @@ ul.taglabel li {
     color: #00A5CF!important;
     text-decoration: none !important;
     height: 154px;
-    font-family: "Quicksand", sans-serif;
+    font-family: "Quicksand", 'Montserrat', sans-serif !important;
     padding: 0.3rem;
     font-size: 14px !important;
     border: 0.1em solid #00A5CF;
@@ -151,7 +151,7 @@ ul.taglabel li {
     text-decoration: none !important;
     height: 154px;
     border-radius: 10px !important;
-    font-family: "Quicksand";
+    font-family: "Quicksand", 'Montserrat', sans-serif !important;
     font-weight: bold;
 }
 
@@ -165,7 +165,7 @@ a {
 h3,
 h6,
 button.btn.edit_btn {
-    font-family: 'Quicksand'
+    font-family: 'Quicksand', 'Montserrat', sans-serif !important;
 }
 
 .link_title {
@@ -187,7 +187,7 @@ ul#notebook_ul {
 }
 
 li.lista {
-    font-family: Quicksand, sans-serif;
+    font-family: 'Quicksand', 'Montserrat', sans-serif !important;
     font-size: 16px !important;
     list-style: none;
     background-color: rgba(0, 0, 0, 0.05);
@@ -533,7 +533,7 @@ li.lista {
 
 .tabs .content section h2,
 .tabs ul li label {
-    font-family: "Quicksand", sans-serif;
+    font-family: "Quicksand", 'Montserrat', sans-serif !important;
     font-weight: bold;
     font-size: 18px;
     color: #428BFF;
@@ -867,7 +867,7 @@ li.lista {
         text-align: left;
     }
     .tabs ul li label {
-        font-family: "Quicksand", sans-serif;
+        font-family: "Quicksand", 'Montserrat', sans-serif !important;
         font-weight: bold;
         font-size: 18px;
         color: #428BFF;
@@ -876,7 +876,7 @@ li.lista {
 }
 
 h5 {
-    font-family: "Quicksand", sans-serif;
+    font-family: "Quicksand", 'Montserrat', sans-serif !important;
     font-weight: bold;
     font-size: 18px;
 }

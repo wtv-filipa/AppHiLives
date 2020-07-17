@@ -3,7 +3,7 @@
     color: #2F2F2F !important;
     padding: 0.3rem !important;
     font-size: 14px !important;
-    font-family: "Quicksand", sans-serif !important;
+    font-family: "Quicksand", 'Montserrat', sans-serif !important;
     border: 0.1em solid #2F2F2F !important;
     border-radius: 5px !important;
     font-weight: 800 !important;
@@ -21,7 +21,7 @@
 .btn_apagar {
     padding: 0.3rem !important;
     font-size: 14px !important;
-    font-family: "Quicksand", sans-serif !important;
+    font-family: "Quicksand", 'Montserrat', sans-serif !important;
     font-weight: 800 !important;
     width: 25% !important;
 }
@@ -47,6 +47,7 @@ a.hover:hover{
 }
 
 ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
 }
@@ -78,7 +79,7 @@ a.hover:hover{
     margin-top: 5% !important;
     font-weight: bold;
     border-color: #D3D3D3!important;
-    font-family: 'Quicksand' !important;
+    font-family: 'Quicksand', 'Montserrat', sans-serif !important;
     font-size: 16px !important;
 }
 
@@ -93,7 +94,7 @@ a.hover:hover{
     display: inline-block!important;
     border-color: #2F2F2F!important;
     border-radius: 40px!important;
-    font-family: 'Quicksand' !important;
+    font-family: 'Quicksand', 'Montserrat', sans-serif !important;
     font-size: 16px !important;
     margin-top: 5% !important;
 }
@@ -101,7 +102,7 @@ a.hover:hover{
 .error-container {
     text-align: center;
     font-size: 180px;
-    font-family: "Quicksand", sans-serif;
+    font-family: "Quicksand", 'Montserrat', sans-serif !important;
     font-weight: 800;
     margin: 20px 15px;
 }
@@ -201,7 +202,7 @@ a.hover:hover{
 }
 
 html {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', 'Open Sans', sans-serif !important;
     line-height: 1.15;
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -222,7 +223,7 @@ section {
 
 body {
     margin: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', 'Open Sans', sans-serif !important;
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
@@ -249,13 +250,13 @@ h5,
 h6 {
     margin-top: 0;
     margin-bottom: 0.5rem;
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Quicksand', 'Montserrat', sans-serif !important;
 }
 
 p {
     margin-top: 0;
     margin-bottom: 1rem;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', 'Open Sans', sans-serif !important;
 }
 
 abbr[title],
@@ -395,7 +396,7 @@ caption {
 
 th {
     text-align: inherit;
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Quicksand', 'Montserrat', sans-serif !important;
 }
 
 label {
@@ -6069,7 +6070,7 @@ a.close.disabled {
     z-index: 1070;
     display: block;
     margin: 0;
-    font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: 'Roboto', 'Open Sans', sans-serif !important;
     font-style: normal;
     font-weight: 400;
     line-height: 1.5;
@@ -6194,7 +6195,7 @@ a.close.disabled {
     z-index: 1060;
     display: block;
     max-width: 276px;
-    font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: 'Roboto', 'Open Sans', sans-serif !important;
     font-style: normal;
     font-weight: 400;
     line-height: 1.5;
@@ -10559,7 +10560,7 @@ a:focus {
 .sidebar .nav-item .nav-link span {
     font-size: 0.65rem;
     display: block;
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Quicksand', 'Montserrat', sans-serif !important;
 }
 
 .sidebar .nav-item.active .nav-link {

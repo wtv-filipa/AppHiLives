@@ -105,7 +105,7 @@ if (isset($_GET["info"])) {
                             mysqli_stmt_bind_result($stmt, $capacity_comp, $vacancies_idVacancies);
                             while (mysqli_stmt_fetch($stmt)) {
                                 echo "<ul>
-                            <li  style='font-size: 16px; font-family: Quicksand; list-style-type:circle;'>$capacity_comp</li>
+                            <li  style='font-size: 16px; font-family: 'Quicksand', 'Montserrat', sans-serif !important; list-style-type:circle;'>$capacity_comp</li>
                             </ul>";
                             }
                         }

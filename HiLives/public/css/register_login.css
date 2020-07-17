@@ -12,7 +12,7 @@ input,
 textarea,
 h1,
 option {
-    font-family: "Quicksand";
+    font-family: "Quicksand", 'Montserrat', sans-serif !important;
 }
 
 a.small {
@@ -23,18 +23,18 @@ a.small:hover {
 }
 
 * {
-    font-family: "Quicksand";
+    font-family: "Quicksand", 'Montserrat', sans-serif !important;
     color: #2f2f2f !important;
 }
 
 .descricao {
     font-size: 14px;
-    font-family: "Quicksand", sans-serif !important;
+    font-family: "Quicksand", 'Montserrat', sans-serif !important;
 }
 
 .titulo_cinza {
     color: #2F2F2F;
-    font-family: "Quicksand";
+    font-family: "Quicksand", 'Montserrat', sans-serif !important;
     font-weight: bold;
 }
 .asterisco {
@@ -47,7 +47,7 @@ a.small:hover {
     color: #00A5CF !important;
     padding: 0.3rem;
     font-size: 14px;
-    font-family: "Quicksand", sans-serif;
+    font-family: "Quicksand", 'Montserrat', sans-serif !important;
     border: 0.1em solid #00A5CF;
     border-radius: 5px;
     font-weight: 800;
@@ -66,7 +66,7 @@ a.small:hover {
     color: #00A5CF !important;
     padding: 0.3rem;
     font-size: 14px;
-    font-family: "Quicksand", sans-serif;
+    font-family: "Quicksand", 'Montserrat', sans-serif !important;
     border: 0.1em solid #00A5CF;
     border-radius: 5px;
     font-weight: 800;

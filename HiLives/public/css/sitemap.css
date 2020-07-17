@@ -2,7 +2,7 @@
     background-color:rgba(242,242,242,0.7);
 }
 .titulo1 {
-    font-family: "Quicksand", sans-serif;
+    font-family: "Quicksand", 'Montserrat', sans-serif !important;
     color: #2F2F2F;
     font-size: 24px;
     font-weight: bold;
@@ -17,7 +17,7 @@ a:hover{
 }
 
 h3 {
-    font-family: "Quicksand", sans-serif;
+    font-family: "Quicksand", 'Montserrat', sans-serif !important;
     font-size: 18px;
     font-weight: bold;
 }
