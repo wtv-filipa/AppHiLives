@@ -23,8 +23,10 @@ if ($_SESSION["idUser"]) {
             INNER JOIN vacancies ON user_has_vacancies.Vacancies_idVacancies = vacancies.idVacancies 
             INNER JOIN users ON users.idUser = vacancies.User_publicou
             WHERE User_young = ? AND match_perc = 1";
+  
 
 ?>
+    <input type="hidden" id="show_modal" value="<?php echo isset($_GET['model']) && $_GET['model'] === true ? 1 : 0; ?>">
     <div class="w-75 mx-auto list_links">
         <div id='wrapper_title'>
             <div class='tagpost-top section' id='tagpost-top'>
@@ -35,7 +37,9 @@ if ($_SESSION["idUser"]) {
                 </div>
             </div>
         </div>
-
+        <?php
+        include('components/modal_vid_explain.php');
+        ?>
         <div id='wrapper'>
             <div id='recenttags'>
                 <div class='tagpost-top section' id='tagpost-top'>
@@ -50,8 +54,8 @@ if ($_SESSION["idUser"]) {
                                     mysqli_stmt_bind_param($stmt, 'i', $idUser);
                                     mysqli_stmt_execute($stmt);
                                     mysqli_stmt_bind_result($stmt, $Area, $name_user, $profile_img, $id_match, $user_university, $favorite);
-                                    mysqli_stmt_store_result($stmt); 
-                                    if (mysqli_stmt_num_rows($stmt) > 0) { 
+                                    mysqli_stmt_store_result($stmt);
+                                    if (mysqli_stmt_num_rows($stmt) > 0) {
                                         while (mysqli_stmt_fetch($stmt)) {
                                 ?>
                                             <li class='clearfix_uni'>
@@ -94,7 +98,7 @@ if ($_SESSION["idUser"]) {
                                             </li>
                                         <?php
                                         }
-                                        
+
                                         mysqli_stmt_close($stmt);
                                     } else {
                                         ?>
@@ -124,8 +128,8 @@ if ($_SESSION["idUser"]) {
                     mysqli_stmt_bind_param($stmt, 'i', $idUser);
                     mysqli_stmt_execute($stmt);
                     mysqli_stmt_bind_result($stmt, $Area, $name_user, $profile_img, $id_match, $user_university, $favorite);
-                    mysqli_stmt_store_result($stmt); 
-                    if (mysqli_stmt_num_rows($stmt) > 0) { 
+                    mysqli_stmt_store_result($stmt);
+                    if (mysqli_stmt_num_rows($stmt) > 0) {
                         if (mysqli_stmt_fetch($stmt)) {
                 ?>
                             <a href="can_choose_study.php">
@@ -237,7 +241,7 @@ if ($_SESSION["idUser"]) {
             <?php
                     }
                 }
-               
+
                 mysqli_stmt_close($stmt);
             }
 
@@ -270,23 +274,23 @@ if ($_SESSION["idUser"]) {
                                     mysqli_stmt_bind_param($stmt, 'i', $idUser);
                                     mysqli_stmt_execute($stmt);
                                     mysqli_stmt_bind_result($stmt, $id_match_vac, $User_young, $Vacancies_idVacancies, $match_perc, $favorite, $profile_img, $vacancie_name, $name_user);
-                                    mysqli_stmt_store_result($stmt); 
-                                    if (mysqli_stmt_num_rows($stmt) > 0) { 
+                                    mysqli_stmt_store_result($stmt);
+                                    if (mysqli_stmt_num_rows($stmt) > 0) {
                                         while (mysqli_stmt_fetch($stmt)) {
                                 ?>
                                             <li class='clearfix_companies'>
                                                 <?php
                                                 if ($favorite == 0) {
                                                 ?>
-                                                        <button class="btn rounded-circle btn_fav fav_emp" id="<?= $id_match_vac ?>">
-                                                            <i class="fa fa-heart-o" aria-hidden="true" style="color: #2F2F2F"></i><span class="sr-only">(Marcar como favorito)
-                                                        </button>
+                                                    <button class="btn rounded-circle btn_fav fav_emp" id="<?= $id_match_vac ?>">
+                                                        <i class="fa fa-heart-o" aria-hidden="true" style="color: #2F2F2F"></i><span class="sr-only">(Marcar como favorito)
+                                                    </button>
                                                 <?php
                                                 } else {
                                                 ?>
-                                                        <button class="btn rounded-circle btn_fav fav_emp" id="<?= $id_match_vac ?>">
-                                                            <i class="fa fa-heart" aria-hidden="true" style="color: #A31621"></i><span class="sr-only">(Remover favorito)
-                                                        </button>
+                                                    <button class="btn rounded-circle btn_fav fav_emp" id="<?= $id_match_vac ?>">
+                                                        <i class="fa fa-heart" aria-hidden="true" style="color: #A31621"></i><span class="sr-only">(Remover favorito)
+                                                    </button>
                                                 <?php
                                                 }
                                                 if (isset($profile_img)) {
@@ -323,7 +327,7 @@ if ($_SESSION["idUser"]) {
                                             </li>
                                         <?php
                                         }
-                                       
+
                                         mysqli_stmt_close($stmt);
                                     } else {
                                         ?>
@@ -351,8 +355,8 @@ if ($_SESSION["idUser"]) {
                     mysqli_stmt_bind_param($stmt, 'i', $idUser);
                     mysqli_stmt_execute($stmt);
                     mysqli_stmt_bind_result($stmt, $id_match_vac, $User_young, $Vacancies_idVacancies, $match_perc, $favorite, $profile_img, $vacancie_name, $name_user);
-                    mysqli_stmt_store_result($stmt); 
-                    if (mysqli_stmt_num_rows($stmt) > 0) { 
+                    mysqli_stmt_store_result($stmt);
+                    if (mysqli_stmt_num_rows($stmt) > 0) {
                         if (mysqli_stmt_fetch($stmt)) {
                 ?>
                             <a href="can_choose_work.php">

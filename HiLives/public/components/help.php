@@ -15,10 +15,9 @@ include "navbar_2.php";
 
         <div class="mt-5 mx-auto">
             <h3 class="subtitulo mb-3">Como utilizar a HiLives- vídeo explicativo</h3>
-            <video class="video" width="320" height="240" controls>
-                <source src="video/help.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+            <div class="video" controls>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/SZqio3YCUNU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
         </div>
 
         <div class="mt-5">

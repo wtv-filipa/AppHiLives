@@ -101,9 +101,9 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
                                         <h4 class="card-intro description_title"><i class="fas fa-suitcase"></i>
                                             Trabalhar</h4>
                                         <?php
-                                        if (strlen($vacancie_name) > 48) {
+                                        if (strlen($vacancie_name) > 40) {
                                         ?>
-                                            <h2 class="card-title sub_title"><?= substr($vacancie_name, 0, 48) ?>...</h2>
+                                            <h2 class="card-title sub_title"><?= substr($vacancie_name, 0, 40) ?>...</h2>
                                         <?php
                                         } else {
                                         ?>
@@ -162,9 +162,9 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
                                             </h4>
                                             <h2 class="card-title sub_title"><?= $name_user ?></h2>
                                             <?php
-                                            if (strlen($vacancie_name) > 48) {
+                                            if (strlen($vacancie_name) > 40) {
                                             ?>
-                                                <p class="card-intro description_title2"><?= substr($vacancie_name, 0, 48) ?>...</p>
+                                                <p class="card-intro description_title2"><?= substr($vacancie_name, 0, 40) ?>...</p>
                                             <?php
                                             } else {
                                             ?>
@@ -264,9 +264,9 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
                                         <h4 class="card-intro description_title">
                                             <i class="fas fa-suitcase"></i>Trabalhar</h4>
                                         <?php
-                                        if (strlen($vacancie_name) > 48) {
+                                        if (strlen($vacancie_name) > 40) {
                                         ?>
-                                            <h2 class="card-title sub_title"><?= substr($vacancie_name, 0, 48) ?>...</h2>
+                                            <h2 class="card-title sub_title"><?= substr($vacancie_name, 0, 40) ?>...</h2>
                                         <?php
                                         } else {
                                         ?>
@@ -326,9 +326,9 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
                                             </h4>
                                             <h2 class="card-title sub_title"><?= $name_user ?></h2>
                                             <?php
-                                            if (strlen($vacancie_name) > 48) {
+                                            if (strlen($vacancie_name) > 40) {
                                             ?>
-                                                <p class="card-intro description_title2"><?= substr($vacancie_name, 0, 48) ?>...</p>
+                                                <p class="card-intro description_title2"><?= substr($vacancie_name, 0, 40) ?>...</p>
                                             <?php
                                             } else {
                                             ?>

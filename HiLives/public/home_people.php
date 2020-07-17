@@ -17,13 +17,23 @@ if (isset($_SESSION["idUser"]) and $_SESSION["type"] == 10) {
         <header class="sticky-top">
             <?php include "components/navbar.php"; ?>
         </header>
+
         <main class="container p-0 mb-5 mx-auto mt-0 pt-0">
             <?php include "components/home_people.php"; ?>
         </main>
         <?php include "components/footer.php"; ?>
-    
+
         <?php include "helpers/fontawesome.php"; ?>
         <?php include "helpers/js.php"; ?>
+        <?php
+        if ($_SESSION["modal"] = 1) {
+            echo "<script>$('#video_explicativo').modal('show');</script>";
+            $_SESSION["modal"] = 0;
+        }
+        if ($_SESSION["modal"] == 0) {
+            echo "<script>$('#video_explicativo').modal('hide');</script>";
+        }
+        ?>
         <script src="js/fav.js"></script>
         <script type="text/javascript" src="js/notifications.js"></script>
         <script>
