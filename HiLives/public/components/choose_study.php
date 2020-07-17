@@ -56,8 +56,8 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
                         mysqli_stmt_bind_param($stmt, 'i', $idUser);
                         mysqli_stmt_execute($stmt);
                         mysqli_stmt_bind_result($stmt, $id_match, $User_university, $Area, $name_user, $profile_img, $favorite);
-                        mysqli_stmt_store_result($stmt); 
-                        if (mysqli_stmt_num_rows($stmt) > 0) { 
+                        mysqli_stmt_store_result($stmt);
+                        if (mysqli_stmt_num_rows($stmt) > 0) {
                             while (mysqli_stmt_fetch($stmt)) {
                 ?>
                                 <div class="card-container col-lg-4">
@@ -66,21 +66,21 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
                                         if ($favorite == 0) {
                                             echo "";
                                         ?>
-                                                <button class="btn rounded-circle btn_fav fav" id="<?= $id_match ?>">
-                                                    <i class="fa fa-heart-o" aria-hidden="true" style="color: #2F2F2F"></i><span class="sr-only">(Marcar como favorito)</span>
-                                                </button>
+                                            <button class="btn rounded-circle btn_fav fav" id="<?= $id_match ?>">
+                                                <i class="fa fa-heart-o" aria-hidden="true" style="color: #2F2F2F"></i><span class="sr-only">(Marcar como favorito)</span>
+                                            </button>
                                         <?php
                                         } else {
                                         ?>
-                                                <button class="btn rounded-circle btn_fav fav" id="<?= $id_match ?>">
-                                                    <i class="fa fa-heart" aria-hidden="true" style="color: #A31621"></i><span class="sr-only">(Remover favorito)</span>
-                                                </button>
+                                            <button class="btn rounded-circle btn_fav fav" id="<?= $id_match ?>">
+                                                <i class="fa fa-heart" aria-hidden="true" style="color: #A31621"></i><span class="sr-only">(Remover favorito)</span>
+                                            </button>
                                         <?php
                                         }
                                         if (isset($profile_img)) {
                                         ?>
                                             <a href="profile.php?user=<?= $User_university ?>">
-                                                <div role="img" alt="imagem da universidade <?=$name_user?>" title="<?=$name_user?>" aria-label="imagem da universidade <?=$name_user?>" class="image" style="background-image: url('../admin/uploads/img_perfil/<?= $profile_img ?>')"></div>
+                                                <div role="img" alt="imagem da universidade <?= $name_user ?>" title="<?= $name_user ?>" aria-label="imagem da universidade <?= $name_user ?>" class="image" style="background-image: url('../admin/uploads/img_perfil/<?= $profile_img ?>')"></div>
                                             </a>
                                         <?php
                                         } else {
@@ -95,7 +95,17 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
                                             <h4 class="card-intro description_title">
                                                 <i class="fas fa-book" aria-hidden="true"></i>
                                                 Estudar</h4>
-                                            <h2 class="card-title sub_title"><?= $name_user ?></h2>
+                                            <?php
+                                            if (strlen($name_user) > 45) {
+                                            ?>
+                                                <h2 class="card-title sub_title"><?= substr($name_user, 0, 45) ?>...</h2>
+                                            <?php
+                                            } else {
+                                            ?>
+                                                <h2 class="card-title sub_title"><?= $name_user ?></h2>
+                                            <?php
+                                            }
+                                            ?>
                                             <p class="card-intro description_title2"><?= $Area ?></p>
                                             <a href="profile.php?user=<?= $User_university ?>">
                                                 <p class="btn_cards card-intro description_title2">Ver perfil</p>
@@ -124,8 +134,8 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
                         mysqli_stmt_bind_param($stmt, 'i', $idUser);
                         mysqli_stmt_execute($stmt);
                         mysqli_stmt_bind_result($stmt, $id_match, $User_young, $Area, $name_user, $profile_img);
-                        mysqli_stmt_store_result($stmt); 
-                        if (mysqli_stmt_num_rows($stmt) > 0) { 
+                        mysqli_stmt_store_result($stmt);
+                        if (mysqli_stmt_num_rows($stmt) > 0) {
                             while (mysqli_stmt_fetch($stmt)) {
                             ?>
                                 <div class="card-container col-lg-4">
@@ -134,7 +144,7 @@ if (isset($_SESSION["idUser"]) && isset($_SESSION["type"])) {
                                         if (isset($profile_img)) {
                                         ?>
                                             <a href="profile.php?user=<?= $User_young ?>">
-                                                <div role="img" alt="imagem do jovem <?=$name_user?>" aria-label="imagem do jovem <?=$name_user?>" class="image mt-4" style="background-image: url('../admin/uploads/img_perfil/<?= $profile_img ?>')"></div>
+                                                <div role="img" alt="imagem do jovem <?= $name_user ?>" aria-label="imagem do jovem <?= $name_user ?>" class="image mt-4" style="background-image: url('../admin/uploads/img_perfil/<?= $profile_img ?>')"></div>
                                             </a>
                                         <?php
                                         } else {

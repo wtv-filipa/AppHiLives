@@ -81,9 +81,9 @@ if (isset($_SESSION["type"])) {
                                         <h4 class="card-intro description_title">
                                             <i class="fa fa-briefcase mr-1" style="color: #2f2f2f;" aria-hidden="true"></i>Trabalhar</h4>
                                         <?php
-                                        if (strlen($vacancie_name) > 48) {
+                                        if (strlen($vacancie_name) > 40) {
                                         ?>
-                                            <h2 class="card-title sub_title"><?= substr($vacancie_name, 0, 48) ?>...</h2>
+                                            <h2 class="card-title sub_title"><?= substr($vacancie_name, 0, 40) ?>...</h2>
                                         <?php
                                         } else {
                                         ?>
@@ -146,9 +146,9 @@ if (isset($_SESSION["type"])) {
                                         <h4 class="card-intro description_title">
                                             <i class="fa fa-briefcase mr-1" style="color: #2f2f2f;" aria-hidden="true"></i>Trabalhar</h4>
                                         <?php
-                                        if (strlen($vacancie_name) > 48) {
+                                        if (strlen($vacancie_name) > 40) {
                                         ?>
-                                            <h2 class="card-title sub_title"><?= substr($vacancie_name, 0, 48) ?>...</h2>
+                                            <h2 class="card-title sub_title"><?= substr($vacancie_name, 0, 40) ?>...</h2>
                                         <?php
                                         } else {
                                         ?>

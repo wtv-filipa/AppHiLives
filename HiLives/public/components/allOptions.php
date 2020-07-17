@@ -61,7 +61,17 @@ $query2 = "SELECT idVacancies, vacancie_name, name_user, profile_img
                                     <i class="fas fa-book" style="color: #2f2f2f;"></i> Estudar
                                 </h4>
                                 <h2 class="card-title sub_title"><?= $name_interested_area ?></h2>
-                                <p class="card-intro description_title2"><?= $name_user ?></p>
+                                <?php
+                                if (strlen($name_user) > 45) {
+                                ?>
+                                     <p class="card-intro description_title2"><?= substr($name_user, 0, 45) ?>...</p>
+                                <?php
+                                } else {
+                                ?>
+                                    <p class="card-intro description_title2"><?= $name_user ?></p>
+                                <?php
+                                }
+                                ?>
                                 <a href="profile.php?user=<?= $User_university ?>" class="btn_cards">Ver perfil</a>
                             </div>
                         </div>
@@ -126,9 +136,9 @@ $query2 = "SELECT idVacancies, vacancie_name, name_user, profile_img
                                     <i class="fa fa-briefcase" style="color: #2f2f2f;"></i> Trabalhar
                                 </h4>
                                 <?php
-                                if (strlen($vacancie_name) > 48) {
+                                if (strlen($vacancie_name) > 40) {
                                 ?>
-                                    <h2 class="card-title sub_title"><?= substr($vacancie_name, 0, 48) ?>...</h2>
+                                    <h2 class="card-title sub_title"><?= substr($vacancie_name, 0, 40) ?>...</h2>
                                 <?php
                                 } else {
                                 ?>

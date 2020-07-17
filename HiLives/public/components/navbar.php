@@ -323,10 +323,12 @@ $stmt = mysqli_stmt_init($link);
                                     mysqli_stmt_store_result($stmt); 
                                     if (mysqli_stmt_num_rows($stmt) > 0) { 
                                         while (mysqli_stmt_fetch($stmt)) {
+                                            $data= substr($date, 0, 10);
+                                            $newDate = date("d-m-Y", strtotime($data));
                                            
                                 ?>
                                             <button class="notif_ind mb-2"><?= $text_noti ?>
-                                                <span class="m-0 p-0" style="color: grey; font-family: 'Quicksand', 'Montserrat', sans-serif !important;"> • Em <?= substr($date, 0, 10) ?> </span>
+                                                <span class="m-0 p-0" style="color: grey; font-family: 'Quicksand', 'Montserrat', sans-serif !important;"> • Em <?= $newDate ?> </span>
                                             </button>
                                             <hr class="m-0">
                                         <?php

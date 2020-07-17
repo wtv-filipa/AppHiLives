@@ -26,12 +26,14 @@ if (isset($_SESSION["idUser"]) and $_SESSION["type"] == 10) {
         <?php include "helpers/fontawesome.php"; ?>
         <?php include "helpers/js.php"; ?>
         <?php
-        if ($_SESSION["modal"] = 1) {
-            echo "<script>$('#video_explicativo').modal('show');</script>";
-            $_SESSION["modal"] = 0;
-        }
-        if ($_SESSION["modal"] == 0) {
-            echo "<script>$('#video_explicativo').modal('hide');</script>";
+        if (isset($_SESSION["modal"])) {
+            if ($_SESSION["modal"] == 1) {
+                echo "<script>$('#video_explicativo').modal('show');</script>";
+                $_SESSION["modal"] = 0;
+            }
+            if ($_SESSION["modal"] == 0) {
+                echo "<script>$('#video_explicativo').modal('hide');</script>";
+            }
         }
         ?>
         <script src="js/fav.js"></script>

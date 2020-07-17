@@ -23,10 +23,9 @@ if ($_SESSION["idUser"]) {
             INNER JOIN vacancies ON user_has_vacancies.Vacancies_idVacancies = vacancies.idVacancies 
             INNER JOIN users ON users.idUser = vacancies.User_publicou
             WHERE User_young = ? AND match_perc = 1";
-  
+
 
 ?>
-    <input type="hidden" id="show_modal" value="<?php echo isset($_GET['model']) && $_GET['model'] === true ? 1 : 0; ?>">
     <div class="w-75 mx-auto list_links">
         <div id='wrapper_title'>
             <div class='tagpost-top section' id='tagpost-top'>
@@ -90,7 +89,17 @@ if ($_SESSION["idUser"]) {
 
                                                     <p class="mb-0 link_info"><i class="fa fa-book mr-1" aria-hidden="true"></i>Estudar</p>
                                                     <a href="profile.php?user=<?= $user_university ?>">
-                                                        <h4 class="mb-0 link_title"><?= $name_user ?></h4>
+                                                        <?php
+                                                        if (strlen($name_user) > 45) {
+                                                        ?>
+                                                            <h4 class="mb-0 link_title"><?= substr($name_user, 0, 45) ?>...</h4>
+                                                        <?php
+                                                        } else {
+                                                        ?>
+                                                            <h4 class="mb-0 link_title"><?= $name_user ?></h4>
+                                                        <?php
+                                                        }
+                                                        ?>
                                                         <h5 class="mb-0 link_subtitle"><?= $Area ?></h5>
                                                     </a>
 
@@ -311,9 +320,9 @@ if ($_SESSION["idUser"]) {
                                                 </p>
                                                 <a href="vacancie.php?vac=<?= $Vacancies_idVacancies ?>">
                                                     <?php
-                                                    if (strlen($vacancie_name) > 32) {
+                                                    if (strlen($vacancie_name) > 30) {
                                                     ?>
-                                                        <h4 class="mb-0 link_title"><?= substr($vacancie_name, 0, 32) ?>...</h4>
+                                                        <h4 class="mb-0 link_title"><?= substr($vacancie_name, 0, 30) ?>...</h4>
                                                     <?php
                                                     } else {
                                                     ?>

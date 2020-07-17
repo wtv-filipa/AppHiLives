@@ -42,8 +42,8 @@ if (isset($_SESSION["idUser"])) {
                     mysqli_stmt_bind_param($stmt, 'i', $idUser);
                     mysqli_stmt_execute($stmt);
                     mysqli_stmt_bind_result($stmt, $id_match, $User_university, $Area, $name_user, $profile_img, $favorite);
-                    mysqli_stmt_store_result($stmt); 
-                    if (mysqli_stmt_num_rows($stmt) > 0) { 
+                    mysqli_stmt_store_result($stmt);
+                    if (mysqli_stmt_num_rows($stmt) > 0) {
                         while (mysqli_stmt_fetch($stmt)) {
                 ?>
                             <div class="card-container col-lg-4">
@@ -51,21 +51,21 @@ if (isset($_SESSION["idUser"])) {
                                     <?php
                                     if ($favorite == 0) {
                                     ?>
-                                            <button class="btn rounded-circle btn_fav fav" id="<?= $id_match ?>">
-                                                <i class="fa fa-heart-o" aria-hidden="true" style="color: #2F2F2F"></i><span class="sr-only">(Marcar como favorito)</span>
-                                            </button>
+                                        <button class="btn rounded-circle btn_fav fav" id="<?= $id_match ?>">
+                                            <i class="fa fa-heart-o" aria-hidden="true" style="color: #2F2F2F"></i><span class="sr-only">(Marcar como favorito)</span>
+                                        </button>
                                     <?php
                                     } else {
                                     ?>
-                                            <button class="btn rounded-circle btn_fav fav" id="<?= $id_match ?>">
-                                                <i class="fa fa-heart" aria-hidden="true" style="color: #A31621"></i><span class="sr-only">(Remover favorito)</span>
-                                            </button>
+                                        <button class="btn rounded-circle btn_fav fav" id="<?= $id_match ?>">
+                                            <i class="fa fa-heart" aria-hidden="true" style="color: #A31621"></i><span class="sr-only">(Remover favorito)</span>
+                                        </button>
                                     <?php
                                     }
                                     if (isset($profile_img)) {
                                     ?>
                                         <a href="profile.php?user=<?= $User_university ?>">
-                                            <div role="img" alt="imagem da universidade <?=$name_user?>" aria-label="imagem da universidade <?=$name_user?>" class="image" style="background-image: url('../admin/uploads/img_perfil/<?= $profile_img ?>')"></div>
+                                            <div role="img" alt="imagem da universidade <?= $name_user ?>" aria-label="imagem da universidade <?= $name_user ?>" class="image" style="background-image: url('../admin/uploads/img_perfil/<?= $profile_img ?>')"></div>
                                         </a>
                                     <?php
                                     } else {
@@ -79,7 +79,17 @@ if (isset($_SESSION["idUser"])) {
                                     <div class="card-info">
                                         <h4 class="card-intro description_title">
                                             <i class="fas fa-book" aria-hidden="true"></i> Estudar</h4>
-                                        <h2 class="card-title sub_title"><?= $name_user ?></h2>
+                                        <?php
+                                        if (strlen($name_user) > 45) {
+                                        ?>
+                                            <h2 class="card-title sub_title"><?= substr($name_user, 0, 45) ?>...</h2>
+                                        <?php
+                                        } else {
+                                        ?>
+                                            <h2 class="card-title sub_title"><?= $name_user ?></h2>
+                                        <?php
+                                        }
+                                        ?>
                                         <p class="card-intro description_title2"><?= $Area ?></p>
                                         <a href="profile.php?user=<?= $User_university ?>">
                                             <p class="btn_cards card-intro description_title2">Ver perfil</p>
@@ -125,7 +135,7 @@ if (isset($_SESSION["idUser"])) {
                     mysqli_stmt_bind_param($stmt, 'i', $idUser);
                     mysqli_stmt_execute($stmt);
                     mysqli_stmt_bind_result($stmt, $id_match_vac, $User_young, $Vacancies_idVacancies, $match_perc, $favorite, $profile_img2, $vacancie_name, $name_user);
-                    mysqli_stmt_store_result($stmt); 
+                    mysqli_stmt_store_result($stmt);
                     if (mysqli_stmt_num_rows($stmt) > 0) {
                         while (mysqli_stmt_fetch($stmt)) {
                 ?>
@@ -135,21 +145,21 @@ if (isset($_SESSION["idUser"])) {
                                     <?php
                                     if ($favorite == 0) {
                                     ?>
-                                            <button class="btn rounded-circle btn_fav fav_emp" id="<?= $id_match_vac ?>">
-                                                <i class="fa fa-heart-o" aria-hidden="true" style="color: #2F2F2F"></i><span class="sr-only">(Marcar como favorito)</span>
-                                            </button>
+                                        <button class="btn rounded-circle btn_fav fav_emp" id="<?= $id_match_vac ?>">
+                                            <i class="fa fa-heart-o" aria-hidden="true" style="color: #2F2F2F"></i><span class="sr-only">(Marcar como favorito)</span>
+                                        </button>
                                     <?php
                                     } else {
                                     ?>
-                                            <button class="btn rounded-circle btn_fav fav_emp" id="<?= $id_match_vac ?>">
-                                                <i class="fa fa-heart"  aria-hidden="true" style="color: #A31621"></i><span class="sr-only">(Remover favorito)</span>
-                                            </button>
+                                        <button class="btn rounded-circle btn_fav fav_emp" id="<?= $id_match_vac ?>">
+                                            <i class="fa fa-heart" aria-hidden="true" style="color: #A31621"></i><span class="sr-only">(Remover favorito)</span>
+                                        </button>
                                     <?php
                                     }
                                     if (isset($profile_img)) {
                                     ?>
                                         <a href="vacancie.php?vac=<?= $Vacancies_idVacancies ?>">
-                                            <div role="img" alt="imagem da empresa <?=$name_user?>" aria-label="imagem da empresa <?=$name_user?>" class="image" style="background-image: url('../admin/uploads/img_perfil/<?= $profile_img2 ?>')"></div>
+                                            <div role="img" alt="imagem da empresa <?= $name_user ?>" aria-label="imagem da empresa <?= $name_user ?>" class="image" style="background-image: url('../admin/uploads/img_perfil/<?= $profile_img2 ?>')"></div>
                                         </a>
                                     <?php
                                     } else {
@@ -164,9 +174,9 @@ if (isset($_SESSION["idUser"])) {
                                         <h4 class="card-intro description_title"><i class="fa fa-briefcase" style="color: #2f2f2f;"></i>
                                             Trabalhar</h4>
                                         <?php
-                                        if (strlen($vacancie_name) > 48) {
+                                        if (strlen($vacancie_name) > 40) {
                                         ?>
-                                            <h2 class="card-title sub_title"><?= substr($vacancie_name, 0, 48) ?>...</h2>
+                                            <h2 class="card-title sub_title"><?= substr($vacancie_name, 0, 40) ?>...</h2>
                                         <?php
                                         } else {
                                         ?>
@@ -201,6 +211,6 @@ if (isset($_SESSION["idUser"])) {
     </div>
 <?php
     mysqli_close($link);
-} else{
+} else {
     include("404.php");
 }

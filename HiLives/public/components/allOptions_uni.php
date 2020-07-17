@@ -28,16 +28,16 @@ if (isset($_SESSION["type"])) {
                     <div>
                         <?php
                         if ($type == 10) {
-                            ?>
+                        ?>
                             <h3 class="main_title">Todas as opções | Universidades</h3>
                             <p style="opacity:0.8; font-size: 14px;">Nesta página podes encontrar todas as universidades presentes na plataforma HiLives. No seu perfil consegues ver quais as áreas que estas têm disponíveis para te receber.</p>
-                            <?php
+                        <?php
                         } else
                             if ($type == 13) {
-                                ?>
+                        ?>
                             <h3 class="main_title">Todos os candidatos possíveis</h3>
                             <p style="opacity:0.8; font-size: 14px;">Nesta página pode encontrar todos os jovens registados na plataforma HiLives. No seu perfil consegue ver quais as áreas em que estes tem interesse.</p>
-                            <?php
+                        <?php
                         }
                         ?>
                     </div>
@@ -52,8 +52,8 @@ if (isset($_SESSION["type"])) {
                 if (mysqli_stmt_prepare($stmt, $query)) {
                     mysqli_stmt_execute($stmt);
                     mysqli_stmt_bind_result($stmt, $id_uni, $name_user, $profile_img);
-                    mysqli_stmt_store_result($stmt); 
-                    if (mysqli_stmt_num_rows($stmt) > 0) { 
+                    mysqli_stmt_store_result($stmt);
+                    if (mysqli_stmt_num_rows($stmt) > 0) {
                         while (mysqli_stmt_fetch($stmt)) {
                 ?>
                             <div class="cards col-xs-12 col-sm-6 col-lg-4">
@@ -75,7 +75,17 @@ if (isset($_SESSION["type"])) {
                                         <h4 class="card-intro description_title">
                                             <i class="fas fa-book" style="color: #2f2f2f;"></i> Estudar
                                         </h4>
-                                        <h2 class="card-title sub_title"><?= $name_user ?></h2>
+                                        <?php
+                                        if (strlen($name_user) > 45) {
+                                        ?>
+                                             <h2 class="card-title sub_title"><?= substr($name_user, 0, 45) ?>...</h2>
+                                        <?php
+                                        } else {
+                                        ?>
+                                             <h2 class="card-title sub_title"><?= $name_user ?></h2>
+                                        <?php
+                                        }
+                                        ?>
                                         <a href="profile.php?user=<?= $id_uni ?>" class="btn_cards">Ver áreas disponíveis</a>
                                     </div>
                                 </div>
@@ -107,7 +117,7 @@ if (isset($_SESSION["type"])) {
                     mysqli_stmt_execute($stmt);
                     mysqli_stmt_bind_result($stmt, $id_jovem, $name_user, $birth_date, $profile_img);
                     mysqli_stmt_store_result($stmt);
-                    if (mysqli_stmt_num_rows($stmt) > 0) { 
+                    if (mysqli_stmt_num_rows($stmt) > 0) {
                         while (mysqli_stmt_fetch($stmt)) {
                             $dob = $birth_date;
                             $age = (date('Y') - date('Y', strtotime($dob)));
@@ -158,7 +168,7 @@ if (isset($_SESSION["type"])) {
         ?>
     </div>
 <?php
-mysqli_close($link);
+    mysqli_close($link);
 } else {
     include("404.php");
 }
