@@ -27,7 +27,7 @@
  
  .main_title {
      font-size: 22px;
-     font-family: "Quicksand";
+     font-family: "Quicksand", 'Montserrat', sans-serif !important;
      font-weight: bold;
      max-width: 100%;
      margin-top: 5%;
@@ -45,17 +45,17 @@
  #footer {
      text-align: center;
      font-size: 1rem;
-     font-family: "Quicksand";
+     font-family: "Quicksand", 'Montserrat', sans-serif !important;
      font-weight: bold;
  }
  
  h5 {
-     font-family: 'Quicksand';
+    font-family: "Quicksand", 'Montserrat', sans-serif !important;
      font-weight: bold;
  }
  
  h6 {
-     font-family: 'Quicksand';
+    font-family: "Quicksand", 'Montserrat', sans-serif !important;
  }
 
 
@@ -101,7 +101,7 @@
     color: #2F2F2F;
     padding: 0.3rem;
     font-size: 14px;
-    font-family: "Quicksand", sans-serif;
+    font-family: "Quicksand", 'Montserrat', sans-serif !important;
     border-bottom: 0.1em solid #00A5CF;
     font-weight: 800;
     display: block;
@@ -170,18 +170,18 @@
 
  .sub_title {
      font-size: 18px;
-     font-family: "Quicksand";
+     font-family: "Quicksand", 'Montserrat', sans-serif !important;
      font-weight: bolder;
  }
 
  .description_title {
      font-size: 14px;
-     font-family: "Roboto";
+     font-family: 'Roboto', 'Open Sans', sans-serif !important;
      font-weight: normal;
  }
  .description_title2 {
      font-size: 1.0rem;
-     font-family: "Roboto";
+     font-family: 'Roboto', 'Open Sans', sans-serif !important;
      font-weight: normal;
  }
  .card-info {

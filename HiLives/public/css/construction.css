@@ -6,7 +6,7 @@
     color: #00A5CF;
     padding: 0.3rem;
     font-size: 14px;
-    font-family: "Quicksand", sans-serif;
+    font-family: "Quicksand", 'Montserrat', sans-serif !important;
     border: 0.1em solid #00A5CF;
     border-radius: 5px;
     font-weight: 800;

@@ -3,32 +3,32 @@
     }
     
     p {
-        font-family: 'Roboto', sans-serif;
+        font-family: 'Roboto', 'Open Sans', sans-serif !important;
     }
     
     .letter {
-        font-family: "Quicksand" !important;
+        font-family: "Quicksand", 'Montserrat', sans-serif !important;
         font-weight: bold;
         font-size: 22px !important;
     }
     .letter2 {
-        font-family: "Quicksand" !important;
+        font-family: "Quicksand", 'Montserrat', sans-serif !important;
         font-weight: bold;
         font-size: 22px !important;
         color: #00A5CF;
     }
     
     div.alert.alert-warning {
-        font-family: "Quicksand" !important;
+        font-family: "Quicksand", 'Montserrat', sans-serif !important;
         font-weight: bold;
     }
     
     input.file-upload.mb-3 {
-        font-family: "Quicksand" !important;
+        font-family: "Quicksand", 'Montserrat', sans-serif !important;
     }
     
     label {
-        font-family: "Quicksand" !important;
+        font-family: "Quicksand", 'Montserrat', sans-serif !important;
         font-weight: bold;
     }
     
@@ -44,7 +44,7 @@
         color: #00A5CF;
         padding: 0.3rem;
         font-size: 14px;
-        font-family: "Quicksand", sans-serif;
+        font-family: "Quicksand", 'Montserrat', sans-serif !important;
         border: 0.1em solid #00A5CF;
         border-radius: 5px;
         font-weight: 800;
@@ -63,7 +63,7 @@
         color: #2F2F2F;
         padding: 0.3rem;
         font-size: 14px;
-        font-family: "Quicksand", sans-serif;
+        font-family: "Quicksand", 'Montserrat', sans-serif !important;
         border: 0.1em solid #2F2F2F;
         border-radius: 5px;
         font-weight: 800;

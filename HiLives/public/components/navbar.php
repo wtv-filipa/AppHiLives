@@ -326,7 +326,7 @@ $stmt = mysqli_stmt_init($link);
                                            
                                 ?>
                                             <button class="notif_ind mb-2"><?= $text_noti ?>
-                                                <span class="m-0 p-0" style="color: grey; font-family: Quicksand !important;"> • Em <?= substr($date, 0, 10) ?> </span>
+                                                <span class="m-0 p-0" style="color: grey; font-family: 'Quicksand', 'Montserrat', sans-serif !important;"> • Em <?= substr($date, 0, 10) ?> </span>
                                             </button>
                                             <hr class="m-0">
                                         <?php

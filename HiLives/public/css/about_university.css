@@ -1,7 +1,7 @@
 /*imagem com titulo*/
 
 .title {
-    font-family: "Quicksand", sans-serif;
+    font-family: "Quicksand", 'Montserrat', sans-serif !important;
     font-size: 22px;
     font-weight: bold;
 }

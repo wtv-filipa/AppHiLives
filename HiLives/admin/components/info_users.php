@@ -122,7 +122,7 @@ if (isset($_GET["info"])) {
 
                                         while (mysqli_stmt_fetch($stmt)) {
                                             echo "<ul>
-                                            <li  style='font-size: 16px; font-family: Quicksand; list-style-type:circle;'>$name_interested_area</li>
+                                            <li  style='font-size: 16px; font-family: Quicksand, Montserrat, sans-serif !important; list-style-type:circle;'>$name_interested_area</li>
                                             </ul>";
                                         }
                                     }
@@ -143,7 +143,7 @@ if (isset($_GET["info"])) {
 
                                         while (mysqli_stmt_fetch($stmt)) {
                                             echo "<ul>
-                                            <li  style='font-size: 16px; font-family: Quicksand; list-style-type:circle;'>$name_region</li>
+                                            <li  style='font-size: 16px;   font-family: 'Quicksand', 'Montserrat', sans-serif !important; list-style-type:circle;'>$name_region</li>
                                             </ul>";
                                         }
                                     }
@@ -162,7 +162,7 @@ if (isset($_GET["info"])) {
                                     mysqli_stmt_bind_result($stmt, $capacity);
                                     while (mysqli_stmt_fetch($stmt)) {
                                         echo "<ul>
-                                            <li  style='font-size: 16px; font-family: Quicksand; list-style-type:circle;'>$capacity</li>
+                                            <li  style='font-size: 16px; font-family: 'Quicksand'; list-style-type:circle;'>$capacity</li>
                                             </ul>";
                                     }
                                 }
@@ -180,7 +180,7 @@ if (isset($_GET["info"])) {
                                     mysqli_stmt_bind_result($stmt, $name_environment);
                                     while (mysqli_stmt_fetch($stmt)) {
                                         echo "<ul>
-                                            <li  style='font-size: 16px; font-family: Quicksand; list-style-type:circle;'>$name_environment</li>
+                                            <li  style='font-size: 16px;   font-family: 'Quicksand', 'Montserrat', sans-serif !important; list-style-type:circle;'>$name_environment</li>
                                             </ul>";
                                     }
                                 }
@@ -258,7 +258,7 @@ if (isset($_GET["info"])) {
 
                                                 while (mysqli_stmt_fetch($stmt)) {
                                                     echo "<ul>
-                                            <li  style='font-size: 16px; font-family: Quicksand; list-style-type:circle;'>$name_interested_area</li>
+                                            <li  style='font-size: 16px; font-family: 'Quicksand', 'Montserrat', sans-serif !important; list-style-type:circle;'>$name_interested_area</li>
                                             </ul>";
                                                 }
                                             }
